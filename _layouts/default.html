@@ -7,8 +7,6 @@
 
 		<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
 
-		{% capture render_time %}{% render_time %}{% endcapture %}
-		{% capture cache_buster %}?c={{ render_time | date: "%Y%m%d%H%M" }}{% endcapture %}
 
 		<link href="{{ "/css/main.css" | prepend: baseurl | append: cache_buster }}" media="screen" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900&subset=latin-ext" rel="stylesheet">
