@@ -1,0 +1,16 @@
+.post {
+	@extend .spacing;
+	
+	&__details {
+		@extend .spacing;
+		@extend .default-font;
+	}
+
+	&__title {
+		@extend .default-font;
+
+		color: $title-color;
+		margin: 0;
+		padding: 0;
+	}
+}

@@ -1,0 +1,24 @@
+title: wulujia's photo diary
+email: wulujia@gmail.com
+description: >
+  wulujia's photo diary
+baseurl: ""
+url: "http://wlj.me"
+twitter_username: wulujia 
+github_username:  wulujia 
+imagehost_url: "http://wlj.me/img"
+paginate: 20 
+paginate_path: "/pages/:num/"
+exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE", "vendor"]
+include: [".htaccess"]
+permalink: /:categories/:year/:month/:day/:title
+plugins:
+  - jekyll-paginate
+  - jekyll-category-pages
+
+sass:
+    sass_dir: _sass
+    style: compressed
+
+# Build settings
+markdown: kramdown

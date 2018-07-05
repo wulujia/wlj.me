@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<atom:link href="http://localhost:4000/atom.xml" rel="self" type="application/rss+xml" />
+		<title>Wulujia's Photo Blog</title>
+		<link>http://localhost:4000</link>
+		<description>My name is wulujia
+</description>
+		
+			<item>
+				<title>残疾写字人</title>
+				<link>http://localhost:4000/street/2018/06/04/writing</link>
+				<guid isPermaLink="true">http://localhost:4000/street/2018/06/04/writing</guid>
+				<pubDate>Mon, 04 Jun 2018 06:20:00 +0800</pubDate>
+				<description>&lt;p&gt;&lt;img src=&quot;/img/2016/2016-01-13-181451.jpg&quot; alt=&quot;残疾写字人&quot; style=&quot;width: 60%; height: 60%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;香蜜湖地铁口的写字人，早先在火车站摆摊，总被赶，现在打一枪换一个地方。&lt;/p&gt;
+</description>
+			</item>
+		
+			<item>
+				<title>野猴子</title>
+				<link>http://localhost:4000/travel/2015/12/17/monkey</link>
+				<guid isPermaLink="true">http://localhost:4000/travel/2015/12/17/monkey</guid>
+				<pubDate>Thu, 17 Dec 2015 01:21:48 +0800</pubDate>
+				<description>&lt;p&gt;&lt;img src=&quot;/img/2015/2015-12-16-DSC00121.jpg&quot; alt=&quot;野猴子&quot; style=&quot;width: 60%; height: 60%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;爬山，偶遇野猴子，拍它们时，还挺凶狠地比划着要扑过来。&lt;/p&gt;
+</description>
+			</item>
+		
+	</channel>
+</rss>
