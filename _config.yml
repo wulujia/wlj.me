@@ -1,10 +1,9 @@
-title: wulujia's photo diary
+title: wlj's photo diary
 email: wulujia@gmail.com
 description: >
-  wulujia's photo diary
+  wlj's photo diary
 baseurl: ""
 url: "http://wlj.me"
-twitter_username: wulujia 
 github_username:  wulujia 
 imagehost_url: "http://wlj.me/img"
 paginate: 20 
