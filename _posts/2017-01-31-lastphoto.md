@@ -4,7 +4,7 @@ title: "伯父"
 date: 2016-06-03 23:20 +0100
 categories: [family]
 tags: people
-location: "Zhangzhou, China"
+location: "漳州"
 ---
 
 <img src="/img/2017/20170131-DSC09197.jpg" alt="伯父" style="width: 75%; height: 75%"/>
