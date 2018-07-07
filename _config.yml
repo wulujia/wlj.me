@@ -8,7 +8,7 @@ github_username:  wulujia
 imagehost_url: "http://wlj.me/img"
 paginate: 10 
 paginate_path: "/pages/:num/"
-exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE", "vendor"]
+exclude: [".DS_Store","README.md", "Gemfile.lock", "Gemfile", "LICENSE", "vendor"]
 include: [".htaccess"]
 permalink: /:categories/:year/:month/:day/:title
 plugins:
