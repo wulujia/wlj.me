@@ -2,7 +2,7 @@
 layout: post
 title: "莫干山里"
 date: 2018-06-02 23:20 +0100
-categories: [travel]
+categories: [landscape]
 tags: travel
 location: "莫干山"
 ---

@@ -6,7 +6,7 @@ baseurl: ""
 url: "http://wlj.me"
 github_username:  wulujia 
 imagehost_url: "http://wlj.me/img"
-paginate: 20 
+paginate: 10 
 paginate_path: "/pages/:num/"
 exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE", "vendor"]
 include: [".htaccess"]

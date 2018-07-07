@@ -2,7 +2,7 @@
 layout: post
 title: "杭州机场"
 date: 2018-06-03 23:20 +0100
-categories: [travel]
+categories: [landscape]
 tags: travel
 location: "杭州"
 ---

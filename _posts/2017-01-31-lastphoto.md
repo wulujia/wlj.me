@@ -2,8 +2,8 @@
 layout: post
 title: "伯父"
 date: 2016-06-03 23:20 +0100
-categories: [family]
-tags: people
+categories: [people]
+tags: family
 location: "漳州"
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "响沙湾"
 date: 2017-04-22 19:20 +0100
-categories: [travel]
+categories: [people]
 tags: travel
 location: "响沙湾"
 ---

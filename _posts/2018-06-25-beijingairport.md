@@ -2,7 +2,7 @@
 layout: post
 title: "北京机场"
 date: 2018-06-25 23:20 +0100
-categories: [travel]
+categories: [landscape]
 tags: travel
 location: "北京"
 ---
