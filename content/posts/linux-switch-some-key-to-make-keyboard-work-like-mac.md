@@ -1,6 +1,6 @@
 ---
 title: "Linux switch some key to make keyboard work like Mac"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-05-23T22:43:00+08:00
 tags: ["Tips"]
 draft: false
 slug: "linux-switch-some-key-to-make-keyboard-work-like-mac"

@@ -1,6 +1,6 @@
 ---
 title: "Latka"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-11-11T21:49:00+08:00
 tags: ["Product"]
 draft: false
 slug: "latka"

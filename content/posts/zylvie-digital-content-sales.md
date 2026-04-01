@@ -1,6 +1,6 @@
 ---
 title: "创作者销售电子内容的工具 Zylvie"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-06-07T18:31:00+08:00
 tags: ["Product"]
 draft: false
 slug: "zylvie-digital-content-sales"

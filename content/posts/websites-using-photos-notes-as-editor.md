@@ -1,6 +1,6 @@
 ---
 title: "用 Photos 和 Notes 作为编辑工具的网站"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-02-13T12:29:00+08:00
 tags: ["Product"]
 draft: false
 slug: "websites-using-photos-notes-as-editor"

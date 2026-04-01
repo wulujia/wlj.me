@@ -1,6 +1,6 @@
 ---
 title: "关于写作的几篇文章"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-09-07T19:41:00+08:00
 tags: ["Misc"]
 draft: false
 slug: "articles-about-writing"

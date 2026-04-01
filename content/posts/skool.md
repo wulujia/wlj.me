@@ -1,6 +1,6 @@
 ---
 title: "Skool"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-03-18T20:59:00+08:00
 tags: ["Product"]
 draft: false
 slug: "skool"

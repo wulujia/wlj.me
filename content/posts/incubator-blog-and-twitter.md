@@ -1,6 +1,6 @@
 ---
 title: "考虑再给孵化器做个 Blog 和 Twitter"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-06-28T13:38:00+08:00
 tags: ["Work"]
 draft: false
 slug: "incubator-blog-and-twitter"

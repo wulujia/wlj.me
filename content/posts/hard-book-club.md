@@ -1,6 +1,6 @@
 ---
 title: "硬书会"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-12-18T14:14:00+08:00
 tags: ["Idea"]
 draft: false
 slug: "hard-book-club"

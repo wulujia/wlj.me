@@ -1,6 +1,6 @@
 ---
 title: "VS Code Commit 中文名乱码"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-01-08T21:02:00+08:00
 tags: ["Tips"]
 draft: false
 slug: "vscode-commit-chinese-encoding"

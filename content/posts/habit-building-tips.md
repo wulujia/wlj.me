@@ -1,6 +1,6 @@
 ---
 title: "我的习惯养成心得"
-date: 2025-01-01T00:00:00+08:00
+date: 2025-10-13T13:14:00+08:00
 tags: ["Habit", "Self-improvement"]
 draft: false
 slug: "habit-building-tips"

@@ -1,6 +1,6 @@
 ---
 title: "两句话"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-03-15T14:17:00+08:00
 tags: ["Misc"]
 draft: false
 slug: "two-sentences"

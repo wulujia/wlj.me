@@ -1,6 +1,6 @@
 ---
 title: "英文版 Debian 安装 ibus-libpinyin"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-01-28T09:09:00+08:00
 tags: ["Tips"]
 draft: false
 slug: "debian-install-ibus-pinyin"

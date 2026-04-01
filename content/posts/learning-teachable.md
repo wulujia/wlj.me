@@ -1,6 +1,6 @@
 ---
 title: "Teachable 学习"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-11-06T20:43:00+08:00
 tags: ["Product"]
 draft: false
 slug: "learning-teachable"

@@ -1,6 +1,6 @@
 ---
 title: "npm install -g @google/gemini-cli"
-date: 2025-01-01T00:00:00+08:00
+date: 2025-05-26T08:46:00+08:00
 tags: ["Tools", "CLI"]
 draft: false
 slug: "install-gemini-cli"

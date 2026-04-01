@@ -1,6 +1,6 @@
 ---
 title: "卸载 glance-chamburr"
-date: 2025-01-01T00:00:00+08:00
+date: 2025-07-06T15:00:00+08:00
 tags: ["mac", "Tools"]
 draft: false
 slug: "uninstall-glance-chamburr"

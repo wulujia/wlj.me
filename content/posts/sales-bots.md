@@ -1,6 +1,6 @@
 ---
 title: "销售机器人"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-01-01T09:13:00+08:00
 tags: ["Idea"]
 draft: false
 slug: "sales-bots"

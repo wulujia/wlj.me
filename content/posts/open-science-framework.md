@@ -1,6 +1,6 @@
 ---
 title: "Open Science Framework"
-date: 2025-01-01T00:00:00+08:00
+date: 2025-08-01T09:59:00+08:00
 tags: ["Tools", "Research"]
 draft: false
 slug: "open-science-framework"

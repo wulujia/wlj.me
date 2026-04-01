@@ -1,6 +1,6 @@
 ---
 title: "Ubuntu 里的中文输入法"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-02-02T18:14:00+08:00
 tags: ["Tips"]
 draft: false
 slug: "ubuntu-chinese-input-method"

@@ -1,6 +1,6 @@
 ---
 title: "兼职者的 Linkedin"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-08-19T12:51:00+08:00
 tags: ["Idea"]
 draft: false
 slug: "linkedin-for-freelancers"

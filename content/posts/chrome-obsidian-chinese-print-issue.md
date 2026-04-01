@@ -1,6 +1,6 @@
 ---
 title: "Chrome / Obsidian 打印时不显示中文问题"
-date: 2025-01-01T00:00:00+08:00
+date: 2025-04-17T17:01:00+08:00
 tags: ["mac", "Chrome", "Obsidian"]
 draft: false
 slug: "chrome-obsidian-chinese-print-issue"

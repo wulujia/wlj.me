@@ -1,6 +1,6 @@
 ---
 title: "语音笔记"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-11-03T17:40:00+08:00
 tags: ["Idea"]
 draft: false
 slug: "voice-notes"

@@ -1,6 +1,6 @@
 ---
 title: "怎么看懂一家公司"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-11-10T21:40:00+08:00
 tags: ["Investment", "Business"]
 draft: false
 slug: "how-to-understand-a-company"

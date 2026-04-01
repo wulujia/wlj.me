@@ -1,6 +1,6 @@
 ---
 title: "语音日记"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-06-13T12:04:00+08:00
 tags: ["Idea"]
 draft: false
 slug: "voice-diary"

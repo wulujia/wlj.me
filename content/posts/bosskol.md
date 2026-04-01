@@ -1,6 +1,6 @@
 ---
 title: "bosskol"
-date: 2024-01-01T00:00:00+08:00
+date: 2024-11-27T13:10:00+08:00
 tags: ["Product"]
 draft: false
 slug: "bosskol"
