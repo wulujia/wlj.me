@@ -1,0 +1,19 @@
+---
+title: "iterm2 下几个可以用的字体"
+date: 2025-01-01T00:00:00+08:00
+tags: ["Font", "iterm2", "Tools"]
+draft: false
+slug: "iterm2-usable-fonts"
+---
+
+## 英文字体
+
+- osaka
+- brew install --cask font-jetbrains-mono-nerd-font
+- brew install --cask font-fira-code-nerd-font
+- brew install --cask font-ubuntumono-nerd-font
+
+## 中文字体
+
+- PingFang SC
+- brew install --cask font-source-han-sans-vf
