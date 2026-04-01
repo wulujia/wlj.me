@@ -107,20 +107,19 @@ blockquote::before {
   color: #268bd2;
 }
 
-/* Theme toggle button */
+/* Theme toggle button — inline in footer */
 .theme-toggle {
   background: none;
   border: none;
-  color: var(--accent);
+  color: inherit;
   cursor: pointer;
   font-family: inherit;
-  font-size: var(--font-size);
+  font-size: inherit;
   padding: 0;
-  margin-left: 1ch;
 }
 
 .theme-toggle:hover {
-  color: #268bd2;
+  color: var(--accent);
 }
 
 /* Auto: follow system preference */
