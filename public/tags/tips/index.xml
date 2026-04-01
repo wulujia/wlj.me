@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tips on Luca's Blog</title><link>https://wlj.me/tags/tips/</link><description>Recent content in Tips on Luca's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://wlj.me/tags/tips/index.xml" rel="self" type="application/rss+xml"/><item><title>English auto complete on Mac</title><link>https://wlj.me/posts/english-auto-complete-on-mac/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/english-auto-complete-on-mac/</guid><description>&lt;p&gt;今天才知道，原来 Mac 上输入英文，也可以有&amp;quot;自动完成&amp;quot;功能。&lt;/p&gt;
+&lt;p&gt;输入单词的前半部分，然后按快捷键 Option + Esc，就能呼出可能的单词列表了。&lt;/p&gt;
+&lt;p&gt;有可能需要在设置 - Keyboard - Text input 里打开 Show inline predictive text。&lt;/p&gt;</description></item><item><title>Linux switch some key to make keyboard work like Mac</title><link>https://wlj.me/posts/linux-switch-some-key-to-make-keyboard-work-like-mac/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/linux-switch-some-key-to-make-keyboard-work-like-mac/</guid><description>&lt;p&gt;System -&amp;gt; Preferences -&amp;gt; Keyboard Shortcuts -&amp;gt; Custom&lt;/p&gt;
+&lt;p&gt;Ctrl + C / Ctrl + V / Ctrl + X / Ctrl + A, Change Ctrl to Alt&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;xte &amp;#34;keyup Alt_L&amp;#34; &amp;#34;keyup Alt_R&amp;#34; &amp;#34;keyup c&amp;#34; &amp;#34;keydown Control_L&amp;#34; &amp;#34;key c&amp;#34; &amp;#34;keyup Control_L&amp;#34;
+xte &amp;#34;keyup Alt_L&amp;#34; &amp;#34;keyup Alt_R&amp;#34; &amp;#34;keyup v&amp;#34; &amp;#34;keydown Control_L&amp;#34; &amp;#34;key v&amp;#34; &amp;#34;keyup Control_L&amp;#34;
+xte &amp;#34;keyup Alt_L&amp;#34; &amp;#34;keyup Alt_R&amp;#34; &amp;#34;keyup x&amp;#34; &amp;#34;keydown Control_L&amp;#34; &amp;#34;key x&amp;#34; &amp;#34;keyup Control_L&amp;#34;
+xte &amp;#34;keyup Alt_L&amp;#34; &amp;#34;keyup Alt_R&amp;#34; &amp;#34;keyup a&amp;#34; &amp;#34;keydown Control_L&amp;#34; &amp;#34;key a&amp;#34; &amp;#34;keyup Control_L&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In Chrome, Ctrl + T / Ctrl + W / Ctrl + R / Ctrl + L, Change Ctrl to Alt&lt;/p&gt;</description></item><item><title>pair Airpods with Debian Linux</title><link>https://wlj.me/posts/pair-airpods-with-debian-linux/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/pair-airpods-with-debian-linux/</guid><description>&lt;p&gt;If you can&amp;rsquo;t pair Airpods 2 with Debian 12, try this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;install some software: pulseaudio, bluez&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;run in terminal:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;bluetoothctl
+scan on
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;find your Airpods Mac Address.&lt;/p&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;pair&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;in bluetoothctl, type:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;pair &amp;lt;MAC address&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;if need PIN, The default PIN for AirPods is 0000.&lt;/p&gt;</description></item><item><title>ubuntu 下 ibus 在 chrome 里，会把选中文字删除的解决</title><link>https://wlj.me/posts/ubuntu-xia-ibus-zai-chrome-li-hui-ba-xuan-zhong-wen-zi-shan-chu-de-jie-jue/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/ubuntu-xia-ibus-zai-chrome-li-hui-ba-xuan-zhong-wen-zi-shan-chu-de-jie-jue/</guid><description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;ibus-setup&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;deselect &amp;ldquo;Embed preedit text in application window&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Ubuntu 里的中文输入法</title><link>https://wlj.me/posts/ubuntu-li-de-zhong-wen-shu-ru-fa/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/ubuntu-li-de-zhong-wen-shu-ru-fa/</guid><description>&lt;p&gt;给一台 2015 年的 Macbook Air 装上了 Ubuntu，本来想偶尔没带电脑时可以顶一下，不过确实键盘太难用，以及有点慢，想玩 Linux，还是回头再去正经买一台电脑好了。&lt;/p&gt;
+&lt;p&gt;Ubuntu 我装的是英文版，所以装完后还需要简单设置中文输入法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;System Tools - Language Support 安装简体中文&lt;/li&gt;
+&lt;li&gt;sudo apt-get install ibus-googlepinyin&lt;/li&gt;
+&lt;li&gt;ibus-setup 和 Region &amp;amp; Language 里设置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;基本就可以了。就用来上网、写字的话，再装几个软件就差不多了，比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chrome&lt;/li&gt;
+&lt;li&gt;VSCode&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>VS Code Commit 中文名乱码</title><link>https://wlj.me/posts/vs-code-commit-zhong-wen-ming-luan-ma/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/vs-code-commit-zhong-wen-ming-luan-ma/</guid><description>&lt;p&gt;Mac 和 Linux 下用 VS Code，中文文件名在 Commit 到 Github 时会乱码。解决方法：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git config --global core.quotepath false
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>英文版 Debian 安装 ibus-libpinyin</title><link>https://wlj.me/posts/ying-wen-ban-debian-an-zhuang-ibus-pinyin/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/ying-wen-ban-debian-an-zhuang-ibus-pinyin/</guid><description>&lt;p&gt;安装拼音输入法&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;apt-get install ibus-libpinyin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;设置中文 locales&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;dpkg-reconfigure locales
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后到 Keyboard 里看看，应该有 Chinese 选项了。在退出重新登录后，Win + Space 应该就可以切换输入法了。&lt;/p&gt;</description></item></channel></rss>

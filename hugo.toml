@@ -1,0 +1,47 @@
+baseURL = "https://wlj.me/"
+languageCode = "zh-cn"
+title = "Luca's Blog"
+theme = "PaperMod"
+paginate = 10
+
+[params]
+  env = "production"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = false
+  comments = false
+  [params.homeInfoParams]
+    Title = "Luca"
+    Content = "产品 · 技术 · 生活"
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/wulujia"
+
+[menu]
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 10
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 20
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 30
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false

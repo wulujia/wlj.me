@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>字体 on Luca's Blog</title><link>https://wlj.me/tags/%E5%AD%97%E4%BD%93/</link><description>Recent content in 字体 on Luca's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://wlj.me/tags/%E5%AD%97%E4%BD%93/index.xml" rel="self" type="application/rss+xml"/><item><title>iterm2 下几个可以用的字体</title><link>https://wlj.me/posts/iterm2-xia-ji-ge-ke-yi-yong-de-zi-ti/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/iterm2-xia-ji-ge-ke-yi-yong-de-zi-ti/</guid><description>&lt;h2 id="英文字体"&gt;英文字体&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;osaka&lt;/li&gt;
+&lt;li&gt;brew install &amp;ndash;cask font-jetbrains-mono-nerd-font&lt;/li&gt;
+&lt;li&gt;brew install &amp;ndash;cask font-fira-code-nerd-font&lt;/li&gt;
+&lt;li&gt;brew install &amp;ndash;cask font-ubuntumono-nerd-font&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="中文字体"&gt;中文字体&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;PingFang SC&lt;/li&gt;
+&lt;li&gt;brew install &amp;ndash;cask font-source-han-sans-vf&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>好看的 mono 字体</title><link>https://wlj.me/posts/hao-kan-de-mono-zi-ti/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/hao-kan-de-mono-zi-ti/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;brew install --cask font-jetbrains-mono-nerd-font
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;JetBrainsMono Nerd Font is worth installing. It displays beautifully in the Terminal.&lt;/p&gt;</description></item></channel></rss>

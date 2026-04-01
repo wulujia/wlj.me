@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ssh on Luca's Blog</title><link>https://wlj.me/tags/ssh/</link><description>Recent content in Ssh on Luca's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://wlj.me/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac 下开启 sshd 登录后马上断开连接的一种可能</title><link>https://wlj.me/posts/mac-xia-kai-qi-sshd-deng-lu-hou-ma-shang-duan-kai-lian-jie-de-chong-ke-neng/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/mac-xia-kai-qi-sshd-deng-lu-hou-ma-shang-duan-kai-lian-jie-de-chong-ke-neng/</guid><description>&lt;p&gt;如果&amp;quot;共享 → 远程登录&amp;quot;里选择了&amp;quot;只允许这些用户…&amp;quot;，系统会用 &lt;strong&gt;&lt;code&gt;com.apple.access_ssh&lt;/code&gt;&lt;/strong&gt; 做白名单。&lt;strong&gt;不在组里就会被 PAM 拒绝&lt;/strong&gt;。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# 查看是否在白名单组
+dseditgroup -o checkmember -m &amp;#34;$USER&amp;#34; com.apple.access_ssh
+# 不在的话加入（需要管理员密码）
+sudo dseditgroup -o edit -a &amp;#34;$USER&amp;#34; -t user com.apple.access_ssh
+# 也可放开给所有用户（图形界面改：系统设置 → 通用 → 共享 → 远程登录，选&amp;#34;所有用户&amp;#34;）
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;改完重启 sshd：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo launchctl kickstart -k system/com.openssh.sshd
+&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

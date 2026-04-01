@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Obsidian on Luca's Blog</title><link>https://wlj.me/tags/obsidian/</link><description>Recent content in Obsidian on Luca's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://wlj.me/tags/obsidian/index.xml" rel="self" type="application/rss+xml"/><item><title>Chrome / Obsidian 打印时不显示中文问题</title><link>https://wlj.me/posts/chrome-slash-obsidian-da-yin-shi-bu-xian-shi-zhong-wen-wen-ti/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0800</pubDate><guid>https://wlj.me/posts/chrome-slash-obsidian-da-yin-shi-bu-xian-shi-zhong-wen-wen-ti/</guid><description>&lt;p&gt;Chrome 及 Obsidian 在打印或&amp;quot;另存为 PDF&amp;quot;时，中文内容显示为方框（或完全消失），而 Safari 浏览器不受影响。这个问题主要出现在 macOS 15 Sequoia。原因是 macOS 15 Sequoia 系统字体架构变更。&lt;/p&gt;
+&lt;p&gt;Apple 在 macOS 15 中将&amp;quot;苹方 (PingFang)&amp;ldquo;字体改为使用新的 &lt;code&gt;hvgl&lt;/code&gt; 格式，而 Chromium 内核（Chrome、Obsidian 等应用使用）的 PDF 渲染引擎无法正确处理这种新格式，导致打印时中文字符丢失。Safari 不受影响是因为它使用 Apple 自家的 WebKit 引擎。&lt;/p&gt;
+&lt;p&gt;最有效的方法是通过&amp;quot;字体册&amp;quot;重新下载标准格式的苹方字体：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开&amp;quot;系统设置&amp;rdquo; &amp;gt; &amp;ldquo;语言与地区&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;将&amp;quot;English&amp;quot;拖到&amp;quot;简体中文&amp;quot;之上（选择不重启）&lt;/li&gt;
+&lt;li&gt;打开&amp;quot;字体册&amp;quot;应用，搜索&amp;quot;苹方&amp;quot;或&amp;quot;PingFang&amp;quot;&lt;/li&gt;
+&lt;li&gt;点击下载所有苹方字体（会从灰色变为黑色）&lt;/li&gt;
+&lt;li&gt;恢复语言设置（简体中文拖回顶部）&lt;/li&gt;
+&lt;li&gt;重启 Chrome 和 Obsidian&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Font screenshot" loading="lazy" src="https://phaven-prod.s3.amazonaws.com/files/image_part/asset/3378702/HujZbsImcywPTtHZkpdJjoirDVs/medium_font.png"&gt;&lt;/p&gt;</description></item></channel></rss>
