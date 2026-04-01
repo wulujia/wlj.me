@@ -1,0 +1,159 @@
+/* Solarized color scheme for hugo-theme-terminal */
+
+/* Solarized palette reference:
+   base03  #002b36  (dark bg)
+   base02  #073642  (dark bg highlight)
+   base01  #586e75  (dark content, light emphasis)
+   base00  #657b83  (light content, dark emphasis)
+   base0   #839496  (dark content)
+   base1   #93a1a1  (light emphasis)
+   base2   #eee8d5  (light bg highlight)
+   base3   #fdf6e3  (light bg)
+   yellow  #b58900
+   orange  #cb4b16
+   red     #dc322f
+   magenta #d33682
+   violet  #6c71c4
+   blue    #268bd2
+   cyan    #2aa198
+   green   #859900
+*/
+
+/* Dark mode (default) — Solarized Dark */
+:root {
+  --background: #002b36;
+  --foreground: #839496;
+  --accent: #2aa198;
+  --code-border: #073642;
+}
+
+/* Brighter headings */
+h1, h2, h3, h4, h5, h6,
+.header__logo a {
+  color: #93a1a1 !important;
+}
+
+/* Subtle links */
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: #268bd2;
+}
+
+/* Code blocks — Solarized Dark tones */
+pre {
+  background: #073642 !important;
+  border-color: #586e75 !important;
+}
+
+code, kbd {
+  border-color: #073642;
+}
+
+/* Blockquote accent */
+blockquote {
+  border-color: #b58900;
+}
+
+blockquote::before {
+  color: #b58900;
+}
+
+/* Menu underline */
+.menu__inner a::after {
+  background: var(--accent);
+}
+
+/* Footer and meta — dimmer */
+.footer, .post__meta {
+  color: #586e75;
+}
+
+/* Light mode — Solarized Light */
+[data-theme="light"] {
+  --background: #fdf6e3;
+  --foreground: #657b83;
+  --accent: #2aa198;
+  --code-border: #eee8d5;
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] .header__logo a {
+  color: #586e75 !important;
+}
+
+[data-theme="light"] pre {
+  background: #eee8d5 !important;
+  border-color: #93a1a1 !important;
+}
+
+[data-theme="light"] code, [data-theme="light"] kbd {
+  border-color: #eee8d5;
+}
+
+[data-theme="light"] .footer,
+[data-theme="light"] .post__meta {
+  color: #93a1a1;
+}
+
+[data-theme="light"] a:hover {
+  color: #268bd2;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-size);
+  padding: 0;
+  margin-left: 1ch;
+}
+
+.theme-toggle:hover {
+  color: #268bd2;
+}
+
+/* Auto: follow system preference */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --background: #fdf6e3;
+    --foreground: #657b83;
+    --accent: #2aa198;
+    --code-border: #eee8d5;
+  }
+
+  :root:not([data-theme="dark"]) h1,
+  :root:not([data-theme="dark"]) h2,
+  :root:not([data-theme="dark"]) h3,
+  :root:not([data-theme="dark"]) h4,
+  :root:not([data-theme="dark"]) h5,
+  :root:not([data-theme="dark"]) h6,
+  :root:not([data-theme="dark"]) .header__logo a {
+    color: #586e75 !important;
+  }
+
+  :root:not([data-theme="dark"]) pre {
+    background: #eee8d5 !important;
+    border-color: #93a1a1 !important;
+  }
+
+  :root:not([data-theme="dark"]) code,
+  :root:not([data-theme="dark"]) kbd {
+    border-color: #eee8d5;
+  }
+
+  :root:not([data-theme="dark"]) .footer,
+  :root:not([data-theme="dark"]) .post__meta {
+    color: #93a1a1;
+  }
+}
