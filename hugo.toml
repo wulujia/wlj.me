@@ -13,9 +13,9 @@ paginate = 5
   fullWidthTheme = false
   centerTheme = true
   showLastUpdated = false
+  showFullContent = true
   [params.Logo]
     logoText = "wlj's terminal"
-  ReadMore = "阅读全文"
 
 [languages]
   [languages.zh]
