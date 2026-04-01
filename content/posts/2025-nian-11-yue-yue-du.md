@@ -1,7 +1,7 @@
 ---
 title: "2025 年 11 月阅读"
 date: 2025-11-30T00:00:00+08:00
-tags: ["阅读"]
+tags: ["Reading"]
 draft: false
 slug: "2025-nian-11-yue-yue-du"
 ---

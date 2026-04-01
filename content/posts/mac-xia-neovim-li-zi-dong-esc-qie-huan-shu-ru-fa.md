@@ -1,7 +1,7 @@
 ---
 title: "Mac 下 neovim 里自动 esc 切换输入法"
 date: 2025-01-01T00:00:00+08:00
-tags: ["neovim", "mac", "输入法"]
+tags: ["neovim", "mac", "Input Method"]
 draft: false
 slug: "mac-xia-neovim-li-zi-dong-esc-qie-huan-shu-ru-fa"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "1 月阅读"
 date: 2025-01-31T00:00:00+08:00
-tags: ["阅读"]
+tags: ["Reading"]
 draft: false
 slug: "1-yue-yue-du"
 ---

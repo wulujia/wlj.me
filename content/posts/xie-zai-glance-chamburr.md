@@ -1,7 +1,7 @@
 ---
 title: "卸载 glance-chamburr"
 date: 2025-01-01T00:00:00+08:00
-tags: ["mac", "工具"]
+tags: ["mac", "Tools"]
 draft: false
 slug: "xie-zai-glance-chamburr"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "我的习惯养成心得"
 date: 2025-01-01T00:00:00+08:00
-tags: ["习惯", "自我提升"]
+tags: ["Habit", "Self-improvement"]
 draft: false
 slug: "wo-de-xi-guan-yang-cheng-xin-de"
 ---

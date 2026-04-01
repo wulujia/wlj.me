@@ -1,7 +1,7 @@
 ---
 title: "好看的 mono 字体"
 date: 2025-01-01T00:00:00+08:00
-tags: ["字体", "工具"]
+tags: ["Font", "Tools"]
 draft: false
 slug: "hao-kan-de-mono-zi-ti"
 ---
