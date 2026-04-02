@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <div class="posts">
+    {{ $pages := where .Site.RegularPages "Type" "posts" }}
+    {{ range $pages.GroupByDate "2006" }}
+      <h2>{{ .Key }}</h2>
+      <ul class="posts-list">
+        {{ range .Pages }}
+          <li>
+            <span class="post-date">{{ .Date.Format "01-02" }}</span>
+            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+{{ end }}
