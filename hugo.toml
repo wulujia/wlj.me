@@ -2,7 +2,8 @@ baseURL = "https://wlj.me/"
 languageCode = "zh-cn"
 title = "Luca's Blog"
 theme = "terminal"
-paginate = 5
+[pagination]
+  pagerSize = 5
 
 [markup.highlight]
   noClasses = false
