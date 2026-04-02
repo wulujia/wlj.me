@@ -122,6 +122,13 @@ blockquote::before {
   color: var(--accent);
 }
 
+/* Post images — constrain width for comfortable reading */
+.post-content img {
+  max-width: min(100%, 560px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Auto: follow system preference */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
