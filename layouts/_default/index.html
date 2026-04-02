@@ -44,7 +44,11 @@
         {{ partial "cover.html" . }}
 
         <div class="post-content">
-          {{ .Content }}
+          {{ if .Truncated }}
+            {{ .Summary }}
+          {{ else }}
+            {{ .Content }}
+          {{ end }}
         </div>
 
         {{ if .Truncated }}
