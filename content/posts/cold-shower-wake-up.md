@@ -6,4 +6,36 @@ draft: false
 slug: "cold-shower-wake-up"
 ---
 
-2022 年定目标时，恰好在读 <The Almanack of Naval Ravikant>，书中 Naval 提到：我是大约四五个月前开始洗冷水澡的。最初几次，过程有点滑稽，我不能很快放松，全程畏畏缩缩。而现在，我可以打开花洒，直接走进去。别给自己犹豫的时间。我知道我必须走进去，即便脑海中的声音告诉我会很冷。我从中学到了很重要的一课：我们的大部分痛苦都来自逃避。洗冷水澡的大部分痛苦，源于自己的畏缩与想象。其实你进去了，就进去了，这并不痛苦，只不过是冷罢了。你的身体感受到寒冷，跟你的头脑想象它很冷，其实不同。承认它的寒冷，观察它、应付它、接受它，但别因此而在精神上受折磨。洗两分钟冷水澡杀不死你，却能帮助你，每天重上这一课。每年定目标时，其实在一定程度上，就是在给自己找点罪受，尝试通过一段时间持续的行动，让自己有些进步。有些进步是知识技能技巧上的，有些进步是头脑思想意志上的。这段描述让我有些心动，于是我就一时冲动，写下了《对 2022 的初步计划》，并且写下了：生活健康些：健康饮食。每天锻炼、早睡、冥想、冷水澡。写文章那天是 2022.01.03，今天是 2022.01.16，至少这些天里，我都还在洗冷水澡（反而是健康饮食、冥想这两个看似简单的事情没完全做到，前者是馋，后者则是没有固定时间，忘了一次）。只不过，每天洗澡前，心里总有小人打架。怕冷的那个劝：要不，舒舒服服洗一天热水呗，总该放个假的。想扛的那个杠：也就几分钟，扛住，以后就能吹牛了。其实，真的打开花洒，冷水出来后，内心不犹豫了，这事儿反而没那么难熬。洗就是了，也就几分钟。而且，洗完了冷水澡后，头脑清醒、身体温暖，内心还会有股奇怪的满足感——毕竟又成功了一次。又 1：Naval 书中的原文，这本书还蛮推荐的，文字简练，挺适合像我这样的英语渣。The first few cold showers were hilarious because I’d slowly ease myself in, wincing the entire way. I started about four or five months ago. Now, I turn the shower on full-blast, and then I walk right in. I don’t give myself any time to hesitate. As soon as I hear the voice in my head telling me how cold it’s going to be, I know I have to walk in. I learned a very important lesson from this: most of our suffering comes from avoidance. Most of the suffering from a cold shower is the tip-toeing your way in. Once you’re in, you’re in. It’s not suffering. It’s just cold. Your body saying it’s cold is different than your mind saying it’s cold. Acknowledge your body saying it’s cold. Look at it. Deal with it. Accept it, but don’t mentally suffer over it. Taking a cold shower for two minutes isn’t going to kill you. Having a cold shower helps you re-learn that lesson every morning. 又 2：我做了简单的搜索查询，大多数医生对洗冷水澡的观点是正面的，当然也有些风险提示，比如：婴幼儿与老年人、经期/孕期/生产期的女性、体弱多病者、高血压/心脏病/风湿病/坐骨神经痛等患者不适合冷水浴，以及生病时、运动后，不适合冷水浴。就诊问问里搜索冷水浴的结果以及，这篇文章并不想忽悠你尝试冷水澡，坦率地说，哪怕在深圳现在的气温下（15-24 摄氏度），洗冷水澡都需要一点点勇气。
+2022 年定目标时，恰好在读 <The Almanack of Naval Ravikant>，书中 Naval 提到：
+
+我是大约四五个月前开始洗冷水澡的。最初几次，过程有点滑稽，我不能很快放松，全程畏畏缩缩。而现在，我可以打开花洒，直接走进去。
+
+别给自己犹豫的时间。我知道我必须走进去，即便脑海中的声音告诉我会很冷。我从中学到了很重要的一课：我们的大部分痛苦都来自逃避。洗冷水澡的大部分痛苦，源于自己的畏缩与想象。其实你进去了，就进去了，这并不痛苦，只不过是冷罢了。你的身体感受到寒冷，跟你的头脑想象它很冷，其实不同。承认它的寒冷，观察它、应付它、接受它，但别因此而在精神上受折磨。
+
+洗两分钟冷水澡杀不死你，却能帮助你，每天重上这一课。
+
+每年定目标时，其实在一定程度上，就是在给自己找点罪受，尝试通过一段时间持续的行动，让自己有些进步。有些进步是知识技能技巧上的，有些进步是头脑思想意志上的。
+
+这段描述让我有些心动，于是我就一时冲动，写下了《对 2022 的初步计划》，并且写下了：生活健康些：健康饮食。每天锻炼、早睡、冥想、冷水澡。
+
+写文章那天是 2022.01.03，今天是 2022.01.16，至少这些天里，我都还在洗冷水澡（反而是健康饮食、冥想这两个看似简单的事情没完全做到，前者是馋，后者则是没有固定时间，忘了一次）。
+
+只不过，每天洗澡前，心里总有小人打架。怕冷的那个劝：要不，舒舒服服洗一天热水呗，总该放个假的。想扛的那个杠：也就几分钟，扛住，以后就能吹牛了。
+
+其实，真的打开花洒，冷水出来后，内心不犹豫了，这事儿反而没那么难熬。洗就是了，也就几分钟。
+
+而且，洗完了冷水澡后，头脑清醒、身体温暖，内心还会有股奇怪的满足感——毕竟又成功了一次。
+
+又 1：Naval 书中的原文，这本书还蛮推荐的，文字简练，挺适合像我这样的英语渣。
+
+The first few cold showers were hilarious because I’d slowly ease myself in, wincing the entire way. I started about four or five months ago. Now, I turn the shower on full-blast, and then I walk right in.
+
+I don’t give myself any time to hesitate. As soon as I hear the voice in my head telling me how cold it’s going to be, I know I have to walk in. I learned a very important lesson from this: most of our suffering comes from avoidance. Most of the suffering from a cold shower is the tip-toeing your way in. Once you’re in, you’re in. It’s not suffering. It’s just cold. Your body saying it’s cold is different than your mind saying it’s cold. Acknowledge your body saying it’s cold. Look at it. Deal with it. Accept it, but don’t mentally suffer over it.
+
+Taking a cold shower for two minutes isn’t going to kill you. Having a cold shower helps you re-learn that lesson every morning.
+
+又 2：我做了简单的搜索查询，大多数医生对洗冷水澡的观点是正面的，当然也有些风险提示，比如：婴幼儿与老年人、经期/孕期/生产期的女性、体弱多病者、高血压/心脏病/风湿病/坐骨神经痛等患者不适合冷水浴，以及生病时、运动后，不适合冷水浴。
+
+就诊问问里搜索冷水浴的结果
+
+以及，这篇文章并不想忽悠你尝试冷水澡，坦率地说，哪怕在深圳现在的气温下（15-24 摄氏度），洗冷水澡都需要一点点勇气。
