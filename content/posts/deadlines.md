@@ -1,7 +1,7 @@
 ---
 title: "截止日期"
 date: 2023-05-07T23:26:52+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product"]
 draft: false
 slug: "deadlines"
 ---

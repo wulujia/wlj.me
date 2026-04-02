@@ -1,7 +1,7 @@
 ---
 title: "知识星球推荐 #2：不止读书营·第二季"
 date: 2024-10-31T08:57:02+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "zsxq-recommend-2-reading-camp"
 ---

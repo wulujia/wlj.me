@@ -1,7 +1,7 @@
 ---
 title: "ubuntu 下 ibus 在 chrome 里，会把选中文字删除的解决"
 date: 2024-06-19T11:45:00+08:00
-tags: ["Tips"]
+tags: ["Tech"]
 draft: false
 slug: "ubuntu-ibus-chrome-text-deletion-fix"
 ---

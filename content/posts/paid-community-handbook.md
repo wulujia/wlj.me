@@ -1,7 +1,7 @@
 ---
 title: "一本付费社群实操的小书"
 date: 2024-05-22T10:32:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community"]
 draft: false
 slug: "paid-community-handbook"
 ---

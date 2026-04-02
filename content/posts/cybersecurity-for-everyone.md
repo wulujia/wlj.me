@@ -1,7 +1,7 @@
 ---
 title: "普通人的网络安全自保"
 date: 2021-08-29T18:56:10+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security", "Tools"]
 draft: false
 slug: "cybersecurity-for-everyone"
 ---

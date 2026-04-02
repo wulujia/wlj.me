@@ -1,7 +1,7 @@
 ---
 title: "关于态度表情我犯的错"
 date: 2024-11-23T11:25:05+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community"]
 draft: false
 slug: "emoji-attitude-mistake"
 ---

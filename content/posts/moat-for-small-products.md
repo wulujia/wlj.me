@@ -1,7 +1,7 @@
 ---
 title: "小产品的护城河"
 date: 2021-07-19T00:11:27+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Product"]
 draft: false
 slug: "moat-for-small-products"
 ---

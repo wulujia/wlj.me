@@ -1,7 +1,7 @@
 ---
 title: "怎么做到简单"
 date: 2022-08-14T22:37:58+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Reading"]
 draft: false
 slug: "how-to-keep-it-simple"
 ---

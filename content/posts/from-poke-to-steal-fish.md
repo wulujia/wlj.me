@@ -1,7 +1,7 @@
 ---
 title: "从“戳一下”到“偷鱼”"
 date: 2025-07-17T22:53:58+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "from-poke-to-steal-fish"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "注意力太重要了"
 date: 2025-11-09T16:32:39+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "attention-matters"
 ---

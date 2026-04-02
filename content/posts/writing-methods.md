@@ -1,7 +1,7 @@
 ---
 title: "写作的方法"
 date: 2024-03-07T20:21:00+08:00
-tags: ["Misc"]
+tags: ["Idea"]
 draft: false
 slug: "writing-methods"
 ---

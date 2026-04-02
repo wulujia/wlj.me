@@ -1,7 +1,7 @@
 ---
 title: "野生产品经理的打怪升级"
 date: 2021-10-16T23:28:37+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Startup"]
 draft: false
 slug: "self-taught-product-manager"
 ---

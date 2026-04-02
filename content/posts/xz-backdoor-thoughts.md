@@ -1,7 +1,7 @@
 ---
 title: "关于 xz backdoor 的观点"
 date: 2024-04-02T22:51:16+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tech", "Security"]
 draft: false
 slug: "xz-backdoor-thoughts"
 ---

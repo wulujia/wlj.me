@@ -1,7 +1,7 @@
 ---
 title: "一起读书"
 date: 2025-11-06T20:59:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "read-together"
 ---

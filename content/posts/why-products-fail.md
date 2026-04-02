@@ -1,7 +1,7 @@
 ---
 title: "产品为什么会失败"
 date: 2023-03-05T22:47:21+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Tools"]
 draft: false
 slug: "why-products-fail"
 ---

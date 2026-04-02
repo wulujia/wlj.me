@@ -1,7 +1,7 @@
 ---
 title: "距离 2023 年结束还剩 48 天"
 date: 2023-11-12T21:02:20+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Product"]
 draft: false
 slug: "48-days-left-in-2023"
 ---

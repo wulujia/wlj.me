@@ -1,7 +1,7 @@
 ---
 title: "反问"
 date: 2022-07-11T21:40:51+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Idea"]
 draft: false
 slug: "counter-questions"
 ---

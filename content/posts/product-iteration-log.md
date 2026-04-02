@@ -1,7 +1,7 @@
 ---
 title: "一个产品迭代过程实录"
 date: 2025-06-04T22:14:01+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Product"]
 draft: false
 slug: "product-iteration-log"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "创新公司"
 date: 2024-02-18T22:13:57+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "creative-inc"
 ---

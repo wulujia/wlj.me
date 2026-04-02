@@ -1,7 +1,7 @@
 ---
 title: "银木犀参观记录"
 date: 2025-09-15T23:09:04+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "Startup"]
 draft: false
 slug: "ginmokusei-visit"
 ---

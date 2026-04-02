@@ -1,7 +1,7 @@
 ---
 title: "向深处走"
 date: 2026-02-20T23:36:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "go-deeper"
 ---

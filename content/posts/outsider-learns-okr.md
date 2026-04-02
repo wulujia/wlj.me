@@ -1,7 +1,7 @@
 ---
 title: "外行学 OKR"
 date: 2022-08-07T22:44:11+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Work"]
 draft: false
 slug: "outsider-learns-okr"
 ---

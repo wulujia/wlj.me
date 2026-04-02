@@ -1,7 +1,7 @@
 ---
 title: "产品牌桌"
 date: 2025-05-21T15:31:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Marketing"]
 draft: false
 slug: "product-card-table"
 ---

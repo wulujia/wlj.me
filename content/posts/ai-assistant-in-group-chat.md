@@ -1,7 +1,7 @@
 ---
 title: "把 AI 助理拉进群聊，然后它差点嫁给别人"
 date: 2026-03-04T17:44:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Security"]
 draft: false
 slug: "ai-assistant-in-group-chat"
 ---

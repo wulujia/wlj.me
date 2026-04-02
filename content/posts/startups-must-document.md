@@ -1,7 +1,7 @@
 ---
 title: "创业一定要多记录"
 date: 2025-05-04T11:34:15+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "startups-must-document"
 ---

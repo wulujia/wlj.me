@@ -1,7 +1,7 @@
 ---
 title: "少一些流程，多一点效率"
 date: 2023-12-04T09:03:39+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "less-process-more-efficiency"
 ---

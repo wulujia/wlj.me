@@ -1,7 +1,7 @@
 ---
 title: "新产品的方向怎么找"
 date: 2024-03-03T22:53:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Tech"]
 draft: false
 slug: "finding-product-direction"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "做少，做小，做简单"
 date: 2021-11-24T15:55:10+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Security"]
 draft: false
 slug: "do-less-small-simple"
 ---

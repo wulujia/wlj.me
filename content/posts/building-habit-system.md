@@ -1,7 +1,7 @@
 ---
 title: "建立习惯系统"
 date: 2025-01-14T22:51:45+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "building-habit-system"
 ---

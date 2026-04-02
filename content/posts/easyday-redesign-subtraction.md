@@ -1,7 +1,7 @@
 ---
 title: "小日子设计改版中的减法 - 更轻盈，更聚焦"
 date: 2024-04-09T09:52:23+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Product"]
 draft: false
 slug: "easyday-redesign-subtraction"
 ---

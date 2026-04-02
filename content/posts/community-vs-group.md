@@ -1,7 +1,7 @@
 ---
 title: "本文让你彻底搞清楚社区和社群的区别"
 date: 2021-06-14T16:03:43+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community"]
 draft: false
 slug: "community-vs-group"
 ---

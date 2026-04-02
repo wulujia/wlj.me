@@ -1,7 +1,7 @@
 ---
 title: "马斯克的咒语"
 date: 2024-08-05T07:46:37+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "musks-mantra"
 ---

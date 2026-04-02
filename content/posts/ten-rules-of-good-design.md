@@ -1,7 +1,7 @@
 ---
 title: "好设计的十条要求"
 date: 2024-09-04T08:11:44+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "ten-rules-of-good-design"
 ---

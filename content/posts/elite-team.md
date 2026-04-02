@@ -1,7 +1,7 @@
 ---
 title: "精英团队"
 date: 2024-03-17T22:42:49+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Tech"]
 draft: false
 slug: "elite-team"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "从拍照中学到的道理"
 date: 2023-02-04T17:00:20+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "lessons-from-photography"
 ---

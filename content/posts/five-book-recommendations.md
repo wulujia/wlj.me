@@ -1,7 +1,7 @@
 ---
 title: "推荐 5 本书"
 date: 2025-11-30T11:59:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Tools"]
 draft: false
 slug: "five-book-recommendations"
 ---

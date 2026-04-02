@@ -1,7 +1,7 @@
 ---
 title: "知识星球值得加入吗？与你敬重的创作者和同路人深度连接"
 date: 2025-06-08T22:43:34+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "is-zsxq-worth-joining"
 ---

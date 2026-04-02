@@ -1,7 +1,7 @@
 ---
 title: "AI 的下限，就是你我的上限"
 date: 2026-02-26T20:32:08+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "ai-floor-is-our-ceiling"
 ---

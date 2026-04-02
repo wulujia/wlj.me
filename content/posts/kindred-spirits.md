@@ -1,7 +1,7 @@
 ---
 title: "同道"
 date: 2022-06-01T10:15:37+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Product"]
 draft: false
 slug: "kindred-spirits"
 ---

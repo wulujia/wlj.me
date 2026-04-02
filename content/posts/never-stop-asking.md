@@ -1,7 +1,7 @@
 ---
 title: "不停止提问，不止于提问"
 date: 2025-11-15T11:37:21+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "never-stop-asking"
 ---

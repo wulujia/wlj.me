@@ -1,7 +1,7 @@
 ---
 title: "远程工作的问题"
 date: 2022-09-04T23:08:53+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Work"]
 draft: false
 slug: "remote-work-problems"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "轻读：知识星球创业笔记"
 date: 2024-05-14T17:46:57+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "light-reading-zsxq-notes"
 ---

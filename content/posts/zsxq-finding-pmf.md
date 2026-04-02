@@ -1,7 +1,7 @@
 ---
 title: "知识星球寻找 PMF 的过程"
 date: 2024-11-09T23:14:14+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Tools"]
 draft: false
 slug: "zsxq-finding-pmf"
 ---

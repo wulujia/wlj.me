@@ -1,7 +1,7 @@
 ---
 title: "找 GPT4 请教古董音箱的基础知识"
 date: 2023-09-19T15:29:26+08:00
-tags: ["Misc"]
+tags: ["Idea"]
 draft: false
 slug: "gpt4-vintage-speakers-guide"
 ---

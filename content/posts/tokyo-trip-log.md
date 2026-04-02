@@ -1,7 +1,7 @@
 ---
 title: "东京行流水账"
 date: 2024-11-22T22:08:35+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tech", "Life"]
 draft: false
 slug: "tokyo-trip-log"
 ---

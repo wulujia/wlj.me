@@ -1,7 +1,7 @@
 ---
 title: "推荐三本产品书"
 date: 2021-05-21T22:09:35+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Reading"]
 draft: false
 slug: "three-product-books"
 ---

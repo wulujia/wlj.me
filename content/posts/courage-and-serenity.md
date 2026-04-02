@@ -1,7 +1,7 @@
 ---
 title: "勇气与平静"
 date: 2024-02-01T23:17:21+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Idea"]
 draft: false
 slug: "courage-and-serenity"
 ---

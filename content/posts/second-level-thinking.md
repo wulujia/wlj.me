@@ -1,7 +1,7 @@
 ---
 title: "第二层次思维"
 date: 2021-09-30T20:40:15+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment"]
 draft: false
 slug: "second-level-thinking"
 ---

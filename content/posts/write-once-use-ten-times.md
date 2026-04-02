@@ -1,7 +1,7 @@
 ---
 title: "写一次，用十次：我找到了内容创作的终极解法"
 date: 2025-06-13T16:24:47+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Writing"]
 draft: false
 slug: "write-once-use-ten-times"
 ---

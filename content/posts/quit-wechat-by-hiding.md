@@ -1,7 +1,7 @@
 ---
 title: "用“看不见”戒掉了微信"
 date: 2023-10-29T17:09:15+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "quit-wechat-by-hiding"
 ---

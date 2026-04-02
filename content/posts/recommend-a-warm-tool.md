@@ -1,7 +1,7 @@
 ---
 title: "推荐个有趣有温度的小工具"
 date: 2023-12-05T16:19:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Startup"]
 draft: false
 slug: "recommend-a-warm-tool"
 ---

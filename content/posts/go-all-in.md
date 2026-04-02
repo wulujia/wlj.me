@@ -1,7 +1,7 @@
 ---
 title: "全力以赴"
 date: 2024-09-14T18:11:54+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "AI"]
 draft: false
 slug: "go-all-in"
 ---

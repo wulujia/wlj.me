@@ -1,7 +1,7 @@
 ---
 title: "量入为出"
 date: 2023-09-03T22:08:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Investment"]
 draft: false
 slug: "live-within-means"
 ---

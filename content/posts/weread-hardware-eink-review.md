@@ -1,7 +1,7 @@
 ---
 title: "微信读书新硬件体验及电子墨水设备推荐"
 date: 2022-02-06T22:25:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "weread-hardware-eink-review"
 ---

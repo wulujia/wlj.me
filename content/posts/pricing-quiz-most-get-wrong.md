@@ -1,7 +1,7 @@
 ---
 title: "多数人会做错的价格题"
 date: 2023-11-04T23:53:33+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "pricing-quiz-most-get-wrong"
 ---

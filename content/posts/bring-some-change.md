@@ -1,7 +1,7 @@
 ---
 title: "来点变化"
 date: 2025-06-17T16:12:01+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security", "AI"]
 draft: false
 slug: "bring-some-change"
 ---

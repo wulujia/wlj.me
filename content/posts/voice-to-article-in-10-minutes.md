@@ -1,7 +1,7 @@
 ---
 title: "写公众号从1小时到10分钟，试试这个语音神器"
 date: 2024-07-04T19:05:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Writing", "Tools"]
 draft: false
 slug: "voice-to-article-in-10-minutes"
 ---

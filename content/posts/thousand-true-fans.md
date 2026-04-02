@@ -1,7 +1,7 @@
 ---
 title: "怎样收获一千位铁杆用户"
 date: 2021-07-29T20:51:53+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "Startup"]
 draft: false
 slug: "thousand-true-fans"
 ---

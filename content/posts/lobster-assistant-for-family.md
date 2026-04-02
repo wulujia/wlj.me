@@ -1,7 +1,7 @@
 ---
 title: "给自己和家人装个龙虾助理"
 date: 2026-02-25T20:18:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Tech"]
 draft: false
 slug: "lobster-assistant-for-family"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "十年十二问：2025"
 date: 2025-06-24T20:20:11+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Investment"]
 draft: false
 slug: "twelve-questions-for-2025"
 ---

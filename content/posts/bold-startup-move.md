@@ -1,7 +1,7 @@
 ---
 title: "他很猛，这当口创业去了"
 date: 2022-04-07T11:37:48+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "bold-startup-move"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "文本 todo"
 date: 2025-05-06T09:27:36+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "AI"]
 draft: false
 slug: "text-todo"
 ---

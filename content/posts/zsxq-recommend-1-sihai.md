@@ -1,7 +1,7 @@
 ---
 title: "知识星球推荐 #1：四海星球"
 date: 2024-10-29T11:21:34+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "zsxq-recommend-1-sihai"
 ---

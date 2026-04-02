@@ -1,7 +1,7 @@
 ---
 title: "有了 AI，人还要写作吗？"
 date: 2023-03-12T21:55:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Writing"]
 draft: false
 slug: "should-humans-still-write"
 ---

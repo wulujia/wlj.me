@@ -1,7 +1,7 @@
 ---
 title: "2023 年的目标"
 date: 2022-12-29T20:15:14+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "goals-for-2023"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "关于阅读的一点思考"
 date: 2021-09-26T22:46:04+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "thoughts-on-reading"
 ---

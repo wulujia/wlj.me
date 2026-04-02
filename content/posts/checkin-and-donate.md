@@ -1,7 +1,7 @@
 ---
 title: "一起打卡一起捐"
 date: 2025-03-31T17:49:33+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "checkin-and-donate"
 ---

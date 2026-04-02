@@ -1,7 +1,7 @@
 ---
 title: "特斯拉和三顿半做产品的步骤"
 date: 2022-06-03T22:13:47+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Marketing", "Product"]
 draft: false
 slug: "tesla-saturnbird-product-steps"
 ---

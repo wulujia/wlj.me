@@ -1,7 +1,7 @@
 ---
 title: "找餐厅这件事，一百条好评不如一个靠谱的朋友"
 date: 2026-02-20T09:55:21+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Tech"]
 draft: false
 slug: "restaurant-trust-over-reviews"
 ---

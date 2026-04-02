@@ -1,7 +1,7 @@
 ---
 title: "产品几年后的样子"
 date: 2024-11-01T21:52:51+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Product"]
 draft: false
 slug: "product-vision-years-ahead"
 ---

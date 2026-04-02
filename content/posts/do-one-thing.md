@@ -1,7 +1,7 @@
 ---
 title: "只做一件事"
 date: 2025-10-30T22:52:56+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Tools"]
 draft: false
 slug: "do-one-thing"
 ---

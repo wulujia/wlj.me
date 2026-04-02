@@ -1,7 +1,7 @@
 ---
 title: "一个人走得快，一群人走得远"
 date: 2024-06-17T21:36:58+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "alone-fast-together-far"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "重要的问题需要用决策卡作为工具"
 date: 2025-10-24T08:52:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "decision-cards-for-big-questions"
 ---

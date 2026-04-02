@@ -1,7 +1,7 @@
 ---
 title: "我的视角看飞书"
 date: 2021-06-30T22:45:16+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Work"]
 draft: false
 slug: "my-view-on-feishu"
 ---

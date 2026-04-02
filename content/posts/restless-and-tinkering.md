@@ -1,7 +1,7 @@
 ---
 title: "不安分，爱折腾"
 date: 2022-09-11T23:58:01+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Startup"]
 draft: false
 slug: "restless-and-tinkering"
 ---

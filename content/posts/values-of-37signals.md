@@ -1,7 +1,7 @@
 ---
 title: "37signals 的价值观"
 date: 2023-07-09T23:22:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Security"]
 draft: false
 slug: "values-of-37signals"
 ---

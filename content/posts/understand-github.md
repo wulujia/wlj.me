@@ -1,7 +1,7 @@
 ---
 title: "了解 GitHub"
 date: 2024-04-07T21:16:35+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tech"]
 draft: false
 slug: "understand-github"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "助推"
 date: 2023-06-11T18:08:36+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Startup"]
 draft: false
 slug: "nudge"
 ---

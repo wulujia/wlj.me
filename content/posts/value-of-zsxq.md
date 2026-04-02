@@ -1,7 +1,7 @@
 ---
 title: "知识星球的价值"
 date: 2023-08-27T23:13:23+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "value-of-zsxq"
 ---

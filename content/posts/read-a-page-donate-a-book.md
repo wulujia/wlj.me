@@ -1,7 +1,7 @@
 ---
 title: "每天读一页书，就能给山区孩子送一本书"
 date: 2025-07-18T18:37:04+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "read-a-page-donate-a-book"
 ---

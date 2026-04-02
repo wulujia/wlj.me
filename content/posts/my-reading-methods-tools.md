@@ -1,7 +1,7 @@
 ---
 title: "我的阅读方法和工具"
 date: 2024-09-25T16:00:30+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Reading"]
 draft: false
 slug: "my-reading-methods-tools"
 ---

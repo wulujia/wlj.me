@@ -1,7 +1,7 @@
 ---
 title: "我在企业微信与飞书间彷徨不定"
 date: 2021-06-08T22:29:18+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "wecom-vs-feishu"
 ---

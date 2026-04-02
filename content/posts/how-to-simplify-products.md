@@ -1,7 +1,7 @@
 ---
 title: "怎样让产品更简单"
 date: 2022-07-18T09:39:01+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Tools"]
 draft: false
 slug: "how-to-simplify-products"
 ---

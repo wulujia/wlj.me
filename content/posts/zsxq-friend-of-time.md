@@ -1,7 +1,7 @@
 ---
 title: "李继刚老师之前在即刻发了一条“知识星球是时间的朋友”"
 date: 2025-06-27T15:58:34+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-friend-of-time"
 ---

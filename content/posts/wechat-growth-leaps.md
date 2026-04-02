@@ -1,7 +1,7 @@
 ---
 title: "创业笔记 394：微信的梯云纵"
 date: 2021-01-19T19:46:22+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Tools"]
 draft: false
 slug: "wechat-growth-leaps"
 ---

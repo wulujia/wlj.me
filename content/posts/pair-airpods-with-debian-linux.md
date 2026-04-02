@@ -1,7 +1,7 @@
 ---
 title: "pair Airpods with Debian Linux"
 date: 2024-09-01T17:20:00+08:00
-tags: ["Tips"]
+tags: ["Tech"]
 draft: false
 slug: "pair-airpods-with-debian-linux"
 ---

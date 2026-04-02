@@ -1,7 +1,7 @@
 ---
 title: "创始人的 Changelog"
 date: 2024-12-06T07:04:13+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Startup"]
 draft: false
 slug: "founders-changelog"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "下笨功夫"
 date: 2024-02-10T00:01:27+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Marketing"]
 draft: false
 slug: "do-the-hard-work"
 ---

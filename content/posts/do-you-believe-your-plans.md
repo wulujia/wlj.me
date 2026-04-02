@@ -1,7 +1,7 @@
 ---
 title: "你真的相信这些计划吗？"
 date: 2022-12-04T20:23:22+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tech", "Product"]
 draft: false
 slug: "do-you-believe-your-plans"
 ---

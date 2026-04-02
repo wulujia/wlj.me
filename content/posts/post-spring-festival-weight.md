@@ -1,7 +1,7 @@
 ---
 title: "春节归来，怎么跟你多出来的这 5 斤肉和解？"
 date: 2026-02-20T23:18:10+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "post-spring-festival-weight"
 ---

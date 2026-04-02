@@ -1,7 +1,7 @@
 ---
 title: "如非必要，勿增实体"
 date: 2022-08-28T23:06:28+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Tools"]
 draft: false
 slug: "occams-razor"
 ---

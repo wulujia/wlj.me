@@ -1,7 +1,7 @@
 ---
 title: "知识星球里的“笔记”"
 date: 2023-07-02T23:00:56+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "notes-in-zsxq"
 ---

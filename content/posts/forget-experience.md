@@ -1,7 +1,7 @@
 ---
 title: "忘掉经验"
 date: 2026-03-24T15:23:40+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "forget-experience"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "软件产品出海"
 date: 2023-06-18T22:05:45+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Startup"]
 draft: false
 slug: "software-going-global"
 ---

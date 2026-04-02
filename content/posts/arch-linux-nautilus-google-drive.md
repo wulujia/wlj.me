@@ -1,7 +1,7 @@
 ---
 title: "arch linux 下在 nautilus 加载 Google Drive"
 date: 2024-06-15T10:00:00+08:00
-tags: ["Linux", "Arch Linux"]
+tags: ["Tech"]
 draft: false
 slug: "arch-linux-nautilus-google-drive"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "星球创业笔记"
 date: 2021-10-21T09:16:21+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-startup-notes"
 ---

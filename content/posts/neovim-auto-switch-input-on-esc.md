@@ -1,7 +1,7 @@
 ---
 title: "Mac 下 neovim 里自动 esc 切换输入法"
 date: 2025-06-12T11:42:00+08:00
-tags: ["neovim", "mac", "Input Method"]
+tags: ["Tech", "Tools"]
 draft: false
 slug: "neovim-auto-switch-input-on-esc"
 ---

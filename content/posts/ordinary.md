@@ -1,7 +1,7 @@
 ---
 title: "普通"
 date: 2025-12-02T22:31:11+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Security"]
 draft: false
 slug: "ordinary"
 ---

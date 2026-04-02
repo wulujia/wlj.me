@@ -1,7 +1,7 @@
 ---
 title: "iPad Pro 办公实测"
 date: 2024-08-19T21:53:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "ipad-pro-work-test"
 ---

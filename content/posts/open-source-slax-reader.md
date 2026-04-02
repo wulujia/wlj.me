@@ -1,7 +1,7 @@
 ---
 title: "开源发布 Slax Reader？"
 date: 2025-02-08T12:21:23+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tech", "Tools"]
 draft: false
 slug: "open-source-slax-reader"
 ---

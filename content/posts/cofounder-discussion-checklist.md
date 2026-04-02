@@ -1,7 +1,7 @@
 ---
 title: "创业寻找联合创始人时，可以一起探讨的问题清单"
 date: 2024-10-20T23:09:26+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "cofounder-discussion-checklist"
 ---

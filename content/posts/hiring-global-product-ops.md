@@ -1,7 +1,7 @@
 ---
 title: "我们在找能全球化运营软件产品的人"
 date: 2025-07-22T17:49:50+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Marketing"]
 draft: false
 slug: "hiring-global-product-ops"
 ---

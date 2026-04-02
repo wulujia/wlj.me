@@ -1,7 +1,7 @@
 ---
 title: "创业笔记 855：推荐 Free Solo"
 date: 2025-08-02T11:05:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "recommend-free-solo"
 ---

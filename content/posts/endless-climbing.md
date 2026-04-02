@@ -1,7 +1,7 @@
 ---
 title: "无尽攀登"
 date: 2022-01-30T23:39:12+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Movie", "Startup"]
 draft: false
 slug: "endless-climbing"
 ---

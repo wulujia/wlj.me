@@ -1,7 +1,7 @@
 ---
 title: "我近期在产品上的折腾"
 date: 2025-05-20T13:54:39+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "AI"]
 draft: false
 slug: "recent-product-tinkering"
 ---

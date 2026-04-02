@@ -1,7 +1,7 @@
 ---
 title: "关于 AI，一些可能的“非共识”"
 date: 2025-06-19T23:18:52+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "unconventional-ai-views"
 ---

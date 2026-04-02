@@ -1,7 +1,7 @@
 ---
 title: "说人话"
 date: 2022-02-14T12:49:02+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security"]
 draft: false
 slug: "speak-plainly"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "推荐一个同事做的小工具：PDF书签易"
 date: 2026-02-22T10:43:43+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Tech"]
 draft: false
 slug: "recommend-pdf-bookmark-tool"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "让一千朵花先开"
 date: 2026-02-08T09:10:15+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "let-a-thousand-flowers-bloom"
 ---

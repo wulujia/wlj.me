@@ -1,7 +1,7 @@
 ---
 title: "十七年"
 date: 2022-02-20T22:54:32+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "seventeen-years"
 ---

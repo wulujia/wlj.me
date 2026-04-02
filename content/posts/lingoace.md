@@ -1,7 +1,7 @@
 ---
 title: "LingoACE"
 date: 2024-05-05T11:47:00+08:00
-tags: ["Company"]
+tags: ["Startup"]
 draft: false
 slug: "lingoace"
 ---

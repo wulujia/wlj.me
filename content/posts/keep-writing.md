@@ -1,7 +1,7 @@
 ---
 title: "保持写作"
 date: 2023-05-14T18:45:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Writing", "Startup"]
 draft: false
 slug: "keep-writing"
 ---

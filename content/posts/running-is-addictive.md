@@ -1,7 +1,7 @@
 ---
 title: "跑步这事儿真的会上瘾"
 date: 2021-06-13T21:00:59+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "running-is-addictive"
 ---

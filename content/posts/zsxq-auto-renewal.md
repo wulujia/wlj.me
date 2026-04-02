@@ -1,7 +1,7 @@
 ---
 title: "知识星球里的自动续期（连续季卡）"
 date: 2024-01-03T23:45:01+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-auto-renewal"
 ---

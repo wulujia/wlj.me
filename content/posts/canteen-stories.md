@@ -1,7 +1,7 @@
 ---
 title: "食堂的故事"
 date: 2022-10-10T08:04:49+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "canteen-stories"
 ---

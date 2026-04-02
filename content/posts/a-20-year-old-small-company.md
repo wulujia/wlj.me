@@ -1,7 +1,7 @@
 ---
 title: "20 岁的小公司"
 date: 2025-01-28T07:42:33+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "a-20-year-old-small-company"
 ---

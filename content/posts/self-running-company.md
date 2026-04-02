@@ -1,7 +1,7 @@
 ---
 title: "公司怎样才能自运转"
 date: 2022-06-11T23:14:20+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Work", "Startup"]
 draft: false
 slug: "self-running-company"
 ---

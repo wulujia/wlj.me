@@ -1,7 +1,7 @@
 ---
 title: "小工具"
 date: 2023-07-23T23:53:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "small-tools"
 ---

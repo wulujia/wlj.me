@@ -1,7 +1,7 @@
 ---
 title: "知识星球推荐 #3：关哥说险"
 date: 2024-11-05T22:51:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "zsxq-recommend-3-insurance"
 ---

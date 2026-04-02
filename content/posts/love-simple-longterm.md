@@ -1,7 +1,7 @@
 ---
 title: "喜欢，简单，长期"
 date: 2025-01-26T14:43:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Life"]
 draft: false
 slug: "love-simple-longterm"
 ---

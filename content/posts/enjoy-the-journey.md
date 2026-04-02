@@ -1,7 +1,7 @@
 ---
 title: "享受旅程"
 date: 2026-01-06T15:28:46+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Work"]
 draft: false
 slug: "enjoy-the-journey"
 ---

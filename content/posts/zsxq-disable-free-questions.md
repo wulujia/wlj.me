@@ -1,7 +1,7 @@
 ---
 title: "知识星球里如何设置禁止免费提问"
 date: 2024-12-21T21:38:59+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-disable-free-questions"
 ---

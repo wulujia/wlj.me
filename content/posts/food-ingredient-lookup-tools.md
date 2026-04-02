@@ -1,7 +1,7 @@
 ---
 title: "食品成分查询工具推荐"
 date: 2025-07-21T22:21:39+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "food-ingredient-lookup-tools"
 ---

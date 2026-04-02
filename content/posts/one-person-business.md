@@ -1,7 +1,7 @@
 ---
 title: "一人企业"
 date: 2022-02-12T23:47:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "one-person-business"
 ---

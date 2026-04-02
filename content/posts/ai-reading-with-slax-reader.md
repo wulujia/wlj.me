@@ -1,7 +1,7 @@
 ---
 title: "与 AI 共读：Slax Reader 带来的全新阅读体验"
 date: 2024-10-22T19:53:52+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "AI"]
 draft: false
 slug: "ai-reading-with-slax-reader"
 ---

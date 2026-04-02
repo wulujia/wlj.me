@@ -1,7 +1,7 @@
 ---
 title: "真爱梦想"
 date: 2024-05-03T21:14:00+08:00
-tags: ["Misc"]
+tags: ["Idea"]
 draft: false
 slug: "zhenai-dream-foundation"
 ---

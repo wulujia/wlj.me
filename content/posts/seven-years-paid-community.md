@@ -1,7 +1,7 @@
 ---
 title: "七年知识星球经验，剖析付费社群本质"
 date: 2021-06-23T07:32:29+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "Startup"]
 draft: false
 slug: "seven-years-paid-community"
 ---

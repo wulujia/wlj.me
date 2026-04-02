@@ -1,7 +1,7 @@
 ---
 title: "从零开始学投资"
 date: 2021-10-01T16:40:35+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment"]
 draft: false
 slug: "learn-investing-from-scratch"
 ---

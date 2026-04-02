@@ -1,7 +1,7 @@
 ---
 title: "如何培养孩子专注力？"
 date: 2024-11-20T14:28:02+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "building-kids-focus"
 ---

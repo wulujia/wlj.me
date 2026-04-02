@@ -1,7 +1,7 @@
 ---
 title: "Slax Note 的不一样"
 date: 2025-04-07T10:25:04+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "slax-note-difference"
 ---

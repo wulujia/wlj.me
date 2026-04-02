@@ -1,7 +1,7 @@
 ---
 title: "简单清晰地写"
 date: 2024-08-10T13:11:03+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Writing", "Startup"]
 draft: false
 slug: "write-simply-clearly"
 ---

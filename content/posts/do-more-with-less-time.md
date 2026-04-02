@@ -1,7 +1,7 @@
 ---
 title: "花更少时间，做成更多事"
 date: 2025-08-24T21:31:22+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "do-more-with-less-time"
 ---

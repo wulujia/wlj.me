@@ -1,7 +1,7 @@
 ---
 title: "威胁情报的入门小书"
 date: 2021-10-08T12:28:57+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security", "Tools"]
 draft: false
 slug: "threat-intelligence-primer"
 ---

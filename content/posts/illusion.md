@@ -1,7 +1,7 @@
 ---
 title: "幻觉"
 date: 2026-01-30T11:55:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Tools"]
 draft: false
 slug: "illusion"
 ---

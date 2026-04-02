@@ -1,7 +1,7 @@
 ---
 title: "很会提供情绪价值的习惯养成 App 是什么样的"
 date: 2025-03-18T20:08:24+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Tools"]
 draft: false
 slug: "emotional-habit-app"
 ---

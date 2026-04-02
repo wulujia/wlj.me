@@ -1,7 +1,7 @@
 ---
 title: "热爱并长期投入，出作品"
 date: 2021-08-22T23:17:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Writing", "Marketing"]
 draft: false
 slug: "love-commit-create"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "如果你光想，不写，那你只是“以为自己想了”"
 date: 2024-10-30T09:03:46+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Writing", "AI"]
 draft: false
 slug: "write-dont-just-think"
 ---

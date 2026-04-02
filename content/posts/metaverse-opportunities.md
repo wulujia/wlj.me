@@ -1,7 +1,7 @@
 ---
 title: "元宇宙对普通人有什么机会？"
 date: 2021-11-09T22:31:23+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment"]
 draft: false
 slug: "metaverse-opportunities"
 ---

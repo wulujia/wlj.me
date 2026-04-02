@@ -1,7 +1,7 @@
 ---
 title: "花 1 分钟帮知识星球变得更好"
 date: 2024-02-23T22:09:50+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "one-minute-for-zsxq"
 ---

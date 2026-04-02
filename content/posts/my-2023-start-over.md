@@ -1,7 +1,7 @@
 ---
 title: "我的 2023：从头再来"
 date: 2023-12-31T14:36:36+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "my-2023-start-over"
 ---

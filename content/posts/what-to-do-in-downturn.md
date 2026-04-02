@@ -1,7 +1,7 @@
 ---
 title: "行业不景气，订单变少，该怎么办？"
 date: 2024-12-21T21:11:32+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Marketing"]
 draft: false
 slug: "what-to-do-in-downturn"
 ---

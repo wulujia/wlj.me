@@ -1,7 +1,7 @@
 ---
 title: "腾讯会议的 arch 版本"
 date: 2024-07-05T10:00:00+08:00
-tags: ["Linux", "Arch Linux"]
+tags: ["Tech"]
 draft: false
 slug: "tencent-meeting-on-arch"
 ---

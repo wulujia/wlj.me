@@ -1,7 +1,7 @@
 ---
 title: "空白的意义"
 date: 2022-04-23T23:17:28+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Tools"]
 draft: false
 slug: "meaning-of-blank-space"
 ---

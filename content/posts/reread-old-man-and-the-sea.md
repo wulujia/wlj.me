@@ -1,7 +1,7 @@
 ---
 title: "推荐重读《老人与海》，薄，解压"
 date: 2022-04-03T23:04:02+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "reread-old-man-and-the-sea"
 ---

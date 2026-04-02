@@ -1,7 +1,7 @@
 ---
 title: "我的注意力管理——离手机远点"
 date: 2025-12-06T12:58:42+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "attention-management-away-from-phone"
 ---

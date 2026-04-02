@@ -1,7 +1,7 @@
 ---
 title: "一份内容基于不同提示词做分发（一鱼多吃）的小工具"
 date: 2025-08-30T23:41:12+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "AI"]
 draft: false
 slug: "content-repurposing-tool"
 ---

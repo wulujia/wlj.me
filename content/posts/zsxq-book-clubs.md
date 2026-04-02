@@ -1,7 +1,7 @@
 ---
 title: "知识星球里的读书社群"
 date: 2025-04-15T20:00:54+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Community"]
 draft: false
 slug: "zsxq-book-clubs"
 ---

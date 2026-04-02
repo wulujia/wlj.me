@@ -1,7 +1,7 @@
 ---
 title: "一边敲敲，一边公益"
 date: 2026-02-11T08:17:33+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "easyhabit-charity"
 ---

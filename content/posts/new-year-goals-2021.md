@@ -1,7 +1,7 @@
 ---
 title: "新年伊始，立个 Flag（2021 版）"
 date: 2021-01-01T22:49:24+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Community"]
 draft: false
 slug: "new-year-goals-2021"
 ---

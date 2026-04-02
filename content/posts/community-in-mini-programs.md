@@ -1,7 +1,7 @@
 ---
 title: "小程序里的社群"
 date: 2021-12-05T23:23:58+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "Marketing"]
 draft: false
 slug: "community-in-mini-programs"
 ---

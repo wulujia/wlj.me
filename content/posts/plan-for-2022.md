@@ -1,7 +1,7 @@
 ---
 title: "对 2022 的初步计划"
 date: 2022-01-03T21:40:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Investment"]
 draft: false
 slug: "plan-for-2022"
 ---

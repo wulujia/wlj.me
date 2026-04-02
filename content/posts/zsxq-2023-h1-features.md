@@ -1,7 +1,7 @@
 ---
 title: "知识星球 2023 年上半年新功能"
 date: 2023-08-20T22:27:06+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-2023-h1-features"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "旅行到不安全地区时的电子数据保护"
 date: 2023-10-08T20:46:22+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security"]
 draft: false
 slug: "data-protection-when-traveling"
 ---

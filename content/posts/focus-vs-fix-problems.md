@@ -1,7 +1,7 @@
 ---
 title: "一年做好一两件事 VS 有问题必须解决"
 date: 2023-03-19T23:39:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Work"]
 draft: false
 slug: "focus-vs-fix-problems"
 ---

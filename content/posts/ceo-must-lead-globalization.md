@@ -1,7 +1,7 @@
 ---
 title: "全球化得一把手先上"
 date: 2025-10-09T23:11:26+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "ceo-must-lead-globalization"
 ---

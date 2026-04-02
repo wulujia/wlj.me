@@ -1,7 +1,7 @@
 ---
 title: "用躺平心态，我居然养成了5个新习惯"
 date: 2025-03-25T01:10:23+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "five-habits-with-lazy-mindset"
 ---

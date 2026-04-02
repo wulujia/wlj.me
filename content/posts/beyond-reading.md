@@ -1,7 +1,7 @@
 ---
 title: "不仅阅读"
 date: 2024-09-20T09:04:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Tools"]
 draft: false
 slug: "beyond-reading"
 ---

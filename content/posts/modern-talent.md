@@ -1,7 +1,7 @@
 ---
 title: "当代优秀人才"
 date: 2022-10-09T21:42:23+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tech", "Life"]
 draft: false
 slug: "modern-talent"
 ---

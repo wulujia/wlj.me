@@ -1,7 +1,7 @@
 ---
 title: "黄蓉大战程咬金"
 date: 2021-06-19T23:09:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community"]
 draft: false
 slug: "huang-rong-vs-cheng-yaojin"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "来组队运动打卡"
 date: 2025-01-10T09:18:29+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "team-exercise-checkin"
 ---

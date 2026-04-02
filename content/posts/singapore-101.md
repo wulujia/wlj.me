@@ -1,7 +1,7 @@
 ---
 title: "新加坡 101"
 date: 2025-10-05T23:46:11+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "AI"]
 draft: false
 slug: "singapore-101"
 ---

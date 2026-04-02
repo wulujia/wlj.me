@@ -1,7 +1,7 @@
 ---
 title: "创业不是赌博--刷屏的卖四套房欠一亿有感"
 date: 2022-03-18T17:48:49+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "startup-is-not-gambling"
 ---

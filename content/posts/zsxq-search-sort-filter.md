@@ -1,7 +1,7 @@
 ---
 title: "搜索结果支持排序和筛选 | 知识星球产品"
 date: 2024-11-26T11:45:30+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-search-sort-filter"
 ---

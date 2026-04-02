@@ -1,7 +1,7 @@
 ---
 title: "接受事实"
 date: 2022-04-11T08:58:18+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "accept-reality"
 ---

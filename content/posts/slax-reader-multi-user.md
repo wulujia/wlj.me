@@ -1,7 +1,7 @@
 ---
 title: "从AI聊天到多用户互动：Slax Reader 新功能抢先看"
 date: 2024-11-04T23:13:02+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "slax-reader-multi-user"
 ---

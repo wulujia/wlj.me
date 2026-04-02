@@ -1,7 +1,7 @@
 ---
 title: "如果可以给 25 岁时的自己一句忠告"
 date: 2021-11-04T17:42:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment", "Life"]
 draft: false
 slug: "advice-to-25-year-old-self"
 ---

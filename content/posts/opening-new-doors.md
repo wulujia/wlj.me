@@ -1,7 +1,7 @@
 ---
 title: "打开一扇新的大门"
 date: 2022-01-24T08:47:16+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Writing"]
 draft: false
 slug: "opening-new-doors"
 ---

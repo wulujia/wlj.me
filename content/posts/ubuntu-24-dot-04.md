@@ -1,7 +1,7 @@
 ---
 title: "Ubuntu 24.04"
 date: 2024-05-01T10:00:00+08:00
-tags: ["Linux", "Ubuntu"]
+tags: ["Tech"]
 draft: false
 slug: "ubuntu-24-dot-04"
 ---

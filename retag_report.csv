@@ -1,0 +1,497 @@
+filename,title,old_tags,new_tags,change_type,top_scores
+1password.md,1Password,Product,Product,unchanged,
+2021-01-reading.md,2021 年 1 月阅读,Reading,Reading,unchanged,
+2021-02-reading.md,2021 年 2 月阅读,Reading,Reading,unchanged,
+2021-03-reading.md,2021 年 3 月阅读,Reading,Reading,unchanged,
+2021-04-reading.md,2021 年 4 月阅读,Reading,Reading,unchanged,
+2021-05-reading.md,2021 年 5 月阅读,Reading,Reading,unchanged,
+2021-06-reading.md,2021 年 6 月阅读,Reading,Reading,unchanged,
+2021-07-reading.md,2021 年 7 月阅读,Reading,Reading,unchanged,
+2021-08-reading.md,2021 年 8 月阅读,Reading,Reading,unchanged,
+2021-09-reading.md,2021 年 9 月阅读,Reading,Reading,unchanged,
+2021-10-reading.md,2021 年 10 月阅读,Reading,Reading,unchanged,
+2021-11-reading.md,2021 年 11 月阅读,Reading,Reading,unchanged,
+2021-12-reading.md,2021 年 12 月阅读,Reading,Reading,unchanged,
+2021-book-recommendations.md,2021 好书推荐,WeChat,WeChat|Reading,scored,"Reading=10, Investment=3, Security=1"
+2022-01-reading.md,2022 年 1 月阅读,Reading,Reading,unchanged,
+2022-02-reading.md,2022 年 2 月阅读,Reading,Reading,unchanged,
+2022-03-reading.md,2022 年 3 月阅读,Reading,Reading,unchanged,
+2022-04-reading.md,2022 年 4 月阅读,Reading,Reading,unchanged,
+2022-05-reading.md,2022 年 5 月阅读,Reading,Reading,unchanged,
+2022-06-reading.md,2022 年 6 月阅读,Reading,Reading,unchanged,
+2022-07-reading.md,2022 年 7 月阅读,Reading,Reading,unchanged,
+2022-08-reading.md,2022 年 8 月阅读,Reading,Reading,unchanged,
+2022-09-reading.md,2022 年 9 月阅读,Reading,Reading,unchanged,
+2022-10-reading.md,2022 年 10 月阅读,Reading,Reading,unchanged,
+2022-11-reading.md,2022 年 11 月阅读,Reading,Reading,unchanged,
+2022-12-reading.md,2022 年 12 月阅读,Reading,Reading,unchanged,
+2022-in-review.md,回顾 2022：天地本宽，岁月本长,WeChat,WeChat|Reading|Investment,scored,"Reading=5, Investment=4, Tools=3"
+2023-01-reading.md,2023 年 1 月阅读,Reading,Reading,unchanged,
+2023-02-reading.md,2023 年 2 月阅读,Reading,Reading,unchanged,
+2023-03-reading.md,2023 年 3 月阅读,Reading,Reading,unchanged,
+2023-04-reading.md,2023 年 4 月阅读,Reading,Reading,unchanged,
+2023-05-reading.md,2023 年 5 月阅读,Reading,Reading,unchanged,
+2023-06-reading.md,2023 年 6 月阅读,Reading,Reading,unchanged,
+2023-07-reading.md,2023 年 7 月阅读,Reading,Reading,unchanged,
+2023-08-reading.md,2023 年 8 月阅读,Reading,Reading,unchanged,
+2023-09-reading.md,2023 年 9 月阅读,Reading,Reading,unchanged,
+2023-10-reading.md,2023 年 10 月阅读,Reading,Reading,unchanged,
+2023-11-reading.md,2023 年 11 月阅读,Reading,Reading,unchanged,
+2023-12-reading.md,2023 年 12 月阅读,Reading,Reading,unchanged,
+2024-01-reading.md,2024 年 1 月阅读,Reading,Reading,unchanged,
+2024-02-reading.md,2024 年 2 月阅读,Reading,Reading,unchanged,
+2024-03-reading.md,2024 年 3 月阅读,Reading,Reading,unchanged,
+2024-04-reading.md,2024 年 4 月阅读,Reading,Reading,unchanged,
+2024-05-reading.md,2024 年 5 月阅读,Reading,Reading,unchanged,
+2024-06-reading.md,2024 年 6 月阅读,Reading,Reading,unchanged,
+2024-07-reading.md,2024 年 7 月阅读,Reading,Reading,unchanged,
+2024-08-reading.md,2024 年 8 月阅读,Reading,Reading,unchanged,
+2024-09-reading.md,2024 年 9 月阅读,Reading,Reading,unchanged,
+2024-10-reading.md,2024 年 10 月阅读,Reading,Reading,unchanged,
+2024-11-reading.md,2024 年 11 月阅读,Reading,Reading,unchanged,
+2024-12-reading.md,2024 年 12 月阅读,Reading,Reading,unchanged,
+2024-favorite-products.md,2024 常用产品,WeChat,WeChat|Tools,scored,"Tools=10, AI=4, Product=3"
+2025-02-reading.md,2025 年 2 月阅读,Reading,Reading,unchanged,
+2025-03-reading.md,2025 年 3 月阅读,Reading,Reading,unchanged,
+2025-04-reading.md,2025 年 4 月阅读,Reading,Reading,unchanged,
+2025-05-reading.md,2025 年 5 月阅读,Reading,Reading,unchanged,
+2025-06-reading.md,2025 年 6 月阅读,Reading,Reading,unchanged,
+2025-07-reading.md,2025 年 7 月阅读,Reading,Reading,unchanged,
+2025-08-reading.md,2025 年 8 月阅读,Reading,Reading,unchanged,
+2025-09-reading.md,2025 年 9 月阅读,Reading,Reading,unchanged,
+2025-10-reading.md,2025 年 10 月阅读,Reading,Reading,unchanged,
+2025-12-reading.md,2025 年 12 月阅读,Reading,Reading,unchanged,
+2026-01-movie.md,2026 年 1 月观影,Movie,Movie,unchanged,
+2026-01-reading.md,2026 年 1 月阅读,Reading,Reading,unchanged,
+2026-02-movie.md,2026 年 2 月观影,Movie,Movie,unchanged,
+2026-02-reading.md,2026 年 2 月阅读,Reading,Reading,unchanged,
+2026-03-movie.md,2026 年 3 月观影,Movie,Movie,unchanged,
+2026-03-reading.md,2026 年 3 月阅读,Reading,Reading,unchanged,
+21-day-smile-challenge.md,21 天微笑挑战,WeChat,WeChat|Life,scored,"Life=12, Tools=5, Writing=4"
+48-days-left-in-2023.md,距离 2023 年结束还剩 48 天,WeChat,WeChat|Startup|Product,scored,"Startup=1, Product=1, Tools=1"
+a-20-year-old-small-company.md,20 岁的小公司,WeChat,WeChat|Startup,scored,"Startup=7, Product=1, Investment=1"
+abandon-goals-explore-novelty.md,放弃目标，选择探索新奇性,Misc,Idea,mapped,
+about-backdoors.md,说说后门,Security,Security,unchanged,
+accept-reality.md,接受事实,WeChat,WeChat|Startup|Reading,scored,"Startup=1, Reading=1, Marketing=1"
+admitting-failure.md,承认自己的失败,WeChat,WeChat|Startup|Product,scored,"Startup=4, Product=4, Reading=3"
+advice-for-kids.md,想给孩子的建议,WeChat,WeChat|Life,scored,"Life=7, AI=1, Reading=1"
+advice-to-25-year-old-self.md,如果可以给 25 岁时的自己一句忠告,WeChat,WeChat|Investment|Life,scored,"Investment=4, Life=3, Startup=1"
+agile-product-building.md,一种更敏捷的规划、打造、发布产品的方法,WeChat,WeChat|Product,scored,Product=3
+ai-assistant-in-group-chat.md,把 AI 助理拉进群聊，然后它差点嫁给别人,WeChat,WeChat|AI|Security,scored,"AI=5, Security=4, Tech=3"
+ai-floor-is-our-ceiling.md,AI 的下限，就是你我的上限,WeChat,WeChat|AI,scored,"AI=9, Tools=1"
+ai-reading-with-slax-reader.md,与 AI 共读：Slax Reader 带来的全新阅读体验,WeChat,WeChat|Tools|AI,scored,"Tools=11, AI=10, Reading=6"
+ai-reads-fast-pen-carves-deep.md,用 AI 看多看快，用纸笔刻深,WeChat,WeChat|AI,scored,"AI=8, Marketing=1, Tools=1"
+ai-threat-to-zsxq.md,AI 让我担心，知识星球是不是会遇到危机,WeChat,WeChat|AI|Startup,scored,"AI=10, Startup=9, Writing=4"
+ai-traps.md,AI 陷阱,WeChat,WeChat|AI,scored,"AI=8, Startup=2, Tools=1"
+ai-tripitaka.md,AI 大藏经,Product,Product,unchanged,
+ai-using-tools-manus.md,当 AI 开始使用工具 - Manus 随感,WeChat,WeChat|AI,scored,"AI=15, Tools=4, Product=2"
+alone-fast-together-far.md,一个人走得快，一群人走得远,WeChat,WeChat|Life,scored,"Life=7, Startup=3, Tools=1"
+android-is-not-bad.md,谁说安卓不如狗,WeChat,WeChat|Tools|Startup,scored,"Tools=2, Startup=1"
+app-store-missing-screenshots.md,App Store 新应用可能在搜索结果里缺展示图片,Marketing,Marketing,unchanged,
+apple-1977-marketing.md,苹果1977年的营销理念：别再草率展示你的作品,WeChat,WeChat|Marketing,scored,"Marketing=6, Life=2, Investment=2"
+arch-linux-nautilus-google-drive.md,arch linux 下在 nautilus 加载 Google Drive,Linux|Arch Linux,Tech,mapped,
+arch-linux-remove-orphan-packages.md,Arch Linux 清除孤立软件包,Linux|Arch Linux,Tech,mapped,
+articles-about-writing.md,关于写作的几篇文章,Misc,Idea,mapped,
+atomic-habits-notes.md,原子习惯,WeChat,WeChat|Life,scored,"Life=11, Startup=2, Tools=2"
+attention-management-away-from-phone.md,我的注意力管理——离手机远点,WeChat,WeChat|Tools,scored,"Tools=9, Life=3, Work=3"
+attention-matters.md,注意力太重要了,WeChat,WeChat|Tools,scored,"Tools=7, Life=3, Reading=2"
+audiopen.md,AudioPen,Idea,Idea,unchanged,
+august-2025-reading.md,8 月阅读,WeChat,WeChat|Reading,scored,Reading=6
+avoid-crowded-places.md,不去人多的地方,WeChat,WeChat|AI|Investment,scored,"AI=2, Investment=2, Startup=1"
+best-books-of-2022.md,2022 年读过的好书,WeChat,WeChat|Startup|Reading,scored,"Startup=7, Reading=5, Investment=5"
+best-books-of-five-years.md,近五年看过的好书,WeChat,WeChat|Reading|Marketing,scored,"Reading=5, Marketing=5, Tools=3"
+beware-year-end-scams.md,年底了，别帮骗子冲业绩,WeChat,WeChat|Security,scored,"Security=7, Tools=2, Tech=2"
+beyond-reading.md,不仅阅读,WeChat,WeChat|Reading|Tools,scored,"Reading=8, Tools=8, AI=4"
+bezos-day-one-letters.md,读贝索斯致股东信，Day 1 秘籍保持活力,WeChat,WeChat|Investment|Tech,scored,"Investment=3, Tech=2, AI=1"
+bold-startup-move.md,他很猛，这当口创业去了,WeChat,WeChat|Startup,scored,"Startup=14, Writing=6, Reading=3"
+book-for-creators.md,推荐一本对创业者、创造者很有价值的书,WeChat,WeChat|Startup|Reading,scored,"Startup=3, Reading=3, Marketing=2"
+bosskol.md,bosskol,Product,Product,unchanged,
+bought-chatgpt-pro.md,买了 ChatGPT Pro,WeChat,WeChat|AI,scored,"AI=10, Reading=3, Tools=2"
+boxcounter-favorite-open-source.md,Boxcounter 喜欢的三个开源软件,Product,Product,unchanged,
+bring-some-change.md,来点变化,WeChat,WeChat|Security|AI,scored,"Security=4, AI=2, Life=2"
+building-habit-system.md,建立习惯系统,WeChat,WeChat|Life,scored,"Life=8, Reading=2, Writing=2"
+building-kids-focus.md,如何培养孩子专注力？,WeChat,WeChat|Life,scored,Life=3
+canteen-stories.md,食堂的故事,WeChat,WeChat|Tools,scored,Tools=1
+caoliao-qrcode-and-linktree.md,草料二维码和 Linktree,Product,Product,unchanged,
+century-photo-album.md,百年相册,Idea,Idea,unchanged,
+ceo-must-lead-globalization.md,全球化得一把手先上,WeChat,WeChat|Startup,scored,Startup=7
+chat-with-ai-broaden-thinking.md,AI聊一聊，思路更开阔,WeChat,WeChat|AI|Tools,scored,"AI=5, Tools=4, Tech=4"
+chatgpt-pro-experiment.md,提问改变一切：我与 ChatGPT Pro 的对话实验,WeChat,WeChat|AI,scored,"AI=11, Tech=3, Reading=2"
+checkin-and-donate.md,一起打卡一起捐,WeChat,WeChat|Life,scored,"Life=8, Reading=2, AI=1"
+chrome-obsidian-chinese-print-issue.md,Chrome / Obsidian 打印时不显示中文问题,mac|Chrome|Obsidian,Tools,mapped,
+cofounder-discussion-checklist.md,创业寻找联合创始人时，可以一起探讨的问题清单,WeChat,WeChat|Startup,scored,"Startup=26, Reading=1, Investment=1"
+cold-shower-wake-up.md,来洗个冷水澡清醒清醒吧,WeChat,WeChat|Life|Reading,scored,"Life=5, Reading=3, Writing=1"
+colleagues-small-photo-book.md,推荐同事的小小画册,WeChat,WeChat|Community|Startup,scored,"Community=2, Startup=1, Work=1"
+community-in-mini-programs.md,小程序里的社群,WeChat,WeChat|Community|Marketing,scored,"Community=8, Marketing=6, Startup=5"
+community-store-in-big-data-era.md,大数据时代的社区小店,WeChat,WeChat|Community|Reading,scored,"Community=3, Reading=2, Startup=1"
+community-vs-group.md,本文让你彻底搞清楚社区和社群的区别,WeChat,WeChat|Community,scored,"Community=21, Tools=2, Startup=1"
+company-turns-21.md,公司 21 岁了,WeChat,WeChat|Startup|AI,scored,"Startup=9, AI=5, Tools=2"
+content-repurposing-tool.md,一份内容基于不同提示词做分发（一鱼多吃）的小工具,WeChat,WeChat|Tools|AI,scored,"Tools=5, AI=3, Startup=1"
+continue-or-quit.md,继续还是放弃,WeChat,WeChat|Idea,scored,
+counter-questions.md,反问,WeChat,WeChat|Idea,scored,
+courage-and-serenity.md,勇气与平静,WeChat,WeChat|Idea,scored,
+creative-inc.md,创新公司,WeChat,WeChat|Startup|Reading,scored,"Startup=4, Reading=3, Movie=3"
+creators-need-trust-network.md,AI 来了，创作者最该积累的不仅是内容，还有信任网络,WeChat,WeChat|AI|Writing,scored,"AI=8, Writing=6, Startup=4"
+cybersecurity-for-everyone.md,普通人的网络安全自保,WeChat,WeChat|Security|Tools,scored,"Security=21, Tools=13"
+data-protection-when-traveling.md,旅行到不安全地区时的电子数据保护,WeChat,WeChat|Security,scored,"Security=7, Life=3, Tools=2"
+date-picker.md,Date Picker,Work,Work,unchanged,
+day-one-of-startup.md,创业的第一天,WeChat,WeChat|Startup,scored,"Startup=6, Investment=1, Tech=1"
+deadlines.md,截止日期,WeChat,WeChat|Product,scored,Product=1
+debian-install-ibus-pinyin.md,英文版 Debian 安装 ibus-libpinyin,Tips,Tech,mapped,Tech=6
+decision-cards-for-big-questions.md,重要的问题需要用决策卡作为工具,WeChat,WeChat|Tools,scored,"Tools=3, Life=1"
+decoding-perplexity.md,解密 Perplexity,WeChat,WeChat|AI|Startup,scored,"AI=8, Startup=5, Marketing=5"
+deliver-beyond-expectations.md,超预期交付,WeChat,WeChat|Tech|Tools,scored,"Tech=2, Tools=1"
+different-paths.md,道不同不相为谋,WeChat,WeChat|Startup,scored,Startup=6
+do-less-small-simple.md,做少，做小，做简单,WeChat,WeChat|Tools|Security,scored,"Tools=6, Security=3, Startup=2"
+do-more-with-less-time.md,花更少时间，做成更多事,WeChat,WeChat|Tools,scored,"Tools=5, Life=1, Tech=1"
+do-one-thing-right-slowly.md,用正确的方法慢慢做一件事,WeChat,WeChat|Life,scored,Life=5
+do-one-thing.md,只做一件事,WeChat,WeChat|Life|Tools,scored,"Life=1, Tools=1"
+do-the-hard-work.md,下笨功夫,WeChat,WeChat|Startup|Marketing,scored,"Startup=2, Marketing=1"
+do-you-believe-your-plans.md,你真的相信这些计划吗？,WeChat,WeChat|Tech|Product,scored,"Tech=2, Product=1, Life=1"
+duolingo-reignites-growth.md,Duolingo 如何重新点燃用户增长,WeChat,WeChat|Marketing,scored,Marketing=15
+duolingo-streaks.md,Duolingo 的连胜,WeChat,WeChat|Marketing|Life,scored,"Marketing=5, Life=3, Reading=2"
+easyday-1-0-1.md,小日子（EasyDay） 1.0.1,EasyDay,Startup,mapped,
+easyday-busy-but-fun.md,小日子 - 忙中有乐,Product,Product,unchanged,
+easyday-design-details.md,小日子/EasyDay 里的小心思,WeChat,WeChat|Startup,scored,"Startup=11, Life=3, AI=1"
+easyday-launch.md,小日子（EasyDay）今日上线,Product,Product,unchanged,
+easyday-redesign-subtraction.md,小日子设计改版中的减法 - 更轻盈，更聚焦,WeChat,WeChat|Startup|Product,scored,"Startup=5, Product=3, Tools=3"
+easyhabit-charity.md,一边敲敲，一边公益,WeChat,WeChat|Life,scored,Life=2
+easyhabit-team-checkin.md,敲敲成为更好的自己：快来组队打卡,WeChat,WeChat|Life|Tools,scored,"Life=6, Tools=3, Community=3"
+easysplit-bill-splitting.md,多人吃饭，精细分账的小工具 EasySplit,WeChat,WeChat|Tools|Tech,scored,"Tools=10, Tech=5, AI=1"
+effective-community-management.md,真正有效的社群运营方法,WeChat,WeChat|Community,scored,"Community=9, Startup=3"
+eight-years-startup-notes.md,八年的创业笔记,WeChat,WeChat|Startup,scored,"Startup=6, Security=1"
+eink-walking-ai-workflow.md,墨水屏、散步和 AI：我的工作流,WeChat,WeChat|Life|Tools,scored,"Life=8, Tools=8, AI=5"
+elite-team.md,精英团队,WeChat,WeChat|Startup|Tech,scored,"Startup=4, Tech=2, Work=2"
+emoji-attitude-mistake.md,关于态度表情我犯的错,WeChat,WeChat|Community,scored,Community=1
+emotional-habit-app.md,很会提供情绪价值的习惯养成 App 是什么样的,WeChat,WeChat|Life|Tools,scored,"Life=13, Tools=10"
+endeavouros-install-fcitx.md,在 Endeavour OS 安装 fcitx,Linux|Arch Linux,Tech,mapped,
+endless-climbing.md,无尽攀登,WeChat,WeChat|Movie|Startup,scored,"Movie=5, Startup=3, Writing=1"
+english-auto-complete-on-mac.md,English auto complete on Mac,Tips,Tools,mapped,Tools=3
+english-youtube-channel-idea.md,或许未来可以开一个英文 YouTube 频道,Idea,Idea,unchanged,
+enjoy-the-journey.md,享受旅程,WeChat,WeChat|Startup|Work,scored,"Startup=1, Work=1"
+exercise.md,运动,WeChat,WeChat|Life,scored,"Life=15, Tools=3, Security=2"
+face-reality.md,面对现实,WeChat,WeChat|Investment|Startup,scored,"Investment=3, Startup=2, AI=1"
+failed-wechat-detox.md,一次失败的“微信戒断实验”,WeChat,WeChat|Tools,scored,"Tools=9, Startup=3, Reading=1"
+fight-back.md,打回去,WeChat,WeChat|Startup|Security,scored,"Startup=4, Security=3, Reading=1"
+finding-product-direction.md,新产品的方向怎么找,WeChat,WeChat|Product|Tech,scored,"Product=4, Tech=4, Investment=2"
+first-thing-about-selling.md,卖货第一件事,WeChat,WeChat|Marketing,scored,"Marketing=3, Startup=1, Reading=1"
+first-things-first-todo.md,要事第一 & 我的待办规划,WeChat,WeChat|Life|Reading,scored,"Life=5, Reading=4, Marketing=2"
+five-book-recommendations.md,推荐 5 本书,WeChat,WeChat|Reading|Tools,scored,"Reading=2, Tools=2"
+five-habits-with-lazy-mindset.md,用躺平心态，我居然养成了5个新习惯,WeChat,WeChat|Life,scored,"Life=24, Reading=3, Tools=2"
+focus-vs-fix-problems.md,一年做好一两件事 VS 有问题必须解决,WeChat,WeChat|Startup|Work,scored,"Startup=1, Work=1"
+font-copyright-for-entrepreneurs.md,创业者需要了解的字体版权问题,WeChat,WeChat|Tools,scored,"Tools=9, Startup=4, Marketing=4"
+food-ingredient-lookup-tools.md,食品成分查询工具推荐,WeChat,WeChat|Tools,scored,Tools=5
+forget-experience.md,忘掉经验,WeChat,WeChat|AI,scored,AI=2
+form-saas-tools.md,几个不错的表单 SaaS,Product,Product,unchanged,
+forty-questions-yearly.md,每年四十问和每十年四十问,WeChat,WeChat|Startup|Movie,scored,"Startup=1, Movie=1"
+founders-changelog.md,创始人的 Changelog,WeChat,WeChat|Tools|Startup,scored,"Tools=9, Startup=6, AI=5"
+fragments.md,碎片,WeChat,WeChat|AI,scored,"AI=11, Startup=3, Tools=3"
+from-paid-checkin-to-charity.md,从\,WeChat,WeChat|Life,scored,"Life=5, Tech=1"
+from-poke-to-steal-fish.md,从“戳一下”到“偷鱼”,WeChat,WeChat|Life,scored,"Life=3, Product=1"
+ginmokusei-visit.md,银木犀参观记录,WeChat,WeChat|Community|Startup,scored,"Community=2, Startup=1, Writing=1"
+give-yourself-a-smile.md,给自己一个微笑,WeChat,WeChat|Startup|Life,scored,"Startup=6, Life=4, Community=1"
+go-all-in.md,全力以赴,WeChat,WeChat|Life|AI,scored,"Life=2, AI=1, Startup=1"
+go-deeper.md,向深处走,WeChat,WeChat|Tools,scored,"Tools=7, AI=1, Reading=1"
+go-smaller.md,做小一点,WeChat,WeChat|Startup,scored,"Startup=7, Investment=3, Tools=3"
+goals-for-2023.md,2023 年的目标,WeChat,WeChat|Startup|Reading,scored,"Startup=3, Reading=2, Life=2"
+goodbye-2022.md,再见 2022,WeChat,WeChat|Startup,scored,"Startup=10, Investment=1, Marketing=1"
+gpt4-vintage-speakers-guide.md,找 GPT4 请教古董音箱的基础知识,Misc,Idea,mapped,
+grit-like-chewing-glass.md,嚼玻璃渣的劲头,WeChat,WeChat|Community,scored,Community=1
+gumroad.md,Gumroad,Product,Product,unchanged,
+habit-building-tips.md,我的习惯养成心得,Habit|Self-improvement,Life,mapped,
+hacker-mindset.md,黑客思维,WeChat,WeChat|Security,scored,"Security=15, Tech=6, Startup=4"
+hacker-spirit.md,黑客精神,WeChat,WeChat|Security,scored,"Security=4, Startup=1, Product=1"
+happy-fathers-day.md,父亲节快乐,WeChat,WeChat|Life,scored,Life=3
+hard-book-club.md,硬书会,Idea,Idea,unchanged,
+hard-to-copy-netflix.md,想学网飞并不容易,WeChat,WeChat|Life|Security,scored,"Life=1, Security=1"
+hard-to-declutter.md,看似容易，我却总做不到的断舍离,WeChat,WeChat|Tools|Life,scored,"Tools=4, Life=3, Tech=1"
+have-i-been-pwned.md,have I been pwned,Product,Product,unchanged,
+have-you-verified.md,你验证过吗？,WeChat,WeChat|Tech|Tools,scored,"Tech=4, Tools=2, Security=1"
+hiring-global-product-ops.md,我们在找能全球化运营软件产品的人,WeChat,WeChat|Tools|Marketing,scored,"Tools=9, Marketing=8, Startup=4"
+hisense-a9-root-and-install-google-play.md,Hisense A9 root & install Google Play,Product,Product,unchanged,
+how-much-for-financial-freedom.md,有多少钱算财富自由,WeChat,WeChat|Investment,scored,"Investment=16, Marketing=3, Reading=2"
+how-to-face-chatgpt.md,我们应该怎么面对 ChatGPT 这些 AI 产品,WeChat,WeChat|AI,scored,"AI=18, Product=3, Tools=1"
+how-to-keep-it-simple.md,怎么做到简单,WeChat,WeChat|Tools|Reading,scored,"Tools=5, Reading=3, Startup=2"
+how-to-read-faster.md,怎样读书更快一点？,WeChat,WeChat|Reading,scored,"Reading=7, Startup=1, Marketing=1"
+how-to-simplify-products.md,怎样让产品更简单,WeChat,WeChat|Product|Tools,scored,"Product=3, Tools=2"
+how-to-talk-with-experts.md,跟厉害的人交流的好办法,WeChat,WeChat|Reading,scored,Reading=5
+how-to-understand-a-company.md,怎么看懂一家公司,Investment|Business,Investment|Startup,mapped,
+how-to-work-with-lawyers.md,丁邱洁：怎么用好律师,WeChat,WeChat|Startup|Investment,scored,"Startup=4, Investment=2, Marketing=1"
+huang-rong-vs-cheng-yaojin.md,黄蓉大战程咬金,WeChat,WeChat|Community,scored,Community=6
+human-touch-in-ai-era.md,AI 时代更要有人味,WeChat,WeChat|AI|Community,scored,"AI=8, Community=6, Startup=1"
+idealism-in-products.md,产品里的理想主义,WeChat,WeChat|Product,scored,"Product=7, Work=2, Startup=1"
+if-you-invented-chopsticks.md,如果你是世界上第一个使用筷子的人,WeChat,WeChat|Marketing|AI,scored,"Marketing=4, AI=2, Life=1"
+illusion.md,幻觉,WeChat,WeChat|AI|Tools,scored,"AI=7, Tools=4, Startup=1"
+incubator-blog-and-twitter.md,考虑再给孵化器做个 Blog 和 Twitter,Work,Work,unchanged,
+install-gemini-cli.md,npm install -g @google/gemini-cli,Tools|CLI,Tools|Tech,mapped,
+intelligence-got-cheap.md,智力便宜了，然后呢,WeChat,WeChat|AI,scored,"AI=5, Tech=2, Marketing=1"
+invest-in-service-not-traffic.md,与其花钱买流量，不如花钱做服务,WeChat,WeChat|Marketing|Startup,scored,"Marketing=8, Startup=5, Tools=3"
+ipad-pro-work-test.md,iPad Pro 办公实测,WeChat,WeChat|Tools,scored,"Tools=16, Work=3, Tech=2"
+is-zsxq-worth-joining.md,知识星球值得加入吗？与你敬重的创作者和同路人深度连接,WeChat,WeChat|Startup,scored,"Startup=13, Writing=5, Community=3"
+iterm2-usable-fonts.md,iterm2 下几个可以用的字体,Font|iterm2|Tools,Tools,mapped,
+january-reading.md,1 月阅读,Reading,Reading,unchanged,
+jobs-stanford-speech.md,乔布斯的斯坦福演讲,WeChat,WeChat|Community|Startup,scored,"Community=2, Startup=1, Tools=1"
+keep-writing.md,保持写作,WeChat,WeChat|Writing|Startup,scored,"Writing=4, Startup=2, Investment=1"
+kids-story-creation.md,孩子的故事创作,WeChat,WeChat|Life,scored,"Life=3, Tools=1"
+kindred-spirits.md,同道,WeChat,WeChat|Startup|Product,scored,"Startup=1, Product=1, Marketing=1"
+latka.md,Latka,Product,Product,unchanged,
+laziness-as-productivity.md,懒惰才是生产力,WeChat,WeChat|Startup|Marketing,scored,"Startup=3, Marketing=2, Product=1"
+learn-from-mistakes.md,从错误中学习,WeChat,WeChat|Startup|Investment,scored,"Startup=1, Investment=1"
+learn-investing-from-scratch.md,从零开始学投资,WeChat,WeChat|Investment,scored,"Investment=12, Startup=3, Reading=2"
+learning-english.md,我学英语,WeChat,WeChat|Reading,scored,"Reading=5, Life=1, Tools=1"
+learning-teachable.md,Teachable 学习,Product,Product,unchanged,
+less-process-more-efficiency.md,少一些流程，多一点效率,WeChat,WeChat|Tools,scored,"Tools=6, Startup=2, Marketing=2"
+lessons-from-photography.md,从拍照中学到的道理,WeChat,WeChat|Tools,scored,"Tools=5, Writing=2, Tech=1"
+let-a-thousand-flowers-bloom.md,让一千朵花先开,WeChat,WeChat|AI,scored,"AI=5, Investment=1"
+life-as-free-solo.md,每个人生，都是一场徒手攀岩,WeChat,WeChat|Movie|Startup,scored,"Movie=4, Startup=3, Life=3"
+lifelong-kindergarten.md,终身幼儿园,WeChat,WeChat|Writing|Tech,scored,"Writing=5, Tech=5, Tools=2"
+light-reading-zsxq-notes.md,轻读：知识星球创业笔记,WeChat,WeChat|Startup,scored,"Startup=13, Reading=1, Security=1"
+lingoace.md,LingoACE,Company,Startup,mapped,
+linkedin-for-freelancers.md,兼职者的 Linkedin,Idea,Idea,unchanged,
+linux-switch-some-key-to-make-keyboard-work-like-mac.md,Linux switch some key to make keyboard work like Mac,Tips,Tools,mapped,"Tools=3, Tech=3"
+live-within-means.md,量入为出,WeChat,WeChat|Startup|Investment,scored,"Startup=6, Investment=3, Product=1"
+lobster-assistant-for-family.md,给自己和家人装个龙虾助理,WeChat,WeChat|AI|Tech,scored,"AI=7, Tech=5, Life=3"
+love-commit-create.md,热爱并长期投入，出作品,WeChat,WeChat|Writing|Marketing,scored,"Writing=3, Marketing=2, Reading=1"
+love-simple-longterm.md,喜欢，简单，长期,WeChat,WeChat|Reading|Life,scored,"Reading=2, Life=2, Writing=2"
+mac-sshd-instant-disconnect-fix.md,Mac 下开启 sshd 登录后马上断开连接的一种可能,mac|ssh,Tools|Tech,mapped,
+macos-markdown-quicklook-plugin.md,md 文件在 MacOS 下的 Quick Look 插件,mac|Tools,Tools,mapped,
+man-in-the-middle-attack-celebrity.md,倒在中间人攻击下的吴某凡,WeChat,WeChat|Security,scored,"Security=9, Reading=1, Tech=1"
+markmap.md,Markmap,Product,Product,unchanged,
+mdp-markdown-slideshow-cli.md,用 mdp 在命令行下做 markdown 的 slide show,Tools|CLI,Tools|Tech,mapped,
+meaning-of-blank-space.md,空白的意义,WeChat,WeChat|Life|Tools,scored,"Life=3, Tools=3, Reading=2"
+meditation.md,静坐,WeChat,WeChat|Life,scored,"Life=9, AI=1, Reading=1"
+metaverse-opportunities.md,元宇宙对普通人有什么机会？,WeChat,WeChat|Investment,scored,"Investment=6, Reading=1, Tools=1"
+minority-violates-majority-bears.md,少数人违规，多数人担责,WeChat,WeChat|Startup|Writing,scored,"Startup=2, Writing=1, Work=1"
+misinformation-immunity-guide.md,简易假消息免疫指南,WeChat,WeChat|Reading,scored,Reading=4
+moat-for-small-products.md,小产品的护城河,WeChat,WeChat|Tools|Product,scored,"Tools=5, Product=4, Startup=2"
+modern-talent.md,当代优秀人才,WeChat,WeChat|Tech|Life,scored,"Tech=2, Life=1"
+moonlight-on-the-road.md,我在路上看月光,WeChat,WeChat|Life,scored,"Life=3, Tools=1"
+more-constraints-rougher-discussions.md,限制多一点，讨论糙一点,WeChat,WeChat|Reading,scored,"Reading=4, Product=1, Tech=1"
+mrbeast-success-secrets.md,译：MrBeast 的成功秘诀,WeChat,WeChat|Reading,scored,"Reading=7, Movie=2, Startup=1"
+musks-mantra.md,马斯克的咒语,WeChat,WeChat|Tools,scored,Tools=3
+my-2021.md,我的 2021,WeChat,WeChat|Life,scored,"Life=5, Startup=2, Reading=2"
+my-2023-start-over.md,我的 2023：从头再来,WeChat,WeChat|Startup,scored,"Startup=6, Reading=1, Tools=1"
+my-2024-plan.md,我的 2024 计划,WeChat,WeChat|Startup|Life,scored,"Startup=4, Life=2, AI=1"
+my-2024-reading-wechat.md,我的 2024 阅读,WeChat,WeChat|Reading,scored,"Reading=4, Startup=1, Product=1"
+my-2024-review.md,我的 2024 回顾,WeChat,WeChat|Life|Startup,scored,"Life=11, Startup=10, Product=3"
+my-2024-work.md,我 2024 年的部分工作,WeChat,WeChat|Startup|Tools,scored,"Startup=12, Tools=7, Writing=5"
+my-2025-plan.md,我的 2025 计划,WeChat,WeChat|Startup|Life,scored,"Startup=3, Life=3, Tech=2"
+my-english-learning-method.md,我现在学英语的方法,Misc,Idea,mapped,
+my-note-taking-apps.md,我常用的笔记软件,WeChat,WeChat|Tools,scored,"Tools=16, Writing=3, AI=1"
+my-pretension-and-nonconformity.md,我的矫情和不合群,WeChat,WeChat|Investment|Life,scored,"Investment=2, Life=1"
+my-reading-methods-tools.md,我的阅读方法和工具,WeChat,WeChat|Tools|Reading,scored,"Tools=11, Reading=8, AI=4"
+my-take-on-xibei.md,我也说说西贝,WeChat,WeChat|Security,scored,Security=1
+my-view-on-feishu.md,我的视角看飞书,WeChat,WeChat|Tools|Work,scored,"Tools=5, Work=5, Marketing=1"
+my-view-on-time.md,我对“时间观念”的想法,WeChat,WeChat|Idea,scored,
+my-work-software-workflow.md,我工作里使用的软件和工作流,WeChat,WeChat|Tools,scored,"Tools=10, Work=3, Tech=2"
+neovim-auto-switch-input-on-esc.md,Mac 下 neovim 里自动 esc 切换输入法,neovim|mac|Input Method,Tech|Tools,mapped,
+never-stop-asking.md,不停止提问，不止于提问,WeChat,WeChat|AI,scored,"AI=6, Marketing=1, Tools=1"
+new-products.md,新产品,WeChat,WeChat|Startup|Tech,scored,"Startup=6, Tech=6, Product=3"
+new-year-goals-2021.md,新年伊始，立个 Flag（2021 版）,WeChat,WeChat|Tools|Community,scored,"Tools=2, Community=2, Startup=1"
+nice-mono-fonts.md,好看的 mono 字体,Font|Tools,Tools,mapped,
+no-clock-in-remote-work.md,不用打卡？居家办公？,WeChat,WeChat|Life|Work,scored,"Life=8, Work=4, Startup=2"
+nonviolent-communication.md,非暴力沟通,WeChat,WeChat|Reading,scored,Reading=2
+not-for-checklists.md,不为清单,WeChat,WeChat|Investment|Security,scored,"Investment=2, Security=2, Tools=1"
+not-reading.md,不读书,WeChat,WeChat|Reading,scored,"Reading=8, Security=3, Marketing=2"
+notes-in-zsxq.md,知识星球里的“笔记”,WeChat,WeChat|Startup,scored,"Startup=11, Writing=1, Tools=1"
+november-2025-reading.md,2025 年 11 月阅读,Reading,Reading,unchanged,
+nsfocus-memories.md,绿盟往事,WeChat,WeChat|Security,scored,"Security=4, Startup=1, Life=1"
+nudge.md,助推,WeChat,WeChat|Reading|Startup,scored,"Reading=4, Startup=3, Tools=1"
+nus-emba-admission-info.md,NUS EMBA 招生信息,Misc,Idea,mapped,
+observe-strengths-express-appreciation.md,认真地观察长处，真诚地表达欣赏,WeChat,WeChat|Life|Tools,scored,"Life=7, Tools=4, Startup=2"
+occams-razor.md,如非必要，勿增实体,WeChat,WeChat|Product|Tools,scored,"Product=1, Tools=1, Community=1"
+omnivore-shutting-down.md,Omnivore 谢幕,WeChat,WeChat|Reading|Tools,scored,"Reading=4, Tools=4, AI=1"
+on-the-road.md,在路上,WeChat,WeChat|Startup|Tools,scored,"Startup=1, Tools=1"
+one-minus-one-equals-two.md,1 - 1 = 2,WeChat,WeChat|Life|Startup,scored,"Life=8, Startup=7, Tools=6"
+one-minute-for-zsxq.md,花 1 分钟帮知识星球变得更好,WeChat,WeChat|Startup,scored,Startup=8
+one-person-business.md,一人企业,WeChat,WeChat|Startup|Reading,scored,"Startup=4, Reading=3, Investment=3"
+online-booking-systems.md,在线预约系统,Product,Product,unchanged,
+open-science-framework.md,Open Science Framework,Tools|Research,Tools,mapped,
+open-source-flutter-chat.md,开源超轻量的 Flutter 聊天库,WeChat,WeChat|Tech,scored,"Tech=12, AI=3, Tools=2"
+open-source-slax-reader.md,开源发布 Slax Reader？,WeChat,WeChat|Tech|Tools,scored,"Tech=13, Tools=8, Community=3"
+opening-new-doors.md,打开一扇新的大门,WeChat,WeChat|Reading|Writing,scored,"Reading=7, Writing=6, Tools=4"
+oppo-find-n-review.md,OPPO Find N 折叠屏手机使用体验,WeChat,WeChat|Tools,scored,Tools=12
+ordinary.md,普通,WeChat,WeChat|Startup|Security,scored,"Startup=1, Security=1, Tech=1"
+outsider-learns-meetings.md,外行学开会,WeChat,WeChat|Startup|Reading,scored,"Startup=3, Reading=3, Tools=2"
+outsider-learns-okr.md,外行学 OKR,WeChat,WeChat|Work,scored,"Work=10, Community=2, Reading=1"
+outsider-learns-to-ask.md,外行学提问,WeChat,WeChat|Tech|Community,scored,"Tech=3, Community=3, Writing=2"
+paid-community-handbook.md,一本付费社群实操的小书,WeChat,WeChat|Community,scored,"Community=17, Reading=3, Writing=3"
+pair-airpods-with-debian-linux.md,pair Airpods with Debian Linux,Tips,Tech,mapped,Tech=7
+parents-stories-and-voices.md,爸爸妈妈的故事和声音,WeChat,WeChat|Tools,scored,"Tools=7, AI=1, Reading=1"
+pause.md,暂停,WeChat,WeChat|Tools,scored,"Tools=6, Writing=1, Security=1"
+personal-data-leak-national-id.md,你的个人信息可能已经泄露了，国家级身份认证能解决这个问题吗?,WeChat,WeChat|Security,scored,"Security=8, AI=3, Tools=3"
+photography-and-product.md,拍照片和做产品,WeChat,WeChat|Product|Tech,scored,"Product=3, Tech=2"
+pinned.md,置顶,WeChat,WeChat|Reading,scored,"Reading=5, AI=1, Tools=1"
+piracy-on-xianyu.md,闲鱼里的盗版,WeChat,WeChat|Startup,scored,"Startup=3, Life=1, Marketing=1"
+plan-for-2022.md,对 2022 的初步计划,WeChat,WeChat|Reading|Investment,scored,"Reading=3, Investment=2, Startup=1"
+play-games-every-day.md,你想天天玩游戏吗？,WeChat,WeChat|AI,scored,"AI=8, Tools=2, Marketing=1"
+post-spring-festival-weight.md,春节归来，怎么跟你多出来的这 5 斤肉和解？,WeChat,WeChat|Life,scored,"Life=7, Tools=2, Reading=1"
+potential-new-traffic-pool.md,长期看，这里或许有机会成为新的流量池,WeChat,WeChat|Marketing|Product,scored,"Marketing=6, Product=5, Writing=4"
+pricing-quiz-most-get-wrong.md,多数人会做错的价格题,WeChat,WeChat|Reading,scored,Reading=1
+problems-solved-with-kbhub.md,我用 KBHub 解决的问题,WeChat,WeChat|AI|Community,scored,"AI=7, Community=5, Reading=4"
+product-card-table.md,产品牌桌,WeChat,WeChat|Product|Marketing,scored,"Product=7, Marketing=6, Tools=1"
+product-defaults-reflect-values.md,产品的默认设置，就体现价值观,WeChat,WeChat|Product,scored,Product=4
+product-iteration-log.md,一个产品迭代过程实录,WeChat,WeChat|Life|Product,scored,"Life=7, Product=6, Tools=4"
+product-vision-years-ahead.md,产品几年后的样子,WeChat,WeChat|Tools|Product,scored,"Tools=6, Product=3, AI=2"
+public-wifi-security.md,蹭 Wi-Fi 会不会导致银行密码被盗,WeChat,WeChat|Security,scored,"Security=30, Marketing=4, Tools=4"
+quick-wins.md,小胜,WeChat,WeChat|Startup|Tools,scored,"Startup=2, Tools=1, Tech=1"
+quit-wechat-by-hiding.md,用“看不见”戒掉了微信,WeChat,WeChat|Tools,scored,"Tools=3, Life=1"
+random-thoughts-on-retirement.md,养老几个零散的点,Misc,Idea,mapped,
+read-a-page-donate-a-book.md,每天读一页书，就能给山区孩子送一本书,WeChat,WeChat|Life,scored,"Life=8, Tools=2"
+read-table-of-contents-after.md,读完书后看目录,WeChat,WeChat|Investment|Security,scored,"Investment=10, Security=5, Startup=3"
+read-together.md,一起读书,WeChat,WeChat|Reading,scored,"Reading=5, Marketing=1"
+reading-elon-musk-bio.md,看了马斯克的传记,WeChat,WeChat|Reading|Security,scored,"Reading=6, Security=3, Startup=1"
+recent-learning-methods.md,最近在试的学习工作方法,WeChat,WeChat|AI|Reading,scored,"AI=9, Reading=5, Tools=5"
+recent-product-tinkering.md,我近期在产品上的折腾,WeChat,WeChat|Startup|AI,scored,"Startup=6, AI=5, Product=3"
+recommend-a-warm-tool.md,推荐个有趣有温度的小工具,WeChat,WeChat|Tools|Startup,scored,"Tools=5, Startup=4, Life=3"
+recommend-free-solo.md,创业笔记 855：推荐 Free Solo,WeChat,WeChat|Startup,scored,"Startup=5, Life=1"
+recommend-pdf-bookmark-tool.md,推荐一个同事做的小工具：PDF书签易,WeChat,WeChat|Tools|Tech,scored,"Tools=11, Tech=10, Reading=2"
+reject-most-things.md,拒绝大多数,WeChat,WeChat|Reading|Life,scored,"Reading=1, Life=1"
+remote-work-problems.md,远程工作的问题,WeChat,WeChat|Work,scored,"Work=4, Startup=1, Investment=1"
+reread-old-man-and-the-sea.md,推荐重读《老人与海》，薄，解压,WeChat,WeChat|Reading,scored,Reading=1
+restaurant-trust-over-reviews.md,找餐厅这件事，一百条好评不如一个靠谱的朋友,WeChat,WeChat|Tools|Tech,scored,"Tools=2, Tech=1"
+restless-and-tinkering.md,不安分，爱折腾,WeChat,WeChat|Tools|Startup,scored,"Tools=2, Startup=1"
+running-is-addictive.md,跑步这事儿真的会上瘾,WeChat,WeChat|Life,scored,"Life=9, Security=4, Startup=1"
+safe-financing-documents-from-y-combinator.md,Safe Financing Documents from Y Combinator,Investment,Investment,unchanged,
+sales-bots.md,销售机器人,Idea,Idea,unchanged,
+sales-leads.md,销售线索,Idea|Product,Idea|Product,unchanged,
+scale-and-power.md,规模与力量,WeChat,WeChat|Startup|Marketing,scored,"Startup=4, Marketing=2, Tools=2"
+scifi-heavenly-book.md,科幻小说：天书,WeChat,WeChat|AI|Tools,scored,"AI=3, Tools=3, Life=2"
+second-level-thinking.md,第二层次思维,WeChat,WeChat|Investment,scored,"Investment=4, Reading=1, Security=1"
+security-company-bluebox.md,安全公司：Bluebox,Security,Security,unchanged,
+security-company-bromium.md,安全公司：Bromium,Security,Security,unchanged,
+security-company-ciphercloud.md,安全公司：CipherCloud,Security,Security,unchanged,
+security-company-cloudlock.md,安全公司：CloudLock,Security,Security,unchanged,
+security-company-halon.md,安全公司：Halon,Security,Security,unchanged,
+security-company-ionic-security.md,安全公司：Ionic Security,Security,Security,unchanged,
+security-company-porticor.md,安全公司：Porticor,Security,Security,unchanged,
+security-company-seculert.md,安全公司：Seculert,Security,Security,unchanged,
+security-company-shapesecurity.md,安全公司：ShapeSecurity,Security,Security,unchanged,
+see-it-to-do-it.md,看得见，才做得到,WeChat,WeChat|Life,scored,"Life=3, Startup=1, Reading=1"
+self-running-company.md,公司怎样才能自运转,WeChat,WeChat|Work|Startup,scored,"Work=6, Startup=3, Reading=2"
+self-taught-product-manager.md,野生产品经理的打怪升级,WeChat,WeChat|Product|Startup,scored,"Product=4, Startup=2"
+senior-care-products.md,了解部分乐龄产品,Product,Product,unchanged,
+seriously-quit-phone-addiction.md,开始认真地戒手机,WeChat,WeChat|Tools,scored,"Tools=13, Reading=3, Startup=1"
+seven-years-paid-community.md,七年知识星球经验，剖析付费社群本质,WeChat,WeChat|Community|Startup,scored,"Community=17, Startup=11, Writing=5"
+seventeen-years.md,十七年,WeChat,WeChat|Startup,scored,"Startup=5, Investment=1, Tools=1"
+should-humans-still-write.md,有了 AI，人还要写作吗？,WeChat,WeChat|AI|Writing,scored,"AI=9, Writing=9, Tools=2"
+signals-from-37signals.md,来自 37signals 的一些信号,WeChat,WeChat|Startup,scored,"Startup=6, Marketing=2"
+silkroad-takedown.md,莫伸手，伸手必被捉,Security,Security,unchanged,
+simple-and-long-term.md,简单与长期,WeChat,WeChat|Startup,scored,"Startup=3, Product=1, Life=1"
+simplify-habit-checkins.md,精简打卡项,WeChat,WeChat|Life,scored,"Life=14, Reading=2, Writing=2"
+singapore-101.md,新加坡 101,WeChat,WeChat|Community|AI,scored,"Community=2, AI=1, Startup=1"
+skool.md,Skool,Product,Product,unchanged,
+slax-note-custom-prompts.md,Slax Note 里我现在的自定义 Prompt,Slax Note|Prompt,Tools|AI,mapped,
+slax-note-difference.md,Slax Note 的不一样,WeChat,WeChat|Tools,scored,"Tools=3, AI=1, Writing=1"
+slax-reader-multi-user.md,从AI聊天到多用户互动：Slax Reader 新功能抢先看,WeChat,WeChat|Tools,scored,"Tools=9, AI=4, Product=3"
+slowness-of-film-and-product.md,​拍胶片的慢，和做产品的慢,WeChat,WeChat|Tools,scored,"Tools=8, Product=3, Tech=2"
+small-beautiful-hard-easy.md,小而美，难，也不难,WeChat,WeChat|Tools|Startup,scored,"Tools=4, Startup=2, Tech=1"
+small-company-security-basics.md,小公司的信息安全三板斧,Work,Work,unchanged,
+small-tools.md,小工具,WeChat,WeChat|Tools,scored,"Tools=7, Startup=2, Marketing=2"
+smart-people-dumb-methods.md,聪明人才会用的笨办法,WeChat,WeChat|Tools,scored,"Tools=3, Life=1, Writing=1"
+software-going-global.md,软件产品出海,WeChat,WeChat|Tools|Startup,scored,"Tools=10, Startup=6, Product=4"
+soul-of-a-product.md,产品的灵魂,WeChat,WeChat|Startup|Writing,scored,"Startup=7, Writing=5, Product=4"
+speak-plainly.md,说人话,WeChat,WeChat|Security,scored,"Security=12, Startup=5, Tech=5"
+spending-habits.md,随便花、买大件和别人花,WeChat,WeChat|Reading,scored,Reading=2
+starry-sky-qa.md,星空问答,WeChat,WeChat|Startup,scored,"Startup=6, Marketing=2, Reading=1"
+start-from-the-middle.md,从中间开始,WeChat,WeChat|Tools|Startup,scored,"Tools=6, Startup=4, Product=1"
+startup-is-not-gambling.md,创业不是赌博--刷屏的卖四套房欠一亿有感,WeChat,WeChat|Startup,scored,"Startup=9, Reading=2, Life=2"
+startups-must-document.md,创业一定要多记录,WeChat,WeChat|Startup,scored,Startup=6
+stay-grounded.md,本分,WeChat,WeChat|Startup,scored,"Startup=5, Product=1, Investment=1"
+stay-relaxed-and-comfortable.md,让自己松弛和舒适,WeChat,WeChat|Startup|Investment,scored,"Startup=6, Investment=4, Life=3"
+talknotes.md,TalkNotes,Product,Product,unchanged,
+taxi-adventure.md,打车奇遇记,WeChat,WeChat|Life,scored,Life=1
+team-exercise-checkin.md,来组队运动打卡,WeChat,WeChat|Life,scored,"Life=16, Community=3, Tools=2"
+temper.md,脾气,WeChat,WeChat|Security|Community,scored,"Security=1, Community=1"
+ten-rules-of-good-design.md,好设计的十条要求,WeChat,WeChat|Tools,scored,"Tools=7, AI=3, Product=3"
+tencent-meeting-on-arch.md,腾讯会议的 arch 版本,Linux|Arch Linux,Tech,mapped,
+tesla-saturnbird-product-steps.md,特斯拉和三顿半做产品的步骤,WeChat,WeChat|Marketing|Product,scored,"Marketing=7, Product=5, Life=4"
+text-todo.md,文本 todo,WeChat,WeChat|Startup|AI,scored,"Startup=2, AI=1, Writing=1"
+the-dumb-way.md,笨办法,WeChat,WeChat|Life,scored,"Life=3, Reading=1, Writing=1"
+the-most-important-thing-review.md,《投资最重要的事》读后,WeChat,WeChat|Investment,scored,"Investment=14, Reading=4, Startup=2"
+theorg.md,theorg,Product,Product,unchanged,
+thinking-small-and-beautiful.md,思考小而美,WeChat,WeChat|Marketing,scored,"Marketing=8, Startup=2, Investment=2"
+thoughts-on-learning-photography.md,我学拍照的一些想法,WeChat,WeChat|Tools|Tech,scored,"Tools=7, Tech=5, Writing=2"
+thoughts-on-reading.md,关于阅读的一点思考,WeChat,WeChat|Reading,scored,"Reading=15, Security=4, Investment=2"
+thousand-true-fans.md,怎样收获一千位铁杆用户,WeChat,WeChat|Community|Startup,scored,"Community=4, Startup=3, Writing=2"
+threat-intelligence-primer.md,威胁情报的入门小书,WeChat,WeChat|Security|Tools,scored,"Security=7, Tools=4, Marketing=3"
+three-product-books.md,推荐三本产品书,WeChat,WeChat|Product|Reading,scored,"Product=4, Reading=4, Life=1"
+time-bank.md,时间银行,Idea,Idea,unchanged,
+tokyo-trip-log.md,东京行流水账,WeChat,WeChat|Tech|Life,scored,"Tech=3, Life=2, Tools=2"
+too-much-is-not-enough.md,过犹不及,WeChat,WeChat|Product|Tools,scored,"Product=2, Tools=2, Marketing=1"
+tools-for-reading-long-articles.md,辅助阅读长文章的学习工具,WeChat,WeChat|Tools|Reading,scored,"Tools=6, Reading=5"
+tools-for-walking-inspiration.md,散步时记录灵感的小工具,WeChat,WeChat|Tools|Life,scored,"Tools=7, Life=4, AI=2"
+try-habit-tracking.md,打怪打工之余，不如也来打卡,WeChat,WeChat|Life|Startup,scored,"Life=11, Startup=9, Tools=1"
+try-starry-sky-qa.md,推荐你试试星空问答,WeChat,WeChat|Startup,scored,"Startup=5, Marketing=1, Tech=1"
+trying-readwise.md,试用 Readwise,Product,Product,unchanged,
+twelve-questions-end-of-2025.md,2025 年终 12 问,WeChat,WeChat|AI|Life,scored,"AI=6, Life=5, Startup=4"
+twelve-questions-for-2025.md,十年十二问：2025,WeChat,WeChat|Startup|Investment,scored,"Startup=4, Investment=2, AI=1"
+twenty-hundred-thousand-years.md,二十年，一百年，或者一千年,WeChat,WeChat|Tools|Tech,scored,"Tools=1, Tech=1"
+twenty-years-of-startup.md,创业 20 年,WeChat,WeChat|Startup,scored,"Startup=8, AI=2, Reading=1"
+two-sentences.md,两句话,Misc,Idea,mapped,
+two-use-cases-for-wise.md,我用 Wise 的两个场景,Product,Product,unchanged,
+ubuntu-24-dot-04.md,Ubuntu 24.04,Linux|Ubuntu,Tech,mapped,
+ubuntu-chinese-input-method.md,Ubuntu 里的中文输入法,Tips,Tech,mapped,"Tech=6, Tools=1"
+ubuntu-ibus-chrome-text-deletion-fix.md,ubuntu 下 ibus 在 chrome 里，会把选中文字删除的解决,Tips,Tech,mapped,Tech=6
+unconventional-ai-views.md,关于 AI，一些可能的“非共识”,WeChat,WeChat|AI,scored,"AI=8, Writing=3, Reading=1"
+understand-github.md,了解 GitHub,WeChat,WeChat|Tech,scored,"Tech=15, Startup=4, Marketing=4"
+understanding-gray-areas.md,通过两个案例尝试理解什么是“灰度”,WeChat,WeChat|Startup|Product,scored,"Startup=1, Product=1, Life=1"
+uninstall-glance-chamburr.md,卸载 glance-chamburr,mac|Tools,Tools,mapped,
+unsolicited-ai-learning-tips.md,好为人师地提几个 AI 学习建议,WeChat,WeChat|AI,scored,"AI=7, Tools=3"
+using-two-phones.md,我平时怎么使用两部手机,Work,Work,unchanged,
+value-of-zsxq.md,知识星球的价值,WeChat,WeChat|Startup,scored,"Startup=14, Marketing=3, Writing=1"
+values-of-37signals.md,37signals 的价值观,WeChat,WeChat|Reading|Security,scored,"Reading=2, Security=2, Tech=1"
+vimium-keyboard-browser-navigation.md,用 vimium 键盘操作浏览器,Tools,Tools,unchanged,
+virtual-try-on-ecommerce.md,适合电商场景的虚拟人试穿试用视频工具,WeChat,WeChat|Tools|AI,scored,"Tools=3, AI=2, Marketing=1"
+visible-progress.md,看得见的进步,WeChat,WeChat|Life,scored,"Life=7, Tools=2, Reading=1"
+visiting-senior-care-centers.md,拜访了几家乐龄机构,Misc,Idea,mapped,
+voice-diary.md,语音日记,Idea,Idea,unchanged,
+voice-notes.md,语音笔记,Idea,Idea,unchanged,
+voice-to-article-in-10-minutes.md,写公众号从1小时到10分钟，试试这个语音神器,WeChat,WeChat|Writing|Tools,scored,"Writing=6, Tools=6, AI=1"
+vscode-commit-chinese-encoding.md,VS Code Commit 中文名乱码,Tips,Tech,mapped,Tech=2
+vulnerability-disclosure-law.md,漏洞上报的法律、惯例和观点,WeChat,WeChat|Security,scored,"Security=14, Tech=6, Tools=3"
+websites-using-photos-notes-as-editor.md,用 Photos 和 Notes 作为编辑工具的网站,Product,Product,unchanged,
+wechat-editor-debate.md,关于微信公众号编辑器的争执,WeChat,WeChat|Startup,scored,"Startup=3, Product=1, Writing=1"
+wechat-growth-leaps.md,创业笔记 394：微信的梯云纵,WeChat,WeChat|Startup|Tools,scored,"Startup=5, Tools=5"
+wechat-moments-no-typo-fix.md,微信朋友圈不能改错别字,Product,Product,unchanged,
+wecom-on-arch-linux.md,arch 上的企业微信,Linux|Arch Linux,Tech,mapped,
+wecom-vs-feishu.md,我在企业微信与飞书间彷徨不定,WeChat,WeChat|Tools,scored,"Tools=3, Marketing=1, Work=1"
+weread-hardware-eink-review.md,微信读书新硬件体验及电子墨水设备推荐,WeChat,WeChat|Reading,scored,"Reading=13, Tools=4, Writing=2"
+what-chatgpt-will-change.md,ChatGPT/AI 会改变什么,WeChat,WeChat|AI,scored,"AI=13, Tech=3, Startup=2"
+what-to-do-in-downturn.md,行业不景气，订单变少，该怎么办？,WeChat,WeChat|Marketing,scored,"Marketing=8, AI=1, Startup=1"
+why-i-dislike-notion-now.md,为什么我不喜欢 Notion 了,WeChat,WeChat|Work|Tech,scored,"Work=3, Tech=2, AI=1"
+why-i-use-posthaven.md,我为什么用 PostHaven,Product,Product,unchanged,
+why-products-fail.md,产品为什么会失败,WeChat,WeChat|Product|Tools,scored,"Product=3, Tools=3, Startup=1"
+why-we-built-slax-reader.md,我们为什么要做 Slax Reader,WeChat,WeChat|Tools,scored,"Tools=15, AI=6, Tech=5"
+work-anywhere-gear.md,随时随地可以办公的装备,WeChat,WeChat|Tools,scored,"Tools=9, Work=3"
+work-hints.md,工作暗示,Work,Work,unchanged,
+workflow-automation-tools.md,工作流自动化工具,Product,Product,unchanged,
+write-dont-just-think.md,如果你光想，不写，那你只是“以为自己想了”,WeChat,WeChat|Writing|AI,scored,"Writing=5, AI=3, Life=2"
+write-once-use-ten-times.md,写一次，用十次：我找到了内容创作的终极解法,WeChat,WeChat|AI|Writing,scored,"AI=6, Writing=3, Tools=2"
+write-simply-clearly.md,简单清晰地写,WeChat,WeChat|Writing|Startup,scored,"Writing=4, Startup=2, Reading=2"
+writing-a-small-book.md,今年想写本小书,WeChat,WeChat|Startup|Security,scored,"Startup=7, Security=6, Tools=5"
+writing-drives-thinking.md,用写作带动思考,WeChat,WeChat|Writing,scored,"Writing=9, Marketing=2, Startup=1"
+writing-methods.md,写作的方法,Misc,Idea,mapped,
+writing-weekly-for-ten-years.md,每周两篇，手工打造，写到第十年,WeChat,WeChat|Startup|AI,scored,"Startup=5, AI=4, Reading=1"
+x-acquisition-one-year.md,X 被收购一年,Misc,Idea,mapped,
+xz-backdoor-thoughts.md,关于 xz backdoor 的观点,WeChat,WeChat|Tech|Security,scored,"Tech=12, Security=9, Tools=3"
+yc-ai-startup-ideas.md,YC 的 AI 创业创意,WeChat,WeChat|Tools|AI,scored,"Tools=9, AI=8, Startup=5"
+zhenai-dream-foundation.md,真爱梦想,Misc,Idea,mapped,
+zsxq-2023-h1-features.md,知识星球 2023 年上半年新功能,WeChat,WeChat|Startup,scored,"Startup=8, Product=3, Marketing=1"
+zsxq-2024-product-update.md,向你报告 2024 年知识星球的一些产品工作,WeChat,WeChat|Startup,scored,"Startup=10, Work=4, Community=4"
+zsxq-2024-wishlist.md,你最希望知识星球 2024 年做什么,WeChat,WeChat|Startup,scored,"Startup=7, Product=1, Writing=1"
+zsxq-auto-renewal.md,知识星球里的自动续期（连续季卡）,WeChat,WeChat|Startup,scored,"Startup=8, Marketing=2"
+zsxq-book-clubs.md,知识星球里的读书社群,WeChat,WeChat|Reading|Community,scored,"Reading=10, Community=9, Startup=8"
+zsxq-comment-to-poster.md,评论生成海报 | 知识星球产品,WeChat,WeChat|Startup,scored,"Startup=8, Product=3, Tools=1"
+zsxq-disable-free-questions.md,知识星球里如何设置禁止免费提问,WeChat,WeChat|Startup,scored,"Startup=8, Tools=1"
+zsxq-finding-pmf.md,知识星球寻找 PMF 的过程,WeChat,WeChat|Startup|Tools,scored,"Startup=8, Tools=8, Security=5"
+zsxq-friend-of-time.md,李继刚老师之前在即刻发了一条“知识星球是时间的朋友”,WeChat,WeChat|Startup,scored,"Startup=9, AI=2"
+zsxq-nine-years.md,知识星球，九年，一些事,WeChat,WeChat|Startup,scored,"Startup=12, Work=4, Marketing=2"
+zsxq-points-leaderboard.md,知识星球里的积分排行榜,WeChat,WeChat|Startup|Community,scored,"Startup=9, Community=5, Marketing=2"
+zsxq-recommend-1-sihai.md,知识星球推荐 #1：四海星球,WeChat,WeChat|Startup|Reading,scored,"Startup=8, Reading=5, Life=2"
+zsxq-recommend-2-reading-camp.md,知识星球推荐 #2：不止读书营·第二季,WeChat,WeChat|Reading,scored,"Reading=15, Startup=6, Community=3"
+zsxq-recommend-3-insurance.md,知识星球推荐 #3：关哥说险,WeChat,WeChat|Startup|Reading,scored,"Startup=6, Reading=3, Tools=1"
+zsxq-search-sort-filter.md,搜索结果支持排序和筛选 | 知识星球产品,WeChat,WeChat|Startup,scored,"Startup=7, Product=3"
+zsxq-startup-notes.md,星球创业笔记,WeChat,WeChat|Startup,scored,"Startup=12, Tools=3, Security=1"
+zsxq-ten-years.md,知识星球的 10 年,WeChat,WeChat|Startup|Tech,scored,"Startup=14, Tech=9, Community=2"
+zylvie-digital-content-sales.md,创作者销售电子内容的工具 Zylvie,Product,Product,unchanged,

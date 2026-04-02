@@ -1,7 +1,7 @@
 ---
 title: "父亲节快乐"
 date: 2024-06-16T23:21:16+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "happy-fathers-day"
 ---

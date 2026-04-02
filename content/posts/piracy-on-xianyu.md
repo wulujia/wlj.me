@@ -1,7 +1,7 @@
 ---
 title: "闲鱼里的盗版"
 date: 2021-09-02T15:25:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "piracy-on-xianyu"
 ---

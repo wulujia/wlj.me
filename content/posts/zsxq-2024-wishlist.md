@@ -1,7 +1,7 @@
 ---
 title: "你最希望知识星球 2024 年做什么"
 date: 2024-01-12T22:48:41+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-2024-wishlist"
 ---

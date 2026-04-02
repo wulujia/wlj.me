@@ -1,7 +1,7 @@
 ---
 title: "懒惰才是生产力"
 date: 2022-08-31T18:29:18+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Marketing"]
 draft: false
 slug: "laziness-as-productivity"
 ---

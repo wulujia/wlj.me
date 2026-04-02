@@ -1,7 +1,7 @@
 ---
 title: "辅助阅读长文章的学习工具"
 date: 2024-05-18T11:55:36+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Reading"]
 draft: false
 slug: "tools-for-reading-long-articles"
 ---

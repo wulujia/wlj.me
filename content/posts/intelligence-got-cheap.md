@@ -1,7 +1,7 @@
 ---
 title: "智力便宜了，然后呢"
 date: 2026-03-03T08:14:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "intelligence-got-cheap"
 ---

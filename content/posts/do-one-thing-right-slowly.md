@@ -1,7 +1,7 @@
 ---
 title: "用正确的方法慢慢做一件事"
 date: 2022-11-20T22:07:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "do-one-thing-right-slowly"
 ---

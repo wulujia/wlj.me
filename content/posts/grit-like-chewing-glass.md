@@ -1,7 +1,7 @@
 ---
 title: "嚼玻璃渣的劲头"
 date: 2022-11-13T11:23:52+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community"]
 draft: false
 slug: "grit-like-chewing-glass"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "我学英语"
 date: 2022-09-25T22:38:04+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "learning-english"
 ---

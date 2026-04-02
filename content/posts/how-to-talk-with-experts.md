@@ -1,7 +1,7 @@
 ---
 title: "跟厉害的人交流的好办法"
 date: 2021-09-19T22:03:16+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "how-to-talk-with-experts"
 ---

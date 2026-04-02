@@ -1,7 +1,7 @@
 ---
 title: "从\"付费打卡\"到\"打卡捐花\"：一个公益小实验的诞生"
 date: 2026-02-13T08:24:08+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "from-paid-checkin-to-charity"
 ---

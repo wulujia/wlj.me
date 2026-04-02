@@ -1,7 +1,7 @@
 ---
 title: "来洗个冷水澡清醒清醒吧"
 date: 2022-01-16T21:43:10+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Reading"]
 draft: false
 slug: "cold-shower-wake-up"
 ---

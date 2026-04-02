@@ -1,7 +1,7 @@
 ---
 title: "推荐你试试星空问答"
 date: 2021-11-02T08:05:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "try-starry-sky-qa"
 ---

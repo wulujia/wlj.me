@@ -1,7 +1,7 @@
 ---
 title: "​拍胶片的慢，和做产品的慢"
 date: 2023-04-09T22:25:00+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "slowness-of-film-and-product"
 ---

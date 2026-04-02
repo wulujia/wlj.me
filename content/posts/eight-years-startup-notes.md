@@ -1,7 +1,7 @@
 ---
 title: "八年的创业笔记"
 date: 2024-08-29T22:31:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "eight-years-startup-notes"
 ---

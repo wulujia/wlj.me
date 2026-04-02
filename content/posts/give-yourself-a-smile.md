@@ -1,7 +1,7 @@
 ---
 title: "给自己一个微笑"
 date: 2024-05-26T23:43:08+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Life"]
 draft: false
 slug: "give-yourself-a-smile"
 ---

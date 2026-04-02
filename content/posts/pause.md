@@ -1,7 +1,7 @@
 ---
 title: "暂停"
 date: 2024-04-03T13:36:54+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "pause"
 ---

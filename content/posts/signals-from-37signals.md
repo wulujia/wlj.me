@@ -1,7 +1,7 @@
 ---
 title: "来自 37signals 的一些信号"
 date: 2023-06-04T22:43:04+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "signals-from-37signals"
 ---

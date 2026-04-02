@@ -1,7 +1,7 @@
 ---
 title: "你想天天玩游戏吗？"
 date: 2024-12-11T22:59:40+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "play-games-every-day"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "当 AI 开始使用工具 - Manus 随感"
 date: 2025-03-07T09:17:12+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "ai-using-tools-manus"
 ---

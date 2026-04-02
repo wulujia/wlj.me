@@ -1,7 +1,7 @@
 ---
 title: "孩子的故事创作"
 date: 2025-04-27T10:49:01+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "kids-story-creation"
 ---

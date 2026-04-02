@@ -1,7 +1,7 @@
 ---
 title: "AI 时代更要有人味"
 date: 2025-10-27T16:41:44+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Community"]
 draft: false
 slug: "human-touch-in-ai-era"
 ---

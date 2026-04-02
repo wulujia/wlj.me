@@ -1,7 +1,7 @@
 ---
 title: "读完书后看目录"
 date: 2021-10-27T23:08:45+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment", "Security"]
 draft: false
 slug: "read-table-of-contents-after"
 ---

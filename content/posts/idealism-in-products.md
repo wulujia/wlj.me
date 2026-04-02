@@ -1,7 +1,7 @@
 ---
 title: "产品里的理想主义"
 date: 2023-09-17T22:36:21+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product"]
 draft: false
 slug: "idealism-in-products"
 ---

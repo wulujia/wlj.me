@@ -1,7 +1,7 @@
 ---
 title: "AI 来了，创作者最该积累的不仅是内容，还有信任网络"
 date: 2026-02-27T10:01:42+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Writing"]
 draft: false
 slug: "creators-need-trust-network"
 ---

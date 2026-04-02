@@ -1,7 +1,7 @@
 ---
 title: "外行学提问"
 date: 2022-06-28T08:30:13+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tech", "Community"]
 draft: false
 slug: "outsider-learns-to-ask"
 ---

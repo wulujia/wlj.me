@@ -1,7 +1,7 @@
 ---
 title: "AI 陷阱"
 date: 2025-03-30T16:19:28+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "ai-traps"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "与其花钱买流量，不如花钱做服务"
 date: 2021-08-15T22:39:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Marketing", "Startup"]
 draft: false
 slug: "invest-in-service-not-traffic"
 ---

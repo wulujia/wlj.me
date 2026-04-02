@@ -1,7 +1,7 @@
 ---
 title: "小日子（EasyDay） 1.0.1"
 date: 2024-01-15T10:00:00+08:00
-tags: ["EasyDay"]
+tags: ["Startup"]
 draft: false
 slug: "easyday-1-0-1"
 ---

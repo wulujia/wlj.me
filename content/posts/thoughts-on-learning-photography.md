@@ -1,7 +1,7 @@
 ---
 title: "我学拍照的一些想法"
 date: 2021-09-12T22:27:18+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Tech"]
 draft: false
 slug: "thoughts-on-learning-photography"
 ---

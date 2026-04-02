@@ -1,7 +1,7 @@
 ---
 title: "外行学开会"
 date: 2022-07-06T21:35:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "outsider-learns-meetings"
 ---

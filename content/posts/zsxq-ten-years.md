@@ -1,7 +1,7 @@
 ---
 title: "知识星球的 10 年"
 date: 2026-01-20T20:20:02+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Tech"]
 draft: false
 slug: "zsxq-ten-years"
 ---

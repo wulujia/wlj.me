@@ -1,7 +1,7 @@
 ---
 title: "让自己松弛和舒适"
 date: 2023-04-16T23:09:41+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Investment"]
 draft: false
 slug: "stay-relaxed-and-comfortable"
 ---

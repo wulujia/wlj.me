@@ -1,7 +1,7 @@
 ---
 title: "我们应该怎么面对 ChatGPT 这些 AI 产品"
 date: 2023-02-26T22:07:06+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "how-to-face-chatgpt"
 ---

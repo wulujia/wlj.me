@@ -1,7 +1,7 @@
 ---
 title: "产品的默认设置，就体现价值观"
 date: 2025-08-17T23:21:39+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product"]
 draft: false
 slug: "product-defaults-reflect-values"
 ---

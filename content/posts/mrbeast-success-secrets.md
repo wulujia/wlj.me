@@ -1,7 +1,7 @@
 ---
 title: "译：MrBeast 的成功秘诀"
 date: 2024-09-28T09:50:37+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "mrbeast-success-secrets"
 ---

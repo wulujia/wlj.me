@@ -1,7 +1,7 @@
 ---
 title: "Mac 下开启 sshd 登录后马上断开连接的一种可能"
 date: 2025-03-18T19:15:00+08:00
-tags: ["mac", "ssh"]
+tags: ["Tools", "Tech"]
 draft: false
 slug: "mac-sshd-instant-disconnect-fix"
 ---

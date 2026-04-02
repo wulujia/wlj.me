@@ -1,7 +1,7 @@
 ---
 title: "道不同不相为谋"
 date: 2022-05-01T22:58:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "different-paths"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "黑客思维"
 date: 2025-01-18T08:00:24+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security"]
 draft: false
 slug: "hacker-mindset"
 ---

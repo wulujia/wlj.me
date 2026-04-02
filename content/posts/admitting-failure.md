@@ -1,7 +1,7 @@
 ---
 title: "承认自己的失败"
 date: 2023-04-30T20:54:24+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Product"]
 draft: false
 slug: "admitting-failure"
 ---

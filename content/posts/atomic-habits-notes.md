@@ -1,7 +1,7 @@
 ---
 title: "原子习惯"
 date: 2023-10-01T20:20:19+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "atomic-habits-notes"
 ---

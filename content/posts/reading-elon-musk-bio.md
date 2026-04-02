@@ -1,7 +1,7 @@
 ---
 title: "看了马斯克的传记"
 date: 2023-10-22T22:41:31+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Security"]
 draft: false
 slug: "reading-elon-musk-bio"
 ---

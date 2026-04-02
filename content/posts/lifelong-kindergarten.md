@@ -1,7 +1,7 @@
 ---
 title: "终身幼儿园"
 date: 2024-01-01T23:11:05+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Writing", "Tech"]
 draft: false
 slug: "lifelong-kindergarten"
 ---

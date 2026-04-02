@@ -1,7 +1,7 @@
 ---
 title: "科幻小说：天书"
 date: 2026-03-01T21:24:24+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Tools"]
 draft: false
 slug: "scifi-heavenly-book"
 ---

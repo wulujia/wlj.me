@@ -1,7 +1,7 @@
 ---
 title: "蹭 Wi-Fi 会不会导致银行密码被盗"
 date: 2024-04-14T11:32:53+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security"]
 draft: false
 slug: "public-wifi-security"
 ---

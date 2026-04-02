@@ -1,7 +1,7 @@
 ---
 title: "解密 Perplexity"
 date: 2024-08-07T23:41:08+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Startup"]
 draft: false
 slug: "decoding-perplexity"
 ---

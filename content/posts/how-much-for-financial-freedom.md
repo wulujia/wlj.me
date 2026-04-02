@@ -1,7 +1,7 @@
 ---
 title: "有多少钱算财富自由"
 date: 2021-10-10T21:33:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment"]
 draft: false
 slug: "how-much-for-financial-freedom"
 ---

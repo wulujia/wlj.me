@@ -1,7 +1,7 @@
 ---
 title: "评论生成海报 | 知识星球产品"
 date: 2024-11-27T20:52:46+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-comment-to-poster"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "简易假消息免疫指南"
 date: 2022-03-10T09:51:09+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "misinformation-immunity-guide"
 ---

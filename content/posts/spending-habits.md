@@ -1,7 +1,7 @@
 ---
 title: "随便花、买大件和别人花"
 date: 2022-01-10T23:02:22+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "spending-habits"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "从中间开始"
 date: 2024-03-19T22:32:36+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Startup"]
 draft: false
 slug: "start-from-the-middle"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "怎样读书更快一点？"
 date: 2022-05-20T08:52:30+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "how-to-read-faster"
 ---

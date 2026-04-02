@@ -1,7 +1,7 @@
 ---
 title: "从错误中学习"
 date: 2022-07-31T22:46:28+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Investment"]
 draft: false
 slug: "learn-from-mistakes"
 ---

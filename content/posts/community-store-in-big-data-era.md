@@ -1,7 +1,7 @@
 ---
 title: "大数据时代的社区小店"
 date: 2021-06-11T20:48:20+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "Reading"]
 draft: false
 slug: "community-store-in-big-data-era"
 ---

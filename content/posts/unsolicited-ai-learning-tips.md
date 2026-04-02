@@ -1,7 +1,7 @@
 ---
 title: "好为人师地提几个 AI 学习建议"
 date: 2026-03-28T14:12:26+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "unsolicited-ai-learning-tips"
 ---

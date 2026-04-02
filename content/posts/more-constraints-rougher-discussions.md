@@ -1,7 +1,7 @@
 ---
 title: "限制多一点，讨论糙一点"
 date: 2022-10-30T22:56:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "more-constraints-rougher-discussions"
 ---

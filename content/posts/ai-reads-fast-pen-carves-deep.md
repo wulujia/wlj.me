@@ -1,7 +1,7 @@
 ---
 title: "用 AI 看多看快，用纸笔刻深"
 date: 2026-02-21T16:06:46+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "ai-reads-fast-pen-carves-deep"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "开始认真地戒手机"
 date: 2022-04-14T08:42:20+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "seriously-quit-phone-addiction"
 ---

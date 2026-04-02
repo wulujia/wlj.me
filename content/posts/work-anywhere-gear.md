@@ -1,7 +1,7 @@
 ---
 title: "随时随地可以办公的装备"
 date: 2023-05-21T14:57:30+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "work-anywhere-gear"
 ---

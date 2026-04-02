@@ -1,7 +1,7 @@
 ---
 title: "《投资最重要的事》读后"
 date: 2021-10-02T20:51:56+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment"]
 draft: false
 slug: "the-most-important-thing-review"
 ---

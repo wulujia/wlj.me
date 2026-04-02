@@ -1,7 +1,7 @@
 ---
 title: "拜访了几家乐龄机构"
 date: 2024-04-19T22:45:00+08:00
-tags: ["Misc"]
+tags: ["Idea"]
 draft: false
 slug: "visiting-senior-care-centers"
 ---

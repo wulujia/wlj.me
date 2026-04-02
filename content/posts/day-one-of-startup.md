@@ -1,7 +1,7 @@
 ---
 title: "创业的第一天"
 date: 2023-02-19T21:58:34+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "day-one-of-startup"
 ---

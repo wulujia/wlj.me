@@ -1,7 +1,7 @@
 ---
 title: "买了 ChatGPT Pro"
 date: 2025-02-16T22:29:15+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "bought-chatgpt-pro"
 ---

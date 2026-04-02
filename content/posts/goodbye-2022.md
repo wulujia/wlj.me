@@ -1,7 +1,7 @@
 ---
 title: "再见 2022"
 date: 2023-01-21T23:44:53+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "goodbye-2022"
 ---

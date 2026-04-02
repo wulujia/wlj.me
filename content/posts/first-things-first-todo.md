@@ -1,7 +1,7 @@
 ---
 title: "要事第一 & 我的待办规划"
 date: 2022-03-06T22:56:13+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Reading"]
 draft: false
 slug: "first-things-first-todo"
 ---

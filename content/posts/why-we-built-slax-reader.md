@@ -1,7 +1,7 @@
 ---
 title: "我们为什么要做 Slax Reader"
 date: 2026-01-02T11:49:27+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "why-we-built-slax-reader"
 ---

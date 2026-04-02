@@ -1,7 +1,7 @@
 ---
 title: "2022 年读过的好书"
 date: 2023-01-02T10:54:41+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Reading"]
 draft: false
 slug: "best-books-of-2022"
 ---

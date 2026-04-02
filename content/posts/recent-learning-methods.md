@@ -1,7 +1,7 @@
 ---
 title: "最近在试的学习工作方法"
 date: 2025-01-12T20:12:03+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Reading"]
 draft: false
 slug: "recent-learning-methods"
 ---

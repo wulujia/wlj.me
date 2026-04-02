@@ -1,7 +1,7 @@
 ---
 title: "好看的 mono 字体"
 date: 2025-03-17T15:05:00+08:00
-tags: ["Font", "Tools"]
+tags: ["Tools"]
 draft: false
 slug: "nice-mono-fonts"
 ---

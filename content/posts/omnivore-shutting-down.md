@@ -1,7 +1,7 @@
 ---
 title: "Omnivore 谢幕"
 date: 2024-11-06T22:49:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Tools"]
 draft: false
 slug: "omnivore-shutting-down"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "认真地观察长处，真诚地表达欣赏"
 date: 2024-05-25T10:22:29+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Tools"]
 draft: false
 slug: "observe-strengths-express-appreciation"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "21 天微笑挑战"
 date: 2024-12-16T16:04:03+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "21-day-smile-challenge"
 ---

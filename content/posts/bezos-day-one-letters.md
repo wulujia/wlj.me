@@ -1,7 +1,7 @@
 ---
 title: "读贝索斯致股东信，Day 1 秘籍保持活力"
 date: 2024-10-23T22:14:18+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment", "Tech"]
 draft: false
 slug: "bezos-day-one-letters"
 ---

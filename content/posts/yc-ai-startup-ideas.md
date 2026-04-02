@@ -1,7 +1,7 @@
 ---
 title: "YC 的 AI 创业创意"
 date: 2025-01-31T11:58:43+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "AI"]
 draft: false
 slug: "yc-ai-startup-ideas"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "每周两篇，手工打造，写到第十年"
 date: 2026-02-21T08:24:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "AI"]
 draft: false
 slug: "writing-weekly-for-ten-years"
 ---

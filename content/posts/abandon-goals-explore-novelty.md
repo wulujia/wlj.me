@@ -1,7 +1,7 @@
 ---
 title: "放弃目标，选择探索新奇性"
 date: 2024-12-24T12:32:00+08:00
-tags: ["Misc"]
+tags: ["Idea"]
 draft: false
 slug: "abandon-goals-explore-novelty"
 ---

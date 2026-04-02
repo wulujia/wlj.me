@@ -1,7 +1,7 @@
 ---
 title: "不用打卡？居家办公？"
 date: 2022-06-21T22:37:18+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Work"]
 draft: false
 slug: "no-clock-in-remote-work"
 ---

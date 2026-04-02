@@ -1,7 +1,7 @@
 ---
 title: "近五年看过的好书"
 date: 2025-04-18T20:01:44+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Marketing"]
 draft: false
 slug: "best-books-of-five-years"
 ---

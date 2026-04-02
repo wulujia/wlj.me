@@ -1,7 +1,7 @@
 ---
 title: "创业者需要了解的字体版权问题"
 date: 2021-05-28T18:52:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "font-copyright-for-entrepreneurs"
 ---

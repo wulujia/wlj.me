@@ -1,7 +1,7 @@
 ---
 title: "打车奇遇记"
 date: 2021-05-31T09:59:53+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "taxi-adventure"
 ---

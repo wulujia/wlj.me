@@ -1,7 +1,7 @@
 ---
 title: "提问改变一切：我与 ChatGPT Pro 的对话实验"
 date: 2025-02-19T17:06:09+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI"]
 draft: false
 slug: "chatgpt-pro-experiment"
 ---

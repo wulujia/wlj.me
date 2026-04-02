@@ -1,7 +1,7 @@
 ---
 title: "适合电商场景的虚拟人试穿试用视频工具"
 date: 2025-08-09T22:42:03+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "AI"]
 draft: false
 slug: "virtual-try-on-ecommerce"
 ---

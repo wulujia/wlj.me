@@ -1,7 +1,7 @@
 ---
 title: "苹果1977年的营销理念：别再草率展示你的作品"
 date: 2024-10-21T21:40:42+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Marketing"]
 draft: false
 slug: "apple-1977-marketing"
 ---

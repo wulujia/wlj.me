@@ -1,7 +1,7 @@
 ---
 title: "拒绝大多数"
 date: 2022-05-18T23:00:19+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading", "Life"]
 draft: false
 slug: "reject-most-things"
 ---

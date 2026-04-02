@@ -1,7 +1,7 @@
 ---
 title: "一次失败的“微信戒断实验”"
 date: 2023-09-10T22:49:11+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools"]
 draft: false
 slug: "failed-wechat-detox"
 ---

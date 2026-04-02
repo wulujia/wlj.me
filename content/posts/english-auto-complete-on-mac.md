@@ -1,7 +1,7 @@
 ---
 title: "English auto complete on Mac"
 date: 2024-09-03T17:27:00+08:00
-tags: ["Tips"]
+tags: ["Tools"]
 draft: false
 slug: "english-auto-complete-on-mac"
 ---

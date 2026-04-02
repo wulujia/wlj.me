@@ -1,7 +1,7 @@
 ---
 title: "我用 KBHub 解决的问题"
 date: 2025-10-16T09:18:45+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Community"]
 draft: false
 slug: "problems-solved-with-kbhub"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "二十年，一百年，或者一千年"
 date: 2023-01-29T23:32:08+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Tech"]
 draft: false
 slug: "twenty-hundred-thousand-years"
 ---

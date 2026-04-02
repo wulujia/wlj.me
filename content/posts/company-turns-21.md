@@ -1,7 +1,7 @@
 ---
 title: "公司 21 岁了"
 date: 2026-01-28T20:05:28+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "AI"]
 draft: false
 slug: "company-turns-21"
 ---

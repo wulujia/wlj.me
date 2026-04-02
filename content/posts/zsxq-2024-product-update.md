@@ -1,7 +1,7 @@
 ---
 title: "向你报告 2024 年知识星球的一些产品工作"
 date: 2024-12-31T22:47:00+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-2024-product-update"
 ---

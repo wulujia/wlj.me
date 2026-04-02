@@ -1,7 +1,7 @@
 ---
 title: "星空问答"
 date: 2021-10-12T18:11:55+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "starry-sky-qa"
 ---

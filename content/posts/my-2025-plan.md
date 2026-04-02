@@ -1,7 +1,7 @@
 ---
 title: "我的 2025 计划"
 date: 2025-01-01T10:39:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Life"]
 draft: false
 slug: "my-2025-plan"
 ---

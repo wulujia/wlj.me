@@ -1,7 +1,7 @@
 ---
 title: "8 月阅读"
 date: 2025-08-31T15:55:41+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "august-2025-reading"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "看得见的进步"
 date: 2024-12-05T16:42:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "visible-progress"
 ---

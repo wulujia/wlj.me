@@ -1,7 +1,7 @@
 ---
 title: "乔布斯的斯坦福演讲"
 date: 2023-01-03T20:01:38+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "Startup"]
 draft: false
 slug: "jobs-stanford-speech"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "新产品"
 date: 2025-02-07T20:20:34+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Tech"]
 draft: false
 slug: "new-products"
 ---

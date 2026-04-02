@@ -1,7 +1,7 @@
 ---
 title: "拍照片和做产品"
 date: 2024-06-29T12:54:42+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product", "Tech"]
 draft: false
 slug: "photography-and-product"
 ---

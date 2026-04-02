@@ -1,7 +1,7 @@
 ---
 title: "推荐同事的小小画册"
 date: 2025-08-08T22:17:28+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community", "Startup"]
 draft: false
 slug: "colleagues-small-photo-book"
 ---

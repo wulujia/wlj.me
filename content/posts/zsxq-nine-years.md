@@ -1,7 +1,7 @@
 ---
 title: "知识星球，九年，一些事"
 date: 2024-11-10T08:19:24+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-nine-years"
 ---

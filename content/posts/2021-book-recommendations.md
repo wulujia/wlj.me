@@ -1,7 +1,7 @@
 ---
 title: "2021 好书推荐"
 date: 2022-12-03T20:22:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "2021-book-recommendations"
 ---

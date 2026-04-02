@@ -1,7 +1,7 @@
 ---
 title: "不读书"
 date: 2022-06-15T09:53:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "not-reading"
 ---

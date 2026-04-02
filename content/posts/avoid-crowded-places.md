@@ -1,7 +1,7 @@
 ---
 title: "不去人多的地方"
 date: 2023-02-12T23:06:32+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Investment"]
 draft: false
 slug: "avoid-crowded-places"
 ---

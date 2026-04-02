@@ -1,7 +1,7 @@
 ---
 title: "一种更敏捷的规划、打造、发布产品的方法"
 date: 2025-04-22T22:26:14+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Product"]
 draft: false
 slug: "agile-product-building"
 ---

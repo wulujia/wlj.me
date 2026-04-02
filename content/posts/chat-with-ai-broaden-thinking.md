@@ -1,7 +1,7 @@
 ---
 title: "AI聊一聊，思路更开阔"
 date: 2025-09-03T23:49:10+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Tools"]
 draft: false
 slug: "chat-with-ai-broaden-thinking"
 ---

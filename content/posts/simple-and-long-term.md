@@ -1,7 +1,7 @@
 ---
 title: "简单与长期"
 date: 2022-10-02T10:43:42+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "simple-and-long-term"
 ---

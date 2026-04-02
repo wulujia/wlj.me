@@ -1,7 +1,7 @@
 ---
 title: "知识星球里的积分排行榜"
 date: 2022-01-13T22:51:47+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Community"]
 draft: false
 slug: "zsxq-points-leaderboard"
 ---

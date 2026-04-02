@@ -1,7 +1,7 @@
 ---
 title: "运动"
 date: 2022-05-15T22:52:27+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "exercise"
 ---

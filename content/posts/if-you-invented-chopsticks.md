@@ -1,7 +1,7 @@
 ---
 title: "如果你是世界上第一个使用筷子的人"
 date: 2025-06-15T13:58:07+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Marketing", "AI"]
 draft: false
 slug: "if-you-invented-chopsticks"
 ---

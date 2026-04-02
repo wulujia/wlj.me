@@ -1,7 +1,7 @@
 ---
 title: "1 - 1 = 2"
 date: 2024-11-07T23:26:16+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life", "Startup"]
 draft: false
 slug: "one-minus-one-equals-two"
 ---

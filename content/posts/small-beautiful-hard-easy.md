@@ -1,7 +1,7 @@
 ---
 title: "小而美，难，也不难"
 date: 2026-02-17T12:10:00+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Tools", "Startup"]
 draft: false
 slug: "small-beautiful-hard-easy"
 ---

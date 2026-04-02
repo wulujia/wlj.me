@@ -1,7 +1,7 @@
 ---
 title: "创业 20 年"
 date: 2025-01-03T22:54:26+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "twenty-years-of-startup"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "非暴力沟通"
 date: 2021-12-19T22:59:17+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "nonviolent-communication"
 ---

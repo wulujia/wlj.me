@@ -1,7 +1,7 @@
 ---
 title: "今年想写本小书"
 date: 2023-05-28T21:20:59+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Security"]
 draft: false
 slug: "writing-a-small-book"
 ---

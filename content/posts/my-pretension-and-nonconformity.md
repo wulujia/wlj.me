@@ -1,7 +1,7 @@
 ---
 title: "我的矫情和不合群"
 date: 2025-09-14T09:55:22+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Investment", "Life"]
 draft: false
 slug: "my-pretension-and-nonconformity"
 ---

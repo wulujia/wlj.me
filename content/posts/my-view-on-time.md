@@ -1,7 +1,7 @@
 ---
 title: "我对“时间观念”的想法"
 date: 2025-11-04T12:42:54+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Idea"]
 draft: false
 slug: "my-view-on-time"
 ---

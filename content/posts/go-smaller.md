@@ -1,7 +1,7 @@
 ---
 title: "做小一点"
 date: 2023-07-16T23:24:05+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "go-smaller"
 ---

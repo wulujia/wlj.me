@@ -1,7 +1,7 @@
 ---
 title: "真正有效的社群运营方法"
 date: 2022-04-18T18:20:15+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Community"]
 draft: false
 slug: "effective-community-management"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "本分"
 date: 2024-08-02T09:43:23+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup"]
 draft: false
 slug: "stay-grounded"
 ---

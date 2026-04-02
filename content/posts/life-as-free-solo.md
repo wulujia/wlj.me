@@ -1,7 +1,7 @@
 ---
 title: "每个人生，都是一场徒手攀岩"
 date: 2022-03-27T22:59:04+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Movie", "Startup"]
 draft: false
 slug: "life-as-free-solo"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "2025 年终 12 问"
 date: 2025-12-25T07:59:25+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "AI", "Life"]
 draft: false
 slug: "twelve-questions-end-of-2025"
 ---

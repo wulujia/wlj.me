@@ -1,7 +1,7 @@
 ---
 title: "置顶"
 date: 2025-02-05T17:10:27+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Reading"]
 draft: false
 slug: "pinned"
 ---

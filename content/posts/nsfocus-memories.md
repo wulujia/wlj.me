@@ -1,7 +1,7 @@
 ---
 title: "绿盟往事"
 date: 2022-02-27T17:42:16+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Security"]
 draft: false
 slug: "nsfocus-memories"
 ---

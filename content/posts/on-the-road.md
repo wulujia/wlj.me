@@ -1,7 +1,7 @@
 ---
 title: "在路上"
 date: 2022-09-18T12:16:42+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Startup", "Tools"]
 draft: false
 slug: "on-the-road"
 ---

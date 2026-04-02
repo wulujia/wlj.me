@@ -1,7 +1,7 @@
 ---
 title: "看得见，才做得到"
 date: 2025-06-02T23:14:53+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Life"]
 draft: false
 slug: "see-it-to-do-it"
 ---

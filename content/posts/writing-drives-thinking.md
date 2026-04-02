@@ -1,7 +1,7 @@
 ---
 title: "用写作带动思考"
 date: 2023-06-25T22:17:24+08:00
-tags: ["WeChat"]
+tags: ["WeChat", "Writing"]
 draft: false
 slug: "writing-drives-thinking"
 ---
