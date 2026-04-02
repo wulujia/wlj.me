@@ -13,3 +13,8 @@ slug: "zsxq-friend-of-time"
 他把写过的 Prompt 都沉淀到一个星球里了。
 
 知识星球后续会更快地实验知识库的能力，争取让沉淀出效果。
+
+![图1](/images/wechat/zsxq-friend-of-time-1.jpg)
+
+![图2](/images/wechat/zsxq-friend-of-time-2.jpg)
+

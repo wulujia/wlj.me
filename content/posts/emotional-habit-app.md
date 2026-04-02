@@ -30,3 +30,16 @@ slug: "emotional-habit-app"
 苹果、华为、小米、荣耀、oppo 和 vivo 都上架啦。可以直接到应用市场搜索“敲敲”或者“Easy Habit”，找到图片右上角那个小木鱼图标的 App 就是了。
 
 应该也可以通过链接：https://easyhabit.app.link/USMRBWfB8Kb 访问到应用市场里的 App 下载（不知道会不会有 Bug，试试吧）。
+
+![图1](/images/wechat/emotional-habit-app-1.jpg)
+
+![图2](/images/wechat/emotional-habit-app-2.jpg)
+
+![图3](/images/wechat/emotional-habit-app-3.jpg)
+
+![图4](/images/wechat/emotional-habit-app-4.jpg)
+
+![图5](/images/wechat/emotional-habit-app-5.jpg)
+
+![图6](/images/wechat/emotional-habit-app-6.jpg)
+

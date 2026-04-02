@@ -18,3 +18,10 @@ slug: "recommend-free-solo"
 好滴，我也可以做我的“Hang board”，争取每天进步一点点……
 
 星球创业笔记
+
+![图1](/images/wechat/recommend-free-solo-1.jpg)
+
+![图2](/images/wechat/recommend-free-solo-2.jpg)
+
+![图3](/images/wechat/recommend-free-solo-3.jpg)
+

@@ -21,3 +21,14 @@ slug: "how-to-face-chatgpt"
 2. 观察自己与周遭，工作与生活，是否还有什么不自然不愉快的问题。这些问题在有了更好的 AI 之后，有机会改善。如果有，或许就是或大或小的产品机会。
 
 3. 把玩各种层出不穷的新产品。大家都灵感迸发，往一个方向做创造时，好玩的东西很多，开心地玩就好了。
+
+![图1](/images/wechat/how-to-face-chatgpt-1.jpg)
+
+![图2](/images/wechat/how-to-face-chatgpt-2.jpg)
+
+![图3](/images/wechat/how-to-face-chatgpt-3.jpg)
+
+![图4](/images/wechat/how-to-face-chatgpt-4.jpg)
+
+![图5](/images/wechat/how-to-face-chatgpt-5.jpg)
+

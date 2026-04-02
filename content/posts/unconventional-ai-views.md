@@ -17,3 +17,12 @@ slug: "unconventional-ai-views"
 - 不要过度追逐新的 AI 产品。很多人生怕错过，生怕不懂 AI 会被时代淘汰，于是疯狂追新——很像猴子掰玉米，掰了一路，丢了一路。我的观点是，与其追新，不如盯着几个顶级产品，使用它们，融进工作流。寻找你工作中 AI 可以提供协助的环节，用得越多，效率越高。
 
 最后说一句，要放轻松。其实很多时候，很多地方，没有 AI 也没问题。AI 不能代替你在路边看到的小花，不能给你撸猫时的温暖和喵喵回应，更不能给你和家人孩子在一起时那种亲切微妙的连接感。
+
+![图1](/images/wechat/unconventional-ai-views-1.jpg)
+
+![图2](/images/wechat/unconventional-ai-views-2.jpg)
+
+![图3](/images/wechat/unconventional-ai-views-3.jpg)
+
+![图4](/images/wechat/unconventional-ai-views-4.jpg)
+

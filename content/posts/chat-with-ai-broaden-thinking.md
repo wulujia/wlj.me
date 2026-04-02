@@ -39,3 +39,18 @@ slug: "chat-with-ai-broaden-thinking"
 AI 比我们聪明。
 我们不是要善用 AI，而可能是要善于向 AI 借力——配合 AI
 最好假设 AI 还会进步，来到自己的行业，它需要什么？我们做好准备
+
+![图1](/images/wechat/chat-with-ai-broaden-thinking-1.jpg)
+
+![图2](/images/wechat/chat-with-ai-broaden-thinking-2.jpg)
+
+![图3](/images/wechat/chat-with-ai-broaden-thinking-3.jpg)
+
+![图4](/images/wechat/chat-with-ai-broaden-thinking-4.jpg)
+
+![图5](/images/wechat/chat-with-ai-broaden-thinking-5.jpg)
+
+![图6](/images/wechat/chat-with-ai-broaden-thinking-6.jpg)
+
+![图7](/images/wechat/chat-with-ai-broaden-thinking-7.jpg)
+

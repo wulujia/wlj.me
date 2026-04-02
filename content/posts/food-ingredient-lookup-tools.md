@@ -17,3 +17,12 @@ slug: "food-ingredient-lookup-tools"
 如果觉得好用，不妨内购支持。
 
 对这款产品，你有什么期待或是要求，欢迎留言，我会转达。
+
+![图1](/images/wechat/food-ingredient-lookup-tools-1.jpg)
+
+![图2](/images/wechat/food-ingredient-lookup-tools-2.jpg)
+
+![图3](/images/wechat/food-ingredient-lookup-tools-3.jpg)
+
+![图4](/images/wechat/food-ingredient-lookup-tools-4.jpg)
+

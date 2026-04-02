@@ -11,3 +11,10 @@ slug: "android-is-not-bad"
 识别最后一张图片的二维码，可以看到 apk 的下载链接。
 
 不过估计微信里装不了，我再发个链接：https://easyday.tealseed.com/zh/easy_day/download.html，感兴趣的朋友可以帮着测试一下。
+
+![图1](/images/wechat/android-is-not-bad-1.jpg)
+
+![图2](/images/wechat/android-is-not-bad-2.png)
+
+![图3](/images/wechat/android-is-not-bad-3.png)
+
