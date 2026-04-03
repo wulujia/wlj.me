@@ -1,5 +1,5 @@
 ---
-title: "prefix + A 一键开 4 pane 平铺"
+title: "从 Zellij 回到 tmux"
 date: 2026-04-03T11:29:56+08:00
 draft: false
 slug: "zellij-to-tmux"
