@@ -1,8 +1,6 @@
 {{ define "main" }}
   {{ $pages := where .Site.RegularPages "Type" "posts" }}
   {{ $groups := $pages.GroupByDate "2006" }}
-  {{ $currentYear := now.Year }}
-
   {{/* --- Activity Overview --- */}}
   {{ $maxCount := 1 }}
   {{ range $groups }}
@@ -28,8 +26,7 @@
     {{ range $groups }}
       {{ $year := int .Key }}
       {{ $count := len .Pages }}
-      {{ $recent := ge $year (sub $currentYear 2) }}
-      <details id="year-{{ .Key }}" class="year-section"{{ if $recent }} open{{ end }}>
+      <details id="year-{{ .Key }}" class="year-section" open>
         <summary>
           <span class="year-heading">{{ .Key }}</span>
           <span class="post-count">({{ $count }})</span>
