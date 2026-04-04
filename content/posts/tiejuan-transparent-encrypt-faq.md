@@ -1,6 +1,6 @@
 ---
 title: "铁卷电子文档安全系统 FAQ"
-date: T00:00:00+08:00
+date: 2010-01-01T00:00:00+08:00
 tags: ["Security", "Tech"]
 draft: false
 slug: "tiejuan-transparent-encrypt-faq"

@@ -1,6 +1,6 @@
 ---
 title: "OSMOCOMBB新手指南"
-date: T00:00:00+08:00
+date: 2012-01-01T00:00:00+08:00
 tags: ["Security", "Tech"]
 draft: false
 slug: "osmocombb-guide"

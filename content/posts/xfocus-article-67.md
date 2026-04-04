@@ -750,7 +750,7 @@ Sun provides a security bulletin service via an e-mail list to subscribe send e-
 4.2) Sun patches? 
 
 
-Sun security patches are available in two locations: [http://sunsolve1.sun.com/](http://sunsolve1.sun.com/) (for people with Sun contracts) [ftp://%20ftp.uu.net/systems/sun/sun-dist](ftp://%20ftp.uu.net/systems/sun/sun-dist) (for people without Sun contracts) Or for an http interface use [http://sunsolve.Sun.COM/pub-cgi/patchpage.pl](http://sunsolve.sun.com/pub-cgi/patchpage.pl) 
+Sun security patches are available in two locations: [http://sunsolve1.sun.com/](http://sunsolve1.sun.com/) (for people with Sun contracts) `ftp://ftp.uu.net/systems/sun/sun-dist` (for people without Sun contracts) Or for an http interface use [http://sunsolve.Sun.COM/pub-cgi/patchpage.pl](http://sunsolve.sun.com/pub-cgi/patchpage.pl) 
 
 
 4.3) Other Solaris FAQs? 
