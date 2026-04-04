@@ -17,5 +17,5 @@ slug: "august-2025-reading"
 - 20250802 看完《杰克韦尔奇自传》，挺平实的，但想学真挺难
 - 20250805 看完 Working: Researching, Interviewing, Writing，惊诧于他的“慢”，也记下了他记住的 Trun Every Page
 
-![图1](/images/wechat/august-2025-reading-1.jpg)
+![图1](/images/august-2025-reading-1.jpg)
 

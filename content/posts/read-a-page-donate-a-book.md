@@ -22,21 +22,21 @@ slug: "read-a-page-donate-a-book"
 1. 扫码加入你感兴趣的打卡小组
 2. 应用商店搜索「敲敲打卡」App，下载完成后你就在打卡小组里了。
 
-![图1](/images/wechat/read-a-page-donate-a-book-1.png)
+![图1](/images/read-a-page-donate-a-book-1.png)
 
-![图2](/images/wechat/read-a-page-donate-a-book-2.png)
+![图2](/images/read-a-page-donate-a-book-2.png)
 
-![图3](/images/wechat/read-a-page-donate-a-book-3.png)
+![图3](/images/read-a-page-donate-a-book-3.png)
 
-![图4](/images/wechat/read-a-page-donate-a-book-4.png)
+![图4](/images/read-a-page-donate-a-book-4.png)
 
-![图5](/images/wechat/read-a-page-donate-a-book-5.png)
+![图5](/images/read-a-page-donate-a-book-5.png)
 
-![图6](/images/wechat/read-a-page-donate-a-book-6.png)
+![图6](/images/read-a-page-donate-a-book-6.png)
 
-![图7](/images/wechat/read-a-page-donate-a-book-7.png)
+![图7](/images/read-a-page-donate-a-book-7.png)
 
-![图8](/images/wechat/read-a-page-donate-a-book-8.png)
+![图8](/images/read-a-page-donate-a-book-8.png)
 
-![图9](/images/wechat/read-a-page-donate-a-book-9.png)
+![图9](/images/read-a-page-donate-a-book-9.png)
 

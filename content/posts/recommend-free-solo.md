@@ -19,9 +19,9 @@ slug: "recommend-free-solo"
 
 星球创业笔记
 
-![图1](/images/wechat/recommend-free-solo-1.jpg)
+![图1](/images/recommend-free-solo-1.jpg)
 
-![图2](/images/wechat/recommend-free-solo-2.jpg)
+![图2](/images/recommend-free-solo-2.jpg)
 
-![图3](/images/wechat/recommend-free-solo-3.jpg)
+![图3](/images/recommend-free-solo-3.jpg)
 

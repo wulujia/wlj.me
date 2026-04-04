@@ -9,24 +9,24 @@ slug: "product-defaults-reflect-values"
 这里拿携程举例子。之前就有朋友在携程买票，结果“被贷款”，我作为所谓的携程 V7 黑钻用户老用户，知道在携程买票必然是步步惊心的，自以为足够小心了。结果上个月买火车票时，还是中了招。
 
 
-![图1](/images/wechat/product-defaults-reflect-values-1.png)
+![图1](/images/product-defaults-reflect-values-1.png)
 
 我一看就知道不能点第一个链接，便宜肯定是骗人（仔细看，就能看见 +36 元），所以我直接点了第二个链接——确实怪我，没看见要 +25 元。
 
 
-![图2](/images/wechat/product-defaults-reflect-values-2.png)
+![图2](/images/product-defaults-reflect-values-2.png)
 
 里是有明细的，但我确实平时不怎么细看，直接付款了。
 
 后来机缘巧合，在大概十分钟后发现中招，有些不痛快，就退票退款了，退的时候告诉我，铁路局收了一些退票费不能退，如
 
-![图3](/images/wechat/product-defaults-reflect-values-3.png)
+![图3](/images/product-defaults-reflect-values-3.png)
 
 ——我忍了。
 
 过了一会，我突然觉得不对，算了一下账，原来携程收我的所谓“优享预定”也是不退的——每张票收 25 元的优享预定，究竟是什么呢——我看了看，是
 
-![图4](/images/wechat/product-defaults-reflect-values-4.png)
+![图4](/images/product-defaults-reflect-values-4.png)
 
 ，原谅我没看出它的价值来。
 

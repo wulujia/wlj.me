@@ -12,9 +12,9 @@ slug: "android-is-not-bad"
 
 不过估计微信里装不了，我再发个链接：https://easyday.tealseed.com/zh/easy_day/download.html，感兴趣的朋友可以帮着测试一下。
 
-![图1](/images/wechat/android-is-not-bad-1.jpg)
+![图1](/images/android-is-not-bad-1.jpg)
 
-![图2](/images/wechat/android-is-not-bad-2.png)
+![图2](/images/android-is-not-bad-2.png)
 
-![图3](/images/wechat/android-is-not-bad-3.png)
+![图3](/images/android-is-not-bad-3.png)
 

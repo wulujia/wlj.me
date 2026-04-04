@@ -18,11 +18,11 @@ slug: "unconventional-ai-views"
 
 最后说一句，要放轻松。其实很多时候，很多地方，没有 AI 也没问题。AI 不能代替你在路边看到的小花，不能给你撸猫时的温暖和喵喵回应，更不能给你和家人孩子在一起时那种亲切微妙的连接感。
 
-![图1](/images/wechat/unconventional-ai-views-1.jpg)
+![图1](/images/unconventional-ai-views-1.jpg)
 
-![图2](/images/wechat/unconventional-ai-views-2.jpg)
+![图2](/images/unconventional-ai-views-2.jpg)
 
-![图3](/images/wechat/unconventional-ai-views-3.jpg)
+![图3](/images/unconventional-ai-views-3.jpg)
 
-![图4](/images/wechat/unconventional-ai-views-4.jpg)
+![图4](/images/unconventional-ai-views-4.jpg)
 

@@ -31,15 +31,15 @@ slug: "emotional-habit-app"
 
 应该也可以通过链接：https://easyhabit.app.link/USMRBWfB8Kb 访问到应用市场里的 App 下载（不知道会不会有 Bug，试试吧）。
 
-![图1](/images/wechat/emotional-habit-app-1.jpg)
+![图1](/images/emotional-habit-app-1.jpg)
 
-![图2](/images/wechat/emotional-habit-app-2.jpg)
+![图2](/images/emotional-habit-app-2.jpg)
 
-![图3](/images/wechat/emotional-habit-app-3.jpg)
+![图3](/images/emotional-habit-app-3.jpg)
 
-![图4](/images/wechat/emotional-habit-app-4.jpg)
+![图4](/images/emotional-habit-app-4.jpg)
 
-![图5](/images/wechat/emotional-habit-app-5.jpg)
+![图5](/images/emotional-habit-app-5.jpg)
 
-![图6](/images/wechat/emotional-habit-app-6.jpg)
+![图6](/images/emotional-habit-app-6.jpg)
 

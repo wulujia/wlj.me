@@ -24,13 +24,13 @@ slug: "day-one-of-startup"
 
 保持年轻，保持创业，保持 Day1，大家共勉 :)
 
-![图1](/images/wechat/day-one-of-startup-1.jpg)
+![图1](/images/day-one-of-startup-1.jpg)
 
-![图2](/images/wechat/day-one-of-startup-2.jpg)
+![图2](/images/day-one-of-startup-2.jpg)
 
-![图3](/images/wechat/day-one-of-startup-3.jpg)
+![图3](/images/day-one-of-startup-3.jpg)
 
-![图4](/images/wechat/day-one-of-startup-4.jpg)
+![图4](/images/day-one-of-startup-4.jpg)
 
-![图5](/images/wechat/day-one-of-startup-5.png)
+![图5](/images/day-one-of-startup-5.png)
 

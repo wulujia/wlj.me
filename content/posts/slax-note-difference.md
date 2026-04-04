@@ -36,6 +36,6 @@ slug: "slax-note-difference"
 
 最新版本很快上架，支持 iOS 和 Android，欢迎下载试试（长按识别下图二维码可以下载），欢迎付费 :)
 
-![Slax Note](/images/wechat/slax-note-difference-1.png)
+![Slax Note](/images/slax-note-difference-1.png)
 
-![二维码](/images/wechat/slax-note-difference-2.png)
+![二维码](/images/slax-note-difference-2.png)

@@ -14,5 +14,5 @@ slug: "zsxq-2023-h1-features"
 
 谢谢你们。我们继续认真地做好一个小产品。
 
-![图1](/images/wechat/zsxq-2023-h1-features-1.jpg)
+![图1](/images/zsxq-2023-h1-features-1.jpg)
 

@@ -22,13 +22,13 @@ slug: "how-to-face-chatgpt"
 
 3. 把玩各种层出不穷的新产品。大家都灵感迸发，往一个方向做创造时，好玩的东西很多，开心地玩就好了。
 
-![图1](/images/wechat/how-to-face-chatgpt-1.jpg)
+![图1](/images/how-to-face-chatgpt-1.jpg)
 
-![图2](/images/wechat/how-to-face-chatgpt-2.jpg)
+![图2](/images/how-to-face-chatgpt-2.jpg)
 
-![图3](/images/wechat/how-to-face-chatgpt-3.jpg)
+![图3](/images/how-to-face-chatgpt-3.jpg)
 
-![图4](/images/wechat/how-to-face-chatgpt-4.jpg)
+![图4](/images/how-to-face-chatgpt-4.jpg)
 
-![图5](/images/wechat/how-to-face-chatgpt-5.jpg)
+![图5](/images/how-to-face-chatgpt-5.jpg)
 

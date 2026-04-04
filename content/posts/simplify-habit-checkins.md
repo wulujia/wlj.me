@@ -10,7 +10,7 @@ slug: "simplify-habit-checkins"
 
 简化之后，剩下的是
 
-![图1](/images/wechat/simplify-habit-checkins-1.jpg)
+![图1](/images/simplify-habit-checkins-1.jpg)
 
 ：
 
@@ -28,7 +28,7 @@ slug: "simplify-habit-checkins"
 
 在敲敲打卡的第三个 Tab——
 
-![图2](/images/wechat/simplify-habit-checkins-2.jpg)
+![图2](/images/simplify-habit-checkins-2.jpg)
 
 是“搭子”，是个我们的小设想，规则是：
 
@@ -38,10 +38,10 @@ slug: "simplify-habit-checkins"
 不知道会不会有点意思，大伙儿可以帮忙试试。
 
 
-![图3](/images/wechat/simplify-habit-checkins-3.jpg)
+![图3](/images/simplify-habit-checkins-3.jpg)
 
 、
 
-![图4](/images/wechat/simplify-habit-checkins-4.jpg)
+![图4](/images/simplify-habit-checkins-4.jpg)
 
  是其中两个打卡——英语和夸人，如果你感兴趣，欢迎一起。毕竟一群人走得远。

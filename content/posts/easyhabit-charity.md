@@ -14,19 +14,19 @@ slug: "easyhabit-charity"
 
 捐款的钱由敲敲团队支付，祝大家新年大吉🎉
 
-![图1](/images/wechat/easyhabit-charity-1.jpg)
+![图1](/images/easyhabit-charity-1.jpg)
 
-![图2](/images/wechat/easyhabit-charity-2.jpg)
+![图2](/images/easyhabit-charity-2.jpg)
 
-![图3](/images/wechat/easyhabit-charity-3.jpg)
+![图3](/images/easyhabit-charity-3.jpg)
 
-![图4](/images/wechat/easyhabit-charity-4.jpg)
+![图4](/images/easyhabit-charity-4.jpg)
 
-![图5](/images/wechat/easyhabit-charity-5.jpg)
+![图5](/images/easyhabit-charity-5.jpg)
 
-![图6](/images/wechat/easyhabit-charity-6.jpg)
+![图6](/images/easyhabit-charity-6.jpg)
 
-![图7](/images/wechat/easyhabit-charity-7.jpg)
+![图7](/images/easyhabit-charity-7.jpg)
 
-![图8](/images/wechat/easyhabit-charity-8.jpg)
+![图8](/images/easyhabit-charity-8.jpg)
 

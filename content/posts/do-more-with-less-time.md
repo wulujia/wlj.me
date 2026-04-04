@@ -48,4 +48,4 @@ Top 3：写下当日三件要事。我目前通过一个日志文件，相当于
 
 - 静电容键盘：写字更舒服。
 
-![写东西的环境](/images/wechat/do-more-with-less-time-1.jpg)
+![写东西的环境](/images/do-more-with-less-time-1.jpg)
