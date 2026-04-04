@@ -12,4 +12,3 @@ slug: "blog-xfocus-2325"
 
 师倭国之长技，有可能的时候，还是得用来治那帮倭国鬼子。建议看看《[南京大屠杀67周年](http://news.sina.com.cn/z/njkilling67/index.shtml)》的新浪专题。
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/CEF36417-5B1F-450E-A359-894A4BBEB0F9)

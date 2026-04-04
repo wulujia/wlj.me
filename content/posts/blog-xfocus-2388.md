@@ -55,7 +55,7 @@ e7e3580d06f657a88f3113725d698f07
 
 软件作者：XPower Lab
 
-作者邮件：[secyou@gmail.com](https://web.archive.org/web/20071014204908/mailto:secyou@gmail.com)
+作者邮件：[secyou@gmail.com](mailto:secyou@gmail.com)
 
 网站名称：XPower::做最安全的客户端
 

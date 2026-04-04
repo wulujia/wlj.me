@@ -10,7 +10,6 @@ slug: "blog-xfocus-2528"
 
 X影音是国内第一款真正双核的媒体播放器，能够允许用户自由选择采用MPC外挂解码器或是MPlayer来播放多媒体文件，这两种方式各有其优点，MPlayer强在占用资源小，速度快，而MPC强在只要有合适的外挂解码器，可能会获得更好的播放效果。
 
-![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/6BA7A35C-DBBF-472C-9721-BF66345F8CA0)
 
 在选项卡中选择播放内核，就能够灵活定义哪类影片要优先用MPC打开，哪类影片优先用MPlayer打开。
 

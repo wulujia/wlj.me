@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2790"
 ---
 
-大约半年前，就听一位朋友（似乎是[blackhole](index.php?blogId=8)）说起过《[穷人的银行家](http://www.douban.com/subject/1812833/)》这本书，建议我一读。后来在[benjurry](index.php?blogId=13)家看到过，忘了顺走了……![](https://web.archive.org/web/20071014204939im_/http://wulujia.com/htmledit/editor/images/smiley/msn/sad_smile.gif)
+大约半年前，就听一位朋友（似乎是[blackhole](index.php?blogId=8)）说起过《[穷人的银行家](http://www.douban.com/subject/1812833/)》这本书，建议我一读。后来在[benjurry](index.php?blogId=13)家看到过，忘了顺走了……😢
 
 周四送老婆去上课，顺便等一位朋友时，在书城看了俩小时的书，买了几本，其中就有它。
 
@@ -17,7 +17,6 @@ slug: "blog-xfocus-2790"
 
 我们是不是也自以为是地将世界放在掌心，以鸟瞰的角度审视？
 
-![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/7C9E9E48-480C-4EF8-B2E7-30FF3EE5580C)
 
  
 

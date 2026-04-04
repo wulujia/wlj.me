@@ -11,14 +11,11 @@ slug: "blog-xfocus-803"
 
 装修的师父们，淳朴可爱。
 
-![](https://web.archive.org/web/20071014204542im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=worker.jpg)
 
 看罢新居，乘车路上，满树红花，精神为之一振。
 
-![](https://web.archive.org/web/20071014204542im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=flower1.jpg)
 
 顺便去邮局取了稿费，回家时走错了路，却错有错着，见到高大木棉，入目灿烂，本来很疲倦的小鼻涕也兴奋起来，掏出像机照下了这红花绿地。
 
-![](https://web.archive.org/web/20071014204542im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=flower2.jpg)
 
 天朗气清，心旷神怡。

@@ -8,4 +8,4 @@ slug: "blog-xfocus-507"
 
 网络安全里的铁腕啥时候出现？ ;)
 
-![](https://web.archive.org/web/20071014204517im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=metro_security.JPG)
+![](/images/blog-xfocus/metro_security.JPG)

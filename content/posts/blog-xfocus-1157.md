@@ -27,4 +27,3 @@ slug: "blog-xfocus-1157"
 
 对了，google 说，这些卫星地图的数据多是一年到两年前的，因此，费尽力气找到的家，居然这个样子的 ;)
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=googleearth_home.jpg)

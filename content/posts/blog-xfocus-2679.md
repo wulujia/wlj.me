@@ -54,7 +54,7 @@ bruce给我的邮件：
 
  
 
-> ![](https://web.archive.org/web/20071014204932im_/http://www.i170.com/Attach/17B6494E-2710-4350-A169-B664A606BEB0)
+> 
 
 大笑之下，发个BLOG，邮件便不回了罢，希望这位BRUCE先生，下回要找人合作时，一定先做好市场调研。
 

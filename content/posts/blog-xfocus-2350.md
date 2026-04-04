@@ -12,4 +12,4 @@ slug: "blog-xfocus-2350"
 
 这个道理真简单，套用进来，我现在的难题自然迎刃而解。
 
-看来，一直以为自己明白的道理，实际上不一定真懂了，也不一定能够应用到实处，回邮件去 ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+看来，一直以为自己明白的道理，实际上不一定真懂了，也不一定能够应用到实处，回邮件去 😁

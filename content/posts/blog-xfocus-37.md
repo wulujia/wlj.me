@@ -23,7 +23,6 @@ smbclient -L 192.168.100.4 -U guest
 /usr/sbin/lpadmin -d RicePrinter 
 我懒得那么麻烦，直接用CUPS的web配置界面了,访问http://localhost:631/ ;) 
 
-![](https://web.archive.org/web/20071014204445im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=CUPS.png)
 里面我的一些配置的选项是： 
 Device:Windows Printer via SAMBA 
 Device URI:smb://guest@192.168.100.4/HPLaserJ 

@@ -6,7 +6,6 @@ draft: false
 slug: "blog-xfocus-522"
 ---
 
-![](https://web.archive.org/web/20071014204517im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=ms_word_huwanjin.PNG)
 
 估计很多人不知道胡万进是谁吧？其实我也不知道，但是，如果你在word里面，输入一个"胡"，然后把字号大小设为72号，字体隶书， 再把显示比例换成 500%， 最后设置格式-〉字体-〉效果-〉选中空心。
 

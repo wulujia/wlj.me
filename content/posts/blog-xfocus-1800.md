@@ -11,7 +11,6 @@ Maxthon 开发的几个方向特点大致如下：
 
  
 
-![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/attach/B23917E4-6403-44C9-B17E-200734D4AAAC)
 
  
 

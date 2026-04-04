@@ -16,5 +16,4 @@ slug: "blog-xfocus-2590"
 
 准备有空的时候就玩一玩，感受一下苹果在用户体验方面的用心，说不定，能为铁卷和超级巡警找到些灵感。
 
-![](https://web.archive.org/web/20071014204922im_/http://www.i170.com/Attach/04AC55BF-8179-43CA-BD91-969516A66E8B)
  [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2590&blogId=1)

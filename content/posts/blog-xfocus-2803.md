@@ -16,7 +16,6 @@ slug: "blog-xfocus-2803"
 
 [separator]
 
-![](https://web.archive.org/web/20071014204943im_/http://www.i170.com/Attach/EB4CB0DC-6288-439F-A95F-5135B18DC395)
 
  
 

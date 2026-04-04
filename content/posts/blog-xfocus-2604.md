@@ -38,6 +38,5 @@ slug: "blog-xfocus-2604"
 看起来，它与微软的[Private
 Floder](http://wulujia.com/Article_31577)有点类似，主要用于防止电脑失窃的。
 
-铁卷则可以用于防止电脑及介质（U盘、光盘）失窃、病毒及黑客入侵、内部员工有意或无意的泄密、未有效擦除报废旧设备中数据等各种方式导致的电子图文档泄密。哎，广告，又是广告……![](https://web.archive.org/web/20071014204922im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+铁卷则可以用于防止电脑及介质（U盘、光盘）失窃、病毒及黑客入侵、内部员工有意或无意的泄密、未有效擦除报废旧设备中数据等各种方式导致的电子图文档泄密。哎，广告，又是广告……😛
 
-![](https://web.archive.org/web/20071014204922im_/http://www.i170.com/Attach/61846417-8D21-4954-8C18-0D7B0CFD18F2)

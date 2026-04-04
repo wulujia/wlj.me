@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2047"
 ---
 
-电子文档安全保护（防泄密）类型的产品，看来很快将在市场上得到认同了，不枉glacier带队开发[铁卷](http://www.unnoo.com/)这么长时间的辛劳  ![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+电子文档安全保护（防泄密）类型的产品，看来很快将在市场上得到认同了，不枉glacier带队开发[铁卷](http://www.unnoo.com/)这么长时间的辛劳  😁
 
 2006年8月15日，Ponemon Institute通过网上调查，发布调查报告《[U.S. Survey: Confidential Data at Risk](http://www.i170.com/attach/B6A6E823-71ED-42F7-BFD5-71DBA25F4F1F)》称：
 

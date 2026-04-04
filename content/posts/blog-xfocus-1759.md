@@ -12,7 +12,6 @@ slug: "blog-xfocus-1759"
 
 它也可以根据用户的需求以某一权限（如超级用户权限，或是完全不受信任的最低权限等）来执行程序：
 
-![](https://web.archive.org/web/20071014204648im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=runasadmin.jpg)
 
 目前美中不足的是，点击“开始->关机”时，只有“注销”而没有“关机”了，因为普通用户没有关闭系统的权限 !@#$%^
 

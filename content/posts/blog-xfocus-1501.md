@@ -8,7 +8,6 @@ slug: "blog-xfocus-1501"
 
 这趟西北之行，我就带了一本《避开创业九大陷阱》，它的英文名是A Good Hard Kick in the Ass: Basic Training for Entrepreneurs，如果直译，就是冲着创业者屁股上的狠狠一脚 ;)
 
-![](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=entrepreneurs.JPG)
 
 路上边行边看。我全职做大成天下已经超过 7 个月了，仔细想来，这中间犯过不少错误，至少作者的这几脚，踢中我了，我不得不推荐一下这本小书。
 

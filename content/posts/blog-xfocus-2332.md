@@ -8,6 +8,5 @@ slug: "blog-xfocus-2332"
 
 前两天微软又发了一堆补丁，象俺这样不太懂电脑的人，一般是有补丁尽快打的。可是很搞不懂为什么在Windows XP的安全中心里，明明设置了“自动升级”，它就是没动静。
 
-所幸[超级巡警](http://www.dswlab.com/)现在有个“补丁检查”的功能，检查->全选->下载并安装补丁，感觉世界安全许多 ![](https://web.archive.org/web/20071014204903im_/http://www.wulujia.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+所幸[超级巡警](http://www.dswlab.com/)现在有个“补丁检查”的功能，检查->全选->下载并安装补丁，感觉世界安全许多 😁
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/1753C540-95EC-4FBE-A4C2-9C0A31575592)

@@ -8,7 +8,7 @@ slug: "blog-xfocus-2526"
 
 UUZONE是我之前颇为关注的一家站点，现在它消失了。
 
-这篇文章看上去是里面的一位技术人员的分析，虽然是管中窥豹，但却也值得创业中的朋友们思考，包括I170的朋友们（当然，wolf的方向好向一直很清晰![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)） 。
+这篇文章看上去是里面的一位技术人员的分析，虽然是管中窥豹，但却也值得创业中的朋友们思考，包括I170的朋友们（当然，wolf的方向好向一直很清晰😁） 。
 
 原文见：http://www.uistudio.cn/blog/post/301.html
 

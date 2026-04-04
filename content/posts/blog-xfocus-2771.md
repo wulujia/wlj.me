@@ -15,4 +15,4 @@ slug: "blog-xfocus-2771"
 不过，和高手较劲，倒是更有意思，即使技不如人，前期只能跟在他们后边跑，好歹也能带带成绩。
 
 趁着还不到冲刺的时候，先想想，大成天下该靠什么让人“不可攻”
-，不知道各路神仙有什么见解，不妨指点一二 ![](https://web.archive.org/web/20071014204939im_/http://wulujia.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+，不知道各路神仙有什么见解，不妨指点一二 😁

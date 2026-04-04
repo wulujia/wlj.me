@@ -10,7 +10,6 @@ coolc [天下大治](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=1
 
 访问期间，代表团充分倾听人民的声音，如实记录下 coolc 家园[一派欣欣向荣的景象](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=1455&blogId=15)，让代表们觉得最具生机和想象力的代表景点是：
 
-![coolc的床](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=543-coolc_bed.JPG)
 
 画外音：
 

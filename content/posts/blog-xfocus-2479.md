@@ -12,6 +12,6 @@ slug: "blog-xfocus-2479"
 
 > 据《说文解字》释，“年”，“谷熟也”。《谷梁传》中也说“五谷大熟为大有年”。就连甲骨文中的“年”字，亦是谷穗成熟的样子。因而，可以推断，“年”是丰收喜庆的日子，而过年则是对丰年的庆贺和祈祷。
 
-让我们一起庆贺和祈祷，祝愿来年是个丰收年吧　![](https://web.archive.org/web/20071014204911im_/http://www.i170.com/htmledit/editor/images/smiley/msn/thumbs_down.gif)
+让我们一起庆贺和祈祷，祝愿来年是个丰收年吧　👎
 
-> ![](https://web.archive.org/web/20071014204911im_/http://www.i170.com/Attach/401A5451-04EB-451D-80F4-4F36BFBB22F9)　![](https://web.archive.org/web/20071014204911im_/http://www.i170.com/Attach/BACF813E-D2D4-4F80-AAF8-238D954511E0)　![](https://web.archive.org/web/20071014204911im_/http://www.i170.com/Attach/F2FD7C93-248B-4E65-86C3-233271A45310)
+> 　　

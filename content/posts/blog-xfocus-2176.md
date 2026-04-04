@@ -8,7 +8,7 @@ slug: "blog-xfocus-2176"
 
 “匪皋则伊”是武侯祠诸葛亮殿内的一方横匾，让我半天摸不着头脑，因此特地拍了下来。
 
-![](https://web.archive.org/web/20071014204849im_/http://www.i170.com/attach/695DDEBF-1810-4EF2-816C-CAC976984894)
+![](/images/blog-xfocus/695DDEBF-1810-4EF2-816C-CAC976984894.jpg)
 
 搜索之后，在一个[导游论坛](http://www.520sc.com/nbbs/dispbbs.asp?boardID=160&ID=7649&star=5&page=)找到了解释：
 

@@ -12,12 +12,10 @@ slug: "blog-xfocus-1502"
 
 几个小时，看的是普通窟，自然意犹未尽，于是买了本画册，先了解更多一些，下回再有机会，当来看特窟。
 
-![](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=dunhuang.JPG)
 
 那位卢姓解说员闲聊时还介绍了一些特窟，其中 465 窟，门票是 500 元/人，是元代密宗壁画，有很多双身像，色彩艳丽，对比强烈。据说不少参观者看完出来，都有眩晕欲呕的感受。Arrow 或许可来一观 ;)
 
 在网上找了一幅 465 窟一角壁画：
 
-![](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=dunhuang_465.gif)
 
 曼陀罗主尊是大幅上乐金刚，男女双身，相互紧抱，勾腿交臂，嘴角相亲。男尊面生三目，双臂紧搂女尊，左手扫金刚杵，右手拿金刚铃，项挂骷髅璎珞。女尊亦面有三目，左臂缆住男尊脖颈，手中持钵，右腿勾住男尊左腿。

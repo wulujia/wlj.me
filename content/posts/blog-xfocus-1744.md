@@ -27,19 +27,16 @@ Fasoo 的产品系列包括 FSD(Fasoo Secure Document)、FSF(Fasoo Secure File-s
 
 它还有一个给个人使用的 DRM 小产品，网站在 [www.drmone.com](http://www.drmone.com/)，我试了一下效果，在线安装一个客户端后，访问它的网页：
 
-![](https://web.archive.org/web/20071014204645im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=web.jpg)
 
 如果试图采用拷屏软件来截图，会弹出下面的对话框：
 
-![](https://web.archive.org/web/20071014204645im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=notice.jpg)
 
 如果用第三方拷屏/录像软件来截取图像，也会被截获，拷/录下的内容是：
 
-![](https://web.archive.org/web/20071014204645im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=confidential.jpg)
 
 美中不足的是，记事本和画图软件都被它默认禁用了，很不爽。
 
 广告时间：
 
 [铁卷](http://www.unnoo.com/web/products/filesecure/)能够防止企业的 CAD、Office 文档泄露。用户在内网可以透明访问、创建文档，文档在保存时即时加密，即使流传出去，也无法在外部正常打开。非常适合制造、设计、咨询等行业使用。
-咨询邮件：[wulujia@unnoo.com](https://web.archive.org/web/20071014204645/mailto:wulujia@unnoo.com)
+咨询邮件：[wulujia@unnoo.com](mailto:wulujia@unnoo.com)

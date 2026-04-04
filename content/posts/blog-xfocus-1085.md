@@ -8,44 +8,33 @@ slug: "blog-xfocus-1085"
 
 屋里空气不错，如果有脚比我臭的兄弟就不要脱鞋了 ;)
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=livingroom.jpg)
 
 上了台阶，有盆绿色小植物
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=plant.jpg)
 
 然后是我的书房兼工作室，注意眼看手勿动哦，这是家中难得一块保持我的“混乱”本色的地盘了。偶尔小鼻涕会缩在放笔记本的那个小地盘旁若无人地聊QQ……完全把我当空气嘛……
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=study.png)
 
 书房当然不能少了书柜，现在书还不多
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=bookshelf2.jpg)
 
 给张特写，看到焦点的镇宅宝典了吗，哎哎哎，你，说的就是你，先填借书登记再碰 ;)
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=bookshelf.jpg)
 
 窗台有株小植物，听说叫“豆绿”，是很绿。
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=sill.jpg)
 
 卧室这么私人的地方，你们也要往里闯，KK……咬他……没咬着？算了，那，让你们看一小角吧，满足一下你们的偷窥欲望，隆重推出－－床头柜之跳跳虎……
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=bedstand.jpg)
 
 好了好了，出来啦，另一间卧室父母房不开放参观啦。还不到午饭时间，不用急着往餐厅坐……
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=table.jpg)
 
 来厨房打打下手我是欢迎的，这里是我洗碗的地方，你大老远来一趟不容易，体验体验吧？平时工作较晚时，无敌的辣白菜泡面就是从这里诞生的。
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=kitchen.jpg)
 
 烤鸡翅啥的，少不了它的功劳
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=kitchen2.jpg)
 
 哎，年纪轻轻的，才走这么几步就闹着要嘘一把，莫非一到广东才知道身体不好？洗手间，右手边
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=bathroom.jpg)

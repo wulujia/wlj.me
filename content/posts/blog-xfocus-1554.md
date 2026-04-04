@@ -10,7 +10,7 @@ slug: "blog-xfocus-1554"
 
 晚上给 wulujia at gmail dot com 的邮箱洗胃，将近 500 兆的邮件全扫到垃圾箱里，定睛一看，垃圾箱居然要 30 天才会清空，只好再手工删一遍了……删除过程中出现这样的错误，反复重现……
 
-![](https://web.archive.org/web/20071014204634im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=google_error.jpg)
+![](/images/blog-xfocus/google_error.jpg)
 
 感慨一下，现在这些巨无霸们希望做到的“网络生活”，在安全问题充分解决之前，带来的风险真是极大。回忆起前些日子，tk 和 sowhat 在豪情壮志，一个要写出感染电饭煲的病毒，一个要写马桶病毒，提高自动冲水的水温烫人屁股……
 

@@ -11,18 +11,17 @@ slug: "blog-xfocus-2315"
 
 7:47出家门，散步走到山脚，路牌写得很清楚，边上的工地，工人们已经开始上午的工作了，挺不容易的。
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/0751D833-20BD-45B3-9EBB-6D256FCC9925)
+![](/images/blog-xfocus/0751D833-20BD-45B3-9EBB-6D256FCC9925.jpg)
 
 我们计划走小路上山，再从大路上下来。8:01分，到了上山的起点：
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/E3321021-FB8B-42B2-922D-A380A89FE873)
 
 虽说是小路，但也不算难走，行至半山，回身拍了张照片。从山上望去，比较明显能看到近处的楼盘视线还算好，远处就不知被云雾还是汽车尾气笼罩着了。山上微凉的空气，吸进鼻腔，觉得神清气爽，感觉倒是不错。
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/B4B3A5D7-E7EF-465E-A874-2498CA9E1040)
+![](/images/blog-xfocus/B4B3A5D7-E7EF-465E-A874-2498CA9E1040.jpg)
 
 8:36分，喘着大气上了山顶，因为时间不早，没多做停留，直接下山，这下的大路，平平整整。偶然看到路边的标语写着：“**你出手，我出手，犯罪分子就束手！**”，标语挺好。
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/0EE5992D-A25A-4162-ADE8-43523360F3FD)
+![](/images/blog-xfocus/0EE5992D-A25A-4162-ADE8-43523360F3FD.jpg)
 
 9:48进的家门，赶紧上公司，工作先。在塘朗山边住了快两年了，总算上了回山，真不容易 ;)

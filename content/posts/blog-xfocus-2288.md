@@ -54,4 +54,4 @@ slug: "blog-xfocus-2288"
 > 1、所有这些报导中，都没有直接写明出处，多数写的是“出自论坛”、“转载”、“佚名”等；
 > 
 >   2、“但美国佬也不是傻子”、“我个人认为”这样的话，显然不是出自记者的正规笔法；
-安全圈，真不安全呀 ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/ext_01.gif)
+安全圈，真不安全呀 😆

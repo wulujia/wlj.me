@@ -10,6 +10,5 @@ slug: "blog-xfocus-2787"
 
 才翻了四章，觉得作者写得很是深入浅出，对我这样不懂财务，就希望学些财务知识的人来说，很是实用。
 
-![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/2A48FF19-72A8-48D4-B732-6203F95C4255)
 
 推荐一下。

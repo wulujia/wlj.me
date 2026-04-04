@@ -15,4 +15,4 @@ slug: "blog-xfocus-2430"
 
 顺手再记一段论语：子曰：“可与言而不与之言，失人；不可与言而与之言，失言。知者不失人，亦不失言。”
 
-哈哈，这篇Blog写得是不是也有些莫名其妙 ![](https://web.archive.org/web/20071014204908im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+哈哈，这篇Blog写得是不是也有些莫名其妙 😛

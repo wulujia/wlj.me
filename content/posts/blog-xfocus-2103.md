@@ -12,4 +12,4 @@ Google Desktop，刚刚才发现，新版本已经加上了锁定功能。虽然
 
 > 点击桌面栏菜单、浮动桌面栏菜单或点击任务栏中的 Google 桌面图标后显示的菜单中的**锁定搜索**项，可防止任何人在您的计算机上进行 Google 桌面搜索。
 > 
->   ![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/FA141964-7E00-48C2-9CB7-9DF8C893D95E)
+> 

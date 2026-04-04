@@ -16,7 +16,6 @@ slug: "blog-xfocus-2636"
 
                   
 
-                  ![](https://web.archive.org/web/20071014204926im_/http://www.dswlab.com/vir/img/n1.jpg)
                 
 
 经过分析，这是该杀软对系统正常文件的误报，鉴于Norton杀毒软件在国际上有庞大的装机量，将会有大批用户遭遇无法开机现象。

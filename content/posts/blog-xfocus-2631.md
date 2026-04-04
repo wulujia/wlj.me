@@ -47,4 +47,4 @@ slug: "blog-xfocus-2631"
 > 
 > 　　d、具备较强的动手能力。
 另：哈尔滨研发中心长期招聘[C++开发工程师和病毒分析员](http://www.i170.com/user/wlj/Article_63139)，对以上任何职位有意向者，请将简历发到hr at
-unnoo.com，每份简历我都会认真阅读的![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/htmledit/editor/images/smiley/msn/regular_smile.gif)
+unnoo.com，每份简历我都会认真阅读的🙂

@@ -23,23 +23,23 @@ Pro、CCStudio、EDE(TaskingC196)、IspLever、PCschematic等。感谢ZW和WJ的
 > - IDE、编译器、调试器、编辑器、链接器、汇编程序等。另外，CodeWarrior
 > IDE支持开发人员插入他们所喜爱的工具，使他们可以自由地以希望的方式工作。
 > 
-> ![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/815E3244-1655-4655-8679-D13645E61CC8)
+> 
 > PCSchematic这是一个基于Windows环境的CAD程序，其目的是用于生成电子和电气类安装项目规划和设计。这是一个面向项目的程序，这就意味着有关这个项目的所有零部件(parts)都包含在同一个文件中：电气方框图(Electrical
 > diagrams)、布线图(mechanical layouts)、目录表(tables of
 > contents)、零部件清单(parts lists)、终端设备清单(terminals lists)、可编程逻辑单元清单(PLC
 > lists)等等，以及其它各种类型的清单。如果同时有几个项目存在，你可以在各个项目之间进行相互拷贝。
 > 
-> ![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/2D373ADE-FF21-4AFE-ACD6-C40CBFA3BFB1)
+> 
 > TASKING软件工作于PC/Windows环境，包括TASKING嵌入式开发环境（EDE）、C编译器、CrossView
 > Pro模拟器、ROM监控调试器、E7仿真器接口和R8C flasher等。
 > 
-> ![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/0552A183-6B79-4A1C-845A-EEFE6B371300)
+> 
 > ISaGRAF PRO是基于IEC
 > 61131-3国际标准，并独立于任何硬件平台的软逻辑自动化控制软件包。在一个网络化过程控制系统环境中，该软件包能够应用于多种组态和分布式控制系统
 > 的开发，它包含了一套开发工具、应用程序工作平台，以及相应的“虚拟机器”运行时目标。该运行时目标能够运行于各种各样的硬件平台。
 > 
 > 
-> ![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/01A44FF7-755A-4DA1-B75C-564DFB5165D1)
+> 
 > 
 > 
 > 伟福WAVE 单片机仿真器采用大规模可编程芯片及专用仿真芯片制造, 集仿真器、逻辑分析仪、跟踪器、逻辑笔、

@@ -8,7 +8,6 @@ slug: "blog-xfocus-33"
 
 今天在xfocus的群里面有件很有趣的事，但很值得深思，先贴一段qq聊天记录： 
 
-![](https://web.archive.org/web/20071014204441im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=qq.png)
 事情经过是这样的： 
 小cool发现他的qq中毒了，就是qq后面多了个尾巴，于告诉funnywei和benjurry，而且发现，只要一双击聊天记录里面对方说过的，带尾巴的话，就中毒了！发出去的每个消息都带这个尾巴…… 
 而且，很怪的是，这个尾巴时有时无！ 

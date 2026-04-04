@@ -13,7 +13,7 @@ slug: "blog-xfocus-2280"
 >   网通下载：[http://www.xsf.com/files/xplayer/XPlayer_2.0.0.zip](http://www.xsf.com/files/xplayer/XPlayer_2.0.0.zip)
 X影音是一款全内置轻量化的媒体播放工具，在**MPC**和**MPlayer**基础上开发。仅仅5M的安装文件，即可实现全功能、高质量的多媒体播放功能，界面截图如下：
 
-> ![](https://web.archive.org/web/20071014204855im_/http://www.i170.com/Attach/24A10AAD-06A3-4E48-93C1-092058482026)
+> 
 
 > 1、全格式支持 - 支持绝大部分主流媒体格式，包括但不限于音频文件，视频文件，dvd，流媒体等，无须第三方库支持即可实现有效播放，总之，如果您发现了一个用其他播放器不能播放的文件，不妨试试X影音。
 > 

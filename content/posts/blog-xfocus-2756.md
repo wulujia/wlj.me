@@ -22,7 +22,6 @@ and a TIFF decompressor are needed to see this picture”。
 
 [separator]
 
-![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/5E8CC17D-7583-48FF-AA8A-51F3B0AF6027)
 
 更新二：看起来是mac的preview.app这个程序用到了啥 quicktime &
 tiff

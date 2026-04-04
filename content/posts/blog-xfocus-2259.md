@@ -19,7 +19,6 @@ slug: "blog-xfocus-2259"
 >   ——墙走我不走。
 拍了下来，觉得写得挺到位 :)
 
-![](https://web.archive.org/web/20071014204855im_/http://www.i170.com/Attach/F4180BAC-3D7B-40D1-919C-D340EF7D7A6F)
 
 回到住处，百度上搜了下杀猪菜，解释是：
 

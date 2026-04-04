@@ -31,4 +31,4 @@ slug: "blog-xfocus-2467"
 > 
 > http://blog.sina.com.cn/u/4c23130a010006wq
 
-谢谢各位 ![](https://web.archive.org/web/20071014204911im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+谢谢各位 😛

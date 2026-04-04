@@ -21,7 +21,7 @@ slug: "blog-xfocus-2045"
 
 **这些准则按必要性分列，范围广泛。** 软件的制作和分发十分复杂且技术贯穿于始终。因此，某些实用的应用程序可能不完全符合这些原则，并且某些欺骗性的做法此处可能未描述。本文档仅作为起点，且主要关注互联网软件和广告方面。这些准则需要不断更新，以便与日新月异的技术保持同步。
 
-我们期望与您以及我们的合作伙伴对此展开持续探讨。我们非常希望能够得到您关于改善和更新这些原则的建议。请将您的意见发送至[software-principles@google.com](https://web.archive.org/web/20071014204845/mailto:software-principles@google.com).
+我们期望与您以及我们的合作伙伴对此展开持续探讨。我们非常希望能够得到您关于改善和更新这些原则的建议。请将您的意见发送至[software-principles@google.com](mailto:software-principles@google.com).
 
 **建议的原则**
 

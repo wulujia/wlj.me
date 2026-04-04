@@ -6,7 +6,6 @@ draft: false
 slug: "blog-xfocus-1442"
 ---
 
-![](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=2g_marketing.jpg)
 
 Gartner首席分析员沈哲怡表示：“中国对所有厂商而言都是个具有战略意义的市场，因此我们预计这场竞赛将会空前激烈。
 目前已在2G市场上占有大份额的厂商们将在这场竞赛中占有明显优势。然而，未来的3G市场也为那些目前没有在2G市场上取得重大市场份额的厂商们提供了一

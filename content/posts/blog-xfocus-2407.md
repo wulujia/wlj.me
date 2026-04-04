@@ -13,6 +13,5 @@ slug: "blog-xfocus-2407"
 地点：深圳南山区塘朗山边
 
 除了山，除了人，除了车，除了灰尘，啥也没见着……作文写完了
-![](https://web.archive.org/web/20071014204908im_/http://www.wulujia.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+😛
 
-![](https://web.archive.org/web/20071014204908im_/http://www.i170.com/Attach/C503FE9E-0496-43BB-A040-A0DC70A07490)

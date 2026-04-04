@@ -13,7 +13,7 @@ PageMaker :)
 
 需要做的仅仅是导入我们制作的规则文件AdobePageMaker.igr，然后在创建Agent的高级选项中勾选Adobe PageMaker，如下图所示：
 
-> ![](https://web.archive.org/web/20071014204849im_/http://www.i170.com/attach/49E067E9-8ACC-432A-84F2-3A3E8939809A)
+> 
 这样用户安装铁卷agent之后，由PageMaker创建的所有文件（包括pdf、html等），都会被透明地加密，只有授
 权用户能够打开。当然，如果需要发送明文文件给客户，也能够轻松地通过“申请解密”功能提交解密申请，管理员可以在查看文件内容敏感程度后决定允许或拒
-绝，这就一定程度上解决了安全性与易用性之间的矛盾，希望用户会喜欢![](https://web.archive.org/web/20071014204849im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+绝，这就一定程度上解决了安全性与易用性之间的矛盾，希望用户会喜欢😁

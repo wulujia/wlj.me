@@ -12,4 +12,4 @@ slug: "blog-xfocus-2508"
 
 不过，还是往后再慢慢回忆吧，我还是干活先 :)
 
-![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/F78E60E4-0DAC-4F84-8B7E-D9B0D443250D)
+![](/images/blog-xfocus/F78E60E4-0DAC-4F84-8B7E-D9B0D443250D.jpg)

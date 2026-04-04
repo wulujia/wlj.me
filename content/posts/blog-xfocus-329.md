@@ -9,7 +9,6 @@ slug: "blog-xfocus-329"
 前几天，找我兄弟要了个小木马，有嗅探、记录击键、记录密码的功能。他写的程序，一般情况下是名家出品，品质保证的，测试了一把，在自己机器上装上了。
 可是奇怪的是，隔天我重启系统时，居然发现出现下面的对话框：
 
-![](https://web.archive.org/web/20071014204510im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=error.JPG)
 
 唔，瞧，不是所有的牛人写的程序都没有bug嘛，俺一乐，拎着臭虫找我兄弟去了。
 他觉得不太可能出这问题，于是我恨恨地查……发现注册表里面HKLM..Run: [ExFilter] 里写的：

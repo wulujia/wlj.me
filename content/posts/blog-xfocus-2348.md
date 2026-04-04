@@ -12,4 +12,4 @@ slug: "blog-xfocus-2348"
 
 如果感兴趣，可以看看[矩阵的白皮书](http://www.nsfocus.com/1_solution/MatrixPoint.pdf)。
 
-顺便提一嘴，看完这份白皮书，给我带来的直接触动是：我们的产品文档也需要改改了，页边距、行间距都不用那么小器，多留点白，还能让文档厚点儿呢 ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/ext_03.gif) [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2348&blogId=1)
+顺便提一嘴，看完这份白皮书，给我带来的直接触动是：我们的产品文档也需要改改了，页边距、行间距都不用那么小器，多留点白，还能让文档厚点儿呢 😅 [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2348&blogId=1)

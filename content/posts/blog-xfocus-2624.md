@@ -7,7 +7,7 @@ slug: "blog-xfocus-2624"
 ---
 
 虽说自卖自夸容易招人嫌，可是举贤不避亲也是一种美好的品德嘛，所以，在这里俺还是要推荐一下[超级巡警](http://www.dswlab.com/)和俺们的[维金专杀](http://hi.baidu.com/supercop/blog/item/2840db50a56f535d1138c26a.html)
-![](https://web.archive.org/web/20071014204926im_/http://wulujia.com/htmledit/editor/images/smiley/msn/ext_02.gif)
+😏
 
 从[超级巡警](http://www.unnoo.com/research/tools/astdownload/)出
 来后，我自己的机器上，就没有其它的反病毒或反流氓软件了，对我来说，超级巡警就够用了。（当然，用曹大搓搓的话来说，我是脱离了低级趣味的人，我的电脑

@@ -13,7 +13,7 @@ slug: "blog-xfocus-2835"
 [**
 超级巡警保险箱 V1.0 beta 测试版**](http://www.i170.com/Attach/04928E93-F206-4688-B4D9-1CBCA76303C3)
 
-**![](https://web.archive.org/web/20071014204943im_/http://www.i170.com/Attach/63083497-C21D-44D3-B87B-B907C34E7C9B)**
+****
 
 您还在QQ、网游、网银账号被盗担心么？
 

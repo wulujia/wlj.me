@@ -14,6 +14,6 @@ slug: "blog-xfocus-2118"
 
 pp夺过酒罐一番摇头晃脑后，得出了不同的结论：这分明是以一个市井无赖为主人公，讲述他诱惑小家碧玉的方法过程……
 
-瞧这两个流氓![](https://web.archive.org/web/20071014204849im_/http://www.i170.com/htmledit/editor/images/smiley/msn/thumbs_up.gif)
+瞧这两个流氓👍
 
-当晚在google上搜索，没找着，次日黄鑫告诉我百度上可以找到（果然是百度比google更懂中文呀![](https://web.archive.org/web/20071014204849im_/http://www.i170.com/htmledit/editor/images/smiley/msn/omg_smile.gif)）。今日得闲，搜上一把，原来是在《清稗类钞》的钦食类中，主要讲酒的篇目里，在[open-lit网站](http://www.open-lit.com/listbook.php?cid=106&gbid=322&start=0)上可以找到（我摘抄下来，另做排版，方便当前的阅读习惯） [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2118&blogId=1)
+当晚在google上搜索，没找着，次日黄鑫告诉我百度上可以找到（果然是百度比google更懂中文呀😲）。今日得闲，搜上一把，原来是在《清稗类钞》的钦食类中，主要讲酒的篇目里，在[open-lit网站](http://www.open-lit.com/listbook.php?cid=106&gbid=322&start=0)上可以找到（我摘抄下来，另做排版，方便当前的阅读习惯） [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2118&blogId=1)

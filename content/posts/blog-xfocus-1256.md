@@ -8,7 +8,6 @@ slug: "blog-xfocus-1256"
 
 下载了《[去大后方](http://board.verycd.com/t214063.html)》这部 14 集，记录了抗战时期平凡民众迁徙、抗争历史的纪实片，一直没时间看。昨天看到 hielulu 说，抗战胜利 60 周年的纪念日就是 9 月 3 日，便放下手边的事，看了三集。觉得很不错，跟朋友们推荐。
 
-![](https://web.archive.org/web/20071014204613im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=WangXiaoTing_boy.jpg)
 
 这幅照片，想必很多人看过，作者战地摄影记者王小亭的人头，在鬼子的“帐本”上值十万元。因为通过镜头，他记下了的侵略史实，传向世界。
 

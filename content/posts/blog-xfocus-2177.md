@@ -13,4 +13,4 @@ slug: "blog-xfocus-2177"
 > 唐代官职中，录事干的活儿有点象秘书处或者档案室，负责公文收发、草拟、抄目、登记、监印、文具领发等事。
 **背景：杜甫草堂**
 
-> ![http://www.i170.com/attach/D8AD9899-1811-4196-AB4F-8B413F131274](https://web.archive.org/web/20071014204849im_/http://www.i170.com/attach/D8AD9899-1811-4196-AB4F-8B413F131274)
+> http://www.i170.com/attach/D8AD9899-1811-4196-AB4F-8B413F131274

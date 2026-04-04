@@ -8,4 +8,3 @@ slug: "blog-xfocus-1158"
 
 味道很好，据说大补，喝得巨饱。
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=dinner.jpg)

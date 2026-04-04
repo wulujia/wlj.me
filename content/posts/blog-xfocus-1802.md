@@ -14,7 +14,7 @@ IDS 入侵侦测系统。航空母舰和战斗机都离不开这个产品……
 看得我一头雾水，这里面至少有两个错误：
 
 1、我实在想不出为什么航空母舰、战斗机离不开 IDS（换个脑子想想，假设是真的，是不是国内战斗机上也有 IDS？赶紧卖去
-![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)）；
+😛）；
 
 2、[凯创](http://www.enterasys.com/corporate/)这家公司虽然有一个老牌的
 dragon IDS，但绝不是“做的只是一个电子产品”。

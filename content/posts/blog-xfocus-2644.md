@@ -12,7 +12,6 @@ slug: "blog-xfocus-2644"
 
 刚刚在MSN上，看到瑞星扩大战果，在MSN上做广告“诺顿误杀系统崩溃，如何拯救您的电脑，推荐瑞星提供的解决方案”。
 
-![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/Attach/E9F32F4B-11E5-419B-BE0C-0D6D34FC038E)
 
 给我的感触是：
 

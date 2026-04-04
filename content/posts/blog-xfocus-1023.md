@@ -8,7 +8,6 @@ slug: "blog-xfocus-1023"
 
 早在半年多前，[楚江](http://www.i170.com/memberis.do?mID=8)就有了做[一起来](http://www.i170.com/default.do)的想法了，只是一直在招兵买马潜心开发，就在这两天i170测试版上线，我也就试了试，随手用freemind做了下记录。
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=20050705_i170.com.png)
 
 其中有几点想展开的包括：
 

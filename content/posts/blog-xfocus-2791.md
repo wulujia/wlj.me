@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2791"
 ---
 
-这些名言其实都是同一个人说的，牛逼的家伙呀 ![](https://web.archive.org/web/20071014204939im_/http://wulujia.com/htmledit/editor/images/smiley/msn/ext_11.gif)
+这些名言其实都是同一个人说的，牛逼的家伙呀 🌷
 
 > 百度我觉得李彦宏有句话最牛B：“相信中国”。
 

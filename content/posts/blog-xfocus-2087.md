@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2087"
 ---
 
-记得六年前在[XFOCUS](http://xfocus.net/)的首页上（当时的XFOCUS还没有现在的规模，可以随时写上些“站长的话”之类的心情故事的），贴过一段失眠日记 ![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+记得六年前在[XFOCUS](http://xfocus.net/)的首页上（当时的XFOCUS还没有现在的规模，可以随时写上些“站长的话”之类的心情故事的），贴过一段失眠日记 😛
 
 > 2000-9-19 凌晨2:00
 > 

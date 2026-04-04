@@ -12,4 +12,3 @@ slug: "blog-xfocus-1170"
 电饭煲煮粥至水开后倒入虾蟹，继续煲至火候适当。
 粥色微红，鲜香四溢，一高兴，我和小鼻涕的嘴全吃破了……
 
-![](https://web.archive.org/web/20071014204607im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=dinner2.JPG)

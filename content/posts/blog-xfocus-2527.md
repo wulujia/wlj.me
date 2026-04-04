@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2527"
 ---
 
-用X影音，什么片都能看。这句广告词不错吧 ![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+用X影音，什么片都能看。这句广告词不错吧 😁
 
 **一、X影音2.2.3下载**
 

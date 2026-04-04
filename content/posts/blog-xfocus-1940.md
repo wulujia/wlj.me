@@ -8,7 +8,6 @@ slug: "blog-xfocus-1940"
 
 晚上改公司主页模板，需要查配色，google了一下，找到几个不错的网站，有些还相当酷，比如下面这张图：
 
-![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/476E87C5-AC78-486F-ABB9-265BC67F523B)
 
 记录下来，免得今后需要再找。
 

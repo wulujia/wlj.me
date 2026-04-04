@@ -8,4 +8,3 @@ slug: "blog-xfocus-34"
 
 三呼万岁…… 
 
-![](https://web.archive.org/web/20071014204441im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=blogbus.png)

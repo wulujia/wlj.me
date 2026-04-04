@@ -12,7 +12,6 @@ slug: "blog-xfocus-1081"
 
 最感新异的一个功能是网页在线翻译（不知道windows版是不是一直就有？），如下图所示：
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=googletoolbar_firefox.png)
 
 按我的猜测，这个功能至少有两个好处：
 

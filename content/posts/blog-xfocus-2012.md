@@ -10,7 +10,7 @@ slug: "blog-xfocus-2012"
 
  
 
-1、如果FTP的密码中含有特殊字符，需要用""进行转义，否则认证无法通过。例如密码“[abcd@def](https://web.archive.org/web/20071014204839/mailto:%C2%A1%C2%B0abcd@def)”，就需要写成“abcd@def”
+1、如果FTP的密码中含有特殊字符，需要用""进行转义，否则认证无法通过。例如密码“[abcd@def](mailto:abcd@def)”，就需要写成“abcd@def”
 
 2、默认情况下它用ascii形式传文件，会导致备份文件出错，需要改脚本/usr/bin/backup-manager-upload，加入（标红者为插入语句）：
 

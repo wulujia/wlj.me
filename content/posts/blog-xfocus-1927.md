@@ -15,13 +15,11 @@ slug: "blog-xfocus-1927"
 乍一看也是文件防泄露，既然做着[铁卷电子文档安全系统](http://www.unnoo.com/)，就该了解，于是下载安装了。感觉却比较一般。
 安装完毕后，桌面上会有个“我的密码箱”，密码箱一旦打开，会有个托盘图标，提供少量几个配置选项：
 
-![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/35757AF9-10EF-42FE-A012-51DB23486CB9)
 
 初步感觉不足之处至少有：
 
 1、密码仅支持字母（a-z和A-Z）以及数字（0-9），所以，当我不幸用了包含大小写字母和特殊字符的强壮密码时，反而得到一个“低或不符合要求”的评价。
 
-![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/722816E7-773D-4CC2-8A40-4C43D15A92E4)
 2、存储位置放在c:document and settingsuser下面，没有提供修改存储位置的选项，很不方便。
 3、不能为任意目录加锁，只能将想保护的文件拷进该文件夹，应用不方便。
 4、仅支持XP Home Edition, Windows XP Professional, Windows XP Media Center Edition。

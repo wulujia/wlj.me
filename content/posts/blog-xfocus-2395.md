@@ -26,4 +26,4 @@ slug: "blog-xfocus-2395"
 > ……
 
 是否有人愿意参与，如果能有五至七人愿意参与（愿意参与的，可以后边跟贴，人数一旦够了，咱就定时间地点），咱就可以玩了，顺便害一下人，同意第一期由[wolf](http://wolf.i170.cn/)主讲的请举手，我举双手
-![](https://web.archive.org/web/20071014204908im_/http://www.wulujia.com/htmledit/editor/images/smiley/msn/thumbs_up.gif)
+👍

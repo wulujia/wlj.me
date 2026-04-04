@@ -10,7 +10,7 @@ slug: "blog-xfocus-2734"
 
 好消息是您帮助我们发现了错误，我们现在正对此进行调查。
 
-> ![](https://web.archive.org/web/20071014204932im_/http://www.i170.com/Attach/E1BA5516-2E14-454D-9E22-954517C5D6DB)
+> 
 
 在细节处用心，才能做出优秀的产品。
 

@@ -15,4 +15,4 @@ slug: "blog-xfocus-1950"
 投票请点击：[咱也拍卖浪漫七夕夜喽](http://vote.hellocity.cn/v/10535)
 
  
-[![](https://web.archive.org/web/20071014204814im_/http://vote.hellocity.cn/v/10535.png)](http://vote.hellocity.cn/v/10535)
+[](http://vote.hellocity.cn/v/10535)

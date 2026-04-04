@@ -37,7 +37,6 @@ Forecast》，要写的东西也写完了，但有些数据或文字，觉得值
 
 安全内容管理软件市场未来五年的预测如下图所示:
 
-![](https://web.archive.org/web/20071014204943im_/http://www.i170.com/Attach/F12A2376-2166-4390-8500-ABD305FFD653)
 
 **IDC的建议**
 

@@ -7,7 +7,7 @@ slug: "blog-xfocus-2603"
 ---
 
 [Mrcool同学的一些总结](http://www.coolsir.org/index.php?id=84)，蛮不错，转载一下
-![](https://web.archive.org/web/20071014204922im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+😁
 
 [separator]
 

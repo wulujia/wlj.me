@@ -7,8 +7,8 @@ slug: "blog-xfocus-1794"
 ---
 
 这是所很小的学校，从小到大我书就没怎么读好过，能上这学校，也算凑合了。我在里面读书那会儿，教务处的教师要看哪个年级有学生迟到，只要往操场中间一站，抬眼四顾就够了
-![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/htmledit/editor/images/smiley/msn/whatchutalkingabout_smile.gif)
+🤨
 
 最近几年，有时候公司申报项目，要填个人简历的地方，看到被写上过不同学校比如厦门大学啥啥的……
 
-在这儿写一笔，万一有人 google 的时候，好歹可以知道俺不存心骗人。 ![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+在这儿写一笔，万一有人 google 的时候，好歹可以知道俺不存心骗人。 😛

@@ -33,7 +33,6 @@ NT\CurrentVersion\Image File Execution Options
 
 运行超级巡警（ast.exe）或者超级巡警加载工具（ToolsLoader），切换到“安全优化”标签，点击左侧的“系统修复”图标，勾选“修复映像劫持”和“修复安全模式启动”这两项，然后点击“修复”按钮。
 
-![](https://web.archive.org/web/20071014204939im_/http://www.i170.com/Attach/4AEF4A8B-1B3F-4B4E-A6DB-EB1902C32D4C)
 
 重启系统，怎么样，世界清静了吧？
 4、参考资料

@@ -14,7 +14,6 @@ slug: "blog-xfocus-2286"
 
 排在安全损失前四位的（1）病毒；2）未授权访问；3）笔记本或移动设备硬件被窃；4）资产信息被窃等，共占所有损失的四分之三（74.3%）；
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/6E0B0747-1485-4FEE-A31E-910BC32E427F)
 
 [对比2005年](http://www.shencb.net/infosec_world/csi_fbi_survey.html)：
 
@@ -39,7 +38,6 @@ slug: "blog-xfocus-2286"
 > 
 >   * **数据在传输中的加密和存储中的加密越来越受到用户的重视**。数据在传输中的加密我想不仅仅是指VPN这种通道式的加密吧，也应该包含一种对数据（或文档）本身的加密。这种加密与数据在存储中的加密类似，都是针对具体的数据或文档这种客体。**近年来涌现出的一批做[文档加密的公司](http://www.unnoo.com/)看来还是很有前景的**。
 
-![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/76B361F6-D1C8-40E3-9772-11F6D884FD59)
 
 **III. Effect of Sarbanes****Oxley Act**
 
@@ -56,7 +54,7 @@ slug: "blog-xfocus-2286"
 > 
 > 
 > 
-> ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/FCB6595B-F0DA-4153-B590-295EC0AB650D)
+> 
 > 
 > 
 > 
@@ -66,15 +64,15 @@ slug: "blog-xfocus-2286"
 > 
 > 
 > 
-> ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/A06F7009-5202-4D42-890E-DF2F623981E1)
 > 
 > 
 > 
-> ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/41DED7CC-CE56-45C0-B2F3-188E6EE21C6B)
 > 
 > 
 > 
-> ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/E7C06AFF-8DA6-4803-81FF-77E85D7F6E42)
+> 
+> 
+> 
 > 
 > 
 > 

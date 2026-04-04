@@ -12,6 +12,5 @@ slug: "blog-xfocus-1394"
 
 但出差时偷懒，没有带 USB 光驱，原来想反正有 linux，用 grub 启动引导到 ghost，虽然麻烦点，还是能恢复的，可随手一搜索，发现了一个 vfloppy 的小工具，是个简单的绿色软件，在 windows 下简单指定映像文件，就可以将该映像模拟为软驱，下次重启的时候可以进入该映像。软件中还附带了如 ghost、dos 7、linux 等系统急救时的可用工具。
 
-![](https://web.archive.org/web/20071014204618im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=vfloppy.JPG)
 
 所以我的问题就动几下鼠标解决了，感觉这个小工具不错，至少对用超薄笔记本不带光软驱的朋友是有一定用处的。

@@ -31,4 +31,4 @@ slug: "blog-xfocus-2159"
 > 
 >     ~~~~~~~~~~~~~~~~~服务QQ573392356~
 >   
-召唤ben总降妖除魔 ![](https://web.archive.org/web/20071014204849im_/http://www.wulujia.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+召唤ben总降妖除魔 😛

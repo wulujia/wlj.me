@@ -14,14 +14,14 @@ slug: "blog-xfocus-2068"
 > 
 >   2、能非常轻易地（比如拖拽）增删或移动页面元素；
 > 
->   ![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/D33FE4B7-469E-4E61-830E-7A020416B12E)
+> 
 二、能够创建私密blog
 
 > 1、允许多个作者共同维护；
 > 
 >   2、能够通过添加email的形式设置认证，只允许某些读者阅读blog；
 > 
->   ![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/C9BFCA84-9B5D-4458-AA02-71B5A5CD7010)
+> 
 三、更多新鲜漂亮模板；
 
 四、更多的RSS Feed选项；

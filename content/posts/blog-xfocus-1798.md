@@ -44,11 +44,10 @@ Date,Edit Right,Save Right 等设置；
 
 为了方便理解，贴两张图，第一张是 MarkAny Document Safer 的基本功能：
 
-![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/attach/6EF7BCF0-43D2-4BC3-B9FB-17B4DF47DCE8)
+![](/images/blog-xfocus/6EF7BCF0-43D2-4BC3-B9FB-17B4DF47DCE8.jpg)
 
 第二张是加密文档的分发模式及流程说明：
 
- ![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/attach/3C13F7BC-AC87-4DA7-B7B0-E78768FEEE5E)
 
 广告时间：
 
@@ -56,4 +55,4 @@ Date,Edit Right,Save Right 等设置；
 CAD、Office
 文档泄露。用户在内网可以透明访问、创建文档，文档在保存时即时加密，即使流传出去，也无法在外部正常打开。非常适合制造、设计、咨询等行业使用。
 
-咨询邮件：[wulujia@unnoo.com](https://web.archive.org/web/20071014204655/mailto:wulujia@unnoo.com)
+咨询邮件：[wulujia@unnoo.com](mailto:wulujia@unnoo.com)

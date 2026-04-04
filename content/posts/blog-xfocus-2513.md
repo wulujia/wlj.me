@@ -6,4 +6,4 @@ draft: false
 slug: "blog-xfocus-2513"
 ---
 
-![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/39C401D8-708C-4B37-B36A-465F187EC600) [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2513&blogId=1)
+![](/images/blog-xfocus/39C401D8-708C-4B37-B36A-465F187EC600.jpg) [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2513&blogId=1)

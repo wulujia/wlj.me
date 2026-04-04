@@ -10,7 +10,6 @@ slug: "blog-xfocus-1419"
 
 在酒店看到两天前的旧报纸上，有一则华3 的软文，题为《信息化：中小企业也安全》，提出了 SPN（安全渗透网络），号称以 IPS 和 EAD（端点准入防御）整合成的解决方案，产品的定位目标是中小企业。
 
-![](https://web.archive.org/web/20071014204618im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=hua3.JPG)
 
 实际上，华为自身的 SPES，也就是 [benjurry](http://blog.xfocus.net/index.php?blogId=13) 这家伙由 SARS 得来的灵感，用“人民战争”的方式解决企业内部信息安全问题的产品也相当不错。
 

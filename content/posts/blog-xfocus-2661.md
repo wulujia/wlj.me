@@ -18,10 +18,8 @@ calendar开始提供mobile版本。
 
 可以看看俺用黑莓上gmail的图片，这样一来，平时外出，即使没有网络，也不妨碍我收取重要邮件了。
 
-![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/Attach/24A2DDF6-8399-4D32-BCA5-9B841832281F)
 
 至于google
 calendar，俺可以及时了解自己的日程，以及公司里面兄弟们最新的计划了
-![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+😁
 
-![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/Attach/44C08629-B97C-4B18-AE59-C5AA06ABE652)

@@ -16,4 +16,4 @@ slug: "blog-xfocus-2654"
 
 正迷惑间，突然想起……是……榴莲，它的味儿太大，甚至传到了门外，估计保安来巡视的时候，闻到怪味……
 
-唉，都是榴莲惹的祸呀 ![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/htmledit/editor/images/smiley/msn/angry_smile.gif)
+唉，都是榴莲惹的祸呀 😠

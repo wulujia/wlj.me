@@ -8,7 +8,6 @@ slug: "blog-xfocus-1474"
 
 前些天在东门豪客来享用牛排时，注意到玻璃下压着一张新菜式--梅花肉排的宣传单，其中有一页吸引了我，于是找服务员索要了一张，如图：
 
-![](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=food_and_security.JPG)
 
 我感兴趣的有两部份：
 

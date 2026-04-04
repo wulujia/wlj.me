@@ -8,11 +8,9 @@ slug: "blog-xfocus-1333"
 
 中秋后回了趟家，很久没有回去了，翻翻架上旧书，找找屉里杂物。无意中竟然翻出几张老光盘。
 
-![](https://web.archive.org/web/20071014204613im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=477-hacktool_small.JPG)
 
 那大概是 98 年那会儿，那时的网费很贵，用 33.6k 的小猫费力地拨号上网，每月都得花几百大洋。网上很少安全、黑客相关的资源。因此，经常光顾电子城里的光盘地摊，上面这张就是当时买到的一张“宝贝”，仔细看看里面的内容：
 
-![](https://web.archive.org/web/20071014204613im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=hacktool_big.JPG)
 
 当时台湾象 coolfire、软体蛀虫的一些 Hacking、Crack 的文章，就在里面的 Hacker、Crack 目录中，记得当时用的是一台 14 寸的显示器，总是看得眼睛痛，所幸有一台老式的针式打印机，就把那些东西嘎吱嘎吱地打印出来，人得站在一边换纸。记得当时有厚厚的一本，可惜这回没找到。
 

@@ -10,8 +10,7 @@ slug: "blog-xfocus-2202"
 
 上午我还迷糊着，小鼻涕在厨房里捣鼓了几分钟，便有浓郁香气飘出，循香而去，场景如下：
 
-![](https://web.archive.org/web/20071014204855im_/http://www.i170.com/Attach/EA0F63AE-4678-4D9A-BDD0-DA176548CCEA)
 
 相当有生活气息吧 ;)
 
-右边的小牛杯，为了标示出区别，被小鼻涕拿笔多画了个黑眼罩，变成“墨镜牛”，左边的只是个“独眼龙牛” ![](https://web.archive.org/web/20071014204855im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+右边的小牛杯，为了标示出区别，被小鼻涕拿笔多画了个黑眼罩，变成“墨镜牛”，左边的只是个“独眼龙牛” 😁

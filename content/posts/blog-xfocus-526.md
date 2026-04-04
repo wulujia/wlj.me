@@ -12,4 +12,3 @@ slug: "blog-xfocus-526"
 
 见到好书总有拥有一本的欲望。
 
-![](https://web.archive.org/web/20071014204517im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=book.JPG)

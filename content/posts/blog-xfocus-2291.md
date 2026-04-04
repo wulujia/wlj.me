@@ -14,4 +14,4 @@ slug: "blog-xfocus-2291"
 的亲和度也更高了，如果安装时就选择了简体中文，则安装程序会自动下载所需要的简体中文字体及相关程序。安装完毕后，从界面到输入法，一应俱全，完全不用
 再做任何配置了。
 
-如果不是现在公司的所有产品都是基于Windows平台，我真想把笔记本也装上Linux ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/embaressed_smile.gif)
+如果不是现在公司的所有产品都是基于Windows平台，我真想把笔记本也装上Linux 😳

@@ -8,7 +8,6 @@ slug: "blog-xfocus-761"
 
 虽然常用Linux，但工作中也还是一直理直气壮地用着各式各样的盗版软件，用惯了，偶尔看到些打击盗版的言论，心里不舒服一下，转瞬也就忘记了。刚才打开资源管理器时，无意中看到菜单里有这么一条“[这份 Windows 合法吗？](http://www.microsoft.com/resources/howtotell/ww/windows/default.mspx)”。
 
-![](https://web.archive.org/web/20071014204539im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=MS_anti_piracy.gif)
 
 在反盗版的路上，微软已经在一步步地逼近了。
 

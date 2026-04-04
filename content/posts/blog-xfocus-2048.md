@@ -18,7 +18,6 @@ PDM专题：http://industry.ccidnet.com/pub/series/s38.html
 
 随手画了个Mindmap如下：
 
-![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/6B4F6563-F70D-462D-B54B-3EB02388C05C)
 
 顺便说一句，在我的ubuntu上，[freemind](http://freemind.sourceforge.net/)一开始总是不听话，运行不到两分钟，就会键盘输入无效，找了找原因，发现是输入法scim导致的，换上[fcitx](http://www.fcitx.org/)就OK了。
 

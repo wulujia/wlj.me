@@ -16,7 +16,6 @@ Avert](http://www.dswlab.com/)小组发现一个高度危险的QQ漏洞被披露
 
 腾讯QQ目前有着2亿的用户数量，使得该漏洞有着极大的攻击范围，有可能被利用来制造僵尸网络。QQ安全中心已经就此漏洞发布了一个补丁检查升级公告：[http://security.qq.com/affiche/2006/20061231.shtml](http://security.qq.com/affiche/2006/20061231.shtml)。
 
-![](https://web.archive.org/web/20071014204908im_/http://www.i170.com/Attach/CE5C665B-CB05-4EC2-9973-390DFE877D8C)
 版权所有：数据安全实验室
 
 [http://www.dswlab.com](http://www.dswlab.com/)

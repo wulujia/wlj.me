@@ -7,7 +7,6 @@ slug: "blog-xfocus-1454"
 ---
 
 小区的电梯里统一放了些公益广告，其中有一则的主题是对超速行驶者提出的安全行车劝告：
-![快一点还是慢一点](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=ad.JPG)
 
 在我的理解中，这个广告很是垃圾：
 

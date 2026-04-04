@@ -12,4 +12,4 @@ slug: "blog-xfocus-2021"
 
 [
 
-![](https://web.archive.org/web/20071014204839im_/http://www.i170.com/attach/8EAB0B5B-C413-4376-85CA-E665BF54C41A)](http://www.unnoo.com/)
+](http://www.unnoo.com/)

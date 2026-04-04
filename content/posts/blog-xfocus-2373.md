@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2373"
 ---
 
-感谢朋友们的支持 ![](https://web.archive.org/web/20071014204908im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+感谢朋友们的支持 😁
 
 感谢ws、anonymous的编码，感谢kuya的UI设计，感谢zw的安装脚本及测试
 

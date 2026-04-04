@@ -8,11 +8,9 @@ slug: "blog-xfocus-2114"
 
 国庆了，中华人民共和国57岁生日，百度献上了一个国庆logo。
 
-![](https://web.archive.org/web/20071014204849im_/http://www.i170.com/attach/3034947D-DC4B-430C-B49B-257D4A277975)
 
 我去Google.com和Google.cn，Google冷静地沉默着。
 
-![](https://web.archive.org/web/20071014204849im_/http://www.i170.com/attach/EA24A9CE-D96A-4328-AAEA-52220FE787BC)
 
 keso在blog上写了：
 

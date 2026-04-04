@@ -23,4 +23,3 @@ slug: "blog-xfocus-2660"
 
 当然，我并不喜欢。
 
-![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/Attach/C712FBA7-40C5-49CF-BE8F-A3121DC11CED)

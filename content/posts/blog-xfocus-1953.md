@@ -12,12 +12,9 @@ slug: "blog-xfocus-1953"
 
 折俯式、战士第三式和犁式
 
-![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/9B533690-3DC2-426D-9D27-388DD371CD8B)
 
 肩倒立，还有两个不知该叫啥的姿势
 
-![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/CED2FEEB-8364-4D98-880D-32E17A56C524)
 
 半莲花树式变形、头手倒立
 
-![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/749E3F1B-3500-46D5-BA8F-5FB471C78C93)

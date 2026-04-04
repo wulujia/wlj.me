@@ -8,7 +8,6 @@ slug: "blog-xfocus-1461"
 
 昨天到书城买了几斤书后，突然记起前些日子和 ering 跟 glacier 说起的要练字的计划，就到书城楼下的美术用品商店去买了笔墨，顺手抄了几本字贴回家。
 
-![字帖](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=handwriting.JPG)
 
 两份水写贴，就是笔醮清水写字便变色，水一干就消失的那种纸，记得小时候练毛笔字时，就特别喜欢这种纸，当时是扔在桌上，走过时便胡涂两笔。
 

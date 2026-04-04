@@ -15,4 +15,4 @@ slug: "blog-xfocus-1807"
 交给美工修订完成的《[铁卷电子文档安全系统产品简介](http://www.i170.com/attach/2DF55C2E-8D7B-4FA6-A9CD-DA0BA5C74976)》算是这个转变过程中的第一个小试验品，好歹比纯粹 word 编辑的美观大方些。
 也请大伙儿点评点评 ;)
 
-另外，[topgun](http://blog.xfocus.net/index.php?blogId=27) 帮忙琢磨的这句“铁卷：电子数据安全的最终防线”，挺不错，我喜欢 ![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+另外，[topgun](http://blog.xfocus.net/index.php?blogId=27) 帮忙琢磨的这句“铁卷：电子数据安全的最终防线”，挺不错，我喜欢 😁

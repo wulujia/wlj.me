@@ -11,12 +11,9 @@ slug: "blog-xfocus-572"
 
 mm的风火轮
 
-![](https://web.archive.org/web/20071014204522im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=FengHuoLun_mm.JPG)
 
 mm的盔甲，注意，那长着五个指头的玩意儿，居然是袜子……
 
-![](https://web.archive.org/web/20071014204522im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=KuiJia.JPG)
 
 排在最后的，当然是我的装备了喽 :)
 
-![](https://web.archive.org/web/20071014204522im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=FengHuoLun_gg.JPG)

@@ -8,6 +8,5 @@ slug: "blog-xfocus-2707"
 
 在MSN上看到一款防病毒软件的广告，写着：“难道中了病毒就会把我的黄片都删除掉？”
 
-![](https://web.archive.org/web/20071014204932im_/http://www.i170.com/Attach/7E862B2D-498D-449F-A711-DAA6E966DA9D)
 
 实在是觉得很无奈，究竟是现在的软件厂商低俗，还是受众真的就关心这些东西了？

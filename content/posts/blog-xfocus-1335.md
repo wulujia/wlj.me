@@ -12,7 +12,7 @@ slug: "blog-xfocus-1335"
 
 1、联想笔记本
 
-[![](https://web.archive.org/web/20071014204613im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=lenovo_small.JPG)](http://blog.xfocus.net/resserver.php?blogId=1&resource=lenovo_big.JPG)
+[](http://blog.xfocus.net/resserver.php?blogId=1&resource=lenovo_big.JPG)
 
 a. 广告总体做得不错，借“保持长城的古朴魅力”扬联想笔记本的“中华精神”、“环保”和“厚实”。
 b. “特别是 MTBF 大于三万小时，为网站数据库的正常运行提供了保证”，这句绝对是个败笔，广告里面就别搞啥高深词汇了，我都得 google 一把才知道 MTBF 是 Mean Time Between Failure，平均无故障时间的意思，非 IT 人士还不抓瞎？另外，谁见过拿笔记本电脑当网站后台数据库的？纯属扯淡！
@@ -20,7 +20,7 @@ c. Intel 牛逼，不管是 dell、HP 还是联想，都来个 Intel Inside，In
 
 2、IBM 易捷端到端安全保护解决方案
 
-[![](https://web.archive.org/web/20071014204613im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=ibm_small.jpg)](http://blog.xfocus.net/resserver.php?blogId=1&resource=ibm_big.JPG)
+[](http://blog.xfocus.net/resserver.php?blogId=1&resource=ibm_big.JPG)
 
 a. 解决问题，无论大小。这句广告词我一眼看去就很有感觉。适合中型企业的那个小房子和随手一圈点，觉得也很舒服。
 b. 诊断书的形式，物理安全与网络安全的类比，配上古典沉重的图片，是很能造成对比的压力。

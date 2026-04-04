@@ -10,4 +10,3 @@ slug: "blog-xfocus-2056"
 
 作为图片网站，它比google的[PicasaWeb](http://picasaweb.google.com/)实现酷多了。另外，为了传图片方便，找了个开源的[jUploadr](juploadr.sourceforge.net/)，很方便易用，而且因为是java程序，与操作系统无关，不管在家或公司里的电脑上都能使，就用它了 ;)
 
-![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/0371E9DD-D532-4D1C-B99C-D5DC6B9C8371)

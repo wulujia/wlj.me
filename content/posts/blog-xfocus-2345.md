@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2345"
 ---
 
-黄师傅在电视上还是很帅的，估计得迷倒一片小女黑客啦……![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+黄师傅在电视上还是很帅的，估计得迷倒一片小女黑客啦……😛
 
 　　深圳市警方召开新闻发布会，宣告破获了迄今为止全国最大规模的互联网虚拟财产盗窃案，打掉了一个特大网上盗窃倒卖虚拟财产团伙。
 

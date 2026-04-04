@@ -44,6 +44,5 @@ slug: "blog-xfocus-2478"
 > 
 > Mefistofeles.
 
-![](https://web.archive.org/web/20071014204911im_/http://www.i170.com/Attach/38342A4F-2E0C-4192-8DF2-D35F25176F09)
 
 职业骇客越来越多时，网络会变成怎样？

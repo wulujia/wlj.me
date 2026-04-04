@@ -12,4 +12,3 @@ slug: "blog-xfocus-2730"
 
 不过，痛并快乐着，谢谢在哈尔滨为咱们的事情默默奉献的兄弟们！
 
-![](https://web.archive.org/web/20071014204932im_/http://www.i170.com/Attach/6CE19279-367B-4AC3-A3CF-C6869FE1CA42)

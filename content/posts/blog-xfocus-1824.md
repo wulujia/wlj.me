@@ -16,7 +16,6 @@ slug: "blog-xfocus-1824"
 
 这让我很诧异，市场经济果然神奇，有买家就一定会有卖家。在他们的站点上，可以看到这么一个 word 的溢出程序：
 
-![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/attach/DC4C95C9-AE6E-4518-BBEB-0CB52CC4B04B)
 
 我在讲[铁卷](http://www.unnoo.com/web/products/filesecure/) ppt 时，最后会讲一个古希腊神话“[阿基里斯之踵](http://www.baidu.com/s?tn=foxbaidudg&ie=gb2312&bs=%B0%A2%BB%F9%C0%EF%CB%B9%D6%AE%F5%E0&sr=&z=&cl=3&f=8&wd=%B0%A2%BB%F9%C0%EF%CB%B9%D6%AE%F5%E0&ct=0)”，信息安全中的阿基里斯之踵在哪里？我们的最后一道防线是什么？
 

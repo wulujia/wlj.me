@@ -6,6 +6,6 @@ draft: false
 slug: "blog-xfocus-2254"
 ---
 
-两个记数器，分别是：[http://wulujia.com](http://wulujia.com/)和[http://blog.xfocus.net/wlj/](http://blog.xfocus.net/wlj/)上的，加起来也过了150万啦 ![](https://web.archive.org/web/20071014204855im_/http://www.i170.com/htmledit/editor/images/smiley/msn/devil_smile.gif)
+两个记数器，分别是：[http://wulujia.com](http://wulujia.com/)和[http://blog.xfocus.net/wlj/](http://blog.xfocus.net/wlj/)上的，加起来也过了150万啦 😈
 
-![](https://web.archive.org/web/20071014204855im_/http://www.i170.com/Attach/F71F0C16-6C29-429E-A9BB-946D3C8A27D3)
+![](/images/blog-xfocus/F71F0C16-6C29-429E-A9BB-946D3C8A27D3.jpg)

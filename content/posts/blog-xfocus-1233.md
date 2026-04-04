@@ -16,4 +16,3 @@ glacier 继续逗狗，点点继续装作若无其事地绕到他背后，毕竟
 
 附点点睡觉照片一张：
 
-![](https://web.archive.org/web/20071014204607im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=DianDian.jpg)

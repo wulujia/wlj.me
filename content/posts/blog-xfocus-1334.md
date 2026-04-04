@@ -8,11 +8,9 @@ slug: "blog-xfocus-1334"
 
 这还是一张老光盘。BO 对于大家当然不陌生 :)
 
-![](https://web.archive.org/web/20071014204613im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=bo_1.JPG)
 
 让我敬佩的是光盘制作者的“商业头脑”，一个 BO 便做了一张盘，而且，为了增强光盘的吸引力，在产品外包装上还是下了些功夫的。
 
 1、有句“原来你什么都不想要，除了我的电脑之外”的广告词 :)
 2、故作神秘地将光盘内的数据加密处理……
 
-![](https://web.archive.org/web/20071014204613im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=bo_2.JPG)

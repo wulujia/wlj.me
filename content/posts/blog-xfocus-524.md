@@ -6,7 +6,6 @@ draft: false
 slug: "blog-xfocus-524"
 ---
 
-![](https://web.archive.org/web/20071014204517im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=virus.PNG)
 
 这个病毒比较恶劣，不过，想到今后图片文件、压缩文件、excel文件、word文件……都有可能带病毒，恐慌啊。
 

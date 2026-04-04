@@ -19,7 +19,6 @@ slug: "blog-xfocus-1046"
 
 如下图所示，不同IP地址的访问者，由不同的策略控制，对同一台设备的访问，实际上被转发到了不同目标机器上了。
 
-![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=honey.png)
 
 对企业机密保护来说，这种陷阱网络，一方面能够转移攻击者的注意力，另一方面也能够为企业可能进行的法律诉讼工作提供证据。
 

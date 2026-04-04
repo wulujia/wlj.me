@@ -25,4 +25,4 @@ slug: "blog-xfocus-2747"
 > 
 > glacier：幼稚！太幼稚了！
 
-虽然glacier看起来很不情愿，但群众的力量是无穷的，群名片中已经出现了“K粉？冰毒？”、“K粉转冰毒”这样的ID了，当然，最狠的是朵朵，她把群名片改成了“**冰镇K粉**”，我着实没看明白，究竟她是K粉呢，还是打算借冰河毒手把Killer镇压了![](https://web.archive.org/web/20071014204939im_/http://wulujia.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)
+虽然glacier看起来很不情愿，但群众的力量是无穷的，群名片中已经出现了“K粉？冰毒？”、“K粉转冰毒”这样的ID了，当然，最狠的是朵朵，她把群名片改成了“**冰镇K粉**”，我着实没看明白，究竟她是K粉呢，还是打算借冰河毒手把Killer镇压了😁

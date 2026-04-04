@@ -13,4 +13,3 @@ nmap的作者fyodor在站点上做过“[兵器谱](http://sectools.org/index.ht
 
 另外，比较高兴的是，[X-Scan](http://www.xfocus.net/projects/X-Scan/index.html)这回也名列其中，排名第69，如果我的记忆没有出错的话，这应该是这个列表中第一个中国人的安全软件，还是值得高兴的，祝贺glacier一下 ;)
 
-![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/5CF399EB-3F91-4185-83B5-41C502B29727)

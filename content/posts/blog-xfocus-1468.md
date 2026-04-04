@@ -10,7 +10,7 @@ slug: "blog-xfocus-1468"
 
 今年是左将军诞辰100周年，买了本《左权：一团奔突的火》，细细读了，算作纪念。
 
-![左权](https://web.archive.org/web/20071014204624im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=zuoquan.JPG)
+![左权](/images/blog-xfocus/zuoquan.JPG)
 
 在电影《太行山上》中，也对左将军有一定的刻划。现在记得《太行山上》里的一句话是：“将有必死之心，士无贪生之念”。
 

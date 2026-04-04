@@ -10,11 +10,9 @@ slug: "blog-xfocus-2646"
 
 刚刚看到这一幢占地300平方米的别墅，设计得很是匠心独运。最初只有“骨架”时是这样：
 
-![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/Attach/45F33BA3-61BC-4AE3-9D77-C9C76A31A7C4)
 
 等到完工时，就该是这样独特而完美了：
 
-![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/Attach/13B6D1C9-A30F-4873-80B4-EAB78E933433)  ![](https://web.archive.org/web/20071014204926im_/http://www.i170.com/Attach/EB384343-3512-4D43-891E-AF0666820B48)
 
 [ID公社](http://www.hi-id.com/)的介绍文字是：
 
