@@ -1,0 +1,30 @@
+---
+title: "Google 的地球"
+date: 2005-07-31T00:00:00+08:00
+tags: ["Tech"]
+draft: false
+slug: "blog-xfocus-1157"
+---
+
+一直对 google 怀有敬畏之心，因为这家公司的聪明地运用着他们的力量。上个月去北京的时候，就有兄弟推荐 google earth 给我，声称极棒。前两天 san 到拉斯维加斯的 [Defcon](http://www.defcon.org/) 上演讲前，还流窜到 irc 里跟弟兄们报喜：“那边上有家麦当劳，如果和 ipxodi 接不上头，至少不会饿着。”他就是用 google earth 找到那麦当劳的。
+
+对用惯电脑的人来说，这个工具极其简单，只需要从 [http://earth.google.com](http://earth.google.com/) 下载安装点击运行即可，但为了方便不熟悉的朋友，还是用[图片](http://blog.xfocus.net/resserver.php?blogId=1&resource=googleearth1.jpg)说话吧，它的功能包括：
+
+1、地名搜索，如标示 1 所示，如果找到后，便直接“飞越”到目标地点上空，也就是我们图中标出的 2 。不过，不幸的是，目前软件的中文支持并不好，不支持中文搜索，并且对国内的地名标注也未必准确，因此实用价值打了折扣；而且国内的地图目前还相对模糊，只有北京、上海、深圳等部份大城市相对清晰些；
+2、在寻找某地时，可以用 3 中间的方向键进行位置移动，左右上方的按钮可以将地图左右旋转。在需要图像放大缩小时，拖动 4 ，需要改变“视角”的时候，拖动 5 ，而在 3 左右下方的按钮则是重置方向及视角的；
+3、找到一个地方，不希望下回再找一遍时，可以鼠标点击 6 进行收藏，收藏后效果如 7 所示，将来访问时，双击即可；
+4、8 是打印地图和发送地图选项，后者支持 outlook 和 gmail ；9 提供的道路、建筑、旅馆、餐馆功能暂时在国内基本没用。
+
+玩过 google earth ，顺道看了看他们的主页，觉得：
+
+1、简洁大方，一如 google 本色；
+2、产品线齐全完整，甚至有 [Google Earth Server](http://blog.xfocus.net/resserver.php?blogId=1&resource=server.gif)；
+3、网络营销方式很棒，下载试用后交20美金直接升级，估计他们 Google Earth Plus 销售不少；
+4、适当但富诱惑，最重要的是，极其体贴地站在用户角度思考的介绍；
+5、适度商务介入，比如适时地出现了 Have a salesperson contact me ……
+
+看完以后，我想改改公司网站了，目前公司网站信息量太小，其实完全可以将安全圈内的事件、我对安全的思考都写下来，相信内容不会是大问题。可目前选择内容管理工具的时候，陷入头痛阶段。我希望的页面简洁如 google ，希望是静态 html 页，有一个方便的操作后台，不知谁有好的开源软件推荐？
+
+对了，google 说，这些卫星地图的数据多是一年到两年前的，因此，费尽力气找到的家，居然这个样子的 ;)
+
+![](https://web.archive.org/web/20071014204604im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=googleearth_home.jpg)

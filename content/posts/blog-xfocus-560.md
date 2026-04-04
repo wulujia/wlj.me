@@ -1,0 +1,12 @@
+---
+title: "五十年前的自画像"
+date: 2004-11-08T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-560"
+---
+
+当然不是我的，是我老爸的对着镜子自已画的，前些天翻出来了。
+那时……那时我爸还是个小孩 :)
+
+![](https://web.archive.org/web/20071014204522im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=Picture.JPG)

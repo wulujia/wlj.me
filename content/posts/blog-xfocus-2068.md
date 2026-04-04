@@ -1,0 +1,31 @@
+---
+title: "Blogger升级了"
+date: 2006-09-10T00:00:00+08:00
+tags: ["Tech"]
+draft: false
+slug: "blog-xfocus-2068"
+---
+
+刚才登上我的blogger的时候，看到提示说已经有测试版的blogger升级，试了一下，我的感觉变化并不是很大，主要的更新在于：
+
+一、可以完全定制模板
+
+> 1、可以很简单灵活地配置页面上的字体和颜色；
+> 
+>   2、能非常轻易地（比如拖拽）增删或移动页面元素；
+> 
+>   ![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/D33FE4B7-469E-4E61-830E-7A020416B12E)
+二、能够创建私密blog
+
+> 1、允许多个作者共同维护；
+> 
+>   2、能够通过添加email的形式设置认证，只允许某些读者阅读blog；
+> 
+>   ![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/attach/C9BFCA84-9B5D-4458-AA02-71B5A5CD7010)
+三、更多新鲜漂亮模板；
+
+四、更多的RSS Feed选项；
+
+五、新的仪表表视图；
+
+六、立即发布，再也不用在写完一篇blog后重新生成索引了 :)

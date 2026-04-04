@@ -1,0 +1,18 @@
+---
+title: "铁卷：电子数据安全的最终防线"
+date: 2006-05-19T00:00:00+08:00
+tags: ["Startup"]
+draft: false
+slug: "blog-xfocus-1807"
+---
+
+一直以来，都是用 Word 制作产品的各类文档，包括 datasheet、catalog、白皮书、技术手册这些东西。
+这些天和一位台湾的合作伙伴交流比较多，学到了一个词：“包装”。
+
+用户第一眼“感觉”你是什么样的，你就是什么样的了。如果要改变，需要销售、售前、工程……轮番洗脑。
+因此，所有的文档，一定要专业。
+
+交给美工修订完成的《[铁卷电子文档安全系统产品简介](http://www.i170.com/attach/2DF55C2E-8D7B-4FA6-A9CD-DA0BA5C74976)》算是这个转变过程中的第一个小试验品，好歹比纯粹 word 编辑的美观大方些。
+也请大伙儿点评点评 ;)
+
+另外，[topgun](http://blog.xfocus.net/index.php?blogId=27) 帮忙琢磨的这句“铁卷：电子数据安全的最终防线”，挺不错，我喜欢 ![](https://web.archive.org/web/20071014204655im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)

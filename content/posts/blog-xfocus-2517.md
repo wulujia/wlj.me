@@ -1,0 +1,35 @@
+---
+title: "昨晚的那些鸡翅那场酒"
+date: 2007-03-20T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-2517"
+---
+
+三天前，小鼻涕
+曾经给我烤了回鸡翅，再拿star和xiaoxing两口子送我的那套酒杯，温点儿小酒，吃得俺浑身上下那叫一个舒坦。所以，催着她再给我做回鸡翅，恰好
+昨天中午出门，见到一种八年的绍兴花雕，酒虫上来，马上给glacier打了个电话，约他晚上来对饮（star送的这套杯，最适合的，其实应该是两人无
+事，闲坐小酌，哎，写着又有些馋了……），所以，小鼻涕就变了这么几个菜，供俺们下酒，看起来还是有点诱人的吧
+:)
+
+![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/CCEFC7A1-B472-41E8-B137-C0A999EDEC2F)
+
+不过，这张图片，就不怎么诱人了……，俺和glacier、coolc干掉了一瓶绍兴花雕和一瓶女儿红，小鼻涕和wollf干掉了一瓶和可乐似的啥啥果酒，一桌狼籍……据说glacier和coolc回去后都直接栽倒在床呼呼大睡，可怜后来还是俺晕忽忽地去洗的碗。
+
+![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/C147B2A6-C4DD-4289-A1A6-91556DF2A300)
+
+饭后，小鼻涕又给自己蒸了碗传说中的增肥秘方……看起来似乎还蛮有质感的
+![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/htmledit/editor/images/smiley/msn/ext_03.gif)
+
+![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/AB00C06C-E8E3-4AA7-BAAC-FFF8F8DEC037)
+
+再秀一下那些看上去香气扑鼻的鸡翅的演变流程吧……之前，就是这样白生生的，用开水氽过，边上的调味料……我要知道是什么就怪了，反正是神奇的沈洋的神秘配方……
+
+![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/78A423BC-50E7-4ED4-A853-C96CF4BDD8E4)
+
+腌了一晚上，才能入味到鸡肉里的：
+
+![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/Attach/5ACD14FF-AF2D-4991-914F-3B4FC84145B7)
+
+嗯，虽然久不做饭，看来老婆的手艺没咋退步。感谢STAR的酒杯，俺没事可以多组织几次这种小酒会
+![](https://web.archive.org/web/20071014204916im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)

@@ -1,0 +1,23 @@
+---
+title: "修炼了28天的鼻涕版瑜伽"
+date: 2006-07-27T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-1953"
+---
+
+俺老婆断断续续上瑜伽课，加一块也修炼了有二十八天了。在我这种筋骨僵直的人眼中，已经进步神速得不象话了。
+
+今晚拍下一组照片，作为一段时期的记录，不知道再过些日子能不能对比出变化。本来还想来个头倒立的，结果小鼻涕一紧张，直接来了个前滚翻，大嗔不照了 ;)
+
+折俯式、战士第三式和犁式
+
+![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/9B533690-3DC2-426D-9D27-388DD371CD8B)
+
+肩倒立，还有两个不知该叫啥的姿势
+
+![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/CED2FEEB-8364-4D98-880D-32E17A56C524)
+
+半莲花树式变形、头手倒立
+
+![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/749E3F1B-3500-46D5-BA8F-5FB471C78C93)

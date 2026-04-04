@@ -1,0 +1,13 @@
+---
+title: "供求信息"
+date: 2007-04-05T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-2549"
+---
+
+昨天搜索“大成天下”的时候，找出这么个[供求信息网站](http://www.i170.com/Attach/2B7C1C21-EF16-4332-AB6B-FEED87551564)来，乐了（我还一时眼花，看到一个“勒索病毒专利产品推广”，大惊，定睛一看，才松口气![](https://web.archive.org/web/20071014204922im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)）。
+
+底下还有一句免责声明：“以上所展示的信息由企业自行提供，内容的真实性、准确性和合法性由发布企业负责。”
+
+这类站点，如果信息不精的话，基本就没啥价值了。

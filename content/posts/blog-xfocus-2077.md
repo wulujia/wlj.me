@@ -1,0 +1,11 @@
+---
+title: "通过blog来练习英文写作"
+date: 2006-09-13T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-2077"
+---
+
+我的英语口语和写作能力太差，口语现在没有特别好的机会锻炼，平时就先多听听mp3了。
+
+在[XCON 2006](http://xcon.xfocus.net/)期间我发了“宏愿”，要写英文blog来锻炼写作能力（其实现在根本谈不上写作，我的语法知识为0，大学的考试全凭语感![](https://web.archive.org/web/20071014204845im_/http://www.i170.com/htmledit/editor/images/smiley/msn/embaressed_smile.gif)），所以，大家看到[ Luca wu's weblog](http://wulujia.blogspot.com/)里面有极其弱智的错误时，可以嘲笑我，但请帮我指出来，谢谢各位老师啦 :)

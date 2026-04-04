@@ -1,0 +1,17 @@
+---
+title: "Ubuntu 6.10"
+date: 2006-12-04T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-2291"
+---
+
+晚上手欠，又折腾起家里的台式机了，仍然是[Ubuntu](http://www.wulujia.com/Article_34876)，这回是6.10。
+
+回忆起2000年时尝试过用Linux及FreeBSD做桌面，还是走了些弯路的，每次装好机器后都需要花费半天功夫做各种各样的中文化、美化工作，然后很开心地跟朋友们展示自己美奂美仑的桌面。使用过程中，还时不时会遇到一些应用程序中文支持不好或容易崩溃……
+
+刚装好的这个Ubuntu，看起来已经非常适合普通的计算机用户使用了，从安装到使用，一点也不比Windows复杂，甚至还要简单些。而且，对中文用户
+的亲和度也更高了，如果安装时就选择了简体中文，则安装程序会自动下载所需要的简体中文字体及相关程序。安装完毕后，从界面到输入法，一应俱全，完全不用
+再做任何配置了。
+
+如果不是现在公司的所有产品都是基于Windows平台，我真想把笔记本也装上Linux ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/embaressed_smile.gif)

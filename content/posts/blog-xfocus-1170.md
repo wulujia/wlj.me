@@ -1,0 +1,15 @@
+---
+title: "鲜虾红蟹粥"
+date: 2005-08-04T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-1170"
+---
+
+半斤多的基围虾去须，三只红蟹洗净对半剖开并去除腹部两排蟹腮。
+大片生姜放进热油中爆香后，放虾蟹并加盐适量，翻炒半分钟左右至微红。
+
+电饭煲煮粥至水开后倒入虾蟹，继续煲至火候适当。
+粥色微红，鲜香四溢，一高兴，我和小鼻涕的嘴全吃破了……
+
+![](https://web.archive.org/web/20071014204607im_/http://blog.xfocus.net/resserver.php?blogId=1&resource=dinner2.JPG)

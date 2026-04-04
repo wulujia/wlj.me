@@ -1,0 +1,15 @@
+---
+title: "简单的道理我们却往往不明白"
+date: 2006-12-17T00:00:00+08:00
+tags: ["Startup"]
+draft: false
+slug: "blog-xfocus-2350"
+---
+
+这几天脑子里一直转悠着一个折磨我挺长时间的问题，要下决策，难下决策。
+
+晚上请教了一位从商经验比较丰富的兄弟，他举了CheckPoint、微软、华硕甚至ISS的例子，最后说了一句：“商业世界，谁的现金多，谁是大哥。”
+
+这个道理真简单，套用进来，我现在的难题自然迎刃而解。
+
+看来，一直以为自己明白的道理，实际上不一定真懂了，也不一定能够应用到实处，回邮件去 ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)

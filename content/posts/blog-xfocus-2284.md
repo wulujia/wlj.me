@@ -1,0 +1,17 @@
+---
+title: "铁卷的解密申请文件校验功能"
+date: 2006-12-01T00:00:00+08:00
+tags: ["Startup"]
+draft: false
+slug: "blog-xfocus-2284"
+---
+
+昨天难得被K大叔表扬了一句，说我给研发的自由度比较大是对的，能够充分发挥他们的创新精神。其实，之所以这么做，也是不得已呀，因为，我是公司里[智商](http://www.wulujia.com/Article_39382)倒数第二低的家伙，要我想，咋想得过来嘛![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/cry_smile.gif)
+
+> 旁白：如果您很好奇地想知道倒数第一是谁？给我一点贿赂![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/ext_20.gif)
+今天glacier才告诉我铁卷的一个小功能特点：解密申请文件校验。这是什么概念呢：
+
+> 比如，在安装有铁卷用户终端的机器PC1上发送解密申请到服务端，然后用户试图欺骗管理员，将PC1上申请解密的文档替换为另外一份文档，当管理员查看完文档，发回允许解密命令时，系统能够自动判断出文档已经发生改变，要求用户重新发送解密申请。
+
+> ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/Attach/5D2EB5A8-843A-466D-A228-18360DFE28E2)
+这个功能其实要实现并不复杂，但我自豪的是，目前我们的同类产品还基本没有这么做的。因为咱的程序员，更把这个产品当成自己的娃，想得就是比人家周到。哈哈，咱也自高自大一把 ![](https://web.archive.org/web/20071014204903im_/http://www.i170.com/htmledit/editor/images/smiley/msn/teeth_smile.gif)

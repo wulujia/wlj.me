@@ -1,0 +1,43 @@
+---
+title: "Mac OSX中的文件加密"
+date: 2007-04-27T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-2604"
+---
+
+在苹果的网站上[对FileVault的描述](http://docs.info.apple.com/article.html?path=Mac/10.4/zh/mh1877.html)是：
+
+> Mac OS X 包括
+> FileVault，它允许您加密个人文件夹内的信息。加密将混杂您的个人文件夹中的数据，以便即使电脑丢失或被盗，您的信息也是安全的。
+> 
+> 
+> FileVault 使用最新的经美国政府批准的加密标准，即带 128 位密钥
+> (AES-128) 的高级加密标准。
+> 
+> 当您打开 FileVault
+> 时，您也为电脑设置了一个您或管理员可以使用的密码，可以在您忘记常规登录密码时使用。
+> 
+> 
+> 警告：如果您打开
+> FileVault，过后却忘记了登录密码和主密码，您就不能登录您的帐户并且您的数据将永久丢失。
+> 
+> 
+> 如果您电脑上的信息是属于敏感的那一种，就应该考虑使用
+> FileVault。例如，如果您的 PowerBook
+> 上有公司的所有金融数据，PowerBook
+> 丢失可能会让其他人访问这些敏感数据并对您的公司造成损失。如果您的
+> PowerBook 丢失时已注销您的帐户，并且 FileVault
+> 已打开，您的信息就是安全的。
+> 
+> 如果您考虑使用
+> FileVault，就应该注意到它可能影响计划的备份并妨碍对您的个人文件夹内的共享文件夹进行访问。由于
+> FileVault
+> 创建了一个加密的个人文件夹，某些备份实用程序可能将您的个人文件夹当作一个总是在更改的文件夹，这可能会降低备份速度。此外，如果您没有登录到电脑，其他用户将不能访问您的个人文件夹中的共享文件夹。
+
+看起来，它与微软的[Private
+Floder](http://wulujia.com/Article_31577)有点类似，主要用于防止电脑失窃的。
+
+铁卷则可以用于防止电脑及介质（U盘、光盘）失窃、病毒及黑客入侵、内部员工有意或无意的泄密、未有效擦除报废旧设备中数据等各种方式导致的电子图文档泄密。哎，广告，又是广告……![](https://web.archive.org/web/20071014204922im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)
+
+![](https://web.archive.org/web/20071014204922im_/http://www.i170.com/Attach/61846417-8D21-4954-8C18-0D7B0CFD18F2)

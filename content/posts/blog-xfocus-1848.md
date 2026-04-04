@@ -1,0 +1,19 @@
+---
+title: "评论：中国移动的IM计划"
+date: 2006-06-03T00:00:00+08:00
+tags: ["Tech"]
+draft: false
+slug: "blog-xfocus-1848"
+---
+
+原文：[中国移动的IM计划](http://www.i170.com/article/26862)
+
+ 比较感兴趣，下载了一个试了一下，功能上没有太多新异之处，目前主要的区别就是与手机结合较紧密。
+
+![](https://web.archive.org/web/20070824103214im_/http://www.i170.com/attach/C5E3C783-65E7-4E5B-8708-6E0901622C76)
+
+对《[传言中移动封杀SP即时通讯业务 欲自己当老大](http://www.donews.com/Content/200606/45c09700d8bf4643ad205ced21d94459.shtm)》文中提到的“市场观察人士认为，移动此举是逆市场趋势而为，市场要产业链各方配合，共同做大，而不是移动独占。”大不认同。国内目前的情势，或者说习惯就是如此，否则也不会 IM 一窝蜂了。
+
+另外，运营商做 IM 有其独到的优势，或者说，运营商现在面临 VOIP 的巨大压力，一旦 skype、263 et、uutone
+这些厂商真的能落地拨打固话甚至海外长途，他们目前在固网的利润将会受到极大的冲击。从这个角度来看，运营商对这一领域的介入应该也是无奈之举，不这么
+做，饭碗就要被人砸啦 ![](https://web.archive.org/web/20070824103214im_/http://www.i170.com/htmledit/editor/images/smiley/msn/tounge_smile.gif)

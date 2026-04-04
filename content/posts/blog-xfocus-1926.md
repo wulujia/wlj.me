@@ -1,0 +1,15 @@
+---
+title: "Office 2007的漂亮图标"
+date: 2006-07-15T00:00:00+08:00
+tags: ["Life"]
+draft: false
+slug: "blog-xfocus-1926"
+---
+
+微软Office 2007开发小组已经对新一代Office办公软件各个产品组件图标进行了全新设计。
+
+新设计旨在给用户最直观的产品功能印象，方便用户在第一时间区别、寻找到自己需要的产品组件。Office设计小组表示，新图标通过更为直观的功能Logo以及不同颜色对各个Office组件进行区分，希望能够为最终用户提供最人性化的图标设计。
+
+![](https://web.archive.org/web/20071014204814im_/http://www.i170.com/attach/1A47AB40-461C-4CC7-BEA6-F717FBD72715)
+
+果然赏心悦目。
