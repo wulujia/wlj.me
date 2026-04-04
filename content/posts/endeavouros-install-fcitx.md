@@ -1,7 +1,7 @@
 ---
 title: "在 Endeavour OS 安装 fcitx"
 date: 2024-06-10T10:00:00+08:00
-tags: ["Tech"]
+tags: ["AI", "Tech"]
 draft: false
 slug: "endeavouros-install-fcitx"
 ---

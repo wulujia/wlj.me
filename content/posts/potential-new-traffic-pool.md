@@ -1,7 +1,7 @@
 ---
 title: "长期看，这里或许有机会成为新的流量池"
 date: 2021-11-03T22:55:08+08:00
-tags: ["WeChat", "Marketing", "Product"]
+tags: ["Product", "WeChat"]
 draft: false
 slug: "potential-new-traffic-pool"
 ---

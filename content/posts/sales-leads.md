@@ -1,7 +1,7 @@
 ---
 title: "销售线索"
 date: 2024-06-27T20:19:00+08:00
-tags: ["Idea", "Product"]
+tags: ["Idea"]
 draft: false
 slug: "sales-leads"
 ---

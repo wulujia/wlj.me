@@ -1,7 +1,7 @@
 ---
 title: "我也说说西贝"
 date: 2025-09-13T20:51:50+08:00
-tags: ["WeChat", "Security"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "my-take-on-xibei"
 ---

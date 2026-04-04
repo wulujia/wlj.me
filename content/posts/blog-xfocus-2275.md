@@ -1,7 +1,7 @@
 ---
 title: "Google也做虚假和盗版广告"
 date: 2006-11-28T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2275"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "好的道理本来简简单单"
 date: 2008-12-22T08:23:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-5ba9b745"
 ---

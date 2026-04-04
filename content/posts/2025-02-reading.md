@@ -1,7 +1,7 @@
 ---
 title: "2025 年 2 月阅读"
 date: 2025-02-28T00:00:00+08:00
-tags: ["Reading"]
+tags: ["AI", "Reading"]
 draft: false
 slug: "2025-02-reading"
 ---

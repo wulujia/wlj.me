@@ -1,7 +1,7 @@
 ---
 title: "评论：我的销售心得（续2）－如何把握一个项目"
 date: 2006-08-10T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1995"
 ---

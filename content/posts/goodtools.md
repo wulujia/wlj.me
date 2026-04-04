@@ -1,7 +1,7 @@
 ---
 title: "好工具记录"
 date: 2024-03-15T18:28:32+08:00
-tags: ["Tech"]
+tags: ["AI", "Tech"]
 draft: false
 slug: "goodtools"
 ---

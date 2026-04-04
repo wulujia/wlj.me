@@ -1,7 +1,7 @@
 ---
 title: "Google 的登陆验证码"
 date: 2005-09-28T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1332"
 ---

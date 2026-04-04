@@ -1,7 +1,7 @@
 ---
 title: "铁卷受保护程序的设置方法"
 date: 2006-10-06T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2130"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "没有老冒的UUZone"
 date: 2006-12-15T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2339"
 ---

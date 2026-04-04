@@ -1,7 +1,7 @@
 ---
 title: "超级巡警的帮助文件"
 date: 2008-09-09T09:46:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-c0a23bc7"
 ---

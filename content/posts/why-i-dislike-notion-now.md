@@ -1,7 +1,7 @@
 ---
 title: "为什么我不喜欢 Notion 了"
 date: 2025-02-24T22:56:59+08:00
-tags: ["WeChat", "Work", "Tech"]
+tags: ["AI", "Tech", "WeChat", "Work"]
 draft: false
 slug: "why-i-dislike-notion-now"
 ---

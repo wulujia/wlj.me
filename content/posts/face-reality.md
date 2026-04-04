@@ -1,7 +1,7 @@
 ---
 title: "面对现实"
 date: 2024-03-10T23:13:24+08:00
-tags: ["WeChat", "Investment", "Startup"]
+tags: ["AI", "Startup", "WeChat"]
 draft: false
 slug: "face-reality"
 ---

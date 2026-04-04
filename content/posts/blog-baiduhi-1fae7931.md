@@ -1,7 +1,7 @@
 ---
 title: "libfetion短信通知与nagios整合"
 date: 2008-12-21T21:01:00+08:00
-tags: ["Life"]
+tags: ["AI", "Life"]
 draft: false
 slug: "blog-baiduhi-1fae7931"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "建议造谣的家伙挂代理"
 date: 2007-01-21T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2421"
 ---

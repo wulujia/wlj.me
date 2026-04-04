@@ -1,7 +1,7 @@
 ---
 title: "NUS EMBA 招生信息"
 date: 2023-07-21T15:09:00+08:00
-tags: ["Idea"]
+tags: ["Life"]
 draft: false
 slug: "nus-emba-admission-info"
 ---

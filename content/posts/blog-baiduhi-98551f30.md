@@ -1,7 +1,7 @@
 ---
 title: "企业文化"
 date: 2008-12-18T01:18:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-98551f30"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "评论：大成天下(升级版）"
 date: 2006-09-16T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2081"
 ---

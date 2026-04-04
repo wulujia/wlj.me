@@ -1,7 +1,7 @@
 ---
 title: "App Store 新应用可能在搜索结果里缺展示图片"
 date: 2023-12-20T10:00:00+08:00
-tags: ["Marketing"]
+tags: ["Life"]
 draft: false
 slug: "app-store-missing-screenshots"
 ---

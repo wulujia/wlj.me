@@ -1,7 +1,7 @@
 ---
 title: "胶片拍摄、冲洗、扫描、放大所需器材"
 date: 2019-11-20T16:34:22+08:00
-tags: ["Photography", "Reading"]
+tags: ["Photography"]
 draft: false
 slug: "film"
 ---

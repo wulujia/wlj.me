@@ -1,7 +1,7 @@
 ---
 title: "X浏览器1.1.0出来喽"
 date: 2006-11-08T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2206"
 ---

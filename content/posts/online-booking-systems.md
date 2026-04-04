@@ -1,7 +1,7 @@
 ---
 title: "在线预约系统"
 date: 2024-07-20T09:24:00+08:00
-tags: ["Product"]
+tags: ["Life"]
 draft: false
 slug: "online-booking-systems"
 ---

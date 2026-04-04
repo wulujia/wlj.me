@@ -1,7 +1,7 @@
 ---
 title: "精简打卡项"
 date: 2025-08-10T10:03:53+08:00
-tags: ["WeChat", "Life"]
+tags: ["AI", "Life", "WeChat"]
 draft: false
 slug: "simplify-habit-checkins"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "曾经想当个记者"
 date: 2004-07-01T00:00:00+08:00
-tags: ["Life"]
+tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-49"
 ---

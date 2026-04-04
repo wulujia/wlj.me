@@ -1,7 +1,7 @@
 ---
 title: "谁说安卓不如狗"
 date: 2023-12-13T22:25:41+08:00
-tags: ["WeChat", "Tools", "Startup"]
+tags: ["Tools", "WeChat"]
 draft: false
 slug: "android-is-not-bad"
 ---

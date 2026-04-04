@@ -1,7 +1,7 @@
 ---
 title: "散步时记录灵感的小工具"
 date: 2024-05-14T22:35:30+08:00
-tags: ["WeChat", "Tools", "Life"]
+tags: ["AI", "Life", "Tools", "WeChat"]
 draft: false
 slug: "tools-for-walking-inspiration"
 ---

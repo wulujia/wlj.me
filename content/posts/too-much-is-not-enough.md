@@ -1,7 +1,7 @@
 ---
 title: "过犹不及"
 date: 2023-08-06T21:53:30+08:00
-tags: ["WeChat", "Product", "Tools"]
+tags: ["Product", "WeChat"]
 draft: false
 slug: "too-much-is-not-enough"
 ---

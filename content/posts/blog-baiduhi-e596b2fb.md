@@ -1,7 +1,7 @@
 ---
 title: "鲍尔默邮件详解微软云计算服务平台"
 date: 2008-10-30T09:56:00+08:00
-tags: ["Life"]
+tags: ["AI", "Life", "Photography"]
 draft: false
 slug: "blog-baiduhi-e596b2fb"
 ---

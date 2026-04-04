@@ -1,7 +1,7 @@
 ---
 title: "大成天下"
 date: 2006-08-18T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2021"
 ---

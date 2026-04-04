@@ -1,7 +1,7 @@
 ---
 title: "利用google进行入侵与渗透"
 date: 2004-08-28T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-424"
 ---

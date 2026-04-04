@@ -1,7 +1,7 @@
 ---
 title: "Firefox安装扩展时无法校验签名"
 date: 2006-09-08T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2059"
 ---

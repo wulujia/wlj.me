@@ -1,7 +1,7 @@
 ---
 title: "每年四十问和每十年四十问"
 date: 2024-12-30T22:37:25+08:00
-tags: ["WeChat", "Startup", "Movie"]
+tags: ["Movie", "WeChat"]
 draft: false
 slug: "forty-questions-yearly"
 ---

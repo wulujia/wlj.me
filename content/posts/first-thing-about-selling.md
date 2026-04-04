@@ -1,7 +1,7 @@
 ---
 title: "卖货第一件事"
 date: 2022-11-06T12:33:05+08:00
-tags: ["WeChat", "Marketing"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "first-thing-about-selling"
 ---

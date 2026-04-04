@@ -1,7 +1,7 @@
 ---
 title: "今天的网上闲逛"
 date: 2006-10-05T00:00:00+08:00
-tags: ["Life"]
+tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-2127"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "奥卡姆剃刀"
 date: 2004-08-08T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-291"
 ---

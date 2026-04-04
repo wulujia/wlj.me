@@ -1,7 +1,7 @@
 ---
 title: "敦煌"
 date: 2005-11-26T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1502"
 ---

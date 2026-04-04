@@ -1,7 +1,7 @@
 ---
 title: "超级巡警3.4和维金专杀0.8"
 date: 2007-05-11T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2624"
 ---

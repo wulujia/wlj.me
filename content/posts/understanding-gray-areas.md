@@ -1,7 +1,7 @@
 ---
 title: "通过两个案例尝试理解什么是“灰度”"
 date: 2022-10-23T12:03:26+08:00
-tags: ["WeChat", "Startup", "Product"]
+tags: ["Photography", "Product", "Startup", "WeChat"]
 draft: false
 slug: "understanding-gray-areas"
 ---

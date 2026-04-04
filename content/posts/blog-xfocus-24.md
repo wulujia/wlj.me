@@ -1,7 +1,7 @@
 ---
 title: "老虎、兔子和房子"
 date: 2004-01-23T00:00:00+08:00
-tags: ["Life"]
+tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-24"
 ---

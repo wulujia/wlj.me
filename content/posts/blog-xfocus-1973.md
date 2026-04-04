@@ -1,7 +1,7 @@
 ---
 title: "评论：如何成功地申请牛逼的国家科研项目"
 date: 2006-08-02T00:00:00+08:00
-tags: ["Life"]
+tags: ["AI", "Life"]
 draft: false
 slug: "blog-xfocus-1973"
 ---

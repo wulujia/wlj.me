@@ -1,7 +1,7 @@
 ---
 title: "敲敲成为更好的自己：快来组队打卡"
 date: 2024-10-26T08:47:25+08:00
-tags: ["WeChat", "Life", "Tools"]
+tags: ["AI", "Life", "Tools", "WeChat"]
 draft: false
 slug: "easyhabit-team-checkin"
 ---

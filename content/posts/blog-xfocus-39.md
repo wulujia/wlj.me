@@ -1,7 +1,7 @@
 ---
 title: "薛岳"
 date: 2004-05-07T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-39"
 ---

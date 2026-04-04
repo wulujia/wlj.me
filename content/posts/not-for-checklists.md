@@ -1,7 +1,7 @@
 ---
 title: "不为清单"
 date: 2025-07-16T18:50:00+08:00
-tags: ["WeChat", "Investment", "Security"]
+tags: ["Investment", "WeChat"]
 draft: false
 slug: "not-for-checklists"
 ---

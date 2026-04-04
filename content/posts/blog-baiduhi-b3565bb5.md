@@ -1,7 +1,7 @@
 ---
 title: "IDC预测：防泄密产品将会消失"
 date: 2010-04-04T17:53:00+08:00
-tags: ["Security"]
+tags: ["AI", "Security"]
 draft: false
 slug: "blog-baiduhi-b3565bb5"
 ---

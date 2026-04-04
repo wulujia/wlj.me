@@ -1,7 +1,7 @@
 ---
 title: "我 2024 年的部分工作"
 date: 2024-12-24T23:57:55+08:00
-tags: ["WeChat", "Startup", "Tools"]
+tags: ["AI", "Startup", "Tools", "WeChat"]
 draft: false
 slug: "my-2024-work"
 ---

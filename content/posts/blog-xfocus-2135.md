@@ -1,7 +1,7 @@
 ---
 title: "Google还是不懂中国，中秋logo扎根了"
 date: 2006-10-09T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2135"
 ---

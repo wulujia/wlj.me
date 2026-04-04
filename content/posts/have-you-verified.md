@@ -1,7 +1,7 @@
 ---
 title: "你验证过吗？"
 date: 2025-09-29T16:14:42+08:00
-tags: ["WeChat", "Tech", "Tools"]
+tags: ["Tech", "WeChat"]
 draft: false
 slug: "have-you-verified"
 ---

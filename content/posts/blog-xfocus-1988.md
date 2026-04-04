@@ -1,7 +1,7 @@
 ---
 title: "几位朋友帮我设计的logo"
 date: 2006-08-09T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1988"
 ---

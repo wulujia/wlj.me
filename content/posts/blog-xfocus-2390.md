@@ -1,7 +1,7 @@
 ---
 title: "崔英杰的辩护律师所作辩护词结尾"
 date: 2007-01-07T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2390"
 ---

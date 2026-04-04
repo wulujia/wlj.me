@@ -1,7 +1,7 @@
 ---
 title: "我工作里使用的软件和工作流"
 date: 2025-01-11T15:55:53+08:00
-tags: ["WeChat", "Tools"]
+tags: ["AI", "Tools", "WeChat"]
 draft: false
 slug: "my-work-software-workflow"
 ---

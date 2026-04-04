@@ -1,7 +1,7 @@
 ---
 title: "vi技巧收藏"
 date: 2004-03-28T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-36"
 ---

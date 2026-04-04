@@ -1,7 +1,7 @@
 ---
 title: "Couldn't load font Sans 10"
 date: 2004-05-21T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-44"
 ---

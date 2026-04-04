@@ -1,7 +1,7 @@
 ---
 title: "你的个人信息可能已经泄露了，国家级身份认证能解决这个问题吗?"
 date: 2024-07-30T22:08:05+08:00
-tags: ["WeChat", "Security"]
+tags: ["AI", "Security", "WeChat"]
 draft: false
 slug: "personal-data-leak-national-id"
 ---

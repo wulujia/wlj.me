@@ -1,7 +1,7 @@
 ---
 title: "arch 上的企业微信"
 date: 2024-06-20T10:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "wecom-on-arch-linux"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "nagios监控系统安装(1)"
 date: 2008-12-21T21:00:00+08:00
-tags: ["Life"]
+tags: ["AI", "Life"]
 draft: false
 slug: "blog-baiduhi-84f6033b"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "碎片"
 date: 2025-02-28T23:22:46+08:00
-tags: ["WeChat", "AI"]
+tags: ["AI", "Photography", "WeChat"]
 draft: false
 slug: "fragments"
 ---

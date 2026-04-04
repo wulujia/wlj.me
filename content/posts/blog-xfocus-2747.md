@@ -1,7 +1,7 @@
 ---
 title: "K粉和冰毒"
 date: 2007-07-05T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2747"
 ---

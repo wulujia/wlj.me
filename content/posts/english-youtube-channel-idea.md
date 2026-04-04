@@ -1,7 +1,7 @@
 ---
 title: "或许未来可以开一个英文 YouTube 频道"
 date: 2023-09-22T12:47:43+08:00
-tags: ["Idea"]
+tags: ["Photography"]
 draft: false
 slug: "english-youtube-channel-idea"
 ---

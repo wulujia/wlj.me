@@ -1,7 +1,7 @@
 ---
 title: "用怎样的心态来进行讨论与争论？"
 date: 2005-01-20T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-690"
 ---

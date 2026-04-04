@@ -1,7 +1,7 @@
 ---
 title: "没有矛盾不成新闻"
 date: 2004-09-21T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-487"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "向阳屯"
 date: 2007-03-04T00:00:00+08:00
-tags: ["Life"]
+tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-2494"
 ---

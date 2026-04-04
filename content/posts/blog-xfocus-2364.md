@@ -1,7 +1,7 @@
 ---
 title: "MPlayer中的电影文件合并功能"
 date: 2006-12-24T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2364"
 ---

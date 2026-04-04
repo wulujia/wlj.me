@@ -1,7 +1,7 @@
 ---
 title: "你们公司有没有人被腰斩？"
 date: 2006-06-01T00:00:00+08:00
-tags: ["Life"]
+tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-1843"
 ---

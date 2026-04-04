@@ -1,7 +1,7 @@
 ---
 title: "聪明人才会用的笨办法"
 date: 2022-06-22T22:21:15+08:00
-tags: ["WeChat", "Tools"]
+tags: ["Photography", "Tools", "WeChat"]
 draft: false
 slug: "smart-people-dumb-methods"
 ---

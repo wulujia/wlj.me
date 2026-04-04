@@ -1,7 +1,7 @@
 ---
 title: "电子文档安全市场及技术分析"
 date: 2006-05-25T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1823"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "墨迹"
 date: 2007-04-24T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2588"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "关于SLKM隐含目录的bug"
 date: 2000-05-05T00:00:00+08:00
-tags: ["Security"]
+tags: ["AI", "Security"]
 draft: false
 slug: "xfocus-article-43"
 ---

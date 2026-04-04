@@ -1,7 +1,7 @@
 ---
 title: "产品的灵魂"
 date: 2022-04-20T17:27:11+08:00
-tags: ["WeChat", "Startup", "Writing"]
+tags: ["Startup", "WeChat"]
 draft: false
 slug: "soul-of-a-product"
 ---

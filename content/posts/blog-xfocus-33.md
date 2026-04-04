@@ -1,7 +1,7 @@
 ---
 title: "思维定势"
 date: 2004-03-03T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-33"
 ---

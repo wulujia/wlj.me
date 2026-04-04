@@ -1,7 +1,7 @@
 ---
 title: "怎么让猫很高兴地吃辣椒？"
 date: 2004-10-31T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-549"
 ---

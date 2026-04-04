@@ -1,7 +1,7 @@
 ---
 title: "铁卷销售手册的编制"
 date: 2006-05-18T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1805"
 ---

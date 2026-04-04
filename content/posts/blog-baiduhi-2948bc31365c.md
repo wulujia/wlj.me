@@ -1,7 +1,7 @@
 ---
 title: "在百度杀毒频道的广告"
 date: 2008-09-05T20:59:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-2948bc31365c"
 ---

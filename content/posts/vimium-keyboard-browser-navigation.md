@@ -1,7 +1,7 @@
 ---
 title: "用 vimium 键盘操作浏览器"
 date: 2024-07-01T10:00:00+08:00
-tags: ["Tools"]
+tags: ["Life"]
 draft: false
 slug: "vimium-keyboard-browser-navigation"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "评论：中国移动的IM计划"
 date: 2006-06-03T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1848"
 ---

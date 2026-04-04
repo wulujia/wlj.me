@@ -1,7 +1,7 @@
 ---
 title: "熊猫烧香病毒专杀工具v1.4"
 date: 2006-12-14T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2334"
 ---

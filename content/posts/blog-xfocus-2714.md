@@ -1,7 +1,7 @@
 ---
 title: "推荐一个音乐网站"
 date: 2007-06-19T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2714"
 ---

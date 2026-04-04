@@ -1,7 +1,7 @@
 ---
 title: "方案制订与审核的细节考虑"
 date: 2005-01-26T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-705"
 ---

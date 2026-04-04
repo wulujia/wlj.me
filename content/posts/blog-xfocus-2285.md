@@ -1,7 +1,7 @@
 ---
 title: "Aberdeen Group关于信息泄漏防护产品的测评"
 date: 2006-12-02T00:00:00+08:00
-tags: ["Life"]
+tags: ["AI", "Life"]
 draft: false
 slug: "blog-xfocus-2285"
 ---

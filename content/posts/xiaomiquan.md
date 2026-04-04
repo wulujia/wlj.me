@@ -1,7 +1,7 @@
 ---
 title: "内容创业的星星之火"
 date: 2017-02-17T19:19:22+08:00
-tags: ["Startup"]
+tags: ["Photography", "Startup"]
 draft: false
 slug: "xiaomiquan"
 ---

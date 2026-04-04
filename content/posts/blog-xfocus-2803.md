@@ -1,7 +1,7 @@
 ---
 title: "超级巡警自动脱壳机能脱57种壳了 ：）"
 date: 2007-08-03T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2803"
 ---

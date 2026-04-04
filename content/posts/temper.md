@@ -1,7 +1,7 @@
 ---
 title: "脾气"
 date: 2025-03-16T18:44:04+08:00
-tags: ["WeChat", "Security", "Community"]
+tags: ["Community", "WeChat"]
 draft: false
 slug: "temper"
 ---

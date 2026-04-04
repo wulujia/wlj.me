@@ -1,7 +1,7 @@
 ---
 title: "想给孩子的建议"
 date: 2024-12-19T19:33:34+08:00
-tags: ["WeChat", "Life"]
+tags: ["AI", "Life", "WeChat"]
 draft: false
 slug: "advice-for-kids"
 ---

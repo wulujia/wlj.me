@@ -1,7 +1,7 @@
 ---
 title: "用不同的视角看问题"
 date: 2008-08-15T08:15:00+08:00
-tags: ["Reading"]
+tags: ["Photography"]
 draft: false
 slug: "blog-baiduhi-b897513d"
 ---

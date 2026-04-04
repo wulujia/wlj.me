@@ -1,7 +1,7 @@
 ---
 title: "1Password"
 date: 2023-04-05T13:48:00+08:00
-tags: ["Product"]
+tags: ["Life"]
 draft: false
 slug: "1password"
 ---

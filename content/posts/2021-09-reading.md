@@ -1,7 +1,7 @@
 ---
 title: "2021 年 9 月阅读"
 date: 2021-09-30T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Photography", "Reading"]
 draft: false
 slug: "2021-09-reading"
 ---

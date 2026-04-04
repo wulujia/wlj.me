@@ -1,7 +1,7 @@
 ---
 title: "大成天下招聘"
 date: 2008-08-20T18:28:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-6135ccbf"
 ---

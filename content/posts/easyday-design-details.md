@@ -1,7 +1,7 @@
 ---
 title: "小日子/EasyDay 里的小心思"
 date: 2024-01-24T16:13:58+08:00
-tags: ["WeChat", "Startup"]
+tags: ["AI", "Startup", "WeChat"]
 draft: false
 slug: "easyday-design-details"
 ---

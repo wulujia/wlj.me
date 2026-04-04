@@ -1,7 +1,7 @@
 ---
 title: "三记耳光"
 date: 2008-08-29T01:10:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-ffafd562"
 ---

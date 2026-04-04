@@ -1,7 +1,7 @@
 ---
 title: "此地钱多人傻速来"
 date: 2006-11-09T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2208"
 ---

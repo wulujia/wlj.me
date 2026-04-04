@@ -1,7 +1,7 @@
 ---
 title: "小胜"
 date: 2023-08-13T22:40:38+08:00
-tags: ["WeChat", "Startup", "Tools"]
+tags: ["Startup", "WeChat"]
 draft: false
 slug: "quick-wins"
 ---

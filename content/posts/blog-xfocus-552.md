@@ -1,7 +1,7 @@
 ---
 title: "Debian下的ATAPI光盘刻录"
 date: 2004-11-02T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-552"
 ---

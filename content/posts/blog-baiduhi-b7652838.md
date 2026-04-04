@@ -1,7 +1,7 @@
 ---
 title: "压力"
 date: 2010-04-04T13:57:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-b7652838"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "苹果，Google"
 date: 2007-07-09T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2755"
 ---

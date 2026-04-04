@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT/AI 会改变什么"
 date: 2023-03-28T13:44:35+08:00
-tags: ["WeChat", "AI"]
+tags: ["AI", "Photography", "WeChat"]
 draft: false
 slug: "what-chatgpt-will-change"
 ---

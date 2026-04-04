@@ -1,7 +1,7 @@
 ---
 title: "2025 年 3 月阅读"
 date: 2025-03-31T00:00:00+08:00
-tags: ["Reading"]
+tags: ["AI", "Reading"]
 draft: false
 slug: "2025-03-reading"
 ---

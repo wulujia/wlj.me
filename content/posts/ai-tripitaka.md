@@ -1,7 +1,7 @@
 ---
 title: "AI 大藏经"
 date: 2024-11-20T22:55:00+08:00
-tags: ["Product"]
+tags: ["AI"]
 draft: false
 slug: "ai-tripitaka"
 ---

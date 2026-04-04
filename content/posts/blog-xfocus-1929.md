@@ -1,7 +1,7 @@
 ---
 title: "又见流氓"
 date: 2006-07-16T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1929"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "推荐一本对创业者、创造者很有价值的书"
 date: 2022-12-11T22:06:26+08:00
-tags: ["WeChat", "Startup", "Reading"]
+tags: ["AI", "Reading", "Startup", "WeChat"]
 draft: false
 slug: "book-for-creators"
 ---

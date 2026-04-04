@@ -1,7 +1,7 @@
 ---
 title: "时间银行"
 date: 2024-01-25T20:10:00+08:00
-tags: ["Idea"]
+tags: ["Life"]
 draft: false
 slug: "time-bank"
 ---

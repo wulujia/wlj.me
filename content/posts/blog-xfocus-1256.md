@@ -1,7 +1,7 @@
 ---
 title: "抗日战争中的老百姓"
 date: 2005-09-04T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Photography", "Reading"]
 draft: false
 slug: "blog-xfocus-1256"
 ---

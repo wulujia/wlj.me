@@ -1,7 +1,7 @@
 ---
 title: "立此存照"
 date: 2004-02-11T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-29"
 ---

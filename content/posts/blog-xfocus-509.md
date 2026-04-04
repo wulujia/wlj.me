@@ -1,7 +1,7 @@
 ---
 title: "我的furl"
 date: 2004-10-06T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-509"
 ---

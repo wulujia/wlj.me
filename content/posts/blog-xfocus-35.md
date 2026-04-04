@@ -1,7 +1,7 @@
 ---
 title: "放权之后该干什么？"
 date: 2004-03-20T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-35"
 ---

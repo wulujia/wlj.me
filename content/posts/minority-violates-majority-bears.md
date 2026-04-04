@@ -1,7 +1,7 @@
 ---
 title: "少数人违规，多数人担责"
 date: 2020-12-27T11:42:46+08:00
-tags: ["WeChat", "Startup", "Writing"]
+tags: ["Startup", "WeChat"]
 draft: false
 slug: "minority-violates-majority-bears"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Markmap"
 date: 2024-07-03T16:18:00+08:00
-tags: ["Product"]
+tags: ["Life"]
 draft: false
 slug: "markmap"
 ---

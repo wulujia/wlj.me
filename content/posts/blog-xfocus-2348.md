@@ -1,7 +1,7 @@
 ---
 title: "绿盟发布内网安全管理系统"
 date: 2006-12-16T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2348"
 ---

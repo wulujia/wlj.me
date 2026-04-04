@@ -1,7 +1,7 @@
 ---
 title: "Hisense A9 root & install Google Play"
 date: 2024-04-01T10:00:00+08:00
-tags: ["Product"]
+tags: ["Life"]
 draft: false
 slug: "hisense-a9-root-and-install-google-play"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "我的时间管理工具和一些经验"
 date: 2008-08-20T12:29:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-7f911e17"
 ---

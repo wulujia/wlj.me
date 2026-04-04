@@ -1,7 +1,7 @@
 ---
 title: "我的Linux工作平台配置与展示"
 date: 2004-04-17T00:00:00+08:00
-tags: ["Tech", "Linux"]
+tags: ["Tech"]
 draft: false
 slug: "my-linux-desktop"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "继续还是放弃"
 date: 2026-03-27T22:10:04+08:00
-tags: ["WeChat", "Idea"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "continue-or-quit"
 ---

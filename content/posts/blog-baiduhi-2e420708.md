@@ -1,7 +1,7 @@
 ---
 title: "管理？服务？效率？"
 date: 2008-09-03T02:19:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-2e420708"
 ---

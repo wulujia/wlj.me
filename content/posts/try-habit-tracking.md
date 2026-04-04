@@ -1,7 +1,7 @@
 ---
 title: "打怪打工之余，不如也来打卡"
 date: 2024-02-21T22:20:01+08:00
-tags: ["WeChat", "Life", "Startup"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "try-habit-tracking"
 ---

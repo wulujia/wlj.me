@@ -1,7 +1,7 @@
 ---
 title: "cacti监控系统安装"
 date: 2008-12-21T20:59:00+08:00
-tags: ["Life"]
+tags: ["AI", "Life"]
 draft: false
 slug: "blog-baiduhi-08637bec3c68"
 ---

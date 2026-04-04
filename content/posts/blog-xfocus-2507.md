@@ -1,7 +1,7 @@
 ---
 title: "舍得舍得"
 date: 2007-03-16T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2507"
 ---

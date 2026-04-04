@@ -1,7 +1,7 @@
 ---
 title: "Blogger升级了"
 date: 2006-09-10T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2068"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Duolingo 如何重新点燃用户增长"
 date: 2024-08-04T08:07:24+08:00
-tags: ["WeChat", "Marketing"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "duolingo-reignites-growth"
 ---

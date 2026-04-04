@@ -1,7 +1,7 @@
 ---
 title: "78 和 35 和 6"
 date: 2006-02-28T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1679"
 ---

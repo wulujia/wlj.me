@@ -1,7 +1,7 @@
 ---
 title: "通用弱点评价体系（CVSS）简介"
 date: 2006-02-08T00:00:00+08:00
-tags: ["Security"]
+tags: ["Photography", "Security"]
 draft: false
 slug: "xfocus-release-a850"
 ---

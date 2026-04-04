@@ -1,7 +1,7 @@
 ---
 title: "多人吃饭，精细分账的小工具 EasySplit"
 date: 2024-07-03T08:59:20+08:00
-tags: ["WeChat", "Tools", "Tech"]
+tags: ["AI", "Tech", "Tools", "WeChat"]
 draft: false
 slug: "easysplit-bill-splitting"
 ---

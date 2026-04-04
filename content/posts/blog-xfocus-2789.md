@@ -1,7 +1,7 @@
 ---
 title: "用超级巡警批量清除被挂马的网页"
 date: 2007-07-28T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2789"
 ---

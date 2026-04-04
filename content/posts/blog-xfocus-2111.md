@@ -1,7 +1,7 @@
 ---
 title: "Vista里的数据安全功能"
 date: 2006-09-30T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2111"
 ---

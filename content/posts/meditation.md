@@ -1,7 +1,7 @@
 ---
 title: "静坐"
 date: 2025-07-13T23:32:53+08:00
-tags: ["WeChat", "Life"]
+tags: ["AI", "Life", "WeChat"]
 draft: false
 slug: "meditation"
 ---

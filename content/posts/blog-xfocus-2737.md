@@ -1,7 +1,7 @@
 ---
 title: "OSX上两个免费的截图widget"
 date: 2007-07-01T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2737"
 ---

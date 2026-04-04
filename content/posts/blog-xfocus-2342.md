@@ -1,7 +1,7 @@
 ---
 title: "贴张图"
 date: 2006-12-15T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2342"
 ---

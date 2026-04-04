@@ -1,7 +1,7 @@
 ---
 title: "我们能跳出这周期率"
 date: 2007-06-24T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2724"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "The Lives of Others"
 date: 2007-01-13T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Photography"]
 draft: false
 slug: "blog-xfocus-2409"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "杠杆的支点"
 date: 2005-04-17T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-843"
 ---

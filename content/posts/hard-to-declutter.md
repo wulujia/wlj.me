@@ -1,7 +1,7 @@
 ---
 title: "看似容易，我却总做不到的断舍离"
 date: 2023-01-15T22:50:53+08:00
-tags: ["WeChat", "Tools", "Life"]
+tags: ["Life", "Photography", "WeChat"]
 draft: false
 slug: "hard-to-declutter"
 ---

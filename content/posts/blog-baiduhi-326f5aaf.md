@@ -1,7 +1,7 @@
 ---
 title: "开心偷菜热 黑客盗号忙"
 date: 2009-09-29T18:00:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-326f5aaf"
 ---

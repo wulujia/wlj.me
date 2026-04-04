@@ -1,7 +1,7 @@
 ---
 title: "宽容或者除恶务尽？"
 date: 2005-03-09T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-773"
 ---

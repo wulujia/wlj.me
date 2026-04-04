@@ -1,7 +1,7 @@
 ---
 title: "have I been pwned"
 date: 2024-05-08T11:08:00+08:00
-tags: ["Product"]
+tags: ["Life"]
 draft: false
 slug: "have-i-been-pwned"
 ---

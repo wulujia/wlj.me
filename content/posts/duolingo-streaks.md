@@ -1,7 +1,7 @@
 ---
 title: "Duolingo 的连胜"
 date: 2024-12-20T08:51:26+08:00
-tags: ["WeChat", "Marketing", "Life"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "duolingo-streaks"
 ---

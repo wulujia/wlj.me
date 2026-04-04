@@ -1,7 +1,7 @@
 ---
 title: "推荐两个CMS"
 date: 2006-02-08T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1587"
 ---

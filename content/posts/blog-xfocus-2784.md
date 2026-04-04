@@ -1,7 +1,7 @@
 ---
 title: "PCHOME和泡泡网上的超级巡警 :)"
 date: 2007-07-28T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2784"
 ---

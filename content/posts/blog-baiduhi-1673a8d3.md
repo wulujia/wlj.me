@@ -1,7 +1,7 @@
 ---
 title: "做小做强"
 date: 2008-08-02T02:39:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-1673a8d3"
 ---

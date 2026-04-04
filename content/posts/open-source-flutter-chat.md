@@ -1,7 +1,7 @@
 ---
 title: "开源超轻量的 Flutter 聊天库"
 date: 2025-02-26T22:46:45+08:00
-tags: ["WeChat", "Tech"]
+tags: ["AI", "Tech", "WeChat"]
 draft: false
 slug: "open-source-flutter-chat"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "backup-manager的两个小问题"
 date: 2006-08-16T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2012"
 ---

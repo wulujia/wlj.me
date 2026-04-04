@@ -1,7 +1,7 @@
 ---
 title: "黑客精神"
 date: 2024-01-23T19:57:43+08:00
-tags: ["WeChat", "Security"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "hacker-spirit"
 ---

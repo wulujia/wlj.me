@@ -1,7 +1,7 @@
 ---
 title: "墨水屏、散步和 AI：我的工作流"
 date: 2026-02-28T16:17:12+08:00
-tags: ["WeChat", "Life", "Tools"]
+tags: ["AI", "Life", "WeChat"]
 draft: false
 slug: "eink-walking-ai-workflow"
 ---

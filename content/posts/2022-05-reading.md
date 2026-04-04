@@ -1,7 +1,7 @@
 ---
 title: "2022 年 5 月阅读"
 date: 2022-05-31T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Photography", "Reading"]
 draft: false
 slug: "2022-05-reading"
 ---

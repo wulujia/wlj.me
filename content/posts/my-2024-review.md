@@ -1,7 +1,7 @@
 ---
 title: "我的 2024 回顾"
 date: 2024-12-27T08:34:47+08:00
-tags: ["WeChat", "Life", "Startup"]
+tags: ["AI", "Life", "Startup", "WeChat"]
 draft: false
 slug: "my-2024-review"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "小公司的信息安全三板斧"
 date: 2024-12-14T13:17:00+08:00
-tags: ["Work"]
+tags: ["AI", "Work"]
 draft: false
 slug: "small-company-security-basics"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "iterm2 下几个可以用的字体"
 date: 2025-08-18T09:59:00+08:00
-tags: ["Tools"]
+tags: ["Life"]
 draft: false
 slug: "iterm2-usable-fonts"
 ---

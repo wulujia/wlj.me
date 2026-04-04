@@ -1,7 +1,7 @@
 ---
 title: "规模与力量"
 date: 2022-05-07T09:16:19+08:00
-tags: ["WeChat", "Startup", "Marketing"]
+tags: ["Startup", "WeChat"]
 draft: false
 slug: "scale-and-power"
 ---

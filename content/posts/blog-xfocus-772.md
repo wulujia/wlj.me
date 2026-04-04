@@ -1,7 +1,7 @@
 ---
 title: "淡定从容"
 date: 2005-03-08T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-772"
 ---

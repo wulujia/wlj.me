@@ -1,7 +1,7 @@
 ---
 title: "大成天下生日那天的游玩照片"
 date: 2007-02-03T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2452"
 ---

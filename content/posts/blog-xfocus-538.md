@@ -1,7 +1,7 @@
 ---
 title: "怪现状求解：下班高峰的士换班忙"
 date: 2004-10-22T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-538"
 ---

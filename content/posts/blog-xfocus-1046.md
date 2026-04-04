@@ -1,7 +1,7 @@
 ---
 title: "企业秘密保护与陷阱网络"
 date: 2005-07-09T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1046"
 ---

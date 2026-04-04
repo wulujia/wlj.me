@@ -1,7 +1,7 @@
 ---
 title: "CIO面临的新挑战：旧设备数据泄露"
 date: 2008-10-09T10:39:00+08:00
-tags: ["Life"]
+tags: ["Life", "Photography"]
 draft: false
 slug: "blog-baiduhi-9e1e8bd4"
 ---

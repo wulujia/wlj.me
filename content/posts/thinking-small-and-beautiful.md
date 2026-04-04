@@ -1,7 +1,7 @@
 ---
 title: "思考小而美"
 date: 2025-07-23T16:33:35+08:00
-tags: ["WeChat", "Marketing"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "thinking-small-and-beautiful"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "年底了，别帮骗子冲业绩"
 date: 2022-12-18T21:47:58+08:00
-tags: ["WeChat", "Security"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "beware-year-end-scams"
 ---

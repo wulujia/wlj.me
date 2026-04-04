@@ -1,7 +1,7 @@
 ---
 title: "Google的坏消息和好消息"
 date: 2007-06-27T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2734"
 ---

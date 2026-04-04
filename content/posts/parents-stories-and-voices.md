@@ -1,7 +1,7 @@
 ---
 title: "爸爸妈妈的故事和声音"
 date: 2024-09-22T23:46:44+08:00
-tags: ["WeChat", "Tools"]
+tags: ["AI", "Tools", "WeChat"]
 draft: false
 slug: "parents-stories-and-voices"
 ---

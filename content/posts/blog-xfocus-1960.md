@@ -1,7 +1,7 @@
 ---
 title: "Gtalk与Gmail的升级"
 date: 2006-07-29T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1960"
 ---

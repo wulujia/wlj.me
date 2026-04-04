@@ -1,7 +1,7 @@
 ---
 title: "关系万千重——关于社会性软件、IM和P2P等的随想"
 date: 2004-08-29T00:00:00+08:00
-tags: ["Social", "IM", "P2P", "Blog"]
+tags: ["Tech"]
 draft: false
 slug: "social-software-im-p2p"
 ---

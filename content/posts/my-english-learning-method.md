@@ -1,7 +1,7 @@
 ---
 title: "我现在学英语的方法"
 date: 2024-07-20T15:33:00+08:00
-tags: ["Idea"]
+tags: ["Life"]
 draft: false
 slug: "my-english-learning-method"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "杜甫草堂的字匾"
 date: 2006-11-02T00:00:00+08:00
-tags: ["Life"]
+tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-2189"
 ---

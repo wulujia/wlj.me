@@ -1,7 +1,7 @@
 ---
 title: "养老几个零散的点"
 date: 2024-03-15T10:00:00+08:00
-tags: ["Idea"]
+tags: ["Life"]
 draft: false
 slug: "random-thoughts-on-retirement"
 ---

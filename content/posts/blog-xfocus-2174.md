@@ -1,7 +1,7 @@
 ---
 title: "爽 :)"
 date: 2006-10-27T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2174"
 ---

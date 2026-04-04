@@ -1,7 +1,7 @@
 ---
 title: "回顾 2022：天地本宽，岁月本长"
 date: 2022-12-24T17:57:21+08:00
-tags: ["WeChat", "Reading", "Investment"]
+tags: ["Investment", "Photography", "Reading", "WeChat"]
 draft: false
 slug: "2022-in-review"
 ---

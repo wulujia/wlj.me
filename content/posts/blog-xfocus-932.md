@@ -1,7 +1,7 @@
 ---
 title: "细分市场"
 date: 2005-05-15T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-932"
 ---

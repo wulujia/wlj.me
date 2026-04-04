@@ -1,7 +1,7 @@
 ---
 title: "同行是冤家？"
 date: 2008-09-19T15:02:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-40723a29"
 ---

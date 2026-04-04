@@ -1,7 +1,7 @@
 ---
 title: "windows 的主页真是酷"
 date: 2005-09-30T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1341"
 ---

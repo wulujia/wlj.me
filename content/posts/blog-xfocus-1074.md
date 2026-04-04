@@ -1,7 +1,7 @@
 ---
 title: "Freemind，还是Freemind"
 date: 2005-07-14T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1074"
 ---

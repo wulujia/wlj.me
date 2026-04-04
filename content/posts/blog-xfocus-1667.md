@@ -1,7 +1,7 @@
 ---
 title: "大秦币--我们曾经想做的东西"
 date: 2006-02-27T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1667"
 ---

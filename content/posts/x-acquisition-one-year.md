@@ -1,7 +1,7 @@
 ---
 title: "X 被收购一年"
 date: 2023-10-30T00:00:00+08:00
-tags: ["Idea"]
+tags: ["Life"]
 draft: false
 slug: "x-acquisition-one-year"
 ---

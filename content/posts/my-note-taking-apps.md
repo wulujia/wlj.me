@@ -1,7 +1,7 @@
 ---
 title: "我常用的笔记软件"
 date: 2023-03-26T23:29:50+08:00
-tags: ["WeChat", "Tools"]
+tags: ["AI", "Tools", "WeChat"]
 draft: false
 slug: "my-note-taking-apps"
 ---

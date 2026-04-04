@@ -1,7 +1,7 @@
 ---
 title: "SANS上赛门铁克杀毒软件错误的公告"
 date: 2007-05-21T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2648"
 ---

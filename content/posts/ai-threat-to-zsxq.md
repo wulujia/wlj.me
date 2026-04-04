@@ -1,7 +1,7 @@
 ---
 title: "AI 让我担心，知识星球是不是会遇到危机"
 date: 2025-03-01T23:30:03+08:00
-tags: ["WeChat", "AI", "Startup"]
+tags: ["AI", "Photography", "Startup", "WeChat"]
 draft: false
 slug: "ai-threat-to-zsxq"
 ---

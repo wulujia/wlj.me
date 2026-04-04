@@ -1,7 +1,7 @@
 ---
 title: "超级巡警的补丁检查功能"
 date: 2006-12-14T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2332"
 ---

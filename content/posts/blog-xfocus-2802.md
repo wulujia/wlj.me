@@ -1,7 +1,7 @@
 ---
 title: "2006 IDC报告中IDS与IPS的市场占有量"
 date: 2007-08-03T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2802"
 ---

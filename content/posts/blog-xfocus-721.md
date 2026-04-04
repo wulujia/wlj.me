@@ -1,7 +1,7 @@
 ---
 title: "行进中开火"
 date: 2005-02-03T00:00:00+08:00
-tags: ["Management"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-721"
 ---

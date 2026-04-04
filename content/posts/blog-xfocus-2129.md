@@ -1,7 +1,7 @@
 ---
 title: "铁卷兼容最新的Office 2007"
 date: 2006-10-06T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2129"
 ---

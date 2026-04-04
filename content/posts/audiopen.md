@@ -1,7 +1,7 @@
 ---
 title: "AudioPen"
 date: 2024-11-24T09:43:00+08:00
-tags: ["Idea"]
+tags: ["AI"]
 draft: false
 slug: "audiopen"
 ---

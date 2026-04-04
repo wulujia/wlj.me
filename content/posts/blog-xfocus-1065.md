@@ -1,7 +1,7 @@
 ---
 title: "游刃基线安全系统代理商培训提纲"
 date: 2005-07-12T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1065"
 ---

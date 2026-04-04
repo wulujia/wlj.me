@@ -1,7 +1,7 @@
 ---
 title: "2024 常用产品"
 date: 2024-12-29T22:16:17+08:00
-tags: ["WeChat", "Tools"]
+tags: ["AI", "Photography", "Tools", "WeChat"]
 draft: false
 slug: "2024-favorite-products"
 ---

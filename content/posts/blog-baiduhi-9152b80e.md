@@ -1,7 +1,7 @@
 ---
 title: "投票：是否应该在公司主页宣传铁卷成功案例"
 date: 2008-09-11T00:53:00+08:00
-tags: ["Business"]
+tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-9152b80e"
 ---

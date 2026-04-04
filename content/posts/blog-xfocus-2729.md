@@ -1,7 +1,7 @@
 ---
 title: "如果晟哥当翻译"
 date: 2007-06-26T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2729"
 ---

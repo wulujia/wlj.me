@@ -1,7 +1,7 @@
 ---
 title: "想学网飞并不容易"
 date: 2023-07-30T23:02:56+08:00
-tags: ["WeChat", "Life", "Security"]
+tags: ["Life", "WeChat"]
 draft: false
 slug: "hard-to-copy-netflix"
 ---

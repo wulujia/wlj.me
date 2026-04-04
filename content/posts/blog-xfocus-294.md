@@ -1,7 +1,7 @@
 ---
 title: "这个女人"
 date: 2004-08-08T00:00:00+08:00
-tags: ["Reading"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-294"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "会话劫持与中间人攻击"
 date: 2005-12-05T00:00:00+08:00
-tags: ["Tech"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1529"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Slax Note 里我现在的自定义 Prompt"
 date: 2024-11-03T00:00:00+08:00
-tags: ["Tools", "AI"]
+tags: ["Life"]
 draft: false
 slug: "slax-note-custom-prompts"
 ---

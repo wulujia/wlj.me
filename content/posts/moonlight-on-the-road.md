@@ -1,7 +1,7 @@
 ---
 title: "我在路上看月光"
 date: 2021-12-12T21:59:26+08:00
-tags: ["WeChat", "Life"]
+tags: ["Life", "Photography", "WeChat"]
 draft: false
 slug: "moonlight-on-the-road"
 ---

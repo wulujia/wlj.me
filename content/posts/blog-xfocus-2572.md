@@ -1,7 +1,7 @@
 ---
 title: "评论：宗教还是迷信"
 date: 2007-04-16T00:00:00+08:00
-tags: ["Startup"]
+tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2572"
 ---
