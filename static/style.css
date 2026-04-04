@@ -122,6 +122,150 @@ blockquote::before {
   color: var(--accent);
 }
 
+/* --- Archives Page --- */
+
+/* Activity overview */
+.archives-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 16px;
+  margin-bottom: 32px;
+  padding: 16px 0;
+  border-bottom: 1px dashed #586e75;
+}
+
+.year-bar {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--foreground);
+  font-size: 0.85em;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.year-bar:hover {
+  color: var(--accent);
+}
+
+.year-label {
+  color: #93a1a1;
+}
+
+[data-theme="light"] .year-label {
+  color: #586e75;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .year-label {
+    color: #586e75;
+  }
+}
+
+.year-blocks {
+  color: var(--accent);
+  letter-spacing: -2px;
+}
+
+.year-count {
+  color: #586e75;
+  font-size: 0.85em;
+}
+
+/* Collapsible year sections */
+.year-section {
+  margin-bottom: 4px;
+}
+
+.year-section summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 6px 0;
+  user-select: none;
+}
+
+.year-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.year-section summary::before {
+  content: "▸ ";
+  color: var(--accent);
+}
+
+.year-section[open] summary::before {
+  content: "▾ ";
+}
+
+.year-section summary:hover {
+  color: var(--accent);
+}
+
+.year-heading {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #93a1a1;
+}
+
+[data-theme="light"] .year-heading {
+  color: #586e75;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .year-heading {
+    color: #586e75;
+  }
+}
+
+.post-count {
+  color: #586e75;
+  font-size: 0.85em;
+  font-weight: normal;
+}
+
+.year-section .posts-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 4px 0 16px 0;
+}
+
+.year-section .posts-list li {
+  padding: 2px 0;
+  line-height: 1.6;
+}
+
+.year-section .posts-list li::before {
+  content: none;
+}
+
+.post-date {
+  color: #586e75;
+  margin-right: 8px;
+}
+
+.post-tag {
+  color: #586e75;
+  font-size: 0.8em;
+  margin-left: 6px;
+}
+
+[data-theme="light"] .post-count,
+[data-theme="light"] .year-count,
+[data-theme="light"] .post-date,
+[data-theme="light"] .post-tag {
+  color: #93a1a1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .post-count,
+  :root:not([data-theme="dark"]) .year-count,
+  :root:not([data-theme="dark"]) .post-date,
+  :root:not([data-theme="dark"]) .post-tag {
+    color: #93a1a1;
+  }
+}
+
 /* Post images — constrain width for comfortable reading */
 .post-content img {
   max-width: min(100%, 560px);

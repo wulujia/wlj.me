@@ -1,16 +1,51 @@
 {{ define "main" }}
+  {{ $pages := where .Site.RegularPages "Type" "posts" }}
+  {{ $groups := $pages.GroupByDate "2006" }}
+  {{ $currentYear := now.Year }}
+
+  {{/* --- Activity Overview --- */}}
+  {{ $maxCount := 1 }}
+  {{ range $groups }}
+    {{ if gt (len .Pages) $maxCount }}
+      {{ $maxCount = len .Pages }}
+    {{ end }}
+  {{ end }}
+
+  <div class="archives-overview">
+    {{ range $groups }}
+      {{ $count := len .Pages }}
+      {{ $bars := int (add (mul (div (float $count) (float $maxCount)) 7) 1) }}
+      <a href="#year-{{ .Key }}" class="year-bar" title="{{ .Key }}: {{ $count }} 篇">
+        <span class="year-label">{{ .Key }}</span>
+        <span class="year-blocks">{{ strings.Repeat $bars "█" }}</span>
+        <span class="year-count">{{ $count }}</span>
+      </a>
+    {{ end }}
+  </div>
+
+  {{/* --- Post List with Collapsible Years --- */}}
   <div class="posts">
-    {{ $pages := where .Site.RegularPages "Type" "posts" }}
-    {{ range $pages.GroupByDate "2006" }}
-      <h2>{{ .Key }}</h2>
-      <ul class="posts-list">
-        {{ range .Pages }}
-          <li>
-            <span class="post-date">{{ .Date.Format "01-02" }}</span>
-            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-          </li>
-        {{ end }}
-      </ul>
+    {{ range $groups }}
+      {{ $year := int .Key }}
+      {{ $count := len .Pages }}
+      {{ $recent := ge $year (sub $currentYear 2) }}
+      <details id="year-{{ .Key }}" class="year-section"{{ if $recent }} open{{ end }}>
+        <summary>
+          <span class="year-heading">{{ .Key }}</span>
+          <span class="post-count">({{ $count }})</span>
+        </summary>
+        <ul class="posts-list">
+          {{ range .Pages }}
+            <li>
+              <span class="post-date">{{ .Date.Format "01-02" }}</span>
+              <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+              {{ with .Params.tags }}
+                <span class="post-tag">#{{ index . 0 }}</span>
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      </details>
     {{ end }}
   </div>
 {{ end }}
