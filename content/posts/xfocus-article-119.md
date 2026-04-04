@@ -120,7 +120,7 @@ ie的cookie漏洞：
 
 假设你的主页文件为[http://a.com/cookie.htm](http://a.com/cookie.htm)， 
 
-使用以下url： [http://a%2Ecom%2Fcookie%2Ehtm%3F.the9.com](http://a%2Ecom%2Fcookie%2Ehtm%3F.the9.com/) 
+使用以下url： `http://a%2Ecom%2Fcookie%2Ehtm%3F.the9.com/` 
 
 如果直接输在浏览器地址栏里不行，就作个script，把location的值设为这个就可以了！ 
 
