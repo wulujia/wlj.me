@@ -6,7 +6,6 @@ draft: false
 slug: "enterprise-vul-assessment"
 ---
 
-吴鲁加 04/24/2004
 
 ## 版本控制
 

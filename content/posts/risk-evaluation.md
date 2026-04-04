@@ -6,7 +6,6 @@ draft: false
 slug: "risk-evaluation"
 ---
 
-吴鲁加 04/19/2004
 
 ## 版本控制
 

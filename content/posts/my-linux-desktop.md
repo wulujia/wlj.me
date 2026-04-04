@@ -6,7 +6,6 @@ draft: false
 slug: "my-linux-desktop"
 ---
 
-吴鲁加 04/17/2004
 
 曾经多次尝试将工作平台转移到Linux上，但总是以失败告终。最大的原因是需要与大量windows用户进行文档交换，其中有很多Microsoft Office的东西，也包括visio和project。近期工作重心转变，便再次尝试转换工作平台，没有太多的不适应。
 

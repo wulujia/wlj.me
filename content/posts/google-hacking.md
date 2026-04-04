@@ -6,7 +6,6 @@ draft: false
 slug: "google-hacking"
 ---
 
-吴鲁加 08/26/2004
 
 在google已经成为搜索引擎代名词的今天，聪明的人们不断发掘google的新用途，2004年在拉斯维加斯举行的BlackHat大会上，有两位安全专家分别作了名为 You found that on google ? 和 google attacks 的主题演讲。个人觉得颇为精彩，因此编译整理，简单介绍，不求甚解，只是希望能够引起大家的重视。
 

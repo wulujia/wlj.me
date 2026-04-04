@@ -6,7 +6,6 @@ draft: false
 slug: "freemind"
 ---
 
-吴鲁加 07/19/2004
 
 ## 版本控制
 

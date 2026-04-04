@@ -6,7 +6,6 @@ draft: false
 slug: "microsoft-open-source"
 ---
 
-吴鲁加 09/30/2004
 
 2004年9月20日，微软宣布扩大源代码共享计划，将向60多个政府和国际组织开放最新版本的office软件专有源代码。
 
