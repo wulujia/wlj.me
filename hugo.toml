@@ -10,7 +10,7 @@ theme = "terminal"
 
 [params]
   contentTypeName = "posts"
-  showMenuItems = 4
+  showMenuItems = 5
   fullWidthTheme = false
   centerTheme = true
   showLastUpdated = false
@@ -39,6 +39,11 @@ theme = "terminal"
     name = "归档"
     url = "/archives/"
     weight = 15
+  [[menu.main]]
+    identifier = "notes"
+    name = "笔记"
+    url = "/notes/"
+    weight = 16
   [[menu.main]]
     identifier = "tags"
     name = "标签"

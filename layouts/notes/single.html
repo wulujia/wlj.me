@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <article class="note-single">
+    <div class="note-meta">
+      <time class="note-time">{{ .Date.Format "2006-01-02 15:04" }}</time>
+    </div>
+    <div class="note-body">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

@@ -266,6 +266,94 @@ blockquote::before {
   }
 }
 
+/* --- Notes Stream (microblog timeline) --- */
+
+.notes-stream {
+  width: 100%;
+}
+
+.note-item {
+  padding: 16px 0;
+  border-bottom: 1px dashed #073642;
+}
+
+.note-item:last-child {
+  border-bottom: none;
+}
+
+.note-meta {
+  margin-bottom: 8px;
+}
+
+.note-time {
+  color: #586e75;
+  font-size: 0.85em;
+}
+
+.note-body {
+  line-height: 1.7;
+}
+
+.note-body p {
+  margin: 0 0 8px 0;
+}
+
+.note-body p:last-child {
+  margin-bottom: 0;
+}
+
+.note-body ul, .note-body ol {
+  margin: 4px 0;
+}
+
+.note-body blockquote {
+  margin: 8px 0;
+  padding-left: 12px;
+  border-left: 2px solid #586e75;
+  color: #586e75;
+}
+
+.note-body hr {
+  border: none;
+  border-top: 1px dashed #586e75;
+  margin: 12px 0;
+}
+
+.note-body a {
+  color: var(--accent);
+}
+
+.note-single {
+  padding: 20px 0;
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .note-item {
+  border-color: #eee8d5;
+}
+
+[data-theme="light"] .note-time {
+  color: #93a1a1;
+}
+
+[data-theme="light"] .note-body blockquote {
+  border-color: #93a1a1;
+  color: #93a1a1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .note-item {
+    border-color: #eee8d5;
+  }
+  :root:not([data-theme="dark"]) .note-time {
+    color: #93a1a1;
+  }
+  :root:not([data-theme="dark"]) .note-body blockquote {
+    border-color: #93a1a1;
+    color: #93a1a1;
+  }
+}
+
 /* Post images — constrain width for comfortable reading */
 .post-content img {
   max-width: min(100%, 560px);

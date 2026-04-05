@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <div class="notes-stream">
+    {{ $paginator := .Paginate .Pages 20 }}
+    {{ range $paginator.Pages }}
+      <div class="note-item">
+        <time class="note-time">{{ .Date.Format "2006-01-02 15:04" }}</time>
+        <div class="note-body">{{ .Content }}</div>
+      </div>
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
+  </div>
+{{ end }}
