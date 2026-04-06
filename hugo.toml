@@ -43,7 +43,7 @@ theme = "terminal"
     identifier = "notes"
     name = "笔记"
     url = "/notes/"
-    weight = 16
+    weight = 12
   [[menu.main]]
     identifier = "tags"
     name = "标签"
