@@ -273,13 +273,17 @@ blockquote::before {
 }
 
 .note-item {
-  /* 极简引用风：左侧一道 accent 色条 */
+  /* Twitter 默认卡片风：四边描边 + 大圆角 */
   background: transparent;
-  border: none;
-  border-left: 3px solid var(--accent);
-  border-radius: 0;
-  padding: 12px 16px;
-  margin-bottom: 8px;
+  border: 1px solid #073642;
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  transition: background-color 0.15s ease;
+}
+
+.note-item:hover {
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .note-item:last-child {
@@ -333,6 +337,14 @@ blockquote::before {
 }
 
 /* Light mode adjustments */
+[data-theme="light"] .note-item {
+  border-color: #eee8d5;
+}
+
+[data-theme="light"] .note-item:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
 [data-theme="light"] .note-time {
   color: #93a1a1;
 }
@@ -343,6 +355,12 @@ blockquote::before {
 }
 
 @media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .note-item {
+    border-color: #eee8d5;
+  }
+  :root:not([data-theme="dark"]) .note-item:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
   :root:not([data-theme="dark"]) .note-time {
     color: #93a1a1;
   }
