@@ -46,6 +46,18 @@ slug: "note-slug"
 笔记内容
 ```
 
+## 从 zsxq 导入笔记后
+
+zsxq 导出的 markdown 含 `<e type="web" .../>` 等自闭合自定义标签，
+HTML5 解析器会把它们当成开标签，吞掉后续所有内容，导致笔记渲染为空。
+每次拉新内容后跑一遍清理脚本：
+
+```bash
+./scripts/clean_zsxq.py content/notes/
+```
+
+可加 `--dry-run` 先预览。脚本幂等，重复跑不会出问题。
+
 ## 部署
 
 ```bash
