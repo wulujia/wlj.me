@@ -275,7 +275,7 @@ blockquote::before {
 .note-item {
   /* Twitter 默认卡片风：四边描边 + 大圆角 */
   background: transparent;
-  border: 1px solid #073642;
+  border: 1px solid #586e75;
   border-radius: 16px;
   padding: 16px 20px;
   margin-bottom: 12px;
@@ -338,7 +338,7 @@ blockquote::before {
 
 /* Light mode adjustments */
 [data-theme="light"] .note-item {
-  border-color: #eee8d5;
+  border-color: #93a1a1;
 }
 
 [data-theme="light"] .note-item:hover {
@@ -356,7 +356,7 @@ blockquote::before {
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) .note-item {
-    border-color: #eee8d5;
+    border-color: #93a1a1;
   }
   :root:not([data-theme="dark"]) .note-item:hover {
     background: rgba(0, 0, 0, 0.02);
