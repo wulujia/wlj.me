@@ -311,8 +311,19 @@ blockquote::before {
   margin-bottom: 0;
 }
 
-.note-body ul, .note-body ol {
-  margin: 4px 0;
+.note-body ul, .note-body ol,
+.post-content ul, .post-content ol {
+  margin: 8px 0;
+  margin-left: 2em;
+  padding-left: 1em;
+}
+
+.note-body ul ul, .note-body ul ol,
+.note-body ol ul, .note-body ol ol,
+.post-content ul ul, .post-content ul ol,
+.post-content ol ul, .post-content ol ol {
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .note-body blockquote {
