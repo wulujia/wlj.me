@@ -1,6 +1,7 @@
 ---
 title: "给自己编故事"
 date: 2026-04-09T22:19:30+08:00
+tags: ["Note"]
 draft: false
 slug: "mallory-story"
 ---
