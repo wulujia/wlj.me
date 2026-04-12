@@ -11,6 +11,7 @@ Luca，产品经理，连续创业者。
 - GitHub: [wulujia](https://github.com/wulujia)
 - Twitter/X: [@wulujia](https://x.com/wulujia)
 - 知识星球: [zsxq.com](https://www.zsxq.com/)
+- 星球创业笔记: [t.zsxq.com/UFyPJ](https://t.zsxq.com/UFyPJ)
 - Slax: [slax.com](https://slax.com/)
 - TealSeed: [tealseed.com](https://tealseed.com/)
 - Hacklook: [hacklook.com](https://hacklook.com/)
