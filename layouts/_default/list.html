@@ -34,18 +34,12 @@
         {{ partial "cover.html" . }}
 
         <div class="post-content">
-          {{ if .Truncated }}
-            {{ .Summary }}
-          {{ else }}
-            {{ .Content }}
-          {{ end }}
+          <p>{{ .Plain | truncate 200 }}</p>
         </div>
 
-        {{ if .Truncated }}
-          <div>
-            <a class="read-more button inline" href="{{ .RelPermalink }}">[阅读全文]</a>
-          </div>
-        {{ end }}
+        <div>
+          <a class="read-more button inline" href="{{ .RelPermalink }}">[阅读全文]</a>
+        </div>
       </article>
     {{ end }}
 
