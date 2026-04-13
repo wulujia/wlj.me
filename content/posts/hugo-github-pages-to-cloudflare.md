@@ -1,6 +1,6 @@
 ---
 title: "把 Hugo 博客从 GitHub Pages 迁移到 Cloudflare Pages"
-date: 2026-04-13T20:00:00+08:00
+date: 2026-04-13T13:00:00+08:00
 tags: ["Hugo", "Cloudflare"]
 draft: false
 slug: "hugo-github-pages-to-cloudflare"
