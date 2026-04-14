@@ -66,7 +66,6 @@ WordPress 里有 61 篇没分类的文章。写了个脚本按标题关键词归
 - Framework preset：Hugo
 - Build command：`hugo --gc --minify`
 - Output directory：`public`
-- 环境变量：`HUGO_VERSION=0.155.1`（内置的太旧，不设会挂）
 
 DNS 搬到 Cloudflare 托管，SSL 自动签。
 
@@ -75,7 +74,6 @@ DNS 搬到 Cloudflare 托管，SSL 自动签。
 - **Cloudflare Pages 单文件 25MB、整站 20000 文件上限。** 有视频的站尤其要提前盘算，要么压，要么放 R2/对象存储然后只在站里引用。
 - **保留 WordPress 原来的 `/wp-content/uploads/` 路径。** 不要图好看改成 `/images/` 之类的新路径——老链接（搜索引擎收录的、别处引用的）会全部失效。
 - **WordPress.com 的评论没有插件迁移路径**，REST API 是唯一选择。做成静态嵌入最省事：永远不会挂，也不用运维。
-- **HUGO_VERSION 环境变量必须设。** Cloudflare 内置的 Hugo 版本偏旧，新主题会因为语法不兼容直接构建失败。
 - **检查 front matter 的 `date` 字段**。wp2hugo 转出来的时区如果有偏差，会有文章落到"未来时间"，Hugo 默认不发布未来时间的内容，结果就是"丢文章"。
 
 20 年的内容现在不再挂在 WordPress.com 上了，不再按年付费，只要 GitHub 仓库和 Cloudflare 账号在，站就一直在。
