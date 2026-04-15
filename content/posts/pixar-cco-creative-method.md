@@ -1,7 +1,7 @@
 ---
 title: "皮克斯首席创意官的创作方法"
 date: 2026-04-15T11:43:24+08:00
-tags: ["创作","写作"]
+tags: ["Creativity", "Writing"]
 draft: false
 slug: "pixar-cco-creative-method"
 ---
