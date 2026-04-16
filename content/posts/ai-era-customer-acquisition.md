@@ -8,7 +8,7 @@ slug: "ai-era-customer-acquisition"
 
 原视频：https://www.youtube.com/watch?v=YeoGehNsrLc
 
-最近看了一个视频，讲 AI 时代的 7 种获客方法。整理一下，去掉水分。
+刚看了一个视频，讲 AI 时代的 7 种获客方法。整理一下，去掉水分。
 
 ## 1. 把产品做成 MCP Server
 
