@@ -1,5 +1,5 @@
 ---
-title: "Beli "Add Your School" 功能分析"
+title: 'Beli "Add Your School" 功能分析'
 date: 2026-04-16T11:29:11+08:00
 tags: ["Product"]
 draft: false
