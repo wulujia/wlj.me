@@ -6,24 +6,30 @@ draft: false
 slug: "gbrain-multi-device"
 ---
 
-传统系统里数据库是最重要的东西，坏了就丢数据。
+多台电脑共用一个 GBrain。写东西的时候随手就录进去，搜的时候不管换哪台机器都能搜到。
 
-GBrain 反过来。
+## 方法
 
-## 两层
+两件事。
 
-GBrain 存两层。markdown 文件，人可读的文本。DB 里的向量索引和全文索引。
+markdown 走 Git。所有 GBrain 内容放一个独立仓库，推到 GitHub。每台机器开机自动 `git pull`，写完自动 `git push`。
+
+每台机器本地跑自己的 DB。`gbrain init` 默认用嵌入式 Postgres，零配置。新机器装完跑一次 `gbrain reindex` 从 markdown 重建索引，之后每次 git pull 完跑 `gbrain sync` 做增量更新。
+
+DB 不要跨设备同步。Dropbox、iCloud、Syncthing 都不要用来同步 GBrain 的 DB 目录。
+
+## 为什么
+
+GBrain 存两层数据。markdown 文件是真相，DB 里的向量索引和全文索引是为了搜索快从 markdown 派生出来的缓存。
 
 DB 里的东西都能从 markdown 重新生成：embedding 用 OpenAI 重算，全文索引重建，实体关系重新解析。反过来不行，DB 里没有 markdown 没有的信息。
 
-## 谁重要
+所以 DB 是可以丢的。坏了跑一遍 reindex，几美金、几十分钟，回到原样。markdown 坏了才是真的丢数据。
 
-DB 坏了，跑一遍 `gbrain reindex`，几美金 embedding，几十分钟，回到原样。
+每台机器本地跑一份缓存就行。只要 markdown 同步对齐，搜索结果自然一致。不需要任何云数据库，也不会出现两台机器抢着写 DB 导致损坏的问题。
 
-markdown 坏了才是真的丢数据。
+## 一个小提醒
 
-## 一个推论
+autopilot（凌晨自动整理任务）只在一台主力机上装。多台都装会重复处理同一批 markdown，浪费 API 费用，还会撞车。
 
-多设备方案变简单：markdown 走 Git 同步，每台机器本地跑自己的 DB，不用共享数据库。新机器第一次索引，之后 git pull 增量更新。没有云依赖，没有同步冲突。
-
-备份策略也倒过来：markdown 多份备份，Git + GitHub + 偶尔离线。DB 不用备份。
+其他机器只做捕获和查询，让主力机晚上统一整理。
