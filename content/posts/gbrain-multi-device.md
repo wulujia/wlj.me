@@ -1,9 +1,9 @@
 ---
-title: 'markdown 是真相，数据库是缓存'
+title: 'gbrain 多设备怎么办'
 date: 2026-04-17T13:07:23+08:00
 tags: ["AI","Tools","Tech"]
 draft: false
-slug: "gbrain-db-is-cache"
+slug: "gbrain-multi-device"
 ---
 
 传统系统里数据库是最重要的东西，坏了就丢数据。
