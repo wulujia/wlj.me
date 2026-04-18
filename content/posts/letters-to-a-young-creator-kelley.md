@@ -1,6 +1,6 @@
 ---
 title: "给年轻创造者的三件事"
-date: 2026-04-18T15:30:00+08:00
+date: 2026-04-18T14:00:00+08:00
 tags: ["Life", "Translation"]
 draft: false
 slug: "letters-to-a-young-creator-kelley"
