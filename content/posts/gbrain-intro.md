@@ -57,6 +57,8 @@ gbrain init
 
 一个大脑，多个 agent 共用。在 Gemini 里存的内容，到 Claude 里搜得到。
 
+多台机器共用一个 GBrain 的完整配置过程（包括 GitHub private 备份、Dropbox 同步、跨机 MCP、autopilot、踩过的坑）写在 [GBrain 双机部署实录](/posts/gbrain-multi-device/)。
+
 ## 怎么导入老内容
 
 积累了多年笔记和文章的人，应该导。这些是别人没有的独特资产，从零开始等于主动把护城河扔了。
