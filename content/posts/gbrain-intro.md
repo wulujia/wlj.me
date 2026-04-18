@@ -46,10 +46,10 @@ AI agent 是大脑，GBrain 是它的记忆。
 
 ## 怎么装
 
-两条命令。
+前提是装了 [bun](https://bun.sh/)。然后两行：
 
 ```
-npm install -g @openclaw/gbrain
+git clone https://github.com/garrytan/gbrain.git && cd gbrain && bun install && bun link
 gbrain init
 ```
 
