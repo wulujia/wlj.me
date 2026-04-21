@@ -1,33 +1,51 @@
 ---
-title: "我看懂 herdr 了"
+title: "herdr 是干什么的"
 date: 2026-04-22T06:55:15+08:00
 tags: ["AI","Tools"]
 draft: false
 slug: "20260422-herdr-ai-agent-workspace"
 ---
 
-我一开始把 [herdr](https://github.com/ogulcancelik/herdr) 看成另一个 `tmux`。
+[herdr](https://github.com/ogulcancelik/herdr) 是一个给 AI coding agent 用的终端工作区管理器。
 
-让 AI 把它的 README、集成文档和 socket API 读了一遍后，我才发现自己看岔了。它当然也能分屏，也有 `workspace`、`tab`、`pane`，但它盯的不是“终端怎么摆”，它盯的是“pane 里的 agent 现在是什么状态”。
+它自己也有 `workspace`、`tab`、`pane`，能分屏、切换、恢复 session。只看这一层，它很像 `tmux`。
 
-这个差别很小，也很大。
+它和 `tmux` 的区别，在另一层。
 
-我平时如果只开一个 `Codex` 或 `Claude Code`，再加一个 server，一个日志窗口，`tmux` 完全够用。可一旦同时开两三个 agent，事情就变了。一个在写功能，一个在修测试，一个可能停在授权提示上。`tmux` 很会把窗口摆好，也很会后台挂着，但它不知道哪个 agent 在等我，哪个已经做完。
+`tmux` 管的是终端会话。`herdr` 除了管会话，还会识别 pane 里跑的是不是 agent，再把状态标出来。README 里列出的状态有四类：`working`、`blocked`、`done`、`idle`。
 
-`herdr` 补的就是这层。
+比如同时开几个 pane：
 
-它会识别 pane 里跑的是不是 agent，再把状态标出来：`working`、`blocked`、`done`、`idle`。有些工具如果支持 hook 或 plugin，它还可以直接接状态，不只靠猜。这样一来，我扫一眼侧边栏，就知道该切去哪个 pane。
+- 一个 pane 跑 `Claude Code`
+- 一个 pane 跑 `Codex`
+- 一个 pane 跑开发服务器
+- 一个 pane 看日志
 
-我看到这里，才算明白它在解决谁的问题。
+`tmux` 可以把这些 pane 摆好，也可以后台挂着。`herdr` 额外做的是：识别哪个 pane 里在跑 agent，哪个 agent 在忙，哪个在等输入，哪个已经停下来。
 
-它不是给“想学终端”的人准备的，也不是给“只跑一个 agent”的人准备的。它是给已经在终端里工作、而且开始并行跑多个 agent 的人准备的。痛点不是 pane 不够，痛点是注意力不够。
+它判断状态主要靠两种方式。
 
-还有一点我之前没想到：它不只给人看，也给 agent 用。agent 自己可以新开 pane、读别的 pane 输出、往别的 pane 发命令、等另一个 agent 做完。看到这里，我就不太想把它叫“分屏工具”了，更像一个终端里的多 agent 监督台。
+第一种，看前台进程和终端输出。
 
-所以我现在对它的理解很简单：
+第二种，接工具自己的 hook 或 plugin。文档里已经写明支持给 `Claude Code`、`Codex`、`pi`、`OpenCode` 装集成，这样状态报告会更直接。
 
-如果我平时就一个 agent，`tmux` 足够了。
+除了给人看，`herdr` 还有本地 socket API。agent 自己也可以调用这些接口，比如：
 
-如果我屏幕上常年挂着两三个以上 agent，`herdr` 这种东西，我就会一下看懂。
+- 新开 workspace
+- 新开 tab
+- 分一个 pane
+- 读另一个 pane 的输出
+- 往另一个 pane 发命令
+- 等另一个 agent 完成
 
-截至 2026-04-22，`herdr` 最新 release 是 `v0.5.0`，支持 macOS 和 Linux，已测试的工具包括 `Claude Code`、`Codex`、`pi`、`OpenCode`、`amp`、`droid`。
+所以它不只是“把几个终端摆在一起”，还多了一层对 agent 的状态管理和控制。
+
+这个工具更适合这样的场景：
+
+- 已经在终端里工作
+- 已经开始同时跑多个 agent
+- 需要知道哪个 agent 卡住了，哪个做完了
+
+如果平时只开一个 agent，加几个普通 shell，`tmux` 一般就够了。
+
+截至 2026-04-22，`herdr` 最新 release 是 `v0.5.0`，支持 macOS 和 Linux，README 里列出的已测试工具包括 `Claude Code`、`Codex`、`pi`、`OpenCode`、`amp`、`droid`。
