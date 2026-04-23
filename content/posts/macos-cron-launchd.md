@@ -6,7 +6,7 @@ draft: false
 slug: "macos-cron-launchd"
 ---
 
-今天在终端收到一封 cron 发来的邮件，说某个脚本 "Operation not permitted"。查下去才发现，苹果对 cron 越来越不待见——它从十几年前就在劝大家迁到 launchd 了。
+今天在终端收到一封 cron 发来的邮件，说某个脚本 "Operation not permitted"。查下去是两个问题合在一起，顺手也把 cron 和 launchd 在 macOS 上的差别重新过了一遍。
 
 ## 先看今天这件事
 
@@ -23,8 +23,6 @@ slug: "macos-cron-launchd"
 
 第二个是 PATH 问题。cron 跑的 bash 是个干净的非交互 shell，`.zshrc` 里配置的 PATH 不会加载，`gbrain` 找不到。
 
-两个问题合起来是一个主题：苹果对 cron 不上心了。
-
 ## cron 和 launchd 是什么
 
 两者都是"定时工具"——让系统在指定时间跑一段命令。
@@ -33,19 +31,13 @@ cron 是 Unix 时代的老工具，几十年历史，Linux、Mac 都有，写一
 
 launchd 是苹果自己做的调度系统，2005 年随 macOS 10.4 推出。现在苹果系统里所有后台服务，包括 cron 本身，都归 launchd 管。
 
-## 苹果怎么对待 cron
+## cron 在 macOS 上的状态
 
-从 macOS 10.4 起，苹果把 cron 标成 "deprecated"——还能用，但不推荐，以后也不会再优化。这意味着：
-
-- 苹果给系统做的新能力，不会往 cron 上接
-- TCC 权限系统，launchd 原生支持"单个任务单独授权"，cron 只能整体授权一次
-- 系统日志，launchd 的输出能按服务筛选，cron 只能自己写日志文件
+从 macOS 10.4 起，cron 被标为 "deprecated"。系统里它依然可用，但实际是由 launchd 拉起的一个兼容进程（`/System/Library/LaunchDaemons/com.vix.cron.plist`）。之后新加的一些系统能力，接到 launchd 而没有接到 cron 上，比如 TCC 权限的细粒度授权，和 `log` 命令里的子系统筛选。
 
 ## 每个任务单独授权
 
-这是 cron 和 launchd 差别最直观的地方。
-
-cron 只有一个进程 `/usr/sbin/cron`，所有定时任务都跑在它底下。你要给 cron 开"完全磁盘访问"权限，就等于一次性给**所有** cron 任务都开了。要么全开，要么全关。
+cron 只有一个进程 `/usr/sbin/cron`，所有定时任务都跑在它底下。给 cron 开"完全磁盘访问"权限，等于一次性给**所有** cron 任务都开了。要么全开，要么全关。
 
 launchd 不一样。每个任务是一个独立的 "agent"，放在 `~/Library/LaunchAgents/` 下的一个 plist 文件：
 
@@ -102,5 +94,3 @@ launchd 不一样。每个任务是一个独立的 "agent"，放在 `~/Library/L
 没有。三个任务用 cron 也能跑好，只要把 PATH 显式写到 crontab 顶部，再给 `/usr/sbin/cron` 加一次完全磁盘访问权限，两个问题都解决。
 
 迁 launchd 是为将来准备的——等到任务多了想分开管、想让睡眠错过的任务补跑、想让某个任务挂掉自动重启，那时候再迁不迟。
-
-今天的教训是一条：macOS 上的 cron 能用，但别指望它和系统新特性无缝配合。遇到坑，多半是因为苹果不打算再给它打补丁了。
