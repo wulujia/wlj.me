@@ -1,6 +1,6 @@
 ---
 title: "YC：怎么从零打造一家 AI 原生公司"
-date: 2026-04-27T10:30:00+08:00
+date: 2026-04-27T07:42:00+08:00
 tags: ["AI","创业","翻译"]
 draft: false
 slug: "20260427-yc-ai-native-company-from-scratch"
