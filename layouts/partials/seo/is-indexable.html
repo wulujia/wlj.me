@@ -1,0 +1,15 @@
+{{- $paramNoindex := or (eq (.Param "noindex") true) (eq (.Param "noindex") "true") -}}
+{{- $isPagination := in .RelPermalink "/page/" -}}
+{{- $isIndexable := false -}}
+{{- if not (or $paramNoindex $isPagination) -}}
+  {{- if .IsHome -}}
+    {{- $isIndexable = true -}}
+  {{- else if and (eq .Kind "section") (eq .Section "posts") -}}
+    {{- $isIndexable = true -}}
+  {{- else if and .IsPage (eq .Section "posts") -}}
+    {{- $isIndexable = true -}}
+  {{- else if or (eq .RelPermalink "/about/") (eq .RelPermalink "/archives/") -}}
+    {{- $isIndexable = true -}}
+  {{- end -}}
+{{- end -}}
+{{- return $isIndexable -}}

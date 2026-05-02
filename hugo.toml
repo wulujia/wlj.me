@@ -2,21 +2,55 @@ baseURL = "https://wlj.me/"
 languageCode = "zh-cn"
 title = "Luca's Blog"
 theme = "terminal"
+enableRobotsTXT = true
+
+[outputFormats]
+  [outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isHTML = false
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.LLMSFULL]
+    mediaType = "text/plain"
+    baseName = "llms-full"
+    isHTML = false
+    isPlainText = true
+    notAlternative = true
+
 [pagination]
   pagerSize = 5
 
 [markup.highlight]
   noClasses = false
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [params]
   contentTypeName = "posts"
   showMenuItems = 5
   fullWidthTheme = false
   centerTheme = true
-  showLastUpdated = false
+  showLastUpdated = true
   showFullContent = true
+  description = "Luca Wu 的个人博客，长期记录产品、技术、创业、写作和生活观察。"
+  keywords = "产品, 技术, 创业, 写作, AI, 安全, 阅读"
+  images = ["og-image.png"]
   [params.Logo]
     logoText = "wlj's terminal"
+  [params.author]
+    name = "Luca Wu"
+    displayName = "Luca"
+    url = "/about/"
+    description = "产品经理、连续创业者，长期写作者。关注产品设计、技术工具、创业和生活。"
+    sameAs = [
+      "https://wulujia.com",
+      "https://github.com/wulujia",
+      "https://x.com/wulujia",
+      "https://slax.com/",
+      "https://tealseed.com/"
+    ]
 
 [languages]
   [languages.zh]
@@ -25,7 +59,7 @@ theme = "terminal"
     [languages.zh.params]
       subtitle = "产品 · 技术 · 生活"
       owner = "Luca"
-      keywords = ""
+      keywords = "产品, 技术, 创业, 写作, AI, 安全, 阅读"
       copyright = ""
 
 [menu]
@@ -56,4 +90,4 @@ theme = "terminal"
     weight = 30
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "LLMS", "LLMSFULL"]

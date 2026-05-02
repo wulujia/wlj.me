@@ -1,10 +1,11 @@
 {{ define "main" }}
   <article class="note-single">
+    <h1 class="note-title">{{ .Title | markdownify }}</h1>
     <div class="note-meta">
       <time class="note-time">{{ .Date.Format "2006-01-02 15:04" }}</time>
     </div>
     <div class="note-body">
-      {{ .Content }}
+      {{ .Content | replaceRE "<h1([^>]*)>" `<h2${1}>` | replaceRE "</h1>" "</h2>" | safeHTML }}
     </div>
   </article>
 {{ end }}

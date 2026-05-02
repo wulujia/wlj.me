@@ -1,0 +1,33 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+Base URL: {{ .Site.BaseURL }}
+Author: {{ .Site.Params.author.name | default "Luca Wu" }}
+Language: {{ .Site.Language.Lang }}
+Updated: {{ now.Format "2006-01-02" }}
+
+## Core Pages
+
+- [Home]({{ .Site.BaseURL }}): {{ .Site.Params.description | safeHTML }}
+- [About]({{ "about/" | absURL }}): {{ .Site.Params.author.description | safeHTML }}
+- [Archives]({{ "archives/" | absURL }}): Chronological index of long-form posts.
+- [RSS]({{ "index.xml" | absURL }}): Full site feed.
+
+## Recent Posts
+
+{{- range first 40 (where .Site.RegularPages "Section" "posts") }}
+{{ printf "- [%s](%s): %s Published %s." .Title .Permalink (partial "seo/description.txt" .) (.Date.Format "2006-01-02") | safeHTML }}
+{{- end }}
+
+## High-Signal Long Posts
+
+{{- range first 60 (where (where .Site.RegularPages "Section" "posts") "WordCount" "ge" 300) }}
+{{ printf "- [%s](%s): %s Published %s." .Title .Permalink (partial "seo/description.txt" .) (.Date.Format "2006-01-02") | safeHTML }}
+{{- end }}
+
+## Crawl Policy
+
+The main SEO and GEO corpus is under `/posts/`. Short-form notes under `/notes/` are intentionally treated as stream content and may be marked `noindex,follow`.
+
+For expanded content, see {{ "llms-full.txt" | absURL }}.

@@ -1,10 +1,11 @@
 {{ define "main" }}
+  <h1 class="page-title">{{ .Title | default "笔记" }}</h1>
   <div class="notes-stream">
     {{ $paginator := .Paginate .Pages 20 }}
     {{ range $paginator.Pages }}
       <div class="note-item">
         <time class="note-time">{{ .Date.Format "2006-01-02 15:04" }}</time>
-        <div class="note-body">{{ .Content }}</div>
+        <div class="note-body">{{ .Content | replaceRE "<h1([^>]*)>" `<h2${1}>` | replaceRE "</h1>" "</h2>" | safeHTML }}</div>
       </div>
     {{ end }}
 

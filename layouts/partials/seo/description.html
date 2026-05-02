@@ -1,0 +1,15 @@
+{{- $description := "" -}}
+{{- if .Description -}}
+  {{- $description = .Description -}}
+{{- else if .IsHome -}}
+  {{- $description = .Site.Params.description | default .Site.Params.subtitle -}}
+{{- else if .Summary -}}
+  {{- $description = .Summary -}}
+{{- else -}}
+  {{- $description = .Site.Params.description | default .Site.Title -}}
+{{- end -}}
+{{- $description = $description | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- if gt (len $description) 160 -}}
+  {{- $description = printf "%s..." (substr $description 0 157) -}}
+{{- end -}}
+{{- $description -}}

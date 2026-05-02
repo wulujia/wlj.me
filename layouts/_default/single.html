@@ -1,0 +1,62 @@
+{{ define "main" }}
+<article class="post">
+  <h1 class="post-title">
+    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+  </h1>
+  <div class="post-meta">
+    {{- if .Date -}}
+      <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+        {{- partial "post-date" . -}}
+      </time>
+    {{- end -}}
+    {{- if and $.Site.Params.showLastUpdated .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) -}}
+      <span class="post-updated">
+        Updated <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">{{ .Lastmod.Format "2006-01-02" }}</time>
+      </span>
+    {{- end -}}
+    {{- $authorName := .Params.Author | default $.Site.Params.author.displayName | default $.Site.Params.author.name -}}
+    {{- with $authorName -}}
+      <span class="post-author">by <a href="{{ $.Site.Params.author.url | default "/about/" | absURL }}">{{ . }}</a></span>
+    {{- end -}}
+    {{- if and (.Param "readingTime") (eq (.Param "readingTime") true) -}}
+      <span class="post-reading-time">{{ .ReadingTime }} {{ $.Site.Params.minuteReadingTime | default "min read" }} ({{ .WordCount }} {{ $.Site.Params.words | default "words" }})</span>
+    {{- end -}}
+  </div>
+
+  {{ if .Params.tags }}
+    <span class="post-tags">
+      {{ range .Params.tags }}
+      #<a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+      {{ end }}
+    </span>
+  {{ end }}
+  {{ partial "cover.html" . }}
+
+  {{ if (.Params.Toc | default .Site.Params.Toc) }}
+    <div class="table-of-contents">
+      <h2>
+        {{ (.Params.TocTitle | default .Site.Params.TocTitle) | default "Table of Contents" }}
+      </h2>
+      {{ .TableOfContents }}
+    </div>
+  {{ end }}
+
+  <div class="post-content">
+    {{- with .Content -}}
+      {{- $content := . -}}
+      {{- $content = $content | replaceRE "<h1([^>]*)>" `<h2${1}>` | replaceRE "</h1>" "</h2>" -}}
+      <div>
+        {{ $content | replaceRE "(<h[2-9] id=\"([^\"]+)\".+)(</h[2-9]+>)" `${1}<a href="#${2}" class="hanchor" aria-label="Anchor">#</a> ${3}` | safeHTML }}
+      </div>
+    {{- end -}}
+  </div>
+
+  {{ if eq .Type $.Site.Params.contentTypeName }}
+    {{ partial "posts_pagination.html" . }}
+  {{ end }}
+
+  {{ if not (.Params.hideComments | default false) }}
+    {{ partial "comments.html" . }}
+  {{ end }}
+</article>
+{{ end }}

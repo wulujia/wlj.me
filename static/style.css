@@ -348,6 +348,20 @@ blockquote::before {
   padding: 20px 0;
 }
 
+.page-title,
+.note-title {
+  margin: 0 0 1.5rem;
+}
+
+.post-updated,
+.post-author {
+  margin-left: 0.75rem;
+}
+
+.post-author a {
+  color: inherit;
+}
+
 /* Light mode adjustments */
 [data-theme="light"] .note-item {
   border-color: #93a1a1;

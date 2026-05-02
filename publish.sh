@@ -25,6 +25,7 @@ fi
 # slug 从输入文件名取
 SLUG=$(basename "$INPUT" .md)
 DATE=$(date +%Y-%m-%dT%H:%M:%S%z | sed 's/\([0-9][0-9]\)$/:\1/')
+LASTMOD="$DATE"
 TARGET="$REPO_DIR/content/posts/${SLUG}.md"
 
 if [ -f "$TARGET" ]; then
@@ -48,6 +49,8 @@ BODY=$(awk 'NR==1 && /^# /{found=1; next} found && NR==2 && /^$/{next} {found=0}
   echo "---"
   echo "title: \"$TITLE\""
   echo "date: $DATE"
+  echo "lastmod: $LASTMOD"
+  echo "author: \"Luca\""
   [ -n "$TAG_LINE" ] && echo "$TAG_LINE"
   echo "draft: false"
   echo "slug: \"$SLUG\""

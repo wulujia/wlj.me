@@ -1,0 +1,26 @@
+# {{ .Site.Title }} Full LLM Context
+
+{{ .Site.Params.description | safeHTML }}
+
+Author: {{ .Site.Params.author.name | default "Luca Wu" }}
+Author page: {{ .Site.Params.author.url | default "/about/" | absURL }}
+Generated: {{ now.Format "2006-01-02" }}
+
+{{- range first 120 (where .Site.RegularPages "Section" "posts") }}
+
+---
+
+# {{ .Title }}
+
+URL: {{ .Permalink }}
+Published: {{ .Date.Format "2006-01-02" }}
+Updated: {{ .Lastmod.Format "2006-01-02" }}
+{{ with .Params.tags }}Tags: {{ delimit . ", " }}{{ end }}
+
+{{- $plain := .Plain | htmlUnescape | replaceRE "\\s+" " " | truncate 5000 -}}
+{{- $plain = replace $plain "&#34;" "\"" -}}
+{{- $plain = replace $plain "&#43;" "+" -}}
+{{- $plain = replace $plain "&#39;" "'" -}}
+{{- $plain = replace $plain "&amp;" "&" -}}
+{{ $plain | safeHTML }}
+{{- end }}

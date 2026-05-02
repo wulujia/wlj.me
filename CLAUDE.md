@@ -39,3 +39,39 @@ publish.sh 自动处理：date（取当前时间）、slug（取文件名）、f
 ## 笔记（notes）
 
 notes 通过 social-poster bot 的 wlj 平台发布，不在 Claude Code 的职责范围内。
+
+## SEO / GEO 维护规则（强制）
+
+这些文件是 SEO / GEO 基础设施，改动前必须先读：
+
+- `hugo.toml`
+- `layouts/partials/head.html`
+- `layouts/partials/seo/*`
+- `layouts/sitemap.xml`
+- `layouts/robots.txt`
+- `layouts/index.LLMS.txt`
+- `layouts/index.LLMSFULL.txt`
+
+站点索引策略：
+
+- 可索引：首页、`/posts/`、文章页、`/about/`、`/archives/`
+- 默认 noindex：`/notes/`、note 单页、tags、categories、分页页
+- sitemap 只放可索引页面，不放 notes、tags、categories、分页页
+
+GEO 规则：
+
+- `llms.txt` 和 `llms-full.txt` 由 Hugo 自动生成，不要手写静态文件
+- `robots.txt` 必须允许 `GPTBot`、`ClaudeBot`、`anthropic-ai`、`PerplexityBot`、`Google-Extended`、`Bytespider`、`CCBot`
+- 文章页必须保留 JSON-LD：`BlogPosting`、作者 `Person`、`BreadcrumbList`
+- 关于页是作者权威页，外部 profile 和作者简介要保持准确
+- 重要文章建议手写 `description`，不要只依赖自动摘要
+- 图片必须有有意义的 alt，不要新增 `![](...)`
+
+部署注意：
+
+- 线上 `robots.txt` 可能被 Cloudflare Managed Content 覆盖。仓库内模板正确不等于线上生效；部署后要 `curl https://wlj.me/robots.txt` 验证。
+- Cloudflare 如继续输出 Managed Content 并 block LLM crawler，需要在 Cloudflare 侧关闭或调整。
+
+## 变更记录（强制）
+
+任何影响构建、SEO/GEO、发布流程、模板、索引策略的改动，都要更新 `CHANGELOG.md`。
