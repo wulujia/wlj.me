@@ -1,18 +1,18 @@
 ---
-title: "软件工程定律网站，56 条全采集"
+title: "软件工程定律网站采集"
 date: 2026-05-03T10:00:00+08:00
 tags: ["软件工程","Reference"]
 draft: false
 slug: "laws-of-software-engineering"
 ---
 
-[lawsofsoftwareengineering.com](https://lawsofsoftwareengineering.com/) 这个站做得很漂亮，配色、卡片排版都挺花心思。看了一圈想知道到底有多少条，全部抓下来一数：**56 条，到此为止**。
+[lawsofsoftwareengineering.com](https://lawsofsoftwareengineering.com/) 这个站做得很漂亮，配色、卡片排版都挺花心思。
 
-首页 56 张卡片，每张一句话。点进去每条有个详情页约 1300 字，含定义 / Takeaways / 例子 / 出处 / 推荐阅读 / 相关定律。56 篇加起来七八万字，相当于一本小册子。
+首页每张卡片一句话，点进去详情页约 1300 字，含定义 / Takeaways / 例子 / 出处 / 推荐阅读 / 相关定律。
 
-内容全是 Wikipedia 上能查到的经典概念，没有原创理论。**它的价值是集中收纳 + 视觉好看 + 结构化重述**，不是新见解。当 reference 用足够，当 insight 没什么。
+内容都是 Wikipedia 上能查到的经典概念，没有原创理论。它的价值是集中收纳、视觉好看、结构化重述，不是新见解。当 reference 用足够，当 insight 没什么。
 
-学习一些名词也挺好。下面是完整 56 条，名字给中英双语，描述给中英对照——中文是严格按英文翻译的，不扩写。
+学习一些名词也挺好。下面给中英对照，中文是严格按英文翻译的，不扩写。
 
 | # | 名称 | 英文描述 | 中文描述 |
 |---|------|---------|---------|
