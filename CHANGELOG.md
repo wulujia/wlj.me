@@ -2,11 +2,8 @@
 
 ## 2026-05-07
 
-- 新增站内搜索 `/search/`：基于 Pagefind 静态索引，菜单加入「搜索」入口；GitHub Actions 在 Hugo build 之后执行 `npx pagefind --site public` 生成索引到 `public/pagefind/`。
-- 文章模板 `layouts/_default/single.html` 在 `posts` section 的 `<article>` 上加 `data-pagefind-body`，限定 Pagefind 仅索引 posts 正文；搜索页 `layouts/search/single.html` 加 `data-pagefind-ignore` 排除自身。
-- 搜索 UI 颜色对齐 Solarized：`static/style.css` 末尾新增 Pagefind UI 的 CSS 变量（暗/亮模式分别配色），融入 terminal 主题。
-- 归档页 `/archives/` 顶部新增「按主题浏览」区，从 `hugo.toml` 的 `params.archiveTopics`（默认 Startup / Tech / AI / Reading / Security / Product / Tools / Photography）读取主题列表，按 tag 数量展示入口。
-- 搜索页 `content/search.md` 设置 `noindex: true` 且 `is-indexable.html` 默认排除非 posts/about/archives 页面，确保搜索页不进 sitemap、不被收录。
+- 站内搜索（Pagefind）尝试后取消：方案完整推过三次（`/pagefind/`、`/search-index/`、`/find/` 三种路径），GitHub Pages origin 直连均 200，但通过 wlj.me 走 Cloudflare 时被改写为 404（伪造 404 body 是站点 Hugo 404.html，cf-cache-status: BYPASS）。判断 wlj.me 实际由 Cloudflare 服务（与 robots.txt 被 CF 改写的现象一致），新建路径不在 CF 服务的内容里。后续如要做搜索须先在 Cloudflare 后台确认部署链路。
+- 归档页 `/archives/` 不再新增「按主题浏览」区——本质就是从 `/tags/` 选 8 个 tag 加快捷入口，跟 `/tags/` 没区别，纯装饰。
 
 ## 2026-05-02
 

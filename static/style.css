@@ -437,39 +437,3 @@ blockquote::before {
     color: #93a1a1;
   }
 }
-
-/* --- Pagefind search UI (solarized) --- */
-:root {
-  --pagefind-ui-scale: 0.9;
-  --pagefind-ui-primary: #2aa198;
-  --pagefind-ui-text: #93a1a1;
-  --pagefind-ui-background: transparent;
-  --pagefind-ui-border: #586e75;
-  --pagefind-ui-tag: #073642;
-  --pagefind-ui-border-width: 1px;
-  --pagefind-ui-border-radius: 4px;
-  --pagefind-ui-font: inherit;
-}
-
-[data-theme="light"] {
-  --pagefind-ui-text: #586e75;
-  --pagefind-ui-border: #93a1a1;
-  --pagefind-ui-tag: #eee8d5;
-}
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --pagefind-ui-text: #586e75;
-    --pagefind-ui-border: #93a1a1;
-    --pagefind-ui-tag: #eee8d5;
-  }
-}
-
-.pagefind-ui__result-title a {
-  color: var(--pagefind-ui-primary) !important;
-}
-
-.pagefind-ui__result-excerpt mark {
-  background: var(--pagefind-ui-tag);
-  color: var(--pagefind-ui-primary);
-}
