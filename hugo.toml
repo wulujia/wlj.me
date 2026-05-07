@@ -29,7 +29,7 @@ enableRobotsTXT = true
 
 [params]
   contentTypeName = "posts"
-  showMenuItems = 5
+  showMenuItems = 6
   fullWidthTheme = false
   centerTheme = true
   showLastUpdated = true
@@ -37,6 +37,7 @@ enableRobotsTXT = true
   description = "Luca Wu 的个人博客，长期记录产品、技术、创业、写作和生活观察。"
   keywords = "产品, 技术, 创业, 写作, AI, 安全, 阅读"
   images = ["og-image.png"]
+  archiveTopics = ["Startup", "Tech", "AI", "Reading", "Security", "Product", "Tools", "Photography"]
   [params.Logo]
     logoText = "wlj's terminal"
   [params.author]
@@ -83,6 +84,11 @@ enableRobotsTXT = true
     name = "标签"
     url = "/tags/"
     weight = 20
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 25
   [[menu.main]]
     identifier = "about"
     name = "关于"

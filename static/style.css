@@ -124,6 +124,44 @@ blockquote::before {
 
 /* --- Archives Page --- */
 
+/* Browse by topic */
+.archives-topics {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #586e75;
+}
+
+.archives-topics__title {
+  font-size: 1em;
+  margin: 0 0 12px;
+  color: #93a1a1;
+}
+
+.topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.topic-list li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.95em;
+}
+
+.topic-list a {
+  text-decoration: none;
+}
+
+.topic-count {
+  color: #586e75;
+  font-size: 0.85em;
+}
+
 /* Activity overview */
 .archives-overview {
   display: flex;
@@ -436,4 +474,40 @@ blockquote::before {
   :root:not([data-theme="dark"]) .post__meta {
     color: #93a1a1;
   }
+}
+
+/* --- Pagefind search UI (solarized) --- */
+:root {
+  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-primary: #2aa198;
+  --pagefind-ui-text: #93a1a1;
+  --pagefind-ui-background: transparent;
+  --pagefind-ui-border: #586e75;
+  --pagefind-ui-tag: #073642;
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 4px;
+  --pagefind-ui-font: inherit;
+}
+
+[data-theme="light"] {
+  --pagefind-ui-text: #586e75;
+  --pagefind-ui-border: #93a1a1;
+  --pagefind-ui-tag: #eee8d5;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --pagefind-ui-text: #586e75;
+    --pagefind-ui-border: #93a1a1;
+    --pagefind-ui-tag: #eee8d5;
+  }
+}
+
+.pagefind-ui__result-title a {
+  color: var(--pagefind-ui-primary) !important;
+}
+
+.pagefind-ui__result-excerpt mark {
+  background: var(--pagefind-ui-tag);
+  color: var(--pagefind-ui-primary);
 }

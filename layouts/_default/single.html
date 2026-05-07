@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article class="post">
+<article class="post"{{ if eq .Section "posts" }} data-pagefind-body{{ end }}>
   <h1 class="post-title">
     <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
   </h1>
