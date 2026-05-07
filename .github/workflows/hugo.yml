@@ -46,7 +46,7 @@ jobs:
             --gc \
             --minify
       - name: Build Pagefind search index
-        run: npx -y pagefind --site public
+        run: npx -y pagefind --site public --output-subdir search-index
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

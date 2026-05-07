@@ -2,26 +2,6 @@
   <h1 class="page-title">{{ .Title | default "归档" }}</h1>
   {{ $pages := where .Site.RegularPages "Type" "posts" }}
   {{ $groups := $pages.GroupByDate "2006" }}
-
-  {{/* --- Browse by Topic --- */}}
-  {{ with .Site.Params.archiveTopics }}
-    <div class="archives-topics">
-      <h2 class="archives-topics__title">按主题浏览</h2>
-      <ul class="topic-list">
-        {{ range . }}
-          {{ $tag := . }}
-          {{ $key := urlize $tag }}
-          {{ with index $.Site.Taxonomies.tags $key }}
-            <li>
-              <a href="/tags/{{ $key }}/">#{{ $tag }}</a>
-              <span class="topic-count">{{ len . }}</span>
-            </li>
-          {{ end }}
-        {{ end }}
-      </ul>
-    </div>
-  {{ end }}
-
   {{/* --- Activity Overview --- */}}
   {{ $maxCount := 1 }}
   {{ range $groups }}

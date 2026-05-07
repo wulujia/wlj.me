@@ -124,44 +124,6 @@ blockquote::before {
 
 /* --- Archives Page --- */
 
-/* Browse by topic */
-.archives-topics {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px dashed #586e75;
-}
-
-.archives-topics__title {
-  font-size: 1em;
-  margin: 0 0 12px;
-  color: #93a1a1;
-}
-
-.topic-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-}
-
-.topic-list li {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  font-size: 0.95em;
-}
-
-.topic-list a {
-  text-decoration: none;
-}
-
-.topic-count {
-  color: #586e75;
-  font-size: 0.85em;
-}
-
 /* Activity overview */
 .archives-overview {
   display: flex;
