@@ -1,7 +1,7 @@
 ---
 title: "Code Wiki：Google 给 GitHub 仓库自动生成的可交互 wiki"
-date: 2026-05-10T22:30:00+08:00
-lastmod: 2026-05-10T22:30:00+08:00
+date: 2026-05-10T22:35:00+08:00
+lastmod: 2026-05-10T22:35:00+08:00
 author: "Luca"
 tags: ["AI","Docs","Tools"]
 draft: false
