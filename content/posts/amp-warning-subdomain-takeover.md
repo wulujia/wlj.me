@@ -8,6 +8,8 @@ draft: false
 slug: "amp-warning-subdomain-takeover"
 ---
 
+AMP（Accelerated Mobile Pages）是 Google 2015 年推的移动端加速网页框架，强制简化 HTML 和 JS、内容托管在 Google CDN，目的是让手机搜索结果秒开。后来普及度一般，2021 年 Google 把它从移动搜索排名加权里移除，现在基本是历史遗产，但 Search Console 还会扫描和报警。
+
 今天收到 Google Search Console 的一封邮件：
 
 > AMP issues detected in wulujia.com
