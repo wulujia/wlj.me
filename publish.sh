@@ -63,6 +63,10 @@ BODY=$(awk 'NR==1 && /^# /{found=1; next} found && NR==2 && /^$/{next} {found=0}
 cd "$REPO_DIR"
 git add "$TARGET"
 git commit -m "Add post: $TITLE"
-git push
+
+# Push to origin's default branch so this also works from worktree branches
+# that have no upstream configured.
+DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo main)
+git push origin "HEAD:$DEFAULT_BRANCH"
 
 echo "已发布: $SLUG"
