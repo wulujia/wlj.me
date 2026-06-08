@@ -1,0 +1,50 @@
+{{ define "main" }}
+<article class="post startupnote">
+  <h1 class="post-title">
+    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+  </h1>
+  <div class="post-meta">
+    {{- if .Date -}}
+      <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+        {{- partial "post-date" . -}}
+      </time>
+    {{- end -}}
+    {{- $authorName := .Params.Author | default $.Site.Params.author.displayName | default $.Site.Params.author.name -}}
+    {{- with $authorName -}}
+      <span class="post-author">by <a href="{{ $.Site.Params.author.url | default "/about/" | absURL }}">{{ . }}</a></span>
+    {{- end -}}
+  </div>
+
+  {{ if .Params.tags }}
+    <span class="post-tags">
+      {{ range .Params.tags }}
+      #<a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+      {{ end }}
+    </span>
+  {{ end }}
+
+  <div class="post-content">
+    {{- with .Content -}}
+      {{- $content := . -}}
+      {{- $content = $content | replaceRE "<h1([^>]*)>" `<h2${1}>` | replaceRE "</h1>" "</h2>" -}}
+      <div>
+        {{ $content | replaceRE "(<h[2-9] id=\"([^\"]+)\".+)(</h[2-9]+>)" `${1}<a href="#${2}" class="hanchor" aria-label="Anchor">#</a> ${3}` | safeHTML }}
+      </div>
+    {{- end -}}
+  </div>
+
+  {{ partial "paywall-cta.html" . }}
+
+  {{ $more := where (where .Site.RegularPages "Section" "startupnotes") "Permalink" "!=" .Permalink }}
+  {{ with $more | first 6 }}
+    <nav class="startupnote-more">
+      <h3>更多创业笔记</h3>
+      <ul>
+        {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+</article>
+{{ end }}

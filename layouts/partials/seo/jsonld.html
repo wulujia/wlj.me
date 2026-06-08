@@ -9,7 +9,7 @@
 {{- $website := dict "@type" "WebSite" "@id" $websiteID "url" .Site.BaseURL "name" .Site.Title "description" (.Site.Params.description | default .Site.Params.subtitle | default "") "inLanguage" .Site.Language.Lang "publisher" (dict "@id" $personID) -}}
 {{- $graph := slice $person $website -}}
 
-{{- if and .IsPage (eq .Section "posts") -}}
+{{- if and .IsPage (or (eq .Section "posts") (eq .Section "startupnotes")) -}}
   {{- $image := "og-image.png" | absURL -}}
   {{- with .Params.cover -}}
     {{- $image = . | absURL -}}
@@ -42,8 +42,10 @@
 
 {{- if partial "seo/is-indexable.html" . -}}
   {{- $items := slice (dict "@type" "ListItem" "position" 1 "name" .Site.Title "item" .Site.BaseURL) -}}
-  {{- if and .IsPage (eq .Section "posts") -}}
-    {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" "文章" "item" ("posts/" | absURL)) -}}
+  {{- if and .IsPage (or (eq .Section "posts") (eq .Section "startupnotes")) -}}
+    {{- $secName := cond (eq .Section "startupnotes") "创业笔记" "文章" -}}
+    {{- $secURL := cond (eq .Section "startupnotes") "startupnotes/" "posts/" -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" $secName "item" ($secURL | absURL)) -}}
     {{- $items = $items | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink) -}}
   {{- else if not .IsHome -}}
     {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}

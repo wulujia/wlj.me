@@ -8,6 +8,10 @@
     {{- $isIndexable = true -}}
   {{- else if and .IsPage (eq .Section "posts") -}}
     {{- $isIndexable = true -}}
+  {{- else if and (eq .Kind "section") (eq .Section "startupnotes") -}}
+    {{- $isIndexable = true -}}
+  {{- else if and .IsPage (eq .Section "startupnotes") -}}
+    {{- $isIndexable = true -}}
   {{- else if or (eq .RelPermalink "/about/") (eq .RelPermalink "/archives/") -}}
     {{- $isIndexable = true -}}
   {{- end -}}

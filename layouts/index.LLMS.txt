@@ -26,8 +26,16 @@ Updated: {{ now.Format "2006-01-02" }}
 {{ printf "- [%s](%s): %s Published %s." .Title .Permalink (partial "seo/description.txt" .) (.Date.Format "2006-01-02") | safeHTML }}
 {{- end }}
 
+## 创业笔记 / Startup Notes (free previews)
+
+Free first-half previews of paid notes from the 知识星球 community «星球创业笔记» ({{ "startupnotes/" | absURL }}). Each page shows roughly the first half; the full version and the continuously-updated 1800+ notes live in the community at https://wx.zsxq.com/group/511244584.
+
+{{- range first 80 (where .Site.RegularPages "Section" "startupnotes") }}
+{{ printf "- [%s](%s): %s" .Title .Permalink (partial "seo/description.txt" .) | safeHTML }}
+{{- end }}
+
 ## Crawl Policy
 
-The main SEO and GEO corpus is under `/posts/`. Short-form notes under `/notes/` are intentionally treated as stream content and may be marked `noindex,follow`.
+The main SEO and GEO corpus is under `/posts/` and `/startupnotes/` (free previews). Short-form notes under `/notes/` are intentionally treated as stream content and may be marked `noindex,follow`.
 
 For expanded content, see {{ "llms-full.txt" | absURL }}.

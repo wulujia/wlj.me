@@ -29,7 +29,8 @@ enableRobotsTXT = true
 
 [params]
   contentTypeName = "posts"
-  showMenuItems = 5
+  mainSections = ["posts"]
+  showMenuItems = 6
   fullWidthTheme = false
   centerTheme = true
   showLastUpdated = true
@@ -68,6 +69,11 @@ enableRobotsTXT = true
     name = "文章"
     url = "/posts/"
     weight = 10
+  [[menu.main]]
+    identifier = "startupnotes"
+    name = "创业笔记"
+    url = "/startupnotes/"
+    weight = 11
   [[menu.main]]
     identifier = "archives"
     name = "归档"

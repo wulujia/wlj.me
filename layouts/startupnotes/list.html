@@ -1,0 +1,34 @@
+{{ define "main" }}
+  <h1 class="page-title">{{ .Title | default "创业笔记" }}</h1>
+  {{ with .Content }}
+    <div class="index-content">
+      {{ . }}
+    </div>
+  {{ end }}
+  <div class="posts startupnotes-list">
+    {{ range .Paginator.Pages }}
+      <article class="post on-list">
+        <h2 class="post-title">
+          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </h2>
+        <div class="post-meta">
+          {{- if .Date -}}
+            <time class="post-date">
+              {{- partial "post-date" . -}}
+            </time>
+          {{- end -}}
+        </div>
+
+        <div class="post-content">
+          <p>{{ .Summary | plainify | truncate 140 }}</p>
+        </div>
+
+        <div>
+          <a class="read-more button inline" href="{{ .RelPermalink }}">[试读]</a>
+        </div>
+      </article>
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
+  </div>
+{{ end }}

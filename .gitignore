@@ -2,3 +2,12 @@ public/
 resources/_gen/
 .hugo_build.lock
 .claude/
+
+# zsxq raw topic cache — contains FULL paid note bodies, must never be published
+scripts/.zsxq-topics-raw.json
+# local preview artifacts
+.playwright-mcp/
+startupnote-*.png
+# python bytecode
+__pycache__/
+*.pyc

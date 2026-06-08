@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-06-08
+
+- 新增 `startupnotes` section（`/startupnotes/`，菜单「创业笔记」）：把「星球创业笔记」（知识星球付费星球 511244584）做成**免费试读**漏斗——每篇只发前半段，结尾挂知识星球入口（邀请卡图 + 群链接）引流付费。
+- 切半在导入脚本里完成，仓库内**只存前半段**，付费后半段只留在星球（公开仓库存全文等于泄露，且对 Google 算 cloaking）。
+- 新增脚本：`scripts/sync-zsxq-dates.py`（用 zsxq-cli 拉每篇真实 `create_time`，按编号→标题→正文开头→正文中段短语四级匹配，带「一个星球主题最多对一篇笔记」的一对一约束，避免同名/同号笔记串日期；928/942 匹配真实日期，其余按编号插值，回填进源笔记 frontmatter）、`scripts/import-startupnotes.py`（切半 + 生成 slug/frontmatter，写入 `content/startupnotes/`）。
+- 模板：`layouts/startupnotes/{single,list}.html`、`layouts/partials/paywall-cta.html`，样式加到 `static/style.css`。
+- SEO/GEO：`startupnotes` section 与单页纳入可索引（sitemap 自动跟随）；单页输出 `BlogPosting` + `BreadcrumbList`；`llms.txt` 增加创业笔记索引区块；`llms-full.txt` 保持 posts-only。页面内容全部免费可读、不隐藏，故仍标 `isAccessibleForFree: true`，无 cloaking 风险。
+- 配置：`hugo.toml` 增加「创业笔记」菜单项、设 `mainSections = ["posts"]`（首页/RSS 只列文章，新 section 用真实回溯日期不刷屏首页）、`showMenuItems` 5→6。
+
 ## 2026-05-12
 
 - `publish.sh`: 修复在 git worktree 临时分支上 `git push` 报 upstream 不匹配的问题。改为推送到 `origin` 的默认分支（`git push origin HEAD:<default>`），不再依赖当前分支的 upstream 设置。
