@@ -1,5 +1,5 @@
 ---
-title: "创业笔记 950：一些瞎琢磨之 podcast 翻译.md"
+title: "创业笔记 950：一些瞎琢磨之 podcast 翻译"
 date: 2026-07-07T19:26:28+08:00
 lastmod: 2026-07-07T19:26:28+08:00
 author: "Luca"
