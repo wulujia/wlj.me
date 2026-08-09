@@ -31,7 +31,7 @@ from pathlib import Path
 
 GROUP_ID = "511244584"
 SOURCE_DIR = Path(
-    "/Users/lucawu/Library/CloudStorage/Dropbox/Github/Luca/startupnotes"
+    "/Users/lucawu/Github/Luca/startupnotes"
 )
 HERE = Path(__file__).resolve().parent
 DATES_JSON = HERE / "zsxq-dates.json"
@@ -268,10 +268,12 @@ def main():
         cli = find_cli()
         print(f"Fetching topics from group {args.group_id} via zsxq-cli …", file=sys.stderr)
         topics = fetch_all_topics(cli, args.group_id, args.limit, args.delay, args.max_pages)
-        RAW_CACHE.write_text(json.dumps(topics, ensure_ascii=False), encoding="utf-8")
+        if not args.dry_run:
+            RAW_CACHE.write_text(json.dumps(topics, ensure_ascii=False), encoding="utf-8")
     by_num, by_title, by_content = build_lookups(topics)
-    args.dates_json.write_text(
-        json.dumps(by_num, ensure_ascii=False, indent=2), encoding="utf-8")
+    if not args.dry_run:
+        args.dates_json.write_text(
+            json.dumps(by_num, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{len(topics)} topics → {len(by_num)} by-number / "
           f"{len(by_title)} by-title / {len(by_content)} by-content keys")
 

@@ -24,7 +24,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 SOURCE_DIR = Path(
-    "/Users/lucawu/Library/CloudStorage/Dropbox/Github/Luca/startupnotes"
+    "/Users/lucawu/Github/Luca/startupnotes"
 )
 OUT_DIR = REPO / "content" / "startupnotes"
 DATES_JSON = REPO / "scripts" / "zsxq-dates.json"
@@ -33,6 +33,10 @@ MANIFEST = REPO / "scripts" / "startupnotes-manifest.csv"
 FILE_NUM_RE = re.compile(r"^0*(\d+)-")
 TITLE_RE = re.compile(r"^#\s+(.*?)\s*$", re.M)
 FOOTER_RE = re.compile(r"\n*#\s*starupnotes\s*$", re.I)
+PRIVATE_RE = re.compile(
+    r"\n+(?:---\s*\n+)?(?:#+\s*)?以下(?:内容)?(?:不|不要|不对外)发布[：:]?(?:\s*\n.*)?\Z",
+    re.S,
+)
 SHORT_NOTE_CHARS = 250          # below this, publish whole (half is meaningless)
 CUT_LO, CUT_HI = 0.45, 0.60     # acceptable cut window as fraction of total
 
@@ -191,8 +195,14 @@ def main():
         if tm:
             body = body[: tm.start()] + body[tm.end():]
         body = FOOTER_RE.sub("", body).strip()
+        original_body = body
+        body, private_sections = PRIVATE_RE.subn("", body)
+        body = body.strip()
 
-        free, withheld = cut_half(body)
+        free, withheld = cut_half(original_body if private_sections else body)
+        if private_sections:
+            free = PRIVATE_RE.sub("", free).strip()
+            withheld = body[len(free):].strip()
         date = fm.get("date") or (date_lookup.get(str(num), {}) or {}).get("date") or None
         base = f"startup-note-{num:03d}"          # a few numbers label two notes
         slug, n2 = base, 2
@@ -241,12 +251,12 @@ def main():
     # manifest
     if not args.dry_run:
         with MANIFEST.open("w", newline="", encoding="utf-8") as f:
-            w = csv.writer(f)
+            w = csv.writer(f, lineterminator="\n")
             w.writerow(["num", "slug", "date", "digested",
                         "free_chars", "withheld_chars", "title", "teaser"])
             for r in rows:
                 w.writerow([r["num"], r["slug"], r["date"], r["digested"],
-                            r["free_chars"], r["withheld_chars"], r["title"], r["teaser"]])
+                            r["free_chars"], r["withheld_chars"], r["title"], r["teaser"].rstrip()])
 
     # report
     withheld_empty = [r["num"] for r in rows if r["withheld_chars"] == 0 and r["free_chars"] >= SHORT_NOTE_CHARS]
