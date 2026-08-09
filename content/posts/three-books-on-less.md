@@ -8,7 +8,7 @@ draft: false
 slug: "three-books-on-less"
 ---
 
-最近连着读了三本讲怎么减少东西的书，方向完全不同：
+三本讲怎么减少东西的书，方向完全不同：
 
 **《The Longing for Less》**（Kyle Chayka）不是教你扔东西的，是追问「minimalism」这个词怎么从 1960 年代纽约的前卫艺术变成 Instagram 上一千三百万条标签的。
 
