@@ -1,0 +1,125 @@
+# Reading Materials Data
+# Category: "book" or "report"
+# Fields: slug, title, subtitle, author, category, year, description, original_url, reading_url, post_slug (optional)
+
+[[materials]]
+slug = "the-power-broker"
+title = "权力掮客速查"
+subtitle = "The Power Broker"
+author = "Robert A. Caro × Luca（整理）"
+category = "book"
+year = "1974"
+description = "Robert Caro 的普利策奖传记，记述 Robert Moses 如何在没有民选职位的情况下，通过掌控桥梁、隧道、公园管理局，塑造了纽约的面貌。这份速查包含权力图表、逐章概述、人物索引和年表。"
+original_url = ""
+reading_url = "/reading/the-power-broker/"
+post_slug = ""
+
+[[materials]]
+slug = "zhouyi-jingzhuan-15-lectures"
+title = "《周易》经传十五讲 · 学习指南"
+subtitle = ""
+author = "廖名春"
+category = "book"
+year = "2012"
+description = "北京大学出版社「名家通识讲座书系」之一，以出土文献与传世文献互证的方法系统讲解《周易》经传。这份指南包含十五讲要点、八卦速查、六十四卦一览和卦序规律。"
+original_url = ""
+reading_url = "/reading/zhouyi-jingzhuan-15-lectures/"
+
+[[materials]]
+slug = "decluttering-at-the-speed-of-life"
+title = "Decluttering at the Speed of Life · 操作指南"
+subtitle = ""
+author = "Dana K. White"
+category = "book"
+year = "2018"
+description = "一个自称「天生邋遢」的作者用自己从杂物堆里爬出来的经验，写出的整理操作手册。核心是五步法和「容器概念」——你家是容器，用途是限制而不是盛放。"
+original_url = ""
+reading_url = "/reading/decluttering-at-the-speed-of-life/"
+
+[[materials]]
+slug = "digital-minimalism"
+title = "Digital Minimalism · 阅读指南"
+subtitle = ""
+author = "Cal Newport"
+category = "book"
+year = "2019"
+description = "Cal Newport 在《深度工作》之后的下半场：不在办公室的时间怎么不被屏幕吃掉。核心主张是「先建高质量闲暇，再砍低质量分心」，附带三十天数字断舍离方案。"
+original_url = ""
+reading_url = "/reading/digital-minimalism/"
+
+[[materials]]
+slug = "longing-for-less"
+title = "The Longing for Less · 阅读指南"
+subtitle = ""
+author = "Kyle Chayka"
+category = "book"
+year = "2020"
+description = "不是教你扔东西的书。Chayka 想知道一个 1960 年代的纽约艺术运动怎么变成了 Gap 的 T 恤标语。全书走四组人物（芝诺到梭罗到近藤麻理惠，再到 Donald Judd 和 John Cage），把极简主义的四个品质拆开来讲。"
+original_url = ""
+reading_url = "/reading/longing-for-less/"
+
+[[materials]]
+slug = "science-new-golden-age"
+title = "Science: A New Golden Age · 阅读指南"
+subtitle = ""
+author = "OSTP / Michael Kratsios"
+category = "report"
+year = "2026"
+description = "白宫科技政策办公室提交给特朗普的报告，对标 Vannevar Bush 1945 年的《Science: The Endless Frontier》。诊断美国科研体制的四个病灶，开出五章药方。"
+original_url = "https://www.whitehouse.gov/ostp/news-updates/2026/07/21/science-a-new-golden-age/"
+reading_url = "/reading/science-new-golden-age/"
+
+[[materials]]
+slug = "temasek-review-2026"
+title = "Temasek Review 2026 速读"
+subtitle = ""
+author = "Temasek"
+category = "report"
+year = "2026"
+description = "淡马锡年度报告，财年截至 2026 年 3 月 31 日。S$518b 净投资组合、10.5% 一年 TSR、三板块结构，以及全面转向市值计价和组织一拆三的结构性变化。"
+original_url = "https://www.temasekreview.com.sg/"
+reading_url = "/reading/temasek-review-2026/"
+
+[[materials]]
+slug = "before-vegas-red-hackers"
+title = "Before Vegas：塑造中国网络生态的「红客」"
+subtitle = ""
+author = "Eugenio Benincasa / ETH Zürich CSS"
+category = "report"
+year = "2025"
+description = "追踪 1990 年代末八个红客组织的约 200 名核心成员，从论坛少年到网络安全产业创始人的路径——以及部分人进入 APT 生态的过程。"
+original_url = "https://css.ethz.ch/en/publications/risk-and-resilience-reports/details.html?id=/b/e/f/o/before_vegas_the_red_hackers_who_shaped_"
+reading_url = "/reading/before-vegas-red-hackers/"
+
+[[materials]]
+slug = "crash-exploit-and-burn"
+title = "Crash (exploit) and burn：0day 供应链的中美对比"
+subtitle = ""
+author = "Winnona DeSombre Bernsen / Atlantic Council"
+category = "report"
+year = "2025"
+description = "第一份对国际进攻性网络供应链做中美对照的研究。核心判断：全球能稳定产出 0day 的人只有低三位数，中美抢这拨人的方式完全不同——美国是分散避险的采购模式，中国是外包漏斗式。"
+original_url = "https://www.atlanticcouncil.org/in-depth-research-reports/report/crash-exploit-and-burn/"
+reading_url = "/reading/crash-exploit-and-burn/"
+
+[[materials]]
+slug = "mobilizing-cyber-power"
+title = "Mobilizing Cyber Power：中国网络民兵体系"
+subtitle = ""
+author = "Kieran Green / Margin Research"
+category = "report"
+year = "2025"
+description = "2015 年以来第一份系统研究中国网络民兵的报告。分析 136 支具体单位，从高校招募到民企嵌入，从通信保障到网络战，拆解解放军网络部队背后那支穿便装的后备力量。"
+original_url = "https://margin.re/mobilizing-cyber-power-the-growing-role-of-cyber-militias-in-chinas-network-warfare-force-structure-2/"
+reading_url = "/reading/mobilizing-cyber-power/"
+
+[[materials]]
+slug = "mythical-beasts-spyware-market"
+title = "Mythical Beasts：全球间谍软件市场图谱"
+subtitle = ""
+author = "Jen Roberts, Trey Herr 等 / Atlantic Council"
+category = "report"
+year = "2024"
+description = "第一份对全球商业间谍软件市场做实体网络测绘的研究。435 个实体、42 个国家、近三十年，把藏在 NSO、Intellexa 背后的供应商、投资人、控股公司一层层挖出来。"
+original_url = "https://www.atlanticcouncil.org/in-depth-research-reports/report/mythical-beasts-and-where-to-find-them/"
+reading_url = "/reading/mythical-beasts-spyware-market/"

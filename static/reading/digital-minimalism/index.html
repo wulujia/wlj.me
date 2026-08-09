@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="Cal Newport《Digital Minimalism》阅读指南——三条原则、三十天数字断舍离、全部实践清单。">
+<link rel="canonical" href="https://wlj.me/reading/digital-minimalism/">
+<title>Digital Minimalism · 阅读指南</title>
+<style>
+:root{
+  --bg:#faf9f5; --panel:#ffffff; --ink:#23272e; --muted:#6d7480; --line:#e5e1d6;
+  --gold:#8a6d1d; --gold-soft:#f4ecd7; --navy:#1e3a5f; --hl:#fff3c4;
+  --chip:#eef0f4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15171c; --panel:#1d2026; --ink:#d8d5cf; --muted:#9aa0a8; --line:#33373f;
+    --gold:#d4af5a; --gold-soft:#2c2717; --navy:#9fc0e8; --hl:#4a3f14;
+    --chip:#282c34;
+  }
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:16px; line-height:1.75;
+}
+a{color:var(--gold); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── 顶栏 ── */
+.top{
+  position:sticky; top:0; z-index:50; background:var(--panel);
+  border-bottom:1px solid var(--line); padding:10px 20px;
+}
+.top-inner{max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.top h1{font-size:15px; font-weight:600; white-space:nowrap; color:var(--navy)}
+.top h1 em{font-style:normal; color:var(--gold)}
+#q{
+  flex:1; min-width:180px; padding:7px 12px; border:1px solid var(--line); border-radius:8px;
+  background:var(--bg); color:var(--ink); font-size:14px; outline:none;
+}
+#q:focus{border-color:var(--gold)}
+.cats{display:flex; gap:6px; flex-wrap:wrap}
+.cats button{
+  border:1px solid var(--line); background:var(--chip); color:var(--ink);
+  border-radius:999px; padding:4px 12px; font-size:13px; cursor:pointer;
+}
+.cats button.on{background:var(--gold); border-color:var(--gold); color:#fff}
+@media (prefers-color-scheme: dark){ .cats button.on{color:#15171c} }
+#count{font-size:12px; color:var(--muted); white-space:nowrap; min-width:70px; text-align:right}
+
+/* ── 布局 ── */
+.wrap{max-width:1200px; margin:0 auto; padding:28px 20px 80px; display:grid; grid-template-columns:248px minmax(0,1fr); gap:36px}
+#toc{
+  position:sticky; top:66px; align-self:start;
+  max-height:calc(100vh - 90px); overflow-y:auto; padding-right:8px;
+  font-size:13.5px;
+}
+#toc .grp{margin:14px 0 4px; font-size:11px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase}
+#toc a{
+  display:block; padding:4px 10px; color:var(--ink); border-left:2px solid transparent;
+  border-radius:0 6px 6px 0; line-height:1.45;
+}
+#toc a:hover{background:var(--chip); text-decoration:none}
+#toc a.cur{border-left-color:var(--gold); color:var(--gold); background:var(--gold-soft); font-weight:600}
+#toc .no{color:var(--muted); font-size:11px; margin-right:6px}
+#toc a.cur .no{color:var(--gold)}
+@media (max-width:1080px){
+  .wrap{grid-template-columns:1fr}
+  #toc{display:none}
+}
+
+/* ── 正文区块 ── */
+.sec{margin-bottom:56px; scroll-margin-top:80px}
+.sec>h2{
+  font-size:22px; color:var(--navy); border-bottom:2px solid var(--gold);
+  padding-bottom:8px; margin-bottom:18px; font-weight:700;
+}
+.sec>h2 .no{color:var(--gold); font-size:15px; margin-right:10px; font-weight:600}
+.sec h3{font-size:16.5px; margin:26px 0 10px; color:var(--navy)}
+.sec p{margin-bottom:12px}
+.lead{color:var(--muted); font-size:15px; margin-bottom:16px}
+.f{scroll-margin-top:80px}
+
+ul.pts{list-style:none; margin-bottom:14px}
+ul.pts li{padding:7px 0 7px 18px; position:relative; border-bottom:1px dashed var(--line)}
+ul.pts li:last-child{border-bottom:none}
+ul.pts li::before{content:"▪"; color:var(--gold); position:absolute; left:0; top:7px; font-size:12px}
+
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px; margin-bottom:12px;
+}
+.card h4{font-size:15px; color:var(--navy); margin-bottom:6px}
+.card p{margin-bottom:6px; font-size:14.5px}
+.card .src{font-size:12.5px; color:var(--muted)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; margin-bottom:14px}
+.grid2 .card{margin-bottom:0}
+
+blockquote{
+  border-left:3px solid var(--gold); background:var(--gold-soft);
+  padding:10px 16px; margin:14px 0; border-radius:0 8px 8px 0; font-size:15px;
+}
+blockquote .en{display:block; color:var(--muted); font-size:13px; margin-top:6px}
+
+.tbl{overflow-x:auto; margin-bottom:16px; border:1px solid var(--line); border-radius:10px; background:var(--panel)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:560px}
+th{
+  text-align:left; padding:9px 12px; background:var(--chip); color:var(--navy);
+  font-size:13px; white-space:nowrap; border-bottom:1px solid var(--line);
+}
+td{padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-weight:700; color:var(--gold); white-space:nowrap}
+.tag{
+  display:inline-block; background:var(--chip); color:var(--muted); border-radius:5px;
+  padding:1px 7px; font-size:12px; margin-right:4px; white-space:nowrap;
+}
+
+/* 术语表 */
+.terms{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:10px}
+.term{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:11px 14px}
+.term b{color:var(--navy); font-size:14.5px}
+.term .en{color:var(--gold); font-size:13px}
+.term p{font-size:13.5px; margin:4px 0 0; color:var(--ink)}
+.term .go{font-size:12px}
+
+/* 时间线 */
+.tl{list-style:none; border-left:2px solid var(--gold); margin:8px 0 8px 6px; padding-left:22px}
+.tl li{position:relative; padding-bottom:16px}
+.tl li::before{
+  content:""; position:absolute; left:-28px; top:7px; width:10px; height:10px;
+  border-radius:50%; background:var(--gold);
+}
+.tl .d{font-weight:700; color:var(--navy); margin-right:8px; white-space:nowrap}
+
+/* 检查清单 */
+ol.steps{margin:0 0 14px 20px}
+ol.steps li{padding:6px 0 6px 4px}
+ol.steps li b{color:var(--navy)}
+
+/* 交叉引用高亮 */
+.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%,55%{background:var(--hl)} 100%{background:transparent}}
+@media (prefers-reduced-motion: reduce){ .flash{animation:none; outline:2px solid var(--gold)} }
+
+/* 回顶部 */
+#toTop{
+  position:fixed; right:22px; bottom:26px; width:42px; height:42px; border-radius:50%;
+  border:1px solid var(--line); background:var(--panel); color:var(--gold);
+  font-size:18px; cursor:pointer; display:none; box-shadow:0 2px 10px rgba(0,0,0,.12);
+}
+#toTop.show{display:block}
+
+.note{font-size:13px; color:var(--muted); margin-top:6px}
+footer{max-width:1200px; margin:0 auto; padding:20px; color:var(--muted); font-size:12.5px; border-top:1px solid var(--line)}
+mark{background:var(--hl); color:inherit; border-radius:2px}
+
+
+#tocbtn{position:fixed;right:18px;bottom:18px;z-index:70;border:1px solid var(--line,var(--code-border,#073642));background:var(--card,var(--background));color:var(--ink,var(--foreground));border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;box-shadow:0 4px 18px rgba(0,0,0,.13)}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper,var(--background));border-left:1px solid var(--line,var(--code-border,#073642));padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2,var(--foreground));text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a:hover{background:var(--card,var(--code-border))}
+@media print{#tocbtn,#drawer,.searchwrap{display:none!important}}
+
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回阅读材料</a></div>
+
+
+<header class="top">
+  <div class="top-inner">
+    <h1>Digital Minimalism · <em>数字极简主义</em></h1>
+    <input id="q" type="search" placeholder="搜索：人名、概念、实践…（如 梭罗、阿米什、独处、点赞、断舍离）">
+    <div class="cats">
+      <button data-cat="all" class="on">全部</button>
+      <button data-cat="guide">导读</button>
+      <button data-cat="deep">逐章精读</button>
+      <button data-cat="ref">速查表</button>
+      <button data-cat="how">阅读建议</button>
+    </div>
+    <span id="count"></span>
+  </div>
+</header>
+
+<div class="wrap">
+<nav id="toc">
+  <div class="grp">导读</div>
+  <a href="#s01"><span class="no">§ 01</span>这是一本什么书</a>
+  <a href="#s02"><span class="no">§ 02</span>核心论点与三条原则</a>
+  <a href="#s03"><span class="no">§ 03</span>全书结构地图</a>
+  <div class="grp">逐章精读</div>
+  <a href="#s04"><span class="no">§ 04</span>第一章 · 不对等的军备竞赛</a>
+  <a href="#s05"><span class="no">§ 05</span>第二章 · 数字极简主义</a>
+  <a href="#s06"><span class="no">§ 06</span>第三章 · 三十天断舍离</a>
+  <a href="#s07"><span class="no">§ 07</span>第四章 · 独处</a>
+  <a href="#s08"><span class="no">§ 08</span>第五章 · 别点赞</a>
+  <a href="#s09"><span class="no">§ 09</span>第六章 · 夺回闲暇</a>
+  <a href="#s10"><span class="no">§ 10</span>第七章 · 注意力抵抗</a>
+  <div class="grp">速查</div>
+  <a href="#s11"><span class="no">§ 11</span>全部实践清单</a>
+  <a href="#s12"><span class="no">§ 12</span>人物索引</a>
+  <a href="#s13"><span class="no">§ 13</span>关键概念</a>
+  <a href="#s14"><span class="no">§ 14</span>数据速查</a>
+  <div class="grp">读法</div>
+  <a href="#s15"><span class="no">§ 15</span>批判性阅读提示</a>
+  <a href="#s16"><span class="no">§ 16</span>三种读法与执行模板</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ § 01 ═══════════ -->
+<section class="sec" id="s01" data-cat="guide" data-title="这是一本什么书 cal newport 作者 缘起 deep work overview 简介">
+<h2><span class="no">§ 01</span>这是一本什么书</h2>
+<p class="lead">一本讲「怎么给自己定一套用技术的规矩」的书。它不给技巧清单，给的是一套哲学加一次三十天的强制重启。</p>
+
+<div class="card f">
+<h4>作者</h4>
+<p>Cal Newport，乔治城大学计算机系副教授，研究分布式算法。写《深度工作》（Deep Work，2016）的那个人。这本 2019 年出版，是《深度工作》的下半场：前一本讲上班时间的专注，这一本讲下班之后。</p>
+<p class="src">他有一个必须先说的位置：他是极少数从没注册过任何社交账号的同龄人。书里有一条脚注专门交代这件事——他承认自己缺少第一手的成瘾体验，材料来自访谈和一次大规模实验，不是自述。</p>
+</div>
+
+<div class="card f">
+<h4>缘起</h4>
+<p>《深度工作》出版后，读者反复问同一个问题：工作之外呢。他们同意办公室里的分心有害，但更难受的是下班后那几个小时也被掏空了。Newport 因此转向这个题目。</p>
+<p class="src">触发点是 2016 年 9 月 Andrew Sullivan 在《纽约》杂志写的一篇七千字长文，标题是《我曾经是个人类》。Newport 第一次读的时候没完全看懂那种警告——他自己没这个体验。听完读者的反馈之后，他懂了。</p>
+</div>
+
+<ul class="pts">
+  <li class="f"><b>它反对的不是技术，是默认设置。</b>作者是计算机科学家，全书没有一处主张退回前互联网时代。它反对的是「先注册再说，反正总有点用」这种默认心态。</li>
+  <li class="f"><b>它反对小修小补。</b>关掉 112 个应用的通知、每周设一个数字安息日、把手机放远一点——作者认为这些做法失败率极高，因为对手的设计能力和文化压力都远超个人意志力。</li>
+  <li class="f"><b>它给的替代品是一套哲学。</b>从你真正看重的东西倒推，决定用什么工具、怎么用，以及最重要的：可以坦然错过其余全部。</li>
+  <li class="f"><b>核心症结是自主权，不是有没有用。</b>技术辩护者常拿「有用」来结束讨论——社交媒体帮小艺术家找到了观众，WhatsApp 让驻外士兵联系上了家人。这些都成立，但不在点上。人们不舒服的是控制权在流失。</li>
+</ul>
+
+<blockquote class="f">我们不是自愿走进现在这个数字生活的，我们是倒退着摔进去的——更准确地说，是被推进去的。
+<span class="en">第一章的判断。Facebook 2004 年是个新鲜玩意儿，iPhone 2007 年的主打卖点是「最好的 iPod」</span></blockquote>
+</section>
+
+<!-- ═══════════ § 02 ═══════════ -->
+<section class="sec" id="s02" data-cat="guide" data-title="核心论点 定义 三条原则 杂物成本 优化 有意为之 极大主义 maximalist">
+<h2><span class="no">§ 02</span>核心论点与三条原则</h2>
+<p class="lead">全书的定义只有一句，三条原则支撑它。第二章的整章篇幅都在论证这三条为什么成立。</p>
+
+<blockquote class="f"><b>数字极简主义</b>：一种使用技术的哲学——把上网时间集中在少数几件精挑细选、并且被优化过的活动上，这些活动强力支撑你真正看重的东西；其余的，愉快地错过。
+<span class="en">第二章给出的正式定义</span></blockquote>
+
+<h3>三条原则</h3>
+<div class="tbl"><table>
+<thead><tr><th>原则</th><th>说的是什么</th><th>论证材料</th></tr></thead>
+<tbody>
+<tr class="f"><td class="num">1</td><td><b>杂物是有成本的</b>。每样东西单独看都有点好处，加在一起的总代价会把这些好处全部吃掉。</td><td>梭罗《瓦尔登湖》第一章的账本 → <a href="#s05">§ 05</a></td></tr>
+<tr class="f"><td class="num">2</td><td><b>优化很重要</b>。决定「这个工具支撑我看重的东西」只是第一步，怎么用才决定它真正能给你多少。</td><td>经济学的收益递减曲线 → <a href="#s05">§ 05</a></td></tr>
+<tr class="f"><td class="num">3</td><td><b>有意为之本身就让人满足</b>。这份满足和你具体选了什么无关，来自「是我在决定」这件事。</td><td>阿米什人与门诺派 → <a href="#s05">§ 05</a></td></tr>
+</tbody></table></div>
+
+<div class="card f">
+<h4>对照组：极大主义</h4>
+<p>大多数人的默认心态是极大主义——只要一样东西有一点可能的好处，就足以让人开始用它。这种心态最难受的是「万一错过点什么」。</p>
+<p class="src">作者说自己公开写「从没用过 Facebook」时，同行的反应就是标准极大主义：说不出他具体会错过什么，但坚持「万一里面有对你有用的东西呢」。极简主义者的回答是：错过小东西不要紧，怕的是把已经确定能让生活变好的大东西弄没了。</p>
+</div>
+
+<div class="card f">
+<h4>三个具体的人</h4>
+<p><b>Tyler</b>——为了事业、联系和娱乐注册了全套社交媒体，后来发现这三件事都有更直接的做法，于是全退了。一年后：开始做志愿者、规律健身、每月读三四本书、学尤克里里、升了职。他自己承认这些事理论上开着 Facebook 也能做，但退出是个象征动作，用来固定新的立场。</p>
+<p><b>Carina</b>——学生组织用 Facebook 群协调工作，退不掉。她把好友删到只剩执委会那十四个人，再全部取消关注。群还在，信息流空了。</p>
+<p><b>Dave</b>——创意总监，三个孩子。只留 Instagram，只关注能启发他的艺术家，每周发一张自己在做的作品。省下的时间用来每晚给三个孩子的午餐盒各画一张画。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 03 ═══════════ -->
+<section class="sec" id="s03" data-cat="guide" data-title="结构地图 目录 两部分 七章 基础 实践 章节">
+<h2><span class="no">§ 03</span>全书结构地图</h2>
+<p class="lead">两部分七章。第一部分讲为什么（诊断 + 哲学 + 一次性重启），第二部分讲怎么维持（四个方向，每章末尾附具体做法）。</p>
+
+<div class="tbl"><table>
+<thead><tr><th>部分</th><th>章</th><th>标题</th><th>这一章要说的事</th></tr></thead>
+<tbody>
+<tr class="f"><td rowspan="3"><b>一<br>基础</b></td><td class="num">1 <a href="#s04">§ 04</a></td><td>一场不对等的军备竞赛</td><td>诊断。我们怎么走到这一步的，以及这不是意志力问题</td></tr>
+<tr class="f"><td class="num">2 <a href="#s05">§ 05</a></td><td>数字极简主义</td><td>提出哲学，论证三条原则</td></tr>
+<tr class="f"><td class="num">3 <a href="#s06">§ 06</a></td><td>数字断舍离</td><td>执行方案：三十天，三个步骤，1600 人试过</td></tr>
+<tr class="f"><td rowspan="4"><b>二<br>实践</b></td><td class="num">4 <a href="#s07">§ 07</a></td><td>花时间独处</td><td>你的大脑需要不接收其他大脑输入的时间</td></tr>
+<tr class="f"><td class="num">5 <a href="#s08">§ 08</a></td><td>别点赞</td><td>线上互动在挤占线下相处，而后者才是有效的那种</td></tr>
+<tr class="f"><td class="num">6 <a href="#s09">§ 09</a></td><td>夺回闲暇</td><td>先把空洞填上，再去砍数字习惯。顺序反了必失败</td></tr>
+<tr class="f"><td class="num">7 <a href="#s10">§ 10</a></td><td>加入注意力抵抗</td><td>非用不可的时候，怎么进去拿了东西就走</td></tr>
+</tbody></table></div>
+
+<div class="card f">
+<h4>读法上的一个提醒</h4>
+<p>第六章的因果顺序是全书最容易被跳过、也最要命的一条：<b>先建高质量闲暇，再砍低质量分心</b>。反过来做，你砍掉的东西原本正在帮你盖住一个空洞，空洞露出来会很难受，然后你就退回去了。第三章的三十天之所以要求「主动重建线下活动」，就是为了这个。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 04 ═══════════ -->
+<section class="sec" id="s04" data-cat="deep" data-title="第一章 军备竞赛 lopsided arms race 烟农 tristan harris sean parker leah pearlman adam alter 间歇性正强化 鸽子 zeiler 社交认可 行为成瘾 bill maher">
+<h2><span class="no">§ 04</span>第一章 · 一场不对等的军备竞赛</h2>
+<p class="lead">这一章要证明两件事：一，我们现在的数字生活不是自己选的；二，做不到少用不是性格缺陷，是几十亿美元投资的预期结果。</p>
+
+<h3>它们最初都是小东西</h3>
+<ul class="pts">
+  <li class="f"><b>Facebook（2004 春）。</b>作者的妻子 Julie 当年在大学里第一次给他看 thefacebook.com，她的原话记忆是「一个新鲜玩意儿」，被当成新生纸质通讯录的电子版，用来查熟人的对象是谁。那年同学花在一款叫 Snood 的拼图游戏上的时间，几乎肯定比花在改资料上的多。</li>
+  <li class="f"><b>iPhone（2007 年 1 月）。</b>乔布斯发布会上前八分钟全在讲媒体功能，结论是「这是我们做过最好的 iPod」。他还很得意地展示了拨号盘是画在屏幕上的、翻联系人多顺滑。「杀手级应用是打电话」这句话当场收获掌声。讲到短信改进和移动上网，已经是第 33 分钟。</li>
+  <li class="f"><b>原始团队的确认。</b>作者找到 iPhone 初代团队成员 Andy Grignon 求证：核心任务就是放音乐和打电话。乔布斯当时对「让第三方程序员在上面写应用」这个方向持否定态度，理由是随便哪个程序员写崩了机器，用户就该打 911 了。</li>
+  <li class="f"><b>落差。</b>2004 年注册账号去查同学关系的大四学生，不会预料到现在人均每天在社交媒体和相关消息服务上花约两小时。2007 年为了音乐功能买 iPhone 的人，如果被告知十年后他每天会强迫性地看这台设备 85 次，态度大概会不一样。</li>
+</ul>
+
+<h3>T恤衫烟农</h3>
+<div class="card f">
+<h4>时间线</h4>
+<p>2017 年 4 月，《60 分钟》播出一期叫《脑黑客》的节目，Anderson Cooper 采访前 Google 工程师 Tristan Harris。Harris 举起手机说这是一台老虎机——每次查看都是在拉一次杆，看看这回摇到了什么。Cooper 追问硅谷是在给应用编程还是在给人编程，Harris 的回答是后者，理由很直接：他们靠这个赚钱。</p>
+<p class="src">一个月后，Bill Maher 在 HBO 节目的结尾说，社交媒体大亨该停止扮演造福世界的书呆子神仙，承认自己是穿 T 恤的烟农，在向孩子兜售成瘾产品。他接着放了 1995 年 Mike Wallace 采访烟草公司吹哨人 Jeffrey Wigand 的片段，说这话怎么这么耳熟。</p>
+</div>
+
+<div class="card f">
+<h4>Harris 是怎么变成吹哨人的</h4>
+<p>标准硅谷履历：斯坦福计算机本科，在 BJ Fogg 的说服式技术实验室读硕士（Fogg 在硅谷有个外号叫「百万富翁制造机」，Instagram 联合创始人 Mike Krieger 也出自这个实验室），退学创业，公司 2011 年被 Google 收购，进 Gmail 收件箱团队。</p>
+<p class="src">在 Google 期间他写了一份 144 页的幻灯片，标题是《呼吁减少干扰、尊重用户注意力》，先发给几个朋友，最后传到几千人手里，包括联席 CEO 拉里·佩奇。佩奇给他设了个新职位叫「产品哲学家」。然后什么也没发生。Harris 事后把原因归给组织惯性，作者认为真实原因更简单：减少干扰会减少收入。</p>
+</div>
+
+<h3>两个成瘾机制</h3>
+<div class="grid2">
+  <div class="card f"><h4>间歇性正强化</h4><p>1970 年代 Michael Zeiler 的鸽子实验：按钮不定时吐食丸，比定时吐更让鸽子上瘾。不可预测会释放更多多巴胺。2009 年 Facebook 上线点赞按钮之后，每次发帖都变成一次下注——会有反馈还是石沉大海，你不知道，这正是让人停不下来的结构。</p></div>
+  <div class="card f"><h4>红色那个细节</h4><p>Facebook 的通知标记最初是蓝色，跟站点配色一致，几乎没人点。改成红色——警报色——点击量暴涨。Harris 用这个例子说明这些设计不是审美选择。</p></div>
+  <div class="card f"><h4>社交认可驱动</h4><p>旧石器时代的大脑把「不理会刚收到的一条消息」和「在篝火边冷落一个想引起你注意的族人」归成同一类事，都算潜在的社交危险。这解释了为什么开车时也非要立刻回短信，也解释了青少年为什么执着于 Snapchat 的连击天数。</p></div>
+  <div class="card f"><h4>自动打标签</h4><p>这些公司投入巨资做图像识别，让你一键就能给照片里的人打标签。对被标记的人来说，那条通知的含义是「有人在想着我」——一份社交认可。Harris 的判断是：这笔投资的目的不是让社交网络更好用，是提高认可的投放量。</p></div>
+</div>
+
+<div class="card f">
+<h4>内部人的两句承认</h4>
+<p>Sean Parker（Facebook 创始总裁）2017 年秋在一场活动上说，当年做这些产品时的思路就是「怎么尽可能多地消耗你的时间和注意力」，办法是时不时给你一点多巴胺。他把这套东西称为社交认可反馈循环，并说这正是黑客会想出来的做法，因为它利用的是人类心理的一个漏洞。</p>
+<p class="src">Leah Pearlman 是当年做点赞按钮的产品经理，2009 年那篇宣布上线的博客就是她写的。现在她自己开小公司，雇了社交媒体经理替她打理 Facebook 账号，理由是不想再暴露在这套机制里。她对查看反馈的描述是：有没有通知都不太好受，无论你想看到什么，它总是差一点。</p>
+</div>
+
+<ul class="pts">
+  <li class="f"><b>行为成瘾是有正式定义的。</b>心理学上的成瘾定义剥掉了流行文化里那些吓人的画面：一个人反复从事某种物质使用或行为，因为其奖赏效果构成了强烈驱动，即使已经产生不良后果。2013 年 DSM-5 第一次把行为成瘾列为可诊断问题。</li>
+  <li class="f"><b>但它是温和的。</b>Adam Alter 明确指出，技术引发的行为成瘾比化学依赖弱得多。强迫你退出 Facebook 不会有戒断反应，你不会半夜溜去网吧。可一旦这个应用就在口袋里一点即达，温和的成瘾也足够让你一天查几十次。</li>
+  <li class="f"><b>Alter 自己的入口。</b>2013 年一趟纽约飞洛杉矶，他本打算睡觉和工作，结果从滑行开始玩一个叫 2048 的小游戏，六小时后落地时还在玩。他当时正在找下一个研究题目，问题是「今天塑造我们生活的最大因素是什么」，这一程给了答案。</li>
+</ul>
+
+<blockquote class="f">强迫性使用不是性格缺陷的结果，是一份极其赚钱的商业计划的实现。
+<span class="en">第一章的收束句</span></blockquote>
+</section>
+
+<!-- ═══════════ § 05 ═══════════ -->
+<section class="sec" id="s05" data-cat="deep" data-title="第二章 三条原则 梭罗 walden 新经济学 瓦尔登湖 收益递减 return curve 阿米什 amish kevin kelly 门诺派 mennonite laura ordnung rumspringa">
+<h2><span class="no">§ 05</span>第二章 · 数字极简主义</h2>
+<p class="lead">三条原则各配一段论证。这一章的三个论据分别来自 1845 年的康科德、经济学教科书和宾夕法尼亚的阿米什农场。</p>
+
+<h3>原则一：梭罗的新经济学</h3>
+<div class="card f">
+<h4>《瓦尔登湖》第一章其实是本账本</h4>
+<p>第一章标题是「经济篇」，也是全书最长的一章。里面除了那些著名的自然描写，还有大量精确到几分之一美分的开支表：房子 28.12½ 美元、耕作一年 14.72½、八个月伙食 8.74、八个月衣物等 8.40¾、八个月灯油等 2.00，合计 61.99¾ 美元。</p>
+<p class="src">梭罗把这些成本和他做零工的时薪一比，得到他真正想要的那个数：维持这种生活，每周只需要出卖一天劳动。</p>
+</div>
+
+<blockquote class="f">一件东西的成本，等于为它交换掉的、我称之为「生命」的那个量——无论是立刻付，还是长期付。
+<span class="en">梭罗在《瓦尔登湖》里立的那条公理。法国哲学家 Frédéric Gros 把这套算法称为梭罗的「新经济学」</span></blockquote>
+
+<ul class="pts">
+  <li class="f"><b>它改的是计量单位。</b>标准经济学算钱：种一英亩赚一美元，种六十英亩赚六十美元，那就该种六十英亩。梭罗要你把多赚的那 59 美元换算成搭进去的生命——大额抵押、维护不完的农具、没有尽头的劳作。</li>
+  <li class="f"><b>那些农民换到了什么。</b>梭罗的回答是：稍微好一点的东西。百叶窗、成色好些的铜锅、进城更省事的马车。他算过，走路进城多花的时间，往往比为买马车多干的活少。</li>
+  <li class="f"><b>换算到今天。</b>假设你每周在 Twitter 上花十小时，换回偶尔的新连接和新想法。梭罗会问：如果你要的是这两样，为什么不改成每月去参加一场有意思的活动，强制自己跟三个人聊天？同类的收获，每月只花几小时，剩下三十七小时归你。</li>
+  <li class="f"><b>成本是叠加的。</b>一个 Twitter 习惯加上另外十几个抢注意力的行为，总代价会变得极端。你最后得到的是一堆数字版的百叶窗，其中大部分本来可以用低得多的成本近似替代，或者干脆删掉也没影响。</li>
+</ul>
+
+<h3>原则二：收益递减曲线</h3>
+<div class="card f">
+<h4>大多数人还在曲线的陡峭段</h4>
+<p>把「投入的优化精力」放横轴、「这件事给你的价值」放纵轴，前段陡峭、后段变平。作者的观察是：绝大多数人在个人技术使用上的优化投入接近于零，也就是还停在最陡的那一段——稍微动一动，回报很大。</p>
+<p class="src">举例：你想了解时事。最初的做法是看社交信息流里蹦出来的链接（有点用，改进空间巨大）→ 挑一组靠谱的新闻源，用 Instapaper 之类的工具把文章剪存起来无广告地读（价值上一个台阶）→ 试出来自己周六早上在咖啡馆用平板集中读复杂长文吸收最好（接近这条曲线的自然上限）。</p>
+</div>
+
+<div class="grid2">
+  <div class="card f"><h4>Gabriella 的 Netflix 规则</h4><p>她为了省钱把有线电视换成 Netflix，结果开始刷剧，工作效率掉了，人也不满足。她的优化不是戒掉，是加一条规则：不许一个人看。Netflix 的价值还在，被滥用的空间没了，还顺带支撑了她看重的社交生活——用她的话说，追剧从一件把自己关起来的事变成了一件社交的事。</p></div>
+  <div class="card f"><h4>把应用从手机上删掉</h4><p>作者研究的极简主义者里最常见的一个优化。浏览器还能上，高价值的用途一样不少；但「无聊时手一滑就打开」这个反射被切断了。结果是使用时长大幅下降，得到的价值几乎没变。</p></div>
+</div>
+
+<div class="card f">
+<h4>为什么很少有人做这种优化</h4>
+<p>第一个原因是这些技术还新，新鲜感盖住了「它到底给了我什么」这个问题。第二个原因更冷一点：注意力经济巨头不希望你想这件事。它们的收入随你停留的时间涨，所以更愿意把产品描述成一个「你进来逛逛、好事自然发生」的生态。</p>
+<p class="src">Facebook 的使命表述是「赋予人们建立社群的力量，让世界联系更紧密」。这个目标一律正面，但你具体该怎么用它来达成，被留白了。一旦你把这些服务看成一组可以按需调用的功能，你花在上面的时间几乎必然大幅下降。</p>
+</div>
+
+<h3>原则三：阿米什的教训</h3>
+<ul class="pts">
+  <li class="f"><b>他们不是拒绝技术。</b>Kevin Kelly 在阿米什社区待过不少时间，他的说法是这些人是极有想法的 hacker 和 DIY 高手，而且常常是亲技术的。路上会有戴草帽穿背带裤的阿米什孩子踩着轮滑呼啸而过。</li>
+  <li class="f"><b>他们改的是使用条件。</b>有的社区用拖拉机，但要求换成金属轮，这样它就不能当汽车上路。有的允许燃气脱粒机，但要求用马来拉这台又冒烟又吵的家伙。个人电话几乎一律禁止，公共电话亭很常见。</li>
+  <li class="f"><b>汽车那条规则的逻辑。</b>几乎所有社区禁止拥有汽车，但坐别人开的车很正常。原因是二十世纪初汽车刚出现时他们观察到：有车的人周日不再去探访亲友和病人，改去外地野餐观光；周六也不再光顾本地商铺。有位社区成员对研究者 Donald Kraybill 说过一句话——人离开阿米什之后，第一件事就是买车。</li>
+  <li class="f"><b>电网那条规则的逻辑。</b>用电很常见，太阳能板、柴油发电机都可以，但通常禁止接入市政电网。问题不在电，在于电网把他们和外部世界连得太紧，违背「在世界之中，但不属于它」这条戒律。</li>
+  <li class="f"><b>Kelly 记的那一幕。</b>他拜访过一户人家，用一台四十万美元的电脑数控精密铣床给社区生产气动零件。操作机器的是这家戴着女帽的十岁女儿。机器安置在马厩后面。</li>
+</ul>
+
+<div class="card f">
+<h4>他们下的赌注</h4>
+<p>阿米什把「刻意做决定所带来的好处」排在「放弃的技术所带来的好处」之上。这个赌注看起来是赢的：两百多年的剧烈现代化里他们保持稳定，而且他们仍然实行 Rumspringa——十六岁起年轻人可以离家去外面的世界生活，看清自己将要放弃什么之后，再决定要不要受洗留下。据一位社会学家的估算，留下的比例在 80% 到 90% 之间。</p>
+<p class="src">作者没有把这个例子推得太远。他指出规范社区生活的那套 Ordnung 通常由四个终身任职的男性（一位主教、两位牧师、一位执事）决定和执行，一年两次的圣餐仪式上可以提意见，但包括女性在内的许多人实际上没什么话语权。</p>
+</div>
+
+<div class="card f">
+<h4>去掉威权之后，那份满足还在吗</h4>
+<p>为了回答这个问题，作者找了一位自由派门诺派信徒 Laura——新墨西哥州阿尔伯克基的学校老师，住在一个有十几户门诺派家庭的社区里，但生活决定完全由她自己做。她最激进的一条：从没买过智能手机，也不打算买。</p>
+<p class="src">她的理由不是道德，是自知：她说自己不信任自己能放着它不管、不去想它。出了门就没有那些干扰，她形容成一种自由。至于地图和餐厅点评这些便利，她说出门前把路线写下来对她不算什么事。她自己给这份满足的说法很朴素——这个决定让她有一种自主感，是她在控制技术在她生活里的位置。她停顿了一下补了句：有时候还挺得意的。</p>
+</div>
+
+<blockquote class="f">便利带来的糖分很快就过去，错过的刺痛也钝得很快；真正持久的，是「什么能占用我的时间和注意力由我说了算」这件事带来的那种踏实。
+<span class="en">第三条原则的收束</span></blockquote>
+</section>
+
+<!-- ═══════════ § 06 ═══════════ -->
+<section class="sec" id="s06" data-cat="deep" data-title="第三章 数字断舍离 declutter 三十天 1600人 实验 可选技术 操作规程 筛选 三道题 reintroduce">
+<h2><span class="no">§ 06</span>第三章 · 三十天数字断舍离</h2>
+<p class="lead">全书唯一的行动方案。三步，三十天。作者 2018 年 1 月带 1600 多人跑过一次，这一章的细节全部来自那次实验的复盘。</p>
+
+<div class="card f">
+<h4>为什么必须是急剧的</h4>
+<p>作者明确反对「一次改一个习惯」。理由是注意力经济的吸引力加上便利带来的阻力，会持续消耗你的惯性，直到你退回原点。他要的是一次短时间内完成、力度大到结果能固定下来的转变。</p>
+<p class="src">那封招募邮件发给邮件列表时，他预计会有四五十个勇敢的读者报名。实际报名超过 1600 人，这件事还上了全国新闻。</p>
+</div>
+
+<h3>三个步骤</h3>
+<ol class="steps">
+  <li class="f"><b>留出三十天，停用生活中「可选」的技术。</b></li>
+  <li class="f"><b>这三十天里，主动去重新发现让你觉得满足和有意义的活动。</b>这一条是强制的，不是可选的。</li>
+  <li class="f"><b>期满后从一张白纸开始，逐个重新引入。</b>每引入一样，都要说清楚它在你生活里服务什么价值、你具体打算怎么用。</li>
+</ol>
+
+<h3>第一步：定规则</h3>
+<ul class="pts">
+  <li class="f"><b>范围。</b>指的是通过电脑或手机屏幕交付的、用来娱乐/告知/连接你的应用、网站和数字工具。微波炉、收音机、电动牙刷不算。</li>
+  <li class="f"><b>两个边界情况。</b>电子游戏比这波新技术早几十年，但很多人（尤其是年轻男性）对它的成瘾感是同一类的——一位 29 岁的企业主 Joseph 说自己没游戏填空档就坐立不安，他把游戏和强迫性刷博客归成了同一件事。流媒体（Netflix 那一类）在实验前作者还犹豫，参与者的反馈近乎一致：该算进去。</li>
+  <li class="f"><b>「可选」的判断标准。</b>暂时移除它，会不会伤害或严重打乱你职业或个人生活的日常运转。会，就不是可选的。</li>
+  <li class="f"><b>豁免长这样。</b>工作邮箱不能停。因工作需要必须盯 Facebook Messenger 的（实验里有位音乐教授 Brian 要用它招生），不算可选。女儿用短信告诉你几点去接她，短信保留这个用途。配偶在海外服役，FaceTime 保留。</li>
+  <li class="f"><b>别把「方便」当成「关键」。</b>失去一个发布校园活动的 Facebook 群是不方便，但三十天不看它不会对你的社交生活造成关键损伤。很多人说必须留着 WhatsApp 联系国外朋友——作者的回应是，大部分这类关系经得起一个月的低频联系，而且这份不便本身有用：它能帮你分清哪些友谊是真的。</li>
+</ul>
+
+<div class="card f">
+<h4>操作规程：给「大部分可选、但有几个关键用途」的技术用</h4>
+<p>规程写清楚你在什么时候、以什么方式使用某个工具，这样你不必在「全禁」和「无限制」之间二选一。实验里大约 30% 的规则带这类例外条款，其余 70% 是彻底禁用。</p>
+<p class="src">几个真实的写法——自由撰稿人 Mary 出身「非常爱发消息的大家庭」，丈夫常出差且偶尔需要快速回复，她把手机设成只有丈夫的短信响提示音，其余全部静音。环境顾问 Mike 需要处理私人邮件但怕强迫性查看，规定只能在台式机上登录，手机不行。计算机科学家 Caleb 保留播客，但只在每天两小时通勤时听。教授 Nathaniel 不想彻底告别好剧，规定任何一部剧每周不超过两集。全职妈妈 Brooke 决定彻底断网，但给自己留了两个例外：邮箱，和在亚马逊买家用品。</p>
+</div>
+
+<h3>第二步：熬过去，并且填满</h3>
+<ul class="pts">
+  <li class="f"><b>头一两周会难受，之后会过去。</b>Brooke 的描述是：排队的时候、活动间隙的时候、无聊的时候、想看看某个人的时候、想逃开的时候、只是想「查个东西」的时候——手伸向手机，然后想起来东西都没了。她后来说，戒断反应退掉之后，她开始忘记手机这回事。</li>
+  <li class="f"><b>Daria 的那一周。</b>年轻的管理咨询顾问，删掉所有社媒和新闻应用后手机上唯一还能查的是天气。她说第一周自己知道三四个城市的逐小时天气。两周后，她对上网查任何东西几乎都失去了兴趣。</li>
+  <li class="f"><b>为什么要先戒够三十天再做决定。</b>不先清空，成瘾的拉力会污染你的判断。今天就去重新规划你和 Instagram 的关系，和三十天不碰之后再规划，得到的答案质量完全不同。</li>
+  <li class="f"><b>把它当纯 detox 的人失败率最高。</b>「先休息一下，回头照旧」是个很弱的决心，一难受就容易被自己推翻。目标必须是永久转变。</li>
+</ul>
+
+<div class="card f">
+<h4>他们那个月做了什么</h4>
+<p>研究生 Unaiza 原本晚上刷 Reddit，改成从学校和市立图书馆借书，一个月读完八本半——她说这在以前想都不会想。保险经纪 Melissa「只」读了三本，但顺便整理了衣柜、约了朋友吃饭、安排了更多和弟弟面对面的谈话（她抱怨弟弟全程盯着手机），还重启了因为「没时间」而拖着的换房计划，月底前出了价，成交了。</p>
+<p class="src">Kushboo 读完五本，是他三年来第一次主动读书，还捡回了画画和写代码这两个荒废的爱好。Caleb 开始睡前写日记和阅读，并且开始用唱机从头到尾听一整张唱片——没有耳机、没有跳过键，比他平时打开 Spotify 找一首完美的歌要丰富得多。Tarald 把时间投给了两个儿子；他说以前在游乐场，孩子们因为搞懂了什么事跑过来求表扬，他因为在看手机而没注意到，他开始想自己到底错过了多少次这种小胜利。</p>
+</div>
+
+<h3>第三步：重新引入（最容易搞砸的一步）</h3>
+<div class="tbl"><table>
+<thead><tr><th>顺序</th><th>要过的关</th><th>不合格的样子</th></tr></thead>
+<tbody>
+<tr class="f"><td class="num">1</td><td>它是否<b>直接支撑</b>你深切看重的东西？「有点好处」不算。</td><td>「刷 Twitter 找点乐子」——不支撑任何深层价值，出局。</td></tr>
+<tr class="f"><td class="num">2</td><td>它是不是支撑这个价值的<b>最佳方式</b>？</td><td>「在 Instagram 上看表姐孩子的照片」看似支撑「家庭」，但每月给表姐打一次电话效果显然更好。</td></tr>
+<tr class="f"><td class="num">3</td><td>今后<b>具体怎么用</b>？必须有一条写得出来的规程。</td><td>不合格：「我用 Facebook，它对我的社交有好处。」合格：「每周六在电脑上看一次，了解亲近的朋友和家人；手机上不装；好友已经删到只剩有实质关系的人。」</td></tr>
+</tbody></table></div>
+
+<div class="grid2">
+  <div class="card f"><h4>De 的新闻方案</h4><p>电气工程师，断舍离期间发现自己对在线新闻的依赖和由此产生的焦虑远超预期，尤其是政治类文章。他知道彻底断新闻不可持续，最后改成每天看一次 AllSides.com——这个站每条大新闻并列给三篇报道：左、右、中各一。他说这种排版消解了情绪，让他能跟上进度而不焦虑。</p></div>
+  <div class="card f"><h4>换成更老的技术</h4><p>Kate 把读新闻换成每天早上听一档新闻综述播客，信息拿到了，顺手乱翻的机会没了。Mike 换成收音机，干体力活时开着 NPR 当背景。Ramel 更直接：往 NYU 宿舍订了份报纸。</p></div>
+  <div class="card f"><h4>Kate 的反高潮</h4><p>解禁那天她兴冲冲地冲回 Facebook、旧博客和 Discord，漫无目的地逛了大概半小时，然后抬起头想：我在干嘛？这很无聊，它没给我带来任何快乐。她说要经过一次断舍离才发现这些东西其实没往她生活里添加什么。此后她再没用过。</p></div>
+  <div class="card f"><h4>几个奇招</h4><p>伦敦旅游业的 Abby 把浏览器从手机上卸了（不是件容易事），理由是她不需要立刻知道所有问题的答案；她买了个老式笔记本，在地铁上无聊时记想法。Caleb 给手机设了宵禁，晚九点到早七点不能用。工程师 Ron 给自己定了配额：只允许定期查两个网站，此前是四十多个。19 岁的 Rebecca 买了块手表——她估算自己 75% 掉进无效浏览的情况，起因都是拿手机看时间。</p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 07 ═══════════ -->
+<section class="sec" id="s07" data-cat="deep" data-title="第四章 独处 solitude 林肯 士兵之家 kethledge erwin 定义 独处剥夺 twenge igen 散步 尼采 写信 艾森豪威尔 伍尔夫 storr">
+<h2><span class="no">§ 07</span>第四章 · 独处</h2>
+<p class="lead">这一章先给独处一个能操作的定义，再论证一件事：这一代人正在第一次做到把独处完全从生活里消灭掉。</p>
+
+<blockquote class="f"><b>独处</b>是一种主观状态：你的头脑不接受来自其他头脑的输入。
+<span class="en">Raymond Kethledge（联邦上诉法院法官）与 Michael Erwin（曾在伊拉克和阿富汗服役的前陆军军官）在《Lead Yourself First》（2017）里给的定义</span></blockquote>
+
+<ul class="pts">
+  <li class="f"><b>这个定义把「物理隔离」摘掉了。</b>你可以在拥挤的咖啡馆里独处，可以在地铁上独处，也可以像林肯那样在驻扎着两个连队士兵的草坪边独处——只要你的头脑只在处理自己的想法。</li>
+  <li class="f"><b>反过来，最安静的地方也可能没有独处。</b>和人对话算输入，读书算，听播客算，看电视算，任何会把你注意力引向手机屏幕的事都算。</li>
+</ul>
+
+<h3>林肯的小屋</h3>
+<div class="card f">
+<h4>他为什么要跑</h4>
+<p>林肯的总统任期没有蜜月期。就职演说那天从典礼回到办公室，第一件递到他手上的东西就是萨姆特堡指挥官安德森少校的信，说补给要耗尽了。历史学者 William Lee Miller 的说法是：他上任第一个办公分钟就被「必须做决定」这件事抽了一耳光。</p>
+<p class="src">同时白宫走廊和楼梯上挤满了来求官求人情的访客，有人从窗户爬进来，有人在他办公室门外扎营。林肯后来把他们组织成轮流制，自嘲说像在理发店排队等刮脸。学者 Harold Holzer 的结论是：应付公众是这位总统最大的时间和精力消耗。</p>
+</div>
+
+<ul class="pts">
+  <li class="f"><b>那栋房子。</b>华盛顿特区第七街往北，士兵之家（现名武装部队退休之家）院内一栋三十五个房间的哥特复兴式「小屋」。1862、1863、1864 年的夏天和初秋，林肯住在那里，骑马往返白宫。</li>
+  <li class="f"><b>我们怎么知道他在那儿思考。</b>因为很多来访记录都提到自己打断了他的独处。财政部职员 John French 记下的一幕：夏夜天刚擦黑，仆人把他们领进小客厅，林肯独自坐着，外套和鞋都脱了，手里一把大蒲扇，一条腿搭在椅子扶手上，看上去在深想。</li>
+  <li class="f"><b>那段通勤路他很在意。</b>军方此前破获过在这条路上刺杀他的密谋，他本人至少有一次在骑行途中被开枪射击。即便如此，他偶尔还是甩开负责保护他的骑兵连自己先走。</li>
+  <li class="f"><b>葛底斯堡演说不是在火车上写的。</b>民间传说如此，但林肯的习惯是提前几周打草稿。小屋现址那家非营利机构的执行主任 Erin Carlson Mast 告诉作者：那几周里他在这儿，常在夜里独自走进旁边的军人公墓。他不写日记，所以没人知道他当时想什么，但我们知道他在那儿，在直面战争的人命代价，然后才写出那些句子。</li>
+  <li class="f"><b>《解放黑人奴隶宣言》的初稿在小屋里写成。</b>他习惯把想法记在纸片上，塞进高礼帽的衬里带着走。那张书桌的原件后来被移进白宫的林肯卧室——作者的评论是这事有点反讽，因为如果当初被迫在白宫的喧闹里处理这件事，他几乎肯定会难得多。</li>
+</ul>
+
+<div class="card f">
+<h4>另一个夜晚：1956 年 1 月 27 日</h4>
+<p>马丁·路德·金卷入蒙哥马利巴士抵制运动是件相当偶然的事——当地 NAACP 决定行动时，他刚好是城里那位有魅力、受过良好教育的新牧师。被推举为改进协会领袖时他措手不及，勉强答应，说的是「如果你们认为我能出点力，我就做」。</p>
+<p class="src">抵制运动拖长，压力压到他身上。1956 年 1 月 27 日，他因一场有组织的警方骚扰第一次被关押后获释回家，妻子和幼女已经睡了。他一个人坐在厨房桌前，端着一杯咖啡，祈祷和反省。传记作者 David Garrow 后来把这一夜称为金一生中最重要的一夜。</p>
+</div>
+
+<h3>独处剥夺</h3>
+<div class="card f">
+<h4>为什么这一次和以往不同</h4>
+<p>对独处的担忧不新鲜。梭罗抱怨过电报——大家急着从缅因州拉一条线到得克萨斯州，可这两个州也许根本没什么要紧话要说。1980 年代精神科医生 Anthony Storr 抱怨的是商场背景音乐和刚发明的车载电话。</p>
+<p class="src">作者的判断是：这些旧技术提供的是「偶尔打断」，iPod 第一次提供了「持续」。农夫可以离开炉火走去镇上看电报快讯，但电报没办法在他干活的一整天里持续供应分心。iPod 做到了，智能手机再补上最后的缝隙——「快速一瞥」。等电梯、开会前、教堂唱慢歌的时候，塞耳机太麻烦或太失礼，但瞄一眼手机不会。</p>
+</div>
+
+<blockquote class="f"><b>独处剥夺</b>：一种状态——你几乎完全没有独自面对自己想法、不受其他头脑输入的时间。
+<span class="en">作者给这个趋势起的名字。他的说法是，1990 年代想做到这一点还很难，日常生活里有太多场景强迫你独自待着</span></blockquote>
+
+<ul class="pts">
+  <li class="f"><b>低估是常态。</b>Adam Alter 装了一款叫 Moment 的应用来测自己的手机使用。他事前估计每天看十次左右、总共约一小时。一个月后的数据是：平均每天拿起四十次，屏幕时间约三小时。</li>
+  <li class="f"><b>他不是异常值。</b>Moment 开发者 Kevin Holesh 给的整体数据：平均用户每天看屏幕约三小时、拿起 39 次，只有 12% 的人低于一小时。而且这个数字偏低——会主动装这类应用的人本来就更在意自己的使用。</li>
+  <li class="f"><b>而且它只算屏幕时间。</b>听音乐、听有声书、听播客都不在里面。</li>
+  <li class="f"><b>矿井里的金丝雀。</b>1995 年后出生的一代是第一批青春期前就有智能手机和永久连接的人。2015 年 Common Sense Media 的一项研究给出的数字是：青少年每天消费媒体（含短信和社交网络）平均九小时。</li>
+</ul>
+
+<div class="card f">
+<h4>Jean Twenge 与 iGen</h4>
+<p>圣迭戈州立大学心理学教授，研究美国青年的代际差异二十五年以上。她的说法是这类趋势几乎总是缓慢出现和增长的，但 2012 年前后，她看到的曲线从平缓的斜坡变成了陡峭的山峰和悬崖，千禧一代的许多特征开始消失。她说在她做过的所有代际数据分析里——有些能回溯到 1930 年代——从没见过这样的东西。</p>
+<p class="src">她本人一开始抗拒手机这个解释，觉得它太容易了。但时间点对不上别的：学业压力、时事压力这些嫌疑因素在 2011 年焦虑陡增之前就存在，唯一在同一时间大幅上升的变量是拥有智能手机的年轻人数量。她给记者的表述是：够立案了，等数据再多一点，也许够定罪。</p>
+</div>
+
+<div class="card f">
+<h4>伍尔夫的补充</h4>
+<p>Anthony Storr 1988 年那本《孤独》列了一串靠独处成事的名字：笛卡尔、牛顿、洛克、帕斯卡、斯宾诺莎、康德、莱布尼茨、叔本华、尼采、克尔凯郭尔、维特根斯坦——全是男性。</p>
+<p class="src">作者引伍尔夫 1929 年《一间自己的房间》来接这个话：伍尔夫会同意独处是原创思考的前提，但她会补上一句——女性被系统性地剥夺了那个房间，无论是字面意义上的还是比喻意义上的。对伍尔夫来说，独处是从「没有独处所导致的认知压迫」中解放出来。作者的接续：伍尔夫的时代是父权社会在剥夺，我们的时代是我们自己拿屏幕在剥夺。</p>
+</div>
+
+<h3>解法：循环，不是隐居</h3>
+<p class="f">作者从瓦尔登湖那间小屋里读出的东西和通俗印象不一样。历史学者 W. Barksdale Maynard 指出：那间小屋不在林中，在林边一块空地上，看得见一条来往频繁的公路；离康科德镇中心步行三十分钟，梭罗常回去吃饭social；亲友经常来访；瓦尔登湖当时就是个热门的散步和游泳去处。Maynard 的判断是这不是梭罗要掩饰的秘密，这就是重点本身——他要的不是荒野，是在近郊里找到野性。</p>
+<p class="f">把这句话里的「野性」换成「独处」，意思不变。梭罗要的是能在独处和联结之间来回移动的能力。林肯的模式是一样的：夏夜住小屋，早上回到喧闹的白宫。钢琴家 Glenn Gould 给过一个公式化的说法——每和人相处一小时，就需要 X 小时独处，他说自己不知道 X 是多少，但这个比例相当可观。</p>
+
+<h3>本章的三个实践</h3>
+<div class="grid2">
+  <div class="card f"><h4>把手机留在家里</h4><p>不是扔掉手机，是让「有时带、有时不带」变成正常状态。作者的过渡方案：带着去，但锁进车里的储物格；或者交给同行的人拿着。紧急情况能取到，但它不在手边。他给的心理前提是：认为「没带手机是场危机」这个信念很新，而且大半是被造出来的。</p></div>
+  <div class="card f"><h4>长距离散步</h4><p>尼采 1889 年在《偶像的黄昏》里写下那句「只有走出来的想法才有价值」，他还说久坐是对圣灵的罪。那是他辞去教职后的十年，夏天在上恩加丁山坡上每天走到八小时，六个小本子记下的东西成了《漫游者及其影子》。作者的操作要求很硬：一个人走，不带手机；戴着耳机、盯着消息、或者在 Instagram 上直播这趟散步，都不算。非带不可就塞进背包最底下。</p></div>
+  <div class="card f"><h4>给自己写信</h4><p>作者从 2004 年起用口袋本 Moleskine，一年大约一本，桌上摞着十二本。他不按日程写，遇到复杂决定、难受的情绪或一阵灵感时才写。他说等他把想法组织成书面散文要求的那种结构，清晰度基本上就已经拿到了——重读是次要的，写这个动作本身产生大部分收益。艾森豪威尔一生用「靠写作思考」来处理复杂决定和强烈情绪。林肯的版本是帽子里的纸片。</p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 08 ═══════════ -->
+<section class="sec" id="s08" data-cat="deep" data-title="第五章 别点赞 like 默认网络 default network lieberman 社交媒体悖论 shakya christakis primack turkle 对话中心 conversation centric 短信 接待时间 office hours">
+<h2><span class="no">§ 08</span>第五章 · 别点赞</h2>
+<p class="lead">这一章解一个矛盾：为什么关于社交媒体的研究，有的说它让人开心，有的说它让人孤独。解开之后，作者提了一个相当硬的主张。</p>
+
+<h3>人脑的默认状态是社交思考</h3>
+<ul class="pts">
+  <li class="f"><b>默认网络是怎么被发现的。</b>1997 年华盛顿大学的团队原本在找「所有任务都会激活的脑区」，结果令人失望。他们反过来问：人不做任何任务的时候，大脑里有什么是活跃的。答案是有一组脑区在你不做认知任务时稳定激活，一旦你专注于具体事情就稳定关闭。因为几乎所有任务都会让它关掉，它最初的名字叫「任务诱发失活网络」，后来简化成「默认网络」。</li>
+  <li class="f"><b>它在干什么。</b>心理学家 Matthew Lieberman 意识到人的大脑其实几乎从不「什么都不想」，空闲时的那阵背景噪音集中在很少的几个对象上：别人、自己，或者两者。后来发现默认网络的脑区和社交认知实验中亮起来的网络几乎完全一致。</li>
+  <li class="f"><b>因果方向被他掉了个个儿。</b>Lieberman 最初觉得这不稀奇——人本来就对自己的社交生活感兴趣。后来他改了：我们对社交世界感兴趣，是因为我们被造成会在空闲时打开默认网络。他的证据之一是新生儿——还没法聚焦眼睛的婴儿，空闲时默认网络也会亮。之二是成人做数学题时，题与题之间只给三秒空隙（短到来不及决定去想别的），默认网络照样填进去。</li>
+  <li class="f"><b>社交断裂走的是疼痛通道。</b>失去社交连接触发的是和生理疼痛同一套系统。有个简单实验发现，非处方止痛药能减轻社交痛苦。</li>
+  <li class="f"><b>「读心」有多贵。</b>和店员随口聊两句，需要大量神经计算去接收和处理关于对方心理状态的高带宽线索。这件事感觉很自然，实际上是几百万年演化打磨出来的复杂本事。本章开头那段美国石头剪刀布联赛冠军赛，选手靠的正是这套系统——赛前一句「Let's roll」是在暗示对手出石头，对手识破了这个暗示，出了剪刀。</li>
+</ul>
+
+<h3>社交媒体悖论</h3>
+<div class="tbl"><table>
+<thead><tr><th>结论</th><th>研究</th><th>它测的是什么</th></tr></thead>
+<tbody>
+<tr class="f"><td>更开心</td><td>Burke &amp; Kraut（2016），约 1900 名 Facebook 用户</td><td>收到熟人写的、针对你的内容会让人感觉更好；收到点赞、或读广播式的状态更新，与幸福感无关</td></tr>
+<tr class="f"><td>更开心</td><td>Deters &amp; Mehl（2013），受控实验</td><td>被要求一周内多发帖的那组，孤独感低于对照组，主要来自「更觉得和朋友有联系」</td></tr>
+<tr class="f"><td>更孤独</td><td>Primack 等（2017），19–22 岁全国代表性样本</td><td>用得越多越孤独；使用量最高的四分位比最低四分位孤独三倍。控制年龄、性别、感情状态、收入、教育后仍然成立</td></tr>
+<tr class="f"><td>更差</td><td>Shakya &amp; Christakis（2017），5200 多人 + 实际 Facebook 行为</td><td>整体上 Facebook 使用与幸福感负相关。点赞或点击链接增加一个标准差，心理健康下降 5%–8% 个标准差</td></tr>
+</tbody></table></div>
+
+<div class="card f">
+<h4>矛盾在哪里，以及怎么解</h4>
+<p>正面研究测的是「具体行为」，负面研究测的是「总使用量」。按常理这两者应该同向：既然某些行为提升幸福感，那用得越多应该越幸福。事实相反，说明还有一个随使用量增长的因素，它的负效应盖过了那些小的正效应。</p>
+<p class="src">Shakya 找到了这个因素：你用社交媒体维系关系用得越多，投给线下沟通的时间就越少。她和 Christakis 也测了线下互动，发现其正效应和 Facebook 使用的负效应量级相当——这是一笔此消彼长的交换。她给记者的总结是：要警惕的是当一通电话里的声音、或者和朋友喝的那杯咖啡，被帖子下面的点赞替换掉的时候。</p>
+</div>
+
+<p class="f">作者由此得出这一章的核心判断：问题不在于用社交媒体这个动作本身让人不快乐，而在于它把人从价值高得多的现实社交里拉走。发在朋友墙上的那条留言、点在照片下的那颗心，确实有一点点正向价值，但补不上「不再和这个朋友在现实里相处」造成的亏空。</p>
+
+<h3>Turkle 的二分：连接 vs 对话</h3>
+<div class="card f">
+<h4>两个词</h4>
+<p>MIT 教授 Sherry Turkle 在《重拾交谈》（2015）里做的区分：<b>connection</b>（连接）指定义我们线上社交生活的那些低带宽互动；<b>conversation</b>（对话）指现实世界中人与人之间那种丰富的高带宽沟通。</p>
+<p class="src">Turkle 在《科尔伯特报告》上被主持人问过一个直击要害的问题：所有这些小小的推文、这些线上连接的小口啜饮，加起来难道不等于一大口真正的交谈吗？她的回答是明确的「不」。她的理由是面对面的对话展开得慢，它教人耐心，让人注意语调和细微处；而在设备上沟通，我们学到的是另一套习惯。</p>
+</div>
+
+<div class="card f">
+<h4>作者比 Turkle 更狠的地方</h4>
+<p>Turkle 的建议核心是「在生活里给高质量对话腾出更多空间」。作者认同目标，但怀疑效果：如果你不先改造自己和社交媒体、短信这些工具的关系，硬往日程里塞对话大概率会失败。不能是「数字生活照旧，再加一点真诚交谈」。</p>
+</div>
+
+<blockquote class="f"><b>对话中心式沟通</b>：只有对话算作维系关系。面对面、视频通话、电话都可以，只要符合有语调和表情这类模拟线索的标准。任何文字的或非实时的东西——社交媒体、邮件、短信、即时消息——都不算对话，一律归为连接。
+<span class="en">作者提出的主张。他自己承认这个名字的头韵起得多余，也明确说读者可以调整或者拒绝它</span></blockquote>
+
+<ul class="pts">
+  <li class="f"><b>连接被降级为后勤。</b>它剩两个用途：安排对话，以及高效传递实用信息（时间、地点）。它从对话的替代品变成对话的支援。</li>
+  <li class="f"><b>它并不排斥技术。</b>周末忽然空出一个下午，几条短信就能找到一个能一起散步的朋友；社交媒体提醒你某个老朋友要来本地，你因此约了晚饭。作者的妹妹住日本时，他们随时兴起就 FaceTime，像顺路去楼下亲戚家串门一样——在人类历史上任何别的时期，这都算奇迹。</li>
+  <li class="f"><b>代价是社交圈会缩。</b>真正的对话花时间，你能维持这个标准的人数，必然远少于你能关注、转发、点赞、偶尔留言的人数。作者的回应是这份收缩是错觉：对话才是那个能让人有归属感的东西。</li>
+</ul>
+
+<h3>本章的三个实践</h3>
+<div class="card f">
+<h4>一、别点赞（也别留短评）</h4>
+<p>点一次赞，在信息论的严格意义上，是最不含信息的那种非平凡沟通——从发送者到接收者只传了一个比特。人脑演化出来是为了处理面对面互动那股信息洪流的。作者的比喻是：说这像开着法拉利不超速还太轻，更贴切的比喻是用骡子拖着法拉利走。</p>
+<p class="src">所以他的建议很硬：永远别点。「好可爱」「太酷了」这类评论也别留。理由不是这些动作本身多有害，是它们在教你的大脑「连接是对话的合理替代品」。一旦接受了这个等式，低价值互动的地盘会不断扩张，把真正重要的高价值社交挤出去。</p>
+</div>
+<div class="card f">
+<h4>担心得罪人怎么办</h4>
+<p>作者提过一个例子：有人担心不在朋友的新生儿照片下留言会被视为冷淡。他的回应是，如果这份友谊重要，就让这份担心推动你去安排一次真正的对话。那个人后来的做法是给刚生完孩子的朋友送了一顿饭——这一个动作对双方的价值超过一百条快速反应。</p>
+<p class="src">配套动作：给你的圈子发一个笼统的说明，「我最近不太用社交媒体」，大部分抱怨会自动消解。至于那些只存在于社交媒体上的关系，作者的说法是让它们散掉——认为维持大量弱连接有价值，这个观念大半是过去十来年的发明。</p>
+</div>
+<div class="grid2">
+  <div class="card f"><h4>二、合并处理短信</h4><p>手机默认开勿扰，短信变得像邮件——想知道有没有新消息，你得主动打开。然后给自己排固定的集中处理时段。担心紧急情况的话，把特定号码（配偶、孩子的学校）设成可以打进来。</p><p class="src">第二个理由更微妙：当亲友能随时和你开启一段漫无边际的伪对话，他们容易对这段关系变得懈怠——那些互动看起来像亲密联系，实际上差得远，反而降低了投入真正沟通的动力。你不那么随叫随到之后，双方都更有动力去填这个空。</p></div>
+  <div class="card f"><h4>三、设「对话接待时间」</h4><p>作者从一位硅谷高管那儿学来的：他告诉所有亲友，工作日下午 5:30 他随时可以接电话，不用预约，直接打。5:30 是他在湾区堵车通勤的开始。有人问他复杂问题，他就回「这个我很想聊，你哪天 5:30 打给我」。</p><p class="src">变体：咖啡馆时段（每周固定时间待在同一家店，带本书当备用活动，把消息散出去）；固定散步（乔布斯就是这么和核心圈子谈事的）；作者本人把大学的答疑时间延长并向全校学生开放，任何学生写信来问问题，他都能回「随时来或者打电话」。</p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 09 ═══════════ -->
+<section class="sec" id="s09" data-cat="deep" data-title="第六章 闲暇 leisure 亚里士多德 bennett 原则 mr money mustache pete adeney frugalwoods liz thames 手艺 craft rogowski crawford crossfit f3 桌游 snakes lattes 富兰克林 junto 季度计划">
+<h2><span class="no">§ 09</span>第六章 · 夺回闲暇</h2>
+<p class="lead">全书因果链上最关键的一章。前面所有的「戒掉」在这里被反转成「先建起来」。</p>
+
+<div class="card f">
+<h4>亚里士多德那一步</h4>
+<p>《尼各马可伦理学》前九卷讲的多是实践德性——尽责、面对不义要公正、面对危险要勇敢。第十卷他转了个弯：最好也最愉快的生活是心智的生活，而这也是最幸福的。理由是沉思是「为其自身而被珍视的活动」，除了沉思这个动作本身，你不从中得到别的。</p>
+<p class="src">MIT 哲学家 Kieran Setiya 的现代解读：如果你的生活只由那些「价值依赖于问题、困难、需求存在」的行动构成，你就容易在「这就是生活的全部吗」这个问题面前陷入虚无。作者把这类活动称为高质量闲暇。</p>
+</div>
+
+<div class="card f">
+<h4>这一章要立的因果</h4>
+<p>断网的人写的游记几乎都描述一种情绪痛苦，通常被解释成戒断反应。作者认为这个解释不对——技术带来的是温和的行为成瘾，不该产生那么弥散的难受。社会评论家 Michael Harris 在小屋断网一周，说自己想念床、电视、Google，对着大海一小时，每十分钟就想换台，形容为折磨。</p>
+<p class="src">作者的读法：Harris 不是在想念某个具体的线上活动，他是不知道拿自己怎么办。低质量的数字分心在人们生活里扮演的角色比他们以为的重要——工作和生活的边界模糊、工作变重、社区传统衰退，很多人没建起高质量闲暇，留下一个直面会很难受的空洞，而数字噪音正好能盖住它。<b>先把空洞填上，再去砍。</b></p>
+</div>
+
+<h3>三条课</h3>
+<div class="card f">
+<h4>课一：费力的活动优先于被动消费</h4>
+<p>FI（财务独立）社群是个好样本：这些人既有大量闲暇，又不寻常地刻意。他们拿到自由之后普遍不是躺平，而是变得更忙。</p>
+<p class="src">Pete Adeney（博客名 Mr. Money Mustache）三十出头实现财务独立。不买电视，不订流媒体。他的说法是自己只从「做东西」里获得满足，或者更准确说是解决问题和做出改进。他翻修了自家房子，在院子里盖了栋独立小楼当办公室和音乐工作室，然后又相当冲动地买下老家 Longmont 主街上一栋破旧商铺，正在改造。至于改完了要干嘛，还不清楚——项目本身就是目的。</p>
+</div>
+<div class="grid2">
+  <div class="card f"><h4>Liz Thames 的版本</h4><p>同样三十出头实现财务独立（博客 Frugalwoods），和丈夫从剑桥市搬到佛蒙特山坡上一块 66 英亩的宅地。碎石车道要常年养护，树倒了就得锯掉搬走，「哪怕外面零下十度」。下雪要勤铲，不然雪堆厚到拖拉机推不动，人就被困在自己的地里，而最近的邻居要走很远，那里没有手机信号。取暖靠自家林子的木头，整个夏天都在备柴。</p></div>
+  <div class="card f"><h4>她的关键词：有德性的爱好</h4><p>她举清理林间小径的例子：想在自己的地上徒步，就得带电锯去砍树清灌木。听着像干活，但它同时是几件事——它让人心里松快，因为和对着电脑完全不同；它需要解决问题，但是另一种解决；它是好运动；它逼你学新技能（她说学用电锯不容易）；最后你真的能走那条小径。</p></div>
+</div>
+<div class="card f">
+<h4>Bennett 原则</h4>
+<p>Arnold Bennett 1910 年前后写的小册子《如何在一天 24 小时里生活》：伦敦的白领上八小时班，还剩十六小时，这些时间被抽烟、瞎忙、心不在焉地摸钢琴给消耗掉了，睡前倒下时，那些时间「像变戏法一样，莫名其妙地没了」。</p>
+<p class="src">他反驳「这么费劲还算休闲吗」的那段是关键：在闲暇里投入全部精力不会削弱你上班那八小时的价值，反而会增加它——因为心智官能能够持续高强度活动，它们不像胳膊腿那样会累；它们要的是换一件事做，而不是休息（睡觉除外）。作者把这条命名为 Bennett 原则，它反直觉的地方在于：<b>在闲暇里多花力气，最后会更有精神。</b></p>
+</div>
+
+<div class="card f">
+<h4>课二：用技能在物理世界里造出有价值的东西</h4>
+<p>家具匠 Gary Rogowski 在《Handmade》（副标题是「分心时代的创造性专注」）里的说法：人需要把手放在工具上、需要造东西，这样才觉得完整；很久以前我们是靠用手来学会思考的，不是反过来。他对现状的判断是我们生活在一个正在消除触觉、把手的用途压缩到戳屏幕的世界里。</p>
+<p class="src">哲学家兼机械师 Matthew Crawford 的角度更锋利。他有芝加哥大学政治哲学博士学位，进过华盛顿的智库，很快对那份工作的抽离感和模糊性感到厌倦，辞职去开摩托车修理店。他描述手艺人的那段：他们不必再喋喋不休地解释自己以证明自己的价值，他可以直接指——房子立在那儿，车能跑了，灯亮了。吹嘘是那些在世界上没有真实作用的男孩做的事；手艺必须面对现实那不容置疑的判决，你的失败和不足没法用话术圆过去。</p>
+</div>
+<p class="f">作者由此推出一个不太讨好的结论：数字创作也能带来成就感（他在《深度工作》里论证过写出解决问题的代码比回邮件有意义得多），但手艺的那份特殊好处扎根在物理性上。在高级 IDE 里敲代码，和拿手工刨面对一块枫木板，不是一回事——前者少了身体性，也少了后者那种选项无限的感觉。在数字音序器里编曲，少了手指和钢弦之间那场较劲。在《使命召唤》里手速制胜，少了一场触式橄榄球里社交、空间、体能这几个维度。既然这一章讲的是你自愿花的时间，他建议按严格定义来：<b>去找它的模拟形态。</b></p>
+
+<div class="card f">
+<h4>课三：找需要真实、有结构的社交的活动</h4>
+<p>多伦多有家叫 Snakes &amp; Lattes 的桌游咖啡馆：不卖酒，不提供 Wi-Fi，食物一般，椅子不舒服，进门就要五美元。但周末 120 个座位轻松坐满，队排到人行道上，等位最长能到三小时。</p>
+<p class="src">记者 David Sax 在《模拟的复仇》里的解释是社交体验。桌游没有被数字游戏杀死：《卡坦岛》1990 年代中期在德国出版以来全球卖了两千两百万套；Kickstarter 上最热门的品类之一就是桌游。他的说法是桌游创造了一个独立于数字世界的社交空间，是社交网络上那些冒充关系的信息瀑布的反面。</p>
+</div>
+<div class="grid2">
+  <div class="card f"><h4>加强版社交</h4><p>游戏给了你一个许可，去做比日常礼貌社交更高强度的互动。Sax 描述 Snakes &amp; Lattes 忙碌夜晚的兴奋交谈和大笑。作者自己每隔几个月和一群爸爸打一次（很烂的）扑克，三小时用来开玩笑、聊天、吐槽；有人早早输光筹码也照样留到散场——这事本来就不是关于牌的。</p></div>
+  <div class="card f"><h4>F3</h4><p>男性、纯志愿者、不收钱的户外健身团体，每周聚几次，风雨无阻。领练在成员之间轮换，所以人不是冲专业指导来的，是冲社交体验来的。它有一套上百条的黑话词典，条目之间互相引用，新人根本看不懂——这正是重点：等你搞懂了那些黑话是什么意思，你已经挣到了被这个部落接纳的感觉。2011 年 1 月在夏洛特一所中学操场办第一场，七年后全国有一千两百多个组。</p></div>
+  <div class="card f"><h4>CrossFit</h4><p>1996 年第一家，现在 120 多个国家有一万三千多家。美国每两家星巴克就对应一家 CrossFit。场地是有点脏、基本空荡的仓库，器材像世纪之交的拳击房：壶铃、药球、绳子、木箱、单杠、深蹲架。没有跑步机、没有高级器械、没有电视。作者家附近的 Planet Fitness 月费十美元还送 Wi-Fi，CrossFit 月费二百一十美元。</p></div>
+  <div class="card f"><h4>关键差别只有一个</h4><p>没有人戴耳机。当日训练（WOD）不允许自己单独做，只能在每天几个固定时段和一群人加一位教练一起完成。你给别人加油，别人给你加油，这份支持把人推过自己的极限。创始人 Greg Glassman 对自己这套东西的形容是：一个由飞车党经营的宗教。</p></div>
+</div>
+
+<div class="card f">
+<h4>成功的社交型闲暇有两个共同点</h4>
+<p>一是必须和人当面待在一起——所以和你的《魔兽世界》公会一起打副本不算。二是这个活动为社交提供了结构：要遵守的规则、内部术语或仪式，往往还有一个共同目标。这些约束反而带来更大的表达自由——你的 CrossFit 队友会冲你吼、给你击掌、给你一个满是汗的拥抱，这种热情放在别的场合会显得不正常。</p>
+</div>
+
+<h3>那个循环怎么破</h3>
+<p class="f">Mouse Book Club 是个好例子：一年寄四次，每次一组按主题选的经典短篇，印成大约手机大小的小册子，设计意图就是让它能和手机一起放进口袋——想掏手机找点刺激的时候，掏这个。它彻底是模拟的，但它的存在依赖一堆技术创新：Kickstarter 上从一千多名支持者手里筹到五万多美元；博客和播客用来帮读者理解和讨论；还在做一个帮附近订户互相找到、组织线下读书会的系统。</p>
+<p class="f">作者用这个例子回应一个明显的循环——他一边说要摆脱新技术，一边让你用新技术来培养闲暇。他的解法是位置变了：你要逃离的状态是「被动的屏幕互动本身就是你的主要闲暇」；新状态里技术仍然在，但降级成支援角色。花一小时刷搞笑视频会抽干你，用 YouTube 学会怎么换浴室排气扇的电机（他说这是最近的亲身经验），能撑起一个满足的下午。</p>
+
+<h3>本章的四个实践</h3>
+<ul class="pts">
+  <li class="f"><b>每周修或造一样东西。</b>Pete Adeney 学电焊的起因很实在：他给自建房设计了定制钢楼梯扶手，金属承包商报价 15,800 美元，他的预算是 4,000。他买了角磨机、金属切割锯、面罩、重型手套和一台最容易上手的 120 伏药芯焊丝焊机，挑简单项目、开着 YouTube 视频动手。作者给的六周建议：每周学一项新技能并用掉它，从换机油、装吸顶灯、给唱臂校准、开一块菜地这种能照着步骤做完的开始，等挑战感变弱就加难度。他明说这些项目里没有一个是数字的。</li>
+  <li class="f"><b>给低质量闲暇排时间表。</b>提前定好你在哪些时段刷网页、看社交媒体、追剧。到了那个时段，随便你怎么放纵；出了那个时段，下线。它管用的原因有两个：其一，其余的闲暇时间被保护出来，剩下的最佳选项自然是高质量活动；其二，它不要求你戒掉任何东西——彻底戒断会激活你心里那个怀疑派，让它拿各种小例外来瓦解你的决心，而「只是换个时间做」很难被说成不可行。</li>
+  <li class="f"><b>加入点什么。</b>富兰克林 1726 年从伦敦回费城时社交是空白：不是本地人，又因为怀疑宗教教条而没法通过教会加入现成社群。他的做法是从零开始办。1727 年办互助俱乐部 Junto，每周五晚聚会，规矩是每人轮流就道德、政治或自然哲学提出问题供大家讨论，每三个月还要就任意题目写一篇文章读给大家听。由此衍生出 1731 年的费城图书馆公司（美国最早的会员制图书馆之一）、1736 年的联合消防队、1743 年的美国哲学会（今天还在）。1731 年他被邀请加入本地共济会，1734 年就当上了总导师。这些全发生在他 1747 年从印刷业退休之前——按他自己的说法，退休之后他才算开始认真对待闲暇。</li>
+  <li class="f"><b>做季度和每周的闲暇计划。</b>见下。</li>
+</ul>
+
+<div class="card f">
+<h4>闲暇计划的写法</h4>
+<p><b>季度计划</b>（作者按学期走，一年三次：九月初、一月、五月初）包含两类东西——目标和习惯。</p>
+<p><b>目标要具体到有完成标准。</b>书里的示范是「把《Meet the Beatles!》A 面的每首歌都在吉他上学会」，配套策略是：给吉他换弦调音、找到并打印和弦谱、放进塑料保护页；恢复规律练琴的老习惯；十一月安排一场披头士主题派对当作激励，到时候要表演（让 Linda 答应来唱）。如果她写的是「多弹弹吉他」，大概率会失败——太模糊，太容易忽略。</p>
+<p class="src"><b>习惯是持续的行为规则</b>，示范：工作日的低质量闲暇每晚限一小时；每晚在床上读点东西；每周参加一场文化活动。目标和习惯的边界是模糊的，同一件事放哪边都行，不用纠结。<br><b>每周计划</b>的作用是把季度目标落到具体时间格子里——她平时周一三五 7:30–8:30 去健身房，这周就把周二周四的同一个时段用来练琴；下周早上有连着的会，就改到某几个空出来的晚上。</p>
+</div>
+
+<blockquote class="f">什么都不做这件事被高估了。
+<span class="en">这一章的收束判断。作者承认解压时段有它的位置，但回报很弱，因为它容易滑向刷手机和半心半意的追剧</span></blockquote>
+</section>
+
+<!-- ═══════════ § 10 ═══════════ -->
+<section class="sec" id="s10" data-cat="deep" data-title="第七章 注意力抵抗 attention resistance 注意力经济 tim wu benjamin day 太阳报 hard questions freedom stutzman jennifer grygiel 慢媒体 slow media 傻瓜手机 light phone">
+<h2><span class="no">§ 10</span>第七章 · 加入注意力抵抗</h2>
+<p class="lead">给「就是得用这些服务」的人。这一章全是战术，核心心态是：你要的东西在他们网里，他们要的是削弱你的自主权，这是一场零和的仗。</p>
+
+<h3>注意力经济的一百九十年</h3>
+<ul class="pts">
+  <li class="f"><b>起点是 1830 年。</b>哥伦比亚法学院教授 Tim Wu（《注意力商人》作者）把这个模式追到报人 Benjamin Day 创办《纽约太阳报》。此前出版商把读者当客户，目标是把内容做得好到值得人掏钱买。Day 的创新是把读者变成产品、把广告主变成客户：报纸降到一分钱，多登大众感兴趣的故事，然后把读者的注意力分钟尽可能多地卖给广告主。</li>
+  <li class="f"><b>这个模式后来被广播和电视继承</b>，规模一路放大。</li>
+  <li class="f"><b>互联网早期没接上。</b>2000 年代中期 Google 上市时估值二百三十亿美元，当时最值钱的互联网公司是靠佣金赚钱的 eBay，也就它的两倍左右。Facebook 那时还叫 thefacebook.com，只对大学生开放。</li>
+  <li class="f"><b>接上的钥匙是 iPhone。</b>智能手机让广告能在一天中的任何时刻投达用户，也让服务能采集数据以空前的精度定向。作者的说法是：挖眼球分钟已经比挖石油赚钱得多。</li>
+  <li class="f"><b>但这需要先让人开始拼命看手机。</b>正是这个目标催生了「注意力工程」这门手艺——研究怎么利用心理弱点，让用户在这些服务上花掉远超他们本意的时间。</li>
+</ul>
+
+<div class="card f">
+<h4>Facebook 自己说漏的那句话</h4>
+<p>2017 年 6 月 Facebook 开了个叫「Hard Questions」的博客系列。作者本来没太在意，直到他们发了一篇《花时间在社交媒体上对我们有害吗》。两位内部研究者 David Ginsberg 和 Moira Burke 梳理了学术文献，去分辨哪些用法更正面，结论是：按研究来看，关键在于你怎么用这项技术。</p>
+<p class="src">作者认为这句话对 Facebook 是自伤。它戳破的是「Facebook 是像电或移动电话一样的基础设施，大家理所当然都该用」这个定位。这个定位对公司极其有利，因为它靠文化压力留住用户，不必兜售具体好处；氛围一模糊，人们就会没有明确目的地登录，而没有目的的人正是注意力工程最好的猎物。</p>
+</div>
+
+<div class="card f">
+<h4>那道算术题</h4>
+<p>作者建议你自己做一遍：列出 Facebook 提供给你的、真正会让你舍不得的那几件事；然后想象它按分钟收费，你一周实际需要多少分钟才能把这几件事做完。他说对大多数人来说答案小得惊人，大约二十到三十分钟。</p>
+<p class="src">平均用户一周花在这家公司的产品上约 350 分钟。也就是说，如果你精打细算，你的用量会是平均值的十一到十七分之一。如果所有人都开始这么算账，Facebook 能卖给广告主的眼球分钟会掉一个数量级以上。近年即使季度盈利只降个位数，华尔街就已经不安。作者的结论：<b>批判性使用对注意力经济是个致命问题。</b></p>
+</div>
+
+<h3>五个战术</h3>
+<div class="card f">
+<h4>一、把社交媒体从手机上删掉</h4>
+<p>移动端才是钱袋子。Facebook 2012 年 3 月才第一次在移动版上投广告，同年 10 月移动广告占其广告收入的 14%，2014 年春升到 62%（The Verge 当时宣布「Facebook 现在是一家移动公司」），2017 年到 88%，还在涨。</p>
+<p class="src">这不只是因为手机随身。还有一个反馈回路：越多人在手机上用，工程师就投入越多资源让移动应用更黏——下拉刷新那个老虎机式的动作、警报红的通知标记，都是移动端独有的「创新」。作者从 2016 年起非正式推荐这一招，收到两类反馈：一部分人删掉应用后基本上彻底不用社交媒体了（多登一次电脑这点小门槛就够，他们自己也惊讶那些号称不可或缺的服务原来只是顺手的分心）；另一部分人继续在电脑上用，但关系变了——变成为特定的高价值目的偶尔登录，很多读者的 Facebook 使用降到每周一两次。</p>
+</div>
+
+<div class="card f">
+<h4>二、把设备变成「当下单一用途」的机器</h4>
+<p>2008 年北卡的研究生 Fred Stutzman 写论文时被联网笔记本干扰，躲去咖啡馆，然后隔壁楼装了 Wi-Fi。他索性自己写了个工具，按设定时长切断网络连接，取名 Freedom。工具火了，他放弃学术生涯全职做它。现在它能按自定义清单屏蔽网站和应用、能设自动生效的日程、能一键在所有设备上同时生效。超过五十万用户，作家 Zadie Smith 在她 2012 年那本 NW 的致谢里点名感谢这个软件「创造了时间」。Freedom 自己的数据是用户平均每天多出 2.5 小时有效时间。</p>
+<p class="src">作者要反驳的是一种常见的嘲讽——「把一台强大的生产力机器的核心功能关掉来提升生产力，真讽刺」。他的反驳走的是计算机史：通用计算机的革命性在于同一台机器可以被编程去做很多不同的任务，不在于它能同时做很多件事。那则早期 Apple II 广告里的加州店主，工作日用电脑做销售图表，周末搬回家和太太算家庭财务——他没打算同时干这两件事。所以他的建议是：<b>让这些站点和应用默认处于屏蔽状态</b>，按你排的日程才解禁，而不是遇到难项目才临时封一下。</p>
+</div>
+
+<div class="card f">
+<h4>三、像专业人士一样用社交媒体</h4>
+<p>Jennifer Grygiel 是雪城大学 Newhouse 公共传播学院研究社交媒体的助理教授，此前在道富银行做社交业务和新兴媒体经理，帮公司搭内部社交网络、建立社交聆听体系。书里明确交代 Jennifer 使用 they/their 而非 she/her。</p>
+<p class="src">这套用法值得抄的地方在于「先说不做什么」：Jennifer 不把社交媒体当娱乐来源（说自己的 Twitter 时间线上没什么狗表情包账号，因为不关注也一样看得到）；对 Instagram Stories 保留态度，形容它是「你朋友主演的真人秀」，认为这个功能是为了增加用户产出内容、从而增加消费内容的时间，价值存疑。</p>
+</div>
+<div class="grid2">
+  <div class="card f"><h4>Facebook：只留人</h4><p>规则是只用于亲近的朋友和亲属，偶尔联系有影响力的人。早年来者不拒，后来收紧，理由是「我不觉得我们真该和这么多人这么频繁地连着」。好友互动量控制在邓巴数 150 以下。同事一律不在这里处理——需要联系同事就去他们办公室，或者下班后聊。也不用它看新闻或辩论议题。频率大约每四天登录一次，每周不到一小时；平均用户是每天 35 分钟（算上 Facebook 旗下其他服务约 50 分钟）。</p></div>
+  <div class="card f"><h4>Twitter：当雷达用</h4><p>Jennifer 认为这是当下对专业人士最重要的服务，理由是多数领域里有影响力的人都在发推，接上这股集体智慧能跟上突发新闻和新想法，也能发现值得加进专业网络的人。做法：学术和音乐两个账号分开；在「关注谁」上花大力气，只关注高质量的思考者和领域内的影响者。</p></div>
+  <div class="card f"><h4>阈值过滤</h4><p>用桌面工具 TweetDeck 做进阶搜索。Jennifer 举的例子：搜某个话题，设一个阈值，只显示获得 50 个赞或转发以上的推文；还能再收紧到只看认证账号。这是大公司花大钱买的那类监听能力的轻量版。</p></div>
+  <div class="card f"><h4>可以带走的一句话</h4><p>把自己当成「你自己人生的新兴媒体总监」。对每个平台都有明确计划，目标是最大化有用信息、砍掉浪费。在专业人士眼里，为了找乐子无止境地刷信息流是个陷阱——那是你被服务使用，不是你在使用服务。</p></div>
+</div>
+
+<div class="card f">
+<h4>四、拥抱慢媒体</h4>
+<p>2010 年初三位有社会学、技术和市场研究背景的德国人发布了《慢媒体宣言》。它跟随慢食运动的思路：在注意力经济不断把标题党铲向我们、把注意力打碎成情绪化碎片的时代，正确的反应是让媒体消费变得更审慎。宣言里的说法是慢媒体没法被随便消费，它要求使用者全神贯注；它在制作、外观和内容上对标高标准。</p>
+<p class="src">作者把这条路和美国式反应做了对照：美国流行的是 Tim Ferriss 推广的「低信息饮食」——激进地砍掉新闻和信息源以夺回时间，很像美国人对待健康饮食的方式，重点在剔除坏的而不是庆祝好的。他认为在新闻这件事上，欧洲式的「慢」长期来看更可能坚持得下去。</p>
+</div>
+<ul class="pts">
+  <li class="f"><b>只看最高质量的来源。</b>突发新闻的质量几乎总是低于事件过去、记者有时间消化之后写出来的报道。一位知名记者告诉作者：在 Twitter 上追一条突发新闻会给他一种收到大量信息的感觉，但按他的经验，等到第二天早上读《华盛顿邮报》那篇文章，几乎总是让他更明白。</li>
+  <li class="f"><b>只跟少数几个人。</b>互联网让任何人都能发表，这是好事；但涉及报道和评论，把注意力限制在那些已经证明自己在你关心的话题上是世界级的少数人身上。这不要求他们供职于大机构——一个人在自己博客上发出的有力声音，可以和《经济学人》的资深记者一样高质量。</li>
+  <li class="f"><b>主动去找反方最强的论证。</b>作者住华盛顿，认识两党的职业政治操盘手。他们的工作要求他们掌握对方最好的论点，副作用是这些人聊政治时有意思得多——私下里他们不会像业余评论者那样急着攻击对方观点的稻草人版本，而是能指出真正的分歧点和让事情复杂的细节。</li>
+  <li class="f"><b>管住时机和形式。</b>那种一站接一站的点击循环，是新闻界的多力多滋。作者的建议是把新闻消费限制在每周固定的几个时段，并且给它一个能支撑全神贯注的场所和形式。示范：早餐时看一份纸质报纸（顺带得到一个比自己在线筛选更有意思的题材组合）；周六早上过一遍精选的几个站点和专栏，把想深读的文章加书签，然后带平板去咖啡馆读完这一周的量。能提前把文章下载下来离线读更好。</li>
+</ul>
+
+<div class="card f">
+<h4>五、把手机降级</h4>
+<p>英国一家中型工业公司的 Paul 在 2015 年秋把智能手机换成了 Doro PhoneEasy——一款主要卖给老年人的翻盖机，大按键、大字号。他不老，还挺年轻。他的描述是头几周很难受，不知道拿自己怎么办。然后好处来了：和妻子孩子在一起时不再觉得注意力被切开（「我没意识到自己之前有多分心」），工作效率上去了，那种无聊和坐立不安消退了。他说自己焦虑变少了，此前没意识到自己有多焦虑；他妻子说他看起来明显更开心。</p>
+<p class="src">技术高管 Daniel Clough 的做法是把 iPhone 放进厨房柜子，运动时才拿出来听歌和跑 Nike+，其余时间带一台 Nokia 130——没有相机、没有应用、没有网页，只有通话和短信。他也用了一周左右才克服想查点什么的冲动。他博客上的说法是感觉好太多了，人更在场，脑子里没那么乱；唯一的不便是没法随时 Google 一下，但和感觉上的好处比完全不值一提。</p>
+</div>
+<div class="card f">
+<h4>折中方案：转接式傻瓜机</h4>
+<p>想两种都要、又不想维护两个号码的话，有 Light Phone 这类产品。它大约两三张信用卡叠起来那么大，一块白色塑料板，有键盘和一个小号码显示屏，只能打和接电话。出门前在智能手机上点几下激活它，打到你原号码的电话就转到它上面；用它打出去，对方看到的也是你原来的号码。回家再点几下关掉转接。</p>
+<p class="src">它不是智能手机的替代品，是一个逃生口。两位创始人 Joe Hollier 和 Kaiwei Tang 是在 Google 的孵化器里认识的，那里教他们怎么做出让投资人喜欢的应用。他们的结论是：这世界最不需要的就是又一个应用。他们的宣言开头是一张图：你的[时钟] = 他们的[钱]。</p>
+</div>
+<p class="f">作者对这一条给了两头的免责。一头是有些人确实离不开：做上门服务的医护人员需要地图；他收到过一位巴西库里蒂巴读者的来信，那座城市出租车和步行常常不是选项，网约车是刚需。另一头是有些人降级也没意义——他把自己归进这一类：没有社交账号、不玩手机游戏、不爱发短信、本来每天就有长时间不碰手机，换成 Nokia 130 不会有什么区别。</p>
+</section>
+
+<!-- ═══════════ § 11 ═══════════ -->
+<section class="sec" id="s11" data-cat="ref" data-title="实践清单 practices 速查 全部做法 汇总 行动">
+<h2><span class="no">§ 11</span>全部实践清单</h2>
+<p class="lead">第二部分四章末尾的全部具体做法，加上第三章的断舍离流程。按「今天就能开始」的难度排列。</p>
+
+<div class="tbl"><table>
+<thead><tr><th>出处</th><th>实践</th><th>一句话做法</th><th>难度</th></tr></thead>
+<tbody>
+<tr class="f"><td><a href="#s10">7 章</a></td><td>把社交应用从手机上删掉</td><td>账号留着，只在电脑浏览器上访问</td><td><span class="tag">低</span></td></tr>
+<tr class="f"><td><a href="#s08">5 章</a></td><td>合并处理短信</td><td>手机默认勿扰，只放行少数号码的来电，短信改成固定时段集中处理</td><td><span class="tag">低</span></td></tr>
+<tr class="f"><td><a href="#s08">5 章</a></td><td>别点赞</td><td>一次都不点，也不留「好可爱」这类评论。想表达就去安排一次真正的对话</td><td><span class="tag">低</span></td></tr>
+<tr class="f"><td><a href="#s09">6 章</a></td><td>给低质量闲暇排时间表</td><td>提前定好刷手机追剧的时段，段内随便，段外下线</td><td><span class="tag">低</span></td></tr>
+<tr class="f"><td><a href="#s07">4 章</a></td><td>把手机留在家里</td><td>每天留出一段不带手机的时间。过渡方案：锁在车里或交给同行的人</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s07">4 章</a></td><td>长距离散步</td><td>一个人走，不带手机，不听耳机，最好选风景好的路线。要提前把时间从日程里抠出来</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s07">4 章</a></td><td>给自己写信</td><td>遇到复杂决定、难受的情绪或一阵灵感时，写下来。写这个动作本身产生大部分收益</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s10">7 章</a></td><td>设备变成当下单一用途</td><td>用 Freedom 这类工具把注意力经济的站点默认屏蔽，按日程解禁</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s10">7 章</a></td><td>像专业人士一样用</td><td>每个平台一份明确计划：关注谁、为什么、多久看一次、用什么工具过滤</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s10">7 章</a></td><td>慢媒体</td><td>只看少数最高质量的来源，主动找反方最强论证，固定时间地点，尽量纸质或离线</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s08">5 章</a></td><td>对话接待时间</td><td>公布一个固定时段（通勤、咖啡馆、散步），亲友随时可以来找你聊</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s09">6 章</a></td><td>每周修或造一样东西</td><td>连续六周，每周学一项新技能并用掉它。从换机油、装吸顶灯这类开始</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s09">6 章</a></td><td>加入点什么</td><td>球队、志愿组织、家长会、读书会、健身小组，什么都行。先加入，其他问题以后再说</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s09">6 章</a></td><td>做闲暇计划</td><td>季度定目标和习惯，每周把它们排进具体时间格子</td><td><span class="tag">中</span></td></tr>
+<tr class="f"><td><a href="#s06">3 章</a></td><td>三十天数字断舍离</td><td>停用可选技术 → 主动重建线下活动 → 从零逐个重新引入，每样都过三道筛选题</td><td><span class="tag">高</span></td></tr>
+<tr class="f"><td><a href="#s08">5 章</a></td><td>对话中心式沟通</td><td>只有对话算维系关系，文字一律降级为后勤</td><td><span class="tag">高</span></td></tr>
+<tr class="f"><td><a href="#s10">7 章</a></td><td>把手机降级</td><td>换翻盖机，或用 Light Phone 这类转接方案给自己留逃生口</td><td><span class="tag">高</span></td></tr>
+</tbody></table></div>
+
+<p class="note">作者在每一章的末尾都写了同一句免责：这些做法既不完整，也不是义务。它们是一个工具箱，用来说明你可以做哪一类决定，不是一份必须照做的清单。</p>
+</section>
+
+<!-- ═══════════ § 12 ═══════════ -->
+<section class="sec" id="s12" data-cat="ref" data-title="人物索引 who is who 名单 tristan harris adam alter sean parker turkle twenge lieberman crawford">
+<h2><span class="no">§ 12</span>人物索引</h2>
+<p class="lead">书里反复出现或承担关键论证的人。</p>
+
+<h3>吹哨人与研究者</h3>
+<div class="grid2">
+  <div class="card f"><h4>Tristan Harris</h4><p>前 Google 工程师，写了 144 页幻灯片《呼吁减少干扰、尊重用户注意力》，被任命为「产品哲学家」后什么也没改变，于是离职创办非营利组织 Time Well Spent。2017 年上《60 分钟》说手机是老虎机。 <a href="#s04" class="go">→ § 04</a></p></div>
+  <div class="card f"><h4>Adam Alter</h4><p>纽约大学市场学教授，普林斯顿社会心理学博士。2013 年一趟六小时航班上玩了一路 2048，由此转向技术成瘾研究，写成《欲罢不能》（Irresistible，2017）。 <a href="#s04" class="go">→ § 04</a></p></div>
+  <div class="card f"><h4>Sean Parker</h4><p>Facebook 创始总裁。2017 年公开承认这些产品的设计思路是尽可能多地消耗用户的时间和注意力，机制是「社交认可反馈循环」。 <a href="#s04" class="go">→ § 04</a></p></div>
+  <div class="card f"><h4>Leah Pearlman</h4><p>Facebook 点赞按钮的产品经理，2009 年那篇上线公告的作者。现在雇人替她打理自己的 Facebook 账号。 <a href="#s04" class="go">→ § 04</a></p></div>
+  <div class="card f"><h4>Matthew Lieberman</h4><p>社会认知神经科学家，《社交天性》（Social，2013）作者。论证了大脑空闲时的默认状态是社交思考，并把因果方向倒了过来。 <a href="#s08" class="go">→ § 08</a></p></div>
+  <div class="card f"><h4>Jean Twenge</h4><p>圣迭戈州立大学心理学教授，研究代际差异 25 年以上。提出 iGen（1995–2012 年出生），指认 2012 年前后青少年心理健康曲线的断崖。 <a href="#s07" class="go">→ § 07</a></p></div>
+  <div class="card f"><h4>Sherry Turkle</h4><p>MIT 教授，《重拾交谈》（2015）作者。connection / conversation 这对概念出自她。作者认同她的诊断，认为她的处方力度不够。 <a href="#s08" class="go">→ § 08</a></p></div>
+  <div class="card f"><h4>Tim Wu</h4><p>哥伦比亚法学院教授，《注意力商人》作者。把注意力经济的起点追到 1830 年的《纽约太阳报》。 <a href="#s10" class="go">→ § 10</a></p></div>
+</div>
+
+<h3>被当作范例的人</h3>
+<div class="grid2">
+  <div class="card f"><h4>梭罗</h4><p>提供第一条原则的论证工具——把成本从钱换算成生命的「新经济学」。作者同时指出瓦尔登湖的隐居神话被历史学者拆过：小屋在林边空地上、看得见公路、离镇中心步行三十分钟。这个「不彻底」恰恰是作者要的模型。 <a href="#s05" class="go">→ § 05</a></p></div>
+  <div class="card f"><h4>林肯</h4><p>1862–64 年每年夏秋住在士兵之家的小屋，骑马通勤白宫。《解放黑人奴隶宣言》初稿在那里写成，想法记在纸片上塞进礼帽衬里。 <a href="#s07" class="go">→ § 07</a></p></div>
+  <div class="card f"><h4>Kethledge &amp; Erwin</h4><p>联邦上诉法院法官 + 前陆军军官，合著《Lead Yourself First》（2017），花七年写成。全书最有用的那个独处定义出自这本书。 <a href="#s07" class="go">→ § 07</a></p></div>
+  <div class="card f"><h4>Kevin Kelly</h4><p>在《技术想要什么》（2010）里记录阿米什人的技术观。他的判断是阿米什是极有想法的 hacker，而且常常亲技术。 <a href="#s05" class="go">→ § 05</a></p></div>
+  <div class="card f"><h4>Pete Adeney（Mr. Money Mustache）</h4><p>三十出头财务独立的前工程师。第六章「主动优于被动」这条课的主要样本。学电焊的起因是一份 15,800 美元的栏杆报价。 <a href="#s09" class="go">→ § 09</a></p></div>
+  <div class="card f"><h4>Liz Thames（Frugalwoods）</h4><p>同样三十出头财务独立，搬到佛蒙特 66 英亩山地。「有德性的爱好」这个说法出自她。 <a href="#s09" class="go">→ § 09</a></p></div>
+  <div class="card f"><h4>Matthew Crawford</h4><p>芝加哥大学政治哲学博士，辞掉智库工作去开摩托车修理店。关于手艺为什么能提供不可辩驳的自我价值，他的表述是全书最锋利的一段。 <a href="#s09" class="go">→ § 09</a></p></div>
+  <div class="card f"><h4>Jennifer Grygiel</h4><p>雪城大学传播学助理教授，前道富银行社交业务经理。第七章「像专业人士一样用」整节的样本。书中说明 Jennifer 使用 they/their。 <a href="#s10" class="go">→ § 10</a></p></div>
+  <div class="card f"><h4>富兰克林</h4><p>1727 年办 Junto，1731 年费城图书馆公司，1736 年联合消防队，1743 年美国哲学会。「加入点什么」这条实践的历史范本。 <a href="#s09" class="go">→ § 09</a></p></div>
+  <div class="card f"><h4>Fred Stutzman</h4><p>为了写完论文自己写了屏蔽工具 Freedom，后来放弃学术生涯全职做它。 <a href="#s10" class="go">→ § 10</a></p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 13 ═══════════ -->
+<section class="sec" id="s13" data-cat="ref" data-title="关键概念 术语 定义 数字极简主义 独处剥夺 对话中心 bennett原则 慢媒体 注意力经济 操作规程">
+<h2><span class="no">§ 13</span>关键概念</h2>
+<p class="lead">全书自造或重新定义的词，按出场顺序。</p>
+
+<div class="terms">
+  <div class="term f"><b>数字极简主义</b> <span class="en">digital minimalism</span><p>把上网时间集中在少数几件精挑细选、并且被优化过的活动上，这些活动强力支撑你真正看重的东西；其余的，愉快地错过。 <a href="#s02" class="go">→ § 02</a></p></div>
+  <div class="term f"><b>极大主义</b> <span class="en">maximalism</span><p>作者给默认心态起的名字：只要一样东西有一点可能的好处，就足以开始用它。 <a href="#s02" class="go">→ § 02</a></p></div>
+  <div class="term f"><b>不对等的军备竞赛</b> <span class="en">lopsided arms race</span><p>一边是几十亿美元针对大脑弱点做的精准设计，另一边是以为自己只在把玩新玩具的普通人。 <a href="#s04" class="go">→ § 04</a></p></div>
+  <div class="term f"><b>间歇性正强化</b> <span class="en">intermittent positive reinforcement</span><p>不可预测的奖赏比按规律给的奖赏更让人上瘾。源自 1970 年代 Zeiler 的鸽子实验，点赞机制是它的直接翻版。 <a href="#s04" class="go">→ § 04</a></p></div>
+  <div class="term f"><b>新经济学</b> <span class="en">Thoreau's new economics</span><p>把一件东西的成本从钱换算成「为它交换掉的生命的量」。哲学家 Frédéric Gros 给梭罗这套算法起的名字。 <a href="#s05" class="go">→ § 05</a></p></div>
+  <div class="term f"><b>阿米什式改装</b> <span class="en">Amish hacking</span><p>研究者 Donald Kraybill 的说法：先定住最看重的价值，再倒推这项新技术会加固还是拆毁它，然后带着限定条件使用。 <a href="#s05" class="go">→ § 05</a></p></div>
+  <div class="term f"><b>数字断舍离</b> <span class="en">digital declutter</span><p>三十天停用可选技术 + 主动重建线下活动 + 从零逐个重新引入。 <a href="#s06" class="go">→ § 06</a></p></div>
+  <div class="term f"><b>操作规程</b> <span class="en">standard operating procedure</span><p>写清楚你在什么时候、以什么方式使用某个工具。它让你不必在「全禁」和「无限制」之间二选一。 <a href="#s06" class="go">→ § 06</a></p></div>
+  <div class="term f"><b>极简技术筛选</b> <span class="en">minimalist technology screen</span><p>三道题：服务你深切看重的东西吗？是最佳方式吗？有没有一条写得出来的使用规程？ <a href="#s06" class="go">→ § 06</a></p></div>
+  <div class="term f"><b>独处</b> <span class="en">solitude</span><p>一种主观状态：头脑不接受来自其他头脑的输入。和你身边有没有人无关。 <a href="#s07" class="go">→ § 07</a></p></div>
+  <div class="term f"><b>独处剥夺</b> <span class="en">solitude deprivation</span><p>几乎完全没有独自面对自己想法的时间。作者认为这是人类历史上第一次能被彻底做到。 <a href="#s07" class="go">→ § 07</a></p></div>
+  <div class="term f"><b>默认网络</b> <span class="en">default network</span><p>1997 年被发现，最初叫「任务诱发失活网络」。人不做认知任务时它激活，一专注就关闭。它做的事是社交思考。 <a href="#s08" class="go">→ § 08</a></p></div>
+  <div class="term f"><b>连接 vs 对话</b> <span class="en">connection vs conversation</span><p>Turkle 的区分。前者是低带宽的线上互动，后者是有语调和表情的高带宽沟通。 <a href="#s08" class="go">→ § 08</a></p></div>
+  <div class="term f"><b>对话中心式沟通</b> <span class="en">conversation-centric communication</span><p>只有对话算维系关系，所有文字互动降级为后勤——安排对话，或传递实用信息。 <a href="#s08" class="go">→ § 08</a></p></div>
+  <div class="term f"><b>Bennett 原则</b> <span class="en">the Bennett Principle</span><p>在闲暇里多花力气最后会更有精神。因为心智官能不像胳膊腿会累，它要的是换一件事做。 <a href="#s09" class="go">→ § 09</a></p></div>
+  <div class="term f"><b>高质量闲暇</b> <span class="en">high-quality leisure</span><p>三条判据：费力优于被动；用技能在物理世界造出东西；需要真实的、有结构的社交。 <a href="#s09" class="go">→ § 09</a></p></div>
+  <div class="term f"><b>注意力经济</b> <span class="en">attention economy</span><p>收集消费者注意力、再打包卖给广告主的行业。1830 年《纽约太阳报》是起点。 <a href="#s10" class="go">→ § 10</a></p></div>
+  <div class="term f"><b>注意力抵抗</b> <span class="en">attention resistance</span><p>一群用高技术工具加严格操作规程，对注意力经济服务做外科式突袭的人——进去取走价值，在陷阱合拢前撤出。 <a href="#s10" class="go">→ § 10</a></p></div>
+  <div class="term f"><b>慢媒体</b> <span class="en">Slow Media</span><p>2010 年德国《慢媒体宣言》。对标慢食：提高消费的质量和条件，而不是单纯削减数量。 <a href="#s10" class="go">→ § 10</a></p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 14 ═══════════ -->
+<section class="sec" id="s14" data-cat="ref" data-title="数据速查 数字 统计 numbers 时长 市值 比例">
+<h2><span class="no">§ 14</span>数据速查</h2>
+<p class="lead">书里出现的可核对数字，按主题分组。全部为 2018–2019 年写作时的口径。</p>
+
+<h3>使用时长</h3>
+<div class="tbl"><table>
+<thead><tr><th>数字</th><th>说的是什么</th><th>来源</th></tr></thead>
+<tbody>
+<tr class="f"><td class="num">3 小时</td><td>Moment 用户平均每天的屏幕时间；只有 12% 的人低于一小时</td><td>Moment 开发者 Kevin Holesh</td></tr>
+<tr class="f"><td class="num">39 次</td><td>Moment 用户平均每天拿起手机的次数</td><td>同上</td></tr>
+<tr class="f"><td class="num">40 次 / 3 小时</td><td>Adam Alter 的实测值。他自己事前估计是 10 次 / 1 小时</td><td>《欲罢不能》</td></tr>
+<tr class="f"><td class="num">85 次</td><td>iPhone 发售十年后，用户每天查看设备的次数</td><td>第一章</td></tr>
+<tr class="f"><td class="num">50 分钟</td><td>平均用户每天花在 Facebook 旗下产品上的时间（核心功能约 35 分钟）</td><td>第一章、第七章</td></tr>
+<tr class="f"><td class="num">350 分钟</td><td>同上换算成每周</td><td>第七章</td></tr>
+<tr class="f"><td class="num">20–30 分钟</td><td>作者估算：一周实际需要多久，才够做完你真正舍不得的那几件 Facebook 上的事</td><td>第七章</td></tr>
+<tr class="f"><td class="num">11–17 倍</td><td>上面两个数字的差距</td><td>第七章</td></tr>
+<tr class="f"><td class="num">2 小时</td><td>普通人每天花在社交媒体和相关消息服务上的时间，其中近一半给了 Facebook 系产品</td><td>第一章</td></tr>
+<tr class="f"><td class="num">9 小时</td><td>青少年每天消费媒体的时长（含短信和社交网络）</td><td>Common Sense Media，2015</td></tr>
+</tbody></table></div>
+
+<h3>钱与规模</h3>
+<div class="tbl"><table>
+<thead><tr><th>数字</th><th>说的是什么</th></tr></thead>
+<tbody>
+<tr class="f"><td class="num">230 亿</td><td>Google 上市时的估值（美元）。当时最贵的互联网公司 eBay 约为其两倍</td></tr>
+<tr class="f"><td class="num">8000 亿+</td><td>写作时 Google 的市值，全美第二</td></tr>
+<tr class="f"><td class="num">5000 亿+</td><td>写作时 Facebook 的市值，全美第五。埃克森美孚约 3700 亿</td></tr>
+<tr class="f"><td class="num">14% → 62% → 88%</td><td>Facebook 移动广告占其广告收入的比例：2012 年 10 月 / 2014 年春 / 2017 年</td></tr>
+<tr class="f"><td class="num">20 亿+</td><td>写作时 Facebook 的用户数。十年前不到一百万</td></tr>
+<tr class="f"><td class="num">1600+</td><td>2018 年 1 月参加集体断舍离实验的人数。作者原本预计 40–50 人</td></tr>
+<tr class="f"><td class="num">50 万</td><td>屏蔽工具 Freedom 的用户数；其内部数据称用户平均每天多出 2.5 小时有效时间</td></tr>
+<tr class="f"><td class="num">61.99¾</td><td>梭罗在瓦尔登湖记下的年度总开支（美元）。结论：每周出卖一天劳动就够</td></tr>
+<tr class="f"><td class="num">80%–90%</td><td>阿米什年轻人在 Rumspringa 之后选择受洗留下的比例</td></tr>
+<tr class="f"><td class="num">13,000+</td><td>CrossFit 场馆数，分布在 120 多个国家。美国每两家星巴克对应一家</td></tr>
+<tr class="f"><td class="num">$210 vs $10</td><td>作者家附近 CrossFit 与 Planet Fitness 的月费。后者还送 Wi-Fi</td></tr>
+<tr class="f"><td class="num">2200 万</td><td>《卡坦岛》自 1990 年代中期出版以来的全球销量（套）</td></tr>
+<tr class="f"><td class="num">150</td><td>邓巴数。Jennifer Grygiel 把 Facebook 的好友互动量控制在这个数以下</td></tr>
+</tbody></table></div>
+
+<h3>研究结论</h3>
+<div class="tbl"><table>
+<thead><tr><th>数字</th><th>说的是什么</th></tr></thead>
+<tbody>
+<tr class="f"><td class="num">3 倍</td><td>社交媒体使用量最高四分位的人，孤独程度是最低四分位的三倍（Primack 等，2017）</td></tr>
+<tr class="f"><td class="num">5%–8%</td><td>点赞或点击链接每增加一个标准差，心理健康下降的标准差比例（Shakya &amp; Christakis，2017）</td></tr>
+<tr class="f"><td class="num">5 天</td><td>在没有手机和网络的营地待五天，就足以显著提升露营者的幸福感和连接感（Turkle 引述的研究）</td></tr>
+<tr class="f"><td class="num">1 比特</td><td>点一次赞传递的信息量。作者称之为最不含信息的非平凡沟通</td></tr>
+<tr class="f"><td class="num">30% / 70%</td><td>断舍离实验中，带例外条款的规则 / 彻底禁用的规则的比例</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ═══════════ § 15 ═══════════ -->
+<section class="sec" id="s15" data-cat="how" data-title="批判性阅读 缺陷 局限 短板 critique 反驳 争议 样本 阶级">
+<h2><span class="no">§ 15</span>批判性阅读提示</h2>
+<p class="lead">这本书的论证有几处结构性的软肋。读的时候心里放着，判断会准一些。</p>
+
+<ul class="pts">
+  <li class="f"><b>作者没有第一手的成瘾经验。</b>他从没注册过社交账号，全书的痛苦体验都来自访谈和二手材料。他在脚注里主动交代了这一点，态度是坦诚的，但这意味着关于「戒断有多难」的部分，他是转述而不是亲历。</li>
+  <li class="f"><b>1600 人的实验是自选样本。</b>这些人订阅了他的邮件列表，本来就想改变，还愿意主动报名。这不是随机对照试验，所以「断舍离有效」这个结论的强度，比书里的语气要弱。作者用的是「报告」和「案例」，没有声称统计显著，但读者容易读成后者。</li>
+  <li class="f"><b>Twenge 的 iGen 结论在学术界有争议。</b>时间点吻合是相关，不是因果；同期还有别的变量在动。这一点作者其实处理得比较克制，他引的是 Twenge 自己那句「够立案，还不够定罪」。但第四章整体的语气比这句话要肯定。</li>
+  <li class="f"><b>高质量闲暇的阶级前提没被处理。</b>66 英亩的佛蒙特山地、每月二百一十美元的健身房、周六早上泡咖啡馆的两小时、六周每周一个动手项目——这些都需要时间、钱和空间。对轮班工作、通勤两小时、下班还要带娃的人，这一章的可执行性会掉很多。作者提了一句 Bennett 只写给男性、忽略了育儿和家务，但没把这个批评转向自己的样本。</li>
+  <li class="f"><b>「只有对话算数」对某些人成本极高。</b>跨时区的亲友、行动不便的人、有社交焦虑的人、听障人士，文字对他们不是懒惰的替代品，是主要通道。作者自己留了口子——他说这是他个人觉得有吸引力的方案，读者可以调整或者拒绝，只是必须拿出同等力度的别的方案。这个免责值得认真对待，不要当客套。</li>
+  <li class="f"><b>它写在短视频爆发之前。</b>2019 年出版，取材到 2018 年。算法推荐的短视频信息流、无限下滑、AI 生成内容都在其后。书里的机制分析（间歇性强化、社交认可、注意力经济的财务结构）仍然成立，但它描述的强度是低估的。你可以把它当成一份诊断框架，数字部分自行上调。</li>
+  <li class="f"><b>它默认问题出在个人选择上。</b>全书的解法都是个体层面的：你的规程、你的断舍离、你的抵抗。监管、平台责任、设计伦理这些集体层面的路径几乎没有着墨。第七章那段算术其实指向一个集体结论（如果所有人都这么用，这个商业模式就垮了），但作者没有往那个方向走。</li>
+</ul>
+
+<div class="card f">
+<h4>一个和《渴望更少》的对照</h4>
+<p>如果你读过 Kyle Chayka 的《The Longing for Less》，会发现两本书对「极简」的态度正好相反。Chayka 的核心批评是：极简主义常常是一种个人化的避难策略，面向的是生存而不是改变现状——你的卧室干净了，世界还是那么糟。这个批评几乎可以原样套到 Newport 这本书上。</p>
+<p class="src">但两本书的目标不同。Chayka 写的是观念史，Newport 写的是操作手册。把上面那条批评放在心里读这本手册，是个不错的读法。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 16 ═══════════ -->
+<section class="sec" id="s16" data-cat="how" data-title="三种读法 怎么读 推荐路线 给谁看 三十天 模板 执行清单 表格">
+<h2><span class="no">§ 16</span>三种读法与执行模板</h2>
+
+<h3>三种读法</h3>
+<div class="grid2">
+  <div class="card f"><h4>只想拿走能用的（两小时）</h4><p>读第二章的定义和三条原则、第三章全章、第六章前半的三条课。然后直接跳到本页 <a href="#s11">§ 11</a> 的实践清单挑三条。第一、四、五、七章可以完全跳过——那几章是论证，不是操作。</p></div>
+  <div class="card f"><h4>想弄懂为什么（完整）</h4><p>按顺序读。重点在第二章的三段论证（梭罗、收益曲线、阿米什）和第五章的悖论拆解——这两处是全书智识密度最高的地方。第四章的独处定义值得单独记住，它比这本书本身更耐用。</p></div>
+  <div class="card f"><h4>已经读过一遍</h4><p>只重读第六章。这一章的因果顺序（先建闲暇再砍分心）是全书最容易被忽略、也最能解释「为什么我上次戒失败了」的部分。配合第九章的 Bennett 原则和 Crawford 那段手艺论。</p></div>
+</div>
+
+<h3>三十天断舍离执行模板</h3>
+<p class="lead">按第三章整理。开始之前先把这张表填完，写下来放在每天看得见的地方——作者说清晰度是成败关键。</p>
+
+<div class="tbl"><table>
+<thead><tr><th>阶段</th><th>要做的事</th><th>常见的坑</th></tr></thead>
+<tbody>
+<tr class="f"><td><b>第 0 天<br>定规则</b></td><td>列出所有通过屏幕交付的、用来娱乐/告知/连接你的工具（记得算上游戏和流媒体）。逐个判断：暂时移除会不会伤害或严重打乱你的职业或个人生活。<br><br>不可选的：留着。<br>可选的：三十天不碰。<br>大部分可选但有关键用途的：写一条操作规程。</td><td>规则太模糊（「少刷点手机」）或太严（「完全不上网」）。<br><br>把「方便」当成「关键」。</td></tr>
+<tr class="f"><td><b>第 1–7 天<br>难受期</b></td><td>照规则执行。同时开始列「以前喜欢、后来没时间做」的活动清单。</td><td>什么都不安排，坐等三十天过去。这是最主要的失败原因。</td></tr>
+<tr class="f"><td><b>第 8–30 天<br>重建期</b></td><td>这一段要主动、费力地试。目标不是休息，是找回那些能带来真实满足的活动，好让你在第 30 天有材料回答「我到底看重什么」。<br><br>参考方向：读书、动手做东西、加入一个需要面对面的组织、长距离散步、给自己写东西。</td><td>把它当 detox——「休息一下，回头照旧」。这个决心太弱，一难受就会自己推翻。</td></tr>
+<tr class="f"><td><b>第 30 天<br>重新引入</b></td><td>从空白开始。每样想放回来的东西过三道题：<br>① 它直接支撑我深切看重的东西吗？（有点好处不算）<br>② 它是支撑这个价值的最佳方式吗？（不是就换）<br>③ 我具体怎么用？写出一条规程。</td><td>解禁那天把所有东西一次性放回来。这一步没做好，前面二十九天基本白费。</td></tr>
+</tbody></table></div>
+
+<div class="card f">
+<h4>一句话总纲</h4>
+<p>这本书真正的主张不在技术层面。作者在结论里自己说了：持续成功的关键是接受它其实不是关于技术的，是关于你生活的质量。三十天、三条原则、十几个实践，全部服务于一件事——把「什么可以占用我的时间和注意力」这个决定权拿回来。</p>
+</div>
+</section>
+
+</main>
+</div>
+
+<button id="toTop" title="回到顶部">↑</button>
+
+<footer>
+  Digital Minimalism: Choosing a Focused Life in a Noisy World（Cal Newport, Portfolio/Penguin, 2019）阅读指南 · 2026-08-06 整理<br>
+  本页为原书的结构梳理与要点摘述，供阅读辅助之用，不能替代原书。页面内的搜索框可按人名、概念、实践检索；分类按钮可只看导读 / 逐章 / 速查 / 读法。
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  var catBtns = Array.prototype.slice.call(document.querySelectorAll('.cats button'));
+  var curCat = 'all';
+
+  function render(){
+    var kw = q.value.trim().toLowerCase();
+    var tot = 0, vis = 0;
+    secs.forEach(function(sec){
+      var inCat = (curCat === 'all' || sec.dataset.cat === curCat);
+      var items = sec.querySelectorAll('.f');
+      var any = false;
+      if(!inCat){
+        sec.style.display = 'none';
+        return;
+      }
+      tot += items.length;
+      if(!kw){
+        for(var i=0;i<items.length;i++){ items[i].style.display=''; }
+        vis += items.length;
+        sec.style.display = '';
+        return;
+      }
+      var headHit = (sec.dataset.title || '').toLowerCase().indexOf(kw) > -1;
+      for(var j=0;j<items.length;j++){
+        var hit = items[j].textContent.toLowerCase().indexOf(kw) > -1;
+        items[j].style.display = hit ? '' : 'none';
+        if(hit){ any = true; vis++; }
+      }
+      if(headHit && !any){
+        for(var k=0;k<items.length;k++){ items[k].style.display=''; }
+        vis += items.length;
+        any = true;
+      }
+      sec.style.display = any ? '' : 'none';
+    });
+    count.textContent = vis + ' / ' + tot;
+    spy();
+  }
+
+  q.addEventListener('input', render);
+  catBtns.forEach(function(b){
+    b.addEventListener('click', function(){
+      curCat = b.dataset.cat;
+      catBtns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      render();
+    });
+  });
+
+  /* scroll-spy */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var linkById = {};
+  tocLinks.forEach(function(a){ linkById[a.getAttribute('href').slice(1)] = a; });
+  function spy(){
+    var y = window.scrollY + 110;
+    var cur = null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].style.display === 'none') continue;
+      if(secs[i].offsetTop <= y) cur = secs[i].id;
+    }
+    tocLinks.forEach(function(a){ a.classList.remove('cur'); });
+    if(cur && linkById[cur]){
+      linkById[cur].classList.add('cur');
+      var el = linkById[cur];
+      var nav = document.getElementById('toc');
+      if(el.offsetTop < nav.scrollTop || el.offsetTop > nav.scrollTop + nav.clientHeight - 40){
+        nav.scrollTop = el.offsetTop - nav.clientHeight / 2;
+      }
+    }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){ spy(); toTopCheck(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  /* 回顶部 */
+  var toTop = document.getElementById('toTop');
+  function toTopCheck(){ toTop.classList.toggle('show', window.scrollY > 500); }
+  toTop.addEventListener('click', function(){
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'});
+  });
+
+  /* 锚点跳转高亮 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var t = document.getElementById(id);
+    if(!t) return;
+    if(t.offsetParent === null){
+      q.value = ''; curCat = 'all';
+      catBtns.forEach(function(x){ x.classList.toggle('on', x.dataset.cat === 'all'); });
+      render();
+    }
+    setTimeout(function(){
+      t.classList.remove('flash');
+      void t.offsetWidth;
+      t.classList.add('flash');
+    }, 350);
+  });
+
+  spy(); render();
+})();
+
+var _dr=document.getElementById("drawer"),_dl=document.getElementById("drawerlist");
+if(_dr&&_dl){
+  document.getElementById("tocbtn").addEventListener("click",function(){_dr.classList.add("open")});
+  _dr.addEventListener("click",function(e){if(e.target===_dr)_dr.classList.remove("open")});
+  var _links=document.querySelectorAll("#toc a, nav.side a, nav.toc a");
+  _links.forEach(function(a){
+    var c=a.cloneNode(true);c.className="";c.style.cssText="";
+    if(a.classList.contains("sub"))c.style.paddingLeft="24px";
+    _dl.appendChild(c);
+  });
+}
+
+</script>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+</body>
+</html>

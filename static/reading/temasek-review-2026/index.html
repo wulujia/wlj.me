@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="淡马锡年度报告《Temasek Review 2026》中文速读——S$518b 组合、三个结构性转折。">
+<link rel="canonical" href="https://wlj.me/reading/temasek-review-2026/">
+<title>Temasek Review 2026 速读</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --accent: #2a78d6;
+  --accent-wash: rgba(42,120,214,0.08);
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #1baf7a;
+  --good: #006300;
+  --bad: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --ink-muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255,255,255,0.10);
+    --accent: #3987e5;
+    --accent-wash: rgba(57,135,229,0.14);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --good: #0ca30c;
+    --bad: #e66767;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  background: var(--page);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 15px;
+}
+[id] { scroll-margin-top: 84px; }
+
+/* ---- top bar ---- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--page) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+}
+.topbar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.topbar .brand { font-weight: 700; font-size: 14px; white-space: nowrap; }
+.topbar input {
+  flex: 1 1 180px; min-width: 140px; max-width: 340px;
+  padding: 6px 12px; font-size: 14px;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--surface); color: var(--ink);
+  font-family: inherit;
+}
+.topbar input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+.hitcount { font-size: 12px; color: var(--ink-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  font-size: 12px; padding: 4px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--ink-2);
+  cursor: pointer; font-family: inherit;
+}
+.chip:hover { border-color: var(--accent); }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ---- layout ---- */
+.layout {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 36px;
+  padding: 28px 20px 80px;
+}
+nav.toc {
+  position: sticky; top: 72px; align-self: start;
+  max-height: calc(100vh - 96px); overflow-y: auto;
+  font-size: 13px; padding-right: 6px;
+}
+.toc-group { margin-bottom: 14px; }
+.toc-group > .gname {
+  font-size: 11px; letter-spacing: .08em; color: var(--ink-muted);
+  text-transform: uppercase; margin-bottom: 4px; padding-left: 10px;
+}
+.toc-group.g-active > .gname { color: var(--accent); }
+nav.toc a {
+  display: block; padding: 4px 10px; color: var(--ink-2);
+  text-decoration: none; border-left: 2px solid transparent; border-radius: 0 6px 6px 0;
+}
+nav.toc a:hover { color: var(--ink); background: var(--accent-wash); }
+nav.toc a.active {
+  color: var(--accent); border-left-color: var(--accent);
+  background: var(--accent-wash); font-weight: 600;
+}
+nav.toc a.hidden { display: none; }
+@media (max-width: 1080px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  nav.toc { display: none; }
+}
+
+/* ---- content ---- */
+main { min-width: 0; }
+.hero { margin-bottom: 44px; }
+.hero h1 { font-size: 30px; line-height: 1.3; margin-bottom: 10px; }
+.hero .meta { color: var(--ink-2); font-size: 14px; max-width: 720px; }
+section { margin-bottom: 60px; }
+section.hidden, .sx.hidden, .card.hidden, tr.hidden { display: none; }
+h2 { font-size: 21px; margin-bottom: 6px; display: flex; align-items: baseline; gap: 10px; }
+.secnum {
+  font-size: 13px; color: var(--accent); font-weight: 700;
+  font-variant-numeric: tabular-nums; letter-spacing: .04em; white-space: nowrap;
+}
+.seclead { color: var(--ink-2); font-size: 14px; margin-bottom: 18px; }
+p { margin-bottom: 12px; max-width: 76ch; }
+ul, ol { margin: 0 0 14px 1.3em; max-width: 74ch; }
+li { margin-bottom: 6px; }
+strong { font-weight: 650; }
+a.xref { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); }
+a.xref:hover { border-bottom-style: solid; }
+.note { font-size: 13px; color: var(--ink-muted); max-width: 76ch; }
+
+.flash { animation: flashglow 1.6s ease-out; }
+@keyframes flashglow {
+  0%   { box-shadow: 0 0 0 3px var(--accent); }
+  100% { box-shadow: 0 0 0 3px transparent; }
+}
+
+/* ---- stat tiles ---- */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+  gap: 12px; margin: 18px 0;
+}
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 16px;
+}
+.stat .num { font-size: 24px; font-weight: 700; line-height: 1.2; }
+.stat .num small { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.stat .lbl { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+.stat .sub { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+.up { color: var(--good); }
+
+/* ---- cards ---- */
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; margin: 14px 0;
+}
+.card h3 { font-size: 16px; margin-bottom: 8px; }
+.card h3 .tag {
+  font-size: 11px; font-weight: 600; color: var(--accent);
+  background: var(--accent-wash); border-radius: 6px; padding: 2px 8px;
+  margin-left: 8px; vertical-align: 2px; white-space: nowrap;
+}
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+.card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.card-row .card { margin: 0; }
+
+/* ---- charts ---- */
+.chartbox {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px 12px; margin: 16px 0; max-width: 680px;
+}
+.chartbox h3 { font-size: 15px; margin-bottom: 2px; }
+.chartbox .chart-sub { font-size: 12px; color: var(--ink-muted); margin-bottom: 8px; }
+svg.chart { width: 100%; height: auto; display: block; }
+svg.chart text { font-family: inherit; font-variant-numeric: tabular-nums; }
+.legend { display: flex; gap: 16px; font-size: 12px; color: var(--ink-2); margin: 6px 0 2px; flex-wrap: wrap; }
+.legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.bar-hover { cursor: default; }
+.bar-hover:hover path { filter: brightness(1.12); }
+
+/* stacked composition bar */
+.compbar { display: flex; gap: 2px; height: 36px; margin: 14px 0 10px; border-radius: 6px; overflow: hidden; max-width: 640px; }
+.compbar > div { height: 100%; }
+
+/* ---- tables ---- */
+.tablewrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { padding: 8px 14px; text-align: left; white-space: nowrap; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+thead th {
+  font-size: 12px; color: var(--ink-muted); font-weight: 600;
+  border-bottom: 1px solid var(--border); background: var(--surface);
+}
+tbody tr { border-bottom: 1px solid var(--grid); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--accent-wash); }
+.seg-pill {
+  font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 999px; white-space: nowrap;
+}
+.seg-TPC { background: rgba(42,120,214,.14); color: var(--s1); }
+.seg-GDI { background: rgba(235,104,52,.14); color: var(--s2); }
+.seg-PFA { background: rgba(27,175,122,.16); color: var(--s3); }
+
+/* ---- back to top ---- */
+#backtop {
+  position: fixed; right: 22px; bottom: 22px; z-index: 60;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--surface); color: var(--ink-2);
+  font-size: 18px; cursor: pointer; display: none; box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+#backtop.show { display: block; }
+#backtop:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---- tooltip ---- */
+#tip {
+  position: fixed; z-index: 70; pointer-events: none; display: none;
+  background: var(--ink); color: var(--page);
+  font-size: 12px; padding: 5px 10px; border-radius: 6px; max-width: 260px;
+  line-height: 1.5;
+}
+
+footer { border-top: 1px solid var(--border); padding-top: 18px; font-size: 13px; color: var(--ink-muted); max-width: 76ch; }
+
+
+#tocbtn{position:fixed;right:18px;bottom:18px;z-index:70;border:1px solid var(--line,var(--code-border,#073642));background:var(--card,var(--background));color:var(--ink,var(--foreground));border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;box-shadow:0 4px 18px rgba(0,0,0,.13)}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper,var(--background));border-left:1px solid var(--line,var(--code-border,#073642));padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2,var(--foreground));text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a:hover{background:var(--card,var(--code-border))}
+@media print{#tocbtn,#drawer,.searchwrap{display:none!important}}
+
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回阅读材料</a></div>
+
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">Temasek Review 2026 速读</span>
+    <input id="q" type="search" placeholder="搜索:公司、数字、主题…" aria-label="搜索页面内容">
+    <span class="hitcount" id="hitcount"></span>
+    <div class="chips" id="catchips">
+      <button class="chip on" data-cat="all">全部</button>
+      <button class="chip" data-cat="perf">业绩·组合</button>
+      <button class="chip" data-cat="invest">投资·AI</button>
+      <button class="chip" data-cat="gov">治理·风险</button>
+      <button class="chip" data-cat="sust">可持续·公益</button>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+
+<nav class="toc" aria-label="目录">
+  <div class="toc-group">
+    <div class="gname">概览</div>
+    <a href="#s01">§ 01 一页速览</a>
+    <a href="#s02">§ 02 三个转折</a>
+  </div>
+  <div class="toc-group">
+    <div class="gname">业绩与组合</div>
+    <a href="#s03">§ 03 业绩表现</a>
+    <a href="#s04">§ 04 组合结构</a>
+  </div>
+  <div class="toc-group">
+    <div class="gname">板块与投资</div>
+    <a href="#s05">§ 05 三大板块细看</a>
+    <a href="#s06">§ 06 年度买卖与 2031 目标</a>
+    <a href="#s07">§ 07 AI 战略四支柱</a>
+    <a href="#s08">§ 08 主要投资清单</a>
+  </div>
+  <div class="toc-group">
+    <div class="gname">治理与风险</div>
+    <a href="#s09">§ 09 信用与风险</a>
+    <a href="#s10">§ 10 治理与薪酬</a>
+  </div>
+  <div class="toc-group">
+    <div class="gname">可持续与公益</div>
+    <a href="#s11">§ 11 可持续发展</a>
+    <a href="#s12">§ 12 社区公益</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="hero">
+  <h1>Temasek Review 2026 速读</h1>
+  <p class="meta">整理自淡马锡年度报告《Temasek Review 2026》完整版(143 页),财年截至 2026 年 3 月 31 日,报告发布于 2026 年 7 月。页内数字全部取自原文;金额默认新元(S$),b = 十亿。</p>
+</div>
+
+<!-- ================= 01 ================= -->
+<section id="s01" data-cat="perf">
+  <h2><span class="secnum">§ 01</span>一页速览</h2>
+  <div class="stat-grid">
+    <div class="stat sx"><div class="num">S$518<small>b</small></div><div class="lbl">净投资组合价值(NPV)</div><div class="sub"><span class="up">+S$49b</span> · 十年翻倍 · 约合 US$401b</div></div>
+    <div class="stat sx"><div class="num">10.5<small>%</small></div><div class="lbl">一年股东总回报(TSR)</div><div class="sub">美元口径 14.8%</div></div>
+    <div class="stat sx"><div class="num">7.1<small>%</small> / 6.8<small>%</small></div><div class="lbl">十年 / 二十年 TSR</div><div class="sub">五年 4.6%,受中国市场拖累</div></div>
+    <div class="stat sx"><div class="num">51 / 31</div><div class="lbl">年内投资 / 撤资(S$b)</div><div class="sub">净投入 S$20b</div></div>
+    <div class="stat sx"><div class="num">43 / 38 / 19</div><div class="lbl">组合三板块占比(%)</div><div class="sub">新加坡组合公司 / 全球直投 / 伙伴基金资管</div></div>
+    <div class="stat sx"><div class="num">Aaa / AAA</div><div class="lbl">信用评级(Moody's / S&amp;P)</div><div class="sub">总债务只占 NPV 的 5%</div></div>
+    <div class="stat sx"><div class="num">S$24.0<small>b</small></div><div class="lbl">Wealth Added(超额回报)</div><div class="sub">回报超出风险调整资本成本的部分</div></div>
+    <div class="stat sx"><div class="num">970<small>人</small></div><div class="lbl">员工规模</div><div class="sub">32 个国籍 · 9 国 13 个办公室</div></div>
+  </div>
+  <p class="note sx">S$518b 是市值计价(MTM)口径;按旧的账面价值口径是 S$486b。差额来自今年估值方法的全面切换,见 <a class="xref" href="#s02">§ 02</a>。</p>
+</section>
+
+<!-- ================= 02 ================= -->
+<section id="s02" data-cat="perf">
+  <h2><span class="secnum">§ 02</span>三个转折:口径、组织、主席</h2>
+  <p class="seclead">今年的报告读起来和往年不同,三件结构性的事都落在这一年。</p>
+
+  <div class="card">
+    <h3>估值口径:全面转向市值计价(MTM)</h3>
+    <p class="sx">组合里 75% 本来就按市价计——上市股票、基金和跟投都是。剩下 25% 是非上市直投,过去按账面价值报,今年起全部改按市价。这一改带来 <strong>S$32b</strong> 的账面增值,主要来自新加坡的大型非上市持仓。</p>
+    <ul>
+      <li class="sx">非上市资产估值用可比公司倍数、最近融资轮等市场法;无控股权的还要打流动性折扣。财务部独立于投资团队负责估值,外部估值师抽查,外部审计师出鉴证。</li>
+      <li class="sx">拉长看,两种算法的 TSR 差别不大;但 20 年期 MTM 数字含 2016 年切换时的一次性抬升,和旧口径不完全可比。完整对照见 <a class="xref" href="#tsr-table">§ 03 的表</a>。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>组织重构:一拆三,外加一个共享底座</h3>
+    <p class="sx">2026 年 4 月 1 日起,投资管理拆进三家全资实体:<strong>Temasek Singapore(TSG)</strong>管新加坡组合公司的股东管理和价值创造;<strong>Temasek Global Investments(TGI)</strong>管全球直投;<strong>Temasek Partnership Solutions(TPS)</strong>管基金配置、伙伴关系和资管公司(以 Seviora 为主平台)。<strong>Temasek International(TI)</strong>保留集团与公司职能,向三家输出治理、风控和共享服务。对外仍以 OneTemasek 整体运作。</p>
+    <p class="sx">拆分的理由:三个板块的打分方式、策略和所需技能各不相同,分开管权责更清楚。40-40-20 的组合结构从 2018 年起就基本稳定,组织形态现在跟上了组合形态。</p>
+  </div>
+
+  <div class="card">
+    <h3>换主席:第五任</h3>
+    <p class="sx">2025 年 10 月 9 日,<strong>张志贤(Teo Chee Hean)</strong>接替执掌 12 年的林文兴(Lim Boon Heng),出任第五任主席;陈聪明(Tan Chong Meng)同日出任副主席。林文兴留任高级顾问。Peter Voser 于 2026 年 7 月 1 日从董事会退休,转任 Temasek Europe 非执行主席。</p>
+    <p class="sx">张志贤在致辞里强调:新加坡的储备靠几代人的勤俭积累,和资源型主权基金不同,花掉就没有补充来源。</p>
+  </div>
+</section>
+
+<!-- ================= 03 ================= -->
+<section id="s03" data-cat="perf">
+  <h2><span class="secnum">§ 03</span>业绩表现</h2>
+  <p class="seclead">一年 10.5% 的回报主要靠新加坡上市组合公司的强势和几笔大额撤资的落袋收益。</p>
+
+  <div class="chartbox">
+    <h3>净投资组合价值走势</h3>
+    <div class="chart-sub">单位 S$b · 截至各年 3 月 31 日 · MTM 口径(2016 年前无 MTM 数据)</div>
+    <svg class="chart" viewBox="0 0 560 250" role="img" aria-label="净投资组合价值柱状图:2022 年 438、2023 年 411、2024 年 420、2025 年 469、2026 年 518,单位十亿新元">
+      <line x1="60" y1="210" x2="530" y2="210" stroke="var(--axis)" stroke-width="1"/>
+      <g class="bar-hover" data-tip="FY2022 · S$438b"><path d="M75 210 V78.7 Q75 74.7 79 74.7 H131 Q135 74.7 135 78.7 V210 Z" fill="var(--s1)"/><text x="105" y="66" text-anchor="middle" font-size="12" fill="var(--ink-2)">438</text><text x="105" y="230" text-anchor="middle" font-size="12" fill="var(--ink-muted)">2022</text></g>
+      <g class="bar-hover" data-tip="FY2023 · S$411b"><path d="M170 210 V87.1 Q170 83.1 174 83.1 H226 Q230 83.1 230 87.1 V210 Z" fill="var(--s1)"/><text x="200" y="74.4" text-anchor="middle" font-size="12" fill="var(--ink-2)">411</text><text x="200" y="230" text-anchor="middle" font-size="12" fill="var(--ink-muted)">2023</text></g>
+      <g class="bar-hover" data-tip="FY2024 · S$420b"><path d="M265 210 V84.3 Q265 80.3 269 80.3 H321 Q325 80.3 325 84.3 V210 Z" fill="var(--s1)"/><text x="295" y="71.6" text-anchor="middle" font-size="12" fill="var(--ink-2)">420</text><text x="295" y="230" text-anchor="middle" font-size="12" fill="var(--ink-muted)">2024</text></g>
+      <g class="bar-hover" data-tip="FY2025 · S$469b"><path d="M360 210 V69.1 Q360 65.1 364 65.1 H416 Q420 65.1 420 69.1 V210 Z" fill="var(--s1)"/><text x="390" y="56.4" text-anchor="middle" font-size="12" fill="var(--ink-2)">469</text><text x="390" y="230" text-anchor="middle" font-size="12" fill="var(--ink-muted)">2025</text></g>
+      <g class="bar-hover" data-tip="FY2026 · S$518b · 同比 +49"><path d="M455 210 V54 Q455 50 459 50 H511 Q515 50 515 54 V210 Z" fill="var(--s1)"/><text x="485" y="41.3" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">518</text><text x="485" y="230" text-anchor="middle" font-size="12" fill="var(--ink-muted)">2026</text></g>
+    </svg>
+  </div>
+
+  <ul>
+    <li class="sx">财年最后一个月,中东局势冲击市场,NPV 回撤 2%,抹掉了全球直投此前的一部分涨幅。</li>
+    <li class="sx">新元走强(对美元 +3.8%、对港币 +4.6%、对印度卢比 +13.2%)拖累回报约 2 个百分点;按固定汇率算,一年 TSR 是 12.9%。</li>
+    <li class="sx">五年 TSR 4.6%,被 2021–2024 年中国资本市场的下行压住;自 2024 年 1 月起的组合再平衡,已连续两年推高回报。</li>
+    <li class="sx">过去十年约 36% 的新增资金投向美洲,所以报告同时给出美元口径:十年 TSR 美元计 7.5%。</li>
+  </ul>
+
+  <div class="chartbox">
+    <h3>各期限股东总回报(TSR)</h3>
+    <div class="chart-sub">年化 % · MTM 口径 · 截至 2026-03-31</div>
+    <div class="legend"><span><span class="sw" style="background:var(--s1)"></span>新元</span><span><span class="sw" style="background:var(--s2)"></span>美元</span></div>
+    <svg class="chart" viewBox="0 0 560 250" role="img" aria-label="TSR 分期限对比:1 年新元 10.5%、美元 14.8%;5 年 4.6% 与 5.4%;10 年 7.1% 与 7.5%;20 年 6.8% 与 8.0%">
+      <line x1="50" y1="200" x2="540" y2="200" stroke="var(--axis)" stroke-width="1"/>
+      <g class="bar-hover" data-tip="1 年 · 新元 10.5%"><path d="M70 200 V92 Q70 88 74 88 H110 Q114 88 114 92 V200 Z" fill="var(--s1)"/><text x="92" y="82" text-anchor="middle" font-size="12" fill="var(--ink-2)">10.5</text></g>
+      <g class="bar-hover" data-tip="1 年 · 美元 14.8%"><path d="M116 200 V46.1 Q116 42.1 120 42.1 H156 Q160 42.1 160 46.1 V200 Z" fill="var(--s2)"/><text x="138" y="36" text-anchor="middle" font-size="12" fill="var(--ink-2)">14.8</text></g>
+      <g class="bar-hover" data-tip="5 年 · 新元 4.6%"><path d="M190 200 V154.9 Q190 150.9 194 150.9 H230 Q234 150.9 234 154.9 V200 Z" fill="var(--s1)"/><text x="212" y="145" text-anchor="middle" font-size="12" fill="var(--ink-2)">4.6</text></g>
+      <g class="bar-hover" data-tip="5 年 · 美元 5.4%"><path d="M236 200 V146.4 Q236 142.4 240 142.4 H276 Q280 142.4 280 146.4 V200 Z" fill="var(--s2)"/><text x="258" y="136.5" text-anchor="middle" font-size="12" fill="var(--ink-2)">5.4</text></g>
+      <g class="bar-hover" data-tip="10 年 · 新元 7.1%"><path d="M310 200 V128.3 Q310 124.3 314 124.3 H350 Q354 124.3 354 128.3 V200 Z" fill="var(--s1)"/><text x="332" y="118.4" text-anchor="middle" font-size="12" fill="var(--ink-2)">7.1</text></g>
+      <g class="bar-hover" data-tip="10 年 · 美元 7.5%"><path d="M356 200 V124 Q356 120 360 120 H396 Q400 120 400 124 V200 Z" fill="var(--s2)"/><text x="378" y="114" text-anchor="middle" font-size="12" fill="var(--ink-2)">7.5</text></g>
+      <g class="bar-hover" data-tip="20 年 · 新元 6.8%(含 2016 年一次性抬升)"><path d="M430 200 V131.5 Q430 127.5 434 127.5 H470 Q474 127.5 474 131.5 V200 Z" fill="var(--s1)"/><text x="452" y="121.6" text-anchor="middle" font-size="12" fill="var(--ink-2)">6.8</text></g>
+      <g class="bar-hover" data-tip="20 年 · 美元 8.0%(含 2016 年一次性抬升)"><path d="M476 200 V118.7 Q476 114.7 480 114.7 H516 Q520 114.7 520 118.7 V200 Z" fill="var(--s2)"/><text x="498" y="108.8" text-anchor="middle" font-size="12" fill="var(--ink-2)">8.0</text></g>
+      <text x="115" y="222" text-anchor="middle" font-size="12" fill="var(--ink-muted)">1 年</text>
+      <text x="235" y="222" text-anchor="middle" font-size="12" fill="var(--ink-muted)">5 年</text>
+      <text x="355" y="222" text-anchor="middle" font-size="12" fill="var(--ink-muted)">10 年</text>
+      <text x="475" y="222" text-anchor="middle" font-size="12" fill="var(--ink-muted)">20 年</text>
+    </svg>
+  </div>
+
+  <div class="tablewrap" id="tsr-table">
+    <table>
+      <thead><tr><th>期限</th><th class="n">新元 · MTM</th><th class="n">新元 · 旧口径</th><th class="n">美元 · MTM</th><th class="n">美元 · 旧口径</th></tr></thead>
+      <tbody>
+        <tr class="sx"><td>20 年</td><td class="n">6.8%</td><td class="n">6.4%</td><td class="n">8.0%</td><td class="n">7.6%</td></tr>
+        <tr class="sx"><td>10 年</td><td class="n">7.1%</td><td class="n">7.2%</td><td class="n">7.5%</td><td class="n">7.7%</td></tr>
+        <tr class="sx"><td>5 年</td><td class="n">4.6%</td><td class="n">5.0%</td><td class="n">5.4%</td><td class="n">5.9%</td></tr>
+        <tr class="sx"><td>1 年</td><td class="n">10.5%</td><td class="n">12.0%</td><td class="n">14.8%</td><td class="n">16.4%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note sx">旧口径 = 非上市资产按账面价值(投资成本 + 应占损益 − 减记)。20 年 MTM 数字含 2016-03 切换估值方法时的一次性 NPV 抬升。TSR 为复合年化,含付给股东的股息,剔除股东注资。</p>
+</section>
+
+<!-- ================= 04 ================= -->
+<section id="s04" data-cat="perf">
+  <h2><span class="secnum">§ 04</span>组合结构</h2>
+  <p class="seclead">40-40-20 的三板块结构从 2018 年起保持稳定;二十多年前,组合九成集中在新加坡组合公司。</p>
+
+  <div class="chartbox">
+    <h3>三板块占比与十年回报</h3>
+    <div class="chart-sub">占组合价值 % · 截至 2026-03-31</div>
+    <div class="compbar">
+      <div style="flex-basis:43%;background:var(--s1)" data-tip="新加坡组合公司(TPC)43% · 十年 IRR 8.1%"></div>
+      <div style="flex-basis:38%;background:var(--s2)" data-tip="全球直投(GDI)38% · 十年 IRR 7.6%"></div>
+      <div style="flex-basis:19%;background:var(--s3)" data-tip="伙伴、基金与资管(PFA)19% · 十年 IRR 7.7%"></div>
+    </div>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--s1)"></span>TPC 新加坡组合公司 43% · IRR 8.1%</span>
+      <span><span class="sw" style="background:var(--s2)"></span>GDI 全球直投 38% · IRR 7.6%</span>
+      <span><span class="sw" style="background:var(--s3)"></span>PFA 伙伴/基金/资管 19% · IRR 7.7%</span>
+    </div>
+    <div class="chart-sub">IRR 为十年期货币加权回报,新元计。</div>
+  </div>
+
+  <ul>
+    <li class="sx"><strong>流动性:</strong>上市及流动资产与非上市资产各占 50%。上市部分里近一半是持股 ≥20% 的大宗持仓(约占总组合 25%),多为新加坡公司。</li>
+    <li class="sx"><strong>新加坡浓度:</strong>总部在新加坡的公司占组合 52%;按底层业务算,新加坡敞口 27%。前三大单一持仓:星展 DBS 9%、新电信 Singtel 8%、新加坡港务 PSA 5%,全部名单见 <a class="xref" href="#s08">§ 08</a>。</li>
+    <li class="sx"><strong>货币:</strong>约一半组合以非新元计价,美元占比 15 年来持续上升。财年上半年做了组合层面的美元对冲。</li>
+    <li class="sx"><strong>配置逻辑:</strong>全球直投围绕四大结构性趋势——数字化、可持续生活、消费的未来、更长寿命——自下而上选公司,所以组合和任何市场指数都没有可比性(全球指数重仓美股,淡马锡重仓新加坡)。</li>
+    <li class="sx"><strong>早期投资:</strong>占组合约 4%,内部上限 6%;一半直投,一半通过风投基金(Vertex、EvolutionX、InnoVen 等自建平台)。</li>
+  </ul>
+</section>
+
+<!-- ================= 05 ================= -->
+<section id="s05" data-cat="invest">
+  <h2><span class="secnum">§ 05</span>三大板块细看</h2>
+  <p class="seclead">三个板块干的活不一样:TPC 是压舱石,GDI 是增长引擎,PFA 是资本放大器。</p>
+
+  <div class="card">
+    <h3>新加坡组合公司(TPC)<span class="tag">43% · 十年 IRR 8.1%</span></h3>
+    <p class="sx">通常持股 ≥20% 的新加坡公司,合计年营收约 S$200b,雇员超 40 万(新加坡 16 万+,海外 24 万+)。星展已是新交所市值第一大公司,新科工程十年市值涨了两倍多。管法是当积极股东:派董事、推转型、优化资本结构,不插手日常经营。</p>
+    <ul>
+      <li class="sx"><strong>Seatrium 重组:</strong>2023 年把胜科海事和吉宝岸外与海事合并成 Seatrium。三家相关公司(胜科工业、吉宝、Seatrium)合计市值从重组前约 S$14b 涨到 2026 年 3 月的超 S$40b,期间股东价值提升超 S$27b(含股息、扣除供股)。Seatrium 2024 年起恢复净盈利。</li>
+      <li class="sx"><strong>SATS:</strong>参与 S$0.8b 供股支持其收购 Worldwide Flight Services,报告称其已是全球最大航空货运地勤公司。</li>
+      <li class="sx"><strong>ST Telemedia 数据中心:</strong>2014 年起陪跑 STT GDC,2026 年 KKR 与新电信以 S$6.6b 收购 STT 所持 82% 股权,为东南亚最大数字基建交易之一(报告口径)。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>全球直投(GDI)<span class="tag">38% · 十年 IRR 7.6%</span></h3>
+    <p class="sx">年内投入 S$37b、撤出 S$24b,净投 S$13b。上市与非上市之比 63:37;过去十年非上市部分年化 10.0%,上市部分 6.1%(上市部分被 2021–2024 的中国市场压低)。约 300 名投资专业人员分行业、分市场作战。控股型收购十年只做了 5 笔(Element、gategroup、GHX、Manipal、Rivulis),纪律是只在能带来差异化价值时下场。</p>
+    <ul>
+      <li class="sx"><strong>分地区:</strong>美洲敞口十年翻了三倍,是 GDI 最大地区,科技+金融服务合计约占三分之二;中国聚焦内需龙头与创新药(腾讯、阿里、Luckin、百济神州等);印度十年回报领先所有地区(即使卢比对新元贬了约 30%);欧洲仍在早期,回报落后。</li>
+      <li class="sx"><strong>Schneider Electric India:</strong>2018 年签约投资 35% 股权,2025 年以 S$8.2b 卖回给施耐德,长周期陪跑后整体退出。</li>
+      <li class="sx"><strong>Manipal 医院:</strong>2023 年 4 月拿下多数股权,为印度医疗行业当时最大私募交易(报告口径);床位从 8,000 张扩到 12,000 张、医院从 30 家到 50 家,2026 年 3 月递交 IPO。</li>
+      <li class="sx"><strong>gategroup:</strong>2018 年可交换债入场,2019 年转股成 50% 共同控股;疫情期间注资重组,复苏后连续数年业绩强劲。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>伙伴、基金与资管(PFA)<span class="tag">19% · 十年 IRR 7.7%</span></h3>
+    <ul>
+      <li class="sx"><strong>Seviora 平台:</strong>合并 Pavilion Capital 后,旗下资管公司(Azalea、Fullerton、InnoVen、SeaTown、Seviora Capital)合计管理规模约 US$75b(S$97b),正在做战略评估,目标是亚洲多策略资管平台。</li>
+      <li class="sx"><strong>私募信贷平台 Aranda:</strong>2024 年以 S$10b 起步,现已超 S$13b,年经常性收入超 S$1b;2026 年初趁私募信贷零售资金赎回压力,低价收了一批优质信贷资产。</li>
+      <li class="sx"><strong>BlackRock:</strong>2020 年投入 US$2.5b,现持股 3.4%、值约 S$6.6b;合作覆盖脱碳基金 Decarbonization Partners、AI Infrastructure Partnership(联合微软、MGX、GIP)、中国建行财富管理合资等。</li>
+      <li class="sx"><strong>Anchor Fund:</strong>与新加坡政府共设,支持拟在新加坡上市的成长型企业;第二期 S$1.5b 由 65 Equity Partners 和 Fullerton 管理。</li>
+      <li class="sx"><strong>基金组合:</strong>以并购型基金为主,其次成长基金;私募信贷敞口十年增长超六倍。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 06 ================= -->
+<section id="s06" data-cat="invest">
+  <h2><span class="secnum">§ 06</span>年度买卖与 2031 目标</h2>
+  <p class="seclead">三条加仓线都指向同一个判断:AI 是长期结构性驱动,电力和信贷是它的配套。</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>方向</th><th class="n">当前占比</th><th class="n">2031-03 目标</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr class="sx"><td>AI 相关敞口</td><td class="n">6%</td><td class="n">10–15%</td><td>不含 TPC 的 AI 敞口;覆盖能源基建、芯片、云、基础模型、应用五层,详见 <a class="xref" href="#s07">§ 07</a></td></tr>
+        <tr class="sx"><td>核心+基础设施</td><td class="n">1%(S$7b)</td><td class="n">5%</td><td>电网改造、可再生与核能、储能;电气化和数据中心撑起需求</td></tr>
+        <tr class="sx"><td>私募信贷</td><td class="n">2%</td><td class="n">5%</td><td>要现金收益、分散股权型组合,并从信贷市场取得对股权投资有用的信号</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>年内主要买入</h3>
+    <ul>
+      <li class="sx"><strong>AI 全链条:</strong>基础模型投了 Anthropic、OpenAI、xAI(后并入 SpaceX),另投 SpaceX 本体;AI 应用投了 CuspAI(AI 做材料发现)、PhysicsX(AI 原生工程仿真);随 Warburg Pincus 投 Park Place Technologies(数据中心硬件第三方维保);半导体增持 ASML、Broadcom、Nvidia,新买 Lam Research。</li>
+      <li class="sx"><strong>基础设施:</strong>收购 Brookfield 北美分布式能源平台 Luminace 约 50% 股权;入股澳大利亚最大集装箱码头运营商 Patrick Terminals(报告口径)。</li>
+      <li class="sx"><strong>中国:</strong>参与安能物流(ANE)私有化财团;领投影石 Insta360 的 IPO;财年后领投中际旭创海外子公司 TeraHop(光模块)。</li>
+      <li class="sx"><strong>欧洲:</strong>随 KKR 收购英国工业技术公司 Spectris;投资奢侈品集团 Zegna。</li>
+      <li class="sx"><strong>印度:</strong>Haldiram(零食)、Lenskart(眼镜)、upGrad(在线高等教育)、Dr. Agarwal's(眼科连锁)、Cloudnine(妇产连锁)。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>年内主要卖出</h3>
+    <ul>
+      <li class="sx">GHX(北美医疗供应链网络)控股权卖给 Veritas Capital,保留少数权益(2026 年 2 月)。</li>
+      <li class="sx">Schneider Electric India 35% 股权以 S$8.2b 卖回施耐德。</li>
+      <li class="sx">Axia Vegetable Seeds(荷兰蔬菜种子公司)被 DENSO 收购,整体退出。</li>
+    </ul>
+  </div>
+
+  <p class="sx">每笔投资都要过两道内部定价:风险调整资本成本(RACOC,2025 年 4 月简化为无风险利率 + 股权风险溢价 + 行业风险 + 资本结构),以及内部碳价——现在按 <strong>US$65/吨 CO₂e</strong> 计入,2030 年前逐步提到 US$100。</p>
+</section>
+
+<!-- ================= 07 ================= -->
+<section id="s07" data-cat="invest">
+  <h2><span class="secnum">§ 07</span>AI 战略四支柱</h2>
+  <p class="seclead">2019 年就设了跨职能的 AI pod;今年把整套打算写成了四个支柱。</p>
+
+  <div class="card-row">
+    <div class="card">
+      <h3>1 · 武装自己</h3>
+      <p class="sx">投资流程全程配了定制 AI 工具——从尽调计划、投委会材料到投后监控;投资委员会另配一个 AI 助理,专门补充独立观点、找盲点。全员多模型环境,人人上提示词工程课,年度 CEO Challenge 让员工自己做 AI 方案。</p>
+    </div>
+    <div class="card">
+      <h3>2 · 加固组合</h3>
+      <p class="sx">把 AI 采用当作组合公司的生存问题来推:逐家评估 TPC 的 AI 转型进度,和 TPC 共编 Workforce AI Fluency Playbook;自建的 Temus 开了 AI Foundry 培养本地人才,Aicadium 帮 gategroup 用 AI 做配餐质检。GDI 持仓则持续排查 AI 带来的风险和机会。</p>
+    </div>
+    <div class="card">
+      <h3>3 · 扩大敞口</h3>
+      <p class="sx">AI 敞口从 6% 提到 10–15%(2031 年 3 月前,不含 TPC)。四个主题:规模化赢家(大平台)、AI 原生挑战者、AI 工厂(数据中心与能源基建)、AI 转型受益的传统公司。公开、私募、直投、跟投都用。</p>
+    </div>
+    <div class="card">
+      <h3>4 · 推动扩散</h3>
+      <p class="sx">2023 年设 AI 检测公司 Resaro,做关键 AI 系统的第三方独立测试;2026 年 3 月与斯坦福商学院合办 AI Leadership Programme,70 多名淡马锡、组合公司高管和新加坡政府官员参加——这是新平台 Temasek International Institute 的第一个项目。另组织了上海、杭州 AI 生态考察。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 ================= -->
+<section id="s08" data-cat="invest">
+  <h2><span class="secnum">§ 08</span>主要投资清单</h2>
+  <p class="seclead">报告披露的 30 笔主要持仓。市值为 2026-03-31 收盘;非上市公司列股东权益。</p>
+  <div class="chips" style="margin-bottom:4px">
+    <button class="chip on" data-seg="">全部板块</button>
+    <button class="chip" data-seg="TPC">TPC 新加坡组合公司</button>
+    <button class="chip" data-seg="GDI">GDI 全球直投</button>
+    <button class="chip" data-seg="PFA">PFA 伙伴基金资管</button>
+  </div>
+  <div class="tablewrap">
+    <table id="holdings">
+      <thead><tr><th>公司</th><th>板块</th><th class="n">持股 %</th><th class="n">市值/权益 S$b</th><th>行业</th></tr></thead>
+      <tbody>
+        <tr class="sx" data-seg="GDI"><td>Adyen</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">5</td><td class="n">39.7</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="GDI"><td>AIA 友邦保险</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">2</td><td class="n">146.9</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="PFA"><td>Aranda Principal Strategies</td><td><span class="seg-pill seg-PFA">PFA</span></td><td class="n">100</td><td class="n">—</td><td>其他(含信贷)</td></tr>
+        <tr class="sx" data-seg="GDI"><td>AS Watson 屈臣氏集团</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">25</td><td class="n">5.4</td><td>消费与房地产</td></tr>
+        <tr class="sx" data-seg="GDI"><td>BlackRock 贝莱德</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">3</td><td class="n">203.5</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="TPC"><td>CapitaLand 凯德集团</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">100</td><td class="n">12.9</td><td>消费与房地产</td></tr>
+        <tr class="sx" data-seg="TPC"><td>DBS 星展集团</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">28</td><td class="n">161.8</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Element Materials Technology</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">88</td><td class="n">3.9</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="GDI"><td>ICICI Bank</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">2</td><td class="n">117.6</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Internet Brands</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">25</td><td class="n">—</td><td>电信媒体科技</td></tr>
+        <tr class="sx" data-seg="TPC"><td>Keppel 吉宝</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">21</td><td class="n">21.1</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Manipal Health Enterprises</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">51</td><td class="n">0.9</td><td>生命科学与农粮</td></tr>
+        <tr class="sx" data-seg="TPC"><td>Mapletree 丰树投资</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">100</td><td class="n">18.5</td><td>消费与房地产</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Mastercard 万事达</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">&lt;1</td><td class="n">575.4</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="GDI"><td>NVIDIA 英伟达</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">&lt;1</td><td class="n">5471.8</td><td>电信媒体科技</td></tr>
+        <tr class="sx" data-seg="GDI"><td>OpenAI Group</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">&lt;1</td><td class="n">—</td><td>电信媒体科技</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Ping An 中国平安</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">&lt;1</td><td class="n">185.9</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="TPC"><td>PSA 新加坡港务集团</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">100</td><td class="n">16.2</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="TPC"><td>SATS 新翔集团</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">40</td><td class="n">5.2</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="TPC"><td>Seatrium</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">36</td><td class="n">8.0</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="TPC"><td>Sembcorp Industries 胜科工业</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">50</td><td class="n">11.8</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="PFA"><td>Seviora Holdings</td><td><span class="seg-pill seg-PFA">PFA</span></td><td class="n">100</td><td class="n">12.3</td><td>其他(含信贷)</td></tr>
+        <tr class="sx" data-seg="TPC"><td>Singapore Airlines 新加坡航空</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">50</td><td class="n">20.8</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="TPC"><td>SP Group 新加坡能源</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">100</td><td class="n">13.3</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="TPC"><td>ST Engineering 新科工程</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">51</td><td class="n">33.8</td><td>运输与工业</td></tr>
+        <tr class="sx" data-seg="TPC"><td>Singtel 新电信</td><td><span class="seg-pill seg-TPC">TPC</span></td><td class="n">52</td><td class="n">81.3</td><td>电信媒体科技</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Standard Chartered 渣打</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">18</td><td class="n">59.2</td><td>金融服务</td></tr>
+        <tr class="sx" data-seg="GDI"><td>TSMC 台积电</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">&lt;1</td><td class="n">1838.4</td><td>电信媒体科技</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Tencent 腾讯</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">&lt;1</td><td class="n">727.3</td><td>电信媒体科技</td></tr>
+        <tr class="sx" data-seg="GDI"><td>Visa</td><td><span class="seg-pill seg-GDI">GDI</span></td><td class="n">&lt;1</td><td class="n">739.1</td><td>金融服务</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note sx">持股比例四舍五入到整数;「—」= 因保密不披露或业务性质不适用。CapitaLand 经 CLA Real Estate 间接全资持有;Element、Internet Brands、Manipal 的财务数据取自各自控股主体,Manipal 数据截至 2025-09(IPO 进行中)。运输与工业含能源与资源。</p>
+</section>
+
+<!-- ================= 09 ================= -->
+<section id="s09" data-cat="gov">
+  <h2><span class="secnum">§ 09</span>信用与风险</h2>
+  <p class="seclead">杠杆低到近乎保守:总债务只占组合价值 5%,利息支出只占经常性收入 1%。</p>
+
+  <ul>
+    <li class="sx"><strong>评级:</strong>Moody's Aaa / S&amp;P AAA;所有已发行淡马锡债券均获最高评级,商票获 P-1/A-1+。</li>
+    <li class="sx"><strong>债务:</strong>总债务 S$25.5b(债券 S$22.8b + 欧洲商票 S$2.5b),债券加权平均期限超 15 年,最长一笔 2071 年到期。到期分布刻意铺平,避免单一年份集中偿付。</li>
+    <li class="sx"><strong>覆盖能力:</strong>流动性可覆盖未来五年到期债务(S$10b)13 倍。极端情形测算:即使没有任何现金流入,仅出售一小部分持股低于 20% 的上市资产,不到两周即可还清全部债务(按不超过日均成交量 20% 的出售速度)。</li>
+    <li class="sx"><strong>政策:</strong>不为组合公司提供任何财务担保,正如新加坡政府不为淡马锡担保。</li>
+  </ul>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>财年(截至 3 月)</th><th class="n">2022</th><th class="n">2023</th><th class="n">2024</th><th class="n">2025</th><th class="n">2026</th></tr></thead>
+      <tbody>
+        <tr class="sx"><td>净组合价值 S$b</td><td class="n">438</td><td class="n">411</td><td class="n">420</td><td class="n">469</td><td class="n">518</td></tr>
+        <tr class="sx"><td>撤资 S$b</td><td class="n">37</td><td class="n">27</td><td class="n">33</td><td class="n">42</td><td class="n">31</td></tr>
+        <tr class="sx"><td>股息收入 S$b</td><td class="n">9.4</td><td class="n">11.1</td><td class="n">9.0</td><td class="n">10.4</td><td class="n">11.5</td></tr>
+        <tr class="sx"><td>流动资产 S$b</td><td class="n">114.3</td><td class="n">105.1</td><td class="n">113.7</td><td class="n">124.8</td><td class="n">136.3</td></tr>
+        <tr class="sx"><td>总债务 S$b</td><td class="n">22.0</td><td class="n">21.7</td><td class="n">20.9</td><td class="n">20.7</td><td class="n">25.5</td></tr>
+        <tr class="sx"><td>利息支出 S$b</td><td class="n">0.5</td><td class="n">0.5</td><td class="n">0.5</td><td class="n">0.5</td><td class="n">0.5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="sx"><strong>波动是明牌。</strong>组合以股权为主,蒙特卡洛模拟显示未来一年回报有六分之五的概率落在 <strong>−11.2% 到 +18.0%</strong> 之间;过去 20 年实际年度回报最低 −29.6%(金融危机的 FY2009)、最高 +42.7%(次年反弹)。管理层的态度写得直白:不按短期市值波动管组合,用压力情景测「持续性损失」,必要时对冲个股、指数或利率。</p>
+  <p class="sx">风险框架里声誉风险零容忍;风险支柱覆盖投资(含汇率与 ESG)、流动性与杠杆、组合价值、运营、网络安全、法律合规、税务、宏观地缘。年内新立了 Responsible AI Use Committee 和 Agentic AI 安全治理框架,并再次通过新加坡网安局 Cyber Trust Mark 最高等级认证。</p>
+</section>
+
+<!-- ================= 10 ================= -->
+<section id="s10" data-cat="gov">
+  <h2><span class="secnum">§ 10</span>治理与薪酬</h2>
+  <p class="seclead">报告反复澄清一件事:淡马锡自有资产、商业运作,新加坡政府不介入投资决策。</p>
+
+  <div class="card">
+    <h3>它是什么、不是什么</h3>
+    <ul>
+      <li class="sx">1974 年 6 月 25 日按新加坡公司法注册,唯一股东是财政部长(法人)。它拥有自己的资产——不管理公积金(CPF)、政府资产或外汇储备,也不管理 GIC 等其他第五附表实体的资产。</li>
+      <li class="sx">作为宪法第五附表实体,董事会和 CEO 负有保护「过往储备」的宪制责任;动用过往储备须总统批准。市值下跌和按公允价卖出产生的亏损都不算动用。</li>
+      <li class="sx">董事和 CEO 的任免须总统同意——即「第二把钥匙」。每年向总统及总统顾问理事会、财政部长汇报业绩和策略。</li>
+      <li class="sx">NIR 框架下,政府最多可支出 GIC、金管局、淡马锡长期实际回报预期的 50%;这不改变淡马锡的分红政策和运营。</li>
+      <li class="sx">董事会 11 人,CEO Dilhan Pillay 是唯一执行董事,无任何政府提名董事;年内开会 7 次,四个委员会(执行 8 次、审计 4、领导力与薪酬 4、风险与可持续 4)。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>薪酬:和股东一起扛周期</h3>
+    <ul>
+      <li class="sx">回报超过整体风险调整资本成本,才产生 Wealth Added 激励池——本财年 WA 为 <strong>S$24.0b</strong>(此指标仍按旧口径计算);组合回报为负时反向计提扣回池(clawback)。</li>
+      <li class="sx">中长期激励占年度总薪酬大头,最长递延 <strong>12 年</strong>,与逐年 TSR 同涨同跌。过去十年出现过三次扣回池,其中一次靠往后年份的正 WA 才补平。</li>
+      <li class="sx">薪酬池里另扣一道碳费,转成与减排进度挂钩的共同投资单位,把 2050 净零目标绑进个人利益。</li>
+      <li class="sx">财务造假或不当行为造成重大影响的,已发激励也可追回。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>团队</h3>
+    <p class="sx">约 970 人、32 个国籍、9 国 13 个办公室,65% 为新加坡公民。福利在业内偏厚:产假至少 26 周,陪产假和领养假至少 20 周,另有生育补贴、志愿服务假和职业里程碑休整假。人才培养今年的重心是 AI:全员提示词工程培训、CEO Challenge 做实用 AI 方案、高管赴斯坦福和上海杭州学习(见 <a class="xref" href="#s07">§ 07</a>)。</p>
+  </div>
+</section>
+
+<!-- ================= 11 ================= -->
+<section id="s11" data-cat="sust">
+  <h2><span class="secnum">§ 11</span>可持续发展</h2>
+  <p class="seclead">今年最大的改动是把话说实了:2030 中期减排目标按当前条件达不到,2050 净零承诺不变。</p>
+
+  <ul>
+    <li class="sx"><strong>情景重估:</strong>基线气候情景从 2100 年升温 1.8°C 上调到 <strong>2.4°C</strong>,按一个更碎片化、气候行动不一致的世界重算组合的物理与转型风险。</li>
+    <li class="sx"><strong>目标:</strong>2019 年定的 2030 中期目标(组合净排放较 2010 年减半)自评无法完成——组合排放 89% 来自 TPC,大头是胜科工业和新加坡航空,发电与航空的减排受制于全行业技术路径,短期压不下来。2050 净零承诺保留。</li>
+    <li class="sx"><strong>数字:</strong>组合总排放 21 百万吨 CO₂e,与上年持平(覆盖 79% 组合);两个强度指标在降——收入加权碳强度 89→83、组合碳强度 57→50(tCO₂e/S$M)。自身运营排放 13,222 吨(上年 19,731,降幅主因航空排放因子更新)。</li>
+    <li class="sx"><strong>投资端:</strong>年内沿「可持续生活」趋势投了 S$5b,存量 S$49b。标的包括 Luminace、CleanMax(印度工商业可再生能源)、国电南瑞 NARI(智能电网)、Amperesand(固态变压器)。影响力投资年内服务 5,700 万客户(4,500 万为弱势群体)、支撑 8.5 万个就业。</li>
+    <li class="sx"><strong>生态端:</strong>GenZero 投拉美可持续林地、与腾讯共建碳信用合作;Pentagreen(与汇丰合资)管理新加坡 FAST-P 计划下的绿色投资伙伴基金;Clifford Capital 基建资产证券化累计发行 US$4.7b;Ecosperity Week 2026 聚了 9,000 多名线上线下参会者。</li>
+    <li class="sx"><strong>公司对话:</strong>年内与 19 家占组合排放 88% 的公司做气候转型对话,其中 15 家已设 2050 年或更早的净零目标。</li>
+  </ul>
+</section>
+
+<!-- ================= 12 ================= -->
+<section id="s12" data-cat="sust">
+  <h2><span class="secnum">§ 12</span>社区公益</h2>
+  <p class="seclead">机制先于善意:2003 年起,回报超过风险调整资本成本的年份,提取一部分做社区捐赠。</p>
+
+  <ul>
+    <li class="sx"><strong>架构:</strong>管钱与做事分离——Temasek Trust(2007 年设)托管慈善资产,Temasek Foundation 设计执行项目(年内约 150 个)。捐赠累计影响约 500 万人。旗下生态还包括生命科学实验室 TLL、保育机构 Mandai Nature、影响力投资中心 CIIP、Philanthropy Asia Alliance(成员超 110 家)、社会影响力空间 Temasek Shophouse。</li>
+    <li class="sx"><strong>四个方向(CUPA):</strong>连接人群、提升社区、保护地球、增进能力。</li>
+    <li class="sx"><strong>T-Spring:</strong>S$150m 的能力建设捐赠,资助新加坡理工学院学生读 STEM 本科、博士奖学金,并与职总、工艺教育学院合作做年长者就业和海事业工人技能升级。</li>
+    <li class="sx"><strong>T-Ignite:</strong>可回收赠款支持社会企业——Foreword Coffee 雇用约 80 名残障人士,办了新加坡第一家面向残障人士的咖啡师培训学院(报告口径);Wateroam 滤水器产能翻倍。</li>
+    <li class="sx"><strong>医疗试点:</strong>与新加坡心理卫生学院、国大医学院合作,试点个性化经颅磁刺激(TMS)治疗难治性抑郁症,目标是验证后进入主流临床。</li>
+  </ul>
+</section>
+
+<footer>
+  <p>来源:《Temasek Review 2026》完整版 PDF(143 页,temasekreview.com.sg),财年截至 2026-03-31。本页为阅读辅助,图表按报告数字重绘;与原文不一致处以原文英文版为准。整理日期 2026-08-06。</p>
+</footer>
+
+</main>
+</div>
+
+<button id="backtop" aria-label="回到顶部">↑</button>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  var qInput = document.getElementById('q');
+  var hitcount = document.getElementById('hitcount');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var sxAll = Array.prototype.slice.call(document.querySelectorAll('.sx'));
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var activeCat = 'all';
+  var activeSeg = '';
+
+  // cache lowercase text per searchable item
+  sxAll.forEach(function (el) { el.dataset.txt = el.textContent.toLowerCase(); });
+  sections.forEach(function (s) {
+    var h = s.querySelector('h2');
+    s.dataset.htxt = h ? h.textContent.toLowerCase() : '';
+  });
+
+  function applyFilters() {
+    var q = qInput.value.trim().toLowerCase();
+    var visible = 0;
+
+    sections.forEach(function (sec) {
+      var catOK = (activeCat === 'all') || (sec.dataset.cat === activeCat);
+      var headMatch = q && sec.dataset.htxt.indexOf(q) !== -1;
+      var anyVisible = false;
+
+      var items = sec.querySelectorAll('.sx');
+      items.forEach(function (el) {
+        var segOK = true;
+        if (el.dataset.seg !== undefined && activeSeg) segOK = (el.dataset.seg === activeSeg);
+        var match = !q || headMatch || el.dataset.txt.indexOf(q) !== -1;
+        var show = catOK && segOK && match;
+        el.classList.toggle('hidden', !show);
+        if (show) { anyVisible = true; visible++; }
+      });
+
+      // hide cards whose searchable content is all hidden
+      sec.querySelectorAll('.card').forEach(function (card) {
+        var inner = card.querySelectorAll('.sx');
+        var any = false;
+        inner.forEach(function (el) { if (!el.classList.contains('hidden')) any = true; });
+        card.classList.toggle('hidden', inner.length > 0 && !any);
+      });
+
+      var secShow = catOK && (!q || anyVisible || headMatch);
+      sec.classList.toggle('hidden', !secShow);
+      var link = document.querySelector('nav.toc a[href="#' + sec.id + '"]');
+      if (link) link.classList.toggle('hidden', !secShow);
+    });
+
+    hitcount.textContent = (q || activeCat !== 'all' || activeSeg)
+      ? visible + ' / ' + sxAll.length
+      : '';
+    updateSpy();
+  }
+
+  qInput.addEventListener('input', applyFilters);
+
+  // category chips
+  document.querySelectorAll('#catchips .chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('#catchips .chip').forEach(function (c) { c.classList.remove('on'); });
+      chip.classList.add('on');
+      activeCat = chip.dataset.cat;
+      applyFilters();
+    });
+  });
+
+  // segment chips (holdings table)
+  document.querySelectorAll('#s08 .chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('#s08 .chip').forEach(function (c) { c.classList.remove('on'); });
+      chip.classList.add('on');
+      activeSeg = chip.dataset.seg;
+      applyFilters();
+    });
+  });
+
+  // ---- scroll spy ----
+  var spyTicking = false;
+  function updateSpy() {
+    var y = window.scrollY + 110;
+    var current = null;
+    sections.forEach(function (sec) {
+      if (!sec.classList.contains('hidden') && sec.offsetTop <= y) current = sec;
+    });
+    tocLinks.forEach(function (a) { a.classList.remove('active'); });
+    document.querySelectorAll('.toc-group').forEach(function (g) { g.classList.remove('g-active'); });
+    if (current) {
+      var link = document.querySelector('nav.toc a[href="#' + current.id + '"]');
+      if (link) {
+        link.classList.add('active');
+        var grp = link.closest('.toc-group');
+        if (grp) grp.classList.add('g-active');
+      }
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (!spyTicking) {
+      spyTicking = true;
+      requestAnimationFrame(function () { updateSpy(); spyTicking = false; });
+    }
+  }, { passive: true });
+  updateSpy();
+
+  // ---- back to top ----
+  var backtop = document.getElementById('backtop');
+  window.addEventListener('scroll', function () {
+    backtop.classList.toggle('show', window.scrollY > 500);
+  }, { passive: true });
+  backtop.addEventListener('click', function () {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  });
+
+  // ---- anchor flash ----
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var el = document.querySelector(a.getAttribute('href'));
+      if (!el) return;
+      el.classList.remove('flash');
+      void el.offsetWidth;
+      el.classList.add('flash');
+      setTimeout(function () { el.classList.remove('flash'); }, 1700);
+    });
+  });
+
+  // ---- tooltip ----
+  var tip = document.getElementById('tip');
+  function moveTip(e) {
+    var x = e.clientX + 14, y = e.clientY + 14;
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    if (x + w > window.innerWidth - 8) x = e.clientX - w - 10;
+    if (y + h > window.innerHeight - 8) y = e.clientY - h - 10;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+  document.addEventListener('mouseover', function (e) {
+    var t = e.target.closest('[data-tip]');
+    if (t) {
+      tip.textContent = t.getAttribute('data-tip');
+      tip.style.display = 'block';
+      moveTip(e);
+    }
+  });
+  document.addEventListener('mousemove', function (e) {
+    if (tip.style.display === 'block') moveTip(e);
+  });
+  document.addEventListener('mouseout', function (e) {
+    var t = e.target.closest('[data-tip]');
+    if (t && !t.contains(e.relatedTarget)) tip.style.display = 'none';
+  });
+})();
+</script>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+<script>
+var _dr=document.getElementById("drawer"),_dl=document.getElementById("drawerlist");
+if(_dr&&_dl){
+  document.getElementById("tocbtn").addEventListener("click",function(){_dr.classList.add("open")});
+  _dr.addEventListener("click",function(e){if(e.target===_dr)_dr.classList.remove("open")});
+  var _links=document.querySelectorAll("#toc a, nav.side a, nav.toc a");
+  _links.forEach(function(a){
+    var c=a.cloneNode(true);c.className="";c.style.cssText="";
+    if(a.classList.contains("sub"))c.style.paddingLeft="24px";
+    _dl.appendChild(c);
+  });
+}
+</script>
+</body>
+</html>

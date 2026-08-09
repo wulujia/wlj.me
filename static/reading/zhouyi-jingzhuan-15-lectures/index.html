@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="廖名春《〈周易〉经传十五讲》学习指南——十五讲要点、八卦速查、六十四卦一览、卦序规律。">
+<link rel="canonical" href="https://wlj.me/reading/zhouyi-jingzhuan-15-lectures/">
+<title>《周易》经传十五讲 · 学习指南</title>
+<style>
+:root {
+  --paper: #FBFAF6;
+  --paper-2: #F4F2EA;
+  --ink: #26231E;
+  --ink-2: #5C5648;
+  --xuan: #232C3D;
+  --xuan-2: #303C52;
+  --zhu: #A63B2A;
+  --huang: #9A7420;
+  --line: #E3DFD3;
+  --card: #FFFFFF;
+  --serif: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun", serif;
+  --kai: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif CJK SC", serif;
+  --sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1B1E26;
+    --paper-2: #23262F;
+    --ink: #E6E1D5;
+    --ink-2: #A39C8C;
+    --xuan: #141822;
+    --xuan-2: #2A3345;
+    --zhu: #D97A63;
+    --huang: #CFA84D;
+    --line: #363B47;
+    --card: #232833;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+body {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.9;
+  font-size: 17px;
+}
+a { color: var(--zhu); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--zhu); outline-offset: 2px;
+}
+
+/* ---------- layout ---------- */
+.wrap { display: flex; max-width: 1200px; margin: 0 auto; }
+nav.side {
+  width: 232px; flex-shrink: 0;
+  position: sticky; top: 0; align-self: flex-start;
+  max-height: 100vh; overflow-y: auto;
+  padding: 28px 8px 40px 20px;
+  font-family: var(--sans); font-size: 13px;
+  border-right: 1px solid var(--line);
+}
+nav.side .nav-title { font-family: var(--serif); font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+nav.side ul { list-style: none; }
+nav.side li { margin: 1px 0; }
+nav.side a {
+  display: block; padding: 4px 10px; border-radius: 4px;
+  color: var(--ink-2); line-height: 1.5;
+}
+nav.side a:hover { background: var(--paper-2); color: var(--ink); text-decoration: none; }
+nav.side a.on { background: var(--paper-2); color: var(--zhu); font-weight: 600; }
+nav.side .grp {
+  margin: 14px 0 4px; padding-left: 10px;
+  font-size: 11px; letter-spacing: .18em; color: var(--huang); font-weight: 600;
+}
+main { flex: 1; min-width: 0; padding: 0 48px 96px; }
+@media (max-width: 900px) {
+  nav.side { display: none; }
+  main { padding: 0 20px 72px; }
+}
+
+/* ---------- hero ---------- */
+header.hero {
+  background: var(--xuan);
+  color: #EAE6DA;
+  padding: 64px 24px 56px;
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 56px; justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-text { max-width: 560px; }
+.hero .eyebrow {
+  font-family: var(--sans); font-size: 12px; letter-spacing: .3em;
+  color: var(--huang); margin-bottom: 18px;
+}
+.hero h1 { font-size: 40px; font-weight: 700; letter-spacing: .06em; line-height: 1.35; }
+.hero h1 .sub { font-size: 20px; font-weight: 400; display: block; margin-top: 10px; color: #B8B2A2; letter-spacing: .12em; }
+.hero .meta { font-family: var(--sans); font-size: 13px; color: #8F8A7C; margin-top: 22px; line-height: 2; }
+.hero .epigraph {
+  font-family: var(--kai); font-size: 17px; color: #D8D2C2;
+  margin-top: 26px; padding-left: 14px; border-left: 3px solid var(--zhu);
+  line-height: 2;
+}
+.hero .epigraph small { display: block; font-size: 13px; color: #8F8A7C; }
+
+/* CSS 卦画：蒙卦，自下而上逐爻显现 */
+.gua { display: flex; flex-direction: column-reverse; gap: 14px; width: 150px; flex-shrink: 0; }
+.yao { display: flex; gap: 0; height: 16px; align-items: center; }
+.yao .bar { height: 16px; background: #EAE6DA; flex: 1; border-radius: 2px; }
+.yao.yin { gap: 26px; }
+.yao span.pos {
+  font-family: var(--sans); font-size: 11px; color: #6E6A5E;
+  width: 30px; flex: none; text-align: right; margin-left: 12px; background: none; height: auto;
+}
+.gua .yao { opacity: 0; animation: yao-in .5s ease-out forwards; }
+.gua .yao:nth-child(1) { animation-delay: .15s; }
+.gua .yao:nth-child(2) { animation-delay: .35s; }
+.gua .yao:nth-child(3) { animation-delay: .55s; }
+.gua .yao:nth-child(4) { animation-delay: .75s; }
+.gua .yao:nth-child(5) { animation-delay: .95s; }
+.gua .yao:nth-child(6) { animation-delay: 1.15s; }
+@keyframes yao-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.gua-label { font-family: var(--sans); font-size: 12px; color: #8F8A7C; text-align: center; margin-top: 14px; letter-spacing: .2em; }
+
+/* ---------- sections ---------- */
+section { padding-top: 40px; }
+.part-band {
+  margin-top: 56px; padding: 10px 16px;
+  background: var(--paper-2); border-left: 4px solid var(--huang);
+  font-family: var(--sans);
+}
+.part-band .pt { font-size: 12px; letter-spacing: .25em; color: var(--huang); font-weight: 700; }
+.part-band .pd { font-size: 14px; color: var(--ink-2); margin-top: 2px; }
+h2.sec {
+  font-size: 26px; font-weight: 700; letter-spacing: .04em;
+  margin: 40px 0 6px; scroll-margin-top: 24px;
+}
+h2.sec small { font-family: var(--sans); font-size: 12px; color: var(--huang); letter-spacing: .2em; display: block; margin-bottom: 8px; font-weight: 600; }
+.sec-desc { color: var(--ink-2); font-size: 15.5px; margin-bottom: 20px; }
+
+/* ---------- lecture card ---------- */
+details.lec {
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  margin: 18px 0; scroll-margin-top: 24px;
+  overflow: hidden;
+}
+details.lec summary {
+  cursor: pointer; list-style: none;
+  padding: 18px 22px; display: flex; align-items: baseline; gap: 14px;
+  flex-wrap: wrap; user-select: none;
+}
+details.lec summary::-webkit-details-marker { display: none; }
+details.lec summary:hover { background: var(--paper-2); }
+.lec-no {
+  font-family: var(--sans); font-size: 11px; letter-spacing: .15em;
+  color: var(--huang); font-weight: 700; flex: none; width: 52px;
+}
+.lec-title { font-size: 19px; font-weight: 700; flex: 1; }
+.lec-gist { font-family: var(--sans); font-size: 13px; color: var(--ink-2); flex-basis: 100%; padding-left: 66px; margin-top: -6px; }
+details.lec summary .tog { font-family: var(--sans); color: var(--ink-2); font-size: 12px; flex: none; transition: transform .2s; }
+details.lec[open] summary .tog { transform: rotate(90deg); }
+.lec-body { padding: 4px 26px 26px; border-top: 1px solid var(--line); }
+.lec-body h4 {
+  font-family: var(--sans); font-size: 12px; letter-spacing: .22em;
+  color: var(--zhu); margin: 24px 0 10px; font-weight: 700;
+}
+.lec-body h5 { font-size: 16px; margin: 18px 0 6px; }
+.lec-body ul { padding-left: 22px; }
+.lec-body li { margin: 7px 0; }
+.lec-body p { margin: 10px 0; }
+blockquote {
+  font-family: var(--kai); font-size: 16.5px;
+  background: var(--paper-2); border-left: 3px solid var(--huang);
+  padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0;
+}
+.term { color: var(--zhu); font-weight: 700; }
+.viewpoint {
+  background: var(--paper-2); border: 1px dashed var(--huang);
+  border-radius: 6px; padding: 14px 18px; margin: 14px 0;
+}
+.viewpoint .vp-t { font-family: var(--sans); font-size: 12px; letter-spacing: .2em; color: var(--huang); font-weight: 700; margin-bottom: 6px; }
+
+/* ---------- tables ---------- */
+.tbl-wrap { overflow-x: auto; margin: 18px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--card); }
+th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; line-height: 1.7; }
+th { font-family: var(--sans); font-size: 13px; background: var(--paper-2); font-weight: 600; white-space: nowrap; }
+td.sym { font-size: 26px; text-align: center; line-height: 1; }
+
+/* ---------- 64 卦 cards ---------- */
+.hex-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0;
+}
+@media (max-width: 820px) { .hex-grid { grid-template-columns: 1fr; } }
+.hexcard {
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 16px 18px; display: flex; gap: 18px; align-items: flex-start;
+}
+.hexcard.pair-a { border-left: 3px solid var(--huang); }
+.hx { display: flex; flex-direction: column-reverse; gap: 5px; width: 58px; flex: none; margin-top: 5px; }
+.hx i { display: block; height: 8px; border-radius: 1.5px; background: var(--ink); }
+.hx i.yin { background: linear-gradient(to right, var(--ink) 0 42%, transparent 42% 58%, var(--ink) 58% 100%); }
+.hx-name { font-size: 17px; font-weight: 700; }
+.hx-name small { font-family: var(--sans); font-size: 11px; color: var(--huang); font-weight: 700; margin-right: 6px; letter-spacing: .08em; }
+.hx-name .comp { font-family: var(--sans); font-size: 12px; color: var(--ink-2); font-weight: 400; margin-left: 8px; }
+.hx-theme { font-family: var(--sans); font-size: 12.5px; color: var(--zhu); font-weight: 600; margin-top: 4px; }
+.hx-text { font-size: 14.5px; line-height: 1.85; margin-top: 4px; }
+
+/* ---------- map ---------- */
+.map { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.map-row {
+  display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap;
+}
+.map-cell {
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 12px 16px; flex: 1; min-width: 150px;
+}
+.map-cell a { color: inherit; }
+.map-cell .mc-no { font-family: var(--sans); font-size: 11px; color: var(--huang); letter-spacing: .12em; font-weight: 700; }
+.map-cell .mc-t { font-size: 16px; font-weight: 700; margin-top: 2px; }
+.map-cell .mc-d { font-family: var(--sans); font-size: 12.5px; color: var(--ink-2); margin-top: 4px; line-height: 1.6; }
+.map-tag {
+  align-self: flex-start; font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: .2em; color: #EAE6DA; background: var(--xuan-2);
+  padding: 4px 12px; border-radius: 4px;
+}
+
+/* ---------- misc ---------- */
+.footnote {
+  margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: 12.5px; color: var(--ink-2); line-height: 2;
+}
+.toolbar { font-family: var(--sans); font-size: 13px; margin: 8px 0 0; }
+.toolbar button {
+  font-family: var(--sans); font-size: 12.5px; cursor: pointer;
+  background: var(--card); color: var(--ink-2);
+  border: 1px solid var(--line); border-radius: 4px; padding: 4px 12px; margin-right: 8px;
+}
+.toolbar button:hover { color: var(--zhu); border-color: var(--zhu); }
+
+
+#tocbtn{position:fixed;right:18px;bottom:18px;z-index:70;border:1px solid var(--line,var(--code-border,#073642));background:var(--card,var(--background));color:var(--ink,var(--foreground));border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;box-shadow:0 4px 18px rgba(0,0,0,.13)}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper,var(--background));border-left:1px solid var(--line,var(--code-border,#073642));padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2,var(--foreground));text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a:hover{background:var(--card,var(--code-border))}
+@media print{#tocbtn,#drawer,.searchwrap{display:none!important}}
+
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回阅读材料</a></div>
+
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow">名家通识讲座书系 · 学习指南</div>
+      <h1>《周易》经传十五讲<span class="sub">廖名春 著 · 第二版 · 北京大学出版社 2012</span></h1>
+      <div class="epigraph">蒙以养正，圣功也。<small>——《彖传·蒙》</small></div>
+      <div class="meta">本页为原书的结构化学习笔记：全书地图 · 八卦与六十四卦速查 · 十五讲逐讲精要</div>
+    </div>
+    <div>
+      <div class="gua" aria-label="蒙卦卦画，自下而上：阴阳阴阴阴阳">
+        <!-- flex-direction:column-reverse，DOM 顺序即初爻到上爻 -->
+        <div class="yao yin"><span class="bar"></span><span class="bar"></span><span class="pos">初六</span></div>
+        <div class="yao"><span class="bar"></span><span class="pos">九二</span></div>
+        <div class="yao yin"><span class="bar"></span><span class="bar"></span><span class="pos">六三</span></div>
+        <div class="yao yin"><span class="bar"></span><span class="bar"></span><span class="pos">六四</span></div>
+        <div class="yao yin"><span class="bar"></span><span class="bar"></span><span class="pos">六五</span></div>
+        <div class="yao"><span class="bar"></span><span class="pos">上九</span></div>
+      </div>
+      <div class="gua-label">山水蒙 ䷃</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<nav class="side" aria-label="目录">
+  <div class="nav-title">目录</div>
+    <ul>
+    <li><a href="#howto">怎么用这份指南</a></li>
+    <li><a href="#map">全书地图</a></li>
+  </ul>
+  <div class="grp">速查</div>
+  <ul>
+    <li><a href="#bagua">八卦速查表</a></li>
+    <li><a href="#guaxu">卦序规律</a></li>
+    <li><a href="#hex64">六十四卦一览</a></li>
+  </ul>
+  <div class="grp">导论与卦画</div>
+  <ul>
+    <li><a href="#lec1">一 绪论</a></li>
+    <li><a href="#lec2">二 八卦</a></li>
+    <li><a href="#lec3">三 六十四卦的卦画</a></li>
+  </ul>
+  <div class="grp">卦爻辞</div>
+  <ul>
+    <li><a href="#lec4">四 上经上（1–16）</a></li>
+    <li><a href="#lec5">五 上经下（17–30）</a></li>
+    <li><a href="#lec6">六 下经上（31–46）</a></li>
+    <li><a href="#lec7">七 下经下（47–64）</a></li>
+  </ul>
+  <div class="grp">义例与成书</div>
+  <ul>
+    <li><a href="#lec8">八 《周易》的义例</a></li>
+    <li><a href="#lec9">九 成书与性质</a></li>
+  </ul>
+  <div class="grp">易传</div>
+  <ul>
+    <li><a href="#lec10">十 《易传》的形成和特质</a></li>
+    <li><a href="#lec11">十一 《彖传》</a></li>
+    <li><a href="#lec12">十二 大小《象传》《文言传》</a></li>
+    <li><a href="#lec13">十三 《系辞传》</a></li>
+    <li><a href="#lec14">十四 《说卦传》</a></li>
+    <li><a href="#lec15">十五 《序卦传》《杂卦传》</a></li>
+  </ul>
+  <div class="grp">结尾</div>
+  <ul>
+    <li><a href="#appendix">附录与后记</a></li>
+  </ul>
+
+</nav>
+<main>
+  <section id="howto">
+  <h2 class="sec"><small>开卷</small>怎么用这份指南</h2>
+  <p class="sec-desc">这本书是清华廖名春教授的十五讲通识课。前九讲讲《易经》本经（卦画、卦爻辞、义例、成书），后六讲逐篇讲《易传》。这份指南把每讲压缩成一张卡片：主旨、分节要点、关键概念、作者的独特观点。配三张速查表：八卦、卦序规律、六十四卦逐卦主题。</p>
+  <p class="sec-desc">书里第一讲给出的学《易》方法，也适合用来安排这份指南的读法：先读第一至三讲的卡片建立框架（什么是卦画、卦名、卦德，六十四卦怎么排），再读第八、九讲懂规则和来历，然后用六十四卦速查表配合第四至七讲挑感兴趣的卦精读，最后读第十至十五讲看《易传》如何把占筮之书讲成哲学。</p>
+  <div class="toolbar">
+    <button type="button" onclick="setAll(true)">展开全部十五讲</button>
+    <button type="button" onclick="setAll(false)">收起全部</button>
+  </div>
+</section>
+
+<section id="map">
+  <h2 class="sec"><small>开卷</small>全书地图</h2>
+  <p class="sec-desc">十五讲的布局：一讲导论，八讲讲经，六讲讲传。经是源，传是流。</p>
+  <div class="map">
+    <div class="map-row">
+      <span class="map-tag">导论</span>
+      <div class="map-cell"><a href="#lec1"><span class="mc-no">第一讲</span><div class="mc-t">绪论</div><div class="mc-d">《周易》为什么影响大，学它有什么用，怎么学</div></a></div>
+    </div>
+    <div class="map-row">
+      <span class="map-tag">经·卦画</span>
+      <div class="map-cell"><a href="#lec2"><span class="mc-no">第二讲</span><div class="mc-t">八卦</div><div class="mc-d">卦画、卦名、卦德、取象、卦位、生成</div></a></div>
+      <div class="map-cell"><a href="#lec3"><span class="mc-no">第三讲</span><div class="mc-t">六十四卦的卦画</div><div class="mc-d">筮法、配对规律、卦序之谜</div></a></div>
+    </div>
+    <div class="map-row">
+      <span class="map-tag">经·卦爻辞</span>
+      <div class="map-cell"><a href="#lec4"><span class="mc-no">第四讲</span><div class="mc-t">上经上</div><div class="mc-d">乾坤至谦豫，卦 1–16</div></a></div>
+      <div class="map-cell"><a href="#lec5"><span class="mc-no">第五讲</span><div class="mc-t">上经下</div><div class="mc-d">随蛊至坎离，卦 17–30</div></a></div>
+      <div class="map-cell"><a href="#lec6"><span class="mc-no">第六讲</span><div class="mc-t">下经上</div><div class="mc-d">咸恒至萃升，卦 31–46</div></a></div>
+      <div class="map-cell"><a href="#lec7"><span class="mc-no">第七讲</span><div class="mc-t">下经下</div><div class="mc-d">困井至既济未济，卦 47–64</div></a></div>
+    </div>
+    <div class="map-row">
+      <span class="map-tag">经·通论</span>
+      <div class="map-cell"><a href="#lec8"><span class="mc-no">第八讲</span><div class="mc-t">《周易》的义例</div><div class="mc-d">读经的三条通则</div></a></div>
+      <div class="map-cell"><a href="#lec9"><span class="mc-no">第九讲</span><div class="mc-t">成书与性质</div><div class="mc-d">谁写的、什么时代、是什么书</div></a></div>
+    </div>
+    <div class="map-row">
+      <span class="map-tag">传</span>
+      <div class="map-cell"><a href="#lec10"><span class="mc-no">第十讲</span><div class="mc-t">《易传》总论</div><div class="mc-d">形成年代、作者、特质</div></a></div>
+      <div class="map-cell"><a href="#lec11"><span class="mc-no">第十一讲</span><div class="mc-t">《彖传》</div><div class="mc-d">解卦辞的体例与思想</div></a></div>
+      <div class="map-cell"><a href="#lec12"><span class="mc-no">第十二讲</span><div class="mc-t">象传·文言</div><div class="mc-d">大象、小象与《文言传》</div></a></div>
+      <div class="map-cell"><a href="#lec13"><span class="mc-no">第十三讲</span><div class="mc-t">《系辞传》</div><div class="mc-d">易学哲学的总纲</div></a></div>
+      <div class="map-cell"><a href="#lec14"><span class="mc-no">第十四讲</span><div class="mc-t">《说卦传》</div><div class="mc-d">八卦取象的字典</div></a></div>
+      <div class="map-cell"><a href="#lec15"><span class="mc-no">第十五讲</span><div class="mc-t">序卦·杂卦</div><div class="mc-d">两种卦序理论</div></a></div>
+    </div>
+    <div class="map-row">
+      <span class="map-tag">附录</span>
+      <div class="map-cell"><a href="#appendix"><span class="mc-no">书末</span><div class="mc-t">《周易》经、传原文</div><div class="mc-d">全部经文与十翼原文，供对照检索</div></a></div>
+    </div>
+  </div>
+</section>
+
+<section id="bagua">
+  <h2 class="sec"><small>速查</small>八卦速查表</h2>
+  <p class="sec-desc">书中的核心论断：卦德就是卦名的基本义，取象只是卦德的象征物。表中卦德一栏含作者的卦名考源（详见第二讲）。</p>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>卦名</th><th>卦画</th><th>取象</th><th>卦德（含卦名考源）</th><th>家族角色</th><th>先天卦位</th><th>后天卦位（八卦卦气说）</th></tr>
+    <tr><td>乾</td><td class="sym">☰</td><td>天</td><td>健——帛书作「键」，本名疑为「健」</td><td>父</td><td>南</td><td>西北 · 秋末冬初，阴阳相搏</td></tr>
+    <tr><td>坤</td><td class="sym">☷</td><td>地</td><td>顺——帛书作「川」，本名疑为「顺」</td><td>母</td><td>北</td><td>西南 · 夏末秋初，万物致养</td></tr>
+    <tr><td>震</td><td class="sym">☳</td><td>雷</td><td>动</td><td>长男</td><td>东北</td><td>东 · 正春，万物出生</td></tr>
+    <tr><td>巽</td><td class="sym">☴</td><td>风</td><td>入——巽即「选」，选即入</td><td>长女</td><td>西南</td><td>东南 · 春末夏初，生长整齐</td></tr>
+    <tr><td>坎</td><td class="sym">☵</td><td>水</td><td>陷——未驯服之水为水害，故为险</td><td>中男</td><td>西</td><td>北 · 正冬，万物闭藏</td></tr>
+    <tr><td>离</td><td class="sym">☲</td><td>火</td><td>丽——即明、亮丽</td><td>中女</td><td>东</td><td>南 · 正夏，旺盛相见</td></tr>
+    <tr><td>艮</td><td class="sym">☶</td><td>山</td><td>止——艮即「限」，山为天然界限</td><td>少男</td><td>西北</td><td>东北 · 冬末，成终成始</td></tr>
+    <tr><td>兑</td><td class="sym">☱</td><td>泽</td><td>悦——本义为现；驯服之水为水利，带来喜悦</td><td>少女</td><td>东南</td><td>西 · 正秋，万物成熟欣悦</td></tr>
+  </table>
+  </div>
+  <blockquote>记形歌诀（朱熹《周易本义》）：乾三连，坤六断；震仰盂，艮覆碗；离中虚，坎中满；兑上缺，巽下断。</blockquote>
+  <p class="sec-desc">书中提醒：「先天卦位」实为帛书《易经》卦序结构的总结，与伏羲无关；后天卦位（八卦卦气说）产生极早，坤卦卦辞已经采纳了它。</p>
+</section>
+
+<section id="guaxu">
+  <h2 class="sec"><small>速查</small>卦序规律：二二相耦，非覆即变</h2>
+  <p class="sec-desc">孔颖达揭示的六十四卦排列根本规律。六十四卦两两配对，共三十二对；「对」是《周易》最根本的精神。</p>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th style="width:9em">规律</th><th>含义</th><th>例子</th></tr>
+    <tr><td><span class="term">覆</span>（综）</td><td>一个卦体上下颠倒，成为一对。说是两卦，其实共用一个卦体。共二十八对。</td><td>屯 ䷂ 倒过来就是蒙 ䷃</td></tr>
+    <tr><td><span class="term">变</span>（错）</td><td>颠倒后形状不变的卦，改用六爻阴阳全反的卦配对。共四对。</td><td>乾坤 ䷀䷁、颐大过 ䷚䷛、坎离 ䷜䷝、中孚小过 ䷼䷽</td></tr>
+    <tr><td>既覆又变</td><td>四对卦两种关系兼备，按「反覆唯成一卦才变以对之」的原则归入覆卦。</td><td>泰否、随蛊、渐归妹、既济未济</td></tr>
+  </table>
+  </div>
+  <p class="sec-desc">上经三十卦、下经三十四卦，表面不平衡。书中采李秀岩、俞琰说并补正：上经 12 对覆卦（12 个卦体）加 3 对变卦（6 个卦体）共 18 个卦体；下经 16 对覆卦（16 个卦体）加 1 对变卦（2 个卦体）也是 18 个卦体。卦数不齐，卦体各十八——这就是上下经分卦之谜的答案。</p>
+</section>
+
+<section id="hex64">
+  <h2 class="sec"><small>速查</small>六十四卦一览</h2>
+  <p class="sec-desc">每卦画出六爻卦画：整条是阳爻，断开两段是阴爻，从下往上数（最下面是初爻）。讲解按廖名春第四至七讲的讲法用白话改写。左边有黄线的是每对的前一卦，两卦一对读，意思常常相反。</p>
+  <div class="hex-grid">
+<div class="hexcard pair-a" id="h1"><div class="hx" aria-label="乾为天卦画"><i></i><i></i><i></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>01</small>乾<span class="comp">乾为天 · 下乾上乾</span></div><div class="hx-theme">怎样保持强健</div><div class="hx-text">乾的本名是「健」，六爻全是阳爻，讲强健的道理。力量不够时要潜伏蓄力（「潜龙勿用」），飞到顶点会有悔恨（「亢龙有悔」），因为物极必反。全卦的理想是「群龙无首」：个个刚健，又都不争当头领，刚而能柔、强而不争。</div></div></div>
+<div class="hexcard" id="h2"><div class="hx" aria-label="坤为地卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>02</small>坤<span class="comp">坤为地 · 下坤上坤</span></div><div class="hx-theme">柔顺不争出头</div><div class="hx-text">坤的本名是「顺」，六爻全是阴爻，与刚健的乾相对，讲柔顺的道理。要像母马一样跟随而不抢先，说话谨慎得像扎紧口袋（「括囊」就是闭紧嘴）；居高位也要守谦下。全卦主旨「利永贞」：永远安静，柔顺不争。</div></div></div>
+<div class="hexcard pair-a" id="h3"><div class="hx" aria-label="水雷屯卦画"><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>03</small>屯<span class="comp">水雷屯 · 下震上坎</span></div><div class="hx-theme">起步艰难怎么办</div><div class="hx-text">屯的本义是草木初生，讲草创阶段的艰难。这时力量弱小，要守静蓄力、不轻举妄动；同时「利建侯」，就是宜于封建诸侯、结好盟友，别人来结盟要积极答应。力量小就保守不动，力量大了还保守反而凶险，动静要看实力。</div></div></div>
+<div class="hexcard" id="h4"><div class="hx" aria-label="山水蒙卦画"><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>04</small>蒙<span class="comp">山水蒙 · 下坎上艮</span></div><div class="hx-theme">怎样脱离蒙昧</div><div class="hx-text">蒙的本义是蒙蔽，引申为蒙昧无知，全卦讲怎样治理蒙昧。书中把「童蒙」解作脱去蒙昧（「童」是动词，去尽、脱光），想脱蒙的人要主动求学、尊师重道。教育还要立规矩讲纪律，去掉约束，学业就会出问题。</div></div></div>
+<div class="hexcard pair-a" id="h5"><div class="hx" aria-label="水天需卦画"><i></i><i></i><i></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>05</small>需<span class="comp">水天需 · 下乾上坎</span></div><div class="hx-theme">守正待时</div><div class="hx-text">需就是等待，讲守正敬慎、等待时机的道理。等待要有诚信，坚守不动就吉利；但位置要选对：自陷泥沼（「需于泥」）会招来敌人，在优裕环境里等还要经得起诱惑。落入险境时恭敬待人，也能化险为夷。</div></div></div>
+<div class="hexcard" id="h6"><div class="hx" aria-label="天水讼卦画"><i class="yin"></i><i></i><i class="yin"></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>06</small>讼<span class="comp">天水讼 · 下坎上乾</span></div><div class="hx-theme">怎样止讼免争</div><div class="hx-text">讼是争讼打官司，主旨在教人止讼息争。卦辞说争讼让诚信被抛弃，眼前占了便宜，最终也凶险；及时抽身退出，虽有小损失，结局反而吉利。就算打赢官司得了高官厚禄，也会朝不保夕，一天之内被剥夺多次。</div></div></div>
+<div class="hexcard pair-a" id="h7"><div class="hx" aria-label="地水师卦画"><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>07</small>师<span class="comp">地水师 · 下坎上坤</span></div><div class="hx-theme">打仗靠什么取胜</div><div class="hx-text">师卦讲军队和战争。打仗要由有德的长者指挥，出兵要用军纪约束（「师出以律」就是出师要守纪律），军心疑惑不定就会载尸大败。战后要论功行赏、赏罚分明，小人即使有功也不予重用。</div></div></div>
+<div class="hexcard" id="h8"><div class="hx" aria-label="水地比卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>08</small>比<span class="comp">水地比 · 下坤上坎</span></div><div class="hx-theme">团结要有诚信</div><div class="hx-text">比是亲近团结。与人亲比要出于内心的诚信，诚信满盈，别人自然前来归附；连不善的人也要争取，团结一切可以团结的人。但团结必须有首领核心，「比无首」说亲比而没有首领，反而凶险。师讲用兵，比讲亲和，恰成一对。</div></div></div>
+<div class="hexcard pair-a" id="h9"><div class="hx" aria-label="风天小畜卦画"><i></i><i></i><i></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>09</small>小畜<span class="comp">风天小畜 · 下乾上巽</span></div><div class="hx-theme">暂时停下来蓄力</div><div class="hx-text">小畜讲暂时蓄止。卦辞「密云不雨」说乌云密布却迟迟不下雨，比喻止步蓄积、等待时机；从正道折返回来也是吉利。上爻说月亮过了十五就由圆转缺，这时再往前走就有凶险，提醒人该停就停。它与讲行走的履卦一止一行，正是一对。</div></div></div>
+<div class="hexcard" id="h10"><div class="hx" aria-label="天泽履卦画"><i></i><i></i><i class="yin"></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>10</small>履<span class="comp">天泽履 · 下兑上乾</span></div><div class="hx-theme">小心谨慎地行走</div><div class="hx-text">履本是鞋子，用作动词就是行走，全卦讲小心走路的道理。跟在老虎后面走而不被咬，靠的是恐惧谨慎（「愬愬」就是害怕小心的样子）；瞎了一只眼、跛了一只脚还强行，就会被虎咬伤。肆意乱走必有危险，敬慎而行才吉利。</div></div></div>
+<div class="hexcard pair-a" id="h11"><div class="hx" aria-label="地天泰卦画"><i></i><i></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>11</small>泰<span class="comp">地天泰 · 下乾上坤</span></div><div class="hx-theme">流通交往才安泰</div><div class="hx-text">泰是通泰。书中强调泰靠运动交通得来：卦辞「小往大来」讲阴阳一去一来、彼此流通；拔茅草会牵起一片根，比喻万物相连，不能彼此隔绝。上爻「城复于隍」说城墙塌回护城河，提醒泰到极点会转向否。</div></div></div>
+<div class="hexcard" id="h12"><div class="hx" aria-label="天地否卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>12</small>否<span class="comp">天地否 · 下坤上乾</span></div><div class="hx-theme">闭塞必须打破</div><div class="hx-text">否是闭塞不通，与泰相反，卦辞「大往小来」正好把泰倒了过来。书中说否卦讲的是治否：闭塞违反人道，只会让人蒙受羞耻，必须及时休止；「倾否」就是打翻闭塞的局面，先苦后喜，否极泰来。</div></div></div>
+<div class="hexcard pair-a" id="h13"><div class="hx" aria-label="天火同人卦画"><i></i><i class="yin"></i><i></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>13</small>同人<span class="comp">天火同人 · 下离上乾</span></div><div class="hx-theme">团结面越大越好</div><div class="hx-text">同人就是会合聚众。卦爻辞用地点表示团结的范围：「同人于野」说连最远的野外之人都能和同，受到最高肯定；只团结自家人、同宗人（「于门」「于宗」）就被批评为小气。团结面越广、和同的人越多，越能办成大事。</div></div></div>
+<div class="hexcard" id="h14"><div class="hx" aria-label="火天大有卦画"><i></i><i></i><i></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>14</small>大有<span class="comp">火天大有 · 下乾上离</span></div><div class="hx-theme">广施保佑得天助</div><div class="hx-text">大有讲普遍地保佑庇护他人。彼此停止互相伤害，财物丰富时积极建功立业，赏罚分明；有诚信而不大声自我宣扬，就有威望。做到这些，「自天祐之」——上天都会保佑，只有吉利没有不利。</div></div></div>
+<div class="hexcard pair-a" id="h15"><div class="hx" aria-label="地山谦卦画"><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>15</small>谦<span class="comp">地山谦 · 下艮上坤</span></div><div class="hx-theme">谦虚使人受益</div><div class="hx-text">谦卦从卦辞到爻辞全在讲谦虚的好处：谦而又谦的君子能做成难做的大事，说话谦虚、勤劳而谦虚都吉利。自己不富裕，是因为财物支援了邻邦，这样反而赢得人和，连出兵征讨都无往不利。</div></div></div>
+<div class="hexcard" id="h16"><div class="hx" aria-label="雷地豫卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>16</small>豫<span class="comp">雷地豫 · 下坤上震</span></div><div class="hx-theme">自大必须戒除</div><div class="hx-text">豫的本义是大象，引申为自大，与谦正相反，全卦讲戒骄。以傲慢出名会有凶险，像石山一样孤傲撑不了多久；被人批评自大反而大有收获，别怀疑是朋友说坏话。「贞疾」就是纠正自大的毛病，改掉它才能长久不败。</div></div></div>
+<div class="hexcard pair-a" id="h17"><div class="hx" aria-label="泽雷随卦画"><i></i><i class="yin"></i><i class="yin"></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>17</small>随<span class="comp">泽雷随 · 下震上兑</span></div><div class="hx-theme">跟随谁有讲究</div><div class="hx-text">随卦讲随从的道理。追随要认对人：跟了小人就失去君子，跟了君子才有所得；随从还要守原则、有诚信，一路诚信显明就没有咎害。有所收获之后死守不动，反而会有凶险。</div></div></div>
+<div class="hexcard" id="h18"><div class="hx" aria-label="山风蛊卦画"><i class="yin"></i><i></i><i></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>18</small>蛊<span class="comp">山风蛊 · 下巽上艮</span></div><div class="hx-theme">弊乱要去匡正</div><div class="hx-text">蛊是弊乱，全卦讲拯弊治乱。父辈留下的烂摊子，有能干的儿子出来匡正，即使有风险最终也吉利；把弊乱越搞越大，就会留下遗憾。实在治不成，就不侍奉王侯，坚持理想、独善其身。随讲顺从，蛊讲整治，恰成一对。</div></div></div>
+<div class="hexcard pair-a" id="h19"><div class="hx" aria-label="地泽临卦画"><i></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>19</small>临<span class="comp">地泽临 · 下兑上坤</span></div><div class="hx-theme">居上如何治民</div><div class="hx-text">临是居高临下监临民众，金文的「临」字就像人居高俯视、瞪大眼睛察看下方，全卦讲治民的方略。书中把「咸临」解作以法临民，也就是依法治国，最受肯定；靠花言巧语治民行不通，以智慧、以仁厚待民则吉利。</div></div></div>
+<div class="hexcard" id="h20"><div class="hx" aria-label="风地观卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>20</small>观<span class="comp">风地观 · 下坤上巽</span></div><div class="hx-theme">观仰的学问</div><div class="hx-text">观卦讲观仰之事。卦辞「盥而不荐」说祭祀只观仰开头浇酒降神的礼节，后面的献祭不再看，因为心中已充满诚敬。君子的生活被众人观仰，进退都要经得起看。临讲居上治民，观讲心怀诚敬地观仰，两卦相对。</div></div></div>
+<div class="hexcard pair-a" id="h21"><div class="hx" aria-label="火雷噬嗑卦画"><i></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>21</small>噬嗑<span class="comp">火雷噬嗑 · 下震上离</span></div><div class="hx-theme">用刑要严明</div><div class="hx-text">噬嗑的卦画像张开的嘴里咬着一样东西，嚼碎食物，象征施用刑法，全卦主张严明刑罚。初犯小罪就用脚枷小惩，让人不再犯；积罪深重的人，戴枷割耳也要重罚。「利用狱」就是利于动用刑法。</div></div></div>
+<div class="hexcard" id="h22"><div class="hx" aria-label="山火贲卦画"><i></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>22</small>贲<span class="comp">山火贲 · 下离上艮</span></div><div class="hx-theme">文饰与礼貌</div><div class="hx-text">贲是文饰修美，讲修饰和文明礼让。走路讲究礼让，像旧时官员下车步行以示尊敬；文明礼让能润泽感染他人，长久保持就吉利。上爻「白贲」说以素朴为装饰，不加雕琢也没有咎害。</div></div></div>
+<div class="hexcard pair-a" id="h23"><div class="hx" aria-label="山地剥卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>23</small>剥<span class="comp">山地剥 · 下坤上艮</span></div><div class="hx-theme">阳被一步步剥掉</div><div class="hx-text">剥讲阳刚剥落。卦画五根阴爻从下往上把阳逼得只剩最上一根，书中把爻辞的「床」读为「壮」，「壮」就是阳，「剥床」即阴一步步剥蚀阳刚，所以卦辞说不利有所前往。剥到尽头物极必反，卦一翻转就是一阳复生的复卦。</div></div></div>
+<div class="hexcard" id="h24"><div class="hx" aria-label="地雷复卦画"><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>24</small>复<span class="comp">地雷复 · 下震上坤</span></div><div class="hx-theme">阳气重新回来</div><div class="hx-text">复讲阳刚回复，剥卦倒过来就是复卦，最下面重新长出一根阳爻。复返有规律，「七日来复」说过不了七天阳气必定回来，所以利于前往做事。走得不远就及时回头最吉利；迷失了路才回头，打仗、治国都凶险。</div></div></div>
+<div class="hexcard pair-a" id="h25"><div class="hx" aria-label="天雷无妄卦画"><i></i><i class="yin"></i><i class="yin"></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>25</small>无妄<span class="comp">天雷无妄 · 下震上乾</span></div><div class="hx-theme">绝境中怎么办</div><div class="hx-text">无妄指毫无希望的绝境，全卦讲对待灾祸的道理。「无妄之灾」是飞来横祸：别人拴的牛被路人牵走，本地人却蒙冤受灾；「无妄之疾」是无药可救的绝症。书中说绝境中不能心存侥幸，但只要自身守正、勇于前行，人的努力也能创造奇迹。</div></div></div>
+<div class="hexcard" id="h26"><div class="hx" aria-label="山天大畜卦画"><i></i><i></i><i></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>26</small>大畜<span class="comp">山天大畜 · 下乾上艮</span></div><div class="hx-theme">好时运怎么用</div><div class="hx-text">大畜讲得时遇吉、大受上天厚待，与身处绝境的无妄相对。运气好到不耕种也有饭吃，做大事也有利；但顺境里也藏着危险，车子的零件会突然断掉，仍不能轻举妄动。书中把「闲舆卫」解作闲置兵车，主张偃武修文、以德服人。</div></div></div>
+<div class="hexcard pair-a" id="h27"><div class="hx" aria-label="山雷颐卦画"><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>27</small>颐<span class="comp">山雷颐 · 下震上艮</span></div><div class="hx-theme">吃饭靠自己</div><div class="hx-text">颐是颐养，讲养活自己的问题。卦辞「自求口实」说要自己谋求口粮；丢开自己的理智，眼里只盯着别人碗里的食物，凶险。重视生产经营才吉利；不事经营、安于现状坐享其成，就做不成大事。</div></div></div>
+<div class="hexcard" id="h28"><div class="hx" aria-label="泽风大过卦画"><i class="yin"></i><i></i><i></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>28</small>大过<span class="comp">泽风大过 · 下巽上兑</span></div><div class="hx-theme">怎样面对死亡</div><div class="hx-text">大过讲怎样对待死亡。卦象像埋葬：上卦为泽象征墓穴，下卦为木象征棺椁。君子之死如屋梁弯曲（「栋桡」），影响重大；但枯萎的杨树也能发新芽，旧人故去，新人自会出来接续，所以灭顶之灾虽凶，书中仍说没有咎害。</div></div></div>
+<div class="hexcard pair-a" id="h29"><div class="hx" aria-label="坎为水卦画"><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>29</small>坎（习坎）<span class="comp">坎为水 · 下坎上坎</span></div><div class="hx-theme">身陷险境怎么办</div><div class="hx-text">习坎就是重重险陷。卦辞说陷入重重坎险时，只要有诚信、能维系人心，就能亨通建功。书中认为六四爻暗指文王被囚羑里：饮食简陋、被关多年，最终脱险而出，正是靠诚信渡过险境的例证。</div></div></div>
+<div class="hexcard" id="h30"><div class="hx" aria-label="离为火卦画"><i></i><i class="yin"></i><i></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>30</small>离<span class="comp">离为火 · 下离上离</span></div><div class="hx-theme">辉煌时怎么自处</div><div class="hx-text">离的意思是明亮，讲人生辉煌的问题。辉煌之时要谦虚守静、驯顺如母牛，行事小心、以敬待人；夕阳西下也要敲着瓦盆唱歌，及时发光。灾祸可能突然降临，得意时要居安思危，辉煌逝去也要正确面对，才有新生。</div></div></div>
+<div class="hexcard pair-a" id="h31"><div class="hx" aria-label="泽山咸卦画"><i class="yin"></i><i class="yin"></i><i></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>31</small>咸<span class="comp">泽山咸 · 下艮上兑</span></div><div class="hx-theme">男女怎样相处</div><div class="hx-text">咸的意思是感应、触动，讲男女相恋中的分寸。六爻从触她的脚拇指开始，到小腿、大腿、脊背，最后亲吻脸和嘴，自下而上正好对应爻画由低到高。书中主张发乎情、止乎礼，循序渐进才能长久成功。</div></div></div>
+<div class="hexcard" id="h32"><div class="hx" aria-label="雷风恒卦画"><i class="yin"></i><i></i><i></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>32</small>恒<span class="comp">雷风恒 · 下巽上震</span></div><div class="hx-theme">怎样有恒心</div><div class="hx-text">恒的意思是不停止，也就是有恒心。全卦从正反两面讲恒久之理：守住美德就亨通，「不恒其德」——不能坚持美德——就会蒙受羞辱，动摇恒心则有凶险。咸讲感情的开始，恒讲长久的坚持，两卦正好接续。</div></div></div>
+<div class="hexcard pair-a" id="h33"><div class="hx" aria-label="天山遯卦画"><i class="yin"></i><i class="yin"></i><i></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>33</small>遯<span class="comp">天山遯 · 下艮上乾</span></div><div class="hx-theme">该退就退</div><div class="hx-text">遯的意思是退隐。这一卦主张看清时势、及时退避：退得太晚像打仗断后，最危险；退得漂亮如上爻的「肥遯」——「肥」是「飞」的古字，高飞远遁，无所不利。书中反对用武力捆住想走的人，强留不如放行。</div></div></div>
+<div class="hexcard" id="h34"><div class="hx" aria-label="雷天大壮卦画"><i></i><i></i><i></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>34</small>大壮<span class="comp">雷天大壮 · 下乾上震</span></div><div class="hx-theme">强大时别逞强</div><div class="hx-text">大壮讲力量壮盛时要守静不争。卦中反复用公羊作比：「羝羊触藩」，公羊硬顶篱笆，角被卡住，进退两难。遯讲弱时该退，大壮讲强时别冲，处境相反，道理相通：都反对硬挺蛮干。</div></div></div>
+<div class="hexcard pair-a" id="h35"><div class="hx" aria-label="火地晋卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>35</small>晋<span class="comp">火地晋 · 下坤上离</span></div><div class="hx-theme">晋升时怎么做人</div><div class="hx-text">晋的意思是升。卦画下面是地、上面是火，火就是太阳，整个卦形像太阳从地平线升起。书中说晋升得意之时更要放低姿态：谦让、恭谨，取得众人信任，千万不能得意忘形。</div></div></div>
+<div class="hexcard" id="h36"><div class="hx" aria-label="地火明夷卦画"><i></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>36</small>明夷<span class="comp">地火明夷 · 下离上坤</span></div><div class="hx-theme">身处黑暗怎么办</div><div class="hx-text">明夷指光明熄灭，也就是黑暗时代。书中认为整卦写周文王遭商纣暴虐的史事：先蒙难忍耐，再暗中谋商,最终起兵灭商；箕子装疯为奴才保全性命。晋是太阳升起，明夷是光明陨落，一明一暗正好相对。</div></div></div>
+<div class="hexcard pair-a" id="h37"><div class="hx" aria-label="风火家人卦画"><i></i><i class="yin"></i><i></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>37</small>家人<span class="comp">风火家人 · 下离上巽</span></div><div class="hx-theme">怎样治家</div><div class="hx-text">家人卦讲治家之道，核心是严守礼义之防。要防止外邪侵入家庭；夫妻和乐在礼制之内是吉，妻妾子辈嬉闹越礼则有忧；治家有诚信、有威望，最终吉利。</div></div></div>
+<div class="hexcard" id="h38"><div class="hx" aria-label="火泽睽卦画"><i></i><i></i><i class="yin"></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>38</small>睽<span class="comp">火泽睽 · 下兑上离</span></div><div class="hx-theme">意见不合怎么办</div><div class="hx-text">睽的意思是乖背睽违，彼此意见相反。卦辞说睽违时做小事还行，做大事不成，因为大事需要团结。上爻写先张弓要射，后来放下弓、解下酒壶相待——原来对方是来结亲的：全卦讲的正是化睽为合、化敌为友。</div></div></div>
+<div class="hexcard pair-a" id="h39"><div class="hx" aria-label="水山蹇卦画"><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>39</small>蹇<span class="comp">水山蹇 · 下艮上坎</span></div><div class="hx-theme">怎样面对艰难</div><div class="hx-text">蹇的意思是艰难。全卦反复说「往蹇，来誉」一类的话：前去虽然艰难，归来却有转机，教人用变化的眼光看困境。只要守正、一心为公，就能得道多助，逢凶化吉。</div></div></div>
+<div class="hexcard" id="h40"><div class="hx" aria-label="雷水解卦画"><i class="yin"></i><i></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>40</small>解<span class="comp">雷水解 · 下坎上震</span></div><div class="hx-theme">怎样解除困难</div><div class="hx-text">解讲舒难解困。具体办法是解除百姓所受的欺侮，他们自然归顺信服；君子勇于解难，才能取信于民。蹇讲身陷艰难时如何自处，解讲怎样动手解开困局，一困一解正好相承。</div></div></div>
+<div class="hexcard pair-a" id="h41"><div class="hx" aria-label="山泽损卦画"><i></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>41</small>损<span class="comp">山泽损 · 下兑上艮</span></div><div class="hx-theme">减损的学问</div><div class="hx-text">损卦讲减损之道。只要心存诚信，祭祀用两碗食物也够，排场可以减。「三人行则损一人，一人行则得其友」——三人同行要减掉一人，独行反而得到伴侣，书中用一夫一妻家庭才稳定来解释；同时告诫不要轻易增损、随意改革。</div></div></div>
+<div class="hexcard" id="h42"><div class="hx" aria-label="风雷益卦画"><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>42</small>益<span class="comp">风雷益 · 下震上巽</span></div><div class="hx-theme">帮助的学问</div><div class="hx-text">益讲增援和帮助。有人帮助，就利于大有作为、去做艰难的大事；对人诚信、真心爱人，别人会以爱来报答。上爻反过来说：没人帮他还有人打他，因为地位和心志都不安定。损益一减一增，卦形互为颠倒。</div></div></div>
+<div class="hexcard pair-a" id="h43"><div class="hx" aria-label="泽天夬卦画"><i></i><i></i><i></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>43</small>夬<span class="comp">泽天夬 · 下乾上兑</span></div><div class="hx-theme">怎样对待伤损</div><div class="hx-text">夬读为「缺」，指残缺、伤害，讲如何对待伤损。卦形五个阳爻上面顶着一个阴爻，那一阴就象征残缺。爻辞里颧骨受伤、臀部失去皮肤走路艰难，都是伤残景象；书中主张公开揭露敌人的残害，带着伤也要谨慎前行。</div></div></div>
+<div class="hexcard" id="h44"><div class="hx" aria-label="天风姤卦画"><i class="yin"></i><i></i><i></i><i></i><i></i><i></i></div><div><div class="hx-name"><small>44</small>姤<span class="comp">天风姤 · 下巽上乾</span></div><div class="hx-theme">男女怎样相遇</div><div class="hx-text">姤讲男女相遇。卦辞说女子过分强盛就不要娶，即「齐大非偶」——对方势头太盛，婚姻不般配。爻辞教人紧握刹车、像被绳索捆住的猪一样止步不前，急进就有凶险。姤与夬卦形互为颠倒，两卦爻辞多有重合。</div></div></div>
+<div class="hexcard pair-a" id="h45"><div class="hx" aria-label="泽地萃卦画"><i class="yin"></i><i class="yin"></i><i class="yin"></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>45</small>萃<span class="comp">泽地萃 · 下坤上兑</span></div><div class="hx-theme">怎样聚拢人心</div><div class="hx-text">萃的意思是会聚。天子亲到宗庙祭祀，用共同的祭礼把人聚拢起来；会聚靠长久的诚信，心诚时微薄的祭品也灵。只会聚当官的有位之人不行，要广泛会聚、取信于民。</div></div></div>
+<div class="hexcard" id="h46"><div class="hx" aria-label="地风升卦画"><i class="yin"></i><i></i><i></i><i class="yin"></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>46</small>升<span class="comp">地风升 · 下巽上坤</span></div><div class="hx-theme">上升的道理</div><div class="hx-text">升讲上升。做到诚信善良，就能沿着台阶一步步升；但升上去可能只得个收不到赋税的空头封邑，不必得意。上升的势头一旦到头，就要永远守静不争，不再强升。</div></div></div>
+<div class="hexcard pair-a" id="h47"><div class="hx" aria-label="泽水困卦画"><i class="yin"></i><i></i><i class="yin"></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>47</small>困<span class="comp">泽水困 · 下坎上兑</span></div><div class="hx-theme">身处困穷怎么办</div><div class="hx-text">困讲困穷。身困深谷多年走不出、被岩石蒺藜围住、回家见不到妻子，都是困境的写照。书中说脱困办法里最突出的是「利用享祀」——借祭祀神明安定人心；身陷困境还要有所悔悟，悔悟之后再行动才吉利。</div></div></div>
+<div class="hexcard" id="h48"><div class="hx" aria-label="水风井卦画"><i class="yin"></i><i></i><i></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>48</small>井<span class="comp">水风井 · 下巽上坎</span></div><div class="hx-theme">修好一口井</div><div class="hx-text">井卦讲治理水井。井水汲不干也不外溢，来往的人源源取用；废井堵塞连禽鸟都不来，修治好了泉水清澈，大家共受其福。卦辞还警告：水瓶提到井口却被绳子缠住，功败垂成，凶险。</div></div></div>
+<div class="hexcard pair-a" id="h49"><div class="hx" aria-label="泽火革卦画"><i></i><i class="yin"></i><i></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>49</small>革<span class="comp">泽火革 · 下离上兑</span></div><div class="hx-theme">变革的道理</div><div class="hx-text">革讲变革。卦辞「巳日乃孚」书中读为「改日」——修改历法使它符合天象，变革从改历开始。变革要抓准时机、心存诚信、顺应民心；大人变革像老虎一样有威信，不用宣传就能赢得信任。</div></div></div>
+<div class="hexcard" id="h50"><div class="hx" aria-label="火风鼎卦画"><i class="yin"></i><i></i><i></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>50</small>鼎<span class="comp">火风鼎 · 下巽上离</span></div><div class="hx-theme">稳定的道理</div><div class="hx-text">鼎卦讲稳定。六爻画出一只鼎：初爻是鼎足，中间三爻是鼎腹，五爻是鼎耳，上爻是鼎盖。鼎足折断、王公的美食倾覆，是承担不了重任的凶象；尊贵的鼎身配上玉盖，好比明君配贤臣，稳定要靠君臣配合。革讲变，鼎讲稳，正好相对。</div></div></div>
+<div class="hexcard pair-a" id="h51"><div class="hx" aria-label="震为雷卦画"><i></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>51</small>震<span class="comp">震为雷 · 下震上震</span></div><div class="hx-theme">威慑的分寸</div><div class="hx-text">震讲震惧的道理。惊雷乍响人人恐惧，过后却欢声笑语——适度的震慑是福，能让人警醒，保住主持祭祀社稷的大权。但震慑达到目的就要停止，搞个不停反而有危险。</div></div></div>
+<div class="hexcard" id="h52"><div class="hx" aria-label="艮为山卦画"><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>52</small>艮<span class="comp">艮为山 · 下艮上艮</span></div><div class="hx-theme">适可而止</div><div class="hx-text">艮的本义是「限」，讲限止、适可而止。全卦拿身体打比方：止于脚趾、小腿、腰、手臂、脸，层层告诫要止得其所；止于腰部还硬往上撕扯夹脊肉，就有危险。震讲动，艮讲止，一动一止正好相反。</div></div></div>
+<div class="hexcard pair-a" id="h53"><div class="hx" aria-label="风山渐卦画"><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>53</small>渐<span class="comp">风山渐 · 下艮上巽</span></div><div class="hx-theme">循序渐进</div><div class="hx-text">渐讲守礼渐进。全卦以鸿雁为喻：从涧边到堤坝，再到陆地、树木、丘陵，最后到高山，一步一步依次而行，这种循序渐进的飞翔可以当榜样。女子出嫁也一样，循礼渐进才吉利。</div></div></div>
+<div class="hexcard" id="h54"><div class="hx" aria-label="雷泽归妹卦画"><i></i><i></i><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>54</small>归妹<span class="comp">雷泽归妹 · 下兑上震</span></div><div class="hx-theme">嫁女要守礼</div><div class="hx-text">归妹讲少女出嫁。帛书说「归妹以正女」——用礼来规范少女的行为。女方过于主动去找男方，当时视为非礼，有凶无利；即使做侧室如同跛脚走路，只要守礼尽力，也能后来居上。渐与归妹都讲出嫁，一从容一急切，吉凶正好相反。</div></div></div>
+<div class="hexcard pair-a" id="h55"><div class="hx" aria-label="雷火丰卦画"><i></i><i class="yin"></i><i></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>55</small>丰<span class="comp">雷火丰 · 下离上震</span></div><div class="hx-theme">臣子势大怎么办</div><div class="hx-text">丰指臣子势力盛大，全卦借日食说这件事：正午天黑，看得见北斗星，象征臣子的势头遮住了君主的光。书中说天子对此应当宽容大度，用贤而不猜忌；等阴影退尽、光明归来，天下同庆。</div></div></div>
+<div class="hexcard" id="h56"><div class="hx" aria-label="火山旅卦画"><i class="yin"></i><i class="yin"></i><i></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>56</small>旅<span class="comp">火山旅 · 下艮上离</span></div><div class="hx-theme">出门在外怎么办</div><div class="hx-text">旅讲出门在外的商旅之事。行旅不可久留，还要坚持诚信：奸诈邪恶会招灾，送人资财能换来随从的忠心。上爻用商人先祖王亥在有易放牧、失牛被害的故事作结，警示旅途凶险，先笑者后哭。</div></div></div>
+<div class="hexcard pair-a" id="h57"><div class="hx" aria-label="巽为风卦画"><i class="yin"></i><i></i><i></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>57</small>巽<span class="comp">巽为风 · 下巽上巽</span></div><div class="hx-theme">隐伏的分寸</div><div class="hx-text">巽的意思是隐伏。该隐时就隐：隐入床下、多请祝史巫觋出面，借神明安顿人心，可获吉利。但分寸要拿捏好——该隐不隐有憾惜，隐过了头连钱财都丧失。兑讲显，巽讲藏，两卦正好相反。</div></div></div>
+<div class="hexcard" id="h58"><div class="hx" aria-label="兑为泽卦画"><i></i><i></i><i class="yin"></i><i></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>58</small>兑<span class="comp">兑为泽 · 下兑上兑</span></div><div class="hx-theme">怎样显现自己</div><div class="hx-text">《杂卦传》说「兑见而巽伏」，兑讲显现，与巽的隐伏相反。和美地显现、带着诚信显现，都吉利；一心只想出风头、大肆显现，反而难以赢得人心，难以光大事业。</div></div></div>
+<div class="hexcard pair-a" id="h59"><div class="hx" aria-label="风水涣卦画"><i class="yin"></i><i></i><i class="yin"></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>59</small>涣<span class="comp">风水涣 · 下坎上巽</span></div><div class="hx-theme">由内而外的美</div><div class="hx-text">涣的本字是「奂」，指文采焕美。使自身、朋友以至全乡的人都焕发美好，是大吉之事；帛书作「奂其肝」，肝指内心——内心大美，外面必然有大好名声，也就是内心真诚自然会显露于外。</div></div></div>
+<div class="hexcard" id="h60"><div class="hx" aria-label="水泽节卦画"><i></i><i></i><i class="yin"></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>60</small>节<span class="comp">水泽节 · 下兑上坎</span></div><div class="hx-theme">凡事有节制</div><div class="hx-text">节讲节制。有节制就亨通，心安于节制、乐于节制都吉利；但「苦节」——把节制当成苦事、过分节制——让人困苦，不能长久坚持。初爻还讲管住嘴巴、慎守机密，说话也要有节制。</div></div></div>
+<div class="hexcard pair-a" id="h61"><div class="hx" aria-label="风泽中孚卦画"><i></i><i></i><i class="yin"></i><i class="yin"></i><i></i><i></i></div><div><div class="hx-name"><small>61</small>中孚<span class="comp">风泽中孚 · 下兑上巽</span></div><div class="hx-theme">心怀诚信</div><div class="hx-text">中孚讲诚信。卦辞「豚鱼」书中读为「遯」和「圄」，指退守和抵御——心怀诚信，退守也吉，抵御也吉。鸣叫的白鹤有小鹤应和，好酒有人共饮，诚信自有感应；名不副实的虚声传得再高，终究要出问题。</div></div></div>
+<div class="hexcard" id="h62"><div class="hx" aria-label="雷山小过卦画"><i class="yin"></i><i class="yin"></i><i></i><i></i><i class="yin"></i><i class="yin"></i></div><div><div class="hx-name"><small>62</small>小过<span class="comp">雷山小过 · 下艮上震</span></div><div class="hx-theme">小错与分寸</div><div class="hx-text">小过讲小有过失。在诚信上稍有过越还能亨通，可以办小事，办不成大事——这是接着中孚的诚信说的。全卦以飞鸟为喻：向上强飞有凶险，向下停在树荫里安栖才大吉，告诫人不要过越，要防微杜渐。</div></div></div>
+<div class="hexcard pair-a" id="h63"><div class="hx" aria-label="水火既济卦画"><i></i><i class="yin"></i><i></i><i class="yin"></i><i></i><i class="yin"></i></div><div><div class="hx-name"><small>63</small>既济<span class="comp">水火既济 · 下离上坎</span></div><div class="hx-theme">成功后怎么办</div><div class="hx-text">既济指万事皆成、渡河已毕，讲成功之后的问题。开始吉利，最终却可能危乱，所以要居安思危：华美的衣服会变成破絮，殷高宗打了胜仗也要总结「小人勿用」的教训。水淹到头顶，物极必反，成功之后接着的就是未济。</div></div></div>
+<div class="hexcard" id="h64"><div class="hx" aria-label="火水未济卦画"><i class="yin"></i><i></i><i class="yin"></i><i></i><i class="yin"></i><i></i></div><div><div class="hx-name"><small>64</small>未济<span class="comp">火水未济 · 下坎上离</span></div><div class="hx-theme">事未成怎么办</div><div class="hx-text">未济讲事情尚未成功。小狐狸渡河，眼看到岸，尾巴却掉进水里——开头容易结尾难，有始无终就永远是未济。但任何事都可以转化，守正、诚信、坚持到底，未济可以变成既济。六十四卦以未济收尾，意味着成功永无终点。</div></div></div>
+</div>
+</section>
+
+<div class="part-band"><div class="pt">导论与卦画 · 第一至三讲</div><div class="pd">建立框架：《周易》是什么，八卦和六十四卦从哪里来、怎么排</div></div>
+
+<details class="lec" id="lec1" open>
+  <summary><span class="lec-no">第一讲</span><span class="lec-title">绪论</span><span class="tog">▸</span><span class="lec-gist">《周易》影响巨大，在于思想深邃、形式特殊、历史特殊；学《易》要有历史观念，既不神化也不矮化。</span></summary>
+  <div class="lec-body">
+    <h4>一 《周易》的特征</h4>
+    <ul>
+      <li>儒家列为五经之首，道家列为三玄之一，古人说「《易》道广大，无所不包」。影响大的第一个原因是思想深邃，最典型的是三条：<span class="term">对待</span>（阴阳相互依存，读《易》当以「对」观——乾坤、坎离、泰否、损益都是对子）、<span class="term">流行</span>（「《易》者，变也」，《周易》就是一部「变经」，既济之后还有未济，发展无穷）、<span class="term">时中</span>（既要中，又要随时变化、与时俱进）。</li>
+      <li>第二个原因是表现形式特殊：《论语》《老子》靠说理，《周易》把哲学装进民众相信的筮法里；它是卦画符号与文字的结合体，卦画什么都能代表，「就好像 X 和 Y 一样」，冯友兰因此称《周易》为「宇宙代数学」。作者进一步说：《易》道广大，主要在卦画符号，其次才是卦爻辞。</li>
+      <li>第三个原因是历史特殊：《汉书·艺文志》「人更三圣，世历三古」——伏羲画八卦、文王演六十四卦、孔子作《易传》。</li>
+      <li>易学著作分三块：<span class="term">经</span>（《周易》本经）、<span class="term">传</span>（《易传》即十翼）、<span class="term">学</span>（其余一切易学著作）。经是源，传与学是流。把后世才有的东西强加给本经，是神化；轻易否定本经可能有的，是矮化。</li>
+    </ul>
+    <h4>二 学《易》的意义</h4>
+    <ul>
+      <li>懂中国哲学绕不开易学：太极、阴阳、道器、理气、形而上形而下这些范畴都出自易学；宋明理学的大家几乎人人都是易学家（周敦颐、程颐、朱熹、王夫之）。</li>
+      <li>研究上古史用得上：顾颉刚从卦爻辞里挖出商周史事——《大壮》「丧羊于易」是王亥在有易被杀的故事，《既济》「高宗伐鬼方」记武丁伐鬼方，《泰》《归妹》「帝乙归妹」即《诗经》文王亲迎之事。</li>
+      <li>不懂《易》会闹误会：清华校训「自强不息，厚德载物」严格说出自《大象传》（乾坤两卦），说出自卦爻辞或《彖传》都错，作者说清华的宣传品「很少有说对的」。民俗里处处有《易》：「三阳开泰」因泰卦下三爻皆阳，长沙地名「水风井」就是井卦的卦形，蒋介石名「介石」字「中正」取自豫卦六二。</li>
+      <li>对「易学与科学」要清醒：可以「以科学治易学」，但「将易学直接运用于科学研究，迄今尚无成功之例」。引王弼：「义苟在健，何必马乎？」</li>
+      <li>《周易》问题极多（乾坤本义是什么、「贞」是正还是贞问，都无定论），金景芳研究七十多年仍说许多问题没搞清——这正是学《易》的内在动力。</li>
+    </ul>
+    <h4>三 学《易》的方法</h4>
+    <ul>
+      <li>先学易学史，从源溯流：1911 年以前的《周易》类古籍有两千多部，质量参差，没有引导，自学难上正道。</li>
+      <li>以经传为本，旁及其他：今人强调经传分离，古人强调以传解经，各有是非；过分强调分离，「实质上隐伏着理性精神迷失的危险」。</li>
+      <li>象辞一体，象数为义理服务：「义理是本，象数只是手段。」帛书《要》篇记孔子学《易》「幽赞而达乎数，明数而达乎德」，目的是求其德义。</li>
+      <li>掌握《易》例：《周易》有筮法语言和哲学语言两套语言，难就难在筮法语言——不懂《易》例，「用九」「用六」都讲不清。对前人归纳的《易》例要重视而不可迷信。</li>
+      <li>重视出土材料与传世文献互证（二重证据法）：马王堆帛书《周易》经传两万余字，上博楚简《周易》证伪了「先秦无《易经》」之说。要用出土材料激活传世文献，不要轻易否定传世文献。</li>
+      <li>推荐书目：黄寿祺、张善文《周易译注》（初学首选），金景芳、吕绍纲《周易全解》，朱伯崑《易学哲学史》，刘大钧《周易概论》等。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>《易》道广大主要在卦画符号，《周易》是早期的符号哲学。经传关系上持折中立场，反对以传代经，也反对彻底的经传分离，与疑古派拉开距离。明确反对「以易学治科学」。「人文」在《贲·彖》里指民情，是中性词，所以他认为「人文主义」提法欠妥，应提「人本主义」。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec2">
+  <summary><span class="lec-no">第二讲</span><span class="lec-title">八卦</span><span class="tog">▸</span><span class="lec-gist">卦德就是卦名的基本义，取象是卦德的象征物；八卦应按「象义相应之理」配对，其生成本质是数占。</span></summary>
+  <div class="lec-body">
+    <h4>一 卦画、卦名和卦义</h4>
+    <ul>
+      <li>八卦是阴阳爻三叠的三画卦，又称<span class="term">经卦</span>、单卦。记形靠朱熹的歌诀：乾三连，坤六断；震仰盂，艮覆碗；离中虚，坎中满；兑上缺，巽下断。</li>
+      <li>作者逐一考卦名本义：乾帛书作「键」，本名疑为「健」；坤帛书作「川」，本名疑为「顺」；坎本义为陷，卦形就是古文字「水」横过来；离即明；震即动；艮即「限」，界限故有止义，山是天然界限；巽同源于「选」，选即入；兑本义为现，引申为悦。</li>
+      <li>核心论断：<span class="term">卦德</span>实质就是卦名的基本义；<span class="term">取象</span>是卦德的象征物。天并非健，但它是健的最典型象征。乾的性质只有一种（健），取象可以千千万万（马、首、君、父……），但象什么都必须体现健。引金景芳批评汉人治《易》「遇马则以为定有乾」的毛病。</li>
+      <li>兑与坎的对照有意思：泽是驯服的水，是水利，带来喜悦；坎是没驯服的水，是水害，所以为险。</li>
+    </ul>
+    <h4>二 八卦之间的关系</h4>
+    <ul>
+      <li>「阳卦多阴，阴卦多阳」：震坎艮一阳二阴为阳卦，巽离兑一阴二阳为阴卦。《说卦传》父母六子说：乾父坤母，震坎艮为长中少男，巽离兑为长中少女。</li>
+      <li>四对卦的卦形关系有两种：阴阳全反（乾坤、坎离）和上下颠倒（震艮、巽兑）。作者提出<span class="term">象义相应之理</span>：卦形相反，卦义也应相反——乾健对坤顺，震动对艮止，坎险陷对离明丽，巽隐伏对兑显现（《杂卦传》「兑见而巽伏」）。</li>
+      <li>他据此批评《说卦传》「天地定位，山泽通气，雷风相薄，水火不相射」的配对（乾坤、艮兑、震巽、坎离）：震动与巽入、艮止与兑悦在卦德上没有对立关系，不合《周易》原理。应以六十四卦为本，配成乾坤、坎离、震艮、巽兑。</li>
+    </ul>
+    <h4>三 八卦的卦位</h4>
+    <ul>
+      <li>后天卦位出自《说卦传》「帝出乎震」：震东（正春）、巽东南、离南（正夏）、坤西南、兑西（正秋）、乾西北、坎北（正冬）、艮东北，八卦配八方八季（每卦 45 日），空间时间统一，成为万物生成的模式，即<span class="term">八卦卦气说</span>。</li>
+      <li>作者的考证：坤卦卦辞「西南得朋，东北丧朋」必须用这套卦位才讲得通，「履霜，坚冰至」也是反映——说明《周易》卦爻辞制作时已采纳八卦卦气说，这套学说产生极早。</li>
+      <li>先天卦位是邵雍所画（乾南坤北离东坎西），号称伏羲所传。作者的判断：帛书《衷》篇「天地定位」章的异文恰好暗含帛书《易经》卦序的排法（引李学勤），所以邵雍图有来历，但它是对帛书卦序结构的总结，与伏羲无关，不当称「先天」。</li>
+    </ul>
+    <h4>四 八卦的生成</h4>
+    <ul>
+      <li>坚持八卦先于六十四卦：坎卦经文名「习坎」，习即重，说明它由两个三画坎重成；坤卦卦辞建立在八卦卦气说之上；《周礼》称八卦为经卦、六十四卦为别卦。韩仲民「八卦后出」说难以成立——不然无法解释为什么恰好六十四卦、一卦恰好六爻。</li>
+      <li>「易有太极，是生两仪，两仪生四象，四象生八卦」被作者解成成卦法：太极是混而未分的筮策，两仪即分二，<span class="term">四象</span>即九六七八四个筮数，三次成一卦。「从本质上说，八卦是一种数占法。」</li>
+      <li>例证：四川凉山彝族「雷夫孜」占法——握一束细竹随手分开看余数奇偶，连卜三次得八种排列，正好对应八卦。</li>
+      <li>古人把以蓍求卦的过程理论化，提出一套宇宙形成论（邵雍「一分为二」的加一倍法），「这就从筮法中产生了哲学」。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>卦名考源（乾本名健、坤本名顺、艮即限、巽即选、兑即现）是他的招牌论证。批评《说卦传》的八卦配对破坏象义相应之理，连朱熹卦歌的次序也要再调。论证八卦卦气说早到被卦爻辞采纳，与通行的「晚出」说相反。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec3">
+  <summary><span class="lec-no">第三讲</span><span class="lec-title">六十四卦的卦画</span><span class="tog">▸</span><span class="lec-gist">六十四卦由八卦相重、依大衍筮法逐爻筮出；卦画结构的根本规律是「二二相耦，非覆即变」，据此可解上经三十、下经三十四之谜。</span></summary>
+  <div class="lec-body">
+    <h4>一 六十四卦的产生</h4>
+    <ul>
+      <li>六画卦叫<span class="term">别卦</span>（复卦、重卦），由两个经卦相重：下面的叫下卦（内卦、下体），上面的叫上卦（外卦、上体）。发生上是八卦相重，日用中每卦都是依筮法一爻一爻筮出来的。</li>
+      <li>「大衍之数五十」当作「五十有五」，脱了「有五」二字——大衍之数就是天地之数（天数一三五七九和二十五，地数二四六八十和三十）。作者从金景芳、高亨说并补证，认为「应为定论」。实际揲蓍用四十九根，原因「纯属人为，本没有什么奥妙」：只有四十九才能算出七八九六。</li>
+      <li>筮的实质是数学计算，有三个特点：目的是求卦；结果必须有或然性；必须用筹码实物算——心算笔算排除不了人的思虑，「《易》是无思的」。</li>
+      <li>揲蓍程序：<span class="term">四营</span>（分二、挂一、揲四、归奇）为一变，三变成一爻，<span class="term">十八变</span>成一卦。策数：乾之策 216，坤之策 144，合 360 当一年之日；六十四卦总策数 11520，当万物之数。</li>
+    </ul>
+    <h4>二 六十四卦的配对</h4>
+    <ul>
+      <li>《周易》是「上古文献中结构形式最严密、规律性最强的典籍」，根本规律是孔颖达的<span class="term">二二相耦，非覆即变</span>：六十四卦两两为对，共三十二对，「『对』是《周易》最根本的精神」。</li>
+      <li><span class="term">覆</span>（综）：卦体上下颠倒成两卦，如屯倒过来是蒙，两卦其实共一个卦体，共二十八对。<span class="term">变</span>（错）：颠倒后不变的卦，以阴阳全反配对，共四对——乾坤、颐大过、坎离、中孚小过。</li>
+      <li>上经三十、下经三十四之谜：孔颖达「阳三阴四」、朱熹「竹简篇幅」都不足取。正解是卦体平衡：上经 12 个覆卦体加 6 个变卦体共 18，下经 16 个覆卦体加 2 个变卦体也是 18。作者还补正了俞琰漏算颐、大过的疏失。</li>
+      <li>三十二对不能拆散：既是卦画非反即对的必然，也受卦名正反为对的制约（乾坤、泰否、剥复、损益、既济未济，拆开配别的卦就不伦不类）。</li>
+    </ul>
+    <h4>三 六十四卦的卦序</h4>
+    <ul>
+      <li>《杂卦传》的三十二对与今本全同、一对未拆，只是对内先后有十四对颠倒——说明「对是原则，先后并不重要」。</li>
+      <li>帛书《易经》卦序不分上下经，八八成组、机械组合。作者力主今本卦序在前：今本乾坤紧邻，「用九」「用六」相对才有示范性，帛书把坤排到第三十三位，用辞出现得非常突然；早期文献引《易》全从今本之序。帛书、京房八宫、元包这类「连体卦序」结构严密便于记忆，「但却破坏了易卦的配对……是求之于外而失之于内」，是后人形式主义的改造。</li>
+      <li>诚实存疑：对子与对子之间为什么这样排，「道理实在难以说明」；《序卦传》有一套解释，但可信度不高。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>力主「大衍之数五十有五」；判定今本卦序早于帛书卦序，一切连体卦序都是后人改编；承认对子间排序无解，不强不知以为知。</div>
+  </div>
+</details>
+
+<div class="part-band"><div class="pt">经·卦爻辞 · 第四至七讲</div><div class="pd">逐卦讲解六十四卦。两卦一对读，先用帛书楚简考定卦名本义，再以卦名统摄全卦。逐卦主题见上方「六十四卦一览」。</div></div>
+
+<details class="lec" id="lec4">
+  <summary><span class="lec-no">第四讲</span><span class="lec-title">卦爻辞·上经上（卦 1–16）</span><span class="tog">▸</span><span class="lec-gist">乾坤至谦豫八对十六卦。解卦三原则在此确立：以对偶为前提、先考卦名本义、几个关键字全书通训。</span></summary>
+  <div class="lec-body">
+    <h4>解卦思路</h4>
+    <ul>
+      <li>十六卦分八对四组：乾坤·屯蒙，需讼·师比，小畜履·泰否，同人大有·谦豫。一对之内意义相反相成——泰「小往大来」、否「大往小来」，谦为谦虚、豫为自大，最典型。</li>
+      <li>先借帛书、楚简异文考定卦名本义，再以卦名统摄全卦：乾帛书作「键」，本名当为「健」，全卦讲强健；坤帛书作「川」，本名当为「顺」，全卦讲柔顺。</li>
+      <li>几个关键字有贯穿全书的训释：<span class="term">元</span>训善（善是亨的条件），<span class="term">亨</span>即通，<span class="term">贞</span>训定（守静不动）——与旧注「元始、贞正（占问）」都两样。</li>
+    </ul>
+    <h4>精彩解读</h4>
+    <blockquote>乾九三「君子终日乾乾，夕惕若，厉无咎」——「惕」帛书作「沂」，读为「析」，义为解除、休息。白天努力工作，晚上注意休息，有张有弛，因时而动、因时而止。</blockquote>
+    <blockquote>乾「用九：见群龙无首，吉」——「用九」即「迵九」「通九」，六爻皆九。龙是刚健的代表，「无首」是阴柔的象征：一群龙都不争着做首领，刚而能柔、强而不争，这是《周易》的价值理想。</blockquote>
+    <blockquote>坤六二「直方，大，不习，无不利」——旧读「直方大」连成一句，文义不通又破坏押韵。「习」当读为「折」，「不习」就是不折败：做到正直方正，就能宏大、不折败、无不利。</blockquote>
+    <blockquote>蒙卦「童蒙」——「童」是动词，义为脱尽（如「童山」即把山砍秃），「童蒙」就是脱蒙。六五「童蒙，吉」是说脱离蒙昧才吉利，旧解「儿童」不确。卦辞「初筮告」的「告」是「吉」字形讹，帛书、熹平石经皆作「吉」。</blockquote>
+    <blockquote>豫卦——豫训自大（《说文》：「豫，象之大者」，引申凡大皆称豫），全卦讲治豫戒骄。九四「由豫」，「由」读为「尤」，责罪批评自大。</blockquote>
+  </div>
+</details>
+
+<details class="lec" id="lec5">
+  <summary><span class="lec-no">第五讲</span><span class="lec-title">卦爻辞·上经下（卦 17–30）</span><span class="tog">▸</span><span class="lec-gist">随蛊至坎离七对十四卦。出土文献用得更重：以楚简径改经文，并把坎卦坐实为文王拘羑里的史事。</span></summary>
+  <div class="lec-body">
+    <h4>解卦思路</h4>
+    <ul>
+      <li>十四卦分七对四组：随蛊·临观，噬嗑贲·剥复，无妄大畜·颐大过，坎离。</li>
+      <li>用楚简本径改经文：随上六依楚简作「系而拘之，纵乃缳之」，坐实为文王被纣拘禁、获释后兴师反商之事。</li>
+      <li>把坎卦六四、上六坐实为文王拘羑里的史事，认为可能是文王「演《易》」的夫子自道，有助于认识《周易》成书。</li>
+      <li>卦义归纳多有新说：无妄讲毫无希望中的自处，大过讲如何对待死亡，离讲人生辉煌。</li>
+    </ul>
+    <h4>精彩解读</h4>
+    <blockquote>临卦「咸临」——旧解「感」「速」皆误。「咸」甲骨文从口从斧钺，本义刑杀，引申为刑法；帛书两「咸」字正作「禁」。「咸临」就是以法临民、以法治国，故「吉，无不利」。全卦从初爻到上爻，依次是以法、以善、以智、以仁厚临民的治国方略。</blockquote>
+    <blockquote>剥卦「剥床以足」——「床」读为「壮」，壮即阳（帛书《衷》「大壮」正写作「大床」）。全卦写阴剥阳步步进逼，到上九「硕果不食」，物极必反，翻转即成复卦，一阳复生。</blockquote>
+    <blockquote>坎六四「樽酒，簋贰，用缶，纳约自牖」——「牖」读为「羑」，指羑里之狱。简陋的饮食待遇，是文王被囚的委婉说法；「终无咎」指终于脱险。</blockquote>
+    <blockquote>大畜六四「童牛之牿，元，吉」——「童」作动词，义为去尽：去掉牛的笼口，对牛是一种解放，故为善而得吉。九三依帛书当作「阑舆之卫」，义为偃武修文，主张以德服人。</blockquote>
+    <blockquote>无妄九五「无妄之疾，勿药有喜」——「喜」当读为表痛、恨之字（楚简作「菜」可证）：有无药可治之痛、无药可治之恨，写绝症之无奈。旧解「不药自愈之喜」正好读反。</blockquote>
+  </div>
+</details>
+
+<details class="lec" id="lec6">
+  <summary><span class="lec-no">第六讲</span><span class="lec-title">卦爻辞·下经上（卦 31–46）</span><span class="tog">▸</span><span class="lec-gist">咸恒至萃升八对十六卦。大量引帛书易传「孔子曰」，把占筮之辞讲成德义哲理；爻位与取象自下而上相应。</span></summary>
+  <div class="lec-body">
+    <h4>解卦思路</h4>
+    <ul>
+      <li>十六卦分四组八对：咸恒·遯大壮，晋明夷·家人睽，蹇解·损益，夬姤·萃升。每对意义相反或相承：晋升对黑暗，减损对增益，会聚对上升。</li>
+      <li>三条主线：拿楚简、帛书《易经》和帛书易传（《二三子》《衷》《缪和》）的异文校正今本再重新训诂；大量引「孔子曰」把占筮之辞讲成德义哲理；注意爻位与取象的对应——爻画自下而上，取象也自下而上。</li>
+    </ul>
+    <h4>精彩解读</h4>
+    <blockquote>咸卦通体取象——从初六「咸其拇」（触她的脚拇指）到上六「咸其辅、颊、舌」（吻她的嘴和舌），男女感应由脚趾一路上升到嘴舌：爻位越高，身体部位越高，「爻画的位置和爻辞的意义是相应的」。九三「执其随」，「随」读为「骽」即腿——一下子抓人家的腿，难免引起反感，故「吝」。</blockquote>
+    <blockquote>恒六五「恒其德，贞：妇人吉，夫子凶」——同样守恒，吉凶为何相反？帛书《缪和》：妇人从一而终故吉；男子长期安于现状就成了「弱德」，缺乏进取心，故凶。「贞」是妇人之德，非男子之德。</blockquote>
+    <blockquote>遯上九「肥遯，无不利」——「肥」古字形与「蜚」相似，即今「飞」字：「肥遯」就是「飞遯」，高飞远遁，故无所不利。</blockquote>
+    <blockquote>晋卦「康侯用锡马蕃庶」——「锡」与全经诸「惕」字同，训为「止」「息」：仁君息兵休战，使百姓得以繁衍生息；「昼日三接」是一天多次接见臣民、勤于政事。与旧注「赐马众多」完全两样。</blockquote>
+    <blockquote>解九四「解而拇，朋至斯孚」——「而」依楚简、帛书作「其」，「拇」读为「侮」：「解其侮」就是解除老百姓所受的欺侮，百姓自然归顺信服。</blockquote>
+  </div>
+</details>
+
+<details class="lec" id="lec7">
+  <summary><span class="lec-no">第七讲</span><span class="lec-title">卦爻辞·下经下（卦 47–64）</span><span class="tog">▸</span><span class="lec-gist">困井至既济未济九对十八卦。这一讲靠出土文献推翻旧注的力度最大，涣、丰、中孚几卦的主题被整个改写。</span></summary>
+  <div class="lec-body">
+    <h4>解卦思路</h4>
+    <ul>
+      <li>十八卦分五组九对：困井·革鼎，震艮·渐归妹，丰旅·巽兑，涣节·中孚小过，既济未济。成对关系依旧鲜明：革变对鼎定，震动对艮止，既济对未济。</li>
+      <li>好几个卦的主题被整个改写：涣卦由「涣散」改为「文采焕美」，丰卦由「丰大」改为借日食说臣盛，中孚卦辞的「豚鱼」由薄祭改为退守之义。</li>
+    </ul>
+    <h4>精彩解读</h4>
+    <blockquote>革卦「巳日乃孚」——「巳」依楚简作「改」，「日」指历日：「改日」就是改革历法，使之符合天象，即《大象传》「治历明时」。变革从改历开始，六二再进而革除弊政。</blockquote>
+    <blockquote>涣九五「涣汗其大号」——据帛书当作「涣其肝，大号」。帛书《二三子》：「其内大美，其外必有大声闻。」使内心焕美，外面必有盛大的好名声——正是《大学》「诚于中，形于外」的意思。</blockquote>
+    <blockquote>中孚卦辞「豚，鱼，吉」——旧注以豚鱼为薄礼。「豚」读为「遯」（撤退），「鱼」通「圄」（抵御）：心怀诚信，退守也吉，抵御也吉，进攻涉川也利。</blockquote>
+    <blockquote>丰卦「丰其蔀，日中见斗」——正午出现北斗七星，写的是日食；日食遮天，比喻臣子势力盛大遮蔽君主。卦辞「王假之，勿忧」，「假」训宽大：天子对臣盛要宽容大度，用贤弗害。</blockquote>
+    <blockquote>未济九四「震用伐鬼方」——「震」形近而讹，本当作「岐」；「用」是「周」字脱去「口」旁：「震用」即「岐周」。岐周讨伐鬼方，三年功成，受「大国」（大邑商）赏赐——此时周还臣属于商。</blockquote>
+  </div>
+</details>
+
+<div class="part-band"><div class="pt">经·通论 · 第八至九讲</div><div class="pd">读经的规则，以及这部经从哪里来、是什么书</div></div>
+
+<details class="lec" id="lec8">
+  <summary><span class="lec-no">第八讲</span><span class="lec-title">《周易》的义例</span><span class="tog">▸</span><span class="lec-gist">本经的三条内在规律：两两成对、卦义相反；卦爻象与卦爻辞相应；一套须专门弄懂的特殊语汇。</span></summary>
+  <div class="lec-body">
+    <h4>一 二二相耦，相反为义</h4>
+    <ul>
+      <li>卦画上「二二相耦，非覆即变」的结构，决定了全部三十二对卦的卦义也都相反。表面看不出相反的卦对，须重新训释卦名才见相反：需是退缩（《杂卦传》「需，不进也」）对讼的争；小畜的「寡」读为「顾」，义为等待，对履的行。</li>
+      <li>一批卦义由此翻案：豫训傲慢自大（推翻郑玄以来「豫为乐」旧训）；无妄是无所希望、绝望（故《杂卦传》说「无妄，灾也」）；大过是长逝、永别人世（「大过，颠也」，颠即死；《系辞传》说棺椁「取诸大过」），与颐的颐养天年正相反。</li>
+      <li>这条规律的用处：由相反卦可确认卦名本义，对理解卦爻辞「会带来颠覆性的后果」，也让诠释有了具体语言环境，「不致让诠释漫无边际」。</li>
+    </ul>
+    <h4>二 象辞相应</h4>
+    <ul>
+      <li>卦画与卦名卦辞有逻辑联系：坎卦画就是古文「水」字横置；鼎卦初六像鼎足、中三爻像鼎腹、六五像鼎耳、上九像鼎盖；颐卦像口腮，噬嗑是「颐中有物」，六四像口中嚼着的食物；晋卦下坤上离，会太阳从地平线升起之义。</li>
+      <li>爻位与爻辞相应：初爻多取在下之物为喻——「潜龙」「剥床以足」「咸其拇」；上爻多取在上之物——「亢龙」「濡其首」「翰音登于天」；五位最尊，多言天、帝、君、王；三、四爻处上下卦之交，多疑惑、进退、忧惧之辞（「或跃在渊」「憧憧往来」）。乾卦龙由潜、见、跃、飞到亢，渐卦鸿由水涧、水岸、陆地、大树、丘陵依次而上。不承认象辞相应，就只能把《周易》看成一堆杂乱无章的灵签。</li>
+      <li>爻题（初九、六二等）由爻画严格决定。有人说爻题为汉人所加，作者用上博楚简反驳：楚简豫卦、大畜卦都有完整爻题，出土最早版本的可靠性胜过《左传》称引。</li>
+    </ul>
+    <h4>三 特殊的语汇</h4>
+    <ul>
+      <li><span class="term">吉</span>就是得、成功；<span class="term">凶</span>就是失、失败。「征」是主动前往，「贞」是定住不动，一动一静，条件相反。</li>
+      <li><span class="term">悔</span>与<span class="term">吝</span>都是小毛病，但前途不同：悔有悔改之意，趋向吉；吝不知悔改，趋向凶（朱熹：「悔自凶而趋吉，吝自吉而趋凶」）。<span class="term">无咎</span>指本来有咎，善于补过才得无咎。<span class="term">厉</span>是危，但尚可化险为夷。</li>
+      <li><span class="term">亨</span>是亨通。高亨把「亨」一概读为「享祀」之「享」，「决不可从」：帛书里「用享」都写作「芳」，其余四十多个「亨」无一例外写作「亨」，界限清楚。</li>
+      <li><span class="term">利</span>是指示行动方向的时机语：「利涉大川」是冒大风险的时机，「利建侯」是借助下属朋友的时机。</li>
+      <li><span class="term">贞</span>训定，引申为正。证据：甲骨金文「贞」「鼎」本同字，鼎即定；郭店楚简中贞、正、定互相通用。李镜池责难说贞若训正，「贞凶」讲不通；作者回应：贞训定就迎刃而解——固守不变、违反与时俱进之理，自然会凶。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>把「相反为义」论证为三十二对无一例外的规律（屈万里只说「每取相反之义」）。豫、需、无妄、大过、小畜一批卦义翻案。点名反对高亨（亨读享）和李镜池（贞训卜问）两家代表性意见。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec9">
+  <summary><span class="lec-no">第九讲</span><span class="lec-title">《周易》的成书与性质</span><span class="tog">▸</span><span class="lec-gist">语言学比较和文献记载双重论证：本经成于殷末周初，与文王、周公父子关系密切；它是用占筮形式表现哲理的特殊典籍。</span></summary>
+  <div class="lec-body">
+    <h4>一 从语言的比较论成书时代</h4>
+    <ul>
+      <li>方法：用词语产生和消亡的时代做「语言标尺」给文献断代。</li>
+      <li>前缀「有」：《周易》里只作名词前缀（「有家」「有庙」），用法同殷代和西周初文献；《诗经》西周中期作品已发展出形容词、动词前缀，《周易》全无，成书应在这些诗篇之前。</li>
+      <li>句尾语气词：也、矣、已、焉、乎、哉，先秦最常用的这几个，《周易》本经一个都没有，情形同甲骨文。「也」在《左传》出现 3578 次，而它大约周厉王时代才产生——《周易》成书必在此前。指示词是、斯、此、彼四个里缺三个，也只能解释为成书时这些词还没产生。</li>
+      <li>结论：各项证据指向一致，《系辞传》「《易》之兴也，其当殷之末世，周之盛德」可信，定成书于殷末周初。</li>
+    </ul>
+    <h4>二 从文献的记载论作者与时代</h4>
+    <ul>
+      <li>帛书《要》记孔子语：「文王仁，不得其志，以成其虑。纣乃无道，文王作……然后《易》始兴也。」帛书《缪和》有「文王絇于羑里」。这些证明《史记》「西伯拘羑里，演《周易》」信而有据。</li>
+      <li>汉人「文王重卦」说不能成立：商周数字卦材料中已有殷代重卦，重卦远在文王之前。</li>
+      <li>卦爻辞有文王身后事：升卦「王用亨于岐山」、明夷「箕子之明夷」、晋卦「康侯」记周初事，下限到成王时。作者的结论：文王囚羑里时编排卦序（「演」）、系上卦爻辞（「增」），周公后来改编加工——周公本为周王朝宗教职务首脑，参与作《易》合乎史实。</li>
+    </ul>
+    <h4>三 《周易》的性质</h4>
+    <ul>
+      <li>二十世纪以李镜池、高亨为代表的主流视《周易》为卜筮之书、卦爻辞为灵签符咒，「影响之大，几成定论」；金景芳等传统派坚持义理说。作者在两派之外立说。</li>
+      <li>结构上的证据：阴爻阳爻各一百九十二，难以用偶然解释；卦序两两相对，蕴含对待观和变易观；首乾次坤反映周人重父统（殷易《归藏》首坤次乾，殷人重母统）；以未济而非既济结束，表明变化永不终止。</li>
+      <li>卦爻辞本身的哲理：乾卦六爻从「潜龙勿用」到「亢龙有悔」再到「群龙无首」，讲适时原则和物极必反；泰九三「无往不陂，无往不复」，讲对立面相互转化。</li>
+      <li>总判断：是占筮之书，又非一般占筮之书；是哲理之书，又非一般哲理之书——是利用占筮形式表现哲理的特殊典籍。这正是孔子选它作教材的原因。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>成书年代取最早的一端（殷末周初），比西周末年说、春秋战国说都早，认为语言证据「只能归之于必然」。作者问题上主张文王演卦序系辞、周公改编加工，与「卦爻辞出于史巫」的近代主流说相对。</div>
+  </div>
+</details>
+
+<div class="part-band"><div class="pt">传 · 第十至十五讲</div><div class="pd">《易传》八种十篇：占筮之书如何被讲成哲学</div></div>
+
+<details class="lec" id="lec10">
+  <summary><span class="lec-no">第十讲</span><span class="lec-title">《易传》的形成和特质</span><span class="tog">▸</span><span class="lec-gist">《易传》各篇下限都不出战国，《大象传》最早；思想源于孔子，作者是孔子及其后学；实质是借解释占筮表达哲理的哲学著作。</span></summary>
+  <div class="lec-body">
+    <h4>一 形成年代</h4>
+    <ul>
+      <li>今本《易传》＝《彖传》上下、《大象传》《小象传》、《文言传》、《系辞传》上下、《说卦传》《序卦传》《杂卦传》。传统说七种十篇，作者把大、小《象传》分开，定为<span class="term">八种十篇</span>，汉代起称「十翼」。</li>
+      <li>《大象传》是《易传》中最早的一篇。论证之一是体例：《大象传》释上下经卦一律自上而下（「云雷，屯」），《彖传》释卦德自下而上、释卦象却袭用自上而下——释象之例只能是《彖传》取自《大象传》。刘大钧举坤《彖》拆「厚德载物」四字发挥，「露出了其抄《大象》的马脚」。</li>
+      <li>韩宣子在鲁太史处所见《易象》与《大象传》有渊源关系：「周公之德」即敬德保民、谨慎戒惧，《大象传》里「君子以恐惧修省」之类盈篇累牍。</li>
+      <li>总时序：《大象传》最早；《文言》《系辞》成于七十子之世（战国初期）；《彖传》《说卦》不晚于战国中期；《小象》《序卦》可能是战国晚期作品。断代手法有「反命题」：惠施「天与地卑」是「天尊地卑」的反命题，可推知《系辞》在惠施之前。</li>
+    </ul>
+    <h4>二 作者</h4>
+    <ul>
+      <li>「孔子亲手所著」的传统说法已被否定，但孔子与《易传》关系密切不能否定。《论语》「五十以学《易》」；帛书《要》记孔子自辩好《易》「与史巫同途而殊归」，担心「后世之士疑丘者，或以《易》乎」。</li>
+      <li>《论语》引恒卦九三「不恒其德，或承之羞」后说「不占而已矣」：在孔子看来《周易》的用处是提高道德修养，用不着占筮。</li>
+      <li>《系辞》《文言》的「子曰」就是孔子曰：帛书《要》中这些话作「夫子曰」，对话的弟子是子贡。结论：思想源于孔子，战国孔门后学创造发挥，作者是孔子及其后学。</li>
+    </ul>
+    <h4>三 特质</h4>
+    <ul>
+      <li>《易传》有<span class="term">两套语言</span>：占筮语言（卦象、爻位、筮法）和哲学语言（宇宙变易法则、社会发展规律），多数时候合着讲，占筮中有哲理、哲理中有占筮。</li>
+      <li>读《易传》的方法论：不懂占筮语言，无法深入其哲理；什么都拿占筮作解，又只能陷入荒谬。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>各篇年代大幅早于疑古派：《文言》《系辞》定在战国初期，与郭沫若（战国末）、冯友兰（秦汉之际）、李镜池（西汉昭宣以后）针锋相对。《大象传》早于《彖传》并是其材料来源，与流行的「《大象》袭《彖》」说相反。以帛书《要》为据重建孔子与《易传》的思想联系。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec11">
+  <summary><span class="lec-no">第十一讲</span><span class="lec-title">《彖传》</span><span class="tog">▸</span><span class="lec-gist">解释卦辞的专篇。六大解经体例；思想上有乾元坤元的自然观、法天因人的政治观、尚中好谦的人生观。</span></summary>
+  <div class="lec-body">
+    <h4>一 体例（采黄沛荣说，分六项）</h4>
+    <ul>
+      <li>分析卦体：从八卦的卦象（乾为天）和卦德（乾健）两方面入手。如屯卦「雷雨之动满盈」以卦象释卦体，「动乎险中」以卦德释组合之义。</li>
+      <li>释卦名有义训（「师，众也」）、声训（「咸，感也」）、同字相训（「剥，剥也」）；探卦义或就本字推阐（谦卦从天道、地道、鬼神论到人道之谦），或就名义论述。</li>
+      <li>爻位术语成体系：<span class="term">中</span>指二、五爻；阳爻居中为<span class="term">刚中</span>；当位又居中为<span class="term">中正</span>，最吉；内外卦对应爻阴阳相配为<span class="term">应</span>，同性为<span class="term">敌</span>；阴爻压在阳爻上为<span class="term">乘</span>。分析爻位是为定<span class="term">主爻</span>：全传论主爻六十一个，九五 24 次、九二 13 次——贵中而尤贵刚中。</li>
+      <li>两大易理：一是<span class="term">时</span>——每卦代表一个具体形势，卦时是六爻变化的前提；二是「来」「往」「上」「下」「反」诸词都就<span class="term">反对卦</span>立说——讼「刚来而得中」，指讼九二自其颠倒卦需的九五而来。前人的爻变说、升降说此通彼不通，反对卦说全通。</li>
+    </ul>
+    <h4>二 思想</h4>
+    <ul>
+      <li>自然观：「大哉乾元，万物资始」「至哉坤元，万物资生」——乾元坤元是万物所以生成的首要根据，内涵就是刚柔；这两段占筮语言与哲学语言合一。另有交感说（「天地感而万物化生」）、盈虚消息说（「日中则昃，月盈则食」）、恒久说、顺动说。</li>
+      <li>政治观有两重性：一面把君臣父子的上下关系说成自然；另一面提出变革说，肯定「汤武革命，顺乎天而应乎人」。为防制度被革掉，又讲民本：尚贤养贤、「不伤财，不害民」、「损上益下」——这是《彖传》政治学说中最富积极意义的观点。</li>
+      <li>人生观：尚中守正（「中正以观天下」）；恶盈好谦——《谦·彖》从天道、地道、鬼神、人道四层论「亏盈益谦」，这种人生观从盈虚消息的自然观中推出来。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>「往来上下」应以反对卦解释，是全讲体例部分的核心创见。政治观在通行的「法天治人」之外补出「法天因人」一面（《贲·彖》「观乎人文，以化成天下」）。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec12">
+  <summary><span class="lec-no">第十二讲</span><span class="lec-title">大、小《象传》和《文言传》</span><span class="tog">▸</span><span class="lec-gist">《象传》当分为大、小两种，加上专释乾坤的《文言传》；三者各有解经体例，思想都属儒家，重点在民本政治和道德修养。</span></summary>
+  <div class="lec-body">
+    <h4>一 《大象传》</h4>
+    <ul>
+      <li>64 条释卦名卦义。体例每条两段：先分析上下二体的卦象并点出卦名，再讲君子观象所得的启示。如《遯》「天下有山，遯；君子以远小人，不恶而严」。熹平石经中《象传》独立成篇排在经文之后，今本分附各卦之下的样子并非本来面目。</li>
+      <li>乾坤两卦作「天行，健」「地势，坤」。作者主张「天行」后断句，「健」是卦名——帛书「乾」皆写作「键」（「健」的通假）可为证。据此《大象传》基本没有八卦德性象征之说。</li>
+      <li>只从正面立言：剥、明夷本是凶卦，却说「厚下安宅」「用晦而明」，凶中取吉，正合「《易》为君子谋，不为小人谋」。</li>
+      <li>思想是纯粹的儒家：政治上民本（《师》「容民畜众」、《谦》「裒多益寡，称物平施」），刑法上宽仁（《解》「赦过宥罪」、《中孚》「议狱缓死」）；人生观强调修省（《蹇》「反身修德」、《益》「见善则迁，有过则改」），另有「自强不息」「厚德载物」「远小人」诸说。解经的总特点：前半句讲天道，后半句讲人事，因天道而明人事。</li>
+    </ul>
+    <h4>二 《小象传》</h4>
+    <ul>
+      <li>386 条释 384 条爻辞和乾坤两条用辞。以爻位说为主兼取义说：爻德用阴阳刚柔（「潜龙勿用，阳在下也」；<span class="term">乘刚</span>指阴爻凌驾阳爻之上）；爻义讲得中、当位（「讼元吉，以中正也」）。</li>
+      <li>也重「反对」与「时」：益卦六二就是其反对卦损卦的六五，两爻爻辞都有「或益之十朋之龟」，「自外来也」揭示的正是反对卦关系。</li>
+      <li>引爻辞常为凑韵省字增字，有断章取义之嫌，读时须注意。</li>
+      <li>思想：既主张亲民尚贤（「以贵下贱，大得民也」），又以尊卑等级为前提；家庭观念男尊女卑；道德上明确提出「修身」（「不远之复，以修身也」）。</li>
+    </ul>
+    <h4>三 《文言传》</h4>
+    <ul>
+      <li>「文言」即文饰乾、坤两卦之言。乾坤为《易》之门户，特加解说，作为训释其余六十二卦的榜样。</li>
+      <li>释「元亨利贞」为善之长、嘉之会、义之和、事之干，引申出君子四德。释爻辞有问答式（「子曰」作答，解乾上九部分与《系辞》全同，说明两传有相同的材料来源）、定义式、引证式、重点注释式。</li>
+      <li>自然观提出「阳气」说：「『潜龙勿用』，阳气潜藏」——以阴阳二气解释阴阳爻，极具理论意义。爻位有<span class="term">天地人位</span>：五爻为天位、二爻为地位、三爻为人位。</li>
+      <li>人生观：大人「与天地合其德，与日月合其明」；修养靠「进德修业」（「忠信，所以进德也；修辞立其诚，所以居业也」）；处世要「知进退存亡，而不失其正」。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>「天行健」当断作「天行，健」，以帛书为铁证。《彖传》的取象说取自《大象传》，与一般认为《大象》晚出袭《彖》的看法相反。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec13">
+  <summary><span class="lec-no">第十三讲</span><span class="lec-title">《系辞传》</span><span class="tog">▸</span><span class="lec-gist">通论《易经》和筮法大义的专篇。以「一阴一阳之谓道」等命题，把《周易》从卜筮之书转换为哲理之书。</span></summary>
+  <div class="lec-body">
+    <h4>一 论占筮的原则和体例</h4>
+    <ul>
+      <li>通论性质，不逐卦讨论。爻象有刚柔阴阳说和<span class="term">三才</span>说：「兼三才而两之，故六」——一卦六爻，上二爻象天、中二爻象人、下二爻象地。爻位有「三多凶，五多功」「二多誉，四多惧」。</li>
+      <li>大衍章讲揲蓍成卦：大衍之数即天地之数五十五（「五十」后脱「有五」），四营十八变筮出一卦。</li>
+      <li>「《易》有太极，是生两仪」本是讲筮法（太极指四十九根筮策混而未分），但把求卦过程说成生化过程，后来学者由此提出宇宙形成论——哲学就这样从筮法中产生。</li>
+    </ul>
+    <h4>二 论《易经》的性质</h4>
+    <ul>
+      <li>「《易》有圣人之道四焉」：尚辞、尚变、尚象、尚占——卜占只居其一。预测原理是「神以知来，知以藏往」：蓍靠揲蓍成卦知来，卦靠卦爻辞记载的往事经验藏往，以故知新——把占筮哲理化了。</li>
+      <li>《易》是忧患之书：「《易》之兴也，其当殷之末世，周之盛德邪……是故其辞危。」「惧以终始，其要无咎。」忧患之辞使人警惕，辞若平易反会招祸。<span class="term">三陈九卦</span>：履、谦、复、恒、损、益、困、井、巽九卦各陈三次（「履，德之基也；谦，德之柄也……」），要人在忧患中提高道德境界，化凶为吉。</li>
+      <li>总评：《系辞传》把《周易》的卜筮功能降到极度，完成了从卜筮到哲理的创造性转换。</li>
+    </ul>
+    <h4>三 论《易经》的基本原理</h4>
+    <ul>
+      <li><span class="term">一阴一阳之谓道</span>：《周易》经文只有爻画，没有文字形式的阴阳范畴；明确用阴阳全面诠释《周易》，始于《系辞传》。此语三层含义：概括《周易》原理；概括万事万物的性质（天地、日月、寒暑、君子小人皆一阴一阳）；要求人从对立两面看事物——中国古代哲学两点论的代表，《系辞传》的一大贡献。</li>
+      <li>刚柔相推而生变化：「日往则月来……寒暑相推而岁成焉。」有<span class="term">变通</span>说：「穷则变，变则通，通则久。」变化既有规律（「天下之动，贞夫一者也」），又有偶然性（「阴阳不测之谓神」「不可为典要，唯变所适」）。</li>
+      <li>《易》与天地准：靠「观物取象」说论证——包牺氏仰观俯察始作八卦，《易》理源于自然。由此有圣人观象制器十三例：网罟取诸离、舟楫取诸涣、宫室取诸大壮、棺椁取诸大过、书契取诸夬。作者评价：说《易》出于对自然的摹写是朴素唯物论；把易卦夸大成包罗一切的绝对真理，又是唯心论的说教。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>「大衍之数五十有五」从金景芳说，与通行解释不同。点出从筮法到哲学的生成路径。把「一阴一阳之谓道」定位为中国哲学两点论的代表，对「《易》与天地准」作唯物、唯心两面评价。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec14">
+  <summary><span class="lec-no">第十四讲</span><span class="lec-title">《说卦传》</span><span class="tog">▸</span><span class="lec-gist">前两章论六画卦，后九章专说八卦的卦位、生成次序和取象体系——实际提出了一套以八卦为模式的万物生成论。</span></summary>
+  <div class="lec-body">
+    <h4>一 论六画卦</h4>
+    <ul>
+      <li>「兼三才而两之」：六爻分天、人、地三位（上五为天，四三为人，二初为地），再「分阴分阳」——天位分阴阳、地位分柔刚、人位分仁义。这种细致划分超出《系辞传》。</li>
+      <li>义理上，作《易》的目的是「将以顺性命之理」；学《易》的方法是<span class="term">穷理尽性以至于命</span>——穷天道之理、尽人之性，从而安身立命。对宋明理学影响极深。</li>
+      <li>有人说前两章是《系辞》错简，作者用帛书《衷》篇和熹平石经双重证据反驳：前三章入《说卦传》不晚于西汉，很可能早到先秦。</li>
+    </ul>
+    <h4>二 论八卦</h4>
+    <ul>
+      <li>校勘新说之一：第三章原文当依帛书作「天地定位，山泽通气，水火相射，雷风相薄」——水火相冲突故言相射，今本「不」字为衍文。只有这样，第四章的逆推次序才讲得通。</li>
+      <li>校勘新说之二：「《易》逆数也」的「逆」当作「达」（帛书字形相近易混）：卦位圆图既可顺数又可逆推，故云「达于数」。帛书《要》篇孔子「幽赞而达乎数」可为佐证。</li>
+      <li>第五章讲后天卦位（「帝出乎震」），八卦配八方八时；七至十一章是另一系统，以乾坤父母生六子为序，没有方位概念。</li>
+      <li>取象体系影响深远：乾有马、首、天、君、父、玉、金等象，坎有豕、耳、水、沟渎、盗等象。作者的关键论断：众多引申之象，都从八种基本物象（天地雷风水火山泽）和八种基本卦义（健顺动入陷丽止悦）引发而来——坎为耳，因耳是头部之洼坑，取「陷」义；兑为巫，因兑为女、为口，女巫恃口取食。</li>
+      <li>八卦论实际是万物生成论：八种基本物象构成万物产生的基础，「雷以动之……坤以藏之」描述万物从萌发到收藏的周期。这种生成论是对黄河流域节气变化和农业生产的总结。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>「逆数」当作「达数」、第三章依帛书校定，都是他据出土文献提出的校勘新说。反对把前两章判为《系辞》错简（有专文《〈周易·说卦传〉错简说新考》）。指明八卦生成论根植于农业经验。</div>
+  </div>
+</details>
+
+<details class="lec" id="lec15">
+  <summary><span class="lec-no">第十五讲</span><span class="lec-title">《序卦传》与《杂卦传》</span><span class="tog">▸</span><span class="lec-gist">两传都论卦序卦义：《序卦传》给今本卦序建立因果链条，《杂卦传》以相反见义。作者的评价：后者信实，前者浮夸。</span></summary>
+  <div class="lec-body">
+    <h4>一 《序卦传》</h4>
+    <ul>
+      <li>按上下经分两段，给六十四卦建立因果链条。相因分三种：相承（「讼必有众起，故受之以师」）、条件（「物稚不可不养也，故受之以需」）、蕴涵（「物生必蒙」）；相反指前后卦逆转（「物不可以终通，故受之以否」）。</li>
+      <li>思想三点：「盈天地之间者，唯万物」，宇宙中没有真空；「有天地，然后有万物；有万物，然后有男女……」承认先有自然界后有人类社会，见解深刻，但打上宗法制度的烙印；「物不可以终穷」——全经以未济而非既济结束，事物永远在变易之中。</li>
+    </ul>
+    <h4>二 《杂卦传》</h4>
+    <ul>
+      <li>今本易传中最短的一篇，通篇韵文。以卦象对举见义：「乾刚坤柔，比乐师忧；临观之义，或与或求。」前五十六卦二二相耦、非覆即变；篇末八卦失序，显系错简，蔡渊据体例和韵脚改定为大过颐、既济未济、归妹渐、姤夬四组，其说为是。</li>
+      <li>韩康伯说《杂卦传》「或以同相类，或以异相明」。作者逐条分析后判定：所谓「以同相类」的例子全部是「以异相明」——《杂卦传》就是以卦体相反为据、系统探讨六十四卦卦义之作。</li>
+      <li>训释多有新意：「咸，速也；恒，久也」——男女相感如谈恋爱故短，成家过日子故长；「蒙杂而著」是由蒙蔽到曝光。</li>
+      <li>总评价：《杂卦传》惜墨如金，每个字的分析都经得起检验；《序卦传》立意高，但因果链条多为它加给本经的新东西，难以令人信从。易学史上《序卦传》浮夸的因果链条遮盖了《杂卦传》信实的相反为义说，「是治《易》者不思之过」。</li>
+      <li>《杂卦传》的主要范畴是刚柔：首句「乾刚坤柔」，结尾「君子道长，小人道忧」——全传以反对为结构、以刚柔为主线。</li>
+    </ul>
+    <div class="viewpoint"><div class="vp-t">作者独特观点</div>判定《杂卦传》全篇皆「以异相明」，修正韩康伯以来的通行理解。明确扬《杂卦》抑《序卦》，为一篇长期被轻视的短传翻案。</div>
+  </div>
+</details>
+
+<section id="appendix">
+  <h2 class="sec"><small>结尾</small>附录与后记</h2>
+  <p class="sec-desc">书末附录收《周易》经、传全部原文（《易经》六十四卦卦爻辞 + 《易传》十篇），按作者自己的断句和校勘排印，读十五讲时可随时翻查对照。这份原文本身就体现了他的学术判断——断句、用字都与通行本有出入。</p>
+  <p class="sec-desc">修订版后记交代了第二版改了什么：初版写于 2004 年「非典」期间，闭户赶成。这次修订最大的改动集中在第四至七讲的卦爻辞部分和附录经文的断句——「元」由程度副词改训为「善」，「小」字多独自为句，「恤」由「忧虑」改释为「停止」，断句和释义随之全面调整。其他各讲只订正错文误字。后记末尾附了初版到重版八年间发表的二十篇《周易》论文目录。</p>
+  <div class="viewpoint"><div class="vp-t">这本书的读法（据第一讲）</div>作者给初学者的路线：先学易学史，从源溯流；以经传为本，旁及其他；象辞一体，义理是本、象数是手段；掌握《易》例；重视出土材料与传世文献互证。他开的书单：黄寿祺、张善文《周易译注》（初学首选），金景芳、吕绍纲《周易全解》，朱伯崑《易学哲学史》，刘大钧《周易概论》。</div>
+  <div class="footnote">
+    据廖名春《〈周易〉经传十五讲（第二版）》（北京大学出版社，2012）整理。各讲主旨、要点和引文均出自原书；逐卦一句话为原书讲法的概括，示意性质，精读请回到原书对应讲次。生成于 2026-08-05。
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+// scroll-spy for sidebar
+(function () {
+  var links = document.querySelectorAll('nav.side a[href^="#"]');
+  var map = {};
+  links.forEach(function (a) {
+    var el = document.querySelector(a.getAttribute('href'));
+    if (el) map[a.getAttribute('href').slice(1)] = a;
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) { a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, { rootMargin: '-10% 0px -70% 0px' });
+  Object.keys(map).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+})();
+// expand / collapse all lectures
+function setAll(open) {
+  document.querySelectorAll('details.lec').forEach(function (d) { d.open = open; });
+}
+// open the lecture card when jumped to via hash
+window.addEventListener('hashchange', function () {
+  var el = document.querySelector(location.hash);
+  if (el && el.tagName === 'DETAILS') el.open = true;
+});
+
+var _dr=document.getElementById("drawer"),_dl=document.getElementById("drawerlist");
+if(_dr&&_dl){
+  document.getElementById("tocbtn").addEventListener("click",function(){_dr.classList.add("open")});
+  _dr.addEventListener("click",function(e){if(e.target===_dr)_dr.classList.remove("open")});
+  var _links=document.querySelectorAll("#toc a, nav.side a, nav.toc a");
+  _links.forEach(function(a){
+    var c=a.cloneNode(true);c.className="";c.style.cssText="";
+    if(a.classList.contains("sub"))c.style.paddingLeft="24px";
+    _dl.appendChild(c);
+  });
+}
+
+</script>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+</body>
+</html>

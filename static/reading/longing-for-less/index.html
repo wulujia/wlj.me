@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="Kyle Chayka《The Longing for Less》阅读指南——极简主义的两种写法，四组人物，四章逐章精读。">
+<link rel="canonical" href="https://wlj.me/reading/longing-for-less/">
+<title>The Longing for Less · 阅读指南</title>
+<style>
+:root{
+  --bg:#faf9f5; --panel:#ffffff; --ink:#23272e; --muted:#6d7480; --line:#e5e1d6;
+  --gold:#8a6d1d; --gold-soft:#f4ecd7; --navy:#1e3a5f; --hl:#fff3c4;
+  --chip:#eef0f4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15171c; --panel:#1d2026; --ink:#d8d5cf; --muted:#9aa0a8; --line:#33373f;
+    --gold:#d4af5a; --gold-soft:#2c2717; --navy:#9fc0e8; --hl:#4a3f14;
+    --chip:#282c34;
+  }
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:16px; line-height:1.75;
+}
+a{color:var(--gold); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── 顶栏 ── */
+.top{
+  position:sticky; top:0; z-index:50; background:var(--panel);
+  border-bottom:1px solid var(--line); padding:10px 20px;
+}
+.top-inner{max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.top h1{font-size:15px; font-weight:600; white-space:nowrap; color:var(--navy)}
+.top h1 em{font-style:normal; color:var(--gold)}
+#q{
+  flex:1; min-width:180px; padding:7px 12px; border:1px solid var(--line); border-radius:8px;
+  background:var(--bg); color:var(--ink); font-size:14px; outline:none;
+}
+#q:focus{border-color:var(--gold)}
+.cats{display:flex; gap:6px; flex-wrap:wrap}
+.cats button{
+  border:1px solid var(--line); background:var(--chip); color:var(--ink);
+  border-radius:999px; padding:4px 12px; font-size:13px; cursor:pointer;
+}
+.cats button.on{background:var(--gold); border-color:var(--gold); color:#fff}
+@media (prefers-color-scheme: dark){ .cats button.on{color:#15171c} }
+#count{font-size:12px; color:var(--muted); white-space:nowrap; min-width:70px; text-align:right}
+
+/* ── 布局 ── */
+.wrap{max-width:1200px; margin:0 auto; padding:28px 20px 80px; display:grid; grid-template-columns:248px minmax(0,1fr); gap:36px}
+#toc{
+  position:sticky; top:66px; align-self:start;
+  max-height:calc(100vh - 90px); overflow-y:auto; padding-right:8px;
+  font-size:13.5px;
+}
+#toc .grp{margin:14px 0 4px; font-size:11px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase}
+#toc a{
+  display:block; padding:4px 10px; color:var(--ink); border-left:2px solid transparent;
+  border-radius:0 6px 6px 0; line-height:1.45;
+}
+#toc a:hover{background:var(--chip); text-decoration:none}
+#toc a.cur{border-left-color:var(--gold); color:var(--gold); background:var(--gold-soft); font-weight:600}
+#toc .no{color:var(--muted); font-size:11px; margin-right:6px}
+#toc a.cur .no{color:var(--gold)}
+@media (max-width:1080px){
+  .wrap{grid-template-columns:1fr}
+  #toc{display:none}
+}
+
+/* ── 正文区块 ── */
+.sec{margin-bottom:56px; scroll-margin-top:80px}
+.sec>h2{
+  font-size:22px; color:var(--navy); border-bottom:2px solid var(--gold);
+  padding-bottom:8px; margin-bottom:18px; font-weight:700;
+}
+.sec>h2 .no{color:var(--gold); font-size:15px; margin-right:10px; font-weight:600}
+.sec h3{font-size:16.5px; margin:26px 0 10px; color:var(--navy)}
+.sec p{margin-bottom:12px}
+.lead{color:var(--muted); font-size:15px; margin-bottom:16px}
+.f{scroll-margin-top:80px}
+
+ul.pts{list-style:none; margin-bottom:14px}
+ul.pts li{padding:7px 0 7px 18px; position:relative; border-bottom:1px dashed var(--line)}
+ul.pts li:last-child{border-bottom:none}
+ul.pts li::before{content:"▪"; color:var(--gold); position:absolute; left:0; top:7px; font-size:12px}
+
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px; margin-bottom:12px;
+}
+.card h4{font-size:15px; color:var(--navy); margin-bottom:6px}
+.card p{margin-bottom:6px; font-size:14.5px}
+.card .src{font-size:12.5px; color:var(--muted)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; margin-bottom:14px}
+.grid2 .card{margin-bottom:0}
+
+blockquote{
+  border-left:3px solid var(--gold); background:var(--gold-soft);
+  padding:10px 16px; margin:14px 0; border-radius:0 8px 8px 0; font-size:15px;
+}
+blockquote .en{display:block; color:var(--muted); font-size:13px; margin-top:6px}
+
+.tbl{overflow-x:auto; margin-bottom:16px; border:1px solid var(--line); border-radius:10px; background:var(--panel)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:560px}
+th{
+  text-align:left; padding:9px 12px; background:var(--chip); color:var(--navy);
+  font-size:13px; white-space:nowrap; border-bottom:1px solid var(--line);
+}
+td{padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-weight:700; color:var(--gold); white-space:nowrap}
+.tag{
+  display:inline-block; background:var(--chip); color:var(--muted); border-radius:5px;
+  padding:1px 7px; font-size:12px; margin-right:4px; white-space:nowrap;
+}
+
+/* 术语表 */
+.terms{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:10px}
+.term{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:11px 14px}
+.term b{color:var(--navy); font-size:14.5px}
+.term .en{color:var(--gold); font-size:13px}
+.term p{font-size:13.5px; margin:4px 0 0; color:var(--ink)}
+.term .go{font-size:12px}
+
+/* 时间线 */
+.tl{list-style:none; border-left:2px solid var(--gold); margin:8px 0 8px 6px; padding-left:22px}
+.tl li{position:relative; padding-bottom:16px}
+.tl li::before{
+  content:""; position:absolute; left:-28px; top:7px; width:10px; height:10px;
+  border-radius:50%; background:var(--gold);
+}
+.tl .d{font-weight:700; color:var(--navy); margin-right:8px; white-space:nowrap}
+
+/* 交叉引用高亮 */
+.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%,55%{background:var(--hl)} 100%{background:transparent}}
+@media (prefers-reduced-motion: reduce){ .flash{animation:none; outline:2px solid var(--gold)} }
+
+/* 回顶部 */
+#toTop{
+  position:fixed; right:22px; bottom:26px; width:42px; height:42px; border-radius:50%;
+  border:1px solid var(--line); background:var(--panel); color:var(--gold);
+  font-size:18px; cursor:pointer; display:none; box-shadow:0 2px 10px rgba(0,0,0,.12);
+}
+#toTop.show{display:block}
+
+.note{font-size:13px; color:var(--muted); margin-top:6px}
+footer{max-width:1200px; margin:0 auto; padding:20px; color:var(--muted); font-size:12.5px; border-top:1px solid var(--line)}
+mark{background:var(--hl); color:inherit; border-radius:2px}
+
+
+#tocbtn{position:fixed;right:18px;bottom:18px;z-index:70;border:1px solid var(--line,var(--code-border,#073642));background:var(--card,var(--background));color:var(--ink,var(--foreground));border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;box-shadow:0 4px 18px rgba(0,0,0,.13)}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper,var(--background));border-left:1px solid var(--line,var(--code-border,#073642));padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2,var(--foreground));text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a:hover{background:var(--card,var(--code-border))}
+@media print{#tocbtn,#drawer,.searchwrap{display:none!important}}
+
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回阅读材料</a></div>
+
+
+<header class="top">
+  <div class="top-inner">
+    <h1>The Longing for Less · <em>断舍离的前世今生</em></h1>
+    <input id="q" type="search" placeholder="搜索：人名、概念、章节…（如 Judd、iki、Marfa、白立方）">
+    <div class="cats">
+      <button data-cat="all" class="on">全部</button>
+      <button data-cat="guide">导读</button>
+      <button data-cat="deep">逐章精读</button>
+      <button data-cat="ref">速查表</button>
+      <button data-cat="how">阅读建议</button>
+    </div>
+    <span id="count"></span>
+  </div>
+</header>
+
+<div class="wrap">
+<nav id="toc">
+  <div class="grp">导读</div>
+  <a href="#s01"><span class="no">§ 01</span>这是一本什么书</a>
+  <a href="#s02"><span class="no">§ 02</span>核心论点</a>
+  <a href="#s03"><span class="no">§ 03</span>全书结构地图</a>
+  <div class="grp">逐章精读</div>
+  <a href="#s04"><span class="no">§ 04</span>第一章 · 减法 Reduction</a>
+  <a href="#s05"><span class="no">§ 05</span>第二章 · 空 Emptiness</a>
+  <a href="#s06"><span class="no">§ 06</span>第三章 · 静 Silence</a>
+  <a href="#s07"><span class="no">§ 07</span>第四章 · 影 Shadow</a>
+  <div class="grp">速查</div>
+  <a href="#s08"><span class="no">§ 08</span>人物索引</a>
+  <a href="#s09"><span class="no">§ 09</span>关键概念</a>
+  <a href="#s10"><span class="no">§ 10</span>时间线</a>
+  <a href="#s11"><span class="no">§ 11</span>反复出现的四个母题</a>
+  <div class="grp">读法</div>
+  <a href="#s12"><span class="no">§ 12</span>批判性阅读提示</a>
+  <a href="#s13"><span class="no">§ 13</span>三种读法</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ § 01 ═══════════ -->
+<section class="sec" id="s01" data-cat="guide" data-title="这是一本什么书 chayka 作者 缘起 overview">
+<h2><span class="no">§ 01</span>这是一本什么书</h2>
+<p class="lead">书名直译是「对少的渴望」。它不是一本教你扔东西的书，读之前先弄清这一点，能省掉很多失望。</p>
+
+<div class="card f">
+<h4>作者</h4>
+<p>Kyle Chayka，美国文化记者，长期给《纽约客》《纽约时报》写艺术与互联网文化评论。2010 年大学毕业时正赶上金融危机余波，先去北京一家艺术杂志实习，后在布鲁克林辗转多个合租房，靠宜家家具过日子——他自称「被迫的极简主义者」。这本书 2020 年出版，是他的第一本书。他后来更为人知的作品是 2024 年的《Filterworld》（算法品味）。</p>
+</div>
+
+<div class="card f">
+<h4>它要回答的问题</h4>
+<p>2016–2018 年，「极简主义」在美国从一个 1960 年代的前卫艺术术语，变成 Instagram 上一千三百万条标签、Netflix 爆款综艺、Gap 卖的一件 T 恤。Chayka 想搞清楚这个词是怎么走完这段路的，以及被磨掉的那部分原意是什么。</p>
+<p class="src">他的做法是写四组人物传记，而不是写一部编年史。理由见 <a href="#s03">§ 03</a>。</p>
+</div>
+
+<div class="card f">
+<h4>一句话总结</h4>
+<p>今天流行的 minimalism 是消费主义的一种新皮肤——用买「更少但更好」的东西来缓解买太多的焦虑。而真正值得捡回来的那个 Minimalism，是艺术家、作曲家、哲学家用「减少」来逼自己直面世界的方法：它让事情变复杂，不是变简单。</p>
+</div>
+
+<div class="card f">
+<h4>体量</h4>
+<p>正文四章，每章八小节，约 66,000 词。人物从公元前三世纪的芝诺一路排到 2018 年的马尔法小镇。第四章之后是致谢、注释（约 130 条）、索引。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 02 ═══════════ -->
+<section class="sec" id="s02" data-cat="guide" data-title="核心论点 大写M 小写m 渴望 longing for less 第二个身体">
+<h2><span class="no">§ 02</span>核心论点</h2>
+
+<h3>两个 minimalism</h3>
+<p class="f">全书的骨架是分清两个同名的东西。Chayka 用大小写区分：小写 m 的 minimalism 指今天的生活方式与视觉风格，大写 M 的 Minimalism 指 1960 年代纽约的艺术运动。它们共用一个词，指的事完全不同。</p>
+<div class="tbl"><table>
+<thead><tr><th>维度</th><th>小写 m：生活方式极简</th><th>大写 M：艺术极简</th></tr></thead>
+<tbody>
+<tr class="f"><td>目的</td><td>减少焦虑，获得掌控感</td><td>取消解释，逼出感知</td></tr>
+<tr class="f"><td>手段</td><td>扔东西、买更贵更少的东西</td><td>把作品做成不指涉任何东西的实体</td></tr>
+<tr class="f"><td>观感</td><td>让人舒服、干净、可拍照</td><td>让人不适、无聊、甚至恼火</td></tr>
+<tr class="f"><td>结果</td><td>房间变整齐，世界照旧</td><td>你对「什么算美」的定义被动摇</td></tr>
+<tr class="f"><td>代表</td><td>近藤麻理惠、The Minimalists、Muji</td><td>Judd、Flavin、Agnes Martin、Cage</td></tr>
+</tbody></table></div>
+
+<h3>「对少的渴望」是什么</h3>
+<div class="card f">
+<h4>作者给的定义</h4>
+<p>一种反复出现在不同时代、不同文明里的感觉：觉得周围的文明太多了、太满了，因此丢掉了某种本真，必须找回来。这种感觉指向的那个「更简单的世界」既不在过去也不在未来，永远差一步够不着。</p>
+<p class="src">Chayka 认为英语里没有一个词能准确描述这种「既被淹没又被疏离」的状态，minimalism 之所以能席卷全球，部分原因就是它被拿来填了这个空位。</p>
+</div>
+
+<h3>四个论证支点</h3>
+<ul class="pts">
+  <li class="f"><b>极简总是跟在危机后面。</b>1930 年代大萧条出了 Richard Gregg 的「自愿简朴」，1970 年代能源危机与越战后出了 Duane Elgin 的同名畅销书，1990 年代裁员潮出了 Janet Luhrs，2008 年金融危机之后出了博客派极简主义和近藤麻理惠。同一个念头每隔几十年换个名字回来一次。</li>
+  <li class="f"><b>极简会抹掉自己的来历。</b>每一波都表现得像是从零开始。Elgin 把 Gregg 的概念缩写成 VS，听着像个技术产品。Chayka 说这是这套东西的天性：承认自己在复兴某个传统，就显得不够激进了。</li>
+  <li class="f"><b>简约的外表要靠庞大的后台撑着。</b>乔布斯 1982 年那张空房子照片里，音响价值约 8200 美元，那盏台灯是蒂芙尼古董。iPhone 握在手里干净利落，背后是服务器农场、海底电缆、锡矿泥坑。Chayka 借英国作家 Daisy Hildyard 的「第二个身体」来说这件事：我们同时是那个走在人行道上的人，和飘过太平洋的污染的来源。</li>
+  <li class="f"><b>看起来简单，代价往往更高。</b>Eames 躺椅四千美元起，Judd 的椅子 2100 美元、书桌 9000 美元。「看上去这么简单，是很花钱的」——这是第一章的收尾判断。</li>
+</ul>
+
+<blockquote class="f">极简主义是一种实践，需要时间展开。它把简单的事变得更复杂，不是反过来。
+<span class="en">第一章第八节，作者对「深层极简」的定义</span></blockquote>
+</section>
+
+<!-- ═══════════ § 03 ═══════════ -->
+<section class="sec" id="s03" data-cat="guide" data-title="结构地图 四章 八节 网格 grid 目录">
+<h2><span class="no">§ 03</span>全书结构地图</h2>
+<p class="lead">四章分别处理极简主义的四种品质，每章八节。作者说编年史对这个题目太因果化了——它的观念没有单一路径，更像一种在不同时空反复出现的感觉。</p>
+<div class="tbl"><table>
+<thead><tr><th>章</th><th>品质</th><th>主线人物</th><th>这一章要说的事</th></tr></thead>
+<tbody>
+<tr class="f"><td>1 <a href="#s04">§ 04</a></td><td>Reduction 减法</td><td>Sonrisa Andersen、斯多葛派、梭罗、近藤麻理惠、乔布斯、Agnes Martin</td><td>扔东西这件事的两千年谱系，以及它为什么总是个人化的避难策略</td></tr>
+<tr class="f"><td>2 <a href="#s05">§ 05</a></td><td>Emptiness 空</td><td>Philip Johnson、Donald Judd、Walter De Maria</td><td>空的两面：解放，和控制。以及空如何被商品化成公寓样板间</td></tr>
+<tr class="f"><td>3 <a href="#s06">§ 06</a></td><td>Silence 静</td><td>Satie、Brian Eno、John Cage、Julius Eastman</td><td>两种静：把世界挡在外面的静，和让你听见更多的静</td></tr>
+<tr class="f"><td>4 <a href="#s07">§ 07</a></td><td>Shadow 影</td><td>清少纳言、谷崎润一郎、九鬼周造、西谷启治</td><td>日本美学如何成为西方极简的根，以及这个根本身也是现代合成的</td></tr>
+</tbody></table></div>
+
+<div class="card f">
+<h4>结构本身就是内容</h4>
+<p>作者说这本书的结构像一张网格，或者一个可以随意走动的空间。人物之间的关系不只来自相似，也来自他们之间的空白——每个对象、艺术家、思想家在实践上的差异。他在导言里挪用了近藤的话收尾：留下让你有感觉的那些就行。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 04 ═══════════ -->
+<section class="sec" id="s04" data-cat="deep" data-title="第一章 减法 reduction 斯多葛 梭罗 gregg elgin 近藤麻理惠 konmari 乔布斯 agnes martin">
+<h2><span class="no">§ 04</span>第一章 · 减法 Reduction</h2>
+<p class="lead">从一个俄亥俄州的航空生理技师讲起，讲到一位在新墨西哥沙漠画格子的九十二岁女画家。八节走完一条从「扔东西」到「减到只剩必须画的那条线」的路。</p>
+
+<h3>入口：Sonrisa Andersen</h3>
+<div class="card f">
+<h4>一个具体的人</h4>
+<p>母亲是囤积症患者，厨房桌上的衣服堆到天花板。她十七岁参军离家，后来在俄亥俄安定下来，却发现家里出现了两台咖啡机、十把锅铲、三辆车和一堆债。她 google「怎么减压」，搜出了极简主义博客。清空之后她还清了账单和丈夫的助学贷款，还花了整整一年决定要不要买那个 20 美元的玻璃随行杯（买了，值）。</p>
+<p class="src">几年后她退出了本地极简主义 Facebook 群，也不再每周听播客。她的结论：「我们的生活本来就没什么问题。」这句话是全书的第一个落点，也在第四章结尾被重新召回。</p>
+</div>
+
+<h3>两千年的谱系</h3>
+<ul class="pts">
+  <li class="f"><b>芝诺（前三世纪）</b>：雅典富商，散尽家财去研究哲学，在柱廊（stoa）讲学，斯多葛由此得名。</li>
+  <li class="f"><b>西塞罗（前 46 年）</b>：《斯多葛悖论》里说，拥有豪宅与权力的人，欲望之渴永远填不满，还要额外承受失去的恐惧。他也承认自己没做到。</li>
+  <li class="f"><b>塞内加（65 年卒）</b>：一边给尼禄当老师一边坐拥巨富，自己拷问自己的虚伪。留下一句关键区分：不要把缺少金银当成简朴生活的证据。他的立场是「哲学要求朴素，不要求苦修」。</li>
+  <li class="f"><b>圣方济各（十三世纪）</b>：把自我牺牲做成了行为艺术。修道院给他造的单间太精良，他要求先抹上泥和树叶才肯睡。追随者绝食到快死，他只好陪着一起吃饭。</li>
+  <li class="f"><b>梭罗（1845–47）</b>：湖畔小屋建在爱默生的地上，走路就能回康科德镇中心吃他母亲做的饭。Chayka 引凯瑟琳·舒尔茨在《纽约客》的评价——自恋、对自控近乎狂热。他还开了一个坏头：认为这种开明的简朴在别处别时早已存在（「中国、印度、波斯、希腊的古代哲人」），而那些人多半有仆人或奴隶。</li>
+  <li class="f"><b>Richard Gregg（1936）</b>：跟甘地学过，提出「自愿简朴」。批评广告业和无止境的小玩意儿，主张用「心理财富」（艺术、友谊、爱）替代物品。他的一个判断在今天读来很准：东西多了，每天要做的决定就多，人因此紧张。</li>
+  <li class="f"><b>Duane Elgin（1977）</b>：把 Gregg 的概念重新包装成 VS，写成畅销书，被《华尔街日报》称为简朴运动的圣经。他甚至预见了社交媒体时代：物质简朴会越来越「审美化」而非「苦行化」，每个人都要考虑自己的消费方式是否优雅得体。</li>
+</ul>
+
+<div class="card f">
+<h4>作者对这条谱系的判断</h4>
+<p>斯多葛、方济各、梭罗共有一种回避策略：在社会显得混乱或灾难时，退回自我。它面向的是生存，不是改变现状。「你的卧室可能更干净了，世界还是那么糟。」</p>
+<p class="src">Gregg 有一个更值得警惕的推论：如果特权阶层主动选择过得少一点，穷人对自己「被迫的简朴」就不会那么自卑。Chayka 直接点破这是把结构问题当表面问题处理，且这套叙事今天还在——只要穷人多挣少花，就不穷了。</p>
+</div>
+
+<h3>近藤麻理惠这一节</h3>
+<div class="grid2">
+  <div class="card f"><h4>时间线</h4><p>19 岁开始职业整理，参加一个叫「如何写出十年畅销书」的出版课被编辑发掘。日文版 2011 年出版，同年海啸成为放大器——又一次国家级创伤让人重新审视自己和物品的关系。英文版 2014 年出，2019 年元旦上 Netflix。</p></div>
+  <div class="card f"><h4>方法的实质</h4><p>Chayka 的读法：KonMari 提供的是「选择的错觉」。你决定什么留下，但她规定怎么叠、怎么收、怎么摆——也就是你该怎么跟它相处。顺序是硬性的：衣服→书→文件→杂物→纪念品。</p></div>
+  <div class="card f"><h4>仪式的来源</h4><p>丢弃前先感谢物品，源自神道教的万物有灵，近藤做过神社巫女。这一层让整理带上了宗教感，也让它更难被反驳。</p></div>
+  <div class="card f"><h4>代价</h4><p>Netflix 里那位被要求砍掉圣诞装饰收藏的女士。杂物确实是问题，清空之后家也被消了毒。作者的用词是 sanitized——整洁成了人人都得遵守的正常状态，不管它看起来多无聊。</p></div>
+</div>
+
+<h3>乔布斯那张照片</h3>
+<p class="f">1982 年，Diana Walker 拍的：乔布斯盘腿坐在洛斯加托斯空荡荡的地板上，一块地毯、一盏灯、一只杯子。这张照片被当成极简生活的图腾。Chayka 拆开它：房子对一个单身年轻人来说过大，音响约 8200 美元，台灯是蒂芙尼古董。他把这跟建筑师沙利文 1896 年的「形式追随功能」对照——那个空客厅并不好用。乔布斯的原则更接近 SoHo 橱窗上那句广告语：更少，更好。宁可没沙发，也不要一张不完美的沙发。</p>
+<p class="f">对照组是伊姆斯夫妇 1949 年的八号案例住宅：双层挑高、光线充足，同时挂满了纸灯笼、部落玩偶、鸟雕塑、原色画作。什么都不搭，但什么都放在一起了。查尔斯·伊姆斯形容自己的房子「不自觉」（unselfconscious）。Chayka 说这是他心目中「深层极简」的样子——东西多也可以是极简的。</p>
+
+<h3>收尾：Agnes Martin</h3>
+<div class="card f">
+<h4>为什么她是第一章的终点</h4>
+<p>2016 年 10 月，大选前夕，古根海姆开她的回顾展。六英尺见方的画布，铅笔画的格子、淡色条纹，安静到近乎不存在。展览成了那个冬天很多纽约人的避难所，朋友们在 Instagram 上转发它像在示威。</p>
+<p class="src">与此同时，H&amp;M 旗下的 COS 赞助了这个展，礼品店里卖着格子图案的单色衬衫外套。J.Crew 门店里挂着仿马丁的画。商业化从来没有缺席。</p>
+</div>
+<ul class="pts">
+  <li class="f">她本人否认自己是极简主义者，自认是抽象表现主义者。她重视手工的不完美。</li>
+  <li class="f">她患精神分裂症，画作的构想来自她认为来自体外的幻视，同样的声音也命令她严格节食、不许拥有房产。看上去像修道式苦行的生活，同时是应对疾病的策略。</li>
+  <li class="f">1967 年阁楼被拆、感情破裂、拿到一笔资助，她买了辆重型厢式车离开纽约，在美国四处露营，最后定居新墨西哥沙漠村庄。停笔整整六年。</li>
+  <li class="f">她的日常并不清苦：听大音量的贝多芬，开白色奔驰飙车，偶尔在镇上通宵喝酒跳舞。</li>
+  <li class="f">2002 年的纪录片里，九十岁的她蘸一次蓝色颜料，沿铅笔线画一条条纹，画到一半要坐下来喘口气再回去画完。Chayka 用这一幕定义他要找的东西：看上去什么都不是，实际上是一辈子存在主义式训练的结果。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 05 ═══════════ -->
+<section class="sec" id="s05" data-cat="deep" data-title="第二章 空 emptiness 玻璃屋 philip johnson mies judd 白立方 marfa 地球屋 earth room 比尔巴鄂效应">
+<h2><span class="no">§ 05</span>第二章 · 空 Emptiness</h2>
+<p class="lead">全书最有力的一章。两个男人各自造了一座房子来定义「空」，一个把它变成控制，另一个把它变成让人不安的自由。</p>
+
+<h3>Philip Johnson 与玻璃屋（1949）</h3>
+<div class="card f">
+<h4>基本事实</h4>
+<p>康涅狄格州新迦南，56 英尺 × 32 英尺，四面全玻璃，室内除一个砖砌圆柱外无隔墙。它比密斯的范斯沃斯住宅先建成——约翰逊 1947 年在 MoMA 密斯回顾展上看到了尚未动工的图纸，抢先做了，并且比密斯更狠：把所有东西都去掉，压进一个单一空间。</p>
+</div>
+<ul class="pts">
+  <li class="f"><b>它其实很不好用。</b>没有内部通风，玻璃结露滴水；屋顶漏，下雨要在四角放桶；冬天地暖开到visitors不能光脚走。电线水管埋在房子下面，接到草坪对面那栋不透明的砖屋里藏起来。</li>
+  <li class="f"><b>它是名片，不是住宅。</b>沃霍尔来过，地下丝绒在旁边草地演出过，凯奇办过音乐会。画家贾斯培·琼斯回忆约翰逊与伴侣 David Whitney 的「无情的优雅」——不允许有杂乱。建筑师 Robert A. M. Stern 的说法是：每一朵花都知道自己在花瓶里该待哪个位置。</li>
+  <li class="f"><b>约翰逊自己的话。</b>接受《Esquire》采访时说舒适不在他的兴趣范围内，任何美的环境里人都会觉得舒适。他给的装饰公式：选很少的几件东西，把它们精确地放好。</li>
+  <li class="f"><b>它的政治底色。</b>约翰逊早年为纳粹奔走募款，1993 年自己称之为「难以置信的愚蠢」。Chayka 认为这份倾向体现在建筑的严苛本身——一座为一个人建、由一个人建的房子，带着一种支配性的占有欲。</li>
+  <li class="f"><b>最好的一个细节。</b>他第一次在玻璃屋过夜，打开壁灯，光在玻璃内侧反射，外面的风景全没了，只剩他自己的倒影。他慌得给同事打电话，说你必须马上过来，我打开灯，看到的全是我我我我我。解决办法是在屋外也装灯，把树照亮。</li>
+</ul>
+<div class="card f">
+<h4>「less is more」的出处</h4>
+<p>这句话通常算在密斯头上，但它最早的英文出处是勃朗宁 1855 年的诗，写文艺复兴画家安德烈亚·德尔·萨托——技法完美却无感情。诗里德尔·萨托承认别人画得没他好，却有更真的东西。Chayka 说约翰逊展示的正是这种「负面的完美」。</p>
+</div>
+
+<h3>Donald Judd</h3>
+<div class="card f">
+<h4>他一辈子都在骂这个词</h4>
+<p>1969 年的文章开头第一句是「我有很多不满」。1981 年给《Village Voice》的信里说：第一个错误是根本不存在极简主义，第二个错误是把某些特征安给了一个不存在的东西。他 1976 年跟采访者说，宁可他们骂他的作品，也别用「极简」这个词。</p>
+<p class="src">这个词的实际来源：英国艺术理论家 Richard Wollheim 1965 年的文章《Minimal Art》，说这批作品的特点是「艺术内容极少」。</p>
+</div>
+<ul class="pts">
+  <li class="f"><b>「特定物体」（1965）。</b>Judd 自己的理论文章。他认为绘画已经无聊透顶，雕塑因为总在模仿已存在的东西（人、动物、风景）而不原创。他要的是一种整体性——作品的所有部分构成一个只依赖自身的整体。他给这个品质的词是 specific。</li>
+  <li class="f"><b>Wollheim 的关键辩护。</b>极简艺术确实有劳动，只是这份劳动是策展式而非体力的：材料、处理、尺度的选择是创作行为，决定「完成了」也是。这份功夫在最终成品上看不见——所以 2016 年欧盟委员会一度把进口的 Flavin 灯管作品按工业品而非艺术品征税，税率高三倍。</li>
+  <li class="f"><b>今天的「极简」跟他们没什么关系。</b>Flavin 的多色灯装置是刺眼且有攻击性的，草间弥生的雕塑是繁复且令人不适的，Chamberlain 把车祸残骸做成作品，全是锋利边缘。这些东西你不会想摆在家里。</li>
+</ul>
+
+<h3>101 Spring Street 与马尔法</h3>
+<div class="grid2">
+  <div class="card f"><h4>SoHo 的那栋楼（1968，68,000 美元）</h4><p>五层铸铁厂房，每层一个功能，不设隔墙。实际状态跟他的公众形象相反：厨房里有摩卡壶、Chemex、大水壶、Wüsthof 刀具和一台熟食切片机；架子上堆着葡萄酒、威士忌和清酒杯；地板上有一个半世纪磨进木头的绿漆点。什么都不搭，但什么都在一起。</p></div>
+  <div class="card f"><h4>他的图书馆</h4><p>马尔法的两个图书室共一万三千多册，从冰岛萨迦到日本美学、启蒙哲学、性心理学。Chayka 的判断：极简主义可以很拥挤，只要你买得起放东西的空间。</p></div>
+  <div class="card f"><h4>100 件铝制无题作品（1986）</h4><p>两座 1939 年的炮兵仓库，改成玻璃窗+半圆钢屋顶。一百个尺寸完全相同的铝盒，每一个内部结构都不同。作者的体验：光反射到分不清哪里是内哪里是外，走在其中会怕。</p></div>
+  <div class="card f"><h4>15 件混凝土无题作品（1980–84）</h4><p>沙漠里近一公里长的一排混凝土箱。要用身体去走完它。里面有动物做的窝、躲阴的大蛾子、羚羊粪。作者的判断：没有维护的话自然会慢慢覆盖它们，但在沙漠里会很慢——气候变化下它们可能比周围的生命活得更久，作为废墟留下。</p></div>
+</div>
+
+<div class="card f">
+<h4>这一章最锋利的一段</h4>
+<p>Judd 1986 年 12 月的日记：雨后沙漠开花，他看见一只长耳大野兔跳进海市蜃楼消失。他写道，这片土地和兔子、鹌鹑、蜥蜴、虫子都不知道这里很美；观察只属于我们，如同蜥蜴对虫子的看法。观察没有相关性、没有效力、没有客观性，所以这片土地并不美——谁说了算呢。它只是存在。</p>
+<p class="src">Chayka 认为这是极简主义最有力也最吓人的洞见：人类几千年积累的关于美的感觉，本身也是人造物，并不像我们以为的那样理所当然。</p>
+</div>
+
+<h3>空如何被卖掉</h3>
+<ul class="pts">
+  <li class="f"><b>白立方。</b>Brian O'Doherty 1976 年的文章：白墙表面的中立是一种错觉，它替整个艺术行业的预设和偏见站台。今天的空房间起同样作用——它把任何物件框成前卫艺术，哪怕那是个宜家柜子。</li>
+  <li class="f"><b>Rosalind Krauss 的阁楼（1977）。</b>白色柱子、白色台面、白色床台。Janet Malcolm 1986 年的评语：看完它，自家忽然显得杂乱、未成形、平庸。Krauss 说这空间的好处是你想放什么都行。Judd 不同意：空间恰恰决定了你能放什么。</li>
+  <li class="f"><b>比尔巴鄂效应。</b>文化投资加高调建筑等于经济复兴。马尔法走了同一条路。Judd 的儿子 Flavin 的原话：像是把汉普顿搬到了沙漠中间，除了律师没人住得起。</li>
+  <li class="f"><b>Prada Marfa（2005）。</b>公路边一个上锁的玻璃盒，里面摆着 Prada 包，是 Elmgreen &amp; Dragset 的装置作品，讽刺极简主义变成消费品的全过程。今天它是网红打卡点，作者听见游客问它几点开门。</li>
+</ul>
+
+<h3>纽约地球屋（1977 至今）</h3>
+<p class="f">Walter De Maria 的作品：SoHo 一间 3600 平方英尺的白色阁楼里堆着两英尺深的泥土，同一批泥土从 1977 年放到现在。管理员 Bill Dilworth 从 1989 年守到今天，每周浇水翻土让它不长东西。很多人从它面前走过去，不知道那就是作品。有人问他这是什么意思，他把人推回去自己看。Chayka 把这当成极简主义哲学的核心示范：接受没有答案。</p>
+</section>
+
+<!-- ═══════════ § 06 ═══════════ -->
+<section class="sec" id="s06" data-cat="deep" data-title="第三章 静 silence 感官剥夺 satie 家具音乐 eno ambient cage 4分33秒 julius eastman 深度聆听">
+<h2><span class="no">§ 06</span>第三章 · 静 Silence</h2>
+<p class="lead">这一章处理一个更难的对象：空间可以清空，注意力不行。它把「静」分成两类，一类是屏障，一类是入口。</p>
+
+<h3>作者自己的实验：漂浮舱</h3>
+<div class="card f">
+<h4>数据与体验</h4>
+<p>华盛顿一家 float spa，四个舱，每个约三万美元，一小时 70 美元。医学名称是 REST（限制性环境刺激技术）。研究显示一到两小时可让皮质醇下降约 25%，提高内感受（对呼吸心跳的觉察），降低总体焦虑。有实验拿它跟看 90 分钟《地球脉动》对比，漂浮在放松与宁静的自评上明显更好。</p>
+<p class="src">作者本人有幽闭恐惧，进舱前是害怕的。最后的判断带着不适：他在消费工业化的寂静，按小时付费，为了应对二十一世纪的过度刺激，把自己关进了一个石器时代的洞穴。</p>
+</div>
+
+<h3>四个作曲家，四种静</h3>
+<div class="grid2">
+  <div class="card f"><h4>Erik Satie · 家具音乐（1920）</h4><p>为一场戏的幕间创作，节目单上写明请不要留意它。结果观众全都安静地坐回位子专心听，Satie 在大堂里挥着手喊：继续说话！走动！别听！同伴米约的解释是，他没算到自己的音乐这么迷人。</p></div>
+  <div class="card f"><h4>Vexations（1893）</h4><p>三分钟的曲子，Satie 注明要连奏 840 遍。直到 1963 年凯奇才第一次完整实现。作者在古根海姆听了五小时——不是无聊，是被催眠；离场走到中央公园旁的马路上，汽车、喇叭、地铁的声音听起来比刚才的钢琴更像音乐。</p></div>
+  <div class="card f"><h4>Brian Eno · 环境音乐（1975/78）</h4><p>起因是他被伦敦出租车撞了，躺在家里放竖琴唱片，音量调得太低还只有一个声道，懒得起身去调，于是就那样听下去。他的定义：环境音乐必须既可以被忽略，也足够有趣。</p></div>
+  <div class="card f"><h4>John Cage · 4'33"（1952）</h4><p>首演当晚，第一乐章起风吹过树林，第二乐章下起小雨打在木屋顶上，第三乐章观众开始交谈和退场，制造出更强的声响。Cage 要的就是这些。他的原则：不存在寂静这回事。</p></div>
+</div>
+
+<div class="card f">
+<h4>4'33" 不是一个段子</h4>
+<p>它是多年准备的结果。前置条件包括：1930 年代末在钢琴里塞螺丝木片的「加料钢琴」；1948 年就想做一首叫《静默祈祷》的曲子卖给 Muzak 公司（4'33" 的长度接近一张标准 Muzak 唱片）；1951 年用《易经》投币决定曲式的《变之乐》；师从铃木大拙学禅；劳森伯格 1951 年的全白绘画（凯奇形容为「光、影和微粒的机场」）。最后是钢琴家 David Tudor 推动它才真的上演。</p>
+<p class="src">凯奇引禅宗的一句话解释他的极端：如果一件事两分钟后变得无聊，试四分钟；还无聊，八分钟、十六分钟、三十二分钟，最终你会发现它一点都不无聊。</p>
+</div>
+
+<h3>Julius Eastman：这一章真正的重点</h3>
+<div class="card f">
+<h4>他是谁</h4>
+<p>1940 年生，黑人、同性恋、极简主义作曲家。1968 年加入布法罗的 Creative Associates。1975 年他在演出凯奇的《歌集》时，把作品当成身份政治的场域，在台上半戏谑地讲性、并当众为一名男性脱衣。坐在观众席的凯奇震怒，在讲座上说 Eastman 的自我封闭在同性恋这个主题上，因为他没有别的观念可表达。</p>
+<p class="src">Eastman 自己的表述：我要做的是把我所是的做到极致——彻底的黑人，彻底的音乐家，彻底的同性恋者。Chayka 认为这同样是极简主义：如果这套东西的核心是回到根本，那它也可以意味着揭开个体自我的根本。</p>
+</div>
+<ul class="pts">
+  <li class="f"><b>《Stay on It》（1973）</b>：一段几秒的迪斯科式旋律无限循环，乐手轮流用高音单调地喊出标题那句话。它欢快、吵闹、甚至好笑——这些品质在标准的极简主义清冷里是缺席的。</li>
+  <li class="f"><b>三首四架钢琴的作品（约 1979）</b>：其中两首的标题用了一个种族蔑称，是他刻意为之。他的解释是这个词指的是「那种把自己扎进任何事物根基里的东西……那个根本的、拒绝浮华与优雅的东西」。</li>
+  <li class="f"><b>结局</b>：1980 年代初找不到学术工作，被警察逐出公寓、手稿从窗户扔出去，住在汤普金斯广场公园，拒绝朋友的帮助。1990 年独自回到布法罗，死于医院，记录写的是心脏骤停。</li>
+  <li class="f"><b>抢救</b>：1998 年作曲家 Mary Jane Leach 想给学生放他的曲子，发现连正式录音都没有，由此开始一场跨越二十年的寻谱与转录。今天 YouTube 的推荐算法在这件事上帮了忙。</li>
+</ul>
+
+<div class="card f">
+<h4>Chayka 用他做什么论证</h4>
+<p>极简主义常常走向一种令人窒息的雷同，它在字面和隐喻两个意义上都在漂白——把外来影响的西方化、消毒版本抬高，同时淡化它们的出处，把成果重新包装成孤独天才的高妙艺术。Eastman 证明这套语言可以用来表达差异而非相似。简单可以是起点，不必是终点。</p>
+</div>
+
+<h3>另一条线索：深度聆听</h3>
+<p class="f">作曲家 Pauline Oliveros 1980 年代提出的概念，受 4'33" 启发。她区分 hearing 与 listening：耳朵一直在接收声波，聆听是给予注意。作者在朝圣 4'33" 首演地 Maverick 音乐厅那天，先听到的是吹叶机、公路噪音、头顶飞机，很失望；后来手机冻关机，他爬上一道岩脊坐下，听见了一股看不见源头的泉水滴进小水潭的声音。「只要水还在流，它就一直响，无论有没有人听。」</p>
+</section>
+
+<!-- ═══════════ § 07 ═══════════ -->
+<section class="sec" id="s07" data-cat="deep" data-title="第四章 影 shadow 日本 禅 mu 无 清少纳言 枕草子 源氏物语 物哀 谷崎润一郎 阴翳礼赞 九鬼周造 iki 粋 西谷启治 花道 枯山水 龙安寺">
+<h2><span class="no">§ 07</span>第四章 · 影 Shadow</h2>
+<p class="lead">最长也最私人的一章。作者去东京和京都，追一条从平安时代的《枕草子》到 1930 年代京都学派的线。核心论点：西方极简的「日本根源」本身就是一个现代的、双向的合成物。</p>
+
+<h3>破题：为什么是日本</h3>
+<div class="card f">
+<h4>投射的对象</h4>
+<p>西方语境里的极简主义总是对立性的——干净对杂乱，缺席对在场，安静对喧闹。它反对的价值（工业化生产、消费物质主义）通常被认为是西方的、美国的，所以它天然需要一个「他者」。近代以来日本一直是这个位置最方便的候选。</p>
+<p class="src">作者的证据链：密斯的玻璃几何结构以日式移门和格纸窗为先例；Judd 的图书馆里有佛教、禅诗和两本道家房中术；凯奇和 Agnes Martin 直接引禅；Muji 这个名字字面意思就是「无品牌」。</p>
+</div>
+<div class="card f">
+<h4>这一章的关键反转</h4>
+<p>这种「他者＝简朴」的连接是人造的。日本的极简美学也是现代的、合成的产物：它在明治开国、二战与战后的政治冲突中成形，一部分动力来自日本对西方影响的抵抗，另一部分来自战后西方自身的身份危机。两边都在这个过程中删改了历史。</p>
+</div>
+
+<h3>《枕草子》与《源氏物语》（约 1000 年）</h3>
+<ul class="pts">
+  <li class="f"><b>清少纳言</b>拿到一沓珍贵的纸，在灯下写下宫廷的琐事。作者的形容是「一千年前的博客」——把世界拆成有趣与讨厌、美与丑、诗意与平庸，首先是在注意。</li>
+  <li class="f"><b>阴影里的美学</b>。很多场景发生在昏暗中：帘幕、屏风、拉门后面，或者夜里。透过车帘的缝隙瞥见一张脸或一件华服，比看全了更诱人。平安人重视一种未解决的品质，含混比清晰更美也更真。</li>
+  <li class="f"><b>物哀</b>。落叶、日暮时给岩石镶边的光，忽然让人意识到生命短暂——「事物的哀感」。</li>
+  <li class="f"><b>反面</b>。这两本书里的物质文化浓得近乎消费主义。清少纳言评判同僚看的是衣料、马车尺寸、仆从举止。Ian Buruma 对平安贵族的评价是「多半无聊到发疯」。品味是那个社会的首要身份符号，跟今天极简主义的策展癖是同一种折磨。</li>
+  <li class="f"><b>清少纳言本人的结局</b>被她自己删掉了。她侍奉的中宫失势、早逝，她自己或改嫁小官或出家，晚景贫寒。《枕草子》里一个字都没提。她写过「人们求我不要有所遗漏」，而那些明显的省略正是要点。</li>
+</ul>
+
+<h3>谷崎润一郎《阴翳礼赞》（1933）</h3>
+<div class="card f">
+<h4>论点</h4>
+<p>美不在物本身，在阴影的图案里，在一物与另一物造出的明暗之间。他批评西方式的进步是永不停歇地追求更亮的光，不遗余力消灭最细微的阴影。</p>
+<p class="src">这个比喻今天成了字面事实：2016 年一项研究发现美国和欧洲 99% 以上的人口生活在光污染的天空下。</p>
+</div>
+<ul class="pts">
+  <li class="f">他写这篇文章时住在京都，起因是想给自己设计一栋房子，要让电线、煤气管、自来水管跟日式房间的素净共处。</li>
+  <li class="f">他自己承认这套趣味不合时宜，也自嘲。他一生搬过三十多处住所。有个建筑师说自己读过《阴翳礼赞》所以完全知道他要什么，谷崎的回答是：不，那样的房子我可住不了。</li>
+  <li class="f">英文版 1977 年由缅因州一家小出版社 Leete's Island Books 首印，封面是一扇格纸门的黑白照片，几十年、十几次印刷、卖出十万册以上，封面从没换过。</li>
+  <li class="f">作者在马尔法 Judd 的私人图书馆书架上撞见了同一个封面的旧版——摆在显眼位置。</li>
+</ul>
+
+<h3>九鬼周造与「粋」（iki）</h3>
+<div class="card f">
+<h4>作者怎么撞上他的</h4>
+<p>2017 年他发现自己不知不觉开始只穿灰色，朋友寄来九鬼 1930 年的《「いき」の構造》。文中说颜色要有粋，必须以克制的方式说出二元性；「谛」（akirame）是对命运的无执，为此没有比灰色更合适的。</p>
+</div>
+<ul class="pts">
+  <li class="f"><b>生平</b>：1888 年生于东京，父亲是外交官男爵，母亲是艺伎出身。母亲与《茶之书》作者冈仓天心的私情拆散了这个家，少年九鬼把冈仓当成精神与艺术上的父亲。1911 年他改宗天主教，取名方济各。</li>
+  <li class="f"><b>八年欧洲</b>：马赛、海德堡、巴黎、弗莱堡。在胡塞尔家里见到海德格尔。在巴黎每周跟一个叫萨特的年轻活动家学法语。他写短诗投回日本，署名 S. K.。</li>
+  <li class="f"><b>粋是什么</b>：一种都市人的漫不经心，同时调情与忧郁、热烈却不承诺。九鬼说粋的存在依赖于把可能性保持为可能性；它「在感性的肯定中藏着一个幽暗的否定」。他举的例子包括薄纱、刚沐浴的女子、垂柳、竖条纹、赤足、纸灯笼的柔光。</li>
+  <li class="f"><b>Chayka 的异议</b>：九鬼坚持粋只有日本人能懂。作者不同意——济慈 1817 年的「消极感受力」（能安处于不确定、神秘与疑惑，而不急躁地追索事实与理性）说的是同一件事的另一面。把这种价值判给某一个民族，恰恰否定了定义它的开放与张力。</li>
+  <li class="f"><b>代价</b>：他从未公开反对过日本的战争路线，只私下帮一位胡塞尔的犹太学生 Karl Löwith 在东北大学谋了个临时教职。1941 年因腹膜炎去世，53 岁。他的墓在京都法然院墓地，碑侧刻着西田几多郎译并书的歌德《漫游者的夜歌》。</li>
+</ul>
+
+<div class="card f">
+<h4>这一章最重的一句判断</h4>
+<p>暴力民族主义使用的正是冈仓提出、九鬼在《粋的构造》里展开的那套「美学与民族绑定」的连接：一个民族必须保有一种排除所有其他人的、正统的存在方式。艺术或品味变成政治是灾难性的。作者引本雅明 1936 年的话：法西斯主义的逻辑结果是政治生活的审美化，而一切审美化政治的努力最终都汇向一点——战争。</p>
+<p class="src">紧接着是他对整个「极简」态度的警告：想让一切都恰到好处、彼此匹配成一个统一整体的欲望，很容易滑向不宽容。</p>
+</div>
+
+<h3>西谷启治论花道（1953）</h3>
+<p class="f">京都学派学者，战时立场偏向国家主义，战后被禁止担任公职，转向宗教与艺术。他把花道跟战后欧洲流行的存在主义并置：萨特说人先存在、遭遇自身、涌现于世，然后才定义自己。西谷认为花道也是如此——插花人剪断花茎的那一刻，停止了植物为延续而与时间对抗的过程，把它冻结在一个「无生无灭」的状态里，在瓶中维持三四天。这三四天是「在时间中浮现的、暂时的永恒」。</p>
+<p class="f">他区分两种艺术：西方的那种追求恒久（石造教堂、王室肖像），最终因为否认自身的暂时性而变得虚假，教堂塌成废墟、画布碎裂；日本的那种通过拥抱时间来接近永恒。关键是他没有把这个价值判给日本人独有，而是指出它在工业化之后被各处共享——他在蒙田、尼采、里尔克和存在主义者那里都找到了它。Chayka 补一句：他在极简主义视觉艺术和音乐里也会找到。Judd 在马尔法的那些盒子，就像一朵朵花道的花。</p>
+
+<h3>收尾：龙安寺（十六世纪）</h3>
+<ul class="pts">
+  <li class="f"><b>基本事实</b>：25 米 × 10 米的耙纹砂地，十五块石头以奇数分组不对称摆放。别名「无庭」——就是哲学家们用的那个「无」。</li>
+  <li class="f"><b>它的感知机关</b>：站在廊上的任何位置，永远只能看见十四块石头，因为它们互相遮挡。要全看见得浮在空中。Will Petersen 1957 年称之为「视觉公案」。</li>
+  <li class="f"><b>它并不抽象</b>：石头是有象征的——耙纹是中国园林水景的替代物，石头分别指山、瀑布（因为有矿脉纹路）、渡河的虎与幼崽。平安时代的《作庭记》要求造园者依照石头的意愿来布置。「纯粹抽象」这个读法是现代人倒着安上去的。</li>
+  <li class="f"><b>作者看到的现场</b>：廊上挤满学生用中日文数石头，数到十四就倒吸一口气；游客举着手机自拍；专业摄影师架三脚架。他自己因为在本子上画石头被保安制止（只许拍照，柜台有官方画作出售，只收现金）。</li>
+  <li class="f"><b>他的结论</b>：这一切本可以显得糟糕和不真诚，污染了那个本该神圣的空虚。而他看到的是戏剧性的简单与不受管束的生活并排存在。缺席的美学可以在生活的喧闹核心里被找到，而不必与它隔离——吵闹的、温暖的、没有一堵白墙。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 08 ═══════════ -->
+<section class="sec" id="s08" data-cat="ref" data-title="人物索引 名单 人物表 who is who">
+<h2><span class="no">§ 08</span>人物索引</h2>
+<p class="lead">按出场章节排。看不下去全书时，可以只挑其中三五个人的段落读。</p>
+<div class="tbl"><table>
+<thead><tr><th>人物</th><th>章</th><th>身份</th><th>在书里承担什么</th></tr></thead>
+<tbody>
+<tr class="f"><td>Sonrisa Andersen</td><td class="num">1</td><td>航空生理技师</td><td>普通人视角的入口与出口，全书唯一一个「用完就放下」的人</td></tr>
+<tr class="f"><td>Zeno / Cicero / Seneca</td><td class="num">1</td><td>斯多葛哲学家</td><td>两千年前就有的同一套论证，以及同一套自我豁免</td></tr>
+<tr class="f"><td>圣方济各</td><td class="num">1</td><td>修会创始人</td><td>苦修的极端形态：舒适地不舒适</td></tr>
+<tr class="f"><td>梭罗</td><td class="num">1</td><td>作家</td><td>美国式简朴的原型，以及它的特权底色与东方想象</td></tr>
+<tr class="f"><td>Richard Gregg</td><td class="num">1</td><td>甘地学徒</td><td>1936 年提出「自愿简朴」，预言了选择过载</td></tr>
+<tr class="f"><td>Duane Elgin</td><td class="num">1</td><td>趋势预测者</td><td>1977 年重新包装同一概念，预言了社交媒体式的策展型真实</td></tr>
+<tr class="f"><td>近藤麻理惠</td><td class="num">1</td><td>整理咨询师</td><td>方法的仪式性与「选择的错觉」</td></tr>
+<tr class="f"><td>Steve Jobs</td><td class="num">1</td><td>企业家</td><td>1982 年那张照片：简约外表与昂贵后台</td></tr>
+<tr class="f"><td>Charles &amp; Ray Eames</td><td class="num">1</td><td>设计师</td><td>作者心目中「深层极简」的正面样本：拥挤但成立</td></tr>
+<tr class="f"><td>Agnes Martin</td><td class="num">1</td><td>画家</td><td>第一章终点：减到只剩一条线，背后是一辈子的训练与疾病</td></tr>
+<tr class="f"><td>Philip Johnson</td><td class="num">2</td><td>建筑师</td><td>空作为控制；玻璃屋；纳粹前史</td></tr>
+<tr class="f"><td>Mies van der Rohe</td><td class="num">2</td><td>建筑师</td><td>包豪斯末任校长，范斯沃斯住宅，「less is more」的挂名者</td></tr>
+<tr class="f"><td>Donald Judd</td><td class="num">2</td><td>艺术家 / 批评家</td><td>全书篇幅最大的人物；「特定物体」；马尔法；一生反对被叫极简</td></tr>
+<tr class="f"><td>Walter De Maria</td><td class="num">2</td><td>艺术家</td><td>纽约地球屋；沉默的力量</td></tr>
+<tr class="f"><td>Brian O'Doherty</td><td class="num">2</td><td>批评家</td><td>「白立方」概念的提出者</td></tr>
+<tr class="f"><td>Anna Chave</td><td class="num">2</td><td>艺术史学者</td><td>1990 年《极简主义与权力修辞》：空白的脸也可以是资本与权威的脸</td></tr>
+<tr class="f"><td>Erik Satie</td><td class="num">3</td><td>作曲家</td><td>家具音乐；Vexations；无聊作为素材</td></tr>
+<tr class="f"><td>Brian Eno</td><td class="num">3</td><td>音乐人</td><td>环境音乐的发明；可忽略与有趣的双重标准</td></tr>
+<tr class="f"><td>John Cage</td><td class="num">3</td><td>作曲家</td><td>4'33"；不存在寂静；也是 Eastman 那件事的另一方</td></tr>
+<tr class="f"><td>Julius Eastman</td><td class="num">3</td><td>作曲家</td><td>第三章的重心：用极简表达差异而非相似</td></tr>
+<tr class="f"><td>Pauline Oliveros</td><td class="num">3</td><td>作曲家</td><td>「深度聆听」：hearing 与 listening 的分别</td></tr>
+<tr class="f"><td>清少纳言</td><td class="num">4</td><td>宫廷女官</td><td>《枕草子》；注意力作为方法；有意的省略</td></tr>
+<tr class="f"><td>紫式部</td><td class="num">4</td><td>宫廷女官</td><td>《源氏物语》；物哀；阴影里的意义</td></tr>
+<tr class="f"><td>冈仓天心</td><td class="num">4</td><td>策展人 / 作家</td><td>《茶之书》；「审美民族主义」的源头之一</td></tr>
+<tr class="f"><td>谷崎润一郎</td><td class="num">4</td><td>小说家</td><td>《阴翳礼赞》；影的诗学；自嘲的分寸</td></tr>
+<tr class="f"><td>九鬼周造</td><td class="num">4</td><td>哲学家</td><td>粋；偶然性；作者在京都墓地的那一段</td></tr>
+<tr class="f"><td>西谷启治</td><td class="num">4</td><td>京都学派</td><td>花道与存在主义；把无常从民族专属里放出来</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ═══════════ § 09 ═══════════ -->
+<section class="sec" id="s09" data-cat="ref" data-title="关键概念 术语 specific object 白立方 非地方 mu 物哀 iki 消极感受力 第二个身体">
+<h2><span class="no">§ 09</span>关键概念</h2>
+<div class="terms">
+  <div class="term f"><b>特定物体</b> <span class="en">specific object</span><p>Judd 1965 年提出。指一件作品的所有部分构成一个只依赖自身的整体，不指涉任何先已存在的东西。它是极简艺术最接近「定义」的一个词，Judd 用它替代他讨厌的 Minimalism。</p></div>
+  <div class="term f"><b>白立方</b> <span class="en">white cube</span><p>O'Doherty 1976 年提出。空白画廊墙面看似中立，实际替整个艺术行业的预设背书，作用相当于十九世纪的镀金画框。今天的极简室内起同样作用：空房间把任何物件框成艺术品。</p></div>
+  <div class="term f"><b>非地方</b> <span class="en">non-place</span><p>人类学家 Marc Augé 1992 年提出。机场、车站、酒店大堂、商场这类只供穿过的空间，没有历史记忆、个体身份和固定关系。他的判断：人在这些地方永远在家，也永远不在家。</p></div>
+  <div class="term f"><b>通用城市</b> <span class="en">the generic city</span><p>库哈斯 1995 年提出。全球城市趋同，个性让位于流动性与增长潜力，因为大量城市生活已经迁移到网络空间。他形容这种氛围产生的感受「稀薄而涣散」。</p></div>
+  <div class="term f"><b>第二个身体</b> <span class="en">the second body</span><p>Daisy Hildyard 2017 年提出。你走在人行道上的那个身体，和同时作为污染源、气候变化成因的那个集体身体。Chayka 用它解释 iPhone 的简约外形与它背后的庞大后台之间的落差。</p></div>
+  <div class="term f"><b>无</b> <span class="en">mu / sunyata</span><p>不是「没有」，是一个作为在场的总体缺席之场。无门慧开的说法是：别把它当成通常那个表示「没有」的否定符号。他给的形象是吞下去吐不出来的烧红铁球。</p></div>
+  <div class="term f"><b>物哀</b> <span class="en">mono no aware</span><p>「事物的哀感」。落叶或日暮的光忽然让人意识到生命易逝。它同时是《源氏物语》和《枕草子》的美学基座，也是日本佛教对无常的接受方式。</p></div>
+  <div class="term f"><b>粋</b> <span class="en">iki</span><p>九鬼周造 1930 年解剖的江户都市趣味：调情而不消费，热烈而不承诺。它的存在依赖于把可能性保持为可能性——最接近的西方对应物是济慈的「消极感受力」。</p></div>
+  <div class="term f"><b>消极感受力</b> <span class="en">negative capability</span><p>济慈 1817 年提出。人能够安处于不确定、神秘与疑惑之中，而不急躁地去追索事实和理性。Chayka 用它反驳九鬼「粋只有日本人能懂」的主张。</p></div>
+  <div class="term f"><b>淡</b> <span class="en">blandness</span><p>法国哲学家于连《淡之颂》讨论的中国美学概念：缺少突出特征本身是价值。不张扬的人胜过健谈的魅力型人物。作者认为这是极简主义的另一个前身。</p></div>
+  <div class="term f"><b>深度聆听</b> <span class="en">Deep Listening</span><p>Pauline Oliveros 1980 年代提出。hearing 是耳朵在接收，listening 是给予注意。它要把感知扩展到声音的整个时空连续体。</p></div>
+  <div class="term f"><b>无名的品质</b> <span class="en">quality without a name</span><p>建筑师 Christopher Alexander 1979 年提出，后来他改称「完整」。指一种从自然的模式与活动里有机生长出来的恰到好处。作者说乔布斯的空客厅里没有这个东西，伊姆斯的房子里有。</p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 10 ═══════════ -->
+<section class="sec" id="s10" data-cat="ref" data-title="时间线 年表 chronology">
+<h2><span class="no">§ 10</span>时间线</h2>
+<p class="lead">书里的事件不按时间排，这张表把它们拉直，方便看清「危机→极简」的节奏。</p>
+<ul class="tl">
+  <li class="f"><span class="d">前 3 世纪</span>芝诺散尽家财，在雅典柱廊讲学，斯多葛学派成立</li>
+  <li class="f"><span class="d">6 世纪</span>佛教经朝鲜传入日本；菩提达摩把禅带入中国</li>
+  <li class="f"><span class="d">约 1000</span>清少纳言写《枕草子》，紫式部写《源氏物语》</li>
+  <li class="f"><span class="d">1192</span>山中僧兵推翻平安贵族政权，镰仓幕府建立</li>
+  <li class="f"><span class="d">16 世纪</span>龙安寺石庭建成；茶室凹间（床の間）成形</li>
+  <li class="f"><span class="d">1853</span>佩里的黑船开国；1868 年明治维新开始</li>
+  <li class="f"><span class="d">1855</span>勃朗宁的诗里出现 "less is more" 的英文原型</li>
+  <li class="f"><span class="d">1893</span>Satie 写下 Vexations，注明连奏 840 遍</li>
+  <li class="f"><span class="d">1896</span>沙利文提出「形式追随功能」</li>
+  <li class="f"><span class="d">1901 / 1906</span>冈仓天心写《东洋的理想》与《茶之书》</li>
+  <li class="f"><span class="d">1919</span>格罗皮乌斯创立包豪斯</li>
+  <li class="f"><span class="d">1920</span>Satie 首演「家具音乐」，被观众认真聆听而恼火</li>
+  <li class="f"><span class="d">1930</span>九鬼周造发表《「いき」の構造》</li>
+  <li class="f"><span class="d">1932</span>约翰逊在 MoMA 办展，命名「国际风格」</li>
+  <li class="f"><span class="d">1933</span>谷崎润一郎《阴翳礼赞》；同年纳粹关闭包豪斯</li>
+  <li class="f"><span class="d">1936</span>Richard Gregg 发表《自愿简朴的价值》；本雅明写下法西斯与审美化的判断</li>
+  <li class="f"><span class="d">1941</span>九鬼周造病逝，53 岁</li>
+  <li class="f"><span class="d">1945–46</span>广岛长崎；日本投降；天皇发表《人间宣言》</li>
+  <li class="f"><span class="d">1949</span>玻璃屋落成；伊姆斯八号案例住宅落成</li>
+  <li class="f"><span class="d">1951–52</span>劳森伯格《白色绘画》；凯奇 4'33" 首演于伍德斯托克 Maverick</li>
+  <li class="f"><span class="d">1953</span>西谷启治写花道与存在主义</li>
+  <li class="f"><span class="d">1963</span>Judd 在 Green Gallery 首次个展；凯奇完整实现 Vexations</li>
+  <li class="f"><span class="d">1965</span>Judd 发表《特定物体》；Wollheim 发表《Minimal Art》，这个词由此固定</li>
+  <li class="f"><span class="d">1968</span>Judd 以 68,000 美元买下 101 Spring Street</li>
+  <li class="f"><span class="d">1973</span>Judd 开始在马尔法置产；Eastman 写《Stay on It》</li>
+  <li class="f"><span class="d">1975</span>Eno 因车祸卧床，写出《Discreet Music》；Eastman 与凯奇冲突</li>
+  <li class="f"><span class="d">1977</span>Elgin 出版《自愿简朴》；De Maria 装置地球屋；《阴翳礼赞》英文版首印</li>
+  <li class="f"><span class="d">1978</span>Eno 发表《Music for Airports》，正式命名 ambient</li>
+  <li class="f"><span class="d">1980–86</span>Judd 完成马尔法的混凝土与铝制两组大作</li>
+  <li class="f"><span class="d">1990</span>Eastman 于布法罗去世；Anna Chave 发表《极简主义与权力修辞》</li>
+  <li class="f"><span class="d">1994</span>Judd 病逝，65 岁</li>
+  <li class="f"><span class="d">2008</span>金融危机；Joshua Becker 开博客 Becoming Minimalist</li>
+  <li class="f"><span class="d">2010–11</span>The Minimalists 成立并自出版；近藤麻理惠日文版出版，同年日本海啸</li>
+  <li class="f"><span class="d">2014</span>《怦然心动的人生整理魔法》英文版出版</li>
+  <li class="f"><span class="d">2016</span>The Minimalists 纪录片上 Netflix；Agnes Martin 古根海姆回顾展</li>
+  <li class="f"><span class="d">2017</span>Google 搜索「minimalism」在一月冲上峰值；作者在辛辛那提遇见 Andersen</li>
+  <li class="f"><span class="d">2018</span>作者去马尔法、东京、京都；纽约举办 Eastman 音乐节</li>
+  <li class="f"><span class="d">2019</span>《麻理惠的整理魔法》元旦上线 Netflix，热潮再起</li>
+  <li class="f"><span class="d">2020</span>本书出版</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 11 ═══════════ -->
+<section class="sec" id="s11" data-cat="ref" data-title="母题 模式 pattern 重复出现 四个母题">
+<h2><span class="no">§ 11</span>反复出现的四个母题</h2>
+<p class="lead">四章讲的是四种品质，但真正把全书缝起来的是下面这四个反复出现的动作。读的时候留意它们出现在谁身上。</p>
+
+<div class="grid2">
+  <div class="card f"><h4>① 抹掉自己的来历</h4><p>Elgin 把 Gregg 的概念缩成 VS。Judd 否认存在极简主义。日本的「传统」美学被重新发明成民族本质。Chayka 说这是这套东西的本能：承认自己在复兴什么，就不够激进了。</p></div>
+  <div class="card f"><h4>② 从别处进口纯粹</h4><p>梭罗说古代中国、印度、波斯的哲人最富于内在。Gregg 说印度婆罗门和「中国的领袖们」已经活在开明的简朴里。二十世纪的美国人去京都学禅。每一代人都相信真正的朴素在别人那里。</p></div>
+  <div class="card f"><h4>③ 简约的外表要靠昂贵的后台</h4><p>塞内加的酒窖，乔布斯的蒂芙尼台灯，玻璃屋漏水要靠地暖和藏在砖屋里的管线，Judd 说自己的家具不是普适设计而椅子卖 2100 美元。看上去这么简单，是很花钱的。</p></div>
+  <div class="card f"><h4>④ 危机之后，极简回来一次</h4><p>大萧条→Gregg；石油危机与越战后→Elgin；1990 年代裁员潮→Luhrs；2008 年金融危机→博客派与近藤；9·11 之后→《迷失东京》；战后废墟→西方转向日本的缺席美学。</p></div>
+</div>
+
+<div class="card f">
+<h4>第五个，也是作者最在意的一个：极简的政治风险</h4>
+<p>这条线贯穿全书但从不点破，直到第四章才收口。约翰逊的法西斯同情体现在建筑的严苛里。Anna Chave 说极简主义空白的脸可以是资本、权威、父亲的脸。九鬼的美学民族主义被军国主义拿去当理由。作者的表述很克制：想让一切都恰到好处、彼此匹配成一个统一整体的欲望，很容易滑向不宽容。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 12 ═══════════ -->
+<section class="sec" id="s12" data-cat="how" data-title="批判性阅读 缺陷 短板 局限 critique">
+<h2><span class="no">§ 12</span>批判性阅读提示</h2>
+<p class="lead">这本书写得好的地方和它的空缺同样明显。下面几条是读的时候值得存疑的。</p>
+<ul class="pts">
+  <li class="f"><b>作者的位置没有被充分交代。</b>他能飞去马尔法住 Airbnb、去东京京都待两周、花 70 美元一小时漂浮、住 Gion 的百年町屋。他批评极简主义是阶级信号，而这本书本身的取材方式就依赖同一套条件。他对 Judd 与约翰逊的特权有过分析，对自己的写得少。</li>
+  <li class="f"><b>「深层极简」的定义始终是模糊的。</b>他给的表述是：追求未经中介的经验，交出控制而非施加控制，留意周围而不筑墙，接受含混。这套说法在四章里成立，但没有落到任何可操作的程度。想拿它换掉手上那本整理书的人会失望。</li>
+  <li class="f"><b>反消费主义的立场没有走到经济层面。</b>他引用马克思的异化、皮凯蒂的无形资本增值、零工经济比例上升，用它们解释极简主义为什么流行；但全书的处方仍然停在个人感知的层面。他自己批评过 Gregg 把结构问题当表面问题，这一处他没有完全避开同一个陷阱。</li>
+  <li class="f"><b>四章的份量不均。</b>第二章（Judd）和第四章（日本）是核心，第一章更像一篇加长的文化评论，第三章的前半段（漂浮舱、环境音乐）比后半段（Eastman）弱。如果时间有限，先读二、四章。</li>
+  <li class="f"><b>Eastman 那一节的处理值得再想。</b>作者把他当成「极简主义可以表达差异」的证据，这个论证是有力的。但一位在 1980 年代被逐出公寓、死在医院的作曲家，被放进一本讨论审美的书里做论点支撑，本身也是一种取用。作者没有回避这个张力，也没有正面处理。</li>
+  <li class="f"><b>时间点。</b>这本书 2020 年出版，写作期在 2017–2019 年。它讨论的「数字极简」还停在删 Facebook 和少看手机的阶段，没有算法推荐主导内容分发之后的情况。作者自己在四年后的《Filterworld》里补了这一块。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 13 ═══════════ -->
+<section class="sec" id="s13" data-cat="how" data-title="三种读法 怎么读 推荐路线 给谁看">
+<h2><span class="no">§ 13</span>三种读法</h2>
+
+<div class="grid2">
+  <div class="card f">
+    <h4>90 分钟版</h4>
+    <p>第一章第一、二节（Andersen 与作者的自陈）→ 第一章第七节（乔布斯与伊姆斯）→ 第二章第一、二节（玻璃屋）→ 第四章第七节（战后与花道）→ 第四章第八节（龙安寺）。</p>
+    <p class="src">拿到全书的骨架和两个最强的场景，跳过全部艺术史细节。</p>
+  </div>
+  <div class="card f">
+    <h4>按人物读</h4>
+    <p>只读 Judd（第二章全部）、Eastman（第三章第七、八节）、九鬼周造（第四章第五、六节）。这三条线各自完整，可以当三篇长人物特稿。</p>
+    <p class="src">Judd 那条线最完整，从 1963 年第一次个展一直写到 2018 年马尔法的房价。</p>
+  </div>
+  <div class="card f">
+    <h4>顺读，但换个问题</h4>
+    <p>不要带着「我该扔什么」去读。换成：这个人是在什么危机下开始做减法的，他减掉之后得到了什么，代价是谁付的。这三个问题在每一节里都有答案。</p>
+    <p class="src">按这个读法，第一章末尾 Agnes Martin 划那一条蓝线的场景会比任何一句结论更有用。</p>
+  </div>
+</div>
+
+<h3>适合谁</h3>
+<ul class="pts">
+  <li class="f"><b>做产品和设计的人。</b>第二章关于「空间决定了你能放什么」和白立方的部分，直接对应界面留白与默认值的设计伦理。Judd 与 Krauss 的分歧（空间是容器还是约束）值得反复想。</li>
+  <li class="f"><b>写东西的人。</b>第二章第五节专门写「怎么用文字描写空」——写作记录在场，指出一样东西它就在了。这一节短，但是全书最难的技术问题。</li>
+  <li class="f"><b>被整理术困扰的人。</b>第一章第五节对 KonMari 的拆解，和 Andersen 最后放下极简主义那一段，合起来是一个完整的解药。</li>
+  <li class="f"><b>对日本美学有兴趣的人。</b>第四章是简体中文世界里少见的写法：它同时讲物哀、粋、花道、枯山水，也讲这些概念在明治之后如何被重新组装、如何被战争利用。</li>
+</ul>
+
+<h3>延伸</h3>
+<ul class="pts">
+  <li class="f">谷崎润一郎《阴翳礼赞》（1933）——第四章的地基，中译本很薄，一晚上能读完。</li>
+  <li class="f">Brian O'Doherty《Inside the White Cube》（1976）——第二章「白立方」一节的原始出处。</li>
+  <li class="f">Anna Chave《Minimalism and the Rhetoric of Power》（1990）——对 Judd 最有力的一篇反面论证。</li>
+  <li class="f">Kyle Chayka《Filterworld》（2024）——同一作者对算法时代品味的续写。</li>
+  <li class="f">Cal Newport《Digital Minimalism》（2019）——书里提到的「数字极简」的代表作，可与第三章前半段对读。</li>
+</ul>
+</section>
+
+</main>
+</div>
+
+<button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
+
+<footer>整理自 Kyle Chayka《The Longing for Less: Living with Minimalism》（Bloomsbury, 2020）英文原书 · 本页生成于 2026-08-06 · 单文件可离线使用</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  var catBtns = Array.prototype.slice.call(document.querySelectorAll('.cats button'));
+  var curCat = 'all';
+
+  function render(){
+    var kw = q.value.trim().toLowerCase();
+    var tot = 0, vis = 0;
+    secs.forEach(function(sec){
+      var inCat = (curCat === 'all' || sec.dataset.cat === curCat);
+      var items = sec.querySelectorAll('.f');
+      var any = false;
+      if(!inCat){
+        sec.style.display = 'none';
+        return;
+      }
+      tot += items.length;
+      if(!kw){
+        for(var i=0;i<items.length;i++){ items[i].style.display=''; }
+        vis += items.length;
+        sec.style.display = '';
+        return;
+      }
+      var headHit = (sec.dataset.title || '').toLowerCase().indexOf(kw) > -1;
+      for(var j=0;j<items.length;j++){
+        var hit = items[j].textContent.toLowerCase().indexOf(kw) > -1;
+        items[j].style.display = hit ? '' : 'none';
+        if(hit){ any = true; vis++; }
+      }
+      if(headHit && !any){
+        for(var k=0;k<items.length;k++){ items[k].style.display=''; }
+        vis += items.length;
+        any = true;
+      }
+      sec.style.display = any ? '' : 'none';
+    });
+    count.textContent = vis + ' / ' + tot;
+    spy();
+  }
+
+  q.addEventListener('input', render);
+  catBtns.forEach(function(b){
+    b.addEventListener('click', function(){
+      curCat = b.dataset.cat;
+      catBtns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      render();
+    });
+  });
+
+  /* scroll-spy */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var linkById = {};
+  tocLinks.forEach(function(a){ linkById[a.getAttribute('href').slice(1)] = a; });
+  function spy(){
+    var y = window.scrollY + 110;
+    var cur = null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].style.display === 'none') continue;
+      if(secs[i].offsetTop <= y) cur = secs[i].id;
+    }
+    tocLinks.forEach(function(a){ a.classList.remove('cur'); });
+    if(cur && linkById[cur]){
+      linkById[cur].classList.add('cur');
+      var el = linkById[cur];
+      var nav = document.getElementById('toc');
+      if(el.offsetTop < nav.scrollTop || el.offsetTop > nav.scrollTop + nav.clientHeight - 40){
+        nav.scrollTop = el.offsetTop - nav.clientHeight / 2;
+      }
+    }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){ spy(); toTopCheck(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  /* 回顶部 */
+  var toTop = document.getElementById('toTop');
+  function toTopCheck(){ toTop.classList.toggle('show', window.scrollY > 500); }
+  toTop.addEventListener('click', function(){
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'});
+  });
+
+  /* 锚点跳转高亮 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var t = document.getElementById(id);
+    if(!t) return;
+    if(t.offsetParent === null){
+      q.value = ''; curCat = 'all';
+      catBtns.forEach(function(x){ x.classList.toggle('on', x.dataset.cat === 'all'); });
+      render();
+    }
+    setTimeout(function(){
+      t.classList.remove('flash');
+      void t.offsetWidth;
+      t.classList.add('flash');
+    }, 350);
+  });
+
+  spy(); render();
+})();
+
+var _dr=document.getElementById("drawer"),_dl=document.getElementById("drawerlist");
+if(_dr&&_dl){
+  document.getElementById("tocbtn").addEventListener("click",function(){_dr.classList.add("open")});
+  _dr.addEventListener("click",function(e){if(e.target===_dr)_dr.classList.remove("open")});
+  var _links=document.querySelectorAll("#toc a, nav.side a, nav.toc a");
+  _links.forEach(function(a){
+    var c=a.cloneNode(true);c.className="";c.style.cssText="";
+    if(a.classList.contains("sub"))c.style.paddingLeft="24px";
+    _dl.appendChild(c);
+  });
+}
+
+</script>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+</body>
+</html>

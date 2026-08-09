@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-09
+
+- 新增 `reading` section（`/reading/`，菜单「阅读」）：统一展示 11 份书籍/研究报告的中文阅读辅助材料。
+- 每份材料为独立自包含 HTML 页（`static/reading/<slug>/index.html`），内联 CSS/JS，保持原有搜索、筛选、目录、暗色模式等功能。
+- 材料页面统一 `noindex,follow`，不进 sitemap；`/reading/` 索引页可索引。
+- 7 份较旧材料补了窄屏悬浮目录按钮（tocbtn + drawer）。
+- 所有材料页补了 canonical、description、返回 `/reading/` 链接。
+- 配置：`hugo.toml` 新增「阅读」菜单项（weight 13），`showMenuItems` 6→7。
+- SEO：`is-indexable.html` 增加 reading section 支持；`data/reading-materials.toml` 集中管理材料元数据。
+
 ## 2026-06-08
 
 - 新增 `startupnotes` section（`/startupnotes/`，菜单「创业笔记」）：把「星球创业笔记」（知识星球付费星球 511244584）做成**免费试读**漏斗——每篇只发前半段，结尾挂知识星球入口（邀请卡图 + 群链接）引流付费。

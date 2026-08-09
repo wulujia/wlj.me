@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="Dana K. White《Decluttering at the Speed of Life》操作指南——五步法、容器概念、逐区整理。">
+<link rel="canonical" href="https://wlj.me/reading/decluttering-at-the-speed-of-life/">
+<title>Decluttering at the Speed of Life · 操作指南</title>
+<style>
+:root{
+  --bg:#faf9f5; --panel:#ffffff; --ink:#23272e; --muted:#6d7480; --line:#e5e1d6;
+  --gold:#8a6d1d; --gold-soft:#f4ecd7; --navy:#1e3a5f; --hl:#fff3c4;
+  --chip:#eef0f4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15171c; --panel:#1d2026; --ink:#d8d5cf; --muted:#9aa0a8; --line:#33373f;
+    --gold:#d4af5a; --gold-soft:#2c2717; --navy:#9fc0e8; --hl:#4a3f14;
+    --chip:#282c34;
+  }
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:16px; line-height:1.75;
+}
+a{color:var(--gold); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── 顶栏 ── */
+.top{
+  position:sticky; top:0; z-index:50; background:var(--panel);
+  border-bottom:1px solid var(--line); padding:10px 20px;
+}
+.top-inner{max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.top h1{font-size:15px; font-weight:600; white-space:nowrap; color:var(--navy)}
+.top h1 em{font-style:normal; color:var(--gold)}
+#q{
+  flex:1; min-width:180px; padding:7px 12px; border:1px solid var(--line); border-radius:8px;
+  background:var(--bg); color:var(--ink); font-size:14px; outline:none;
+}
+#q:focus{border-color:var(--gold)}
+.cats{display:flex; gap:6px; flex-wrap:wrap}
+.cats button{
+  border:1px solid var(--line); background:var(--chip); color:var(--ink);
+  border-radius:999px; padding:4px 12px; font-size:13px; cursor:pointer;
+}
+.cats button.on{background:var(--gold); border-color:var(--gold); color:#fff}
+@media (prefers-color-scheme: dark){ .cats button.on{color:#15171c} }
+#count{font-size:12px; color:var(--muted); white-space:nowrap; min-width:70px; text-align:right}
+
+/* ── 布局 ── */
+.wrap{max-width:1200px; margin:0 auto; padding:28px 20px 80px; display:grid; grid-template-columns:248px minmax(0,1fr); gap:36px}
+#toc{
+  position:sticky; top:66px; align-self:start;
+  max-height:calc(100vh - 90px); overflow-y:auto; padding-right:8px;
+  font-size:13.5px;
+}
+#toc .grp{margin:14px 0 4px; font-size:11px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase}
+#toc a{
+  display:block; padding:4px 10px; color:var(--ink); border-left:2px solid transparent;
+  border-radius:0 6px 6px 0; line-height:1.45;
+}
+#toc a:hover{background:var(--chip); text-decoration:none}
+#toc a.cur{border-left-color:var(--gold); color:var(--gold); background:var(--gold-soft); font-weight:600}
+#toc .no{color:var(--muted); font-size:11px; margin-right:6px}
+#toc a.cur .no{color:var(--gold)}
+@media (max-width:1080px){
+  .wrap{grid-template-columns:1fr}
+  #toc{display:none}
+}
+
+/* ── 正文区块 ── */
+.sec{margin-bottom:56px; scroll-margin-top:80px}
+.sec>h2{
+  font-size:22px; color:var(--navy); border-bottom:2px solid var(--gold);
+  padding-bottom:8px; margin-bottom:18px; font-weight:700;
+}
+.sec>h2 .no{color:var(--gold); font-size:15px; margin-right:10px; font-weight:600}
+.sec h3{font-size:16.5px; margin:26px 0 10px; color:var(--navy)}
+.sec p{margin-bottom:12px}
+.lead{color:var(--muted); font-size:15px; margin-bottom:16px}
+.f{scroll-margin-top:80px}
+
+ul.pts{list-style:none; margin-bottom:14px}
+ul.pts li{padding:7px 0 7px 18px; position:relative; border-bottom:1px dashed var(--line)}
+ul.pts li:last-child{border-bottom:none}
+ul.pts li::before{content:"▪"; color:var(--gold); position:absolute; left:0; top:7px; font-size:12px}
+
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px; margin-bottom:12px;
+}
+.card h4{font-size:15px; color:var(--navy); margin-bottom:6px}
+.card p{margin-bottom:6px; font-size:14.5px}
+.card .src{font-size:12.5px; color:var(--muted)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; margin-bottom:14px}
+.grid2 .card{margin-bottom:0}
+
+blockquote{
+  border-left:3px solid var(--gold); background:var(--gold-soft);
+  padding:10px 16px; margin:14px 0; border-radius:0 8px 8px 0; font-size:15px;
+}
+blockquote .en{display:block; color:var(--muted); font-size:13px; margin-top:6px}
+
+.tbl{overflow-x:auto; margin-bottom:16px; border:1px solid var(--line); border-radius:10px; background:var(--panel)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:560px}
+th{
+  text-align:left; padding:9px 12px; background:var(--chip); color:var(--navy);
+  font-size:13px; white-space:nowrap; border-bottom:1px solid var(--line);
+}
+td{padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-weight:700; color:var(--gold); white-space:nowrap}
+.tag{
+  display:inline-block; background:var(--chip); color:var(--muted); border-radius:5px;
+  padding:1px 7px; font-size:12px; margin-right:4px; white-space:nowrap;
+}
+
+/* 步骤条 */
+ol.steps{list-style:none; counter-reset:s; margin-bottom:16px}
+ol.steps li{
+  counter-increment:s; position:relative; padding:12px 0 12px 46px;
+  border-bottom:1px solid var(--line);
+}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{
+  content:counter(s); position:absolute; left:0; top:12px;
+  width:30px; height:30px; border-radius:50%; background:var(--gold-soft);
+  border:1px solid var(--gold); color:var(--gold);
+  font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center;
+}
+ol.steps b{color:var(--navy)}
+
+/* 术语表 */
+.terms{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:10px}
+.term{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:11px 14px}
+.term b{color:var(--navy); font-size:14.5px}
+.term .en{color:var(--gold); font-size:13px}
+.term p{font-size:13.5px; margin:4px 0 0; color:var(--ink)}
+
+/* 交叉引用高亮 */
+.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%,55%{background:var(--hl)} 100%{background:transparent}}
+@media (prefers-reduced-motion: reduce){ .flash{animation:none; outline:2px solid var(--gold)} }
+
+/* 回顶部 */
+#toTop{
+  position:fixed; right:22px; bottom:26px; width:42px; height:42px; border-radius:50%;
+  border:1px solid var(--line); background:var(--panel); color:var(--gold);
+  font-size:18px; cursor:pointer; display:none; box-shadow:0 2px 10px rgba(0,0,0,.12);
+}
+#toTop.show{display:block}
+
+.note{font-size:13px; color:var(--muted); margin-top:6px}
+footer{max-width:1200px; margin:0 auto; padding:20px; color:var(--muted); font-size:12.5px; border-top:1px solid var(--line)}
+mark{background:var(--hl); color:inherit; border-radius:2px}
+
+
+#tocbtn{position:fixed;right:18px;bottom:18px;z-index:70;border:1px solid var(--line,var(--code-border,#073642));background:var(--card,var(--background));color:var(--ink,var(--foreground));border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;box-shadow:0 4px 18px rgba(0,0,0,.13)}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper,var(--background));border-left:1px solid var(--line,var(--code-border,#073642));padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2,var(--foreground));text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a:hover{background:var(--card,var(--code-border))}
+@media print{#tocbtn,#drawer,.searchwrap{display:none!important}}
+
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回阅读材料</a></div>
+
+
+<header class="top">
+  <div class="top-inner">
+    <h1>Decluttering at the Speed of Life · <em>操作指南</em></h1>
+    <input id="q" type="search" placeholder="搜索：容器、五步、厨房、衣柜、长辈…">
+    <div class="cats">
+      <button data-cat="all" class="on">全部</button>
+      <button data-cat="guide">导读</button>
+      <button data-cat="method">方法</button>
+      <button data-cat="deep">逐区精读</button>
+      <button data-cat="ref">速查表</button>
+      <button data-cat="how">阅读建议</button>
+    </div>
+    <span id="count"></span>
+  </div>
+</header>
+
+<div class="wrap">
+<nav id="toc">
+  <div class="grp">导读</div>
+  <a href="#s01"><span class="no">§ 01</span>这是一本什么书</a>
+  <a href="#s02"><span class="no">§ 02</span>核心论点</a>
+  <a href="#s03"><span class="no">§ 03</span>全书结构地图</a>
+  <div class="grp">方法</div>
+  <a href="#s04"><span class="no">§ 04</span>五步法</a>
+  <a href="#s05"><span class="no">§ 05</span>两个决断问题</a>
+  <a href="#s06"><span class="no">§ 06</span>容器概念与阈值</a>
+  <a href="#s07"><span class="no">§ 07</span>可见性法则与三层</a>
+  <div class="grp">逐区精读</div>
+  <a href="#s08"><span class="no">§ 08</span>客厅与纸张</a>
+  <a href="#s09"><span class="no">§ 09</span>厨房</a>
+  <a href="#s10"><span class="no">§ 10</span>衣柜 / 爱好 / 储藏</a>
+  <a href="#s11"><span class="no">§ 11</span>帮别人整理</a>
+  <a href="#s12"><span class="no">§ 12</span>搬家、遗物、梦想</a>
+  <div class="grp">速查</div>
+  <a href="#s13"><span class="no">§ 13</span>自造术语表</a>
+  <a href="#s14"><span class="no">§ 14</span>卡点对照表</a>
+  <div class="grp">读法</div>
+  <a href="#s15"><span class="no">§ 15</span>批判性阅读与用法</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ § 01 ═══════════ -->
+<section class="sec" id="s01" data-cat="guide" data-title="这是一本什么书 dana white 作者 定位 overview 邋遢">
+<h2><span class="no">§ 01</span>这是一本什么书</h2>
+<p class="lead">2018 年出版，约 6 万词。作者的自我定位是「一个天生邋遢、被迫自救成功的人」，全书没有一张漂亮照片、没有清单、没有图表。</p>
+
+<div class="card f">
+<h4>作者</h4>
+<p>Dana K. White，德州人，原本教戏剧，后来做全职妈妈。2009 年在家里彻底崩溃后开了一个博客写自己怎么挖出来，起名 A Slob Comes Clean。这是她的第二本书，第一本是《How to Manage Your Home Without Losing Your Mind》（讲日常家务习惯）。她本人有播客，这本书里多处引用听众来信。</p>
+</div>
+
+<div class="card f">
+<h4>她的资格证明就是她的黑历史</h4>
+<p>结婚时两人搬进 960 平方英尺（约 89 平米）的公寓，里面放着<strong>三张餐桌</strong>——正式餐桌在餐厅，另一张正式餐桌塞在小早餐角，唯一合理的小桌子在堆到天花板的储物间里。搬家时她父母请了搬家公司，其中一个师傅在那个「从没办过一次正式晚宴」的小厨房里，整整包了一天盘子。</p>
+<p class="src">后来从 1752 平方英尺的房子搬走，她租了租车行最大的卡车（标称能装 3000 平方英尺的家当），装满之后还剩下整套主卧家具、餐桌椅、一张沙发和一堆箱子。</p>
+</div>
+
+<div class="card f">
+<h4>它不做什么</h4>
+<p>不教收纳，不教归档，不教怎么摆得好看。作者反复强调：整理（decluttering）和收纳（organizing）是两件事，把它们分开的那一刻她如释重负。她的定义只有一句——<mark>整理就是你不需要的东西离开你家</mark>。五件走了也算成功，五百件走了也算。</p>
+</div>
+
+<div class="card f">
+<h4>和《The Longing for Less》的关系</h4>
+<p>如果你刚读过 Kyle Chayka 那本，这本正好是它批判的对象类型：博客派、自助书、可操作的一步式方法。有意思的是她自己在第 8 章直接谈了极简主义——她第一次听说这个词时脑子里浮现的是大学男生宿舍：一台架在电视托盘上的电视、一张旧沙发、最多一口煮意面的锅。她的结论是自己需要瞄准极简，因为她的阈值就是那么低。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 02 ═══════════ -->
+<section class="sec" id="s02" data-cat="guide" data-title="核心论点 房子是容器 空间比东西值钱 现在活着">
+<h2><span class="no">§ 02</span>核心论点</h2>
+
+<h3>一句话</h3>
+<blockquote class="f">你家是一个容器。容器的用途是限制，不是盛放。</blockquote>
+<p class="f">她说这是全书最大的一次认知转变，而且发生得毫无戏剧性——没有励志演讲，没有情感创伤。她去查了 contain 的词典释义，挑出三条：使处于适当控制之下、限制其扩张、成功阻止其蔓延。这三条正是她想在家里实现的。</p>
+
+<h3>它替换掉的旧模型</h3>
+<div class="tbl"><table>
+<thead><tr><th></th><th>旧模型：容器用来装东西</th><th>新模型：容器用来设限</th></tr></thead>
+<tbody>
+<tr class="f"><td>满了怎么办</td><td>再买一个容器</td><td>容器满了，就知道能留多少</td></tr>
+<tr class="f"><td>要问自己的问题</td><td>这东西值不值得留</td><td>这东西装不装得下</td></tr>
+<tr class="f"><td>需要动用的能力</td><td>估价、预测未来、评估情感</td><td>看一眼装满没有</td></tr>
+<tr class="f"><td>结果</td><td>墙上挂满收纳架，地上还是一层围巾</td><td>围巾数量等于围巾架的容量</td></tr>
+</tbody></table></div>
+<p class="f">她的原始例子是围巾。旧模型下她买过五套围巾收纳系统，墙上挂满了收纳架，衣柜杆上挂满了围巾衣架，地板上还是围巾。新模型下只有三步：先把最喜欢的装进容器，装满了就知道能留多少，剩下的进捐赠箱。</p>
+
+<h3>三个连带结论</h3>
+<ul class="pts">
+  <li class="f"><b>你不需要更大的房子。</b>她换过好几处住所，每次都以为问题出在面积上。接受容器概念之后她发现，只要不在限度内生活，多大的房子都会被填满。整理完之后房子确实变大了——不用多付一分钱房贷。她还提到一个反复出现的梦：在家里发现了从不知道存在的房间。她把这个梦发在博客上，很多有杂物困扰的读者说自己也做过。整理完之后，梦不做了。</li>
+  <li class="f"><b>空间比东西值钱，而且能算出来。</b>她家 2052 平方英尺，衣帽间 25 平方英尺，按房贷折算约每月 10 美元。她愿意为一个能走进去的衣帽间付这 10 美元，不愿意为堆一堆不用的东西付这 10 美元，更不愿意付了 10 美元还走不进去。</li>
+  <li class="f"><b>为「现在」活，不为未来的自己囤。</b>她把这条写成了全书的价值观：住在你现在住的房子里、你现在在的城市里、你现在活着的这一刻里。「理想化的未来我」永远住在明天。做出实际进展的是「现实的当下我」。</li>
+</ul>
+
+<div class="card f">
+<h4>那个铸铁浴缸</h4>
+<p>父母改造主卫，她高高兴兴接手了那个完好的铸铁浴缸，让人从两小时车程外拉回家，在后院放了三年，最后搬家时找了四五个朋友帮忙抬去垃圾场，还划伤了一个朋友的皮卡车斗内衬。十年后在教堂重逢，她丈夫还在为那道划痕道歉，而她对这个浴缸<strong>毫无记忆</strong>。</p>
+<p class="src">她后来算了一笔账：铸铁浴缸约 500 美元，放三年等于每年省 166 美元。为了这 166 美元，值得占掉后院、当三年眼中钉、还要让丈夫绕着它割草吗？值得四五个成年男人贡献一天力气把它抬走吗？她的答案是三个不。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 03 ═══════════ -->
+<section class="sec" id="s03" data-cat="guide" data-title="结构地图 四部分 26章 目录">
+<h2><span class="no">§ 03</span>全书结构地图</h2>
+<p class="lead">四部分 26 章。第一部分建立观念，第二部分把同一套五步法在每个房间重复一遍，第三、四部分处理人和意外。</p>
+<div class="tbl"><table>
+<thead><tr><th>部分</th><th>章</th><th>内容</th><th>能不能跳</th></tr></thead>
+<tbody>
+<tr class="f"><td>第一部分<br>建立整理心态</td><td class="num">1–9</td><td>整理的定义、她的杂物史、容器概念、空间比东西值钱、可见性法则、干净屋子的三层、为什么选捐赠、心态改变、按生活节奏整理</td><td>不建议跳。第 3 章（容器）和第 5 章（可见性）是全书的两根柱子</td></tr>
+<tr class="f"><td>第二部分<br>逐区整理</td><td class="num">10–17</td><td>五步法总纲，然后依次是客厅、厨房（两章）、卧室、衣柜、手工爱好空间、储藏区</td><td>可以按你家的实际情况挑。第 10 章必读</td></tr>
+<tr class="f"><td>第三部分<br>帮别人整理</td><td class="num">18–23</td><td>总原则，然后是朋友、孩子、长辈、配偶，最后是「接受别人的帮助」</td><td>只在你要动别人东西时读。配偶那章最短，因为答案是「你管不了他」</td></tr>
+<tr class="f"><td>第四部分<br>特殊情况</td><td class="num">24–26</td><td>被迫整理（搬家、清理逝者遗物）、整理梦想（小梦想与大梦想）、把整理变成生活方式</td><td>第 25 章是全书情感浓度最高的一章，也是唯一处理悲伤的一章</td></tr>
+</tbody></table></div>
+
+<div class="card f">
+<h4>作者自己在开头交代的六件事</h4>
+<p>① 全书不含复杂系统、精美照片、图表或清单；② 这本书写给准备好整理自己东西的人，不是写给想改造别人的人；③ 她会踩到你的理想主义脚趾，一律默认用「扔掉」和「捐掉」两个词；④ 除非注明出处，书里的数字多半是她编的（她原话是自己教戏剧出身，数字对她来说主要起戏剧效果）；⑤ 五步法会被重复很多遍，读完你会背下来，这就是目的；⑥ 这本书你可能得读不止一遍。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 04 ═══════════ -->
+<section class="sec" id="s04" data-cat="method" data-title="五步法 步骤 垃圾 简单的东西 废话杂物 决断问题 装得下 consolidate">
+<h2><span class="no">§ 04</span>五步法</h2>
+<p class="lead">全书的核心操作。适用于任何空间、任何混乱程度，也适用于你只有五分钟的情况。</p>
+
+<div class="card f">
+<h4>开工前只要三样东西</h4>
+<p><strong>一个黑色垃圾袋</strong>（黑色，这样家里人看不见里面装了什么，不会突然想起来「这个我还要」）、<strong>一个可以连箱子一起送走的捐赠箱</strong>（箱子本身也必须离开家）、<strong>你的脚</strong>。</p>
+</div>
+
+<ol class="steps">
+  <li class="f"><b>扔垃圾。</b>最简单的最简单。从最显眼的地方开始，只捡看得见的垃圾，不搬动任何其他东西。如果这堆有三英尺深，就只处理表面那层。垃圾的例子：宣传单、坏掉的东西、扔偏了掉在垃圾桶旁边然后混进大堆里的真垃圾。</li>
+  <li class="f"><b>处理「简单的东西」。</b>指那些在别处已经有固定位置、只是现在不在那儿的东西。看着一堆乱七八糟会觉得整个都难，但问自己「哪些是简单的」，通常能立刻挑出一到七件不需要任何决定的。<mark>这一步包含拖延型杂物</mark>（见 <a class="xref" href="#s07">§ 07</a>）——洗好没收的碗、洗好没叠的衣服，都算。</li>
+  <li class="f"><b>丢「废话杂物」。</b>扫一眼就知道是废话的东西，直接进捐赠箱。典型：你以为自己早就处理掉的东西、你一直讨厌的东西。不需要解释，反应是「废话，我留它干嘛」。</li>
+  <li class="f"><b>问两个决断问题。</b>这一步花时间最长，逐件问。展开见 <a class="xref" href="#s05">§ 05</a>。过程中会不断冒出新的垃圾、简单的东西和废话杂物，正常，按各自的路径处理，不用回头重来。</li>
+  <li class="f"><b>让它装得下。</b>把容器概念用在这个空间上。分两小步：<br>
+  <b>5.1 归类</b>——把同类的东西放到一起。这一步是现实核查：模糊的「还行的几个平底锅」变成具体的「五个平底锅」，五这个数字一进大脑，那三个不常用也不喜欢的就自己浮出来了。<br>
+  <b>5.2 减到容器的上限</b>——先把最爱的放进去，装满即止，剩下的进捐赠箱。</li>
+</ol>
+
+<div class="card f">
+<h4>为什么这套顺序能在任何时长里用</h4>
+<p>核心约束是：<mark>每碰一件东西就做出最终决定并立刻执行</mark>。没有「先放这儿」，没有待定堆，没有留存箱。你随时被打断都不会比开始前更糟。</p>
+<p class="src">她明确反对通行做法「把所有东西都掏出来再放回去」。理由不是那样不好，而是那样要求你有完整的三天不被打断——她认识的人里没有一个活在那种世界。她管这个叫「按生活节奏整理」。</p>
+</div>
+
+<div class="card f">
+<h4>五分钟版</h4>
+<p>设个五分钟计时器，只做第 1 步：扔垃圾。她的建议是先拍张照，五分钟后再拍一张。「要么你高兴地证明我错了，要么你会为五分钟能改变这么多而兴奋。两种都是你赢。」</p>
+</div>
+</section>
+
+<!-- ═══════════ § 05 ═══════════ -->
+<section class="sec" id="s05" data-cat="method" data-title="两个决断问题 would 直觉 会不会想起来 立刻拿过去">
+<h2><span class="no">§ 05</span>两个决断问题</h2>
+<p class="lead">全书最可复制的部分。两个问题都刻意绕开了价值判断。</p>
+
+<div class="grid2">
+  <div class="card f">
+    <h4>问题 ①：如果我需要这个，我会先去哪儿找？</h4>
+    <p>关键词是「<strong>会</strong>」（would），问的是直觉，不是应该。没有思考、分析、权衡的余地。</p>
+    <p><strong>第二半同样重要：现在就拿过去。</strong>不是记下来待会儿拿，是立刻走过去放好。她说这是整个方法能成立的原因——不留半成品。</p>
+    <p class="src">顺手技巧：拿过去的路上扫一眼（不要翻）这堆东西，看有没有别的也归那儿。例：如果看到一根皮筋，那多半有六十五根。</p>
+  </div>
+  <div class="card f">
+    <h4>问题 ②：如果我需要这个，我会不会想起来自己已经有一个？</h4>
+    <p>只在问题 ① 答不上来的时候才问。答不上来通常正是因为你根本不会去找它——你压根不知道自己有。</p>
+    <p>如果答案是「不会」，进捐赠箱。</p>
+    <p class="src">厨房里这个问题有个变体：不是问你会不会再去买一个，而是问你会不会自然而然地用别的工具凑合。压蒜器就是例子——你多半会直接用刀面拍碎，全程不会想起自己有压蒜器。</p>
+  </div>
+</div>
+
+<div class="card f">
+<h4>为什么绕开价值判断</h4>
+<p>她的原话大意：这两个问题只处理现实，不处理可能性、潜力和情绪。她拿着压蒜器没法思考它是不是有价值又好用的东西——当然是。但她不用它。</p>
+</div>
+
+<h3>三条配套规则</h3>
+<ul class="pts">
+  <li class="f"><b>一进一出。</b>容器满了又要放新的进去，先拿一个出来。她说很多人天生就懂这个，她不是。</li>
+  <li class="f"><b>脑袋爆炸法则。</b>专治「可是、可是、可是」。当两个决断问题都压不住、脑子里全是「拯救世界的节俭女王」形象、一个不改变人生的决定却感觉像要改变人生时——<mark>丢掉它</mark>。理由：没有一件东西值得让你的脑袋爆炸。</li>
+  <li class="f"><b>用它，或者丢它。</b>专治「潜在有用」。她把这条讲得很具体：她能在十五分钟内为一条旧桌腿想出十五种用途。但当她不再问「这有用吗」而是命令自己「现在开始用它」，选择就只剩两个——立刻网购灯具配件开始给桌腿穿线，或者把这条没桌子的桌腿扔了。<br>顺带一个副作用：一旦开始用，东西会被用旧、用坏、用完，那时候扔起来一点都不疼。她把印着女儿名字的口水巾拿来擦马桶和玩具，用了几年，现在完全不知道它们在哪儿了。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 06 ═══════════ -->
+<section class="sec" id="s06" data-cat="method" data-title="容器概念 杂物阈值 clutter threshold 限度 书架 围巾">
+<h2><span class="no">§ 06</span>容器概念与杂物阈值</h2>
+
+<h3>容器是逐级嵌套的</h3>
+<p class="f">她的推演顺序：一层架子的大小决定能放几个篮子 → 柜子的大小决定有几层架子 → 房间的大小决定有几个柜子 → 房子的大小决定有几个房间。所以最外层那个容器是你的房子，而它的容量是当年建房子的人定的，不是你。她的说法是自己一直在「和房子吵架」。</p>
+
+<div class="card f">
+<h4>家人也要占容器</h4>
+<p>她的第二个顿悟：如果整栋房子是容器，家人也得装进这个容器。厨房不只是放锅碗瓢盆的地方，也是人活动的地方。她需要能在厨房里走动而不撞到东西、不用侧身；家人需要能坐下吃饭、切菜时胳膊肘和沙拉碗都有地方放。「我不愿意为了多留几条围巾牺牲厨房。」</p>
+</div>
+
+<div class="card f">
+<h4>书的例子</h4>
+<p>她知道提到书会挨骂，所以专门写了一段。她每天读书。但书架就是容器：先把最爱的书放满，放不下的处理掉。这比她以前的做法好——以前是抱怨书架不够、再买一个书架，然后抱怨房间放不下书架，再抱怨没钱换个更大的房子。</p>
+<p class="src">她说让书架替她做决定非常解放：不再担心冒犯作者、不再纠结「培养孩子爱莎士比亚」的梦想、不再需要承认自己没高级到每年重读一遍陀思妥耶夫斯基。</p>
+</div>
+
+<h3>杂物阈值</h3>
+<div class="card f">
+<h4>定义</h4>
+<p>东西在你家变成杂物的那个临界点。它因人而异。她的定义配套一个更狠的杂物定义：<mark>任何我持续控制不住的东西</mark>。如果家里某个空间反复失控，那说明这个空间的东西太多了。</p>
+<p class="src">这解释了她一直想不通的事：她和朋友买同样的装饰品，朋友家像杂志，她家像旧货店。阈值不一样。</p>
+</div>
+<ul class="pts">
+  <li class="f">阈值不是诊断出来的，是干出来的。找它的方法是朝着「更少」去做，然后看什么时候家里能自然维持住。</li>
+  <li class="f">帮别人整理时必须接受对方的阈值和你不同。她提到唯一希望母亲当年做得不一样的事，是承认她的阈值比母亲低得多。</li>
+  <li class="f">孩子也有阈值。她的儿童房减到只剩一个过家家厨房、一张婴儿床、一张小桌和一个小书架时，孩子才真正在里面玩起来。她给这个现象起名「玩耍瘫痪」——选择太多，孩子和大人一样会僵住。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 07 ═══════════ -->
+<section class="sec" id="s07" data-cat="method" data-title="可见性法则 visibility 三层 拖延型杂物 procrasticlutter 重复整理">
+<h2><span class="no">§ 07</span>可见性法则与三层</h2>
+
+<h3>可见性法则</h3>
+<div class="card f">
+<h4>规则</h4>
+<p>每次整理都从最显眼的空间开始。「最显眼」的标准是<strong>客人看到的</strong>——哪怕你几乎不请客人。做法是走到大门口（或者客人进来的那扇门），看客人看到什么，从那里开始。</p>
+</div>
+<ul class="pts">
+  <li class="f"><b>为什么。</b>她说自己能成功地对一片狼藉视而不见，直到门铃响。但她<strong>看得见清空的地方</strong>。每次路过一个清爽的空间都会开心一次，这份开心变成下一次整理的能量。把能量花在袜子抽屉上，能量就用掉了，不会再生。</li>
+  <li class="f"><b>争议点：每次都从同一个地方重新开始。</b>很多人抗拒——那什么时候才轮得到家里其他地方？她的回答是不这么做才永远轮不到。因为<mark>重复整理比第一次整理容易得惊人</mark>：难的决定上次已经做完了，这次基本只是把东西放回去。</li>
+  <li class="f"><b>她自己的数据。</b>2009 年第一次整理餐厅（桌上六英寸厚的一堆，还有两辆自行车），不到一小时。一周后再来，十分钟。第三次，五分钟。省下来的时间用在下一个显眼空间上，如此往外推。</li>
+</ul>
+
+<h3>干净房子的三层</h3>
+<div class="grid2">
+  <div class="card f"><h4>第一层：日常事务</h4><p>洗碗、把地上和台面上的随手东西收掉。每天做，就在真正打扫时跳过这一层。不每天做，打扫就变成补课。</p></div>
+  <div class="card f"><h4>第二层：杂物</h4><p>本书唯一处理的一层。这一层充满焦虑：需要做决定、跨过情感障碍。她以前所谓「讨厌打扫」说的就是这一层。</p></div>
+  <div class="card f"><h4>第三层：真正的清洁</h4><p>擦台面、拖地、除尘、吸地毯。永远不会变有趣，但不用先补前两层的时候，它容易得多。</p></div>
+</div>
+<p class="f">她说这个区分让她想通了一件事：别人说「讨厌打扫所以从不打扫」，家里却看起来好好的——因为大家用的是同一个词，说的是完全不同的三件事。而<mark>只有第二层是一劳永逸的</mark>。灰会再落，马桶会再用，牙膏会再溅到镜子上；但东西一旦离开你家，就是走了。</p>
+
+<div class="card f">
+<h4>第四个概念：拖延型杂物</h4>
+<p>技术上不算杂物、也不算日常事务的东西，卡在两者之间的无人区。定义是<strong>不需要任何决定，你已经完全知道该怎么办，只是没办</strong>。最常见的两样：沙发上洗干净没叠的衣服，和洗碗机里洗干净没收的碗。</p>
+<p class="src">她的判断：干净的堆也是堆，房间看起来还是乱。而且堆是堆的肥料——一个堆的存在会为下一个堆背书。所以第 2 步必须把它一起做掉，跳过它的话，你干了一整天，房间还是乱的。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 08 ═══════════ -->
+<section class="sec" id="s08" data-cat="deep" data-title="客厅 living areas 纸张 paper clutter 邮件 孩子画作 定义房间">
+<h2><span class="no">§ 08</span>逐区 · 客厅与纸张</h2>
+<p class="lead">客厅排第一是因为它最显眼。这一章附带了全书最长的一节专题：纸张。</p>
+
+<h3>先定义这个房间</h3>
+<p class="f">她在每个空间开始前都问同一个问题：这个房间是干什么用的？客厅是用来living的——坐、读、聊天、瘫在沙发上、一家人一起待着。所以它的目标不是尽可能多地装书。<mark>如果再加一个书架会让「生活」这件事变难，就别加。</mark></p>
+
+<h3>纸张：她被问得最多的问题</h3>
+<div class="grid2">
+  <div class="card f"><h4>只做简单的</h4><p>因为重要的东西常常是纸做的，大脑会默认整堆纸都重要。她的破法是「<strong>永远要看</strong>」——允许自己只看不做任何决定，只挑出明摆着能扔的。她说每次这么做，那堆纸都会少掉一半以上。而且大脑一旦知道了里面到底有什么，后面处理就容易了。</p></div>
+  <div class="card f"><h4>掐断入口</h4><p>她说减少纸张最有效的一件事：从信箱直接走到垃圾桶，当场扔掉不需要的。立刻，马上，中间不停。<br>附带一条她自己的观察：拿信这件事必须她本人做。别人拿进来会顺手放在餐桌上，然后长成一堆「可能重要也可能不重要」的东西。</p></div>
+  <div class="card f"><h4>要收纳，先整理</h4><p>不要一上来就去买一车文件柜。先把每一堆过一遍，扔掉不需要的，过完之后你才知道自己需要多大、什么类型的容器。<br>她自己的方案很土：厨房台面上那块「有意义的纸最后总会堆到」的地方，放一个塑料文件盒。满了大脑自然会提醒她该清了。</p></div>
+  <div class="card f"><h4>孩子的画</h4><p>每个孩子一个容器，容器的大小由你能腾出的空间决定。满了就用一进一出。<br>她的做法：每周检查小学孩子的文件夹时说「哇，画得真好，宝贝！现在去扔掉吧」。她说两个人都不会哭。</p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 09 ═══════════ -->
+<section class="sec" id="s09" data-cat="deep" data-title="厨房 kitchen 储物盒 保鲜盒 冰箱 食物浪费 过期 奶奶的餐具 repurposing">
+<h2><span class="no">§ 09</span>逐区 · 厨房</h2>
+<p class="lead">厨房占了两章——编辑觉得一章太长。第 12 章走五步法，第 13 章处理厨房特有的心理障碍。</p>
+
+<h3>一个能直接抄的判断</h3>
+<div class="card f">
+<h4>脏碗是你最喜欢的碗</h4>
+<p>五步法第 2 步在厨房会撞上洗碗这件事。她的说法是洗碗没有决定要做，所以算「简单的东西」，必须当场洗掉。然后给了一条后面会用上的线索：<mark>你喜欢那些脏碗，胜过柜子里那些干净的</mark>。它们脏是因为你选了它们，而柜子里那些干净的是你没选的。</p>
+<p class="src">到第 5 步收拾干净碗的时候，这条就变成了硬标准：刚洗的这些比柜子里那些更配得上柜子空间。</p>
+</div>
+
+<h3>保鲜盒柜：全书最直给的一条建议</h3>
+<div class="card f">
+<h4>盖着盖子存放</h4>
+<p>她自己形容这是全书「我不管你的特殊情况这就是有用的」程度最高的一条。</p>
+<p><strong>为什么不套叠：</strong>套叠能塞进最多的盒子，但目标不是塞得最多。要拿中间那个尺寸，得拆开一整摞，然后剩下两摞散的要重新叠；拿最上面一个盖子，整摞盖子倒在地上。她的原话大意是——我只想把意面放进冰箱，我没时间重新整理这个该死的柜子。</p>
+<p><strong>连锁反应：</strong>盖着盖子放，能放的数量大减。但盒子少了，她更早发现快用完，于是更频繁清冰箱，于是浪费的食物变少，于是开柜门不会被砸，于是不会因为找不到配对的盖子而崩溃。</p>
+</div>
+
+<h3>过期食物：她怎么绕过愧疚</h3>
+<ul class="pts">
+  <li class="f"><b>把问题重新提。</b>不是争论保质期到底是「最佳食用期」还是「吃了会死」，而是：<mark>你已经浪费掉它了吗？</mark>食物没被吃掉、过期了，浪费已经发生。目标是<strong>未来少浪费</strong>，而你还没住进那个「目标世界」。</li>
+  <li class="f"><b>三个选项。</b>今晚吃掉；扔掉；或者，把没过期的捐掉，腾地方留着过期的。（她补了一句：过期食物没法捐，食物银行只能扔，浪费所有人时间。如果你确信过期能吃，那就该你自己吃。）</li>
+  <li class="f"><b>一个自我检验。</b>你有没有为了吃没过期的，而把过期的那个放回去了？她讲了那罐过期好几年的蓝莓派馅：想做派时看到过期了，纠结半天，最后开车去店里买了新的一罐，然后<strong>把过期的那罐留在柜子里</strong>。她的自问是：那到底哪天才是适合生病的好日子？</li>
+  <li class="f"><b>让疼痛发挥作用。</b>扔食物应该疼。让这份后悔改变你下次在超市伸手拿一个陌生食材时的动作——要么当场搜个食谱、顺便买齐配料，要么把它放回货架。</li>
+</ul>
+
+<h3>「废物利用型人格」</h3>
+<p class="f">她把这类人分成两种：真的会改造再利用的人，和<strong>想成为</strong>那种人的人。她自己在中间——在每个泡菜罐和防儿童开启的药瓶里看到的不是酱菜和药片，是未来。破法是决断问题 ①：真需要一个空罐子的时候，她会改当天的菜谱，把冰箱里那个罐子清空直接用，根本想不起柜子里囤着一批。</p>
+<p class="f">她整理厨房时顺手把泡打粉和玉米淀粉倒进了两个玻璃罐。用掉两个之后，剩下的二十个立刻现出杂物的原形。</p>
+
+<div class="card f">
+<h4>奶奶的餐具</h4>
+<p>有情感价值的东西同样适用容器概念。她的问法是：它们装得进「厨房」这个容器吗？如果你不用它们，它们是不是占了你要用的东西的位置？</p>
+<p>然后是两个更钝的问题：<strong>你留着是因为爱它，还是因为不留会愧疚？你能用它吗？</strong>她的立场是厨房是每天开合几十次的高强度使用空间，不适合存放永远不会用的东西。</p>
+<p class="src">她给了一个安慰的角度：萨莉姨妈钩那对隔热垫，不是为了让你把它塞进抽屉、每次为厨房抓狂时都对它生一次气。用它们，甚至用到彻底用坏，那种感觉接近于一位亲人长寿善终后的告别——难过是真的，但没有遗憾，因为它做完了它被造出来要做的事。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 10 ═══════════ -->
+<section class="sec" id="s10" data-cat="deep" data-title="衣柜 衣服 过量恶性循环 洗衣 爱好 手工 craft 储藏室 车库 garage">
+<h2><span class="no">§ 10</span>逐区 · 衣柜 / 爱好空间 / 储藏区</h2>
+
+<h3>衣柜：两个特殊难点</h3>
+<div class="grid2">
+  <div class="card f">
+    <h4>难点一：承认衣服可以是杂物</h4>
+    <p>她以前的逻辑是：衣服有用，社会上不穿不行，有用的东西不可能是杂物。改变来自那个更狠的定义——持续失控的东西就是杂物，而她家的衣服持续失控。</p>
+  </div>
+  <div class="card f">
+    <h4>难点二：过量恶性循环</h4>
+    <p>专门发生在需要持续清洗维护的东西上（衣服、餐具）。没有固定洗衣节奏 → 经常没干净衣服穿 → 慌乱地临时洗一缸 → 那种慌张让人以为衣服不够 → 买更多 → 能撑更久才洗 → 于是拖更久 → 脏衣堆更大更吓人 → 更拖 → 再买。</p>
+  </div>
+</div>
+<div class="card f">
+<h4>固定洗衣日暴露的两条线索</h4>
+<p><strong>线索一：</strong>所有衣服都干净的那一刻，物理上放不进抽屉和衣柜。这就是容器概念。</p>
+<p><strong>线索二：</strong>所有衣服都干净的时候，一家人还是反复穿同样那几件。「最爱」被自动识别出来了，剩下的自然显形——那些只在没别的可穿时才穿的。</p>
+</div>
+<ul class="pts">
+  <li class="f"><b>衣服可以用负面情绪来筛。</b>她整个方法都在避免情绪，唯独衣服是例外。废话杂物清掉之后，她问一个更挑剔的问题：<mark>哪件有一处我讨厌的地方？</mark>一件外套颜色是她最爱、面料她喜欢、价格捡到宝，但袖子太紧夹腋下——讨厌袖子就等于讨厌这件外套，捐掉。</li>
+  <li class="f"><b>容器决定数量，你决定内容。</b>她保留了全部高中舞会礼服，因为它们装得下（后来搬进女儿衣柜，成了女儿生日睡衣派对上一群十一岁女孩的道具）。她的原话大意：如果十五条黑裙子你条条都爱，全留着没问题，你只要接受这辈子只穿黑裙子就行。</li>
+  <li class="f"><b>破损衣物怎么处理。</b>她描述了两个阵营（一方觉得扔掉是浪费、一定有人需要；一方觉得给别人自己不会穿的东西不道德），然后说两个都行，唯一不行的是<strong>因为纠结哪种方式最对而什么都不做</strong>。她自己听过本地慈善机构的负责人现场恳求大家把破损衣物也捐来——他们按磅卖给做抹布的厂家，每一分钱都进项目。前提是干净、干燥。</li>
+</ul>
+
+<h3>爱好空间：一个前置问题</h3>
+<div class="card f">
+<h4>你的爱好，现在还是你的爱好吗</h4>
+<p>她要求在动手前先回答：Is。不是 was，也不是「希望有一天是所以想先备好」。</p>
+<p class="src">她的观察是杂物困扰者普遍有很多爱好——她在社交媒体上问「哪些爱好需要装备」，收到几百条回复，大多数人列的是一长串。她的评价：这是有杂物困扰的人的共同特征，他们有意思，也喜欢有意思的东西。</p>
+</div>
+<p class="f">这个房间里决断问题 ① 是重中之重。她指出一个关键区分：<mark>「你会先去哪儿找」和「你当初大扫除时决定它该放哪儿」是两回事</mark>。如果你需要荧光绿卡纸时会自动去拉书桌最下面那个抽屉，那卡纸就该放在那儿——哪怕你曾经用婚礼包装纸做了一个漂亮的风琴文件夹专门装它。她说这是她的一次重大转变：不再把东西放在超级合理、深思熟虑的位置，而是放在我们会去找的位置。</p>
+
+<h3>储藏区：放最后是有原因的</h3>
+<ul class="pts">
+  <li class="f">它最不显眼，按可见性法则排最后。它也最难，因为<strong>每一件东西的去留都需要判断</strong>——厨房里你不会拿起一把叉子来问问题，叉子本来就该在那儿。</li>
+  <li class="f"><b>先定义这个空间。</b>这是真正的储藏空间，还是你为了存东西牺牲掉的空间？（比如车库。）她问过自己的版本：这箱童年的儿童餐玩具，比给奶奶一间自己的房间更重要吗？十多年前辞掉的那份工作的教学材料，比让车躲开德州的太阳更重要吗？</li>
+  <li class="f"><b>存东西的地方必须拿得出来。</b>她给了一个她愿意破例接近「收纳」的理由：储藏空间最重要的属性是「取得出来」。它的用途不是塞到要用全身重量才关得上门（她说她真干过），而是保管你将来会需要的东西——所以你得够得着。</li>
+  <li class="f"><b>归类这一步在这里威力最大。</b>她写了一整段带音效的独白：搬「婴儿衣物」的箱子叠到一起，发现有四箱；然后搬到一箱标着「锅碗」的，准备叠在标着「餐具」的箱子上——等等，锅碗？三周前整理厨房时我已经砍掉六个平底锅和一口意面锅，现在柜子刚刚好，我百分之百确定不需要这箱里的任何东西。整箱直接捐。</li>
+  <li class="f"><b>永远要看。</b>她的经验是：她并没有自以为的那种记忆力。打开箱子往往发现里面根本不是想象中那些情感炸弹——「这不是我孩子穿过的婴儿服，是朋友送的二手尿布，我从来没用过」「这些玩具我这辈子没见过」「这箱旧毯子我以为早捐给动物收容所了」。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 11 ═══════════ -->
+<section class="sec" id="s11" data-cat="deep" data-title="帮别人整理 朋友 孩子 长辈 配偶 接受帮助 让容器当坏人">
+<h2><span class="no">§ 11</span>帮别人整理</h2>
+<p class="lead">这一部分的总原则只有一条：你只能改变你自己。她把整个方法的「去情绪化」设计在这里变成了人际工具。</p>
+
+<h3>先解决资格问题</h3>
+<div class="card f">
+<h4>先整理自己的</h4>
+<p>她说得很直白：先把自己的破烂扔了，再去要求丈夫扔他的。先收拾自己家，再去跟哈里特姨妈说你要过去帮她收拾。做出看得见的进展，改变你自己的执念——别人在看，你的帮忙提议才会被当回事。</p>
+</div>
+
+<h3>六条通用策略</h3>
+<ul class="pts">
+  <li class="f"><b>只谈事实，让容器当坏人。</b>不要发表关于「两只后跟都破洞的不配对袜子被穿上的统计概率」的演讲。问对方会先去哪儿找袜子，然后让袜子抽屉去当那个坏人：这抽屉满了，要腾出这双的位置，得拿掉哪双？表情要同情，要点头，然后再问一遍。</li>
+  <li class="f"><b>承认情绪，但不接情绪。</b>关系在整理过程中崩掉，通常是因为有人觉得被批评了，或者出现了权力斗争。</li>
+  <li class="f"><b>用对方的直觉，不是你的。</b>这是他们的空间，维持进展的是他们。她讲了两个真事：婆婆的电话簿多年放在瓷器柜下层，有人「帮她」清理时挪到了一个更合理的地方，从此再也找不到；她自己的塑料复活节彩蛋被母亲从洗衣房地上收到了衣柜顶层，那一年全家没找彩蛋，几个月后她放毯子时才看见。<mark>「你会先去哪儿找」一旦被讨论成「你应该放哪儿」，帮忙的人的意见就压过了住在那儿的人</mark>。</li>
+  <li class="f"><b>两个绝对不能问的问题：</b>「你留这个干嘛？」「你把这个塞这儿的时候在想什么？」她说自己被这么问的时候立刻变得防御，然后就想把所有东西都留下——一旦她开始防御，这就变成一场为她的东西打的仗。</li>
+  <li class="f"><b>目标是「更少」和「更好」，不是完美。</b>她自己是项目型人格，帮别人时总忍不住想把空间弄到完美再走。离开时比来时好，就算成功。</li>
+  <li class="f"><b>别留下更大的烂摊子。</b>把人家藏在柜子里的东西全掏到客厅地板上，然后因为保姆家的狗生病要提前走——那你没帮上忙，而且这个人再也不会接受你的帮助。</li>
+</ul>
+
+<h3>四种关系，四种打法</h3>
+<div class="grid2">
+  <div class="card f"><h4>朋友</h4><p>你的价值是「专注」。杂物极其私人，很容易跑题。你负责把她拉回最显眼的空间、递垃圾袋、把捐赠箱往左挪一点、指向下一件东西——而不是接住那个「我怎么会搞成这样」的伤心故事。<br>拖延型杂物（叠衣服、洗碗）你来做，那是无脑体力活，让朋友把精力留给真正需要决定的部分。</p></div>
+  <div class="card f"><h4>孩子</h4><p>优势是你是大人。核心工具是让容器当坏人：书架上层叫「最爱架」，下层叫「喜欢架」，让孩子自己先把最爱的放进去。<mark>妈妈只负责指定容器，选什么由读这些书的人决定</mark>。装满了，剩下的捐掉——设限的是架子，不是妈妈，所以没有权力斗争。<br>她坦白这条要真做到不容易：得允许《Go, Dog, Go!》战胜《Runaway Bunny》。如果当妈的实在放不下，就把它放进你自己的容器里。</p></div>
+  <div class="card f"><h4>长辈</h4><p>她的定位是「我来当那个工具，决定权全在你」。具体做法：带着捐赠箱和黑垃圾袋去，婆婆坐在助行器的座位上，她来把东西从柜子里掏出来。<br>四个问句依次是：「有没有我可以直接扔掉的垃圾？」「有没有该放到别处去的？」「有没有你已经确定想捐的？」然后才是两个决断问题。<br>她引 Dave Ramsey 的说法解释为什么儿媳比女儿好办——没人喜欢听一个给自己擦过屁股的人给建议。</p></div>
+  <div class="card f"><h4>配偶</h4><p>全书最短的一章，因为答案是「你管不了他」。她不讲五步法，只讲你能做什么：整理你自己的东西，整理中性的东西（毛巾、塑料杯），然后<strong>给他一个容器</strong>。<br>她在第 100 期播客里采访丈夫，听众问「Dana 怎么帮你整理的」，丈夫说她给了他一块专门的地方放 80 年代的收藏，这样他很容易决定留什么——先把最爱的放进去。她说「哦，那是容器概念」，丈夫问「什么？」<br>还有一条婚姻建议来自她母亲：永远不要说「我早说过吧」。</p></div>
+</div>
+
+<div class="card f">
+<h4>反过来：接受帮助</h4>
+<p>她写了一整章讲这件事，因为她自己拒绝过两次，至今后悔。一次是朋友提议两家轮流互相帮忙打扫（孩子年龄相仿可以一起玩），一次是二儿子出生后邻居主动提出帮她打扫。两次她都因为太难为情而拒绝——她连「让人进门前的预先整理」都提不起劲做。</p>
+<p class="src">给「被帮的人」的准备工作：在帮手到来之前，能扔多少垃圾扔多少。这样帮手的力气可以用在真正难的部分上。她说这也会改变你——她无法准确解释这个现象，但把东西弄出家门的过程改变了她的思考方式、执念和对「失去珍贵可能性」的承受力预期。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 12 ═══════════ -->
+<section class="sec" id="s12" data-cat="deep" data-title="搬家 遗物 逝者 梦想 悲伤 grief 小梦想 大梦想 焊工">
+<h2><span class="no">§ 12</span>特殊情况 · 搬家、遗物、梦想</h2>
+
+<h3>搬家</h3>
+<div class="card f">
+<h4>新家也是容器，而且箱子先替它说话</h4>
+<p>她的方法：用网上的「搬家用品计算器」估算箱子数量，但<mark>按你要搬进去的那个家填，不是按现在这个家填</mark>，并且「东西多少」那一栏选「一般」。买计算器建议的数量。</p>
+<p>然后这些箱子就是你的容器。像往厨房架子上先放最爱的盘子一样，先把必须带走的东西装进限定数量的箱子里，装不下的捐掉。逐个房间做。</p>
+<p class="src">她承认自己以前完全不听这些估算，还觉得租车行的人算得不对。她的原话：他们做搬家生意，肯定比我以为的我更懂。</p>
+</div>
+<p class="f">搬家还送一个额外的决断问题：<mark>我愿意花钱搬它吗？</mark>就算你不请搬家公司，你也在用自己的肌肉、汗水、更大的卡车、多余的油钱和往返时间付账。这个问题让你「呃……」了一下，就丢掉。</p>
+
+<h3>清理逝者的家</h3>
+<ul class="pts">
+  <li class="f"><b>如果时间允许，先整理你自己家。</b>理由很实际：避免带回来超过你自己容器容量的东西。<mark>如果来不及，就先拍照</mark>——拿手机把每个房间、衣柜、柜门里、抽屉里都拍一遍。等你在那边想带走什么的时候，翻照片看有没有位置。</li>
+  <li class="f"><b>先整栋房子过一遍垃圾这一步。</b>这能给你一个现实的预期：接下来几天/几周/几个月要处理多大的量。如果光是垃圾就已经压垮你，考虑租一个垃圾箱。</li>
+  <li class="f"><b>要卖东西的话，第一天就去试。</b>把要卖的装满车，第一天（最多第一周）拉去卖或估价。要在网上卖，今天就挂三件你确信值钱的。这是现实核查——如果古董商一件都不要，或者挂出去无人问津，你对这栋房子里其他东西的看法会立刻改变。<strong>不要建立一个「以后有空再卖」的堆或房间。</strong></li>
+  <li class="f"><b>「替换，不是增加」。</b>如果你家已经满了，唯一的选项是替换。你完全可以带走母亲的意面锅——你只需要把自己那口意面锅处理掉腾出位置。她在这里写了全书最克制也最重的一句：<mark>你母亲过世那天，地球像是停转了，你的生活戛然而止。但你的厨房柜子没有变大。很抱歉。</mark></li>
+  <li class="f"><b>能不能只留一件？</b>一个盘子、一把勺子，让你想起她的年节晚餐；一根擀面杖，让你想起她抹满黄油的饼干。她的对比：偶然遇到一件有纪念意义的东西，所有感觉都会回来；被一堆有纪念意义的箱子绊一下，只会伤到脚趾。</li>
+</ul>
+
+<h3>整理梦想</h3>
+<div class="card f">
+<h4>入场故事：67 磅废铁</h4>
+<p>公公是焊工，退休后车间里还有全套焊接工具和那个「防止把眼睛烧出来的头盔玩意儿」。她的爱创意的大脑受不了这种诱惑——怎么可能不学焊接呢？于是她的第一步（也是唯一一步）是去了废品场，买了一堆钢筋和铁皮。她不知道要先称车再装货再称一次，所以搞错了流程，废品场的人叹了口气，瞄了一眼说给三美元吧。</p>
+<p class="src">这堆废铁后来跟着她搬家四小时，在后院生锈，最终被扔掉。她连那三美元都没去要回来。</p>
+</div>
+
+<div class="grid2">
+  <div class="card f">
+    <h4>小梦想：四个筛子</h4>
+    <p>① <strong>这真的是个梦想，还是一个你觉得可能会喜欢的酷东西？</strong>她一美元买过两购物袋的印章，不印章，只在几年里让孩子给祖父母的礼物袋盖过两三次。<br>② <strong>这个梦想是你继承来的吗？</strong>邻居送她一大箱玻璃瓶和蚀刻工具，因为知道她有创意。在车库放了好几年后她承认：玻璃蚀刻很酷，但那不是她的梦想。<br>③ <strong>收集这些东西本身是不是这个梦想最好的部分？</strong>她梦想当烘焙师，看节目、抄食谱、攒模具，最后承认自己既做不到常烤，也做不到常吃。<br>④ <strong>容器说了算。</strong>这个梦想配得上货架空间吗？比家里那些「现实相关」的东西更配吗？</p>
+  </div>
+  <div class="card f">
+    <h4>小梦想的身份核查</h4>
+    <p>她写得很坦白：很多小梦想其实是身份问题。她梦想成为那种把自己投入家庭、天天做家常菜的妈妈，成为那种做手工卡片让人感到被爱的社区领袖，所以她收集那个人会用的东西。</p>
+    <p>后来她发现<mark>那些身份她都实现了，只是细节长得完全不是她当初以为的样子</mark>：为家人做饭不等于花几小时做精致大餐、自己磨面粉，而是买打折货、批量预煮肉，用最少的折腾把一顿家常饭端上桌；投入社区不等于正式晚宴和手工贺卡，而是给刚生完孩子的妈妈或开始化疗的朋友送一份能冷冻的饭，以及给一群十岁孩子编排音乐剧。</p>
+  </div>
+</div>
+
+<div class="card f">
+<h4>大梦想：这一章讲的是悲伤</h4>
+<p>触发它的是一封听众来信：四十七岁，儿子八岁，一直留着儿子的衣服和婴儿玩具，希望能有第二个孩子。现在她接受了这个梦想不会实现，正在把这些东西捐掉，情绪很难受，在哀悼。她问：当整理意味着面对现实、放弃一个梦想时，怎么熬过去。</p>
+<p><strong>作者的区分：</strong>小梦想和大梦想的差别在于<mark>谁在控制</mark>。她本可以去焊接，工具人手一应俱全，她只是没去做——那份痛叫<strong>后悔</strong>。这位听众意识到自己不会再有孩子，那份痛叫<strong>悲伤</strong>。</p>
+<p class="src">她引了 2017 年哈里王子在播客上讲的经历：二十八岁时他才真正面对母亲去世的悲伤，距离她离世已经十六年。多年里他以为可以绕过去，但绕不过去。</p>
+</div>
+
+<div class="card f">
+<h4>可操作的部分：「不承诺的整理」</h4>
+<p>她把「否认」列为悲伤的一个阶段，也是她自己杂物的主要成因——她有整柜的否认（否认教师生涯结束了），有绊脚的箱子里装着否认（否认自己可能永远拿不到硕士学位）。</p>
+<p>破法：<strong>允许自己去翻这些东西，而且今天不整理任何东西。</strong>今天只是去摸、去感受、去看。允许一件都不进垃圾袋和捐赠箱。她说自己每次强迫自己看完不想看的东西之后，大脑会在后台做点什么——一个月或一年后再回到那个空间，视角已经变了。</p>
+<p class="src">她给了一条很有画面感的建议：别涂睫毛膏，抱着零期待去做。她也明确说自己不是悲伤咨询师，多处建议找治疗师或加入互助小组。</p>
+</div>
+
+<blockquote class="f">别从梦想开始。整理的惯性是真的，而最不该起步的地方，就是那些让你心疼的东西。
+<span class="en">第 25 章结尾的那条硬规则</span></blockquote>
+</section>
+
+<!-- ═══════════ § 13 ═══════════ -->
+<section class="sec" id="s13" data-cat="ref" data-title="术语 自造词 glossary deslobification duh procrasticlutter">
+<h2><span class="no">§ 13</span>自造术语表</h2>
+<p class="lead">她的方法建立在一堆自造词上。看懂这些词，等于看懂了全书七成。</p>
+<div class="terms">
+  <div class="term f"><b>去邋遢化</b> <span class="en">deslobification</span><p>她给自己那段改造过程起的名字：从「我到底哪儿有毛病」的家，变成「虽然永远不完美但我搞得定」的家。她的博客名 A Slob Comes Clean 也是这个意思。</p></div>
+  <div class="term f"><b>杂物</b> <span class="en">clutter</span><p>她自己下的定义：<strong>任何我持续控制不住的东西</strong>。判断标准不是这东西有没有用，而是这个空间是不是反复失控。</p></div>
+  <div class="term f"><b>杂物阈值</b> <span class="en">Clutter Threshold</span><p>东西在你家变成杂物的临界点，因人而异。住在阈值之上，家就持续失控；住在阈值之下，家会自然地保持住。找它的方法是朝「更少」去做。</p></div>
+  <div class="term f"><b>容器概念</b> <span class="en">Container Concept</span><p>容器的用途是限制，不是盛放。架子→柜子→房间→房子逐级嵌套，最外层是你家的面积，而那是建房子的人定的。</p></div>
+  <div class="term f"><b>整理瘫痪</b> <span class="en">Decluttering Paralysis</span><p>面对一堆东西动弹不了的状态。她的解药是「动起来」——从最简单的开始，每做完一件简单的，空间就好看一点，压迫感就少一点。</p></div>
+  <div class="term f"><b>整理后悔</b> <span class="en">Decluttering Regret</span><p>扔掉之后才发现需要它。她的态度：不好受，但每次都活下来了。家能长期保持整洁的人，是宁可承受偶尔的后悔，也不愿意承受杂物的人。</p></div>
+  <div class="term f"><b>整理惯性</b> <span class="en">Decluttering Momentum</span><p>做出看得见的改善之后，整理会越来越容易。这是可见性法则存在的理由。</p></div>
+  <div class="term f"><b>拖延型杂物</b> <span class="en">procrasticlutter</span><p>技术上不算杂物、也不算日常事务，卡在中间。定义是不需要任何决定、你完全知道该怎么办、只是没办。典型：沙发上洗好没叠的衣服、洗碗机里洗好没收的碗。</p></div>
+  <div class="term f"><b>废话杂物</b> <span class="en">Duh Clutter</span><p>扫一眼就知道该丢的东西，反应是「废话，我留它干嘛」。五步法的第 3 步。</p></div>
+  <div class="term f"><b>挪东西</b> <span class="en">Stuff Shifting</span><p>看起来在整理、实际上只是把东西换个位置。重新摆放、买新架子、分格分抽屉分篮子，都算。她明确把这个排除在「整理」之外。</p></div>
+  <div class="term f"><b>可见性法则</b> <span class="en">Visibility Rule</span><p>每次整理都从客人最先看到的空间开始，每次都是。它同时是短期的起步策略和长期的维持策略。</p></div>
+  <div class="term f"><b>一进一出</b> <span class="en">One-In-One-Out Rule</span><p>容器满了又要放新的，先拿一个出来。</p></div>
+  <div class="term f"><b>脑袋爆炸法则</b> <span class="en">Head Explosion Rule</span><p>专治「可是可是可是」。一个不改变人生的决定却让你觉得要改变人生时，直接丢掉。理由：没有一件东西值得让你的脑袋爆炸。</p></div>
+  <div class="term f"><b>时间感知障碍</b> <span class="en">TPAD</span><p>她自造的「病」：对一件事需要多少时间几乎从不估准。她的整理策略专门设计成不依赖时间预估，所以五分钟也能用。</p></div>
+  <div class="term f"><b>过量恶性循环</b> <span class="en">Vicious Cycle of Excess</span><p>专门发生在需要持续清洗的东西上。没有洗衣节奏 → 没干净衣服穿 → 慌张 → 以为不够 → 买更多 → 拖更久才洗 → 堆更大 → 更拖 → 再买。</p></div>
+  <div class="term f"><b>拖延站</b> <span class="en">Procrastination Station</span><p>「先放这儿回头再说」的中转堆。她的五步法明令禁止产生任何拖延站。</p></div>
+  <div class="term f"><b>捐赠点</b> <span class="en">Donate Spot</span><p>全家都知道的固定位置，任何人任何时刻意识到某样东西不要了，就送到那里的捐赠箱。它让整理不再是一件需要专门下决心的大事。</p></div>
+  <div class="term f"><b>现实的当下我 / 理想化的未来我</b> <span class="en">Realistic Right-Now Me</span><p>「未来我」资源丰富、勤俭、会查资料、不浪费任何一罐金枪鱼，永远住在明天。做出实际进展的是「当下我」。</p></div>
+  <div class="term f"><b>杂物爬行</b> <span class="en">Clutter Creep</span><p>某天抬头发现杂物又回来了，而你还以为「不久前才整理过」。她给的解药是每天五分钟的收拾。</p></div>
+  <div class="term f"><b>玩耍瘫痪</b> <span class="en">Playing Paralysis</span><p>孩子版的整理瘫痪。玩具堆成山的时候孩子反而不玩了，因为选项太多。玩是孩子的工作，选择过载同样让人僵住。</p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 14 ═══════════ -->
+<section class="sec" id="s14" data-cat="ref" data-title="卡点对照表 常见问题 借口 怎么办">
+<h2><span class="no">§ 14</span>卡点对照表</h2>
+<p class="lead">把书里散落的应对方法按「你卡在哪儿」重排。左边是内心的话，右边是她给的动作。</p>
+<div class="tbl"><table>
+<thead><tr><th>你卡在哪儿</th><th>她的应对</th><th>出处</th></tr></thead>
+<tbody>
+<tr class="f"><td>「这些东西都很有用，扔了可惜」</td><td>换问题：不是问它有没有价值，而是问它装不装得进容器。有用的东西照样可以是杂物——判断标准是这个空间有没有反复失控</td><td>第 3、15 章</td></tr>
+<tr class="f"><td>「我需要的是更大的房子 / 更多收纳」</td><td>算一笔空间的房贷账。她的 25 平方英尺衣帽间每月约 10 美元，她不愿意为堆废物付这笔钱</td><td>第 4 章</td></tr>
+<tr class="f"><td>「整理了一整天，家里还是乱」</td><td>两个原因：没按可见性法则（力气花在袜子抽屉上了），或者跳过了拖延型杂物</td><td>第 5、6 章</td></tr>
+<tr class="f"><td>「我没有整块时间」</td><td>五分钟起步，只做第 1 步扔垃圾。方法本身设计成随时可停、停下时不比开始前更糟</td><td>第 9、10 章</td></tr>
+<tr class="f"><td>「一动就变得更乱，然后我就放弃了」</td><td>不要把东西全掏出来。每碰一件就做最终决定并立刻执行，答得出问题 ① 就<strong>现在</strong>走过去放好</td><td>第 9、10 章</td></tr>
+<tr class="f"><td>「刚整理完的地方又乱了，前功尽弃」</td><td>回去重做那个地方。重复整理快得惊人：她的餐厅第一次不到一小时，第二次十分钟，第三次五分钟</td><td>第 5 章</td></tr>
+<tr class="f"><td>「这个能卖钱 / 应该给需要的人」</td><td>捐掉。她列了自己试过的所有方式（eBay、Craigslist、二手群、Freecycle、车库拍卖），全部需要分类、拍照、等待、协调、留出中转空间——而中转空间超出了她的阈值</td><td>第 7 章</td></tr>
+<tr class="f"><td>「万一以后需要呢」</td><td>问题 ②：真需要的时候，你会想起来自己有吗？想不起来的东西等于没有。存起来只是让你告诉自己不算浪费</td><td>第 10、17 章</td></tr>
+<tr class="f"><td>「我以后会修好它 / 改造它 / 用上它」</td><td>把「这有用吗」换成「现在就开始用它」。要么今天下单配件动手，要么丢掉</td><td>第 8 章</td></tr>
+<tr class="f"><td>「这盒过期食物扔了太浪费」</td><td>浪费已经发生了。三选一：今晚吃掉、扔掉、或者把没过期的捐掉腾地方留过期的。让扔的时候那份疼改变你下次在超市的动作</td><td>第 13 章</td></tr>
+<tr class="f"><td>「这是奶奶的 / 这是纪念品」</td><td>容器概念照样适用。两个补充问题：留着是因为爱它还是因为愧疚？你能用它吗？<br>能用就用到用坏——东西完成了它被造出来的使命</td><td>第 13 章</td></tr>
+<tr class="f"><td>「扔了它等于放弃了我的梦想」</td><td>先分清是后悔还是悲伤。是后悔就用容器判断；是悲伤就允许自己只翻不扔，今天只感受</td><td>第 25 章</td></tr>
+<tr class="f"><td>「我确定那个箱子里全是让我心碎的东西」</td><td>永远要看。她的经验是记忆没有自以为的准——打开常常发现里面根本不是想象中那些</td><td>第 17、25 章</td></tr>
+<tr class="f"><td>「我伴侣 / 我妈根本不配合」</td><td>先整理你自己的和中性的东西，给对方一个属于他的容器，然后等惯性起作用。不要变成权力斗争，永远不说「我早说过吧」</td><td>第 21、22 章</td></tr>
+<tr class="f"><td>「太丢人了，不好意思让人来帮忙」</td><td>她因为这个拒绝过两次帮助，至今后悔。在帮手来之前，能扔多少垃圾扔多少</td><td>第 23 章</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ═══════════ § 15 ═══════════ -->
+<section class="sec" id="s15" data-cat="how" data-title="批判性阅读 局限 缺点 怎么用 读法 适合谁">
+<h2><span class="no">§ 15</span>批判性阅读与用法</h2>
+
+<h3>值得存疑的地方</h3>
+<ul class="pts">
+  <li class="f"><b>重复是刻意的，但确实累。</b>五步法在八个房间里逐字重复了八遍。她提前打了招呼（读完你会背下来，这就是目的），但对已经理解方法的读者来说，第二部分的边际信息量很低。跳读不会有损失。</li>
+  <li class="f"><b>样本只有她自己。</b>她开篇就承认：除非注明出处，书里的数字多半是编的；所有策略都基于她的个人经验。这份坦白值得尊重，但也意味着全书没有任何外部验证——「这些方法对生活和我很不一样的人也管用」这句话，来源是读者来信。</li>
+  <li class="f"><b>语境是美式独栋。</b>车库、储藏室、衣帽间、走进式食品柜、上门取件的慈善机构、遍地的旧货铺——这些是她的默认设定。容器概念本身不受影响（甚至在小户型里更成立），但第二部分的具体场景要自己换算。</li>
+  <li class="f"><b>「捐掉就行」的道德帐算得很轻。</b>她的立场是速度压倒一切：捐赠永远可以接受，不需要做道德判断。这在个人层面成立，在系统层面回避了一个问题——大量捐赠品最终会被慈善机构转卖或填埋。她提到过一次破损衣物被按磅卖给抹布厂，但没有再往下追。</li>
+  <li class="f"><b>宗教和文化底色是隐性的。</b>出版方是 Thomas Nelson（基督教出版社），语气里有明显的美国南方福音派家庭主妇气质（「Yay for⋯」「Y'all」「Forever and ever, amen」）。这不影响方法的有效性，但如果这种口吻让你出戏，读起来会比较费劲。</li>
+  <li class="f"><b>它和第一本书有依赖关系。</b>「三层」里的第一层（日常事务）和洗衣节奏，她多次说「那是我另一本书的内容」。如果你的问题主要出在日常习惯而不是存量杂物上，这本书只解决一半。</li>
+</ul>
+
+<h3>三种读法</h3>
+<div class="grid2">
+  <div class="card f">
+    <h4>60 分钟版</h4>
+    <p>第 1 章（定义）→ 第 3 章（容器）→ 第 5 章（可见性）→ 第 6 章（三层与拖延型杂物）→ 第 10 章（五步法）。</p>
+    <p class="src">这五章包含了整套方法。第二部分是同一套方法的八次演练，第三、四部分按需要再回来查。</p>
+  </div>
+  <div class="card f">
+    <h4>照着做</h4>
+    <p>拿黑垃圾袋和一个能整箱送走的箱子，设五分钟计时器，走到大门口，看客人看到什么，只扔垃圾。拍照对比。</p>
+    <p class="src">她全书唯一要求你立刻做的动作就是这个。其余所有内容都是它的展开。</p>
+  </div>
+  <div class="card f">
+    <h4>只查你卡住的那一条</h4>
+    <p>直接看 <a href="#s14">§ 14</a> 的卡点对照表，找到你脑子里那句话，翻对应章节。</p>
+    <p class="src">这本书本质上是一本症状手册，不需要顺读。</p>
+  </div>
+</div>
+
+<h3>它和 Marie Kondo 的差别</h3>
+<div class="tbl"><table>
+<thead><tr><th></th><th>KonMari</th><th>Dana White</th></tr></thead>
+<tbody>
+<tr class="f"><td>判断依据</td><td>拿起来有没有心动</td><td>装不装得进容器 / 你会不会去找它</td></tr>
+<tr class="f"><td>操作方式</td><td>按品类，把同类全部掏出来堆在一起</td><td>按空间，从最显眼处开始，绝不全掏出来</td></tr>
+<tr class="f"><td>时间要求</td><td>一次性、集中、有仪式感</td><td>五分钟也算，随时可中断</td></tr>
+<tr class="f"><td>对情绪的态度</td><td>调动情绪作为判断工具</td><td>刻意绕开情绪，只留衣服一个例外</td></tr>
+<tr class="f"><td>收纳</td><td>方法的重要组成（怎么叠、怎么放）</td><td>明确排除在外，反复强调「我们不搞收纳」</td></tr>
+<tr class="f"><td>结束状态</td><td>一次做对，宣称客户从不复发</td><td>终身工作，反复回到同一个房间</td></tr>
+</tbody></table></div>
+<p class="f">她自己没有把这个对比写成一张表，但第 8 章谈极简主义时给了一个等价的判断：这是心态，而心态是「东西少了日子更好过」，以及<mark>宁可没有一件你可能会用的东西，也不要拥有一件你不用的东西</mark>。可能变成「大概不会」，「有了也不错」变成「真需要我再买」。</p>
+</section>
+
+</main>
+</div>
+
+<button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
+
+<footer>整理自 Dana K. White《Decluttering at the Speed of Life》（Thomas Nelson, 2018）英文原书 · 本页生成于 2026-08-06 · 单文件可离线使用</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  var catBtns = Array.prototype.slice.call(document.querySelectorAll('.cats button'));
+  var curCat = 'all';
+
+  function render(){
+    var kw = q.value.trim().toLowerCase();
+    var tot = 0, vis = 0;
+    secs.forEach(function(sec){
+      var inCat = (curCat === 'all' || sec.dataset.cat === curCat);
+      var items = sec.querySelectorAll('.f');
+      var any = false;
+      if(!inCat){
+        sec.style.display = 'none';
+        return;
+      }
+      tot += items.length;
+      if(!kw){
+        for(var i=0;i<items.length;i++){ items[i].style.display=''; }
+        vis += items.length;
+        sec.style.display = '';
+        return;
+      }
+      var headHit = (sec.dataset.title || '').toLowerCase().indexOf(kw) > -1;
+      for(var j=0;j<items.length;j++){
+        var hit = items[j].textContent.toLowerCase().indexOf(kw) > -1;
+        items[j].style.display = hit ? '' : 'none';
+        if(hit){ any = true; vis++; }
+      }
+      if(headHit && !any){
+        for(var k=0;k<items.length;k++){ items[k].style.display=''; }
+        vis += items.length;
+        any = true;
+      }
+      sec.style.display = any ? '' : 'none';
+    });
+    count.textContent = vis + ' / ' + tot;
+    spy();
+  }
+
+  q.addEventListener('input', render);
+  catBtns.forEach(function(b){
+    b.addEventListener('click', function(){
+      curCat = b.dataset.cat;
+      catBtns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      render();
+    });
+  });
+
+  /* scroll-spy */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var linkById = {};
+  tocLinks.forEach(function(a){ linkById[a.getAttribute('href').slice(1)] = a; });
+  function spy(){
+    var y = window.scrollY + 110;
+    var cur = null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].style.display === 'none') continue;
+      if(secs[i].offsetTop <= y) cur = secs[i].id;
+    }
+    tocLinks.forEach(function(a){ a.classList.remove('cur'); });
+    if(cur && linkById[cur]){
+      linkById[cur].classList.add('cur');
+      var el = linkById[cur];
+      var nav = document.getElementById('toc');
+      if(el.offsetTop < nav.scrollTop || el.offsetTop > nav.scrollTop + nav.clientHeight - 40){
+        nav.scrollTop = el.offsetTop - nav.clientHeight / 2;
+      }
+    }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){ spy(); toTopCheck(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  /* 回顶部 */
+  var toTop = document.getElementById('toTop');
+  function toTopCheck(){ toTop.classList.toggle('show', window.scrollY > 500); }
+  toTop.addEventListener('click', function(){
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'});
+  });
+
+  /* 锚点跳转高亮 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var t = document.getElementById(id);
+    if(!t) return;
+    if(t.offsetParent === null){
+      q.value = ''; curCat = 'all';
+      catBtns.forEach(function(x){ x.classList.toggle('on', x.dataset.cat === 'all'); });
+      render();
+    }
+    setTimeout(function(){
+      t.classList.remove('flash');
+      void t.offsetWidth;
+      t.classList.add('flash');
+    }, 350);
+  });
+
+  spy(); render();
+})();
+
+var _dr=document.getElementById("drawer"),_dl=document.getElementById("drawerlist");
+if(_dr&&_dl){
+  document.getElementById("tocbtn").addEventListener("click",function(){_dr.classList.add("open")});
+  _dr.addEventListener("click",function(e){if(e.target===_dr)_dr.classList.remove("open")});
+  var _links=document.querySelectorAll("#toc a, nav.side a, nav.toc a");
+  _links.forEach(function(a){
+    var c=a.cloneNode(true);c.className="";c.style.cssText="";
+    if(a.classList.contains("sub"))c.style.paddingLeft="24px";
+    _dl.appendChild(c);
+  });
+}
+
+</script>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+</body>
+</html>

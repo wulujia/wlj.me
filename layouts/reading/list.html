@@ -1,0 +1,56 @@
+{{ define "main" }}
+<article class="post">
+  <h1 class="post-title">{{ .Title | markdownify }}</h1>
+  <div class="post-meta">
+    <span class="post-author">by <a href="{{ .Site.Params.author.url | default "/about/" | absURL }}">{{ .Site.Params.author.name }}</a></span>
+  </div>
+
+  <div class="post-content">
+    <p>这些页面是对原书的梳理和要点摘录，用于中文阅读辅助——不是翻译，不能替代原书。</p>
+
+    {{ $materials := .Site.Data.readingMaterials.materials }}
+
+    {{ $books := slice }}
+    {{ $reports := slice }}
+    {{ range $materials }}
+      {{ if eq .category "book" }}
+        {{ $books = $books | append . }}
+      {{ else if eq .category "report" }}
+        {{ $reports = $reports | append . }}
+      {{ end }}
+    {{ end }}
+
+    <h2 id="books">书</h2>
+    <div style="display:grid;gap:14px;margin-bottom:36px">
+    {{ range $books }}
+      <div style="border:1px solid var(--code-border,#073642);border-radius:8px;padding:16px 18px">
+        <div style="display:flex;align-items:baseline;gap:3px 10px;flex-wrap:wrap;margin-bottom:6px">
+          <strong><a href="{{ .reading_url | absURL }}">{{ .title }}</a></strong>
+          {{ if .subtitle }}<span style="color:var(--accent);font-size:0.88em">{{ .subtitle }}</span>{{ end }}
+        </div>
+        <div style="font-size:0.85em;color:var(--foreground);margin-bottom:4px">
+          {{ .author }}{{ if .year }} · {{ .year }}{{ end }}
+        </div>
+        <p style="margin:0;font-size:0.9em">{{ .description }}</p>
+      </div>
+    {{ end }}
+    </div>
+
+    <h2 id="reports">研究报告</h2>
+    <div style="display:grid;gap:14px;margin-bottom:36px">
+    {{ range $reports }}
+      <div style="border:1px solid var(--code-border,#073642);border-radius:8px;padding:16px 18px">
+        <div style="display:flex;align-items:baseline;gap:3px 10px;flex-wrap:wrap;margin-bottom:6px">
+          <strong><a href="{{ .reading_url | absURL }}">{{ .title }}</a></strong>
+          {{ if .subtitle }}<span style="color:var(--accent);font-size:0.88em">{{ .subtitle }}</span>{{ end }}
+        </div>
+        <div style="font-size:0.85em;color:var(--foreground);margin-bottom:4px">
+          {{ .author }}{{ if .year }} · {{ .year }}{{ end }}
+        </div>
+        <p style="margin:0;font-size:0.9em">{{ .description }}</p>
+      </div>
+    {{ end }}
+    </div>
+  </div>
+</article>
+{{ end }}

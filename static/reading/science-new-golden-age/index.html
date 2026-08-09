@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="白宫 OSTP《Science: A New Golden Age》阅读指南——美国科研体制的四个病灶与五章药方。">
+<link rel="canonical" href="https://wlj.me/reading/science-new-golden-age/">
+<title>Science: A New Golden Age · 阅读指南</title>
+<style>
+:root{
+  --bg:#faf9f5; --panel:#ffffff; --ink:#23272e; --muted:#6d7480; --line:#e5e1d6;
+  --gold:#8a6d1d; --gold-soft:#f4ecd7; --navy:#1e3a5f; --hl:#fff3c4;
+  --chip:#eef0f4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15171c; --panel:#1d2026; --ink:#d8d5cf; --muted:#9aa0a8; --line:#33373f;
+    --gold:#d4af5a; --gold-soft:#2c2717; --navy:#9fc0e8; --hl:#4a3f14;
+    --chip:#282c34;
+  }
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:16px; line-height:1.75;
+}
+a{color:var(--gold); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── 顶栏 ── */
+.top{
+  position:sticky; top:0; z-index:50; background:var(--panel);
+  border-bottom:1px solid var(--line); padding:10px 20px;
+}
+.top-inner{max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.top h1{font-size:15px; font-weight:600; white-space:nowrap; color:var(--navy)}
+.top h1 em{font-style:normal; color:var(--gold)}
+#q{
+  flex:1; min-width:180px; padding:7px 12px; border:1px solid var(--line); border-radius:8px;
+  background:var(--bg); color:var(--ink); font-size:14px; outline:none;
+}
+#q:focus{border-color:var(--gold)}
+.cats{display:flex; gap:6px; flex-wrap:wrap}
+.cats button{
+  border:1px solid var(--line); background:var(--chip); color:var(--ink);
+  border-radius:999px; padding:4px 12px; font-size:13px; cursor:pointer;
+}
+.cats button.on{background:var(--gold); border-color:var(--gold); color:#fff}
+@media (prefers-color-scheme: dark){ .cats button.on{color:#15171c} }
+#count{font-size:12px; color:var(--muted); white-space:nowrap; min-width:70px; text-align:right}
+
+/* ── 布局 ── */
+.wrap{max-width:1200px; margin:0 auto; padding:28px 20px 80px; display:grid; grid-template-columns:248px minmax(0,1fr); gap:36px}
+#toc{
+  position:sticky; top:66px; align-self:start;
+  max-height:calc(100vh - 90px); overflow-y:auto; padding-right:8px;
+  font-size:13.5px;
+}
+#toc .grp{margin:14px 0 4px; font-size:11px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase}
+#toc a{
+  display:block; padding:4px 10px; color:var(--ink); border-left:2px solid transparent;
+  border-radius:0 6px 6px 0; line-height:1.45;
+}
+#toc a:hover{background:var(--chip); text-decoration:none}
+#toc a.cur{border-left-color:var(--gold); color:var(--gold); background:var(--gold-soft); font-weight:600}
+#toc .no{color:var(--muted); font-size:11px; margin-right:6px}
+#toc a.cur .no{color:var(--gold)}
+@media (max-width:1080px){
+  .wrap{grid-template-columns:1fr}
+  #toc{display:none}
+}
+
+/* ── 正文区块 ── */
+.sec{margin-bottom:56px; scroll-margin-top:80px}
+.sec>h2{
+  font-size:22px; color:var(--navy); border-bottom:2px solid var(--gold);
+  padding-bottom:8px; margin-bottom:18px; font-weight:700;
+}
+.sec>h2 .no{color:var(--gold); font-size:15px; margin-right:10px; font-weight:600}
+.sec h3{font-size:16.5px; margin:26px 0 10px; color:var(--navy)}
+.sec p{margin-bottom:12px}
+.lead{color:var(--muted); font-size:15px; margin-bottom:16px}
+.f{scroll-margin-top:80px}
+
+ul.pts{list-style:none; margin-bottom:14px}
+ul.pts li{padding:7px 0 7px 18px; position:relative; border-bottom:1px dashed var(--line)}
+ul.pts li:last-child{border-bottom:none}
+ul.pts li::before{content:"▪"; color:var(--gold); position:absolute; left:0; top:7px; font-size:12px}
+
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px; margin-bottom:12px;
+}
+.card h4{font-size:15px; color:var(--navy); margin-bottom:6px}
+.card p{margin-bottom:6px; font-size:14.5px}
+.card .src{font-size:12.5px; color:var(--muted)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; margin-bottom:14px}
+.grid2 .card{margin-bottom:0}
+
+blockquote{
+  border-left:3px solid var(--gold); background:var(--gold-soft);
+  padding:10px 16px; margin:14px 0; border-radius:0 8px 8px 0; font-size:15px;
+}
+blockquote .en{display:block; color:var(--muted); font-size:13px; margin-top:6px}
+
+.tbl{overflow-x:auto; margin-bottom:16px; border:1px solid var(--line); border-radius:10px; background:var(--panel)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:560px}
+th{
+  text-align:left; padding:9px 12px; background:var(--chip); color:var(--navy);
+  font-size:13px; white-space:nowrap; border-bottom:1px solid var(--line);
+}
+td{padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-weight:700; color:var(--gold); white-space:nowrap}
+.tag{
+  display:inline-block; background:var(--chip); color:var(--muted); border-radius:5px;
+  padding:1px 7px; font-size:12px; margin-right:4px; white-space:nowrap;
+}
+
+/* 术语表 */
+.terms{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:10px}
+.term{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:11px 14px}
+.term b{color:var(--navy); font-size:14.5px}
+.term .en{color:var(--gold); font-size:13px}
+.term p{font-size:13.5px; margin:4px 0 0; color:var(--ink)}
+.term .go{font-size:12px}
+
+/* 时间线 */
+.tl{list-style:none; border-left:2px solid var(--gold); margin:8px 0 8px 6px; padding-left:22px}
+.tl li{position:relative; padding-bottom:16px}
+.tl li::before{
+  content:""; position:absolute; left:-28px; top:7px; width:10px; height:10px;
+  border-radius:50%; background:var(--gold);
+}
+.tl .d{font-weight:700; color:var(--navy); margin-right:8px; white-space:nowrap}
+.tl li.future::before{background:var(--panel); border:2px solid var(--gold); left:-29px}
+
+/* 交叉引用高亮 */
+.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%,55%{background:var(--hl)} 100%{background:transparent}}
+@media (prefers-reduced-motion: reduce){ .flash{animation:none; outline:2px solid var(--gold)} }
+
+/* 回顶部 */
+#toTop{
+  position:fixed; right:22px; bottom:26px; width:42px; height:42px; border-radius:50%;
+  border:1px solid var(--line); background:var(--panel); color:var(--gold);
+  font-size:18px; cursor:pointer; display:none; box-shadow:0 2px 10px rgba(0,0,0,.12);
+}
+#toTop.show{display:block}
+
+.note{font-size:13px; color:var(--muted); margin-top:6px}
+footer{max-width:1200px; margin:0 auto; padding:20px; color:var(--muted); font-size:12.5px; border-top:1px solid var(--line)}
+mark{background:var(--hl); color:inherit; border-radius:2px}
+
+
+#tocbtn{position:fixed;right:18px;bottom:18px;z-index:70;border:1px solid var(--line,var(--code-border,#073642));background:var(--card,var(--background));color:var(--ink,var(--foreground));border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;box-shadow:0 4px 18px rgba(0,0,0,.13)}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper,var(--background));border-left:1px solid var(--line,var(--code-border,#073642));padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2,var(--foreground));text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a:hover{background:var(--card,var(--code-border))}
+@media print{#tocbtn,#drawer,.searchwrap{display:none!important}}
+
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回阅读材料</a></div>
+
+
+<header class="top">
+  <div class="top-inner">
+    <h1>Science: <em>A New Golden Age</em> · 阅读指南</h1>
+    <input id="q" type="search" placeholder="搜索：术语、数字、人物、章节…（如 Eroom、Genesis、复现）">
+    <div class="cats">
+      <button data-cat="all" class="on">全部</button>
+      <button data-cat="guide">导读</button>
+      <button data-cat="deep">逐章精读</button>
+      <button data-cat="ref">速查表</button>
+      <button data-cat="how">阅读建议</button>
+    </div>
+    <span id="count"></span>
+  </div>
+</header>
+
+<div class="wrap">
+<nav id="toc">
+  <div class="grp">导读</div>
+  <a href="#s01"><span class="no">§ 01</span>报告速览</a>
+  <a href="#s02"><span class="no">§ 02</span>核心论点与四大目标</a>
+  <a href="#s03"><span class="no">§ 03</span>全书结构地图</a>
+  <div class="grp">逐章精读</div>
+  <a href="#s04"><span class="no">§ 04</span>第一章 · 格局变了</a>
+  <a href="#s05"><span class="no">§ 05</span>第二章 · 修理科研机器</a>
+  <a href="#s06"><span class="no">§ 06</span>第三章 · 技术主导权</a>
+  <a href="#s07"><span class="no">§ 07</span>第四章 · 科学与手艺</a>
+  <a href="#s08"><span class="no">§ 08</span>第五章 · AI 与新黄金时代</a>
+  <a href="#s09"><span class="no">§ 09</span>附录 · FY2028 预算备忘录</a>
+  <div class="grp">速查</div>
+  <a href="#s10"><span class="no">§ 10</span>关键数据速查</a>
+  <a href="#s11"><span class="no">§ 11</span>术语与机构</a>
+  <a href="#s12"><span class="no">§ 12</span>人物与案例</a>
+  <a href="#s13"><span class="no">§ 13</span>时间线</a>
+  <div class="grp">读法</div>
+  <a href="#s14"><span class="no">§ 14</span>批判性阅读提示</a>
+  <a href="#s15"><span class="no">§ 15</span>三种读法</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ § 01 ═══════════ -->
+<section class="sec" id="s01" data-cat="guide" data-title="报告速览 overview kratsios ostp">
+<h2><span class="no">§ 01</span>报告速览</h2>
+<p class="lead">读这本书之前，先弄清它是谁写的、写给谁、为什么是现在。</p>
+
+<div class="card f">
+<h4>这是一份什么文件</h4>
+<p>白宫科技政策办公室（OSTP）主任 Michael Kratsios 于 2026 年 7 月 21 日提交给特朗普总统的官方报告，全书 123 页。它对标 81 年前 Vannevar Bush 的《Science: The Endless Frontier》（1945）——那份报告确立了联邦政府资助基础研究的角色，催生了国家科学基金会（NSF），塑造了此后 80 年美国科研体制。本报告的野心是在美国建国 250 周年之际，为下一个时代重写这套体制的设计图。</p>
+</div>
+
+<div class="card f">
+<h4>缘起：总统的三个问题</h4>
+<p>2025 年 3 月 26 日，特朗普仿照罗斯福 1944 年给 Bush 写信的先例，致信 Kratsios 提出三问：</p>
+<p>① 美国如何确保在 AI、量子、核能等关键新兴技术上无可匹敌的领导地位；<br>
+② 如何振兴科研事业——追求真理、减少行政负担、让研究者能专注于突破性发现；<br>
+③ 如何确保科技进步转化为经济增长，惠及全体美国人。</p>
+<p class="src">这三问分别对应报告第三、二、四章；第五章（AI）是报告自己加的第四个答案。</p>
+</div>
+
+<div class="card f">
+<h4>文件构成</h4>
+<p>转呈信 + 总统信 + 全书摘要 + 五章正文 + 尾注（185 条）+ 附录。附录是 OSTP 与白宫管理和预算办公室（OMB）联署的《FY2028 研发预算优先事项备忘录》（编号 NSTM-5 / M-26-16），把正文的主张翻译成给各部委的预算编制指令——全书从「论述」落到「执行」的部分在这里。</p>
+</div>
+
+<div class="card f">
+<h4>一句话总结</h4>
+<p>报告的核心判断：美国科研体制是 1945 年设计的，而资金格局、科学的组织方式、地缘竞争、AI 全都变了；投入持续上涨、重大突破却在放缓，问题出在制度而非人才；要像当年创建 NSF、DARPA 那样，再造一轮科研制度。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 02 ═══════════ -->
+<section class="sec" id="s02" data-cat="guide" data-title="核心论点 四大目标 诊断 处方">
+<h2><span class="no">§ 02</span>核心论点与四大目标</h2>
+
+<h3>诊断：四个病灶</h3>
+<ul class="pts">
+  <li class="f"><b>产出减速。</b>生物医药经费自 1990 年代大幅增长，新药审批却走平；每十亿美元研发产出的新药数自 1950 年以来跌了约 80 倍（<a class="xref" href="#t-eroom">Eroom 定律</a>）。投入涨、突破没涨，是全书立论的起点。</li>
+  <li class="f"><b>体制摩擦。</b>研究者近一半联邦资助时间花在文书上；部分拨款从提交到批准要 20 个月；间接费率吃掉大量经费；评审机制奖励安全的增量工作，惩罚大胆的想法。</li>
+  <li class="f"><b>转化断链。</b>EUV 光刻、锂电池、平板显示都由美国发明，产业却在海外成型。发现留不下制造，经济与知识回报都流向别国。</li>
+  <li class="f"><b>AI 冲击。</b>AI 会加速每个研究者的产出，但发表灌水、评审过载、错误结论被放大也会同步发生。旧制度接不住这波变化——第五章的判断是：个体提效不会自动聚合成集体进步。</li>
+</ul>
+
+<h3>成功标准</h3>
+<blockquote class="f">十年后，美国的研究者回望这项工作时应该能说：「当年我无法追问的那些关键问题，现在我可以自由追问了。」
+<span class="en">"The vital questions I could not pursue then, I am free to pursue now." —— 转呈信</span></blockquote>
+
+<h3>处方：转呈信里的四大目标</h3>
+<div class="grid2">
+  <div class="card f"><h4>① 科学家个体优先于在位机构</h4><p>直接投资研究者本人：可携带的研究生奖学金、早期独立资助、长周期人本拨款；资助更多类型的执行机构，打破「大学 + 单一 PI 课题组」的垄断。</p></div>
+  <div class="card f"><h4>② 重造拨款方式</h4><p>告别一刀切：快速拨款、长周期拨款、<a class="xref" href="#t-golden">金票</a>、按结果付费的<a class="xref" href="#t-prize">奖金挑战</a>；联邦机构要像严肃的投资人那样管理组合、评估自己的配置能力。</p></div>
+  <div class="card f"><h4>③ 国家目标 + 产业肌肉</h4><p>政府设定明确科学目标（曼哈顿、阿波罗式的动员），同时重建把发现变成产品的国内制造能力，让美国科学的果实首先落在美国。</p></div>
+  <div class="card f"><h4>④ 为 AI 革命改造基础设施</h4><p>AI 会压缩「从问题到答案」的时间，但制度瓶颈和动手能力（仪器、原型、工匠）会成为新的限速环节，两头都要投。</p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 03 ═══════════ -->
+<section class="sec" id="s03" data-cat="guide" data-title="结构地图 目录 章节">
+<h2><span class="no">§ 03</span>全书结构地图</h2>
+<p class="lead">页码为原书页码。五章的逻辑：Ⅰ 立论 → Ⅱ 对内改体制 → Ⅲ 对外保主导 → Ⅳ 向下接制造与人才 → Ⅴ 向前接 AI。</p>
+<div class="tbl"><table>
+<thead><tr><th>部分</th><th>页码</th><th>主题</th><th>一句话主张</th></tr></thead>
+<tbody>
+<tr class="f"><td>转呈信</td><td>v</td><td>Kratsios 致总统</td><td>提出四大目标与「十年之问」成功标准</td></tr>
+<tr class="f"><td>总统信</td><td>viii</td><td>特朗普致 Kratsios（2025-03）</td><td>仿罗斯福致 Bush，提出三问</td></tr>
+<tr class="f"><td>摘要</td><td>x–xvii</td><td>全书浓缩</td><td>五章要点各一页，适合 15 分钟版阅读</td></tr>
+<tr class="f"><td>第一章 <a href="#s04">§ 04</a></td><td>1–12</td><td>引言：格局变了</td><td>私营研发已是主力、线性模型失效、中国追平，1945 年的设计假设全部过期</td></tr>
+<tr class="f"><td>第二章 <a href="#s05">§ 05</a></td><td>13–32</td><td>振兴科研事业</td><td>诊断减速与摩擦，开出新机构（FRO、X-Labs）＋新机制（金票、快速拨款）＋元科学的药方</td></tr>
+<tr class="f"><td>第三章 <a href="#s06">§ 06</a></td><td>33–46</td><td>关键技术主导权</td><td>科学领先不自动等于国家实力；放松管制、开放国家实验室、组织大动员与预竞争联盟</td></tr>
+<tr class="f"><td>第四章 <a href="#s07">§ 07</a></td><td>47–56</td><td>惠及所有美国人</td><td>过程知识（工匠的隐性知识）是真正的护城河；重建制造、学徒制与区域集群</td></tr>
+<tr class="f"><td>第五章 <a href="#s08">§ 08</a></td><td>57–71</td><td>新黄金时代</td><td>AI 是新的科学仪器；Genesis Mission ＋ Gold Standard Science ＋ 验证基础设施</td></tr>
+<tr class="f"><td>尾注</td><td>73–83</td><td>185 条引用</td><td>核对论据的入口，来源质量参差（见 <a href="#s14">§ 14</a>）</td></tr>
+<tr class="f"><td>附录 <a href="#s09">§ 09</a></td><td>85–104</td><td>FY2028 预算备忘录</td><td>把全书主张写进预算指令，是判断「哪些会真发生」的信号</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ═══════════ § 04 ═══════════ -->
+<section class="sec" id="s04" data-cat="deep" data-title="第一章 引言 线性模型 pasteur 私营研发 中国">
+<h2><span class="no">§ 04</span>第一章 · 格局变了（原书 pp.1–12）</h2>
+<p class="lead">这一章回答「为什么是现在」：Bush 的三条原则仍然成立，但承载它们的世界已经彻底换了。</p>
+
+<h3>三组「1950 vs 今天」</h3>
+<ul class="pts">
+  <li class="f"><b>半导体</b>：1950 年十几个工程师在基础实验室推进；今天行业每年投入超 1000 亿美元资本与研发，机器人逐个原子操纵硅片。</li>
+  <li class="f"><b>论文</b>：1950 年打字稿邮寄给编辑、熟人网络评审；今天论文完成数小时内上网，代码在正式发表前几个月就被全网复现。</li>
+  <li class="f"><b>数学</b>：1950 年一人一黑板；今天软件把庞大证明模块化，几十位数学家跨海岸协作同一个问题。</li>
+</ul>
+
+<h3>钱的格局：私营部门成为主力</h3>
+<div class="card f">
+<h4>关键事实</h4>
+<p>美国企业每年投入约 <b>7000 亿美元</b>研发，超过政府与高校总和的三倍；企业在国家研发资金中的份额比 1950 年代翻了近一倍。晶体管和 transformer 架构（现代机器学习的基石）都出自企业实验室。企业研究者靠半导体隧穿、表面化学、聚合物、激光拿过诺贝尔奖。</p>
+<p class="src">报告的态度：这说明科学世界变大了，而联邦拨款方式还没消化这个变化——NSF 仍按 1950 年代的学科划分组织，钱压倒性地流向「大学里 PI 带课题组」这一种执行者。</p>
+</div>
+
+<h3>线性模型失效 → 巴斯德象限</h3>
+<div class="card f">
+<h4>概念：<a class="xref" href="#t-linear">线性模型</a> 与 <a class="xref" href="#t-pasteur">巴斯德象限</a></h4>
+<p>Bush 1945 年描绘的路径是「基础研究 → 应用研究 → 产品开发」单向流动，大学管前端、企业管后端。今天的发现是双向循环：工程难题暴露科学问题，基础突破反过来打开工程路径。政治学者 Donald Stokes 提出「巴斯德象限」形容既追求根本理解、又受实用问题驱动的研究——巴斯德研究酒为什么变质、贝尔实验室发明晶体管、香农创立信息论都属此类。2024 年化学诺奖（蛋白质折叠计算）与 2025 年物理诺奖（超导量子器件）也都出自这个象限。</p>
+</div>
+
+<h3>一个研究者的两条路（报告的思想实验）</h3>
+<p class="f">同一位量子信息科学家：走学术路，他必须按期发表、迎合评审叙事、围着实验室现有设备设计实验，两年内凑齐论文毕业；走创业路，他能拿到数千万美元快速招工程师，但五年内必须出营收，向投资人讲过的技术路线改不得。两条路都推动科学，但都在扭曲问题选择——制度设计者的职责是理解这些约束，把激励修对。</p>
+
+<h3>竞争与人才安全</h3>
+<ul class="pts">
+  <li class="f"><b>中国</b>：研发支出按购买力平价（PPP）计算已与美国相当（部分口径）。报告强调冷战时苏联经济远小于美国，这种「同量级对手」是头一回。英国设立元科学部门、挪威改用组合制拨款，改革在全球同时发生。</li>
+  <li class="f"><b>人才结构</b>：2024 年，计算机科学与数学专业有明确毕业去向的博士中约一半是临时签证持有者；自然科学与工程整体从 1980 年的约 20% 升至 40%。报告认为这挤占了本土学生，且被对手用作进入美国创新体系的入口。（这一段的立场色彩较重，见 <a href="#s14">§ 14</a>。）</li>
+  <li class="f"><b>发现在美、产业在外</b>：EUV 光刻的关键使能技术源自美国，今天唯一能造 EUV 光刻机的公司在欧洲；锂电池由美国开创，供应链由亚洲主导。报告称之为「美国付研究账单，对手拿走过程改进与回报」。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 05 ═══════════ -->
+<section class="sec" id="s05" data-cat="deep" data-title="第二章 振兴 eroom 复现 金票 fast grants FRO x-labs metascience 元科学 拨款">
+<h2><span class="no">§ 05</span>第二章 · 修理科研机器（原书 pp.13–32）</h2>
+<p class="lead">全书分量最重的一章：前半是诊断（机器为什么慢了），后半是处方（新机构 + 新机制 + 元科学）。</p>
+
+<h3>减速的证据</h3>
+<div class="grid2">
+  <div class="card f"><h4><a class="xref" href="#t-eroom">Eroom 定律</a></h4><p>摩尔定律倒过来拼写：每十亿美元（通胀调整后）研发产出的新药数自 1950 年跌了约 80 倍，约每 9 年减半。NIH 预算 1998–2003 年翻倍（136 亿→271 亿美元），突破性疗法没有成比例增加。</p></div>
+  <div class="card f"><h4>「想法生产率」下滑</h4><p>1970 年代以来，维持晶体管密度翻倍所需的研究人员数涨了 18 倍以上，相当于「想法生产率」每年下降 7%。农业、医学（每次临床试验挽救的生命年数在 1980 年代中期见顶）呈同样模式。</p></div>
+  <div class="card f"><h4>报告的历史观</h4><p>「低垂果实摘完了」的解释被历史反复打脸：普朗克的教授劝他别学物理（说这门学科快完工了），19 世纪外科医生宣称「手术刀已无新大陆可征服」。报告的比喻：树上的果子没摘完，缺的是新的采摘工具——新的制度与新的技术。</p></div>
+</div>
+
+<h3>摩擦清单（以一位年轻科学家的申请之旅串起）</h3>
+<ul class="pts">
+  <li class="f"><b>时间</b>：写申请书 2–4 个月；2 月投 NIH，年底才知道结果；某些拨款从提交到批准长达 <b>20 个月</b>——比波音 747 从图纸到投产还长。</li>
+  <li class="f"><b>文书</b>：1991 年至 2025 年 1 月，联邦对科研拨款新增至少 <b>270 项</b>要求。</li>
+  <li class="f"><b>间接费用</b>：大机构协商名义费率达直接成本的 50–60%，实际有效费率约 40%+；同一批大学接受私人资助时只收 10–15%。报告认为其中相当部分喂养了行政扩张。</li>
+  <li class="f"><b>在位者税</b>：NIH 首席研究员（PI）平均年龄从 1980 年的 39 岁升到 2008 年的 51 岁；首次拿到 PI 资格的平均年龄 36 → 42 岁，超过了相关领域诺奖成果的平均产出年龄。研究显示，明星科学家猝然离世后，外来者的论文涌入该领域且更容易成为高被引——在位者网络确实在压制新人。</li>
+  <li class="f"><b>激励错位</b>：终身教职制度奖励数量（把成果切成「最小可发表单元」，行话叫 salami-slicing）、惩罚长线冒险；负结果没人发表；数据集、开源代码这类公共品没人投入。</li>
+  <li class="f"><b>精英制弱化</b>：报告引参议院委员会报告称 NSF 新拨款中 DEI（多元、公平、包容）主题占比 2021–2024 年从不足 1% 升到超过四分之一，并把这与 1920 年代常春藤限制犹太学生入学的配额类比。（数据来源与类比方式的争议见 <a href="#s14">§ 14</a>。）</li>
+</ul>
+
+<h3><a class="xref" href="#t-repro">复现危机</a></h3>
+<div class="card f">
+<h4>标志性案例：阿尔茨海默病论文的 15 年</h4>
+<p>2009 年一篇顶刊论文提出有前景的治疗路径；2012 年被证明无法复现，赞助药企内部审查后终止了基于它的药物开发。但论文继续累积 800 多次引用，误导研究方向与联邦经费十余年；第一作者后来出任大学校长，论文直到 15 年后、作者因数据操纵调查辞职前后才被撤稿。报告的结论：审查机制最终起了作用，但太迟了。</p>
+<p class="src">另有：100 项心理学研究复现成功不足 40 项。报告还批评了新冠期间关闭学校的「科学共识」压制了知情异议（此段为报告立场，见 § 14）。</p>
+</div>
+
+<h3>处方一：新型执行机构</h3>
+<p class="f">报告指出一个系统性空白——<b>中等规模科学</b>：需要数千万美元、10–100 人团队、五年左右周期的问题（绘制哺乳动物脑连接图谱、聚变工程、免疫记忆解码平台）。它太大，单个学术实验室装不下；太难商业化，公司不做；国家实验室又太慢太固定。</p>
+<div class="tbl"><table>
+<thead><tr><th>活动类型</th><th>大学</th><th>企业实验室</th><th>联邦实验室</th><th>新型机构</th></tr></thead>
+<tbody>
+<tr class="f"><td>好奇心驱动、研究者主导</td><td>✚ 适合</td><td>✕ 不适合</td><td>◑ 部分适合</td><td>按需设计</td></tr>
+<tr class="f"><td>大规模、工程密集的科学</td><td>✕</td><td>◑</td><td>◑</td><td>按需设计</td></tr>
+<tr class="f"><td>长周期平台与工具开发</td><td>✕</td><td>◑</td><td>✚</td><td>按需设计</td></tr>
+<tr class="f"><td>公共品数据与基础设施</td><td>◑</td><td>✕</td><td>◑</td><td>按需设计</td></tr>
+<tr class="f"><td>使命驱动的公共品科学</td><td>◑</td><td>✕</td><td>◑</td><td>按需设计</td></tr>
+<tr class="f"><td>专有产品开发</td><td>✕</td><td>✚</td><td>✕</td><td>按需设计</td></tr>
+<tr class="f"><td>人才培养与学徒制</td><td>✚</td><td>◑</td><td>✕</td><td>按需设计</td></tr>
+</tbody></table></div>
+<p class="note">复刻自原书 Table 1（p.25），✚ 适合 / ◑ 部分适合 / ✕ 不适合。表格的用意：每种机构形态都有结构性盲区，新机构应该按空白设计。</p>
+<div class="grid2">
+  <div class="card f"><h4><a class="xref" href="#t-fro">FRO</a>（聚焦研究组织）</h4><p>限期存在的非营利「研究初创公司」：雇职业工程师与全职科学家（而非轮换的研究生），瞄准一个具体科学瓶颈，产出开放数据集与工具等公共品，完成里程碑即解散。填补「联邦拨款嫌太大、风投嫌不赚钱、政府设施嫌太快」的空白地带。</p></div>
+  <div class="card f"><h4><a class="xref" href="#t-xlabs">X-Labs</a></h4><p>NSF 技术创新与合作署（TIP）新推的项目，第一个明确资助传统学术机构之外独立研究组织的联邦计划：全职团队、运营自主、里程碑式拨款。报告视之为联邦拨款进化的概念验证。</p></div>
+  <div class="card f"><h4><a class="xref" href="#t-arpa">ARPA 模式</a></h4><p>DARPA 及其仿制品（ARPA-H、ARPA-E）：不靠共识评审，而由项目经理个人下注、主动攒队伍。产出过 GPS、互联网、隐形飞机、自动驾驶。报告主张把这种数千万美元级的组织方式从武器开发扩展到基础科学。</p></div>
+  <div class="card f"><h4>好奇心研究所</h4><p>冷泉港实验室（1890）、普林斯顿高等研究院（1930，爱因斯坦、诺特、哥德尔的家）：给最好的头脑长期稳定性，追问根本问题。历史证明「大学之外」的容器一直存在。</p></div>
+</div>
+
+<h3>处方二：新拨款机制</h3>
+<div class="tbl"><table>
+<thead><tr><th>机制</th><th>怎么运作</th><th>证据 / 现状</th></tr></thead>
+<tbody>
+<tr class="f"><td><a class="xref" href="#t-golden">金票 golden ticket</a></td><td>单个评审人可越过共识，力保一个非常规提案</td><td>丹麦 Villum 基金会实验多年，配合双盲评审；NSF 已在 TIP 试点</td></tr>
+<tr class="f"><td>人本长周期资助</td><td>资助人而非项目：约 1000 万美元 / 7 年、极简汇报、容忍早期失败</td><td>HHMI 模式；对照研究显示受资助者高影响论文产出率接近同侪两倍。NIH 先驱奖、NSF CAREER 是联邦版但占比太小</td></tr>
+<tr class="f"><td><a class="xref" href="#t-fast">快速拨款 fast grants</a></td><td>申请 30 分钟填完，48 小时出结果</td><td>私人项目（疫情期间的 Fast Grants）已证明可行且不牺牲质量，对照联邦常规 6–9 个月</td></tr>
+<tr class="f"><td><a class="xref" href="#t-prize">奖金挑战 / 预先市场承诺</a></td><td>按结果付费：达成目标才给钱，或提前承诺采购</td><td>DARPA 自动驾驶挑战赛催生整个行业；1000 万美元亚轨道飞行奖撬动数亿投入；Vesuvius 挑战让三个学生读出了赫库兰尼姆古卷</td></tr>
+<tr class="f"><td><a class="xref" href="#t-regrant">再拨款 regranting</a></td><td>把拨款权下放给一线科学家——最能识别机会的人通常没有拨款权</td><td>慈善界已有中介机构运作；报告建议联邦资助组合式再拨款组织</td></tr>
+<tr class="f"><td>二次方资助 quadratic funding</td><td>看支持者的广度而非金额深度来配比资金</td><td>开源软件领域有效果，科学领域证据待定——报告明说这是投机性机制</td></tr>
+</tbody></table></div>
+
+<h3>处方三：组合管理与元科学</h3>
+<ul class="pts">
+  <li class="f"><b>问题</b>：联邦每年发约 2000 亿美元研发经费，却没有系统框架判断钱放哪里回报最大；组合是「按去年惯性」长出来的，而非设计出来的。风投配错了会破产，联邦项目官拒绝突破性提案没有任何代价。</li>
+  <li class="f"><b><a class="xref" href="#t-meta">元科学</a>单元</b>：每个科学机构设一个直报局长的元科学团队，有权在真实拨款流程上跑对照实验（比如随机分配某些评审组用金票），结果对外发布。英国 2024 年成立的元科学单元是现成样板。</li>
+  <li class="f"><b>项目官（program officer）地位</b>：DARPA 的成功靠的是招对人再放权。报告主张把项目管理做成科学界最抢手的岗位之一，向产业界、慈善界开放短期任职，用 DARPA 的 <a class="xref" href="#t-heilmeier">Heilmeier 问答清单</a>逼每个项目讲清「填什么空白、为什么重要」。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 06 ═══════════ -->
+<section class="sec" id="s06" data-cat="deep" data-title="第三章 主导权 核能 nrc fda 国家实验室 sematech euv 人类基因组 州">
+<h2><span class="no">§ 06</span>第三章 · 技术主导权（原书 pp.33–46）</h2>
+<p class="lead">主题从「怎么做科学」切换到「科学怎么变成国力」。核心判断：只资助研究、坐等技术强大的被动模式已经失败。</p>
+
+<h3>被动模式的账单</h3>
+<p class="f">战后的隐含约定：政府出钱做基础研究、保持市场开放，创新自然会带来国家实力。报告用贸易政策作平行论证——单边开放掏空了工业基础——然后列出科技版的同一账单：美国发明平板显示，亚洲厂商拿下市场；美国开创前沿电池化学，量产在海外扩张。对手把公私、军民界线刻意模糊，把任何来源的进展都当作国家发展的原料。</p>
+
+<h3>打自己的擂台</h3>
+<ul class="pts">
+  <li class="f"><b>平台技术优先</b>：最值钱的是能长出其他技术的地基（计算、AI、生物技术）。控制平台的一方制定规则和标准，优势逐年复利——半导体供应链就是「越滚越大的雪球」。</li>
+  <li class="f"><b>美国的真实优势</b>：2024 年美国风投部署超 2000 亿美元，占全球 57%；七家最大科技公司市值超过主要竞争对手整个股市。深层资产是流动的资本市场、契约执行、把失败当学费的创业文化。</li>
+  <li class="f"><b>对手的弱点</b>（报告的判断）：国家优先项目烧钱但私营市场萎靡，全要素生产率贡献在下滑，消费应用的成功常被误认成前沿研发能力。</li>
+</ul>
+
+<h3>管制改革：两个行业的对照</h3>
+<div class="grid2">
+<div class="card f">
+<h4>核能：管到瘫痪的样本</h4>
+<p>先进反应堆创业公司在浇第一方混凝土之前：与核管理委员会（NRC）预申请沟通 5–6 年，设计认证再 4 年；某公司提交了 1.2 万页申请、附 200 多万页技术文档；能源部为单个反应堆设计的审批过程花了 6 亿多美元。2025 年 5 月总统签署四项行政令：限期 18 个月修订 NRC 规则、给新建执照审批设时限、已在能源部或国防部测试过的堆型走快速通道、要求 NRC 把核能对经济与国防的收益纳入权衡。配套目标：现有电站增容 5 吉瓦、2030 年前开工 10 座大型反应堆。</p>
+</div>
+<div class="card f">
+<h4>生物医药：试验外流</h4>
+<p>加州阿拉米达研发的视网膜假体（让盲人恢复视力）因审批难，临床试验只能去欧洲做。改革方向：FDA 接受真实世界证据、把「两个关键试验」的默认要求改为单个高质量试验加确证证据、对符合国家利益的药物加快审评；NIH 削减无益的申请要求。</p>
+</div>
+</div>
+<p class="f">报告提出的原则：监管者擅长权衡「行动的风险」，对「不行动的代价」（错过的增长、等药等死的病人、旧技术导致的事故）视而不见。解法之一是<b>监管沙盒</b>——受控条件下真实测试新技术，用证据反哺规则制定。</p>
+
+<h3>测试场与开放实验室</h3>
+<ul class="pts">
+  <li class="f"><b>Mojave 沙漠的启示</b>：约 70 年前一群业余火箭爱好者买下私人试验场；志愿者自建试车台、防爆掩体、拿到联邦爆炸物许可与 FAA 的 4 万英尺发射豁免，订场费几百到几千美元。周六的场地上，车库父女组合挨着大学生和航天工程师点火。多家火箭公司从这个圈子长出来，隔壁机场 2004 年成为 FAA 认证的商业太空港。报告的结论：测试基础设施 + 宽松许可，决定了下一家伟大公司是在沙漠空地起步、还是死在车库里。</li>
+  <li class="f"><b>联邦设施开放</b>：能源部有 28 个用户设施（阿贡先进光子源、橡树岭散裂中子源等），历史上按学术标准审批使用、对企业太慢。改革方向：把创新潜力与商业紧迫性纳入评审、简化 <a class="xref" href="#t-crada">CRADA</a> 与授权流程、用使用费收入扩容。中小尺度同样重要：共享洁净室（2000 多台设备、每小时几百美元）、共享湿实验室、共享 <a class="xref" href="#t-gmp">GMP</a> 产线（打破「没临床数据融不到钱、没钱建不了产线」的死结）。</li>
+</ul>
+
+<h3>大动员与预竞争联盟</h3>
+<div class="grid2">
+<div class="card f">
+<h4>人类基因组计划（HGP）</h4>
+<p>1990 年 NIH 与能源部联合启动（经费首次出现在里根 1988 年预算），当时不少顶尖生物学家认为不成熟、不如发个人拨款。项目靠「百慕大原则」（数据 24 小时内公开）协调分布式实验室網络；1998 年私营的 Celera 入场竞争反而加速了进度，最终提前完成。38 亿美元联邦投入，估算带动 7960 亿美元经济活动。报告把它当作「联邦政府驱动平台技术」的范本。</p>
+</div>
+<div class="card f">
+<h4>SEMATECH 与 EUV LLC</h4>
+<p>1987 年日本厂商吃下存储芯片市场大半后，14 家美国半导体公司凑钱、DARPA 配资，共同攻关光刻、蚀刻等共享制造难题。续作 EUV LLC（1997）与三家能源部国家实验室签约开发极紫外光刻，2001 年做出首台原型机、申请 150 多项专利——这项技术如今支撑着地球上每一颗尖端芯片。报告同时承认：当年的政策把主导市场地位让给了一家欧洲公司。</p>
+</div>
+</div>
+<p class="f"><b>州与地方作为试验田</b>：亚利桑那放开无人驾驶出租车测试，进而吸引超 1000 亿美元半导体投资；犹他 2021 年通过全美第一个通用监管沙盒法；怀俄明为区块链企业定制立法。报告的推论：在早期实验会锁定技术轨迹的竞争里，跑实验最多的国家赢。</p>
+</section>
+
+<!-- ═══════════ § 07 ═══════════ -->
+<section class="sec" id="s07" data-cat="deep" data-title="第四章 手艺 制造 隐性知识 tacit polanyi weiss ligo 学徒 社区学院 集群">
+<h2><span class="no">§ 07</span>第四章 · 科学与手艺（原书 pp.47–56）</h2>
+<p class="lead">全书最有人味的一章：论证「工匠的隐性知识」是科技实力的真正基座，制造业外流切断的正是这条根。</p>
+
+<h3>技术的三种形态</h3>
+<div class="card f">
+<h4>工具 · 显性指令 · 过程知识</h4>
+<p>以造芯片为例：工具是光刻机和蚀刻机；显性指令是图纸与配方；<b>过程知识</b>——怎么排查良率、晶圆清洗里各变量怎么互相影响、下一代制程怎么平衡性能与制造风险——存在资深工程师和技师的脑子里，写不进手册。哲学家 Michael Polanyi 的概括：「我们知道的比我们能说出的多。」焊工听得出好焊缝成形的声音，机械师对刀具的直觉只能来自车床边的岁月。</p>
+<p class="src">社会学家 Harry Collins 研究过 1970 年代复制新型激光器的实验室：没有任何一家仅靠公开文献成功，做成的人都曾与做过的人共处一室。科学的手艺同样只能师徒相传。</p>
+</div>
+
+<h3>制造业基础的账目</h3>
+<ul class="pts">
+  <li class="f">制造业就业 1979 年见顶近 2000 万，今天约 1300 万（降 35%，同期人口增长超 50%）；占总就业比例从近 22% 跌到约 8%。制药业研发实验室成建制外迁。</li>
+  <li class="f">两条理由说明科学离不开制造：其一，发现的经济回报大头在「发明之后」——可制造性设计、降本工艺、熟练工人、供应链；翻译环节外流，岗位、专长和下一代突破的能力一起流走。其二，科学与生产互相喂养——研究半导体物理的科学家向对付良率的制造工程师学习，副总统 Vance 的说法被报告引用：「做制造的地方，会变得非常擅长做设计。」</li>
+</ul>
+
+<h3>被辜负的民间潜力</h3>
+<p class="f">美国仍是修理者与制作者之国：过半成年人参与某种形式的制作活动，大型 DIY 集会吸引十几万人，视频网站上业余机械师演示精密加工、爱好者自建核聚变装置。而正规教育几十年来把动手贬成退路——高中撤掉机加工课转向大学预科，倒闭校办工厂的设备涌入二手市场；联邦无上限的大学贷款推高学费、把职业教育挤到墙角。结果两头落空：数百万有动手天赋的人没有通道，数百万技能岗位没人填。</p>
+
+<div class="card f">
+<h4>Rainer Weiss：报告选中的样板人生</h4>
+<p>2017 年物理诺奖得主（引力波探测）。少年时代在纽约捡战后剩余电子件自学装电台、修设备赚零花钱；从 MIT 退学后当实验室技师，跟着老工匠学机加工、钎焊、焊接。他自称受益于「实验科学中的即兴艺术」，正是这套训练让他造出了 LIGO 的激光干涉仪原型——探测到十亿光年外黑洞相撞的时空涟漪的那台仪器。他的原话：「我特别相信学徒制。」</p>
+</div>
+
+<h3>政策组合</h3>
+<ul class="pts">
+  <li class="f"><b>课程</b>：STEM 学位嵌入实操训练与企业实习（externship），动手时长与行业证书计入学分；改革认证与终身教职评价，让真实世界的技术工作与论文并重。</li>
+  <li class="f"><b>新通道</b>：设立全国性工匠奖学金；「驻场实践者」（practitioner-in-residence，类比驻场艺术家）让机械师、技师与博士研究员并肩工作、无需博士学位也能署名成果；国家实验室发放低温工程、精密加工等可携带行业证书；SBIR 支持技师创业。</li>
+  <li class="f"><b>学徒制与社区学院</b>：社区学院承载全美约 40% 本科生，是天然的区域技术枢纽；本届政府目标年度活跃学徒超 100 万，劳工部改为按雇用与留任结果付费；2025 年通过的 Workforce Pell 首次让短期培训项目享受助学金。</li>
+  <li class="f"><b>区域集群</b>：底特律当年成为汽车之都靠的是供应商、机械师、工程人才的密集生态。当代版本：俄亥俄为芯片厂配套约 20 亿美元激励，哥伦布州立社区学院牵头 23 所院校共建芯片技师两年制课程，芯片公司再投 5000 万美元给州内高校；得州泰勒市的州级支持吸引近 50 亿美元投资。联邦的 Regional Innovation Engines、Tech Hubs、Manufacturing USA 等项目在铺同类地基。</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 08 ═══════════ -->
+<section class="sec" id="s08" data-cat="deep" data-title="第五章 AI genesis mission gold standard 验证 复现 数学 lean 出版 agent 云实验室">
+<h2><span class="no">§ 08</span>第五章 · AI 与新黄金时代（原书 pp.57–71）</h2>
+<p class="lead">点题章。从 Bush 的另一篇 1945 年文章讲起，落在两大政策支柱（Genesis Mission、Gold Standard Science）和一组前瞻构想上。</p>
+
+<h3>从 memex 到 AI</h3>
+<p class="f">1945 年 7 月，Bush 提交《无尽的前沿》的同一个月，发表了姊妹篇《As We May Think》：研究文献堆积如山，学者「被数千同行的发现压得喘不过气」；工具延伸了拳头（气锤）和眼睛（显微镜），延伸思维的工具还很原始。他设想的 <a class="xref" href="#t-memex">memex</a>——能存储、检索、链接全部人类知识记录的个人设备——经由计算机与互联网，最终以 AI 的形态到来。本章最后一节标题「As We May Build」是对这篇文章的致敬。</p>
+
+<div class="card f">
+<h4>投入规模与已有战果</h4>
+<p>仅 2025 年，美国企业投入 AI 基础设施超 <b>4000 亿美元</b>，超过阿波罗计划与曼哈顿工程通胀调整后的总和。AI for science 的早期成果：原子级精度预测蛋白质结构（AlphaFold，2021）、从零设计新蛋白（RFdiffusion）、药物发现的分子动力学模拟、托卡马克等离子体的强化学习控制、在粒子物理海量数据中发现人类会漏掉的异常。2026 年的 AI 代理已能独立写整个软件应用、分析实验数据、操作实验设备。</p>
+</div>
+
+<h3>三个限速器与一个警告</h3>
+<ul class="pts">
+  <li class="f"><b>反馈速度</b>：粒子物理理论一大堆，缺的是能区分它们的实验数据——再聪明也变不出不存在的观测。</li>
+  <li class="f"><b>原子速度</b>：细胞按自己的节奏分裂，火箭和晶圆厂不会一夜自己长出来。</li>
+  <li class="f"><b>制度速度</b>：出版、拨款、监管、临床试验的流程按人类节奏设计，会最先卡住 AI。</li>
+  <li class="f"><b>森林防火的警告</b>：美国压制小型山火一百年，每次干预看着都是成功，燃料越积越多，最终大火不可收拾。AI 可能对科学做同样的事——每个研究者都更「高产」，论文、申请书、投稿灌满系统，而系统性坏账在积累。个体增益不自动聚合成集体进步；AI 会议投稿一年暴涨 59.8%、评审被 AI 生成的垃圾淹没，是已经发生的预演。</li>
+</ul>
+
+<h3>支柱一：<a class="xref" href="#t-genesis">Genesis Mission</a></h3>
+<div class="card f">
+<h4>目标：十年内让美国科研的生产力与影响翻倍</h4>
+<p>2025 年 11 月总统签署行政令 14363 启动，定位为美国旗舰级「AI for science」计划。能源部负责建设「美国科学与安全平台」（ASSP），把最强的超级计算机、AI 模型、科学仪器和数据集接成一台发现引擎。底座：能源部 17 个国家实验室（约 4 万名科研与技术人员、年经费约 200 亿美元）加上 FDA、NSF、NOAA、退伍军人事务部数十年积累的数据。</p>
+<p>四个执行难题及对策——</p>
+<p><b>① 选题</b>：AI 适合大组合搜索空间、有大量结构化数据、有清晰基准的问题（蛋白质结构预测是完美样板）。已指示能源部确定至少 20 个国家级挑战，覆盖先进制造、生物技术、关键材料、核裂变与聚变、量子信息、半导体，每年复审。<br>
+<b>② 机构容量</b>：2025 年 12 月已与 24 家机构（头部 AI 公司、芯片制造商、云厂商）签署协议；「变革性 AI 模型联盟」组织国家实验室与产业界共建科学基础模型。<br>
+<b>③ 数据</b>：「美国科学云」开放联邦数据；同时为一线研究者的数据整理与共享设立经费和激励——大量有价值的实验记录、失败试验因为没人付钱存储而被丢弃。<br>
+<b>④ 仪器</b>：闭环自主实验可把材料「从实验室到部署约 20 年」的周期压缩一个数量级。已投 14 个机器人与自动化实验室项目（伯克利的 A-Lab 做无机材料固态合成、阿贡的 Polybot 做材料表征）；用国家实验室的采购力逼仪器厂商改用开放接口和标准数据格式。NSF 另投 3.8 亿美元建「可编程云实验室」，报告类比 1980 年代 NSFNET 之于互联网。</p>
+</div>
+
+<h3>支柱二：<a class="xref" href="#t-gss">Gold Standard Science</a> 与验证基础设施</h3>
+<ul class="pts">
+  <li class="f"><b>前提判断</b>：准备让 AI 在科学文献上训练、生成假设、设计实验，而这个知识库错误百出——心理学复现率不足四成，超过三分之一的知名实验经济学研究复现失败，临床前生物医学的不可复现研究每年误导约 280 亿美元经费。AI 在有缺陷的知识库上运行，只会把坏科学固化。</li>
+  <li class="f"><b>行政令 14303</b>（2025 年 5 月）为全部联邦资助研究立了九条原则：可复现、透明、如实沟通误差与不确定性、跨学科协作、对假设保持怀疑、假说可证伪、无偏同行评审、接受负结果、无利益冲突。</li>
+  <li class="f"><b>核心不对称</b>：生成的成本指数下降，验证的成本没有。复现不发生是市场失灵——新发现带来经费与声望，确认别人的工作无利可图。对策：机器可审计的复制包标准、开放接口让验证能力接入期刊投稿与拨款报告系统、悬赏复现或推翻有影响力的论文、NIH 已启动复现专项。目标是把验证从「偶发」变成「持续、低成本、与生成同规模」。</li>
+</ul>
+
+<h3>原型与前瞻</h3>
+<div class="grid2">
+<div class="card f">
+<h4>数学：验证革命的试验田</h4>
+<p>数学里查证明比找证明容易，这种不对称让它成为 AI + 形式化验证的天然试验场。形式化过去太费人力：Liquid Tensor 实验（2020）耗掉专家近两年。转折点——2024 年初启动的素数定理形式化项目，20 多人协作 18 个月仍卡在复分析难点；2025 年 9 月，一家创业公司用 AI 三周完成全部工作，产出 1100 条经过形式化验证的定理与定义。数学家的协作从「小圈子信任网络」变成「数学确定性背书」，可以与陌生人大规模协作。Terence Tao 的展望被报告引用：未来的数学家可能成为工业化证明体系的建筑师。</p>
+</div>
+<div class="card f">
+<h4>出版与信用体系的重构</h4>
+<p>17 世纪的期刊制度服务几百名通信研究者，今天全球有 900 万全职研究者。期刊制造人为稀缺、奖励包装过的叙事，负结果与失败实验几乎不发表；AI 让「看起来可信的论文」可以工业化生产后，论文数、引用数、影响因子都会沦为可刷的指标（Goodhart 定律）。已有私人资助的研究机构放弃传统期刊，改用预印本、数据仓库、动态笔记本，在社区内快速复现互评。更远的构想（报告自己承认「今天尚无成熟形态」）：区块链记录每一份贡献、DAO 直接资助研究、AI 代理围绕悬赏运转——发布赏金、竞标实验、云实验室返回加密签名的结果、智能合约按里程碑放款，人类负责设定大方向和需要智慧的判断。</p>
+</div>
+</div>
+</section>
+
+<!-- ═══════════ § 09 ═══════════ -->
+<section class="sec" id="s09" data-cat="deep" data-title="附录 FY2028 预算 备忘录 优先 物理科学 任务 量子 聚变 月球">
+<h2><span class="no">§ 09</span>附录 · FY2028 预算备忘录（原书 pp.85–104）</h2>
+<p class="lead">编号 NSTM-5 / M-26-16，Kratsios 与 OMB 主任 Russell Vought 联署，与报告同日（2026-07-21）发出。正文讲道理，这里下指令——判断「哪些主张会真的发生」，看这 20 页比看前 71 页更准。</p>
+
+<h3>四个预算优先领域</h3>
+<div class="card f">
+<h4>① 向基础研究和物理科学再平衡</h4>
+<p>各机构 FY2028 预算中基础研究占比要提高；物理科学、化学与材料、数学与计算机、工程科学被点名列了详细清单，要提高绝对额与相对份额。生命科学口径收紧：优先「生物科学」（分子、细胞、遗传、神经、合成生物学等基础方向），明确将其区别于「更宽泛、不聚焦基础研究的生命科学」。机构若想大幅扩张后期开发类项目，须自证「没有联邦支持就不会发生」。</p>
+</div>
+<div class="card f">
+<h4>② 六大国家科技任务</h4>
+<p>AI——Genesis Mission（行政令 14363），十年科研生产力翻倍；量子——QC-ADDS 计划（行政令 14413），造出开启「量子驱动科学发现时代」的量子计算机；聚变——2030 年代中期在美国示范商用聚变发电；太空——2028 年美国人重返月面、建月球基地、太空核动力国家计划（行政令 14369）；机器人——通用自主系统（灵巧操作、移动、真实环境可靠运行），服务「实体 AI」科学发现与再工业化；半导体——EUV 之后的光刻、3D 先进封装、新器件材料。</p>
+</div>
+<div class="card f">
+<h4>③ AI 科学基建</h4>
+<p>四条戒律式要求：资助把 AI 当「新科学仪器」用的研究，拒绝「贴 AI 标签求增量」的项目；建设领域科学基础模型（联邦独有的数据与算力使其成为天然建设者）；开放内部数据集、奖励研究者整理共享通常被丢弃的数据（含负结果和实验室操作记录）；用采购力推动科学仪器的开放接口、标准数据格式与跨厂商互操作。</p>
+</div>
+<div class="card f">
+<h4>④ 基础设施与区域制造</h4>
+<p>中型仪器要在单一财年内全额拨付（长期被挤压的短板）；联邦算力做商用市场做不了的事（高安全数据中心、独有数据集、专用加速器），商用划算就直接采购；用户设施扩大对企业开放并用使用费扩容；制造研发覆盖全链条（工艺科学、中试线、示范工厂、供应链分析），后期项目原则上要求成本分担。</p>
+</div>
+
+<h3>四项优先实践（给机构的操作手册）</h3>
+<ul class="pts">
+  <li class="f"><b>新机制入令</b>：第二章的机制清单在这里变成正式指令——扩大 5 年以上、首年全额到账的长周期拨款（减少中期交差压力，配绩效审查可撤资）；快速拨款须「几页纸申请、一个月内出结果」；奖金挑战要求至少 1:3 的联邦对私人投资杠杆；金票、预先市场承诺、再拨款、二次方资助列为可试点项。</li>
+  <li class="f"><b>人才</b>：选拔锚定可预测 STEM 成功的量化标准（推理测试、学科竞赛、工程作品集、SAT 类标准化考试），明确排斥「文书、推荐、包装」；扩大 K-12 数理强化（住宿制数理营、奥赛式竞赛）；动手实习至少一学期；资助直接发给个人、可随人流动（GRFP 模式），让机构反过来竞争人才；服务期要求从宽定义（学术、创业、国防工业、参军都算）。</li>
+  <li class="f"><b>自我改进</b>：元科学能力、差距地图（gap map，对照「在资助什么」与「哪些问题没人管」）、纵向数据基建（追踪落选者与获资助者的长期轨迹）、提升项目官的声望与轮岗通道、清理超出法规要求的过度合规。</li>
+  <li class="f"><b>融入生态</b>：基础研究与制造研发一体化的联盟；扩大非联邦成本分担；研发投资与劳动力、基建等非研发投资在区域内协同落子；产业深度参与人才培养（企业出学费、带薪实习、开放设备）。</li>
+</ul>
+
+<div class="card f">
+<h4>实施时间表</h4>
+<p>研发预算权限 30 亿美元以上的机构，须在备忘录发出后 90 天内向 OSTP 和 OMB 提交行动计划，说明 FY2026、FY2027 执行中如何落实优先实践；预算类事项走 FY2028 常规提交流程。OSTP 与 OMB 协调实施并可发补充指引。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 10 ═══════════ -->
+<section class="sec" id="s10" data-cat="ref" data-title="数据速查 数字">
+<h2><span class="no">§ 10</span>关键数据速查</h2>
+<p class="lead">全部数字取自报告原文；争议来源已在末列标注。搜索框输入数字或关键词可直接过滤本表。</p>
+<div class="tbl"><table>
+<thead><tr><th>数字</th><th>含义</th><th>位置</th></tr></thead>
+<tbody>
+<tr class="f"><td class="num">$7000 亿/年</td><td>美国企业年研发投入，超过政府与高校总和的三倍</td><td><span class="tag">Ch I</span></td></tr>
+<tr class="f"><td class="num">~$2000 亿/年</td><td>联邦年度研发经费总盘子</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td class="num">70% → 40%</td><td>联邦在全美基础研究资助中的份额（1960s → 今天）；产业份额已超 35%</td><td><span class="tag">Ch III</span></td></tr>
+<tr class="f"><td class="num">≈50%</td><td>研究者的联邦资助研究时间中花在文书与行政上的比例（FDP 2018 调查）</td><td><span class="tag">Ch I·II</span></td></tr>
+<tr class="f"><td class="num">270+ 项</td><td>1991 年至 2025 年 1 月联邦对科研拨款新增的要求</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td class="num">20 个月</td><td>部分拨款从提交到批准的周期；报告对比：接近波音 747 从图纸到投产的时间</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td class="num">50–60% / ~40% / 10–15%</td><td>间接费率三个口径：协商名义费率 / 实际有效费率 / 同一批大学接受私人资助时的费率</td><td><span class="tag">Ch I·II</span></td></tr>
+<tr class="f"><td class="num">80 倍 · 每 9 年减半</td><td>1950 年以来每十亿美元研发的新药产出降幅（Eroom 定律）</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td class="num">18 倍 · −7%/年</td><td>维持晶体管密度翻倍所需研究人数的增幅（1970s 以来）；对应「想法生产率」年降幅</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td class="num">39 → 51 岁 / 36 → 42 岁</td><td>NIH 首席研究员平均年龄（1980→2008）/ 首次获资助年龄；后者已超过诺奖成果的平均产出年龄</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td class="num">&lt;40 / 100</td><td>心理学研究复现成功数；实验经济学超过 1/3 复现失败</td><td><span class="tag">Ch II·V</span></td></tr>
+<tr class="f"><td class="num">$280 亿/年</td><td>临床前生物医学中不可复现研究误导的经费估算</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td class="num">&lt;1% → &gt;25%</td><td>NSF 新拨款中 DEI 主题占比（2021→2024）；来源为参议院委员会报告，见 § 14</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td class="num">≈50% / 20%→40%</td><td>2024 年计算机与数学博士（有明确去向）中临时签证持有者占比 / 自然科学与工程整体四十年变化</td><td><span class="tag">Ch I</span></td></tr>
+<tr class="f"><td class="num">$2000 亿+ · 57%</td><td>2024 年美国风投部署额及其全球占比</td><td><span class="tag">Ch III</span></td></tr>
+<tr class="f"><td class="num">5–6 年 + 4 年</td><td>先进核反应堆 NRC 预申请沟通 + 设计认证周期；另有 1.2 万页申请、200 万页文档、DOE 为单一设计花费超 $6 亿</td><td><span class="tag">Ch III</span></td></tr>
+<tr class="f"><td class="num">$38 亿 → $7960 亿</td><td>人类基因组计划联邦投入 → 带动经济活动估算</td><td><span class="tag">Ch III</span></td></tr>
+<tr class="f"><td class="num">2000 万 → 1300 万</td><td>制造业就业（1979 → 今天）；占总就业比例 22% → 8%</td><td><span class="tag">Ch IV</span></td></tr>
+<tr class="f"><td class="num">40%</td><td>社区学院占全美本科生的比例</td><td><span class="tag">Ch IV</span></td></tr>
+<tr class="f"><td class="num">100 万</td><td>年度活跃学徒数的行政目标</td><td><span class="tag">Ch IV</span></td></tr>
+<tr class="f"><td class="num">$4000 亿+</td><td>2025 年美国企业 AI 基建投入，超过阿波罗与曼哈顿计划通胀调整后总和</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td class="num">17 · 4 万人 · $200 亿</td><td>能源部国家实验室数量 / 科研技术人员 / 年度经费</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td class="num">3 周 vs 18 个月</td><td>AI 完成素数定理形式化（1100 条定理）vs 20 余人协作项目的未竟进度</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td class="num">+59.8%</td><td>ICLR（AI 顶会）2025 年投稿量单年增幅</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td class="num">$3.8 亿</td><td>NSF 可编程云实验室首期投入</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td class="num">≥20 个</td><td>Genesis Mission 国家级科技挑战数量下限</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td class="num">1:3</td><td>附录要求奖金类项目的联邦对私人投资最低杠杆</td><td><span class="tag">Annex</span></td></tr>
+<tr class="f"><td class="num">90 天</td><td>研发预算 $30 亿以上的机构提交行动计划的期限</td><td><span class="tag">Annex</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ═══════════ § 11 ═══════════ -->
+<section class="sec" id="s11" data-cat="ref" data-title="术语 机构 缩写 glossary">
+<h2><span class="no">§ 11</span>术语与机构</h2>
+<p class="lead">按报告中的重要程度排序。点「相关章节」跳到对应精读位置。</p>
+<div class="terms">
+  <div class="term f" id="t-genesis"><b>Genesis Mission</b> <span class="en">创世任务</span><p>2025-11 行政令 14363 启动的国家级「AI for science」计划：能源部把超算、AI 模型、仪器、数据接成一台发现引擎，目标十年内让美国科研生产力翻倍。<a class="go" href="#s08">→ § 08</a></p></div>
+  <div class="term f" id="t-gss"><b>Gold Standard Science</b> <span class="en">金标准科学</span><p>2025-05 行政令 14303 为联邦资助研究立的九条原则（可复现、透明、可证伪、接受负结果等），意在给 AI 时代的科学修一个可信的知识底座。<a class="go" href="#s08">→ § 08</a></p></div>
+  <div class="term f" id="t-fro"><b>FRO</b> <span class="en">Focused Research Organization · 聚焦研究组织</span><p>限期存在的非营利研究机构：全职团队攻一个科学瓶颈，产出公共品，达成即解散。填补学术拨款与风投之间的空白。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-xlabs"><b>X-Labs</b><p>NSF 首个资助传统学术体系之外独立研究组织的联邦项目：全职团队、运营自主、里程碑拨款。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-arpa"><b>ARPA 模式</b> <span class="en">DARPA / ARPA-H / ARPA-E</span><p>放弃共识评审，由项目经理个人做大胆技术下注并组建团队执行。DARPA 产出过互联网、GPS、隐形技术；国会已复制出健康版与能源版。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-golden"><b>金票</b> <span class="en">golden ticket</span><p>评审机制补丁：允许单个评审人越过小组共识，力保一份非常规提案。丹麦私人基金会验证多年，NSF 已试点。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-fast"><b>快速拨款</b> <span class="en">fast grants</span><p>30 分钟申请、48 小时决定的资助方式，疫情期间由私人项目验证可行；对照联邦常规流程 6–9 个月。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-prize"><b>拉动机制</b> <span class="en">prize challenges / AMC</span><p>按结果付费：奖金挑战（达成目标才发钱）与预先市场承诺（产品问世前保证有买家）。适合目标清晰、路径不明的问题。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-regrant"><b>再拨款</b> <span class="en">regranting</span><p>把拨款决定权下放给一线科学家：最能识别机会的人通常没有资金权限，这个机制把两者接上。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-meta"><b>元科学</b> <span class="en">metascience</span><p>把科学方法用到科学体制自身：用对照实验研究「哪种评审、拨款、发表方式产出更好的科学」。报告要求每个联邦科学机构设直报局长的元科学单元。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-eroom"><b>Eroom 定律</b> <span class="en">Moore 倒写</span><p>制药研发效率的长期恶化：每十亿美元产出的新药数每约 9 年减半，1950 年以来累计跌约 80 倍。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f" id="t-pasteur"><b>巴斯德象限</b> <span class="en">Pasteur's quadrant</span><p>Donald Stokes 的框架：既追求根本理解、又受应用驱动的研究（巴斯德、晶体管、信息论）。报告认为科学前沿越来越多落在这个象限，线性模型装不下。<a class="go" href="#s04">→ § 04</a></p></div>
+  <div class="term f" id="t-linear"><b>线性模型</b> <span class="en">linear model</span><p>Bush 1945 框架的简化版：基础研究 → 应用研究 → 产品开发单向流动。报告全书反复宣告它已失效。<a class="go" href="#s04">→ § 04</a></p></div>
+  <div class="term f" id="t-repro"><b>复现危机</b> <span class="en">reproducibility crisis</span><p>大量已发表研究无法被重复验证：心理学复现成功率不足四成，临床前生物医学每年因此误导约 280 亿美元。第五章把「验证基础设施」当作 AI 时代的头号工程。<a class="go" href="#s05">→ § 05</a> · <a class="go" href="#s08">§ 08</a></p></div>
+  <div class="term f" id="t-ota"><b>OTA</b> <span class="en">Other Transaction Authority · 其他交易授权</span><p>让联邦机构绕开传统采购与拨款限制、按商业条款签约的法律工具。报告多次点名它未被用足。<a class="go" href="#s06">→ § 06</a></p></div>
+  <div class="term f" id="t-crada"><b>CRADA</b> <span class="en">合作研发协议</span><p>国家实验室与企业合作的标准合同工具，报告批评流程太慢、要求简化。<a class="go" href="#s06">→ § 06</a></p></div>
+  <div class="term f"><b>SBIR / STTR</b> <span class="en">小企业创新研究 / 技术转移计划</span><p>联邦「种子轮」：按比例强制各机构把研发预算的一部分投给小企业。报告主张把它们战略化，用于构建国家需要的能力。<a class="go" href="#s06">→ § 06</a></p></div>
+  <div class="term f"><b>FNIH / AMP</b> <span class="en">NIH 基金会 / 加速药物伙伴计划</span><p>挂靠联邦机构的独立基金会，能混合公私资本、按商业条款签约。AMP 有 12 个疾病方向，阿尔茨海默方向已验证 20 个候选药物靶点。<a class="go" href="#s06">→ § 06</a></p></div>
+  <div class="term f" id="t-gmp"><b>共享 GMP 设施</b> <span class="en">Good Manufacturing Practice</span><p>符合 FDA 标准的药品生产设施，自建需数千万美元。共享化打破初创公司「没临床数据融不到钱、没钱建不了产线」的死结。<a class="go" href="#s06">→ § 06</a></p></div>
+  <div class="term f"><b>SEMATECH / EUV LLC</b><p>两代半导体预竞争联盟：1987 年 14 家美国公司 + DARPA 攻共享制造难题；1997 年 EUV LLC 与三家国家实验室开发极紫外光刻，成为今天所有尖端芯片的基础。<a class="go" href="#s06">→ § 06</a></p></div>
+  <div class="term f"><b>过程知识</b> <span class="en">process knowledge / tacit knowledge</span><p>技术三形态（工具、显性指令、过程知识）中写不进手册的那部分——存在工程师和技师身体里的手艺。报告视其为美国真正的护城河，制造外流即知识外流。<a class="go" href="#s07">→ § 07</a></p></div>
+  <div class="term f" id="t-memex"><b>memex</b><p>Bush 在《As We May Think》（1945）中设想的个人知识设备：存储、检索、链接全部人类知识记录。报告把 AI 定位为 memex 的最终形态。<a class="go" href="#s08">→ § 08</a></p></div>
+  <div class="term f"><b>证明助手</b> <span class="en">proof assistant（如 Lean）</span><p>把数学证明写成机器可验证代码的软件。AI 大幅降低形式化成本后，数学协作从信任网络转向机器背书。<a class="go" href="#s08">→ § 08</a></p></div>
+  <div class="term f"><b>ASSP</b> <span class="en">American Science and Security Platform</span><p>Genesis Mission 的技术底座：连接超算、AI 系统、仪器与数据集的统一平台，由能源部建设。<a class="go" href="#s08">→ § 08</a></p></div>
+  <div class="term f"><b>QC-ADDS</b><p>附录六大任务中的量子计划（行政令 14413）：研制能开启「量子驱动科学发现时代」规模的量子计算机。<a class="go" href="#s09">→ § 09</a></p></div>
+  <div class="term f" id="t-heilmeier"><b>Heilmeier 问答清单</b> <span class="en">Heilmeier Catechism</span><p>DARPA 的立项拷问清单：你要做什么、现状为何不行、你的方法新在哪、做成了谁在乎。报告推荐为项目官的通用纪律。<a class="go" href="#s05">→ § 05</a></p></div>
+  <div class="term f"><b>百慕大原则</b> <span class="en">Bermuda Principles</span><p>人类基因组计划的数据规则：测序数据 24 小时内公开。分布式大科学协作的制度先例。<a class="go" href="#s06">→ § 06</a></p></div>
+  <div class="term f"><b>DOW</b> <span class="en">Department of War</span><p>报告中对国防部的称呼（本届政府改称「战争部」），原文如此，涉及实验室开放、反应堆快速通道、Vannevar Bush 学者计划等条目。</p></div>
+  <div class="term f"><b>NSTM-5 / M-26-16</b><p>附录备忘录的双编号：国家科技备忘录第 5 号 / OMB 2026 财年第 16 号备忘录，OSTP 与 OMB 联合行文的标志。<a class="go" href="#s09">→ § 09</a></p></div>
+  <div class="term f"><b>Workforce Pell</b><p>2025 年立法：Pell 助学金首次覆盖短期职业培训项目，是学徒制议程的资金腿。<a class="go" href="#s07">→ § 07</a></p></div>
+  <div class="term f"><b>GRFP</b> <span class="en">NSF 研究生研究奖学金</span><p>1952 年起直接资助博士生个人、可随人携带转校。40 多位获得者后来拿了诺奖。附录把「资助个人而非机构」定为人才政策的默认。<a class="go" href="#s05">→ § 05</a> · <a class="go" href="#s09">§ 09</a></p></div>
+  <div class="term f"><b>R01</b><p>NIH 的主力拨款形态：单个研究者、预定项目、每年约 25 万美元。报告承认它擅长小团队假设驱动研究，但批评体系对它过度依赖造成系统性盲区。<a class="go" href="#s05">→ § 05</a></p></div>
+</div>
+</section>
+
+<!-- ═══════════ § 12 ═══════════ -->
+<section class="sec" id="s12" data-cat="ref" data-title="人物 案例 bush weiss polanyi collins stokes planck">
+<h2><span class="no">§ 12</span>人物与案例</h2>
+
+<h3>人物</h3>
+<div class="grid2">
+  <div class="card f"><h4>Vannevar Bush（1890–1974）</h4><p>罗斯福与杜鲁门的首席科学顾问，全书的精神坐标。1945 年 7 月同时交出两篇文本：《Science: The Endless Frontier》（制度设计，催生 NSF）与《As We May Think》（认知工具设想，memex）。本报告的正文与第五章分别是对这两篇的回应。</p></div>
+  <div class="card f"><h4>Michael Kratsios</h4><p>报告作者，OSTP 主任、总统科技助理。2025 年 3 月获参议院确认，同日收到总统的三问信。附录备忘录与 OMB 主任 Russell Vought 联署。</p></div>
+  <div class="card f"><h4>Donald Stokes（1927–1997）</h4><p>政治学者，《Pasteur's Quadrant》（1997）作者。他的「使用启发的基础研究」框架被报告用来宣告线性模型过时。</p></div>
+  <div class="card f"><h4>Michael Polanyi（1891–1976）</h4><p>化学家转哲学家，《The Tacit Dimension》作者。「我们知道的比能说出的多」是第四章隐性知识论证的理论根基。</p></div>
+  <div class="card f"><h4>Harry Collins</h4><p>科学社会学家。1970 年代 TEA 激光复制研究证明：没有实验室能仅靠论文复现设备，手艺必须面对面传递。</p></div>
+  <div class="card f"><h4>Rainer Weiss（1932–2025）</h4><p>2017 年物理诺奖得主。从 MIT 退学的实验室技师出身，靠跟老工匠学来的手艺造出 LIGO 原型。报告用他证明「工匠训练能通向最顶端的科学」。</p></div>
+  <div class="card f"><h4>Max Planck（1858–1947）</h4><p>两次出场：他的教授劝他别入行（物理快完工了），他本人后来开创量子力学——用来反驳「低垂果实已摘完」；他的「科学一场葬礼前进一步」被报告引为在位者效应的注脚。</p></div>
+  <div class="card f"><h4>Alexis de Tocqueville（1805–1859）</h4><p>《论美国的民主》被第三章引用：「事业上的大胆是美国快速进步的首要原因」，为「无许可创新是国民性」的论述背书。</p></div>
+</div>
+
+<h3>反复引用的案例</h3>
+<div class="tbl"><table>
+<thead><tr><th>案例</th><th>报告用它论证什么</th><th>位置</th></tr></thead>
+<tbody>
+<tr class="f"><td>曼哈顿工程 / 阿波罗计划</td><td>大突破靠的是新制度而非只靠天才：能协调数千人跨学科工程的组织形式</td><td><span class="tag">Ch I·III·V</span></td></tr>
+<tr class="f"><td>人类基因组计划</td><td>联邦驱动平台技术的完整范式：目标设定、数据公开规则、公私竞合、38 亿换 7960 亿</td><td><span class="tag">Ch III</span></td></tr>
+<tr class="f"><td>SEMATECH → EUV LLC</td><td>预竞争联盟能解决「人人需要、没人单独付得起」的行业共性难题；也含教训——市场让给了欧洲</td><td><span class="tag">Ch III</span></td></tr>
+<tr class="f"><td>Mojave 业余火箭场</td><td>便宜的测试场地 + 联邦许可通融 = 商业航天产业的苗圃</td><td><span class="tag">Ch III</span></td></tr>
+<tr class="f"><td>2009 阿尔茨海默论文撤稿案</td><td>复现危机的代价具象化：错误结论统治领域 15 年</td><td><span class="tag">Ch II</span></td></tr>
+<tr class="f"><td>AlphaFold / CASP / 蛋白质数据库</td><td>AI 选题的黄金标准：大搜索空间 + 数十年公共数据 + 清晰基准；两位 2024 化学诺奖得主来自企业实验室</td><td><span class="tag">Ch II·V</span></td></tr>
+<tr class="f"><td>素数定理形式化（2025-09）</td><td>AI 把数学验证的成本打下来：人类 18 个月未竟，AI 三周完成 1100 条定理</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td>A-Lab / Polybot</td><td>自主实验室已在国家实验室运行，闭环实验可把材料研发周期压缩一个数量级</td><td><span class="tag">Ch V</span></td></tr>
+<tr class="f"><td>森林防火政策</td><td>复杂系统警告：每次局部正确的干预，可能积累出系统性灾难——AI 灌水之于科学</td><td><span class="tag">Ch V</span></td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ═══════════ § 13 ═══════════ -->
+<section class="sec" id="s13" data-cat="ref" data-title="时间线 timeline 大事记">
+<h2><span class="no">§ 13</span>时间线</h2>
+<p class="lead">报告叙事涉及的关键节点与它设定的未来里程碑。</p>
+<ul class="tl">
+  <li class="f"><span class="d">1945-07</span>Bush 同月发表《Science: The Endless Frontier》与《As We May Think》；前者确立联邦资助基础研究的框架，后者设想 memex</li>
+  <li class="f"><span class="d">1950</span>国家科学基金会（NSF）成立，Bush 报告的直接产物</li>
+  <li class="f"><span class="d">1987</span>SEMATECH 成立：14 家美国半导体公司 + DARPA 配资，对抗日本存储芯片攻势</li>
+  <li class="f"><span class="d">1990</span>人类基因组计划启动（NIH + 能源部）；1998 年 Celera 入场竞争，项目提前完成</li>
+  <li class="f"><span class="d">1997</span>EUV LLC 与三家国家实验室签约开发极紫外光刻；2001 年出原型机</li>
+  <li class="f"><span class="d">2021-01</span>NSPM-33 发布，第一任期收紧研究安全政策</li>
+  <li class="f"><span class="d">2024</span>英国成立元科学单元；NSF 开始试点金票评审</li>
+  <li class="f"><span class="d">2025-03-26</span>总统致信 Kratsios，提出三问（本报告的任务书）</li>
+  <li class="f"><span class="d">2025-05</span>四项核能行政令（NRC 限期修规、执照时限、快速通道）；5 月 29 日《Restoring Gold Standard Science》行政令 14303</li>
+  <li class="f"><span class="d">2025-09</span>创业公司用 AI 三周完成素数定理形式化（1100 条定理），此前人类团队 18 个月未竟</li>
+  <li class="f"><span class="d">2025-11</span>行政令 14363 启动 Genesis Mission；新版国家安全战略发布</li>
+  <li class="f"><span class="d">2025-12</span>能源部与 24 家机构签署 Genesis 协作协议；NIH 发布减负新政</li>
+  <li class="f"><span class="d">2026-07-21</span>本报告与 FY2028 预算优先备忘录（NSTM-5 / M-26-16）同日发出</li>
+  <li class="f future"><span class="d">2026 秋</span>研发预算 $30 亿+ 的机构提交 90 天行动计划</li>
+  <li class="f future"><span class="d">2028</span>目标：美国人重返月面（行政令 14369）</li>
+  <li class="f future"><span class="d">2030</span>目标：10 座大型核反应堆开工建设</li>
+  <li class="f future"><span class="d">2030s 中期</span>目标：美国本土示范商用聚变发电</li>
+  <li class="f future"><span class="d">~2035</span>Genesis Mission 目标线：美国科研生产力与影响翻倍</li>
+</ul>
+</section>
+
+<!-- ═══════════ § 14 ═══════════ -->
+<section class="sec" id="s14" data-cat="how" data-title="批判阅读 立场 来源 争议 dei covid">
+<h2><span class="no">§ 14</span>批判性阅读提示</h2>
+<p class="lead">这是一份政治文件，也是一份认真写作的政策论证。以下是阅读时可以核对的点，判断留给读者。</p>
+
+<div class="card f">
+<h4>① 认清文体</h4>
+<p>总统报告的论证服务于既定政策方向：诊断章节与 2025–2026 年已签署的行政令互相支撑，「问题」与「本届政府已在解决」交替出现。读的时候把三种成分分开：诊断（多有独立文献）、处方（政策主张）、政绩陈述（宣传成分）。</p>
+</div>
+
+<div class="card f">
+<h4>② 给数据来源分层</h4>
+<p>结构性数据（研发投入、复现率、年龄结构、制造业就业）多来自 NSF/NCSES、NBER、Nature/Science 论文，尾注给了全部出处，可独立核对。个别关键数字来源单一且有政治属性：NSF 拨款 DEI 占比「<1% → >25%」出自参议院商业委员会共和党方报告（尾注 43）；新冠学校关闭一节没有引用任何反方证据。这两处的写法与全书其他部分的引用标准有落差。</p>
+</div>
+
+<div class="card f">
+<h4>③ 与立场无关、值得单独吸收的骨架</h4>
+<p>科研减速的实证（Bloom「想法越来越难找」、Scannell 的 Eroom 定律、Park &amp; Evans 的颠覆性下降）、复现危机文献（OSC 2015、Camerer 2016、Freedman 2015）、拨款机制实验（HHMI 对照研究、Fast Grants、金票试点）——这批文献在元科学社区积累了十余年，不依赖任何党派立场成立。这也是全书学术上最扎实的部分。</p>
+</div>
+
+<div class="card f">
+<h4>④ 修辞与事实混排处</h4>
+<p>「四年软弱与自满」「我们绝不会采用的手段」属政治修辞；「Department of War」是本届政府对国防部的更名，非笔误。第二章把 1920 年代常春藤限制犹太学生的配额与当代 DEI 政策类比，是报告的论证选择，两者是否对称可自行评估。</p>
+</div>
+
+<div class="card f">
+<h4>⑤ 报告没有讨论的问题</h4>
+<p>同期联邦科研预算的实际增减动态、压降间接费率对大学财务的冲击路径、外国研究人才对美国科研的贡献面（报告只谈风险面）、以及「谁来定义 Gold Standard 的执行尺度」——这些在文本中缺席。评估处方可行性时需要补上这些外部信息。</p>
+</div>
+
+<div class="card f">
+<h4>⑥ 知识来源的圈层</h4>
+<p>尾注里反复出现 Institute for Progress、Good Science Project、Speculative Technologies、Convergent Research 等改革派智库与元科学社区作者（Azoulay、Nielsen &amp; Qiu、Marblestone、Watney、Heidi Williams）。报告的处方与这个社区近年的主张高度一致——这解释了它为什么在机制设计上如此具体，也提示了它的视角边界。</p>
+</div>
+</section>
+
+<!-- ═══════════ § 15 ═══════════ -->
+<section class="sec" id="s15" data-cat="how" data-title="读法 阅读路径 延伸">
+<h2><span class="no">§ 15</span>三种读法</h2>
+
+<div class="grid2">
+  <div class="card f"><h4>15 分钟</h4><p>读原书摘要（pp. x–xvii，每章一页）加总统信（p. viii 的三问）。配合本页 <a href="#s02">§ 02</a> 的诊断与目标、<a href="#s10">§ 10</a> 的数据表，即可掌握全书立场与论据密度。</p></div>
+  <div class="card f"><h4>1 小时</h4><p>摘要之后精读两章：第二章（体制诊断与机制清单，全书智识含量最高）与第五章（AI 与验证基础设施，全书最有前瞻性）。再扫附录的「R&amp;D Priority Practices」（pp. 95–103），看哪些主张已写成指令。第三、四章用本页 <a href="#s06">§ 06</a>、<a href="#s07">§ 07</a> 代读。</p></div>
+  <div class="card f"><h4>全书精读</h4><p>按原序读，每章读前看本页对应精读打底、读后用 <a href="#s11">§ 11</a> 术语表回收概念。尾注别跳过——报告的可信度层次全在出处里（配合 <a href="#s14">§ 14</a> 的分层法）。</p></div>
+</div>
+
+<h3>延伸阅读</h3>
+<ul class="pts">
+  <li class="f">Vannevar Bush,《Science: The Endless Frontier》（1945）——本报告全文都在与它对话，NSF 有 75 周年纪念版。</li>
+  <li class="f">Vannevar Bush,「As We May Think」（The Atlantic, 1945）——第五章的原型文本，几小时可读完。</li>
+  <li class="f">Donald Stokes,《Pasteur's Quadrant》（1997）——「使用启发的基础研究」框架的完整版。</li>
+  <li class="f">Michael Nielsen &amp; Kanjun Qiu,「A Vision of Metascience」（2022）——报告元科学议程的思想源头之一，免费在线。</li>
+  <li class="f">Dan Wang,「How Technology Grows」（2018）及《Breakneck》（2025）——第四章「过程知识」框架的出处。</li>
+  <li class="f">Kapoor &amp; Narayanan,「Could AI Slow Science?」（2025）——第五章「生产-进步悖论」的原始论证。</li>
+</ul>
+</section>
+
+</main>
+</div>
+
+<button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
+
+<footer>整理自《Science: A New Golden Age》（OSTP, 2026-07）原文 PDF；页码均为原书页码 · 本页生成于 2026-08-06 · 单文件可离线使用</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  var catBtns = Array.prototype.slice.call(document.querySelectorAll('.cats button'));
+  var curCat = 'all';
+
+  function render(){
+    var kw = q.value.trim().toLowerCase();
+    var tot = 0, vis = 0;
+    secs.forEach(function(sec){
+      var inCat = (curCat === 'all' || sec.dataset.cat === curCat);
+      var items = sec.querySelectorAll('.f');
+      var any = false;
+      if(!inCat){
+        sec.style.display = 'none';
+        return;
+      }
+      tot += items.length;
+      if(!kw){
+        for(var i=0;i<items.length;i++){ items[i].style.display=''; }
+        vis += items.length;
+        sec.style.display = '';
+        return;
+      }
+      var headHit = (sec.dataset.title || '').toLowerCase().indexOf(kw) > -1;
+      for(var j=0;j<items.length;j++){
+        var hit = items[j].textContent.toLowerCase().indexOf(kw) > -1;
+        items[j].style.display = hit ? '' : 'none';
+        if(hit){ any = true; vis++; }
+      }
+      if(headHit && !any){
+        for(var k=0;k<items.length;k++){ items[k].style.display=''; }
+        vis += items.length;
+        any = true;
+      }
+      sec.style.display = any ? '' : 'none';
+    });
+    count.textContent = vis + ' / ' + tot;
+    spy();
+  }
+
+  q.addEventListener('input', render);
+  catBtns.forEach(function(b){
+    b.addEventListener('click', function(){
+      curCat = b.dataset.cat;
+      catBtns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      render();
+    });
+  });
+
+  /* scroll-spy */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var linkById = {};
+  tocLinks.forEach(function(a){ linkById[a.getAttribute('href').slice(1)] = a; });
+  function spy(){
+    var y = window.scrollY + 110;
+    var cur = null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].style.display === 'none') continue;
+      if(secs[i].offsetTop <= y) cur = secs[i].id;
+    }
+    tocLinks.forEach(function(a){ a.classList.remove('cur'); });
+    if(cur && linkById[cur]){
+      linkById[cur].classList.add('cur');
+      var el = linkById[cur];
+      var nav = document.getElementById('toc');
+      if(el.offsetTop < nav.scrollTop || el.offsetTop > nav.scrollTop + nav.clientHeight - 40){
+        nav.scrollTop = el.offsetTop - nav.clientHeight / 2;
+      }
+    }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){ spy(); toTopCheck(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  /* 回顶部 */
+  var toTop = document.getElementById('toTop');
+  function toTopCheck(){ toTop.classList.toggle('show', window.scrollY > 500); }
+  toTop.addEventListener('click', function(){
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'});
+  });
+
+  /* 锚点跳转高亮 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var t = document.getElementById(id);
+    if(!t) return;
+    /* 目标若被筛选隐藏，先复位筛选 */
+    if(t.offsetParent === null){
+      q.value = ''; curCat = 'all';
+      catBtns.forEach(function(x){ x.classList.toggle('on', x.dataset.cat === 'all'); });
+      render();
+    }
+    setTimeout(function(){
+      t.classList.remove('flash');
+      void t.offsetWidth;
+      t.classList.add('flash');
+    }, 350);
+  });
+
+  spy(); render();
+})();
+
+var _dr=document.getElementById("drawer"),_dl=document.getElementById("drawerlist");
+if(_dr&&_dl){
+  document.getElementById("tocbtn").addEventListener("click",function(){_dr.classList.add("open")});
+  _dr.addEventListener("click",function(e){if(e.target===_dr)_dr.classList.remove("open")});
+  var _links=document.querySelectorAll("#toc a, nav.side a, nav.toc a");
+  _links.forEach(function(a){
+    var c=a.cloneNode(true);c.className="";c.style.cssText="";
+    if(a.classList.contains("sub"))c.style.paddingLeft="24px";
+    _dl.appendChild(c);
+  });
+}
+
+</script>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+</body>
+</html>

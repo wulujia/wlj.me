@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="Jen Roberts、Trey Herr 等著，Atlantic Council 发布——全球间谍软件市场实体网络测绘。">
+<link rel="canonical" href="https://wlj.me/reading/mythical-beasts-spyware-market/">
+<title>Mythical Beasts：全球间谍软件市场图谱 — 阅读版</title>
+<style>
+:root{
+  --paper:#edeef1; --card:#fff; --card-2:#f4f5f7; --line:#ccd1d8; --line-soft:#e1e5ea;
+  --ink:#16191d; --ink-2:#3c444e; --mute:#6b7480;
+  --acc:#8a1f5a; --acc-soft:#f7e9f1; --acc-line:#e2b7cd;
+  --t1:#8a1f5a; --t2:#1f5c8a; --t3:#2f6f3a;
+  --mark:#ffe066;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --maxw:760px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#0e1013; --card:#171a1f; --card-2:#1c2026; --line:#2a3038; --line-soft:#242a31;
+    --ink:#e4e8ec; --ink-2:#b4bcc6; --mute:#8a939f;
+    --acc:#d17aa8; --acc-soft:#2a1a24; --acc-line:#55304a;
+    --t1:#d17aa8; --t2:#6fa8d1; --t3:#6fae79;
+    --mark:#7d6400;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased}
+
+#bar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--paper) 94%,transparent);
+  backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1400px;margin:0 auto;padding:9px 16px;display:flex;gap:12px;align-items:center}
+.brand{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);white-space:nowrap}
+.brand b{color:var(--acc)}
+#navlinks{display:flex;gap:2px;overflow-x:auto;flex:1;scrollbar-width:none}
+#navlinks::-webkit-scrollbar{display:none}
+#navlinks a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:5px 9px;border-radius:6px;white-space:nowrap}
+#navlinks a:hover{background:var(--card)}
+#navlinks a.on{color:var(--acc);background:var(--acc-soft);font-weight:600}
+.searchwrap{position:relative;display:flex;align-items:center;gap:6px}
+#q{width:150px;font:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:999px;background:var(--card);color:var(--ink)}
+#q:focus{outline:2px solid var(--acc);outline-offset:1px;width:210px}
+#qinfo{font-family:var(--mono);font-size:11px;color:var(--mute);min-width:52px}
+mark{background:var(--mark);color:inherit;border-radius:2px}
+mark.cur{outline:2px solid var(--acc)}
+@media(max-width:760px){#navlinks{display:none}.searchwrap{flex:1}#q,#q:focus{width:100%}}
+
+.shell{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr}
+#toc{display:none}
+main{max-width:var(--maxw);margin:0 auto;padding:0 18px 120px;width:100%}
+@media(min-width:1180px){
+  .shell{grid-template-columns:262px minmax(0,1fr) 262px}
+  #toc{display:block;position:sticky;top:56px;align-self:start;max-height:calc(100vh - 70px);
+    overflow:auto;padding:26px 10px 40px 18px}
+  #toc .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mute);margin:0 0 10px 8px}
+  #toc a{display:block;font-size:12.8px;line-height:1.45;color:var(--mute);text-decoration:none;
+    padding:5px 8px;border-left:2px solid transparent;border-radius:0 5px 5px 0}
+  #toc a:hover{color:var(--ink)}
+  #toc a.sub{padding-left:20px;font-size:12.2px}
+  #toc a.on{color:var(--acc);border-left-color:var(--acc);background:var(--acc-soft);font-weight:600}
+}
+
+.hero{border-bottom:1px solid var(--line);margin-bottom:52px;background:var(--card-2)}
+.hero-in{max-width:var(--maxw);margin:0 auto;padding:56px 18px 44px}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.eyebrow b{color:var(--acc);font-weight:700}
+.hero h1{font-size:clamp(28px,5.4vw,44px);line-height:1.12;letter-spacing:-.02em;margin:16px 0 8px;font-weight:800}
+.hero .sub{font-size:16.5px;color:var(--ink-2);margin:0;max-width:58ch}
+.rule{height:3px;background:var(--acc);width:64px;margin:26px 0 22px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.6px;margin:0}
+.kv dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--mute);text-transform:uppercase;padding-top:3px}
+.kv dd{margin:0;color:var(--ink-2)}
+.kv dd a{color:var(--acc)}
+
+h2{font-size:27px;line-height:1.2;letter-spacing:-.015em;margin:76px 0 6px;font-weight:800;scroll-margin-top:80px}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--acc);display:block;letter-spacing:.16em;
+  margin-bottom:9px;font-weight:700}
+h3{font-size:18.5px;margin:42px 0 10px;font-weight:700;letter-spacing:-.01em;scroll-margin-top:80px}
+h4{font-size:15.5px;margin:26px 0 6px;font-weight:700;color:var(--ink-2)}
+p{margin:0 0 17px}
+.lede{font-size:18px;color:var(--ink-2);margin-bottom:26px}
+a{color:var(--acc)}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:8px}
+hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:24px 0}
+.card>:last-child{margin-bottom:0}
+.ttl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mute);margin-bottom:12px}
+.note{background:var(--acc-soft);border:1px solid var(--acc-line);border-radius:10px;
+  padding:18px 20px;margin:26px 0;font-size:15.4px}
+.note>:last-child{margin-bottom:0}
+.note .ttl{color:var(--acc)}
+blockquote{margin:22px 0;padding:2px 0 2px 16px;border-left:3px solid var(--acc-line);color:var(--ink-2);font-size:15.5px}
+blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--mute);margin-top:7px}
+
+.tw{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.2px;min-width:520px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{background:var(--card-2);font-size:12px;letter-spacing:.04em;color:var(--ink-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{font-family:var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.chart{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 20px 14px;margin:26px 0}
+.chart h4{margin:0 0 3px;font-size:15.5px;color:var(--ink)}
+.chart .sub{font-size:13px;color:var(--mute);margin:0 0 16px}
+.rows{display:grid;gap:9px}
+.row{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:center}
+.row .cty{font-size:13.4px;color:var(--ink-2);text-align:right}
+.bar{height:15px;border-radius:0 4px 4px 0;background:var(--neutral,#6b7480);position:relative;min-width:3px}
+.bar.t1{background:var(--t1)}
+.bar.t2{background:var(--t2)}
+.bar.t3{background:var(--t3)}
+.bar span{position:absolute;left:calc(100% + 8px);font-family:var(--mono);font-size:11.5px;
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.axis{margin-top:14px;padding-top:8px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--mute)}
+
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}
+.pill{font-size:12.2px;padding:4px 11px;border-radius:999px;background:var(--card);
+  border:1px solid var(--line);color:var(--ink-2)}
+
+#tocbtn,#top{position:fixed;right:18px;z-index:70;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;
+  box-shadow:0 4px 18px rgba(0,0,0,.13)}
+#tocbtn{bottom:18px}
+#top{bottom:18px;display:none;width:44px;height:44px;padding:0;font-size:17px}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper);
+  border-left:1px solid var(--line);padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2);text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a.sub{padding-left:24px;font-size:13px;color:var(--mute)}
+#drawer a:hover{background:var(--card)}
+
+@media print{
+  #bar,#toc,#tocbtn,#top,#drawer,.searchwrap{display:none!important}
+  .shell{display:block}main{max-width:100%}
+  body{background:#fff;color:#000;font-size:11.5pt}
+}
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回阅读材料</a></div>
+
+
+<div id="bar">
+  <div class="bar-in">
+    <div class="brand"><b>Mythical Beasts</b>&nbsp;· 阅读版</div>
+    <nav id="navlinks">
+      <a href="#s0">速读</a><a href="#s1">数据集</a><a href="#s2">六大趋势</a>
+      <a href="#s3">政策建议</a><a href="#s4">未来工作</a><a href="#s5">厂商速览</a>
+    </nav>
+    <div class="searchwrap">
+      <input id="q" type="search" placeholder="搜全文…" aria-label="搜索全文">
+      <span id="qinfo"></span>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Atlantic Council · Cyber Statecraft Initiative · <b>2024.09</b></div>
+    <h1>Mythical Beasts and Where to Find Them<br>全球间谍软件市场图谱</h1>
+    <p class="sub">Jen Roberts、Trey Herr 等四人著，48 页。第一份对全球商业间谍软件市场做<strong>实体网络测绘</strong>的研究：435 个实体、42 个国家、近三十年，把藏在几家名厂（NSO、Intellexa）背后的供应商、投资人、控股公司一层层挖出来。</p>
+    <div class="rule"></div>
+    <dl class="kv">
+      <dt>机构</dt><dd>Atlantic Council（大西洋理事会）网络国家构建倡议（Cyber Statecraft Initiative）</dd>
+      <dt>方法</dt><dd>公开企业注册数据 + 民权组织/安全实验室/媒体报道交叉验证；每个实体至少两个公开来源</dd>
+      <dt>数据</dt><dd>1992–2023：49 家厂商 + 36 子公司 + 24 伙伴 + 20 供应商 + 32 控股公司 + 95 投资人 + 179 个人</dd>
+      <dt>视角</dt><dd>市场优先（market-first）而非厂商优先——主张通过影响市场结构来治理，而不是逐家打地鼠</dd>
+      <dt>原文</dt><dd><a href="https://www.atlanticcouncil.org/in-depth-research-reports/report/mythical-beasts-and-where-to-find-them/">大西洋理事会报告页</a></dd>
+      <dt>本页</dt><dd>中文阅读辅助，不是翻译。事实、数字、名单均来自原报告。</dd>
+    </dl>
+  </div>
+</header>
+
+<div class="shell">
+  <aside id="toc"><p class="t">目录</p><nav id="toclist"></nav></aside>
+  <main>
+
+<!-- ===== 速读 ===== -->
+<h2 id="s0"><span class="num">00 / 速读</span>三分钟读懂这份报告</h2>
+
+<p class="lede">一句话：<strong>全球间谍软件市场不是几家名厂，而是一张横跨 42 个国家的实体网络——厂商不断改名、跳国籍、换投资人，单盯一家公司去管是打地鼠，要管就该管市场。</strong></p>
+
+<div class="card">
+  <div class="ttl">报告要回答的问题</div>
+  <p style="margin-bottom:0">关于间谍软件扩散，公共分析严重偏向少数几家有名厂商（NSO Group 的 Pegasus、Intellexa 的 Predator），几十家中小厂商和它们背后的投资人、供应商、控股公司几乎隐身。这份报告补上这块空白：把 435 个实体的关系网摊开，让政策可以<strong>作用于市场结构</strong>，而不是追着单一交易跑。</p>
+</div>
+
+<div class="note">
+  <div class="ttl">先划清三个边界</div>
+  <p><strong>间谍软件的定义</strong>：在目标不知情、未授权的情况下，对联网设备进行远程访问以实施监控或数据提取的软件。</p>
+  <p><strong>排除项</strong>：跟踪软件（stalkerware，需要物理接触）；不进入目标设备的网络嗅探；IMSI 捕获器；需物理接入的取证工具。</p>
+  <p style="margin-bottom:0"><strong>一个立场</strong>：商业获取不是滥用的根源；数据集只记录市场和实体，不断言什么是"合法使用"。</p>
+</div>
+
+<h3>四个关键数字</h3>
+<div class="pills">
+  <span class="pill">195 个国家里至少 <b>80</b> 国买过商业间谍软件</span>
+  <span class="pill">EU 27 国中 <b>14</b> 国只从 NSO 一家买过</span>
+  <span class="pill">2023 年某公司威胁研究组发现的 0day 利用里 <b>50%</b> 归因于间谍软件厂商</span>
+  <span class="pill">NSO 曾考虑以 <b>20 亿美元</b>估值 IPO</span>
+</div>
+
+<div class="note">
+  <div class="ttl">市场治理 vs 全面禁止</div>
+  <p style="margin-bottom:0">作者明确主张：比起呼吁全面禁售，更可行的是把市场<strong>管得更透明</strong>。类比美国过去几十年对大麻市场的处理——不再是"禁交易"，而是接受部分合法用途、设定负责任的采购参数、让市场接受监督。一个更透明、受控的市场不会完全阻止扩散，但能把扩散引导到更可控的方向。</p>
+</div>
+
+<!-- ===== 数据集 ===== -->
+<h2 id="s1"><span class="num">01 / 数据</span>数据集与市场构成</h2>
+
+<p class="lede">数据集覆盖 1992–2023 年的 435 个实体，横跨 42 国。它是市场的样本而非全量记录——但已经足够看出规律。</p>
+
+<div class="chart">
+  <h4>435 个实体按类型拆分</h4>
+  <p class="sub">数据来自报告附录与正文 · 单位：个</p>
+  <div class="rows">
+    <div class="row"><div class="cty">个人</div><div class="bar t3" style="width:41%" title="179"><span>179</span></div></div>
+    <div class="row"><div class="cty">投资人</div><div class="bar t2" style="width:22%" title="95"><span>95</span></div></div>
+    <div class="row"><div class="cty">厂商</div><div class="bar t1" style="width:11.3%" title="49"><span>49</span></div></div>
+    <div class="row"><div class="cty">子公司</div><div class="bar t1" style="width:8.3%" title="36"><span>36</span></div></div>
+    <div class="row"><div class="cty">控股公司</div><div class="bar t2" style="width:7.4%" title="32"><span>32</span></div></div>
+    <div class="row"><div class="cty">伙伴</div><div class="bar t1" style="width:5.5%" title="24"><span>24</span></div></div>
+    <div class="row"><div class="cty">供应商</div><div class="bar t3" style="width:4.6%" title="20"><span>20</span></div></div>
+  </div>
+</div>
+
+<div class="tw">
+<table>
+  <thead><tr><th>术语</th><th>定义</th></tr></thead>
+  <tbody>
+    <tr><td>厂商 Vendor</td><td>开发、支持并销售间谍软件给终端用户的商业实体（含漏洞研究、利用开发、载荷开发、C2、运营、培训；不要求端到端全包）。计入母公司及分支机构，子公司单独列。</td></tr>
+    <tr><td>供应商 Supplier</td><td>提供关键软件组件的上游实体——尤其包括能对 iOS、Android 等主流软件出"可用利用"（working exploits）的漏洞/利用中间商。</td></tr>
+    <tr><td>投资人 Investor</td><td>风投、私募、政府贷款，到直接收购、直接持股，来源遍布多国。</td></tr>
+    <tr><td>控股公司</td><td>持有厂商股份、可能跨司法辖区的壳层。</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card">
+  <div class="ttl">为什么市场优先</div>
+  <p style="margin-bottom:0">间谍软件市场缺少一致、可靠、可溯源的公开数据。以色列国防出口管制局这类单一出口当局可能掌握本国的销售记录，但既不公开，也不与其他国家的数据合并。研究者、记者、决策者都只能翻各种零散来源。作者说，<strong>缺失的不是意愿，是共同的市场图景</strong>。</p>
+</div>
+
+<!-- ===== 六大趋势 ===== -->
+<h2 id="s2"><span class="num">02 / 分析</span>六大趋势</h2>
+
+<p class="lede">六条在数据集中成立的规律。前三条看聚集与人的流动，后三条看厂商如何隐身。</p>
+
+<h3 id="s2a">1 · 三大司法辖区聚集：以色列、印度、意大利</h3>
+<div class="chart">
+  <h4>三大聚集区（按实体数占比）</h4>
+  <p class="sub">合计约占数据集的 65%</p>
+  <div class="rows">
+    <div class="row"><div class="cty">以色列</div><div class="bar t1" style="width:87.8%" title="43.9%"><span>43.9%</span></div></div>
+    <div class="row"><div class="cty">意大利</div><div class="bar t3" style="width:27.2%" title="13.6%"><span>13.6%</span></div></div>
+    <div class="row"><div class="cty">印度</div><div class="bar t2" style="width:15.6%" title="7.8%"><span>7.8%</span></div></div>
+  </div>
+</div>
+<ul>
+  <li><strong>以色列簇</strong>：NSO Group、Saito Tech（原 Candiru）、Cognyte、Paragon、MerlinX、Quadream/InReach、Blue Ocean、Interionet——8 家厂商，占数据集 43.9%，平均运营年限 6.6 年。</li>
+  <li><strong>印度簇</strong>：Aglaya、Appin、BellTroX、CyberRoot、Leo Impact + 供应商 RebSec——7.8%，平均 10.1 年。</li>
+  <li><strong>意大利簇</strong>：Dataflow、DataForense、Memento Labs（原 Hacking Team）、Movia、Negg、RCS——6 家 + 供应商 VasTech——13.6%，平均 6.1 年。</li>
+  <li>值得注意：尽管新闻里以色列存在感最强，它在样本里也只占约一半；而<strong>以色列和印度都不在最新一轮的 Pall Mall 宣言签署国之列</strong>。</li>
+</ul>
+
+<h3 id="s2b">2 · 连环创业者（Serial Entrepreneurs）</h3>
+<p>创始人、员工离开一家间谍软件公司去创办下一家，平均每人牵涉 <strong>2.2</strong> 家公司。这在创业圈不稀奇，但因为产品功能同质、客户关系跟着人走，在这个市场里意义不同。</p>
+<div class="tw">
+<table>
+  <thead><tr><th>源头公司</th><th>离开后创办</th></tr></thead>
+  <tbody>
+    <tr><td>NSO Group（Pegasus）</td><td>Quadream（Reign，Guy Geva、Nimrod Reznik + 前军官方 llan Dabelstein）；Interionet（Yair Pecht、Sharon Oknin）；投资人 Joshua Lesher 同时任两公司董事</td></tr>
+    <tr><td>Appin Security Group</td><td>BellTroX（Sumit Gupta，原 Appin 员工）——BellTroX 被 Meta 点名提供"雇佣黑客"服务</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="s2c">3 · 间谍软件 × 硬件监控的伙伴关系</h3>
+<p>间谍软件厂商与硬件监控厂商（网络拦截、IMSI 捕获等）结成伙伴，共享客户与渠道。这个趋势在报告中与"法院记录、泄露文件"交叉印证——间谍软件的销售经常搭售或挂钩硬件监控方案。</p>
+
+<h3 id="s2d">4 · 频繁更换身份（Shifting Vendor Identities）</h3>
+<p>改名是常态：数据集中 <strong>34.4%</strong> 的厂商、<strong>20.8%</strong> 的控股公司改过名。改名不是为了重组业务，而是为了在负面报道后隐身、管理声誉损失。</p>
+<ul>
+  <li><strong>Hacking Team → Grey Heron（英国/意大利壳）→ Memento Labs（2019，被瑞士 InTheCyber 收购后）</strong>；间谍软件产品也改名 Dante。</li>
+  <li><strong>Appin Technology</strong>：2014 年起一连串改名——Appin Technology → Mobile Online Order Management → Chemieast Engineering → Sunkissed Organic Farms（"有机农场"）。</li>
+  <li><strong>Equus Technologies</strong>：2017 年被 Google 点名开发 Lipizzan 后客户流失、股东撤退，改名 <strong>MerlinX</strong>。</li>
+</ul>
+<p>改名让"厂商已倒闭"的假象很容易做出来——它可能只是换了个名字在继续。政策上需要抓住"人"和"投资人"这两条不变的线。</p>
+
+<h3 id="s2e">5 · 战略性跳法域（Jurisdiction Hopping）</h3>
+<p>通过子公司、分支机构、伙伴关系跨司法辖区布点，获取销售便利（比如在欧盟境内设点做欧盟生意）或更宽松的监管。</p>
+<ul>
+  <li><strong>Quadream</strong>：2017 年在塞浦路斯设供应商 InReach，法院文件称"唯一目的是在欧盟推广 Quadream 产品"。</li>
+  <li><strong>Intellexa 联盟</strong>：组织者 Tal Dilian 与 Sara Hamou 以塞浦路斯为 Predator 的枢纽，借以进入欧洲市场。</li>
+  <li><strong>反例 Memento Labs</strong>：坚持"Made in Italy"，投资人也基本是意大利籍（仅塞浦路斯、瑞士两家欧洲国家）。</li>
+</ul>
+<p>单家厂商最多出现在 <strong>14 个司法辖区</strong>（Cognyte）。跨境的子公司关系被包装成"内部公司行为"，形成监管上的黑箱——这是<strong>管辖套利</strong>。</p>
+
+<h3 id="s2f">6 · 全球资本流入市场（Money from Across the World）</h3>
+<p>间谍软件的投资人几乎都跨国。95 名投资人中，四大来源地——意大利、以色列、美国、英国——合计占 <strong>46.3%</strong>。平均每家厂商/供应商有 <strong>4.75</strong> 个已识别投资人。</p>
+<ul>
+  <li>美国投资人 14 个实体，其中 12 个投的是以色列公司；以色列和意大利投资人主要投本国，英美投资人则把资本送出国。</li>
+  <li><strong>Paragon</strong>：2019 年以色列创立，2022 年设美国子公司，投资人是波士顿的 Battery Ventures 和 Blumberg Capital。</li>
+  <li><strong>NSO Group</strong>：投资人有英国的 Novalpina Capital、美国的 Francisco Partners、Berkeley Research Group、Blackstone。</li>
+</ul>
+
+<!-- ===== 政策建议 ===== -->
+<h2 id="s3"><span class="num">03 / 建议</span>五条政策建议</h2>
+
+<p class="lede">目标统一：提高市场透明度、限制厂商的管辖套利、更有效地审查供应商与投资人关系。</p>
+
+<div class="note">
+  <div class="ttl">建议一 · 强制"了解你的厂商"（Know Your Vendor / KYV）</div>
+  <p>美国及至少《联合声明》的其余十六个签署国，应要求间谍软件厂商<strong>披露供应商与投资人关系</strong>。可经由美国联邦采购监管委员会落地到 FAR/DFARS：任何投标政府网战合同的厂商须列明供应商、投资人及母公司。KYV 让政府在授予合同前就能核对供应链里有没有上了限制名单的企业，并能长期切断流向高风险供应商的政府资金。</p>
+</div>
+
+<div class="note">
+  <div class="ttl">建议二 · 改进政府企业注册库</div>
+  <p>注册库要成为厂商财务结构的真相来源，必须：全面、可公开访问、信息经核实。现状差距巨大——<strong>捷克</strong>的注册库记录了公司历次名称、投资人历史、高管任职；<strong>印度、以色列</strong>只有公司名、地址、注册日期等基本信息；<strong>美国</strong>各州各自为政。</p>
+  <p style="margin-bottom:0">细分三点：<strong>2.1</strong> 扩大注册库最低数据范围（基本公司信息、所有权、员工数、财务、改名史、法律状态）；<strong>2.2</strong> 扩大实际受益人识别（G7 里多数要求报 25% 以上持股人，但大多不要求验证身份文件；英国 Companies House 连姓名地址都不核实）；<strong>2.3</strong> 让注册库数据公开——OpenCorporates 评分各国平均只有满分的 22%，西班牙、希腊、巴西为 0（付费才能搜）。</p>
+</div>
+
+<div class="note">
+  <div class="ttl">建议三 · 充实、审计并公开出口许可证</div>
+  <p>出口许可目前是"边际工具"，但可以改造为数据收集机制，三招：</p>
+  <p style="margin-bottom:0">（1）许可证应列入<strong>对产品开发有实质影响的所有员工姓名</strong>——把"人"留在半公开记录里，厂商换国籍申请新许可时会留下纸面痕迹；（2）把<strong>强制、定期审计</strong>写进许可制度，并对不合规设罚——软件无法一次性"签署放行"，要像连续监控那样持续审计，发现滥用即可吊销；（3）审计报告和原始许可<strong>向公众开放</strong>（可适当涂掉隐私信息），让研究者和社会组织充当外部问责机制。</p>
+</div>
+
+<div class="note">
+  <div class="ttl">建议四 · 限制厂商的管辖套利</div>
+  <p style="margin-bottom:0">让有出口许可的厂商<strong>离开一个辖区变得又难又贵</strong>：强制公开所有子公司/分支的开张与关闭；对影响本国间谍软件厂商所有权结构的交易，由 CFIUS 等现有机构<strong>自动审查</strong>；不申报的交易→禁止参与政府采购、暂停出口许可。模板可参照美联储成员银行的披露义务——银行合并、关闭分行都要向美联储申报并公开。十七国再设工作组协调统一。</p>
+</div>
+
+<div class="note">
+  <div class="ttl">建议五 · 更有效地反 SLAPP</div>
+  <p>公开报道是间谍软件市场透明度的重要来源，但厂商正在用"打击公众参与的恶意诉讼"（SLAPP）压制记者。<strong>2022 年，Reuters 因被 Appin 母公司起诉诽谤而撤下了对 Appin 的调查报道</strong>——危险先例。欧盟 2024 年 5 月已立规则，为"公共利益"相关言论提供更强保护，核心三条：加速处理、对"明显无根据"的诉讼尽早驳回、被告可追偿全部费用并让对方承担惩罚性措施。美国等应参照；国务院也应在与印度、英国的外交渠道提出 Appin 诉讼问题。</p>
+</div>
+
+<h3>趋势到建议的对应关系</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>趋势</th><th>对应的建议</th></tr></thead>
+  <tbody>
+    <tr><td>连环创业者</td><td>KYV、注册库、出口许可记人名</td></tr>
+    <tr><td>硬件监控伙伴关系</td><td>KYV（披露伙伴关系）</td></tr>
+    <tr><td>频繁更换身份</td><td>注册库记改名史、KYV、出口许可审计</td></tr>
+    <tr><td>管辖跳槽</td><td>限制管辖套利、CFIUS 自动审查</td></tr>
+    <tr><td>全球资本</td><td>实际受益人识别、注册库公开</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== 未来工作 ===== -->
+<h2 id="s4"><span class="num">04 / 延伸</span>未来工作</h2>
+
+<p class="lede">报告承认还有很多没覆盖的地方，列了六个方向。</p>
+
+<ol>
+  <li><strong>把中间商"请回来"</strong>：供应商/漏洞中间商（exploit brokers）覆盖面不足，而它们正是国家安全派与人权派争议的楔子。</li>
+  <li><strong>厂商/供应商与科技巨头合作</strong>：Positive Technologies 曾是微软 MAPP 成员并公开宣称与三星合作——漏洞发现与利用在攻防两侧的角色很复杂。</li>
+  <li><strong>投资人的"名人录"</strong>：风投与私募进入该市场的动机不同，需要更细的画像来设计投资人尽职调查制度。</li>
+  <li><strong>客户常常是错的</strong>：还没覆盖政府客户这侧——它们才是塑造市场的需求源头。把间谍软件议题绑进国防援助、贸易、法律合作议程。</li>
+  <li><strong>科技公司能做什么</strong>：云厂商可以对超阈值的技术销售做尽职调查，识别已公开的间谍软件市场参与者并审查/移除；也可共同制定向该市场卖服务的守则。Meta、Apple、Google、Microsoft 是少数有能力和意愿持续起诉这些厂商的实体。</li>
+  <li><strong>吹哨人</strong>：厂商与客户内部吹哨人的法律保护目前不确定，需要统一指引。<strong>去名单程序</strong>：制裁应配套透明、可请求的去名单机制——制裁的目的是促成行为改变，改了就应该能下来。</li>
+</ol>
+
+<div class="card">
+  <div class="ttl">一个绕不开的问题</div>
+  <p style="margin-bottom:0">更强硬的监管会不会把厂商赶到监管范围外的司法辖区？作者指出：数据样本显示，即使"够不着"辖区里不愿监管的厂商，也<strong>仍然依赖外国资本和供应商</strong>——而这些投资人和供应商大多位于愿意执法的国家。<strong>机会就在那里。</strong></p>
+</div>
+
+<!-- ===== 厂商速览 ===== -->
+<h2 id="s5"><span class="num">05 / 名录</span>供应商与厂商速览（附录 A 摘录）</h2>
+
+<p class="lede">附录 A 逐个介绍数据集内的 20 家供应商与 49 家厂商。下面是其中代表性的几家，展示这个市场的样子。</p>
+
+<h3>供应商</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>公司</th><th>地区</th><th>要点</th></tr></thead>
+  <tbody>
+    <tr><td>Azimuth Security（现 L3Harris Trenchant）</td><td>澳洲</td><td>2010 年创立；2016 年参与解锁圣贝纳迪诺枪击案嫌犯 iPhone；2018 年被 L3（现 L3Harris）收购。曾把销售限制在五眼联盟内。</td></tr>
+    <tr><td>Blue Ocean Technologies</td><td>以色列</td><td>2015 年由退役准将 Rami Ben Efraim 创立；《Globes》报道其获得以色列国防部两张出口许可，向新加坡国防部提供漏洞研究团队。</td></tr>
+    <tr><td>COSEINC</td><td>新加坡</td><td>2004 年创立；以不受控地分发利用出名，主办漏洞收购项目 pwnOrama；2021 年被 BIS 列入实体清单；创始人 Thomas Lim 关联 SyScan 会议（后卖给 360）。2022 年停业。</td></tr>
+    <tr><td>Crowdfense</td><td>阿联酋</td><td>2017 年创立；2018 年首期漏洞赏金预算 1000 万美元，2024 年涨到 3000 万美元；据报获阿联酋、沙特政府资金支持；2023 年原实体注销、重新注册新实体。</td></tr>
+    <tr><td>Dataflow Security（DFSEC）</td><td>意大利</td><td>2022 年创立，专做漏洞研究与利用开发，官网有可购买的利用目录；同年设西班牙子公司、美国取证公司 Dataflow Forensics；收购了创始人 Ofer Cohen 的以色列公司 Random Research。</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>厂商</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>公司</th><th>地区</th><th>要点</th></tr></thead>
+  <tbody>
+    <tr><td>NSO Group</td><td>以色列</td><td>Pegasus 开发商，2010 年创立；至今仍在美、卢森堡设分支，保加利亚、塞浦路斯设子公司。投资人数度更迭（Novalpina → Francisco Partners → 管理层收购）。</td></tr>
+    <tr><td>Intellexa Consortium</td><td>希腊 / 塞浦路斯 / 多国</td><td>Predator 开发商；Tal Dilian 与 Sara Hamou 组织；以塞浦路斯为枢纽打进欧洲市场。2024 年 3 月遭美国财政部制裁、同年 BIS 将多家关联公司列入实体清单。</td></tr>
+    <tr><td>Hacking Team → Memento Labs</td><td>意大利</td><td>2016 年出口许可被吊销仍继续经营；经历 Grey Heron 壳、2019 年更名 Memento Labs，产品改名 Dante；坚持"Made in Italy"。</td></tr>
+    <tr><td>Appin Security Group</td><td>印度</td><td>Rajat、Anuj Khare 兄弟创立；被指在全球实施雇佣黑客；母公司一连串改名直到"有机农场"；2022 年 Reuters 因被起诉撤下调查报道。</td></tr>
+    <tr><td>Equus Technologies → MerlinX</td><td>以色列</td><td>2017 年被 Google 点名开发 Lipizzan 后声誉崩坏，改名 MerlinX，2021 年被 Bindecy 收购。</td></tr>
+    <tr><td>Paragon Solutions</td><td>以色列</td><td>2019 年创立；2022 年设美国子公司；投资人 Battery Ventures、Blumberg Capital 等美国风投。</td></tr>
+    <tr><td>RCS Labs（Cy4Gate 旗下）</td><td>意大利</td><td>1992 年创立，既产也销；早年代销 Hacking Team 的 RCS 产品给孟加拉、巴基斯坦、土库曼政府；2022 年 Lookout 认定其开发 Hermit 间谍软件。</td></tr>
+    <tr><td>Variston Information Technology</td><td>西班牙</td><td>2018 年创立；收购意大利 Truel IT 获得能力，开发 Heliconia 间谍软件；据 2024 年 5 月报道已基本停业。</td></tr>
+    <tr><td>Positive Technologies</td><td>俄罗斯</td><td>被 BIS 列实体清单；曾是微软 MAPP 成员；在多国设分支。</td></tr>
+  </tbody>
+</table>
+</div>
+
+<blockquote>
+  这份报告的目的是"去神话"——揭掉这些伪装成神话生物的名字，露出背后 42 个国家里的真实关系网。数据只是样本，但已经足以证明：市场结构本身就是政策可以下手的地方。
+  <cite>—— 报告结语（大意）</cite>
+</blockquote>
+
+  </main>
+</div>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<button id="top" aria-label="回到顶部" title="回到顶部">↑</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+<script>
+/* TOC + scroll spy */
+(function(){
+  const heads=[...document.querySelectorAll("main h2, main h3")];
+  const build=t=>heads.forEach(h=>{
+    if(!h.id)h.id="h-"+Math.random().toString(36).slice(2,8);
+    const a=document.createElement("a"); a.href="#"+h.id;
+    a.textContent=h.tagName==="H2"
+      ? (h.textContent.replace(/^\s*\d+\s*\/\s*[^\s]+\s*/,"").trim()||h.textContent.trim())
+      : h.textContent.trim();
+    if(h.tagName==="H3")a.className="sub";
+    t.appendChild(a);
+  });
+  const side=document.getElementById("toclist"), draw=document.getElementById("drawerlist");
+  build(side); build(draw);
+  const links=[...side.querySelectorAll("a")], navA=[...document.querySelectorAll("#navlinks a")];
+  const map=new Map(links.map(a=>[a.getAttribute("href").slice(1),a]));
+  const tocBox=document.getElementById("toc"), h2s=heads.filter(h=>h.tagName==="H2");
+  let cur=null, ticking=false;
+  function spy(){
+    ticking=false; const line=100;
+    let active=heads[0], activeH2=h2s[0];
+    for(const h of heads){ if(h.getBoundingClientRect().top<=line) active=h; else break; }
+    for(const h of h2s){ if(h.getBoundingClientRect().top<=line) activeH2=h; else break; }
+    if(active===cur)return; cur=active;
+    links.forEach(a=>a.classList.remove("on"));
+    const a=map.get(active.id);
+    if(a){a.classList.add("on");
+      const t=a.offsetTop-tocBox.offsetTop;
+      if(t<tocBox.scrollTop+20||t>tocBox.scrollTop+tocBox.clientHeight-60)tocBox.scrollTop=t-140;}
+    navA.forEach(x=>x.classList.toggle("on",x.getAttribute("href")==="#"+activeH2.id));
+  }
+  addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(spy);}},{passive:true});
+  addEventListener("resize",spy,{passive:true}); spy();
+  const dr=document.getElementById("drawer");
+  document.getElementById("tocbtn").addEventListener("click",()=>dr.classList.add("open"));
+  dr.addEventListener("click",e=>{if(e.target===dr||e.target.tagName==="A")dr.classList.remove("open");});
+})();
+
+/* back to top */
+(function(){
+  const b=document.getElementById("top"), btn=document.getElementById("tocbtn");
+  addEventListener("scroll",()=>{
+    const show=scrollY>innerHeight;
+    b.style.display=show?"block":"none";
+    b.style.bottom=(show&&getComputedStyle(btn).display!=="none")?"72px":"18px";
+  },{passive:true});
+  b.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+})();
+
+/* full-text search */
+(function(){
+  const q=document.getElementById("q"), info=document.getElementById("qinfo");
+  const root=document.querySelector("main");
+  let marks=[], idx=-1, t;
+  function clear(){
+    marks.forEach(m=>{const p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});
+    marks=[];idx=-1;info.textContent="";
+  }
+  function run(term){
+    clear(); if(!term)return;
+    const re=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
+    const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){
+      if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+      const p=n.parentNode.nodeName;
+      if(p==="SCRIPT"||p==="STYLE"||p==="MARK")return NodeFilter.FILTER_REJECT;
+      return re.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+    }});
+    const nodes=[]; let n; while(n=w.nextNode())nodes.push(n);
+    nodes.forEach(node=>{
+      const frag=document.createDocumentFragment(); let last=0,s=node.nodeValue,m; re.lastIndex=0;
+      while((m=re.exec(s))!==null){
+        if(m.index>last)frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+        const mk=document.createElement("mark"); mk.textContent=m[0];
+        frag.appendChild(mk); marks.push(mk); last=m.index+m[0].length;
+        if(m[0].length===0)re.lastIndex++;
+      }
+      if(last<s.length)frag.appendChild(document.createTextNode(s.slice(last)));
+      node.parentNode.replaceChild(frag,node);
+    });
+    info.textContent=marks.length?("0/"+marks.length):"无结果";
+    if(marks.length)go(0);
+  }
+  function go(i){
+    if(!marks.length)return;
+    marks.forEach(m=>m.classList.remove("cur"));
+    idx=(i+marks.length)%marks.length;
+    const m=marks[idx]; m.classList.add("cur");
+    const d=m.closest("details"); if(d)d.open=true;
+    m.scrollIntoView({block:"center",behavior:"smooth"});
+    info.textContent=(idx+1)+"/"+marks.length;
+  }
+  q.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(()=>run(q.value.trim()),220);});
+  q.addEventListener("keydown",e=>{
+    if(e.key==="Enter"){e.preventDefault();go(idx+(e.shiftKey?-1:1));}
+    if(e.key==="Escape"){q.value="";clear();q.blur();}
+  });
+  addEventListener("keydown",e=>{if((e.metaKey||e.ctrlKey)&&e.key==="f"){e.preventDefault();q.focus();q.select();}});
+})();
+</script>
+</body>
+</html>
