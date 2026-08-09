@@ -8,7 +8,8 @@
   <div class="post-content">
     <p>这些页面是对原书的梳理和要点摘录，用于中文阅读辅助——不是翻译，不能替代原书。</p>
 
-    {{ $materials := .Site.Data.readingMaterials.materials }}
+    {{ $data := index .Site.Data "reading-materials" }}
+    {{ $materials := index $data "materials" }}
 
     {{ $books := slice }}
     {{ $reports := slice }}
