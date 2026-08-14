@@ -1,7 +1,7 @@
 ---
 title: "在手机上用自己电脑里的 AI Agent"
-date: 2026-08-14T12:10:00+08:00
-lastmod: 2026-08-14T12:10:00+08:00
+date: 2026-08-14T11:40:00+08:00
+lastmod: 2026-08-14T11:40:00+08:00
 author: "Luca"
 tags: ["Tools","Tech","AI"]
 draft: false
