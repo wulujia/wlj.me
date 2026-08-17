@@ -1,5 +1,5 @@
 # Reading Materials Data
-# Category: "book" or "report"
+# Category: "book", "report" or "documentary"
 # Fields: slug, title, subtitle, author, category, year, description, original_url, reading_url, post_slug (optional)
 
 [[materials]]
@@ -123,3 +123,14 @@ year = "2024"
 description = "第一份对全球商业间谍软件市场做实体网络测绘的研究。435 个实体、42 个国家、近三十年，把藏在 NSO、Intellexa 背后的供应商、投资人、控股公司一层层挖出来。"
 original_url = "https://www.atlanticcouncil.org/in-depth-research-reports/report/mythical-beasts-and-where-to-find-them/"
 reading_url = "/reading/mythical-beasts-spyware-market/"
+
+[[materials]]
+slug = "the-up-series"
+title = "人生七年 · 人物志"
+subtitle = "The Up Series"
+category = "documentary"
+year = "1964–2019"
+description = "英国纪录片系列：1964 年从 14 个七岁孩子拍起，每七年回访一次，到 2019 年的 63 Up 共九部。这份人物志整理 14 位参与者的出身背景和各阶段人生轨迹。"
+original_url = "https://en.wikipedia.org/wiki/Up_(film_series)"
+reading_url = "/reading/the-up-series/"
+post_slug = "the-up-series"

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-17
+
+- `reading` 栏目改名「资料」（URL 保持 `/reading/` 不变）：`content/reading/_index.md` 标题、`hugo.toml` 菜单名同步改；`layouts/reading/list.html` 免责句从「原书」改「原作」。
+- `layouts/reading/list.html` 新增「纪录片」分组（`category = "documentary"`，无条目时不渲染）。
+- 新增材料页：《人生七年》（The Up Series）人物志，`static/reading/the-up-series/index.html`，出身×九部对比总表 + 14 位参与者卡片；`data/reading-materials.toml` 新增条目并关联简介文章（`post_slug`）。
+- 索引策略反转：11 个既有材料页 robots meta 从 `noindex,follow` 改为 `index,follow`，新页直接 `index,follow`；`layouts/sitemap.xml` 新增从 `data/reading-materials.toml` 读取材料页 URL 的循环（static 文件不是 Hugo 页面，不走 `is-indexable.html`）。
+- 11 个既有材料页返回链接文字「← 返回阅读材料」改「← 返回资料」（href 不变）。
+- `CLAUDE.md` 站点索引策略小节同步：可索引清单补 `/startupnotes/`、`/reading/` 和材料页，注明材料页进 sitemap 的机制。
+
 ## 2026-08-09
 
 - 创业笔记从 942 更新到 953，补入 945–953，并修正 944 的标题、内容和真实发布日期。

@@ -54,9 +54,9 @@ notes 通过 social-poster bot 的 wlj 平台发布，不在 Claude Code 的职�
 
 站点索引策略：
 
-- 可索引：首页、`/posts/`、文章页、`/about/`、`/archives/`
+- 可索引：首页、`/posts/`、文章页、`/startupnotes/` 及其文章页、`/about/`、`/archives/`、`/reading/` 索引页、资料页（`static/reading/<slug>/`，页面内硬编码 `index,follow` + canonical）
 - 默认 noindex：`/notes/`、note 单页、tags、categories、分页页
-- sitemap 只放可索引页面，不放 notes、tags、categories、分页页
+- sitemap 只放可索引页面，不放 notes、tags、categories、分页页；资料页是 static 文件不是 Hugo 页面，由 `layouts/sitemap.xml` 从 `data/reading-materials.toml` 读取补进 sitemap
 
 GEO 规则：
 

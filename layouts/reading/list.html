@@ -6,18 +6,21 @@
   </div>
 
   <div class="post-content">
-    <p>这些页面是对原书的梳理和要点摘录，用于中文阅读辅助——不是翻译，不能替代原书。</p>
+    <p>这些页面是对原作的梳理和要点摘录，用于中文阅读辅助——不是翻译，不能替代原作。</p>
 
     {{ $data := index .Site.Data "reading-materials" }}
     {{ $materials := index $data "materials" }}
 
     {{ $books := slice }}
     {{ $reports := slice }}
+    {{ $documentaries := slice }}
     {{ range $materials }}
       {{ if eq .category "book" }}
         {{ $books = $books | append . }}
       {{ else if eq .category "report" }}
         {{ $reports = $reports | append . }}
+      {{ else if eq .category "documentary" }}
+        {{ $documentaries = $documentaries | append . }}
       {{ end }}
     {{ end }}
 
@@ -52,6 +55,24 @@
       </div>
     {{ end }}
     </div>
+
+    {{ if $documentaries }}
+    <h2 id="documentaries">纪录片</h2>
+    <div style="display:grid;gap:14px;margin-bottom:36px">
+    {{ range $documentaries }}
+      <div style="border:1px solid var(--code-border,#073642);border-radius:8px;padding:16px 18px">
+        <div style="display:flex;align-items:baseline;gap:3px 10px;flex-wrap:wrap;margin-bottom:6px">
+          <strong><a href="{{ .reading_url | absURL }}">{{ .title }}</a></strong>
+          {{ if .subtitle }}<span style="color:var(--accent);font-size:0.88em">{{ .subtitle }}</span>{{ end }}
+        </div>
+        <div style="font-size:0.85em;color:var(--foreground);margin-bottom:4px">
+          {{ .author }}{{ if .year }} · {{ .year }}{{ end }}
+        </div>
+        <p style="margin:0;font-size:0.9em">{{ .description }}</p>
+      </div>
+    {{ end }}
+    </div>
+    {{ end }}
   </div>
 </article>
 {{ end }}

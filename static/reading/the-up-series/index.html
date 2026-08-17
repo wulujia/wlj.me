@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="英国纪录片《人生七年》（The Up Series，1964–2019 共九部）14 位参与者的人物志：出身背景、各阶段人生轨迹、参与情况。">
+<link rel="canonical" href="https://wlj.me/reading/the-up-series/">
+<title>人生七年 · 人物志 | The Up Series</title>
+<style>
+:root{
+  --paper:#f0eee9; --card:#fff; --card-2:#f6f3ec; --line:#d8d2c4; --line-soft:#e6e1d5;
+  --ink:#1b1813; --ink-2:#48413a; --mute:#7a7264;
+  --acc:#8a5a1f; --acc-soft:#f5ecdc; --acc-line:#dcc496;
+  --t1:#8a5a1f; --t2:#1f5c8a; --t3:#2f6f3a;
+  --mark:#ffe066;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --maxw:760px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#12100d; --card:#1b1814; --card-2:#211d18; --line:#373127; --line-soft:#2b2620;
+    --ink:#e9e4da; --ink-2:#c0b8aa; --mute:#948b7b;
+    --acc:#d1a86f; --acc-soft:#2a2214; --acc-line:#57452a;
+    --t1:#d1a86f; --t2:#6fa8d1; --t3:#6fae79;
+    --mark:#7d6400;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased}
+
+#bar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--paper) 94%,transparent);
+  backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1400px;margin:0 auto;padding:9px 16px;display:flex;gap:12px;align-items:center}
+.brand{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mute);white-space:nowrap}
+.brand b{color:var(--acc)}
+#navlinks{display:flex;gap:2px;overflow-x:auto;flex:1;scrollbar-width:none}
+#navlinks::-webkit-scrollbar{display:none}
+#navlinks a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:5px 9px;border-radius:6px;white-space:nowrap}
+#navlinks a:hover{background:var(--card)}
+#navlinks a.on{color:var(--acc);background:var(--acc-soft);font-weight:600}
+.searchwrap{position:relative;display:flex;align-items:center;gap:6px}
+#q{width:150px;font:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:999px;background:var(--card);color:var(--ink)}
+#q:focus{outline:2px solid var(--acc);outline-offset:1px;width:210px}
+#qinfo{font-family:var(--mono);font-size:11px;color:var(--mute);min-width:52px}
+mark{background:var(--mark);color:inherit;border-radius:2px}
+mark.cur{outline:2px solid var(--acc)}
+@media(max-width:760px){#navlinks{display:none}.searchwrap{flex:1}#q,#q:focus{width:100%}}
+
+.shell{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr)}
+#toc{display:none}
+main{max-width:var(--maxw);margin:0 auto;padding:0 18px 120px;width:100%}
+@media(min-width:1180px){
+  .shell{grid-template-columns:262px minmax(0,1fr) 262px}
+  #toc{display:block;position:sticky;top:56px;align-self:start;max-height:calc(100vh - 70px);
+    overflow:auto;padding:26px 10px 40px 18px}
+  #toc .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mute);margin:0 0 10px 8px}
+  #toc a{display:block;font-size:12.8px;line-height:1.45;color:var(--mute);text-decoration:none;
+    padding:5px 8px;border-left:2px solid transparent;border-radius:0 5px 5px 0}
+  #toc a:hover{color:var(--ink)}
+  #toc a.sub{padding-left:20px;font-size:12.2px}
+  #toc a.on{color:var(--acc);border-left-color:var(--acc);background:var(--acc-soft);font-weight:600}
+}
+
+.hero{border-bottom:1px solid var(--line);margin-bottom:52px;background:var(--card-2)}
+.hero-in{max-width:var(--maxw);margin:0 auto;padding:56px 18px 44px}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.eyebrow b{color:var(--acc);font-weight:700}
+.hero h1{font-size:clamp(28px,5.4vw,44px);line-height:1.12;letter-spacing:-.02em;margin:16px 0 8px;font-weight:800}
+.hero .sub{font-size:16.5px;color:var(--ink-2);margin:0;max-width:58ch}
+.rule{height:3px;background:var(--acc);width:64px;margin:26px 0 22px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:13.6px;margin:0}
+.kv dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--mute);text-transform:uppercase;padding-top:3px}
+.kv dd{margin:0;color:var(--ink-2)}
+.kv dd a{color:var(--acc)}
+
+h2{font-size:27px;line-height:1.2;letter-spacing:-.015em;margin:76px 0 6px;font-weight:800;scroll-margin-top:80px}
+h2 .num{font-family:var(--mono);font-size:12px;color:var(--acc);display:block;letter-spacing:.16em;
+  margin-bottom:9px;font-weight:700}
+h3{font-size:18.5px;margin:42px 0 10px;font-weight:700;letter-spacing:-.01em;scroll-margin-top:80px}
+h4{font-size:15.5px;margin:26px 0 6px;font-weight:700;color:var(--ink-2)}
+p{margin:0 0 17px}
+.lede{font-size:18px;color:var(--ink-2);margin-bottom:26px}
+a{color:var(--acc)}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:8px}
+hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:24px 0}
+.card>:last-child{margin-bottom:0}
+.ttl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mute);margin-bottom:12px}
+.note{background:var(--acc-soft);border:1px solid var(--acc-line);border-radius:10px;
+  padding:18px 20px;margin:26px 0;font-size:15.4px}
+.note>:last-child{margin-bottom:0}
+.note .ttl{color:var(--acc)}
+blockquote{margin:22px 0;padding:2px 0 2px 16px;border-left:3px solid var(--acc-line);color:var(--ink-2);font-size:15.5px}
+blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--mute);margin-top:7px}
+
+.tw{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.2px;min-width:520px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{background:var(--card-2);font-size:12px;letter-spacing:.04em;color:var(--ink-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{font-family:var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}
+.pill{font-size:12.2px;padding:4px 11px;border-radius:999px;background:var(--card);
+  border:1px solid var(--line);color:var(--ink-2)}
+.pill b{color:var(--acc)}
+
+/* 对比表 */
+.cmp{min-width:1240px;font-size:13px}
+.cmp th,.cmp td{padding:8px 10px;line-height:1.55}
+.cmp thead th .yr{display:block;font-family:var(--mono);font-size:10px;color:var(--mute);font-weight:400}
+.cmp td:first-child,.cmp th:first-child{position:sticky;left:0;z-index:2;background:var(--card);
+  white-space:nowrap;font-weight:700;box-shadow:1px 0 0 var(--line-soft)}
+.cmp thead th:first-child{background:var(--card-2);z-index:3}
+.cmp td.o{white-space:nowrap;color:var(--ink-2)}
+.cmp td.c{color:var(--mute);text-align:center}
+.cmp td.ab{color:var(--mute);text-align:center}
+.cmp td.sp{color:var(--acc);font-weight:700;text-align:center}
+
+/* 人物卡 */
+.person{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:22px 0}
+.person h3{margin:0}
+.pen{font-family:var(--mono);font-size:12px;color:var(--mute);font-weight:400;margin-left:8px}
+.ptags{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 0}
+.ptags .pill{font-size:11.5px;padding:3px 10px}
+.pill.dead{border-style:dashed;color:var(--mute)}
+.quote7{font-size:14.6px;color:var(--ink-2);background:var(--acc-soft);border:1px solid var(--acc-line);
+  border-radius:8px;padding:9px 13px;margin:14px 0 4px}
+.quote7 b{color:var(--acc);font-family:var(--mono);font-size:11px;letter-spacing:.1em;margin-right:6px}
+.traj{display:grid;gap:8px;margin:16px 0 2px}
+.tr2{display:grid;grid-template-columns:56px 1fr;gap:12px}
+.tr2 .age{font-family:var(--mono);font-size:11px;color:var(--acc);font-weight:700;text-align:right;
+  padding-top:4px;white-space:nowrap}
+.tr2 p{margin:0;font-size:14.6px}
+.pnote{font-size:13.6px;color:var(--mute);margin:14px 0 0;padding-top:12px;border-top:1px dashed var(--line-soft)}
+
+#tocbtn,#top{position:fixed;right:18px;z-index:70;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:999px;cursor:pointer;font:inherit;font-size:13px;padding:10px 15px;
+  box-shadow:0 4px 18px rgba(0,0,0,.13)}
+#tocbtn{bottom:18px}
+#top{bottom:18px;display:none;width:44px;height:44px;padding:0;font-size:17px}
+@media(min-width:1180px){#tocbtn{display:none}}
+#drawer{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none}
+#drawer.open{display:block}
+#drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,86vw);background:var(--paper);
+  border-left:1px solid var(--line);padding:22px 16px;overflow:auto}
+#drawer a{display:block;font-size:14px;color:var(--ink-2);text-decoration:none;padding:8px 10px;border-radius:7px}
+#drawer a.sub{padding-left:24px;font-size:13px;color:var(--mute)}
+#drawer a:hover{background:var(--card)}
+
+@media print{
+  #bar,#toc,#tocbtn,#top,#drawer,.searchwrap{display:none!important}
+  .shell{display:block}main{max-width:100%}
+  body{background:#fff;color:#000;font-size:11.5pt}
+}
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--card,inherit);border-bottom:1px solid var(--line,var(--code-border,inherit))"><a href="https://wlj.me/reading/" style="color:var(--ink,inherit)">← 返回资料</a></div>
+
+
+<div id="bar">
+  <div class="bar-in">
+    <div class="brand"><b>人生七年</b>&nbsp;· 人物志</div>
+    <nav id="navlinks">
+      <a href="#s0">速览</a><a href="#s1">对比表</a><a href="#s2">肯辛顿</a>
+      <a href="#s3">富家女</a><a href="#s4">东伦敦</a><a href="#s5">儿童之家</a>
+      <a href="#s6">农场</a><a href="#s7">利物浦</a><a href="#s8">寄宿学校</a>
+    </nav>
+    <div class="searchwrap">
+      <input id="q" type="search" placeholder="搜全文…" aria-label="搜索全文">
+      <span id="qinfo"></span>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Granada / ITV · 纪录片系列 · <b>1964–2019</b></div>
+    <h1>人生七年 · 人物志<br>The Up Series</h1>
+    <p class="sub">1964 年，Granada 电视台选了 14 个七岁的孩子，问他们怎么看学校、钱、婚姻和阶级。之后每七年回访一次，一直拍到 2019 年他们 63 岁。这一页整理 14 位参与者的出身和各阶段轨迹。</p>
+    <div class="rule"></div>
+    <dl class="kv">
+      <dt>片目</dt><dd>九部：Seven Up!（1964）→ 63 Up（2019），每七年一部</dd>
+      <dt>导演</dt><dd>第一部 Paul Almond；第二部起八部均为 Michael Apted（1941–2021）</dd>
+      <dt>参与者</dt><dd>14 人（10 男 4 女），每部拍摄约两天，访谈超过 6 小时</dd>
+      <dt>收官</dt><dd>70 Up 定于 2026 年 9 月播出，Asif Kapadia 执导，系列就此完结</dd>
+      <dt>原文</dt><dd><a href="https://en.wikipedia.org/wiki/Up_(film_series)">Wikipedia: Up (film series)</a></dd>
+      <dt>本页</dt><dd>中文整理，不是翻译。事实来自 Wikipedia 及讣告、访谈报道，多来源交叉核对；未能核实的细节没有写入。</dd>
+    </dl>
+  </div>
+</header>
+
+<div class="shell">
+  <aside id="toc"><p class="t">目录</p><nav id="toclist"></nav></aside>
+  <main>
+
+<!-- ===== 速览 ===== -->
+<h2 id="s0"><span class="num">00 / 速览</span>一部拍了五十五年的纪录片</h2>
+
+<p class="lede">前提出自一句耶稣会格言：<strong>「把一个孩子交给我到七岁，我还你一个成年人。」</strong>节目想验证的是：英国的阶级结构是否强大到人生道路在出生时就已注定。</p>
+
+<div class="card">
+  <div class="ttl">缘起</div>
+  <p>1964 年，Granada 电视台为时政栏目 World in Action 做了一期特别节目 Seven Up!，原本是一次性的。研究员 Michael Apted 参与挑人，接到的要求是找「两极」的孩子——代表当时英国社会经济背景的两端。开场是 20 个孩子游览伦敦动物园，之后跟拍其中 14 人。片头宣言：「我们把这些孩子聚在一起，想看一眼 2000 年的英格兰。2000 年的工会代表和企业高管，现在都是七岁。」</p>
+  <p style="margin-bottom:0">因为没打算做成系列，当年没和任何参与者签长期合同。此后每部参与者获得酬劳，并分享影片奖金。从第二部 7 Plus Seven（1970）起，Apted 执导了余下的八部，直到 2021 年去世。他生前说过，希望在 99 岁那年拍 84 Up。</p>
+</div>
+
+<div class="pills">
+  <span class="pill">九部 · <b>55 年</b></span>
+  <span class="pill"><b>14</b> 位参与者</span>
+  <span class="pill">每 <b>7</b> 年回访一次</span>
+  <span class="pill">10 男 · 4 女</span>
+</div>
+
+<div class="tw"><table>
+  <thead><tr><th>#</th><th>片名</th><th class="n">年份</th><th>导演</th></tr></thead>
+  <tbody>
+    <tr><td class="n">1</td><td>Seven Up!</td><td class="n">1964</td><td>Paul Almond</td></tr>
+    <tr><td class="n">2</td><td>7 Plus Seven</td><td class="n">1970</td><td rowspan="8">Michael Apted</td></tr>
+    <tr><td class="n">3</td><td>21 Up</td><td class="n">1977</td></tr>
+    <tr><td class="n">4</td><td>28 Up</td><td class="n">1984</td></tr>
+    <tr><td class="n">5</td><td>35 Up</td><td class="n">1991</td></tr>
+    <tr><td class="n">6</td><td>42 Up</td><td class="n">1998</td></tr>
+    <tr><td class="n">7</td><td>49 Up</td><td class="n">2005</td></tr>
+    <tr><td class="n">8</td><td>56 Up</td><td class="n">2012</td></tr>
+    <tr><td class="n">9</td><td>63 Up</td><td class="n">2019</td></tr>
+  </tbody>
+</table></div>
+
+<div class="card">
+  <div class="ttl">假设与结果</div>
+  <p>五十五年下来，阶级决定论在大多数人身上成立：预备学校的三个男孩按 7 岁时自己报出的路线上了牛津剑桥，进了法律界；东区和儿童之家的孩子大都留在原来的阶层。公认的例外是东区出身的 Tony——出租车司机、演员、两处房产。</p>
+  <p style="margin-bottom:0">节目自己也被清算过：Apted 公开承认只选 4 个女孩是错误；21 Up 时四位女性参与者集体不满——问她们的全是家庭、婚姻、孩子，而不是政治和国家。Jackie 在 49 Up 里当面向 Apted 提出了这件事。</p>
+</div>
+
+<div class="card">
+  <div class="ttl">影史位置</div>
+  <ul style="margin-bottom:0">
+    <li>Roger Ebert 把它列入自己的影史十佳，称这个系列是「对电影媒介的一次高贵运用」。</li>
+    <li>2012 年获 Peabody 奖（机构类）。</li>
+    <li>BFI 2000 年评选「100 部最伟大英国电视节目」，28 Up 列第 26 位。</li>
+    <li>2024 年英国广播记者协会评选近 50 年最有影响力的节目，Up 系列排第一。</li>
+  </ul>
+</div>
+
+<div class="note">
+  <div class="ttl">70 Up · 2026</div>
+  <p style="margin-bottom:0">70 Up 定于 2026 年 9 月播出，由 Asif Kapadia 执导（Apted 已故），系列就此收官。所有在世参与者都参加，Nick 生前录制的最后一次访谈也会收入。彻底退出几十年的 Charles 据报道也回来了。</p>
+</div>
+
+<!-- ===== 对比表 ===== -->
+<h2 id="s1"><span class="num">01 / 对比表</span>出身与九部状况一览</h2>
+
+<p>一行看完一个人：出身，加上每一部里能锚定到该阶段的状况。14 人里 8 人九部全勤。缺席的原因各不相同：Charles 在 21 之后彻底退出；Peter 因为一次舆论围攻消失了三部；Symon 躲开了正在离婚的那一部；Suzy 在 63 时退出；Lynn 在 56 与 63 之间去世。表格可以左右滚动。</p>
+
+<div class="tw"><table class="cmp">
+  <thead><tr>
+    <th>人物</th><th>出身</th>
+    <th>7<span class="yr">1964</span></th><th>14<span class="yr">1970</span></th><th>21<span class="yr">1977</span></th>
+    <th>28<span class="yr">1984</span></th><th>35<span class="yr">1991</span></th><th>42<span class="yr">1998</span></th>
+    <th>49<span class="yr">2005</span></th><th>56<span class="yr">2012</span></th><th>63<span class="yr">2019</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Andrew</td><td class="o">肯辛顿</td>
+      <td>读《金融时报》</td><td class="c">·</td><td>剑桥三一学院</td><td>事务律师</td>
+      <td class="c">·</td><td class="c">·</td><td class="c">·</td><td>律所合伙人</td><td class="c">·</td></tr>
+    <tr><td>Charles</td><td class="o">肯辛顿</td>
+      <td class="c">·</td><td class="c">·</td><td>杜伦大学</td><td class="ab">—</td>
+      <td class="ab">—</td><td class="ab">—</td><td class="ab">—</td><td class="ab">—</td><td class="ab">—</td></tr>
+    <tr><td>John</td><td class="o">肯辛顿</td>
+      <td class="c">·</td><td>大谈政治</td><td>牛津</td><td class="ab">—</td>
+      <td>大律师；为慈善宣传</td><td class="ab">—</td><td class="c">·</td><td>披露丧父与奖学金</td><td>「毒丸」</td></tr>
+    <tr><td>Suzy</td><td class="o">富家女</td>
+      <td class="c">·</td><td>庄园受访；父母离异</td><td>辍学；对婚姻悲观</td><td>已婚转乐观</td>
+      <td class="c">·</td><td class="c">·</td><td>说不再参加</td><td>仍感义务</td><td class="ab">—</td></tr>
+    <tr><td>Tony</td><td class="o">东伦敦</td>
+      <td>想当骑师</td><td>马厩受训</td><td>弃赛开出租</td><td>与 Debbie 已婚</td>
+      <td>披露一子夭折</td><td>承认出轨；迁 Essex</td><td>两处房产</td><td>载过 Aldrin</td><td>乡间定居</td></tr>
+    <tr><td>Jackie</td><td class="o">东伦敦</td>
+      <td class="c">·</td><td class="c">·</td><td>已婚（19 岁）</td><td class="c">·</td>
+      <td class="c">·</td><td class="c">·</td><td>当面清算 Apted</td><td>关节炎领津贴</td><td class="c">·</td></tr>
+    <tr><td>Lynn</td><td class="o">东伦敦</td>
+      <td class="c">·</td><td>文法学校</td><td>图书馆员；已婚</td><td class="c">·</td>
+      <td class="c">·</td><td class="c">·</td><td class="c">·</td><td>遭裁员；三个外孙</td><td class="sp">†</td></tr>
+    <tr><td>Sue</td><td class="o">东伦敦</td>
+      <td class="c">·</td><td class="c">·</td><td class="c">·</td><td>已婚</td>
+      <td class="c">·</td><td class="c">·</td><td class="c">·</td><td>QMUL 行政</td><td>订婚 21 年</td></tr>
+    <tr><td>Paul</td><td class="o">儿童之家</td>
+      <td>「不爱吃青菜」</td><td>已移居澳洲</td><td>女友 Susan</td><td class="c">·</td>
+      <td class="c">·</td><td class="c">·</td><td>标牌公司</td><td>退休村工作</td><td>与 Symon 重聚</td></tr>
+    <tr><td>Symon</td><td class="o">儿童之家</td>
+      <td class="c">·</td><td>回到母亲身边</td><td class="c">·</td><td>五个孩子</td>
+      <td class="ab">—</td><td>再婚回归</td><td>寄养家长</td><td>仓库工作</td><td>十个孙辈</td></tr>
+    <tr><td>Nick</td><td class="o">约克郡农场</td>
+      <td>「不回答这种问题」</td><td>寄宿学校</td><td>牛津物理</td><td>赴美核聚变研究</td>
+      <td>威斯康星教授</td><td class="c">·</td><td>离婚再婚</td><td class="c">·</td><td class="sp">◦ 喉癌；谈死亡</td></tr>
+    <tr><td>Neil</td><td class="o">利物浦郊区</td>
+      <td>宇航员／大巴司机</td><td>显出压抑</td><td>退学住占屋</td><td>无家可归</td>
+      <td>设得兰公屋</td><td>区议员；毕业</td><td>坎布里亚议员</td><td class="c">·</td><td>分居；讲道人</td></tr>
+    <tr><td>Peter</td><td class="o">利物浦郊区</td>
+      <td>想当宇航员</td><td class="c">·</td><td class="c">·</td><td>批评政府遭围剿</td>
+      <td class="ab">—</td><td class="ab">—</td><td class="ab">—</td><td>回归推乐队</td><td>乐队仍在</td></tr>
+    <tr><td>Bruce</td><td class="o">寄宿学校</td>
+      <td>想见父亲</td><td class="c">·</td><td>牛津数学</td><td>东伦敦教书</td>
+      <td>孟加拉支教</td><td>结婚（破例拍摄）</td><td>St Albans 任教</td><td>两子；自陈幸福</td><td class="c">·</td></tr>
+  </tbody>
+</table></div>
+
+<p style="font-size:13.6px;color:var(--mute)">「·」= 没有查到该阶段的单独记录，状态延续；「—」= 缺席该部。† Lynn 在 63 Up 以追悼段落出现，丈夫和两个女儿对着早年画面回忆她。◦ Nick 在 63 Up 仅以访谈画面出镜。Charles 在 63 Up 里只在与 Andrew、John 的旧合影镜头中出现过一下。各阶段的完整轨迹见下面的人物卡。</p>
+
+<!-- ===== 肯辛顿 ===== -->
+<h2 id="s2"><span class="num">02 / 肯辛顿预备学校</span>Andrew · Charles · John</h2>
+
+<p>伦敦富人区 Kensington 同一所预备小学的三个男孩，代表上层。7 岁时三人都能说出自己将来会上哪所预备学校、哪所公学、哪所大学（都是牛津或剑桥），其中两人连学院都说得出来。片中他们用拉丁语唱《Waltzing Matilda》。</p>
+
+<article class="person" id="p-andrew">
+  <h3>Andrew Brackfield</h3>
+  <div class="ptags"><span class="pill">肯辛顿</span><span class="pill"><b>全勤</b> 九部</span></div>
+  <p class="quote7"><b>7 岁</b>被问读什么报纸，答《金融时报》。后来承认那只是照搬父亲的话。</p>
+  <div class="traj">
+    <div class="tr2"><span class="age">21</span><p>剑桥三一学院。</p></div>
+    <div class="tr2"><span class="age">28–63</span><p>事务律师（solicitor），做到律所合伙人。妻子 Jane，两个儿子。夫妇俩说最满意的是子女的成长。</p></div>
+  </div>
+  <p class="pnote">肯辛顿三人中唯一九部全勤的人，7 岁时报出的路线基本照单走完。</p>
+</article>
+
+<article class="person" id="p-charles">
+  <h3>Charles Furneaux</h3>
+  <div class="ptags"><span class="pill">肯辛顿</span><span class="pill">21 之后退出</span></div>
+  <div class="traj">
+    <div class="tr2"><span class="age">21</span><p>没考上牛津本科，读了杜伦大学。他说庆幸自己避开了「预备学校—公学—牛剑」这条传送带。后来以研究生身份进了牛津。</p></div>
+    <div class="tr2"><span class="age">之后</span><p>进新闻业，任 BBC 制片人，是纪录片《Touching the Void》的执行制片人。婚姻家庭情况没有可靠公开资料。</p></div>
+  </div>
+  <p class="pnote">28 Up 邀请时拒绝参加，Apted 承认自己当时在电话里大发脾气，两人关系就此破裂。他后来要求删除自己的档案画面，还因为 49 Up 保留旧画面找过律师。Apted 说过这件事的讽刺之处：唯一彻底退出的人，自己成了纪录片制作人。63 Up 里他只在三人旧合影的镜头里出现过一下；据报道他参加了 70 Up。</p>
+</article>
+
+<article class="person" id="p-john">
+  <h3>John Brisby</h3>
+  <div class="ptags"><span class="pill">肯辛顿</span><span class="pill">缺席 28、42</span></div>
+  <p class="quote7"><b>14 岁</b>已经对政治侃侃而谈。</p>
+  <div class="traj">
+    <div class="tr2"><span class="age">21</span><p>牛津大学。</p></div>
+    <div class="tr2"><span class="age">28–49</span><p>大律师（barrister），后成为御用大律师（QC）。妻子 Claire 是前英国驻保加利亚大使之女。他是保加利亚首任首相 Todor Burmov 的玄孙，长期投入保加利亚慈善；35 Up 里说回来参加只是为了给慈善做宣传。</p></div>
+    <div class="tr2"><span class="age">56</span><p>披露了节目一直没拍的另一面：父亲在他 9 岁时去世，母亲出去工作供他读书，牛津靠的是奖学金。他用这件事反驳节目多年把他当成「特权阶层」的样本。</p></div>
+  </div>
+  <p class="pnote">63 Up 里他说这个系列是自己每七年要吞一次的「毒丸」，但也承认它有价值。</p>
+</article>
+
+<!-- ===== 富家女 ===== -->
+<h2 id="s3"><span class="num">03 / 富家女</span>Suzy</h2>
+
+<article class="person" id="p-suzy">
+  <h3>Suzy Lusk <span class="pen">婚后 Dewey</span></h3>
+  <div class="ptags"><span class="pill">伦敦独立走读学校</span><span class="pill">缺席 63</span></div>
+  <div class="traj">
+    <div class="tr2"><span class="age">7</span><p>被选来代表富裕家庭，读伦敦的独立走读学校。</p></div>
+    <div class="tr2"><span class="age">14</span><p>在父亲位于苏格兰的 4000 英亩庄园草坪上受访，父母恰在此时离异。她抗拒交流，镜头一度只能拍她的猎犬叼回一只死兔子。</p></div>
+    <div class="tr2"><span class="age">21</span><p>16 岁辍学去过巴黎。对婚姻和生育极度悲观。</p></div>
+    <div class="tr2"><span class="age">28</span><p>剧变：已与巴斯的事务律师 Rupert Dewey 结婚，有两个儿子，自己说婚姻带来了乐观和幸福。后来共三个孩子，成为丧亲辅导师（bereavement counsellor）。</p></div>
+  </div>
+  <p class="pnote">14 岁和 21 岁两次说这个项目「无意义又愚蠢」；49 时表示不会再来，56 时说尽管如此仍觉得对它有义务。63 Up 缺席，只有旧画面；将参加 70 Up。</p>
+</article>
+
+<!-- ===== 东伦敦 ===== -->
+<h2 id="s4"><span class="num">04 / 东伦敦</span>Tony · Jackie · Lynn · Sue</h2>
+
+<p>东区工人阶级的四个孩子：Tony，和同一所小学的三个女孩 Jackie、Lynn、Sue。</p>
+
+<article class="person" id="p-tony">
+  <h3>Tony Walker</h3>
+  <div class="ptags"><span class="pill">东伦敦</span><span class="pill"><b>全勤</b> 九部</span><span class="pill">阶级流动的例外</span></div>
+  <p class="quote7"><b>7 岁</b>想当骑师。和同学 Michelle 一起出镜，旁白说 Michelle 是他女朋友，Michelle 说 Tony 是只「猴子」。</p>
+  <div class="traj">
+    <div class="tr2"><span class="age">14</span><p>已在马厩受训。</p></div>
+    <div class="tr2"><span class="age">21</span><p>赛过三场就放弃了，最自豪的是和传奇骑师 Lester Piggott 同场比过赛。转头考下「the Knowledge」，开伦敦黑色出租车，日子过得舒服。</p></div>
+    <div class="tr2"><span class="age">28–49</span><p>圆了演员梦：1986 年起在《The Bill》《EastEnders》等剧里跑群演，角色几乎都是出租车司机。和妻子 Debbie 的婚姻经历过一个孩子夭折（35 披露）和他承认的一次出轨（42 披露），两人一起渡过。42 时搬到 Essex，49 时有两处房产，其中一处在西班牙。</p></div>
+    <div class="tr2"><span class="age">56</span><p>说他载过登月宇航员 Buzz Aldrin，结果路人围上来找 Tony 要签名。</p></div>
+    <div class="tr2"><span class="age">63</span><p>和 Debbie 定居英格兰乡间。</p></div>
+  </div>
+  <p class="pnote">节目最初的阶级假设在他身上失效，维基的说法是他明显向中产移动了。他是最拥抱这个节目的人（「我可以把命交给他」），但也在 63 里当面数落 Apted：21 岁时节目暗示他会进监狱——Apted 承认当年特意拍了他出没危险街区的镜头备用，后来说那种「扮演上帝」是愚蠢和错误的。</p>
+</article>
+
+<article class="person" id="p-jackie">
+  <h3>Jackie Bassett</h3>
+  <div class="ptags"><span class="pill">东伦敦</span><span class="pill"><b>全勤</b> 九部</span></div>
+  <div class="traj">
+    <div class="tr2"><span class="age">19</span><p>结婚，后离婚。再婚搬到苏格兰，又离婚。作为单亲母亲拉扯大三个儿子，打过多份工。</p></div>
+    <div class="tr2"><span class="age">56</span><p>因类风湿性关节炎领残障津贴已 14 年，其间经历津贴削减。一家人仍住苏格兰，彼此离得近。她说：「我的杯子永远半满，从不半空。」</p></div>
+  </div>
+  <p class="pnote">最敢当面顶撞 Apted 的人。49 Up 里她当面清算了 Apted 几十年来对她的低估——《纽约客》称之为系列中最令人振奋的时刻之一。她后来说：年轻时一直不明白，为什么问她的总是婚姻和男人，而不是这个国家怎么了。但她对参与本身始终感激。</p>
+</article>
+
+<article class="person" id="p-lynn">
+  <h3>Lynn Johnson</h3>
+  <div class="ptags"><span class="pill">东伦敦</span><span class="pill">7–56 全勤</span><span class="pill dead">2013 年去世</span></div>
+  <div class="traj">
+    <div class="tr2"><span class="age">11+</span><p>三个女孩中唯一考上文法学校的。</p></div>
+    <div class="tr2"><span class="age">19</span><p>嫁给 Russ，婚姻走了 37 年，两个女儿。</p></div>
+    <div class="tr2"><span class="age">21–56</span><p>21 岁成为流动图书馆的儿童图书馆员，之后做学校图书馆员三十多年，最后因预算削减被裁。在 Poplar 一所小学当校董会主席超过 25 年。56 时是有三个外孙的外婆，说图书馆员生涯定义了她的人生价值。</p></div>
+  </div>
+  <p class="pnote">2013 年 5 月短暂患病后去世，是系列第一位去世的参与者，死因未公开。学校图书馆有一角以她的名字重新命名。63 Up 以追悼段落呈现她：Russ 和两个女儿对着早年画面回忆她。</p>
+</article>
+
+<article class="person" id="p-sue">
+  <h3>Sue Davis</h3>
+  <div class="ptags"><span class="pill">东伦敦</span><span class="pill"><b>全勤</b> 九部</span></div>
+  <div class="traj">
+    <div class="tr2"><span class="age">24</span><p>结婚，两个孩子，后离婚，单亲上班。</p></div>
+    <div class="tr2"><span class="age">35–63</span><p>没上过大学，一路做到伦敦大学玛丽女王学院（QMUL）的行政管理高位。业余演戏。</p></div>
+    <div class="tr2"><span class="age">63</span><p>与男友 Glenn 订婚已经 21 年，还没办婚礼。盘算这几年退休。</p></div>
+  </div>
+</article>
+
+<!-- ===== 儿童之家 ===== -->
+<h2 id="s5"><span class="num">05 / 儿童之家</span>Paul · Symon</h2>
+
+<p>东伦敦同一家儿童之家（children's home）的两个男孩，代表最没有依靠的一端。两人后来在 21、49、63 三部里重聚。</p>
+
+<article class="person" id="p-paul">
+  <h3>Paul Kligerman</h3>
+  <div class="ptags"><span class="pill">儿童之家</span><span class="pill"><b>全勤</b> 九部</span><span class="pill">澳大利亚</span></div>
+  <p class="quote7"><b>7 岁</b>说不想结婚：妻子做什么你就得吃什么，而他不爱吃青菜。</p>
+  <div class="traj">
+    <div class="tr2"><span class="age">7+</span><p>父母离异随父。Seven Up! 之后随父亲和继母移民澳大利亚，此后一直生活在墨尔本地区。</p></div>
+    <div class="tr2"><span class="age">21–49</span><p>砌砖工，自己开过公司，49 时在标牌公司工作。21 岁时的女友 Susan 就是后来的妻子，婚姻持续至今。</p></div>
+    <div class="tr2"><span class="age">56–63</span><p>和 Susan 在当地退休村做零工和园艺维护。女儿 Katy 是家族第一个上大学的人，56 时有 5 个孙辈。</p></div>
+  </div>
+  <p class="pnote">Susan 认为这个系列帮他们维系了婚姻。63 Up 里 Granada 出钱送 Symon 夫妇飞墨尔本探他。</p>
+</article>
+
+<article class="person" id="p-symon">
+  <h3>Symon Basterfield</h3>
+  <div class="ptags"><span class="pill">儿童之家</span><span class="pill">只缺 35</span><span class="pill">14 人中唯一的有色人种</span></div>
+  <div class="traj">
+    <div class="tr2"><span class="age">7</span><p>从未见过黑人父亲；进儿童之家的原因与白人母亲的抑郁症有关。14 岁前离开儿童之家，回到母亲身边。</p></div>
+    <div class="tr2"><span class="age">28–35</span><p>第一段婚姻有 5 个孩子。35 拍摄时正在离婚，选择缺席那一部。</p></div>
+    <div class="tr2"><span class="age">42–56</span><p>回归时已再婚，妻子 Vienetta，有一子一继女。49 时夫妇成为寄养家长（foster parents）。在仓库工作；56 时说教育有限限制了收入，是他的遗憾。</p></div>
+    <div class="tr2"><span class="age">63</span><p>婚姻幸福，有 10 个孙辈，和第一段婚姻的子女在修复关系。飞澳大利亚探望 Paul。</p></div>
+  </div>
+</article>
+
+<!-- ===== 农场 ===== -->
+<h2 id="s6"><span class="num">06 / 约克郡农场</span>Nick</h2>
+
+<article class="person" id="p-nick">
+  <h3>Nick Hitchon <span class="pen">William Nicholas Hitchon</span></h3>
+  <div class="ptags"><span class="pill">约克郡 Arncliffe</span><span class="pill"><b>全勤</b> 九部</span><span class="pill dead">2023 年去世</span></div>
+  <p class="quote7"><b>7 岁</b>被问有没有女朋友：「我不回答这种问题。」56 岁时他说，这仍是自己给过的最聪明的回答。</p>
+  <div class="traj">
+    <div class="tr2"><span class="age">7</span><p>唯一的农村样本：约克郡谷地小村 Arncliffe 的小农场，上单室学校，每天走四英里。对月亮和科学感兴趣。</p></div>
+    <div class="tr2"><span class="age">21</span><p>寄宿学校后进牛津读物理（63 里提到 Theresa May 是同窗）。</p></div>
+    <div class="tr2"><span class="age">28–56</span><p>移民美国做核聚变研究，1982 年起任威斯康星大学麦迪逊分校电气与计算机工程系教授，当过系主任。第一任妻子 Jackie 在 28 出镜后，因观众断言他们婚姻必将破裂而不快，35、42 两部拒绝出现（Nick 本人每部都在）。49 时已离婚再婚，妻子 Cryss 年长他十岁。</p></div>
+    <div class="tr2"><span class="age">63</span><p>喉部查出癌性肿块，又逢丧父，这一部他谈的是怎么面对死亡。仅以访谈画面出镜。</p></div>
+  </div>
+  <p class="pnote">2022 年春退休，2023 年 7 月 23 日因喉癌在麦迪逊去世，65 岁。遗孀 Cryss、儿子 Adam。去世前为 70 Up 录了最后一次访谈。另：Seven Up! 播出时他其实只有 6 岁，始终比各部的名义年龄小一岁。</p>
+</article>
+
+<!-- ===== 利物浦 ===== -->
+<h2 id="s7"><span class="num">07 / 利物浦郊区</span>Neil · Peter</h2>
+
+<p>利物浦郊区同一所中产学校的两个男孩，7 岁时都想当宇航员。</p>
+
+<article class="person" id="p-neil">
+  <h3>Neil Hughes</h3>
+  <div class="ptags"><span class="pill">利物浦郊区</span><span class="pill"><b>全勤</b> 九部</span></div>
+  <p class="quote7"><b>7 岁</b>「我想当宇航员。当不成宇航员，就当大巴司机。」</p>
+  <div class="traj">
+    <div class="tr2"><span class="age">7</span><p>快乐、搞笑、满身生命力的孩子。</p></div>
+    <div class="tr2"><span class="age">14</span><p>已经显出紧张和压抑。</p></div>
+    <div class="tr2"><span class="age">21</span><p>从阿伯丁大学退学（只读了一学期），住伦敦的占屋，打零工。</p></div>
+    <div class="tr2"><span class="age">28</span><p>无家可归，在苏格兰流浪。</p></div>
+    <div class="tr2"><span class="age">35</span><p>住设得兰群岛的公屋，写作，参演当地哑剧。</p></div>
+    <div class="tr2"><span class="age">42</span><p>转折：此前 Bruce 收留他在自己伦敦的公寓住了两个月。42 时他是哈克尼区的自民党区议员，读完了开放大学的学士学位。后来在 Bruce 的婚礼上朗诵。</p></div>
+    <div class="tr2"><span class="age">49–63</span><p>移居坎布里亚，2003 年起当 Eden 区议员并多次连任；五次竞选下议院议员都落败。63 时已婚但与妻子分居，是圣公会的持牌讲道人（lay reader）。</p></div>
+  </div>
+  <p class="pnote">多数影评把他视为全系列最跌宕的人物。</p>
+</article>
+
+<article class="person" id="p-peter">
+  <h3>Peter Davies</h3>
+  <div class="ptags"><span class="pill">利物浦郊区</span><span class="pill">缺席 35、42、49</span></div>
+  <div class="traj">
+    <div class="tr2"><span class="age">28</span><p>收入低、没热情的教师。片中批评撒切尔政府，遭到小报围剿，随即退出节目。</p></div>
+    <div class="tr2"><span class="age">缺席期</span><p>42 的评论音轨里透露：离婚、改学法律、再婚生子、回到利物浦，后来进了公务系统。</p></div>
+    <div class="tr2"><span class="age">56</span><p>回归，公开说回来是为了宣传自己和妻子 Gabi 的乐队 The Good Intentions（利物浦的乡村风格乐队）。</p></div>
+    <div class="tr2"><span class="age">63</span><p>乐队还在，一名成员已去世。</p></div>
+  </div>
+</article>
+
+<!-- ===== 寄宿学校 ===== -->
+<h2 id="s8"><span class="num">08 / 寄宿学校</span>Bruce</h2>
+
+<article class="person" id="p-bruce">
+  <h3>Bruce Balden</h3>
+  <div class="ptags"><span class="pill">寄宿预备学校</span><span class="pill"><b>全勤</b> 九部</span></div>
+  <p class="quote7"><b>7 岁</b>最大的愿望，是见到远在南罗得西亚当兵的父亲。想当传教士，关心穷人和种族歧视。</p>
+  <div class="traj">
+    <div class="tr2"><span class="age">21</span><p>牛津读数学。</p></div>
+    <div class="tr2"><span class="age">28–35</span><p>短暂做过保险，转去东伦敦教数学，说享受参与别人的进步。35 时休假去孟加拉国锡尔赫特教数学和英语。</p></div>
+    <div class="tr2"><span class="age">42</span><p>42 前夕与同为教师的 Penny 结婚——Apted 为拍婚礼破了「七年一拍」的例。Neil 在婚礼上朗诵。之后有两个儿子。</p></div>
+    <div class="tr2"><span class="age">49–56</span><p>从东区学校转到赫特福德郡的公学 St Albans School 任教。56 时承认仍不太会向妻子表达感情，但日子幸福，对职业选择无悔。</p></div>
+  </div>
+  <p class="pnote">Neil 最落魄的那几年，是他收留了 Neil。</p>
+</article>
+
+<!-- ===== 依据 ===== -->
+<h2 id="s9"><span class="num">09 / 本页依据</span>来源与边界</h2>
+
+<p>本页事实以 <a href="https://en.wikipedia.org/wiki/Up_(film_series)">Wikipedia 的 Up (film series) 条目</a>为主干，并与下列来源交叉核对：<a href="https://www.theguardian.com/environment/2023/aug/27/nick-hitchon-obituary">卫报 Nick Hitchon 讣告</a>（其弟撰写）、<a href="https://variety.com/2021/film/news/michael-apted-dead-up-docs-1234881490/">Variety 关于 Michael Apted 去世的报道</a>、<a href="https://www.npr.org/2019/12/15/788261147/reality-tv-meets-social-experiment-in-63-up">NPR 对 Tony 和 Jackie 的访谈</a>（2019）、<a href="https://archive.pov.org/56up/about-the-characters/">PBS POV 的 56 Up 人物指南</a>、<a href="https://www.theguardian.com/tv-and-radio/2026/apr/17/asif-kapadia-direct-final-chapter-itv-documentary-series-70-up">卫报关于 70 Up 收官的报道</a>（2026-04）等。</p>
+
+<p>整理原则：未能核实的细节没有写入（例如 Lynn 的具体死因只有「短暂患病」的公开说法）；片中语录按中文转述，不追求逐字。人物近况截至 63 Up（2019）及此后见诸报道的事件，70 Up（2026 年 9 月）播出后另行更新。</p>
+
+  </main>
+  <aside></aside>
+</div>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<button id="top" aria-label="回到顶部" title="回到顶部">↑</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+
+<script>
+/* TOC + scroll spy */
+(function(){
+  const heads=[...document.querySelectorAll("main h2, main h3")];
+  const build=t=>heads.forEach(h=>{
+    if(!h.id)h.id="h-"+Math.random().toString(36).slice(2,8);
+    const a=document.createElement("a"); a.href="#"+h.id;
+    a.textContent=h.tagName==="H2"
+      ? (h.textContent.replace(/^\s*\d+\s*\/\s*[^\s]+\s*/,"").trim()||h.textContent.trim())
+      : h.textContent.trim();
+    if(h.tagName==="H3")a.className="sub";
+    t.appendChild(a);
+  });
+  const side=document.getElementById("toclist"), draw=document.getElementById("drawerlist");
+  build(side); build(draw);
+  const links=[...side.querySelectorAll("a")], navA=[...document.querySelectorAll("#navlinks a")];
+  const map=new Map(links.map(a=>[a.getAttribute("href").slice(1),a]));
+  const tocBox=document.getElementById("toc"), h2s=heads.filter(h=>h.tagName==="H2");
+  let cur=null, ticking=false;
+  function spy(){
+    ticking=false; const line=100;
+    let active=heads[0], activeH2=h2s[0];
+    for(const h of heads){ if(h.getBoundingClientRect().top<=line) active=h; else break; }
+    for(const h of h2s){ if(h.getBoundingClientRect().top<=line) activeH2=h; else break; }
+    if(active===cur)return; cur=active;
+    links.forEach(a=>a.classList.remove("on"));
+    const a=map.get(active.id);
+    if(a){a.classList.add("on");
+      const t=a.offsetTop-tocBox.offsetTop;
+      if(t<tocBox.scrollTop+20||t>tocBox.scrollTop+tocBox.clientHeight-60)tocBox.scrollTop=t-140;}
+    navA.forEach(x=>x.classList.toggle("on",x.getAttribute("href")==="#"+activeH2.id));
+  }
+  addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(spy);}},{passive:true});
+  addEventListener("resize",spy,{passive:true}); spy();
+  const dr=document.getElementById("drawer");
+  document.getElementById("tocbtn").addEventListener("click",()=>dr.classList.add("open"));
+  dr.addEventListener("click",e=>{if(e.target===dr||e.target.tagName==="A")dr.classList.remove("open");});
+})();
+
+/* back to top */
+(function(){
+  const b=document.getElementById("top"), btn=document.getElementById("tocbtn");
+  addEventListener("scroll",()=>{
+    const show=scrollY>innerHeight;
+    b.style.display=show?"block":"none";
+    b.style.bottom=(show&&getComputedStyle(btn).display!=="none")?"72px":"18px";
+  },{passive:true});
+  b.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+})();
+
+/* full-text search */
+(function(){
+  const q=document.getElementById("q"), info=document.getElementById("qinfo");
+  const root=document.querySelector("main");
+  let marks=[], idx=-1, t;
+  function clear(){
+    marks.forEach(m=>{const p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();});
+    marks=[];idx=-1;info.textContent="";
+  }
+  function run(term){
+    clear(); if(!term)return;
+    const re=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
+    const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){
+      if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+      const p=n.parentNode.nodeName;
+      if(p==="SCRIPT"||p==="STYLE"||p==="MARK")return NodeFilter.FILTER_REJECT;
+      return re.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+    }});
+    const nodes=[]; let n; while(n=w.nextNode())nodes.push(n);
+    nodes.forEach(node=>{
+      const frag=document.createDocumentFragment(); let last=0,s=node.nodeValue,m; re.lastIndex=0;
+      while((m=re.exec(s))!==null){
+        if(m.index>last)frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+        const mk=document.createElement("mark"); mk.textContent=m[0];
+        frag.appendChild(mk); marks.push(mk); last=m.index+m[0].length;
+        if(m[0].length===0)re.lastIndex++;
+      }
+      if(last<s.length)frag.appendChild(document.createTextNode(s.slice(last)));
+      node.parentNode.replaceChild(frag,node);
+    });
+    info.textContent=marks.length?("0/"+marks.length):"无结果";
+    if(marks.length)go(0);
+  }
+  function go(i){
+    if(!marks.length)return;
+    marks.forEach(m=>m.classList.remove("cur"));
+    idx=(i+marks.length)%marks.length;
+    const m=marks[idx]; m.classList.add("cur");
+    const d=m.closest("details"); if(d)d.open=true;
+    m.scrollIntoView({block:"center",behavior:"smooth"});
+    info.textContent=(idx+1)+"/"+marks.length;
+  }
+  q.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(()=>run(q.value.trim()),220);});
+  q.addEventListener("keydown",e=>{
+    if(e.key==="Enter"){e.preventDefault();go(idx+(e.shiftKey?-1:1));}
+    if(e.key==="Escape"){q.value="";clear();q.blur();}
+  });
+  addEventListener("keydown",e=>{if((e.metaKey||e.ctrlKey)&&e.key==="f"){e.preventDefault();q.focus();q.select();}});
+})();
+</script>
+</body>
+</html>

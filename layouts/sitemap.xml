@@ -10,4 +10,11 @@
   </url>
     {{- end }}
   {{- end }}
+  {{- /* Reading materials are static HTML files, not Hugo pages; list them from the data file. */}}
+  {{- $reading := index .Site.Data "reading-materials" }}
+  {{- range $reading.materials }}
+  <url>
+    <loc>{{ .reading_url | absURL }}</loc>
+  </url>
+  {{- end }}
 </urlset>

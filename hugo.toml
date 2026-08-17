@@ -76,7 +76,7 @@ enableRobotsTXT = true
     weight = 11
   [[menu.main]]
     identifier = "reading"
-    name = "阅读"
+    name = "资料"
     url = "/reading/"
     weight = 13
   [[menu.main]]
