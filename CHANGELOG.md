@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-18
+
+- 创业笔记从 953 更新到 957，新增《Claude Tag 和知识星球》《飞书 aily》《温暖的话》《知识星球里的上下文》四篇免费试读，并同步知识星球真实发布日期与主题索引。
+
 ## 2026-08-17
 
 - `reading` 栏目改名「资料」（URL 保持 `/reading/` 不变）：`content/reading/_index.md` 标题、`hugo.toml` 菜单名同步改；`layouts/reading/list.html` 免责句从「原书」改「原作」。

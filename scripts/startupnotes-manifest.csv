@@ -950,3 +950,7 @@ num,slug,date,digested,free_chars,withheld_chars,title,teaser
 951,startup-note-951,2026-07-08T17:26:44+08:00,False,484,452,创业笔记 951：瞎琢磨之 ai 社会性游戏,第一个视角：AI 的社会化实验。 斯坦福小镇：https://github.com/x-glacier/GenerativeAgentsCN AI 治理一座城市，会发生什么：https://r.slax.com/b/828309eb-11a
 952,startup-note-952,2026-07-08T17:27:03+08:00,False,294,436,创业笔记 952：Claude Code 的远程控制模式,最近开始觉得扛不动 16 寸 Macbook Pro 到处跑了，考虑还是回归手机操作。目前对 AI（以 Claude Code 为例）的控制，使用到的工具是： Mac：始终放在一个有可靠网络的地方，保持开机，当服务器使用 Github：所有
 953,startup-note-953,2026-07-21T23:07:18+08:00,False,367,450,创业笔记 953：给还在看网页的朋友,如果你还在看网页，那大概率咱们一样，在读书之余，还愿意看些互联网上的文字信息（而不仅仅是短视频），那你可能会遇到我曾经遇到过的几个问题： 收藏的链接，一段时间后无法访问了——不知道它曾经是什么，也不知道为什么之前收藏。 在不同网站看到的好内
+954,startup-note-954,2026-08-11T22:55:10+08:00,False,258,285,创业笔记 954：Claude Tag 和知识星球,前些天在 Slack 里配置了 Claude Tag——此前我对 Claude Tag 的想法是：和 OpenClaw 那样的 Agent 放进群聊里一样，并不太新鲜。 测试了几天——Yuanda 给 Claude Tag 接上了 Figm
+955,startup-note-955,2026-08-13T14:59:20+08:00,False,210,309,创业笔记 955：飞书 aily,早上试了试飞书 aily（https://aily.feishu.cn/）——主要是在飞书里看到了未读消息点开了。 激活的时候直接给了个显性的数字，引导用户点击，点击后引导用户给 Agent 取名——就聊起来了 可以把这个 Agent 拉进
+956,startup-note-956,2026-08-13T14:59:32+08:00,False,688,600,创业笔记 956：温暖的话,昨天在 Eatventure 的 Claude Tag 群里，跟 Claude 提了个需求：从我的 Eatventure 帖子里，挑出一些有故事，有情感的内容，从不同角度写几段？记得文字洗炼但有趣。试试看能不能打动人。 几分钟后，Claud
+957,startup-note-957,2026-08-16T10:51:32+08:00,False,821,899,创业笔记 957：知识星球里的上下文,笔记 955 下，国杰评论： 除了将 Agent 的能力融入产品，另一个可能还需要将知识星球按 Agent 产品重新设计。 我说的重新设计，不是简单给知识星球增加一个 Agent 功能，也不是把首页换成聊天框、换一套 Agent 的皮肤，而
