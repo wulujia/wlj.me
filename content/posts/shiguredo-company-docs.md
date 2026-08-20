@@ -3,7 +3,7 @@ title: "时雨堂：一家 5 个人的日本软件公司，把经营手册全部
 date: 2026-08-20T11:23:58+08:00
 lastmod: 2026-08-20T11:23:58+08:00
 author: "Luca"
-tags: ["Startup","Management"]
+tags: ["Startup","Management","Small and Beautiful"]
 draft: false
 slug: "shiguredo-company-docs"
 ---
