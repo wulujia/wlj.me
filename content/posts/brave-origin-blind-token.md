@@ -1,9 +1,9 @@
 ---
-title: "Brave 怎么确认我付过钱，又不知道我是谁"
+title: "Brave Origin 盲签名方案"
 date: 2026-08-24T16:26:04+08:00
 lastmod: 2026-08-24T16:26:04+08:00
 author: "Luca"
-tags: ["security","tech"]
+tags: ["Security","Tech"]
 draft: false
 slug: "brave-origin-blind-token"
 ---
