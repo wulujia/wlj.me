@@ -8,7 +8,7 @@ draft: false
 slug: "hyprland"
 ---
 
-Linux 上的一个窗口管理器。它决定窗口怎么摆、怎么切换、动画长什么样。
+Linux 上的一个窗口管理器，官网 [hypr.land](https://hypr.land/)。它决定窗口怎么摆、怎么切换、动画长什么样。
 
 ## 平铺
 
@@ -30,17 +30,17 @@ Wayland 是 Linux 上画图形界面的一套协议，用来取代 1987 年的 X
 
 GNOME、KDE 装完就能用：状态栏、文件管理器、设置面板、通知、锁屏，全都有。Hyprland 只管窗口，其余要自己拼：
 
-- 状态栏：Waybar
-- 程序启动器：wofi 或 rofi
-- 通知：mako
-- 锁屏：hyprlock
-- 壁纸：hyprpaper
+- 状态栏：[Waybar](https://github.com/Alexays/Waybar)
+- 程序启动器：[wofi](https://hg.sr.ht/~scoopta/wofi) 或 [rofi](https://github.com/davatorium/rofi)
+- 通知：[mako](https://github.com/emersion/mako)
+- 锁屏：[hyprlock](https://github.com/hyprwm/hyprlock)
+- 壁纸：[hyprpaper](https://github.com/hyprwm/hyprpaper)
 
 装完第一次启动是一块黑屏加一个鼠标指针，什么都没有。所有东西都得自己配出来。
 
 ## 配置
 
-一个文本文件，`~/.config/hypr/hyprland.conf`。按键绑定、动画、窗口规则都写在里面，存盘立刻生效，不用重启。
+一个文本文件，`~/.config/hypr/hyprland.conf`。按键绑定、动画、窗口规则都写在里面，存盘立刻生效，不用重启。所有配置项在 [Wiki](https://wiki.hypr.land/) 上。
 
 ```
 bind = SUPER, Return, exec, ghostty
@@ -55,7 +55,7 @@ animations {
 
 ## 现状
 
-滚动发布，两三个月一个版本，最新是 0.56.2（2026 年 8 月）。主力开发者是 Vaxry。版本号还在 0.x。
+滚动发布，两三个月一个版本，最新是 0.56.2（2026 年 8 月）。主力开发者是 Vaxry。版本号还在 0.x。源码和发布记录在 [GitHub](https://github.com/hyprwm/Hyprland)。
 
 ## 在 NixOS 上
 
