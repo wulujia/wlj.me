@@ -167,3 +167,15 @@ year = "2026"
 description = "给老人买房用的调研：东湖公园、西湖公园、六灌路三个板块。国家统计局 70 城指数换算的 2019 至 2026 年成交价格曲线（二手房比 2021 年高点跌了约 28%），老城区挂牌均价曲线，14 个有电梯、近公园、买菜方便的候选小区和总价估算，租金水平与回报。数据截至 2026 年 9 月。"
 original_url = ""
 reading_url = "/reading/quanzhou-old-town-housing/"
+
+[[materials]]
+slug = "techcrunch"
+title = "TechCrunch 深度调研"
+subtitle = ""
+author = "Luca"
+category = "report"
+year = "2026"
+description = "2005 年的一个博客，五易其主：AOL、Verizon、Apollo、Yahoo，2025 年落到私募 Regent 手里。关了付费订阅，裁了欧洲团队，流量八年掉一半，Disrupt 一年一万人。看它的产品、生意、钱、来路、护城河和对手。"
+original_url = "https://techcrunch.com/"
+reading_url = "/reading/techcrunch/"
+

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<meta name="description" content="TechCrunch 深度调研：产品、业务、财务、发展历程、护城河和竞争对手。2005 年创办，2010 年约 2500 万美元卖给 AOL，2025 年 Yahoo 转手给私募 Regent，关订阅、裁欧洲团队、加码 Disrupt 活动。资料截至 2026 年 9 月。">
+<link rel="canonical" href="https://wlj.me/reading/techcrunch/">
+<title>TechCrunch 深度调研</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f6f7f4;
+    --surface: #ffffff;
+    --ink: #1a211c;
+    --ink-2: #4d5850;
+    --muted: #7c877f;
+    --rule: #d9dfd9;
+    --accent: #1f6f43;
+    --accent-soft: #e2f0e7;
+    --flag: #b3541e;
+    --flag-soft: #f7e9df;
+    --ok: #2f7a4d;
+    --code-bg: #ecf0ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101512;
+      --surface: #171d19;
+      --ink: #e7ece8;
+      --ink-2: #b6c0b9;
+      --muted: #86928a;
+      --rule: #2a332d;
+      --accent: #6fc493;
+      --accent-soft: #1a2e22;
+      --flag: #e0916a;
+      --flag-soft: #3a261a;
+      --ok: #6cc08b;
+      --code-bg: #1e2621;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101512;
+    --surface: #171d19;
+    --ink: #e7ece8;
+    --ink-2: #b6c0b9;
+    --muted: #86928a;
+    --rule: #2a332d;
+    --accent: #6fc493;
+    --accent-soft: #1a2e22;
+    --flag: #e0916a;
+    --flag-soft: #3a261a;
+    --ok: #6cc08b;
+    --code-bg: #1e2621;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover, a:focus-visible { border-bottom-color: var(--accent); outline: none; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page { display: grid; grid-template-columns: 200px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 56px 24px 96px; }
+  @media (max-width: 860px) { .page { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 32px; } .toc { display: none; } }
+
+  .toc { position: sticky; top: 32px; align-self: start; font-size: 14px; line-height: 1.5; }
+  .toc .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; font-family: "IBM Plex Mono", monospace; }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .toc a { color: var(--ink-2); border: 0; }
+  .toc a:hover { color: var(--accent); }
+
+  header.masthead { margin-bottom: 40px; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  h1 { font-family: "Newsreader", "Songti SC", "Noto Serif SC", Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1.15; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+  .dek { font-size: 19px; color: var(--ink-2); margin: 0; max-width: 60ch; }
+  .meta { margin-top: 20px; font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 20px; }
+
+  h2 { font-family: "Newsreader", "Songti SC", "Noto Serif SC", Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.25; margin: 56px 0 16px; padding-top: 20px; border-top: 1px solid var(--rule); text-wrap: balance; }
+  h3 { font-size: 17px; font-weight: 600; margin: 28px 0 8px; color: var(--ink); }
+  p { margin: 0 0 14px; max-width: 68ch; }
+  ul, ol { padding-left: 1.3em; margin: 0 0 14px; max-width: 68ch; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--muted); }
+  strong { font-weight: 600; }
+
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 24px 0 8px; }
+  @media (max-width: 600px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+  .fact { background: var(--surface); padding: 14px 16px; }
+  .fact .k { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-family: "IBM Plex Mono", monospace; }
+  .fact .v { font-size: 22px; font-weight: 600; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; margin-top: 2px; color: var(--ink); }
+  .fact .s { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+
+  .callout { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 14px 18px; margin: 20px 0; max-width: 68ch; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.flag { border-left-color: var(--flag); background: var(--flag-soft); }
+  .tag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; padding: 1px 7px; border-radius: 3px; background: var(--code-bg); color: var(--ink-2); vertical-align: 1px; }
+  .tag.flag { background: var(--flag-soft); color: var(--flag); }
+
+  .tbl-wrap { overflow-x: auto; margin: 16px 0 20px; border: 1px solid var(--rule); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; font-family: "IBM Plex Mono", monospace; background: var(--code-bg); white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  td.n, th.n { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.dim { color: var(--muted); }
+
+  .timeline { list-style: none; padding: 0; margin: 20px 0; max-width: 68ch; }
+  .timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .timeline li:last-child { border-bottom: 0; }
+  .timeline .when { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--accent); padding-top: 3px; font-variant-numeric: tabular-nums; }
+  .timeline .what strong { display: block; }
+  .timeline .what span { color: var(--ink-2); font-size: 15px; }
+
+  .moat { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  @media (max-width: 600px) { .moat { grid-template-columns: 1fr; } }
+  .moat div { background: var(--surface); border: 1px solid var(--rule); padding: 14px 16px; font-size: 15px; }
+  .moat div b { display: block; font-size: 16px; margin-bottom: 4px; }
+  .moat div .grade { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); float: right; }
+
+  .sources { font-size: 14px; color: var(--ink-2); }
+  .sources li { margin-bottom: 4px; }
+  .sources a { word-break: break-all; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  #reading-return { text-align:center; padding:6px 10px; font-size:13px; background:var(--surface); border-bottom:1px solid var(--rule); }
+  #reading-return a { color:var(--ink-2); border:0; }
+  #tocbtn { position:fixed; right:18px; bottom:18px; z-index:70; border:1px solid var(--rule); background:var(--surface); color:var(--ink); border-radius:999px; cursor:pointer; font:inherit; font-size:13px; padding:10px 15px; box-shadow:0 4px 18px rgba(0,0,0,.13); }
+  @media (min-width:861px) { #tocbtn { display:none; } }
+  #drawer { position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.42); display:none; }
+  #drawer.open { display:block; }
+  #drawer .panel { position:absolute; right:0; top:0; bottom:0; width:min(320px,86vw); background:var(--bg); border-left:1px solid var(--rule); padding:22px 16px; overflow:auto; }
+  #drawer a { display:block; font-size:14px; color:var(--ink-2); text-decoration:none; padding:8px 10px; border-radius:7px; border:0; }
+  #drawer a:hover { background:var(--code-bg); }
+  @media print { #tocbtn, #drawer, #reading-return { display:none !important; } }
+</style>
+
+</head>
+<body>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回资料</a></div>
+<div class="page">
+  <nav class="toc" aria-label="目录">
+    <div class="label">目录</div>
+    <ol>
+      <li><a href="#summary">一页结论</a></li>
+      <li><a href="#company">公司概况</a></li>
+      <li><a href="#product">产品</a></li>
+      <li><a href="#business">业务情况</a></li>
+      <li><a href="#finance">财务状况</a></li>
+      <li><a href="#history">发展历程</a></li>
+      <li><a href="#moat">护城河</a></li>
+      <li><a href="#competitors">竞争对手</a></li>
+      <li><a href="#risks">风险与判断</a></li>
+      <li><a href="#sources">来源</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="masthead">
+      <p class="eyebrow">公司研究 · 科技媒体</p>
+      <h1>TechCrunch 深度调研</h1>
+      <p class="dek">一个 2005 年的博客，五易其主，从 AOL 到 Verizon、Apollo、Yahoo，2025 年落到一家收购过时装品牌和军队报纸的私募手里。它还是创业圈最有名的媒体，但已经不是那家最赚钱的。本文看它的产品、生意、钱、来路、护城河和对手。</p>
+      <div class="meta">
+        <span>写于 2026-09-05</span>
+        <span>资料截至 2026-09</span>
+        <span>数字带“估”字的为第三方估算</span>
+      </div>
+    </header>
+
+    <section id="summary">
+      <h2>一页结论</h2>
+      <p>TechCrunch 是一家报道创业公司、风投和科技行业的媒体，总部旧金山。Michael Arrington 2005 年创办，2010 年以约 2500 万美元卖给 AOL，之后随 AOL 进了 Verizon，2021 年随 Yahoo 一起被 Apollo 买走，2025 年 3 月 Yahoo 把它卖给私募基金 Regent，价格未披露，从“不需要反垄断审查”推断低于 1 亿美元。</p>
+      <p>它的收入靠两条腿：网站广告和线下活动。旗舰活动 Disrupt 每年 10 月在旧金山办，2025 年 1 万人到场，门票 849 到 1199 美元，一半收入来自赞助商。2019 年做的付费订阅 TechCrunch+ 在 2024 年 1 月关掉。2025 年换主后裁掉了整个欧洲团队。流量从 2018 年的每月 1700 万独立访客降到 2026 年的 900 万左右。</p>
+
+      <div class="facts">
+        <div class="fact"><div class="k">成立</div><div class="v">2005-06</div><div class="s">Arrington 的博客</div></div>
+        <div class="fact"><div class="k">卖给 AOL</div><div class="v">~$25M</div><div class="s">2010 年</div></div>
+        <div class="fact"><div class="k">现东家</div><div class="v">Regent</div><div class="s">2025-03，价格未披露</div></div>
+        <div class="fact"><div class="k">月访问</div><div class="v">~9M</div><div class="s">Similarweb，2026-07</div></div>
+        <div class="fact"><div class="k">Disrupt 到场</div><div class="v">10,000</div><div class="s">2025 年 10 月</div></div>
+        <div class="fact"><div class="k">收入</div><div class="v">$30M+ 估</div><div class="s">2020 年估算，无更新</div></div>
+      </div>
+
+      <div class="callout">
+        <p><strong>怎么看这家公司。</strong>TechCrunch 手里最值钱的是名字和 Disrupt。创业者仍然把“上 TechCrunch”当作被认可的标志，Startup Battlefield 的校友累计融了 320 亿美元。拖累它的是媒体行业的通病加上它自己的折腾：广告收入随流量下滑，搜索引擎的 AI 摘要在截流，五任东家各有各的想法，过去两年走了一半老编辑。Regent 买它的逻辑是把它和 PCWorld、Macworld 这些老牌科技媒体打包成一个广告和活动网络。这个逻辑对广告主成立，对读者不一定。</p>
+      </div>
+    </section>
+
+    <section id="company">
+      <h2>公司概况</h2>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>项目</th><th>内容</th></tr>
+          <tr><td>主体</td><td>TechCrunch，Regent LP 旗下媒体品牌，总部美国旧金山。Yahoo 保留少量股份</td></tr>
+          <tr><td>创始</td><td>2005 年 6 月 10 日，Michael Arrington 和 Keith Teare 通过 Archimedes Ventures 创办</td></tr>
+          <tr><td>东家</td><td>Regent LP，2013 年成立，总部比弗利山，创始人兼董事长 Michael Reinstein。收购对象多是大公司剥离的老品牌：Sunset 杂志、Defense News 和 Army Times 等军队报纸、Cheddar 财经视频、Foundry（PCWorld、Macworld、InfoWorld、CIO、Tech Advisor），以及 Escada、Club Monaco、Bally、La Senza 这些时装内衣品牌</td></tr>
+          <tr><td>负责人</td><td>Connie Loizos，总编辑兼总经理，2023 年 9 月起。此前她创办的风投日报 StrictlyVC 被 Yahoo 收购并入 TechCrunch。Reinstein 现在以 TechCrunch 出版人身份发声</td></tr>
+          <tr><td>编辑部</td><td>官网列出的条线编辑：Kirsten Korosec（交通）、Sarah Perez（消费）、Zack Whittaker（安全）、Julie Bort（风投）、Russell Brandom（AI），另有气候、风投等资深记者，亚洲和创业生态由特约记者覆盖。欧洲团队 2025 年 5 月整体裁撤。总人数没有可靠数字 <span class="tag flag">待确认</span></td></tr>
+          <tr><td>历任总编</td><td>Michael Arrington（2005 至 2011）、Erick Schonfeld、Alexia Tsotsis 与 Matthew Panzarino 共同主编、Panzarino（2013 至 2023）、Connie Loizos（2023 至今）</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="product">
+      <h2>产品</h2>
+      <p>TechCrunch 卖三样东西：网站上的注意力、活动现场的门票和赞助位、以及“被 TechCrunch 报道过”这个身份。</p>
+
+      <h3>网站与新闻</h3>
+      <ul>
+        <li>每天几十篇稿子，主线是创业公司融资、风投、AI、安全、交通。免费阅读，靠展示广告、赞助内容和联盟链接变现。</li>
+        <li>2026 年 7 月 Similarweb 数据：月访问约 900 万次，全球排名 8992，美国占 61%，直接访问占 46%，跳出率 64%，每次访问 1.7 页、1 分 16 秒。读者来了看一篇就走。</li>
+        <li>子品牌 StrictlyVC 日报继续发，配套线下活动 2026 年 4 月 30 日在旧金山办了第一场。</li>
+        <li>播客 Equity 每周三、周五更新，主持人是 Kirsten Korosec、Anthony Ha、Sean O’Kane 等，2025 到 2026 年仍在更。</li>
+      </ul>
+
+      <h3>活动</h3>
+      <ul>
+        <li><strong>Disrupt。</strong>2010 年起的旗舰会议。2025 年 10 月 27 到 29 日在旧金山 Moscone West，1 万人到场。2026 年 10 月 13 到 15 日同址，六个舞台、200 多场分享、250 多位讲者。早鸟票：普通 849 美元、创始人 899 美元、投资人 999 美元，正价分别贵 200 美元。赞助商有 Google for Startups、Stripe、Qualcomm、SAP、施耐德电气等。</li>
+        <li><strong>Startup Battlefield。</strong>Disrupt 里的路演赛。每年选 200 家早期公司进 Battlefield 200，前 20 名现场路演，冠军拿 10 万美元、不占股。校友有 Dropbox、Mint、Yammer，累计融资 320 亿美元。</li>
+        <li><strong>TechCrunch Sessions: AI。</strong>2025 年 6 月 5 日在伯克利，1200 人，讲者来自 OpenAI、Anthropic、Google DeepMind。</li>
+        <li><strong>Founder Summit。</strong>2026 年新办的创始人峰会，宣传口径 1000 多位创始人和投资人。</li>
+      </ul>
+
+      <h3>做过又停掉的</h3>
+      <ul>
+        <li><strong>Crunchbase。</strong>2007 年为配合报道建的公司数据库，2015 年拆出独立，现在是一家几百人的数据公司。</li>
+        <li><strong>Crunchies。</strong>2007 到 2017 年的年度颁奖。</li>
+        <li><strong>TechCrunch+。</strong>2019 年以 Extra Crunch 名义上线的付费订阅，每月 15 美元，2021 年改名。2022 年 9 月公司说订阅数同比增 142%、收入增 82%。2024 年 1 月关闭，同时裁 8 人，Loizos 的解释是“同时做两门生意让我们没法聚焦在能赢的地方”。</li>
+        <li><strong>海外版。</strong>法文版 2012 年并入主站，日本版 2022 年 5 月关闭，中文版通过 TechNode 合作，欧洲团队 2025 年 5 月裁撤。</li>
+      </ul>
+    </section>
+
+    <section id="business">
+      <h2>业务情况</h2>
+      <h3>收入结构</h3>
+      <p>公开资料里能拼出的结构是广告加活动，两者大致各半，订阅曾经是第三条腿，已经砍掉。Disrupt 的收入一半来自赞助商，另一半来自门票和创业公司的展位。活动毛利比同行高，原因是会场在旧金山本地、讲者不付费、议程由懂行的记者自己排、卖票用自家网站不花推广费。</p>
+      <p>Regent 接手后的做法是把 TechCrunch 和 Foundry 旗下的 PCWorld、Macworld、InfoWorld、CIO 打包卖给同一批科技广告主，Reinstein 的说法是“一个全球覆盖的科技媒体实体”。这对广告销售有意义，对内容没有，因为 Foundry 做的是消费电子和企业 IT，和创业报道是两拨记者、两拨读者。</p>
+
+      <h3>流量</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>时间</th><th>数据</th><th>来源</th></tr>
+          <tr><td class="n">2007</td><td>每天约 1.2 万读者</td><td class="dim">Headerbidding 整理</td></tr>
+          <tr><td class="n">2009</td><td>月独立访客 550 万</td><td class="dim">Headerbidding 整理</td></tr>
+          <tr><td class="n">2018</td><td>月独立访客 1727 万，美国占 46%，自然搜索占 45%</td><td class="dim">Headerbidding 整理</td></tr>
+          <tr><td class="n">2024-09</td><td>月访客 1212 万</td><td class="dim">SEMrush，Press Gazette 引用</td></tr>
+          <tr><td class="n">2025-04</td><td>月访客 940 万</td><td class="dim">SEMrush，Press Gazette 引用</td></tr>
+          <tr><td class="n">2026-07</td><td>月访问约 900 万次，环比 +7.8%</td><td class="dim">Similarweb</td></tr>
+        </table>
+      </div>
+      <p>八年掉了一半。原因在行业层面：Google 的 AI 摘要把点击留在了搜索页，2026 年 5 月 AI Mode 月访问 2.79 亿，一年翻了一倍多；TechCrunch 自己的报道也承认 ChatGPT 带来的流量补不上搜索掉的。它的报道被 AI 引擎当作权威来源引用，但引用不带点击。</p>
+
+      <h3>人</h3>
+      <p>Sifted 的说法是过去 18 个月里 TechCrunch 的长期领导层和编辑团队走了一半，一半被裁，一半自己走。2023 年 8 月 Panzarino 做满十年卸任；2024 年初关 TC+ 裁 8 人，企业线记者 Ron Miller 被裁，Equity 创始主持人 Alex Wilhelm 离开；2025 年 5 月欧洲团队约 10 人被裁，包括做了 18 年的 Mike Butcher、13 年的 Ingrid Lunden 和 Romain Dillet、12 年的 Natasha Lomas。Reinstein 随后发文说“欧洲，我们不走。句号”，被裁的人称之为“空洞的公司话术”。</p>
+    </section>
+
+    <section id="finance">
+      <h2>财务状况</h2>
+      <p>TechCrunch 从没独立公开过财报，Yahoo 和 Regent 也不拆分披露。下面是能找到的数字，多数是早年的。</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>时间</th><th>数据</th><th>来源</th></tr>
+          <tr><td class="n">2007</td><td>收入约 300 万美元，3 名员工</td><td class="dim">Headerbidding 整理</td></tr>
+          <tr><td class="n">2009</td><td>收入约 1000 万美元，利润约 350 万美元</td><td class="dim">Headerbidding 整理</td></tr>
+          <tr><td class="n">2010-09</td><td>AOL 收购，约 2500 万美元</td><td class="dim">Wikipedia、Fox News</td></tr>
+          <tr><td class="n">2018</td><td>收入约 2250 万美元（估）</td><td class="dim">Headerbidding 整理</td></tr>
+          <tr><td class="n">2020</td><td>收入 3000 万美元以上（估）</td><td class="dim">Headerbidding 整理</td></tr>
+          <tr><td class="n">2021-05</td><td>随 Verizon Media 整体以 50 亿美元卖给 Apollo，TechCrunch 单独作价未知</td><td class="dim">Wikipedia</td></tr>
+          <tr><td class="n">2022-09</td><td>TC+ 订阅数同比 +142%，收入 +82%</td><td class="dim">The Wrap</td></tr>
+          <tr><td class="n">2025-03</td><td>Yahoo 卖给 Regent，价格未披露，交易无需监管审查，推断低于 1 亿美元</td><td class="dim">Axios、Adweek</td></tr>
+        </table>
+      </div>
+      <p>2020 年之后没有任何收入数字，只能用流量倒推：流量掉一半，广告收入大概率也掉了一截，活动收入撑着总盘子。Yahoo 在 2023 年花钱买 StrictlyVC、2024 年关订阅、2025 年整体卖掉，这个顺序说明 Yahoo 试过投入，一年后决定止损。买家是一家专收“非核心资产”的私募，出价低于 1 亿美元，对一个 2010 年就值 2500 万美元、鼎盛期年收入 3000 万的品牌来说，十五年没涨多少。</p>
+    </section>
+
+    <section id="history">
+      <h2>发展历程</h2>
+      <ul class="timeline">
+        <li><span class="when">2005-06</span><div class="what"><strong>博客起步</strong><span>Arrington 在家里写 Web 2.0 公司评测。2007 年做到年收入 300 万美元、3 名员工，同年办 TechCrunch40 会议并建 CrunchBase。</span></div></li>
+        <li><span class="when">2010-09</span><div class="what"><strong>卖给 AOL</strong><span>约 2500 万美元。同年第一届 Disrupt 在纽约办。</span></div></li>
+        <li><span class="when">2011-09</span><div class="what"><strong>Arrington 出局</strong><span>他发起 2800 万美元的 CrunchFund 投资创业公司，与报道对象利益冲突，AOL 让他离开。Paul Carr、Sarah Lacy 随后出走创办 PandoDaily。</span></div></li>
+        <li><span class="when">2013</span><div class="what"><strong>Panzarino 时代开始</strong><span>Alexia Tsotsis 和 Matthew Panzarino 共同主编，后由 Panzarino 独任十年。同年 Disrupt 上一个叫 Titstare 的应用引发性别歧视争议，公司道歉。</span></div></li>
+        <li><span class="when">2015</span><div class="what"><strong>Verizon 买下 AOL，Crunchbase 拆出</strong><span>Crunchbase 由 Emergence Capital 注资独立。2017 年 AOL 和 Yahoo 合并为 Oath，后改名 Verizon Media。</span></div></li>
+        <li><span class="when">2019</span><div class="what"><strong>上线付费订阅 Extra Crunch</strong><span>每月 15 美元，2021 年改名 TechCrunch+。</span></div></li>
+        <li><span class="when">2021-05</span><div class="what"><strong>随 Yahoo 卖给 Apollo</strong><span>Verizon 以 50 亿美元出售整个媒体部门，TechCrunch 成为 Yahoo Inc. 旗下品牌。</span></div></li>
+        <li><span class="when">2023-08</span><div class="what"><strong>Panzarino 卸任，Yahoo 买 StrictlyVC</strong><span>Connie Loizos 任总编辑兼总经理。Yahoo 当时的说法是要投资新闻、体育、财经等支柱。</span></div></li>
+        <li><span class="when">2024-01</span><div class="what"><strong>关闭 TechCrunch+</strong><span>裁 8 人，理由是“两门生意不能同时做好”。此后 Ron Miller、Alex Wilhelm 等老记者离开。</span></div></li>
+        <li><span class="when">2025-03</span><div class="what"><strong>Regent 接手</strong><span>3 月 20 日 Regent 从 IDG 买下 Foundry，21 日宣布从 Yahoo 买下 TechCrunch。Loizos 当时写“交易结构确保对运营的干扰最小”。</span></div></li>
+        <li><span class="when">2025-05</span><div class="what"><strong>裁撤欧洲团队</strong><span>约 10 人，包括 Butcher、Lunden、Dillet、Lomas、Sawers、Carly Page。Reinstein 称这是“加倍投入”，靠 Foundry 在欧洲的记者网络补位。</span></div></li>
+        <li><span class="when">2025-10</span><div class="what"><strong>Disrupt 2025</strong><span>1 万人到场，Regent 治下的第一届。</span></div></li>
+        <li><span class="when">2026</span><div class="what"><strong>加码活动</strong><span>Disrupt 2026 扩到六个舞台，新办 Founder Summit，StrictlyVC 线下活动重启。</span></div></li>
+      </ul>
+      <p>压缩一下：前五年是一个人的博客做成了硅谷的公告板；中间十五年是大公司媒体部门里的一个品牌，东家换了四次，每次都不是为它而买；2025 年起归一家私募，方向是活动和打包广告。</p>
+    </section>
+
+    <section id="moat">
+      <h2>护城河</h2>
+      <p>按由深到浅排。</p>
+      <div class="moat">
+        <div><span class="grade">深</span><b>名字</b>二十年积累的“创业圈头号媒体”认知。融资新闻发在 TechCrunch 上，投资人和候选人才会当真。这个位置没有对手能替代，The Information 更深但更窄，The Verge 更大但不做创业。</div>
+        <div><span class="grade">深</span><b>Disrupt 和 Battlefield</b>一年一度、1 万人、校友融资 320 亿美元。活动是它现在最稳的收入，也是它把品牌变成现金的唯一直接渠道。会场在旧金山，讲者不收费，这套成本结构别人复制不了。</div>
+        <div><span class="grade">中</span><b>搜索权重与引用</b>二十年的稿库让它在搜索和 AI 引擎里都是默认引用源。但引用带不来点击，这项资产在贬值。</div>
+        <div><span class="grade">中</span><b>条线记者</b>安全线的 Zack Whittaker、交通线的 Kirsten Korosec 这类记者本身就是品牌，独家来自他们的人脉。问题是人会走，而且过去两年走了一半。</div>
+        <div><span class="grade">浅</span><b>Regent 的媒体组合</b>和 PCWorld、CIO 打包卖广告在销售端有加成，但这些品牌各自都在衰退，组合起来不产生新读者。</div>
+        <div><span class="grade">浅</span><b>网站流量</b>900 万月访问，跳出率 64%，一次看一篇。广告收入建立在这上面，而这个数字在往下走。</div>
+      </div>
+      <p>它的护城河都指向同一个结论：TechCrunch 是一个品牌，品牌最值钱的变现方式是活动。作为新闻网站它在被搜索引擎和 AI 抽血，作为会议公司它还能赚钱。Regent 的动作也在往这个方向走。</p>
+    </section>
+
+    <section id="competitors">
+      <h2>竞争对手</h2>
+      <p>它在三个市场竞争：创业和风投新闻、科技行业活动、科技广告主的预算。</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>对手</th><th>定位</th><th>规模</th><th>对 TechCrunch 的威胁</th></tr>
+          <tr><td><strong>The Information</strong></td><td>付费订阅的科技和风投深度报道</td><td class="n">年费 399 美元，Pro 999 美元；订阅占收入 90% 以上；2022 年约 4.5 万付费用户；2025 年增长“高 20%”</td><td>正面对手。走了 TechCrunch 没走通的订阅路，没有广告依赖，没有母公司，2025 年还做了每日视频和自家 AI 研究工具。投资人和大公司高管这层读者已经被它拿走。</td></tr>
+          <tr><td><strong>Axios Pro、Bloomberg</strong></td><td>金融和交易新闻</td><td class="dim">大型媒体的科技条线</td><td>抢融资、并购的独家。Bloomberg 有终端用户付费，不靠流量。</td></tr>
+          <tr><td><strong>The Verge</strong></td><td>消费科技和产品文化（Vox Media）</td><td class="n">2024 年 12 月起收 7 美元每月的订阅；Vox 2026 年在出售旗下品牌</td><td>流量上最接近的对手，但不做创业报道。Vox 自身在拆卖，说明这类数字媒体集团的日子都不好过。</td></tr>
+          <tr><td><strong>Business Insider</strong></td><td>商业和科技泛新闻</td><td class="n">2025 年 5 月裁员 21%，理由是“极端的流量下跌”和转向 AI、线下活动</td><td>同病相怜。它的转向方向和 TechCrunch 一样：少靠流量，多靠活动。</td></tr>
+          <tr><td><strong>Sifted、Tech.eu</strong></td><td>欧洲创业媒体</td><td class="dim">Sifted 有 FT 背景</td><td>TechCrunch 裁掉欧洲团队后，这块直接让出。Sifted 的报道标题是“对生态的一记重拳”。</td></tr>
+          <tr><td><strong>Newsletter 和 Substack</strong></td><td>Newcomer、Lenny’s 等个人作者</td><td class="dim">单人或小团队，付费订阅</td><td>离开大媒体的记者自己开号，带走了读者和线人。TechCrunch 自己买 StrictlyVC 就是承认这一点。</td></tr>
+          <tr><td><strong>创始人自己发</strong></td><td>X、LinkedIn、公司博客</td><td class="dim">免费</td><td>融资消息越来越多先发在创始人的账号上，媒体变成转述。这削弱了“上 TechCrunch”的必要性。</td></tr>
+          <tr><td><strong>AI 搜索</strong></td><td>Google AI Overviews、ChatGPT、Perplexity</td><td class="n">Google AI Mode 月访问 2.79 亿（2026-05）</td><td>最根本的威胁。把新闻网站变成不带点击的引用来源，广告模式失去地基。</td></tr>
+          <tr><td><strong>Crunchbase News</strong></td><td>它自己拆出去的数据公司办的新闻站</td><td class="dim">按季度发风投数据报告</td><td>风投行情这类数据新闻，媒体引用的是 Crunchbase 的数据，TechCrunch 的名字不出现。</td></tr>
+        </table>
+      </div>
+      <p>放一起看，深度读者去了 The Information，欧洲读者去了 Sifted，数据引用去了 Crunchbase，流量被 AI 截走，独家被创始人自己发掉。TechCrunch 守住的是最大众的那一层创业新闻，和一年一度的会场。</p>
+    </section>
+
+    <section id="risks">
+      <h2>风险与判断</h2>
+      <h3>风险</h3>
+      <ul>
+        <li><strong>广告模式没有地基。</strong>流量八年掉一半，AI 搜索还在加速。靠展示广告的新闻网站在 2026 年普遍在裁员或转型。</li>
+        <li><strong>私募东家。</strong>Regent 的历史是收老品牌、削成本、打包运营。接手两个月就裁掉欧洲团队，和收购时“干扰最小”的承诺相反。下一步很可能是和 Foundry 合并后台。</li>
+        <li><strong>人在流失。</strong>记者是这门生意的生产资料。老编辑走了一半，新人能否建立同样的线人网络没有证据。</li>
+        <li><strong>活动是单点。</strong>Disrupt 一年一次，在旧金山。经济下行、赞助商缩预算、或者一次办砸，收入立刻受影响。</li>
+        <li><strong>可信度。</strong>Arrington 时代的利益冲突、Titstare 事件、现在的私募东家和打包广告，都在消耗“独立报道”的信誉。Butcher 离开时说的正是“不带利益的独立新闻仍有位置”。</li>
+      </ul>
+
+      <h3>判断</h3>
+      <p>TechCrunch 已经从一家新闻公司变成一家靠新闻维持的会议和品牌公司。这个转变不是 Regent 开始的，Yahoo 关订阅时就定了方向，Regent 只是把它做到底。作为会议公司它有护城河，作为新闻网站它在走下坡，两者共用一个名字，会议的价值靠新闻的名声撑着，名声又靠记者撑着。裁记者省的钱，最后会从门票和赞助上还回去。</p>
+      <p>最可能的路径是：Disrupt 继续办并扩大，网站维持一个够用的编辑部产出新闻和会议议程，Regent 几年后把 TechCrunch 和 Foundry 打包卖给下一个买家。它不会消失，但也不会再是 2010 年那个能左右一家公司命运的媒体。</p>
+
+      <h3>对我们的参考</h3>
+      <ul>
+        <li>发融资或产品新闻，TechCrunch 依然是最有辨识度的一家，但欧洲线没了，亚洲靠特约记者。找对条线编辑比群发有用。</li>
+        <li>Startup Battlefield 200 是免费、不占股的曝光渠道，每年 8 月截止申请。Slax 这类工具产品可以试。</li>
+        <li>它关掉付费订阅的理由是“两门生意不能同时做好”，这句话对任何同时做内容和工具的小团队都适用。</li>
+        <li>媒体的流量被 AI 引用截走，这件事对知识星球、Slax Reader 这类内容产品同样成立。被引用带不来点击，能带来点击的是名字和活动，这是 TechCrunch 二十年后剩下的东西。</li>
+      </ul>
+    </section>
+
+    <section id="sources">
+      <h2>来源</h2>
+      <ol class="sources">
+        <li>Wikipedia, TechCrunch. <a href="https://en.wikipedia.org/wiki/TechCrunch">en.wikipedia.org/wiki/TechCrunch</a></li>
+        <li>Wikipedia, Regent LP. <a href="https://en.wikipedia.org/wiki/Regent_LP">en.wikipedia.org/wiki/Regent_LP</a></li>
+        <li>Wikipedia, Michael Reinstein. <a href="https://en.wikipedia.org/wiki/Michael_Reinstein">en.wikipedia.org/wiki/Michael_Reinstein</a></li>
+        <li>TechCrunch, 2010-09-28, Tim Armstrong: We Got TechCrunch. <a href="https://techcrunch.com/2010/09/28/tim-armstrong-we-got-techcrunch">techcrunch.com</a></li>
+        <li>TechCrunch, 2011-09-12, Michael Arrington, “Deciding” To Move On. <a href="https://techcrunch.com/2011/09/12/deciding-to-move-on/">techcrunch.com</a></li>
+        <li>Headerbidding, 2023-11-25, Becoming TechCrunch（收入、流量历史整理）. <a href="https://headerbidding.co/becoming-techcrunch/">headerbidding.co</a></li>
+        <li>Axios, 2023-08-29, TechCrunch acquires StrictlyVC, names Connie Loizos to run it. <a href="https://www.axios.com/2023/08/29/techcrunch-acquires-strictlyvc-connie-loizos">axios.com</a></li>
+        <li>TechCrunch, 2023-08-29, A change at TechCrunch. <a href="https://techcrunch.com/2023/08/29/a-change-at-techcrunch/">techcrunch.com</a></li>
+        <li>Adweek, 2024-01, TechCrunch Is Shuttering Its Subscription Product and Laying Off Staff. <a href="https://www.adweek.com/media/techcrunch-shutters-subscription-layoffs/">adweek.com</a></li>
+        <li>The Wrap, 2024-01, TechCrunch to Shutter Subscription Service TC+ After Layoffs. <a href="https://www.thewrap.com/techcrunch-subscription-service-tc-shut-down-layoffs/">thewrap.com</a></li>
+        <li>Axios, 2025-03-21, Yahoo sells TechCrunch to investment firm Regent. <a href="https://www.axios.com/2025/03/21/yahoo-techcrunch-regent">axios.com</a></li>
+        <li>Adweek, 2025-03, Yahoo Sells TechCrunch to Regent, Streamlining Its Portfolio. <a href="https://www.adweek.com/media/yahoo-techcrunch-regent-acquisition/">adweek.com</a></li>
+        <li>PE Hub, 2025-03-20, Regent picks up tech media company Foundry from IDG. <a href="https://www.pehub.com/regent-picks-up-tech-media-company-foundry-from-idg/">pehub.com</a></li>
+        <li>Press Gazette, 2025-05, Around ten staff axed in TechCrunch move to scrap Europe coverage. <a href="https://pressgazette.co.uk/publishers/digital-journalism/around-ten-staff-axed-in-techcrunch-move-to-scrap-europe-coverage/">pressgazette.co.uk</a></li>
+        <li>Press Gazette, 2025-06, TechCrunch owner says he is doubling down on Europe after staff axed. <a href="https://pressgazette.co.uk/news/techcrunch-owner-says-he-is-doubling-down-on-europe-after-staff-axed/">pressgazette.co.uk</a></li>
+        <li>Sifted, 2025-05, TechCrunch exits Europe: “It’s a gut punch to the ecosystem”. <a href="https://sifted.eu/articles/techcrunch-leaves-europe-shut-down-startups">sifted.eu</a></li>
+        <li>TechCrunch, Disrupt 2026 活动页（门票、赞助商、Battlefield 数据）. <a href="https://techcrunch.com/events/techcrunch-disrupt/">techcrunch.com/events</a></li>
+        <li>TechCrunch, 2026-08-07, The founder’s guide to TechCrunch Disrupt 2026. <a href="https://techcrunch.com/2026/08/07/the-founders-guide-to-techcrunch-disrupt-2026-everything-you-need-to-know/">techcrunch.com</a></li>
+        <li>TechCrunch, 2025-06-03, 2 days until TC Sessions: AI at UC Berkeley. <a href="https://techcrunch.com/2025/06/03/just-2-days-until-techcrunch-sessions-ai-at-uc-berkeley-where-the-future-of-ai-takes-shape/">techcrunch.com</a></li>
+        <li>TechCrunch, About TechCrunch（编辑部名单）. <a href="https://techcrunch.com/about-techcrunch/">techcrunch.com/about-techcrunch</a></li>
+        <li>Similarweb, techcrunch.com（2026 年 7 月）. <a href="https://www.similarweb.com/website/techcrunch.com/">similarweb.com</a></li>
+        <li>TechCrunch, 2026-07-27, Google’s AI search is rapidly becoming the default. <a href="https://techcrunch.com/2026/07/27/googles-ai-search-is-rapidly-becoming-the-default-new-data-shows/">techcrunch.com</a></li>
+        <li>TechCrunch, 2025-07-02, ChatGPT referrals to news sites are growing, but not enough to offset search declines. <a href="https://techcrunch.com/2025/07/02/chatgpt-referrals-to-news-sites-are-growing-but-not-enough-to-offset-search-declines/">techcrunch.com</a></li>
+        <li>Talking Biz News, The Information’s Lessin explains its growth. <a href="https://talkingbiznews.com/media-news/the-informations-lessin-explains-its-growth/">talkingbiznews.com</a></li>
+        <li>Nieman Lab, 2025-05, Business Insider will lay off 21% of staff. <a href="https://www.niemanlab.org/2025/05/business-insider-will-lay-off-21-of-staff-amid-ai-disruption-and-extreme-traffic-drops-outside-of-our-control/">niemanlab.org</a></li>
+        <li>Editor and Publisher, The Verge launches its first sitewide subscription product. <a href="https://www.editorandpublisher.com/stories/the-verge-launches-its-first-sitewide-subscription-product,253255">editorandpublisher.com</a></li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+<script>
+(function(){
+  var dr=document.getElementById("drawer"),dl=document.getElementById("drawerlist");
+  if(!dr||!dl) return;
+  document.getElementById("tocbtn").addEventListener("click",function(){dr.classList.add("open")});
+  dr.addEventListener("click",function(e){if(e.target===dr||e.target.tagName==="A")dr.classList.remove("open")});
+  document.querySelectorAll("nav.toc a").forEach(function(a){dl.appendChild(a.cloneNode(true))});
+})();
+</script>
+</body>
+</html>
