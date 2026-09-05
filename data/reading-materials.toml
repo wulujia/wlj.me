@@ -1,5 +1,5 @@
 # Reading Materials Data
-# Category: "book", "report" or "documentary"
+# Category: "book", "report", "documentary" or "misc"（杂项）
 # Fields: slug, title, subtitle, author, category, year, description, original_url, reading_url, post_slug (optional)
 
 [[materials]]
@@ -156,3 +156,14 @@ year = "2026"
 description = "从邮件列表长成的新产品发布社区。2016 年约 2000 万美元卖给 AngelList，换过四任 CEO，2023 年裁员六成；现在把首页推荐率砍到一成，停办 Golden Kitty，加论坛、评价和替代品页，从发布日投票榜转向产品发现。看它的产品、生意、钱、来路、护城河和对手。"
 original_url = "https://www.producthunt.com/"
 reading_url = "/reading/product-hunt/"
+
+[[materials]]
+slug = "quanzhou-old-town-housing"
+title = "泉州老城区公寓房价分析"
+subtitle = ""
+author = "Luca"
+category = "misc"
+year = "2026"
+description = "给老人买房用的调研：东湖公园、西湖公园、六灌路三个板块。国家统计局 70 城指数换算的 2019 至 2026 年成交价格曲线（二手房比 2021 年高点跌了约 28%），老城区挂牌均价曲线，14 个有电梯、近公园、买菜方便的候选小区和总价估算，租金水平与回报。数据截至 2026 年 9 月。"
+original_url = ""
+reading_url = "/reading/quanzhou-old-town-housing/"
