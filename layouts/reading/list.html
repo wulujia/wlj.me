@@ -1,99 +1,125 @@
 {{ define "main" }}
-<article class="post">
-  <h1 class="post-title">{{ .Title | markdownify }}</h1>
-  <div class="post-meta">
-    <span class="post-author">by <a href="{{ .Site.Params.author.url | default "/about/" | absURL }}">{{ .Site.Params.author.name }}</a></span>
-  </div>
+{{- $labels := dict "book" "书" "report" "研究报告" "documentary" "纪录片" "misc" "杂项" -}}
+{{- $order := slice "book" "report" "documentary" "misc" -}}
+{{- $materials := index (index .Site.Data "reading-materials") "materials" -}}
+{{- $sorted := sort $materials "date" "desc" -}}
+<style>
+  .reading-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 0;
+  }
+  .reading-filter a {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: var(--accent);
+    line-height: 1.5;
+  }
+  .reading-filter a.active {
+    background: var(--accent);
+    color: var(--background);
+  }
+  .reading-filter a .count {
+    opacity: 0.7;
+    margin-left: 4px;
+  }
+  .reading-item[hidden] { display: none; }
+  .reading-empty { padding: 30px 0; opacity: 0.7; }
+  .post-tags a { text-decoration: none; }
+</style>
 
-  <div class="post-content">
-    <p>这些页面是对原作的梳理和要点摘录，用于中文阅读辅助——不是翻译，不能替代原作。</p>
+<h1 class="page-title">{{ .Title | markdownify }}</h1>
+<div class="index-content">
+  <p>这些页面是对原作的梳理和要点摘录，用于中文阅读辅助——不是翻译，不能替代原作。</p>
+  <nav class="reading-filter" aria-label="分类筛选">
+    <a href="#" data-cat="all" class="active">全部<span class="count">{{ len $sorted }}</span></a>
+    {{- range $order }}
+      {{- $cat := . }}
+      {{- $n := len (where $sorted "category" $cat) }}
+      {{- if gt $n 0 }}
+    <a href="#{{ $cat }}" data-cat="{{ $cat }}">{{ index $labels $cat }}<span class="count">{{ $n }}</span></a>
+      {{- end }}
+    {{- end }}
+  </nav>
+</div>
 
-    {{ $data := index .Site.Data "reading-materials" }}
-    {{ $materials := index $data "materials" }}
-
-    {{ $books := slice }}
-    {{ $reports := slice }}
-    {{ $documentaries := slice }}
-    {{ $misc := slice }}
-    {{ range $materials }}
-      {{ if eq .category "book" }}
-        {{ $books = $books | append . }}
-      {{ else if eq .category "report" }}
-        {{ $reports = $reports | append . }}
-      {{ else if eq .category "documentary" }}
-        {{ $documentaries = $documentaries | append . }}
-      {{ else if eq .category "misc" }}
-        {{ $misc = $misc | append . }}
-      {{ end }}
-    {{ end }}
-
-    <h2 id="books">书</h2>
-    <div style="display:grid;gap:14px;margin-bottom:36px">
-    {{ range $books }}
-      <div style="border:1px solid var(--code-border,#073642);border-radius:8px;padding:16px 18px">
-        <div style="display:flex;align-items:baseline;gap:3px 10px;flex-wrap:wrap;margin-bottom:6px">
-          <strong><a href="{{ .reading_url | absURL }}">{{ .title }}</a></strong>
-          {{ if .subtitle }}<span style="color:var(--accent);font-size:0.88em">{{ .subtitle }}</span>{{ end }}
-        </div>
-        <div style="font-size:0.85em;color:var(--foreground);margin-bottom:4px">
-          {{ .author }}{{ if .year }} · {{ .year }}{{ end }}
-        </div>
-        <p style="margin:0;font-size:0.9em">{{ .description }}</p>
-      </div>
-    {{ end }}
+<div class="posts" id="reading-list">
+  {{ range $sorted }}
+  <article class="post on-list reading-item" data-category="{{ .category }}">
+    <h2 class="post-title">
+      <a href="{{ .reading_url | absURL }}">{{ .title }}</a>
+    </h2>
+    <div class="post-meta">
+      <time class="post-date" datetime="{{ .date }}">{{ (time .date) | time.Format "2006-01-02" }}</time>
+      <span>{{ .author }}{{ if .year }} · {{ .year }}{{ end }}</span>
+      {{- if .subtitle }}<span>{{ .subtitle }}</span>{{ end }}
     </div>
-
-    <h2 id="reports">研究报告</h2>
-    <div style="display:grid;gap:14px;margin-bottom:36px">
-    {{ range $reports }}
-      <div style="border:1px solid var(--code-border,#073642);border-radius:8px;padding:16px 18px">
-        <div style="display:flex;align-items:baseline;gap:3px 10px;flex-wrap:wrap;margin-bottom:6px">
-          <strong><a href="{{ .reading_url | absURL }}">{{ .title }}</a></strong>
-          {{ if .subtitle }}<span style="color:var(--accent);font-size:0.88em">{{ .subtitle }}</span>{{ end }}
-        </div>
-        <div style="font-size:0.85em;color:var(--foreground);margin-bottom:4px">
-          {{ .author }}{{ if .year }} · {{ .year }}{{ end }}
-        </div>
-        <p style="margin:0;font-size:0.9em">{{ .description }}</p>
-      </div>
-    {{ end }}
+    <span class="post-tags">#<a href="#{{ .category }}" data-cat="{{ .category }}">{{ index $labels .category | default .category }}</a></span>
+    <div class="post-content">
+      <p>{{ .description }}</p>
     </div>
-
-    {{ if $documentaries }}
-    <h2 id="documentaries">纪录片</h2>
-    <div style="display:grid;gap:14px;margin-bottom:36px">
-    {{ range $documentaries }}
-      <div style="border:1px solid var(--code-border,#073642);border-radius:8px;padding:16px 18px">
-        <div style="display:flex;align-items:baseline;gap:3px 10px;flex-wrap:wrap;margin-bottom:6px">
-          <strong><a href="{{ .reading_url | absURL }}">{{ .title }}</a></strong>
-          {{ if .subtitle }}<span style="color:var(--accent);font-size:0.88em">{{ .subtitle }}</span>{{ end }}
-        </div>
-        <div style="font-size:0.85em;color:var(--foreground);margin-bottom:4px">
-          {{ .author }}{{ if .year }} · {{ .year }}{{ end }}
-        </div>
-        <p style="margin:0;font-size:0.9em">{{ .description }}</p>
-      </div>
-    {{ end }}
+    <div>
+      <a class="read-more button inline" href="{{ .reading_url | absURL }}">[打开资料]</a>
+      {{- if .original_url }}
+      <a class="read-more button inline" href="{{ .original_url }}" target="_blank" rel="noopener">[原文]</a>
+      {{- end }}
+      {{- if .post_slug }}
+      <a class="read-more button inline" href="{{ printf "/posts/%s/" .post_slug | absURL }}">[相关文章]</a>
+      {{- end }}
     </div>
-    {{ end }}
+  </article>
+  {{ end }}
+  <p class="reading-empty" id="reading-empty" hidden>这个分类下还没有资料。</p>
+</div>
 
-    {{ if $misc }}
-    <h2 id="misc">杂项</h2>
-    <div style="display:grid;gap:14px;margin-bottom:36px">
-    {{ range $misc }}
-      <div style="border:1px solid var(--code-border,#073642);border-radius:8px;padding:16px 18px">
-        <div style="display:flex;align-items:baseline;gap:3px 10px;flex-wrap:wrap;margin-bottom:6px">
-          <strong><a href="{{ .reading_url | absURL }}">{{ .title }}</a></strong>
-          {{ if .subtitle }}<span style="color:var(--accent);font-size:0.88em">{{ .subtitle }}</span>{{ end }}
-        </div>
-        <div style="font-size:0.85em;color:var(--foreground);margin-bottom:4px">
-          {{ .author }}{{ if .year }} · {{ .year }}{{ end }}
-        </div>
-        <p style="margin:0;font-size:0.9em">{{ .description }}</p>
-      </div>
-    {{ end }}
-    </div>
-    {{ end }}
-  </div>
-</article>
+<script>
+(function () {
+  var valid = {{ $order | jsonify | safeJS }};
+  var links = document.querySelectorAll('.reading-filter a');
+  var items = document.querySelectorAll('.reading-item');
+  var empty = document.getElementById('reading-empty');
+
+  function apply(cat) {
+    if (valid.indexOf(cat) === -1) cat = 'all';
+    var shown = 0;
+    items.forEach(function (el) {
+      var hit = cat === 'all' || el.dataset.category === cat;
+      el.hidden = !hit;
+      if (hit) shown++;
+    });
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.dataset.cat === cat);
+    });
+    empty.hidden = shown > 0;
+  }
+
+  function fromHash() {
+    apply((location.hash || '#all').slice(1));
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-cat]');
+    if (!a) return;
+    e.preventDefault();
+    var cat = a.dataset.cat;
+    if (cat === 'all') {
+      history.replaceState(null, '', location.pathname);
+    } else {
+      history.replaceState(null, '', '#' + cat);
+    }
+    apply(cat);
+    if (a.closest('.post-tags')) {
+      document.getElementById('reading-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
 {{ end }}

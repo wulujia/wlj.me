@@ -2,6 +2,7 @@
 
 ## 2026-09-05
 
+- `/reading/` 资料页重设计：`layouts/reading/list.html` 从四组分类卡片改为与日志列表同款的时间倒序列表（标题 / 日期 / 作者·年份 / 副标题 / `#分类` 标签 / 简介 / `[打开资料]` `[原文]` `[相关文章]`）。顶部新增分类筛选（全部 / 书 / 研究报告 / 纪录片 / 杂项，带计数），纯前端切换，URL hash（如 `/reading/#book`）可直达某一分类，条目上的 `#分类` 标签也可点选。`data/reading-materials.toml` 每条新增 `date` 字段（收录时间，取自 git 首次提交时间），列表按它排序；新增资料时必须填 `date`。
 - 新增资料页《TechCrunch 深度调研》，`static/reading/techcrunch/index.html`，规格同 Crunchbase 页；`data/reading-materials.toml` 新增 report 条目。
 - 新增资料页《泉州老城区公寓房价分析》，`static/reading/quanzhou-old-town-housing/index.html`，自包含 HTML（官方成交指数曲线 / 挂牌均价曲线 / 板块均价 / 候选小区 / 六灌路定位 / 租金分析 / 来源），`index,follow` + canonical，顶部返回资料链接。`data/reading-materials.toml` 新增 `misc`（杂项）分类和条目；`layouts/reading/list.html` 新增「杂项」分组（无条目时不渲染）。
 - 新增资料页《Product Hunt 深度调研》，`static/reading/product-hunt/index.html`，规格同 Crunchbase 页；`data/reading-materials.toml` 新增 report 条目。
