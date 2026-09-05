@@ -43,7 +43,7 @@
 {{- if partial "seo/is-indexable.html" . -}}
   {{- $items := slice (dict "@type" "ListItem" "position" 1 "name" .Site.Title "item" .Site.BaseURL) -}}
   {{- if and .IsPage (or (eq .Section "posts") (eq .Section "startupnotes")) -}}
-    {{- $secName := cond (eq .Section "startupnotes") "创业笔记" "文章" -}}
+    {{- $secName := cond (eq .Section "startupnotes") "创业笔记" "日志" -}}
     {{- $secURL := cond (eq .Section "startupnotes") "startupnotes/" "posts/" -}}
     {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" $secName "item" ($secURL | absURL)) -}}
     {{- $items = $items | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink) -}}

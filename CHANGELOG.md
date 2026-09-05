@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-05
+
+- `posts` 栏目改名「日志」（URL 保持 `/posts/` 不变）：`hugo.toml` 菜单名、`layouts/_default/list.html` 默认标题、`layouts/partials/seo/jsonld.html` 的 section 名同步改；新增 `content/posts/_index.md` 设置栏目标题，页面 h1 和 `<title>` 从「Posts」变为「日志」。
+
 ## 2026-08-18
 
 - 创业笔记从 953 更新到 957，新增《Claude Tag 和知识星球》《飞书 aily》《温暖的话》《知识星球里的上下文》四篇免费试读，并同步知识星球真实发布日期与主题索引。
