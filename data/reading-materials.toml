@@ -134,3 +134,14 @@ description = "英国纪录片系列：1964 年从 14 个七岁孩子拍起，�
 original_url = "https://en.wikipedia.org/wiki/Up_(film_series)"
 reading_url = "/reading/the-up-series/"
 post_slug = "the-up-series"
+
+[[materials]]
+slug = "crunchbase"
+title = "Crunchbase 深度调研"
+subtitle = ""
+author = "Luca"
+category = "report"
+year = "2026"
+description = "从 TechCrunch 附属数据库长成的私募市场数据公司。累计融资 1.07 亿美元，收入约 4000 万美元，6 万付费客户；2023 年裁员两成转向 AI，2025 年重新发布为预测型公司情报，2026 年推出 MCP。看它的产品、生意、钱、来路、护城河和对手。"
+original_url = "https://www.crunchbase.com/"
+reading_url = "/reading/crunchbase/"

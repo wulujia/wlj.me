@@ -3,6 +3,7 @@
 ## 2026-09-05
 
 - `posts` 栏目改名「日志」（URL 保持 `/posts/` 不变）：`hugo.toml` 菜单名、`layouts/_default/list.html` 默认标题、`layouts/partials/seo/jsonld.html` 的 section 名同步改；新增 `content/posts/_index.md` 设置栏目标题，页面 h1 和 `<title>` 从「Posts」变为「日志」。
+- 新增资料页《Crunchbase 深度调研》，`static/reading/crunchbase/index.html`，自包含 HTML（产品 / 业务 / 财务 / 历程 / 护城河 / 对手 / 风险 / 来源），`index,follow` + canonical，窄屏悬浮目录；`data/reading-materials.toml` 新增 report 条目，随 sitemap 自动收录。
 
 ## 2026-08-18
 

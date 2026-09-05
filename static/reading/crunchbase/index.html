@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Crunchbase 深度调研：产品、业务、财务、发展历程、护城河和竞争对手。累计融资 $106.5M，收入约 $40M，2025 年转向预测型公司情报，2026 年推出 MCP。资料截至 2026 年 9 月。">
+<link rel="canonical" href="https://wlj.me/reading/crunchbase/">
+<title>Crunchbase 深度调研</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --ink: #17212b;
+    --ink-2: #4b5966;
+    --muted: #7a8794;
+    --rule: #d7dee6;
+    --accent: #1c5d99;
+    --accent-soft: #e3edf7;
+    --flag: #b3541e;
+    --flag-soft: #f7e9df;
+    --ok: #2f7a4d;
+    --code-bg: #eef2f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f151b;
+      --surface: #161d25;
+      --ink: #e6ebf0;
+      --ink-2: #b4bec8;
+      --muted: #8593a0;
+      --rule: #2a343f;
+      --accent: #7db2e3;
+      --accent-soft: #1b2b3c;
+      --flag: #e0916a;
+      --flag-soft: #3a261a;
+      --ok: #6cc08b;
+      --code-bg: #1d2630;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f151b;
+    --surface: #161d25;
+    --ink: #e6ebf0;
+    --ink-2: #b4bec8;
+    --muted: #8593a0;
+    --rule: #2a343f;
+    --accent: #7db2e3;
+    --accent-soft: #1b2b3c;
+    --flag: #e0916a;
+    --flag-soft: #3a261a;
+    --ok: #6cc08b;
+    --code-bg: #1d2630;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover, a:focus-visible { border-bottom-color: var(--accent); outline: none; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 720px);
+    gap: 56px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  @media (max-width: 860px) {
+    .page { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 32px; }
+    .toc { display: none; }
+  }
+
+  .toc {
+    position: sticky;
+    top: 32px;
+    align-self: start;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .toc .label {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .toc a { color: var(--ink-2); border: 0; }
+  .toc a:hover { color: var(--accent); }
+
+  header.masthead { margin-bottom: 40px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-family: "Newsreader", "Songti SC", "Noto Serif SC", Georgia, serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  .dek { font-size: 19px; color: var(--ink-2); margin: 0; max-width: 60ch; }
+  .meta {
+    margin-top: 20px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+  }
+
+  h2 {
+    font-family: "Newsreader", "Songti SC", "Noto Serif SC", Georgia, serif;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 1.25;
+    margin: 56px 0 16px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 28px 0 8px;
+    color: var(--ink);
+  }
+  p { margin: 0 0 14px; max-width: 68ch; }
+  ul, ol { padding-left: 1.3em; margin: 0 0 14px; max-width: 68ch; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--muted); }
+  strong { font-weight: 600; }
+
+  .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: .94em;
+  }
+
+  /* summary facts */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 24px 0 8px;
+  }
+  @media (max-width: 600px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+  .fact { background: var(--surface); padding: 14px 16px; }
+  .fact .k { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-family: "IBM Plex Mono", monospace; }
+  .fact .v { font-size: 22px; font-weight: 600; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; margin-top: 2px; color: var(--ink); }
+  .fact .s { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 14px 18px;
+    margin: 20px 0;
+    max-width: 68ch;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.flag { border-left-color: var(--flag); background: var(--flag-soft); }
+
+  .tag {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    padding: 1px 7px;
+    border-radius: 3px;
+    background: var(--code-bg);
+    color: var(--ink-2);
+    vertical-align: 1px;
+  }
+  .tag.flag { background: var(--flag-soft); color: var(--flag); }
+
+  /* tables */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0 20px; border: 1px solid var(--rule); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; font-family: "IBM Plex Mono", monospace; background: var(--code-bg); white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  td.n, th.n { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.dim { color: var(--muted); }
+
+  /* timeline */
+  .timeline { list-style: none; padding: 0; margin: 20px 0; max-width: 68ch; }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    margin: 0;
+  }
+  .timeline li:last-child { border-bottom: 0; }
+  .timeline .when { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--accent); padding-top: 3px; font-variant-numeric: tabular-nums; }
+  .timeline .what strong { display: block; }
+  .timeline .what span { color: var(--ink-2); font-size: 15px; }
+
+  /* moat cards */
+  .moat { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  @media (max-width: 600px) { .moat { grid-template-columns: 1fr; } }
+  .moat div { background: var(--surface); border: 1px solid var(--rule); padding: 14px 16px; font-size: 15px; }
+  .moat div b { display: block; font-size: 16px; margin-bottom: 4px; }
+  .moat div .grade { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); float: right; }
+
+  .sources { font-size: 14px; color: var(--ink-2); }
+  .sources li { margin-bottom: 4px; }
+  .sources a { word-break: break-all; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  #reading-return { text-align:center; padding:6px 10px; font-size:13px; background:var(--surface); border-bottom:1px solid var(--rule); }
+  #reading-return a { color:var(--ink-2); border:0; }
+  #tocbtn { position:fixed; right:18px; bottom:18px; z-index:70; border:1px solid var(--rule); background:var(--surface); color:var(--ink); border-radius:999px; cursor:pointer; font:inherit; font-size:13px; padding:10px 15px; box-shadow:0 4px 18px rgba(0,0,0,.13); }
+  @media (min-width:861px) { #tocbtn { display:none; } }
+  #drawer { position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.42); display:none; }
+  #drawer.open { display:block; }
+  #drawer .panel { position:absolute; right:0; top:0; bottom:0; width:min(320px,86vw); background:var(--bg); border-left:1px solid var(--rule); padding:22px 16px; overflow:auto; }
+  #drawer a { display:block; font-size:14px; color:var(--ink-2); text-decoration:none; padding:8px 10px; border-radius:7px; border:0; }
+  #drawer a:hover { background:var(--code-bg); }
+  @media print { #tocbtn, #drawer, #reading-return { display:none !important; } }
+</style>
+
+</head>
+<body>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回资料</a></div>
+<div class="page">
+  <nav class="toc" aria-label="目录">
+    <div class="label">目录</div>
+    <ol>
+      <li><a href="#summary">一页结论</a></li>
+      <li><a href="#company">公司概况</a></li>
+      <li><a href="#product">产品</a></li>
+      <li><a href="#business">业务情况</a></li>
+      <li><a href="#finance">财务状况</a></li>
+      <li><a href="#history">发展历程</a></li>
+      <li><a href="#moat">护城河</a></li>
+      <li><a href="#competitors">竞争对手</a></li>
+      <li><a href="#risks">风险与判断</a></li>
+      <li><a href="#sources">来源</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="masthead">
+      <p class="eyebrow">公司研究 · 私募市场数据</p>
+      <h1>Crunchbase 深度调研</h1>
+      <p class="dek">一个从 TechCrunch 附属数据库长成的 SaaS 公司，正在把自己从“查过去”改成“猜未来”。本文看它的产品、生意、钱、来路、护城河和对手。</p>
+      <div class="meta">
+        <span>写于 2026-09-05</span>
+        <span>资料截至 2026-09</span>
+        <span>数字带“估”字的为第三方估算</span>
+      </div>
+    </header>
+
+    <section id="summary">
+      <h2>一页结论</h2>
+      <p>Crunchbase 是一家总部在旧金山的私营公司数据平台。它靠免费公司档案吸引流量，再向投资人、销售、企业研究团队卖订阅和数据授权。2015 年从 AOL 拆出独立，累计融资约 1.07 亿美元，最后一轮是 2022 年的 5000 万美元 D 轮。</p>
+      <p>2023 年起公司做了一次硬转身：裁掉两成人，把资源压到 AI 和数据科学上，2025 年 3 月以“预测型公司情报”重新发布，2026 年 7 月推出 MCP 接口让 Claude、ChatGPT 等直接调用它的数据。这个转身的底层判断来自 CEO Jager McConnell：静态的历史数据会被大模型商品化，只有独家的、不断变化的时序数据才值钱。</p>
+
+      <div class="facts">
+        <div class="fact"><div class="k">成立</div><div class="v">2007</div><div class="s">TechCrunch 内部数据库</div></div>
+        <div class="fact"><div class="k">累计融资</div><div class="v">$106.5M</div><div class="s">5 轮，最后一轮 2022</div></div>
+        <div class="fact"><div class="k">年用户</div><div class="v">80M+</div><div class="s">公司口径，含免费访客</div></div>
+        <div class="fact"><div class="k">付费客户</div><div class="v">60,000+</div><div class="s">2022 至 2023 年披露</div></div>
+        <div class="fact"><div class="k">员工</div><div class="v">160–250</div><div class="s">来源不一，见财务节</div></div>
+        <div class="fact"><div class="k">收入</div><div class="v">~$38M 估</div><div class="s">2022 年 B2B ARR 目标</div></div>
+      </div>
+
+      <div class="callout">
+        <p><strong>怎么看这家公司。</strong>它手里值钱的东西是一个搜索引擎里排名极高的品牌和域名，8000 万用户在站内的行为数据，以及十几年积累的融资事件库。拖累它的是数据靠众包和爬取，新鲜度和准确度常被诟病，人的数据浅，PitchBook 和 Harmonic 又在两头挤压。预测产品是它对这些拖累的回答，目前看数据在增长，但准确率口径还没稳定下来。</p>
+      </div>
+    </section>
+
+    <section id="company">
+      <h2>公司概况</h2>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>项目</th><th>内容</th></tr>
+          <tr><td>法律主体</td><td>Crunchbase, Inc.，私营，总部美国旧金山</td></tr>
+          <tr><td>创始</td><td>2007 年 5 月 17 日，Michael Arrington 为 TechCrunch 报道过的创业公司建的配套数据库</td></tr>
+          <tr><td>CEO</td><td>Jager McConnell，2015 年由 Emergence Capital 从 Salesforce 挖来，任职至今</td></tr>
+          <tr><td>其他高管</td><td>CPO Megh Gautam（2023 年 5 月加入，主管 AI 转型；2026 年 MCP 新闻稿署名 CPO 为 Ketaki Rao，交接情况待确认）、CTO Robert Conrad、CRO Nealesh Patel、首席人事官 Kelly Scheib</td></tr>
+          <tr><td>主要投资人</td><td>Emergence Capital、Mayfield、OMERS Ventures、Alignment Growth、Cowboy Ventures、Verizon Ventures（AOL 留下的股份）</td></tr>
+          <tr><td>员工</td><td>2022 年 7 月 220 人；2023 年 3 月 241 人；2023 年 7 月裁员后约 178 人；2026 年第三方数据库记 245 至 250 人，2025 年一篇 CEO 访谈称 160 人</td></tr>
+          <tr><td>客户举例</td><td>Mixpanel、OECD、拜耳、Outreach、monday.com、Atomico、Clay、HubSpot、Picus Capital；公司称超过一半的财富 500 强用过</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="product">
+      <h2>产品</h2>
+      <p>免费档案页做流量，订阅软件做收入主体，数据授权和接口卖给企业和 AI 工具。</p>
+
+      <h3>免费层：公司档案</h3>
+      <p>任何人都能搜公司、看融资历史、创始人、投资方、新闻。这一层是获客漏斗，也是 SEO 资产。第三方 SEO 工具测得 crunchbase.com 域名权重 90，反链 2260 万条，每月自然搜索访问 200 万以上，Similarweb 记 2025 年 10 月总访问 562 万次。</p>
+
+      <h3>订阅层：Pro 与 Business</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>版本</th><th class="n">价格</th><th>包含</th></tr>
+          <tr><td>Pro</td><td class="n">$49/月 年付（$588/年）；$99 月付</td><td>高级搜索筛选、公司跟踪与提醒、预测标签、导出</td></tr>
+          <tr><td>Business</td><td class="n">$199/月 年付（$2,388/年）</td><td>Pro 全部功能，加 CRM 集成（Salesforce、HubSpot）、5000 行导出、AI 行业趋势分析、完整 Predictions &amp; Insights</td></tr>
+          <tr><td>Enterprise / API</td><td class="n">按需报价</td><td>API 全量访问、更高导出上限、专属支持</td></tr>
+        </table>
+      </div>
+      <p>2025 年公司取消了免费 API 层，也不再发新的 Basic API 密钥。个人开发者要用接口，门槛从 0 变成每年 588 美元起，企业级需要联系销售。开发者社区的反应是转向爬虫和替代数据源。</p>
+
+      <h3>数据层：授权、补全、Marketplace、MCP</h3>
+      <ul>
+        <li><strong>Data Licensing</strong>：把整库或子集卖给 LinkedIn、Glassdoor、纳斯达克这类平台，以及金融机构。2023 年 CEO 披露这块约占收入三分之一。</li>
+        <li><strong>Data Enrichment / Data Boost</strong>：把客户 CRM 里的公司记录补齐字段。</li>
+        <li><strong>Databricks Marketplace</strong>（2025）：企业数据团队直接在 Databricks 里订阅 Crunchbase 数据集。</li>
+        <li><strong>Perplexity Select Channel Partner</strong>（2025）：Perplexity 企业版用户绑定 Crunchbase 订阅后，回答里直接引用 Crunchbase 数据。</li>
+        <li><strong>Crunchbase MCP</strong>（2026 年 7 月 21 日）：一个 Model Context Protocol 服务，Claude、ChatGPT、Gemini、Cursor 等可以直接查询它的数据和预测。首批接入的有金融 AI 公司 Rogo 和 Semaverse。</li>
+      </ul>
+
+      <h3>核心变化：预测型情报</h3>
+      <p>2024 年 9 月先在 API 里上线 Predictions &amp; Insights，2025 年 3 月整站重新发布，口号是“Historical Data is Dead”和“Before It’s News, It’s In Crunchbase”。预测类型有七种：融资、增长、被收购、IPO、继续私有、关闭、裁员。公司说负面预测（关闭、裁员）不会公开展示，只给付费客户。</p>
+      <p>公司给出的数据来源和规模：</p>
+      <ul>
+        <li>390 亿条“实时信号”，每家公司 790 个字段，每年 3000 万条经过核验的更新</li>
+        <li>1000 个公开来源、60 万名数据贡献者，用户自己提交的内容现在只占全部数据的 5%</li>
+        <li>8000 万用户的站内行为（搜什么、看谁、改哪个档案），这是它说别人拿不到的部分</li>
+        <li>1500 万条预测，每周刷新；2025 年秋累计 5000 条以上已被证实，月均 650 条，2025 年 9 月单月超 1000 条</li>
+      </ul>
+      <p>准确率的口径有两个：2025 年 3 月 Forbes 报道和公司博客说融资预测精确率最高 95%、召回率 99%；2026 年官网首页写“84% 的真实融资事件被提前预测”。两个数字的定义不同，公司没有公开方法论。公开的案例包括 Google 收购 Wiz、Clay 的 1 亿美元融资、T-Mobile 收购 Blis，以及 Grammarly 宣布收购 Coda 前 60 天给 Coda 打出 93% 的被收购概率。</p>
+
+      <div class="callout flag">
+        <p><span class="tag flag">待确认</span> 95% 精确率、99% 召回率和 84% 覆盖率都是公司自述，没有第三方审计。用这些数字时应写“公司称”。</p>
+      </div>
+    </section>
+
+    <section id="business">
+      <h2>业务情况</h2>
+      <h3>客户是谁</h3>
+      <p>付钱的人里，投资人和投行用它找标的、做尽调，Atomico 说三分之一的新机会来自 Crunchbase，Picus Capital 说尽调快了 25%。销售和市场团队用它找刚融资的公司做客户，公司说“找客户快 60%”。企业战略、研究和数据团队走数据授权和 API，Clay 用它的数据跑了 260 万次动作。</p>
+      <p>2022 年融 D 轮时公司把自己定位成“基于账户的销售线索平台”，主打销售团队。2025 年重新发布后定位改成“预测型公司情报”，客户口径回到投资人和企业。三年里换了两次主叙事，但底层卖的东西一直是同一个数据库加上它的软件外壳。</p>
+
+      <h3>收入结构</h3>
+      <ul>
+        <li>约三分之二来自软件订阅（Pro、Business、Enterprise），约三分之一来自数据授权。2023 年 4 月 CEO 对 Fortune 披露。</li>
+        <li>付费客户 6 万以上，2022 年 7 月和 2023 年 4 月两次披露都是这个量级。</li>
+        <li>2022 年上半年 B2B 软件净新增 ARR 900 万美元，目标全年 ARR 翻倍到约 3800 万美元。</li>
+      </ul>
+
+      <h3>增长来源</h3>
+      <ul>
+        <li><strong>搜索流量。</strong>公司名和创始人名的搜索结果里 Crunchbase 档案常年排前几位，品牌词控制度接近满分。这是免费获客的主渠道。</li>
+        <li><strong>Crunchbase News。</strong>一个有编辑团队的数据新闻站，按季度发全球风投报告，被主流媒体反复引用。2026 年上半年“全球创业公司融资 5100 亿美元创纪录”这类头条都出自它。它既是流量入口，也是数据权威感的来源。</li>
+        <li><strong>分发进别人的工作流。</strong>Salesforce、HubSpot、Outreach 集成，Databricks、Perplexity 合作，再到 MCP。用户在自己已有的工具里就能用到 Crunchbase 数据，不用来它的网站。</li>
+        <li><strong>内部 AI 提效。</strong>CEO 在 2025 年访谈里说，销售用 Qualified 后每月合格线索会面从两百多涨到 600，工程用 Cursor 提速 20% 到 40%。</li>
+      </ul>
+    </section>
+
+    <section id="finance">
+      <h2>财务状况</h2>
+      <p>Crunchbase 是私营公司，没有财报。下面是能找到的披露和估算，按时间排列。</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>时间</th><th>数据</th><th>来源</th></tr>
+          <tr><td class="n">2007–2015</td><td>作为 TechCrunch 免费资源每年亏约 200 万美元</td><td class="dim">Wartime CEO Stories</td></tr>
+          <tr><td class="n">2019-10</td><td>C 轮投后估值 1.5 亿美元</td><td class="dim">TechCrunch</td></tr>
+          <tr><td class="n">2021</td><td>年收入约 3720 万美元（估）</td><td class="dim">Wartime CEO Stories</td></tr>
+          <tr><td class="n">2022 Q1</td><td>现金流转正；B2B 收入同比五倍</td><td class="dim">PR Newswire</td></tr>
+          <tr><td class="n">2022 H1</td><td>净新增 B2B ARR 900 万美元，烧钱 200 万美元，年底 B2B ARR 目标约 3800 万美元</td><td class="dim">TechCrunch</td></tr>
+          <tr><td class="n">2022-07</td><td>D 轮 5000 万美元，估值未披露，CEO 称“显著上调”</td><td class="dim">TechCrunch、Forbes</td></tr>
+          <tr><td class="n">2022-12</td><td>取消年会省约 50 万美元</td><td class="dim">Fortune</td></tr>
+          <tr><td class="n">2023-04</td><td>目标两年内盈利；“按永远不再融资的方式经营”</td><td class="dim">Fortune</td></tr>
+          <tr><td class="n">2025</td><td>年收入约 3900 万美元（估）</td><td class="dim">Growjo</td></tr>
+          <tr><td class="n">2025</td><td>“接近 1 亿美元年收入”</td><td class="dim">Business Powerhouse 访谈，<span class="tag flag">待确认</span></td></tr>
+          <tr><td class="n">2026 初</td><td>估值 3 亿至 5 亿美元（估）</td><td class="dim">第三方数据库，可信度低</td></tr>
+        </table>
+      </div>
+      <p>2022 年到 2025 年之间收入的可靠区间是 4000 万美元上下。“接近 1 亿”只出现在一篇非主流媒体的访谈里，和 Growjo 的估算差两倍多，不采信。公司四年没融资，2023 年裁员并宣称走向盈利，2025 年 CEO 说“如何尽快盈利比融资更重要”，这些信号一致指向它现在靠自己的现金流活。1.07 亿美元的总融资对一家 4000 万美元收入的公司来说不算重，投资人退出压力主要落在 2022 年进来的 Alignment Growth 身上。</p>
+
+      <h3>融资明细</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>时间</th><th>轮次</th><th class="n">金额</th><th>领投</th><th>备注</th></tr>
+          <tr><td class="n">2015-09</td><td>A 轮</td><td class="n">$6.5M</td><td>Emergence Capital</td><td>从 AOL 拆出，同年 11 月追加 $2M</td></tr>
+          <tr><td class="n">2017-04</td><td>B 轮</td><td class="n">$18M</td><td>Mayfield</td><td>Emergence、AOL、Cowboy Ventures 跟投</td></tr>
+          <tr><td class="n">2019-10</td><td>C 轮</td><td class="n">$30M</td><td>OMERS Ventures</td><td>投后 $150M，累计 $56.5M</td></tr>
+          <tr><td class="n">2022-07</td><td>D 轮</td><td class="n">$50M</td><td>Alignment Growth</td><td>超额认购，OMERS、Mayfield、Emergence 跟投</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="history">
+      <h2>发展历程</h2>
+      <ul class="timeline">
+        <li><span class="when">2007-05</span><div class="what"><strong>诞生于 TechCrunch</strong><span>Michael Arrington 建一个数据库，记录 TechCrunch 报道过的创业公司。免费、众包、没有商业化。</span></div></li>
+        <li><span class="when">2010-09</span><div class="what"><strong>随 TechCrunch 被 AOL 收购</strong><span>此后五年在 AOL 内部是个被忽略的资产，每年亏约 200 万美元。</span></div></li>
+        <li><span class="when">2015-09</span><div class="what"><strong>拆分独立</strong><span>Emergence Capital 投 650 万美元，AOL（当时已属 Verizon）留股。Salesforce 出身的 Jager McConnell 出任 CEO。</span></div></li>
+        <li><span class="when">2016</span><div class="what"><strong>改名并推出 Crunchbase Pro</strong><span>“CrunchBase”改成“Crunchbase”，第一次向个人用户收费。</span></div></li>
+        <li><span class="when">2017-04</span><div class="what"><strong>B 轮 1800 万美元，推出 Enterprise 和应用授权</strong><span>开始把数据卖给其他软件。</span></div></li>
+        <li><span class="when">2018</span><div class="what"><strong>Crunchbase Marketplace</strong><span>在档案页里接入第三方数据（后来的 SimilarWeb、SEMrush 流量数据是这条线的延续）。</span></div></li>
+        <li><span class="when">2019-10</span><div class="what"><strong>C 轮 3000 万美元</strong><span>OMERS Ventures 领投，计划一年内人数翻倍。</span></div></li>
+        <li><span class="when">2021-12</span><div class="what"><strong>Forbes：软件业务“悄悄赚了几百万”</strong><span>外界第一次意识到它的订阅生意有规模。</span></div></li>
+        <li><span class="when">2022-07</span><div class="what"><strong>D 轮 5000 万美元</strong><span>定位为销售线索平台，Q1 现金流转正，计划年底扩到 275 人。</span></div></li>
+        <li><span class="when">2023-02</span><div class="what"><strong>CEO 承诺不裁员</strong><span>硅谷银行危机期间对 Fortune 说“按永远不再融资的方式经营”。</span></div></li>
+        <li><span class="when">2023-07</span><div class="what"><strong>裁员 49 人，转向 AI</strong><span>加上主动离职共 63 人，约两成。CEO 说“不按 AI 优先去想，对公司是生存威胁”。数据工程团队翻倍，招 ML 工程师，用 AI 生成公司描述替代每条 50 美分的人工撰写。</span></div></li>
+        <li><span class="when">2024-09</span><div class="what"><strong>API 上线 Predictions &amp; Insights</strong><span>预测产品先给企业客户试。</span></div></li>
+        <li><span class="when">2025-03</span><div class="what"><strong>整站重新发布为“预测型公司情报”</strong><span>Forbes 报道 95% 准确率。同年与 Perplexity、Databricks 合作，取消免费 API。</span></div></li>
+        <li><span class="when">2026-01</span><div class="what"><strong>数据泄露</strong><span>ShinyHunters 用语音钓鱼骗取员工 Okta 单点登录凭证，公司拒付赎金后 200 万条记录被公开，含用户个人信息和内部合同。1 月 26 日公司确认。</span></div></li>
+        <li><span class="when">2026-07</span><div class="what"><strong>推出 Crunchbase MCP</strong><span>数据和预测直接进 Claude、ChatGPT、Gemini、Cursor 等 AI 工具。</span></div></li>
+      </ul>
+      <p>把这条线压缩一下：前八年是媒体的附属品，中间七年（2015 到 2022）是一家常规的数据 SaaS，从 2023 年起是一家想靠预测和 AI 分发活下去的公司。第三阶段的赌注是 CEO 的一句话：“还在依赖静态数据的公司已经过时了。”</p>
+    </section>
+
+    <section id="moat">
+      <h2>护城河</h2>
+      <p>按由深到浅排。</p>
+      <div class="moat">
+        <div><span class="grade">深</span><b>品牌与搜索位置</b>搜任何一家创业公司，Crunchbase 档案几乎都在首页。域名权重 90，反链 2260 万条。这是十几年攒下的，新对手用钱买不到。它带来源源不断的免费用户，也让“Crunchbase 上有没有”成为一家公司是否存在的默认检验。</div>
+        <div><span class="grade">深</span><b>用户行为时序数据</b>8000 万用户在站内搜什么、看谁、什么时候改档案。CEO 的原话：“我们知道投资人在搜什么、看谁的档案、趋势往哪走。”这是预测模型的独家输入，对手拿不到，大模型也爬不到。</div>
+        <div><span class="grade">中</span><b>贡献者网络与数据源</b>60 万贡献者、1000 个公开来源、上千数据合作方。创始人和投资人愿意主动来更新自己的档案，因为这里被人看。众包只占数据 5%，但它带来的是及时性。</div>
+        <div><span class="grade">中</span><b>分发渠道</b>Salesforce、HubSpot、Outreach 集成，LinkedIn、Glassdoor、纳斯达克授权，Databricks、Perplexity、MCP。数据嵌进别人的工作流后，替换成本上升。</div>
+        <div><span class="grade">中</span><b>Crunchbase News</b>一个被媒体反复引用的数据新闻品牌。它让公司在“风投行情”这个话题上有话语权，间接为数据背书。</div>
+        <div><span class="grade">浅</span><b>历史融资事件库</b>十几年的融资、并购记录。这是它最早的资产，也是最容易被 PitchBook、Tracxn 和大模型抹平的部分。CEO 自己承认静态数据会被商品化。</div>
+      </div>
+      <p>护城河的另一面是它的短板。数据新鲜度和准确度是用户最常抱怨的两点，因为大量数据来自自报和众包；人的数据只到高管层，Harmonic 有 1.95 亿人的档案；早期和隐身公司覆盖弱；2026 年初的泄露事件对一家以数据为生的公司是信任损伤。</p>
+    </section>
+
+    <section id="competitors">
+      <h2>竞争对手</h2>
+      <p>Crunchbase 同时在三个市场竞争：投资人数据、销售线索、企业研究。每个市场的头号对手不同。</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>对手</th><th>定位</th><th>规模</th><th>对 Crunchbase 的威胁</th></tr>
+          <tr><td><strong>PitchBook</strong><br><span class="dim">Morningstar 旗下</span></td><td>VC / PE 数据的老大，交易条款、LP 数据、公开市场都有</td><td class="n">2025 年收入 $172.6M，同比 +6.2%，经营利润率 30.2%；1000 万家公司；订阅约 $30K/年起</td><td>正面对手。数据深、价格高、刷新慢（3 到 4 个月）。2025 年起也和 Anthropic、Perplexity、Rogo、Hebbia 签了 LLM 合作，直接对冲 Crunchbase 的 AI 分发策略。</td></tr>
+          <tr><td><strong>Harmonic</strong></td><td>AI 原生的创业公司发现平台，主打 VC 找早期项目和 GTM</td><td class="n">3500 万家公司，1.95 亿人档案，优先群体每日刷新，自带 AI 代理 Scout</td><td>最凶的新对手。人的数据和早期覆盖都比 Crunchbase 深，自称早期公司覆盖率 98% 对 75%。它写的“Crunchbase 替代品”文章本身就是攻势。</td></tr>
+          <tr><td><strong>CB Insights</strong></td><td>企业战略和咨询团队用的市场研究，报告和趋势分析多</td><td class="n">估 ARR $80M 左右，较 2024 年 $146M 的估算下滑；100 万家公司</td><td>侧翼对手。客户重叠在企业研究，但它卖的是分析和报告，公司级数据不如 Crunchbase 广。</td></tr>
+          <tr><td><strong>Dealroom</strong></td><td>欧洲创业生态数据，和 100 多个政府机构合作</td><td class="n">320 万家公司，融资 $16.7M</td><td>区域对手。欧洲强，美国弱。</td></tr>
+          <tr><td><strong>Tracxn</strong></td><td>印度上市公司，便宜，新兴市场覆盖好</td><td class="n">500 万家公司，年收入约 $9M（美元口径）</td><td>低价替代。适合预算紧的团队，AI 功能弱。</td></tr>
+          <tr><td><strong>ZoomInfo / Apollo / Clay</strong></td><td>销售线索工具</td><td class="n">Clay 同时也是 Crunchbase 的数据客户</td><td>在销售场景抢同一笔预算。Crunchbase 2022 年的销售平台定位就是往这个池子里跳，2025 年又退了出来。</td></tr>
+          <tr><td><strong>AlphaSense / S&amp;P Capital IQ</strong></td><td>对冲基金、投行、信贷团队的文档和金融数据</td><td class="dim">公开市场为主</td><td>间接对手，高端客户可能只买这些。</td></tr>
+          <tr><td><strong>大模型本身</strong></td><td>ChatGPT、Perplexity 带联网搜索</td><td class="dim">免费或低价</td><td>最根本的替代。“某公司融了几轮”这类问题，用户越来越直接问 AI。Crunchbase 的回应是把数据塞进这些 AI（Perplexity 合作、MCP），赌 AI 需要它的数据而非绕开它。</td></tr>
+          <tr><td><strong>爬虫与开源数据</strong></td><td>Apify 等爬虫、OpenVC、Wellfound</td><td class="n">爬虫每年 $60 到 $240</td><td>取消免费 API 后，个人开发者流向这里。这些人本来也不付钱，但他们是口碑和生态。</td></tr>
+        </table>
+      </div>
+      <p>把对手放一起看，Crunchbase 的位置是“广而不深，便宜而不免费”。PitchBook 比它深，Harmonic 比它新，Tracxn 比它便宜，大模型比它方便。它的独特之处只剩两个：搜索里的位置，和用户行为数据。预测产品就是把第二个变成收入的尝试。</p>
+    </section>
+
+    <section id="risks">
+      <h2>风险与判断</h2>
+      <h3>风险</h3>
+      <ul>
+        <li><strong>预测准确率没有第三方验证。</strong>95%、99%、84% 三个数字并存，定义不同，公司没公开方法。如果客户发现预测的实际价值低于宣传，转型的叙事会塌。</li>
+        <li><strong>数据泄露的余波。</strong>2026 年 1 月泄露了 200 万条记录，含签过的企业合同。企业客户续约时的安全审查会更严。</li>
+        <li><strong>大模型对静态数据的侵蚀。</strong>CEO 自己说了，这是它转型的原因，也是它没转成时的结局。</li>
+        <li><strong>PitchBook 的 LLM 合作。</strong>如果 Anthropic、Perplexity 的用户默认拿到 PitchBook 数据，Crunchbase 在 AI 分发上的先发优势会被抵消。</li>
+        <li><strong>叙事切换太频繁。</strong>2019 年“找下一笔交易”，2022 年“销售线索平台”，2025 年“预测型情报”。每次换叙事都要重新教育市场，也让人怀疑核心生意是否找到了稳定的增长点。</li>
+        <li><strong>人的数据薄。</strong>投资越来越看人，Harmonic 在这里领先一个身位。</li>
+      </ul>
+
+      <h3>判断</h3>
+      <p>Crunchbase 是一家把内容资产转成 SaaS 的成功案例，4000 万美元上下的收入、6 万付费客户、现金流转正，这在数据公司里是扎实的中型生意。它现在做的两件事方向都对：一是把独家行为数据做成预测，卖别人卖不了的东西；二是把数据塞进 AI 工具，在用户离开自己网站之前留住收入。</p>
+      <p>能不能成，看 2027 年前后有没有外部审计或客户案例证实预测的准确率，以及 MCP 和 Perplexity 这类渠道带来的收入能不能补上开发者和低端用户流失的部分。如果两个都成立，它会从“查公司的网站”变成“私募市场的行情终端”；如果都不成立，它会退回到一个靠 SEO 流量和数据授权吃老本的公司，被 PitchBook 或大模型公司收购是最可能的结局。</p>
+
+      <h3>对我们的参考</h3>
+      <ul>
+        <li>免费内容页做 SEO 漏斗，付费层做工具，数据层做 B2B 授权，这个三层结构可以直接套在有内容资产的产品上。</li>
+        <li>用户行为数据比内容本身更难被复制。Crunchbase 用 8000 万人的点击训练预测模型，知识星球和 Slax Reader 都有类似的行为数据可以想。</li>
+        <li>把数据主动送进 AI 工具（MCP、渠道合作），是内容平台面对大模型的一种解法。屏蔽爬虫是另一种，Crunchbase 选了前者。</li>
+        <li>2023 年 2 月承诺不裁员、7 月裁两成，CEO 事后说“早点想到就会改招人决定”。转型的代价往往先落在人上。</li>
+      </ul>
+    </section>
+
+    <section id="sources">
+      <h2>来源</h2>
+      <ol class="sources">
+        <li>Wikipedia, Crunchbase. <a href="https://en.wikipedia.org/wiki/Crunchbase">en.wikipedia.org/wiki/Crunchbase</a></li>
+        <li>TechCrunch, 2015-09-08, CrunchBase Is Spinning Out, Backed by Emergence Capital. <a href="https://techcrunch.com/2015/09/08/crunchbase-is-spinning-out-backed-by-emergence-capital/">techcrunch.com</a></li>
+        <li>TechCrunch, 2022-07-20, Crunchbase looks to grow its database of startups with $50M in new cash. <a href="https://techcrunch.com/2022/07/20/crunchbase-looks-to-grow-its-database-of-startups-with-50m-in-new-cash/">techcrunch.com</a></li>
+        <li>Forbes, 2022-07-20, Crunchbase Announces $50 Million Series D. <a href="https://www.forbes.com/sites/phoebeliu/2022/07/20/crunchbase-announces-50-million-series-d-amid-tough-market-for-late-stage-funding/">forbes.com</a></li>
+        <li>Forbes, 2021-12-07, Crunchbase’s Software Business Is Quietly Making Millions. <a href="https://www.forbes.com/sites/rebeccaszkutak/2021/12/07/known-for-its-startup-data-crunchbases-software-business-is-quietly-making-millions/">forbes.com</a></li>
+        <li>Fortune, 2023-04-05, “I’m running the business as if I will never fundraise again”. <a href="https://fortune.com/2023/04/05/crunchbase-jager-mcconnell-svb-downturn/">fortune.com</a></li>
+        <li>Fortune, 2023-08-04, Five months ago Crunchbase vowed to try and avoid layoffs. <a href="https://finance.yahoo.com/news/five-months-ago-crunchbase-vowed-114639712.html">finance.yahoo.com</a></li>
+        <li>Forbes, 2025-03-05, How Crunchbase AI Is Forecasting Unicorns With 95% Accuracy. <a href="https://www.forbes.com/sites/dariashunina/2025/03/05/how-crunchbase-ai-is-forecasting-unicorns-with-95-accuracy/">forbes.com</a></li>
+        <li>Crunchbase Blog, Historical Data is Dead. The Future is Predictive Intelligence. <a href="https://about.crunchbase.com/blog/meet-the-new-crunchbase-predictive-company-intelligence">about.crunchbase.com</a></li>
+        <li>Crunchbase Blog, Crunchbase Hits 5,000+ Confirmed Predictions in 2025. <a href="https://about.crunchbase.com/blog/five-thousand-confirmed-predictions">about.crunchbase.com</a></li>
+        <li>Crunchbase 新闻稿, 2026-07-21, Crunchbase Launches MCP. <a href="https://about.crunchbase.com/press/press-releases/crunchbase-launches-mcp-to-bring-private-market-intelligence-into-ai-workflows">about.crunchbase.com</a></li>
+        <li>Crunchbase 官网首页（2026-09 抓取）. <a href="https://www.crunchbase.com/">crunchbase.com</a></li>
+        <li>Perplexity, Meet our First Channel Partners &amp; Data Integrators. <a href="https://www.perplexity.ai/hub/blog/meet-our-first-channel-partners-data-integrators">perplexity.ai</a></li>
+        <li>Databricks Marketplace, Crunchbase provider page. <a href="https://marketplace.databricks.com/provider/73a87e59-fbdc-426b-b7b7-354fb40e2892/Crunchbase">marketplace.databricks.com</a></li>
+        <li>SecurityWeek, Crunchbase Confirms Data Breach After Hacking Claims. <a href="https://www.securityweek.com/crunchbase-confirms-data-breach-after-hacking-claims/">securityweek.com</a></li>
+        <li>Security Affairs, ShinyHunters claims 2 Million Crunchbase records. <a href="https://securityaffairs.com/187340/data-breach/shinyhunters-claims-2-million-crunchbase-records-company-confirms-breach.html">securityaffairs.com</a></li>
+        <li>Business Powerhouse, Crunchbase CEO Jager McConnell interview（“接近 1 亿美元”出处，未采信）. <a href="https://www.business-powerhouse.com/crunchbase-ceo-jager-mcconnell-in-exclusive-interview-ai-is-now-necessary-for-all-companies-its-not-even-choice">business-powerhouse.com</a></li>
+        <li>SecondWave（note.com），Crunchbase CEO on Startup Investment and Data Strategy in the AI Era. <a href="https://note.com/startup_now0708/n/n4d07fc8e8ad5">note.com</a></li>
+        <li>Wartime CEO Stories, The Turnaround Story of Crunchbase. <a href="https://wartimeceostories.com/p/the-turnaround-story-of-crunchbase">wartimeceostories.com</a></li>
+        <li>Harmonic, Top Crunchbase competitors and alternatives in 2026（对手视角，有立场）. <a href="https://harmonic.ai/blog/top-crunchbase-competitors-and-alternatives-in-2026">harmonic.ai</a></li>
+        <li>DEV Community, Crunchbase API in 2026: Free Tier Gone. <a href="https://dev.to/agenthustler/crunchbase-api-in-2026-free-tier-gone-what-startup-data-hunters-do-now-1177">dev.to</a></li>
+        <li>Concurate, How Crunchbase Wins SEO, AI Search, and Buyer Intent. <a href="https://concurate.com/company/crunchbase-marketing-strategy/">concurate.com</a></li>
+        <li>Morningstar, Fourth-Quarter and Full-Year 2025 Financial Results（PitchBook 分部数据）. <a href="https://www.businesswire.com/news/home/20260211892585/en/Morningstar-Inc.-Reports-Fourth-Quarter-Full-Year-2025-Financial-Results">businesswire.com</a></li>
+        <li>Growjo、Latka、PitchBook 公司页：收入、员工、估值的第三方估算。</li>
+        <li>G2、Vendr、SyncGTM：2026 年定价整理。</li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+<script>
+(function(){
+  var dr=document.getElementById("drawer"),dl=document.getElementById("drawerlist");
+  if(!dr||!dl) return;
+  document.getElementById("tocbtn").addEventListener("click",function(){dr.classList.add("open")});
+  dr.addEventListener("click",function(e){if(e.target===dr||e.target.tagName==="A")dr.classList.remove("open")});
+  document.querySelectorAll("nav.toc a").forEach(function(a){dl.appendChild(a.cloneNode(true))});
+})();
+</script>
+</body>
+</html>
