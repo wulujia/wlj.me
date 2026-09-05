@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Product Hunt 深度调研：产品、业务、财务、发展历程、护城河和竞争对手。2016 年约 2000 万美元卖给 AngelList，2023 年裁员六成，现在从发布日投票榜转向产品评价与发现。资料截至 2026 年 9 月。">
+<link rel="canonical" href="https://wlj.me/reading/product-hunt/">
+<title>Product Hunt 深度调研</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #faf7f4;
+    --surface: #ffffff;
+    --ink: #231d19;
+    --ink-2: #5a504a;
+    --muted: #8a7f78;
+    --rule: #e4dcd5;
+    --accent: #b8451c;
+    --accent-soft: #f8e7df;
+    --flag: #1c5d99;
+    --flag-soft: #e3edf7;
+    --ok: #2f7a4d;
+    --code-bg: #f1ebe6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151210;
+      --surface: #1e1a17;
+      --ink: #efe9e4;
+      --ink-2: #c4bab2;
+      --muted: #918780;
+      --rule: #342d29;
+      --accent: #f08a5d;
+      --accent-soft: #3b241a;
+      --flag: #7db2e3;
+      --flag-soft: #1b2b3c;
+      --ok: #6cc08b;
+      --code-bg: #27221e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151210;
+    --surface: #1e1a17;
+    --ink: #efe9e4;
+    --ink-2: #c4bab2;
+    --muted: #918780;
+    --rule: #342d29;
+    --accent: #f08a5d;
+    --accent-soft: #3b241a;
+    --flag: #7db2e3;
+    --flag-soft: #1b2b3c;
+    --ok: #6cc08b;
+    --code-bg: #27221e;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover, a:focus-visible { border-bottom-color: var(--accent); outline: none; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 720px);
+    gap: 56px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  @media (max-width: 860px) {
+    .page { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 32px; }
+    .toc { display: none; }
+  }
+
+  .toc { position: sticky; top: 32px; align-self: start; font-size: 14px; line-height: 1.5; }
+  .toc .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; font-family: "IBM Plex Mono", monospace; }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .toc a { color: var(--ink-2); border: 0; }
+  .toc a:hover { color: var(--accent); }
+
+  header.masthead { margin-bottom: 40px; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  h1 {
+    font-family: "Newsreader", "Songti SC", "Noto Serif SC", Georgia, serif;
+    font-weight: 600; font-size: 40px; line-height: 1.15; letter-spacing: -.01em;
+    margin: 0 0 16px; text-wrap: balance;
+  }
+  .dek { font-size: 19px; color: var(--ink-2); margin: 0; max-width: 60ch; }
+  .meta { margin-top: 20px; font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 20px; }
+
+  h2 {
+    font-family: "Newsreader", "Songti SC", "Noto Serif SC", Georgia, serif;
+    font-weight: 600; font-size: 27px; line-height: 1.25;
+    margin: 56px 0 16px; padding-top: 20px; border-top: 1px solid var(--rule); text-wrap: balance;
+  }
+  h3 { font-size: 17px; font-weight: 600; margin: 28px 0 8px; color: var(--ink); }
+  p { margin: 0 0 14px; max-width: 68ch; }
+  ul, ol { padding-left: 1.3em; margin: 0 0 14px; max-width: 68ch; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--muted); }
+  strong { font-weight: 600; }
+
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 24px 0 8px; }
+  @media (max-width: 600px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+  .fact { background: var(--surface); padding: 14px 16px; }
+  .fact .k { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-family: "IBM Plex Mono", monospace; }
+  .fact .v { font-size: 22px; font-weight: 600; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; margin-top: 2px; color: var(--ink); }
+  .fact .s { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+
+  .callout { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 14px 18px; margin: 20px 0; max-width: 68ch; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.flag { border-left-color: var(--flag); background: var(--flag-soft); }
+
+  .tag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; padding: 1px 7px; border-radius: 3px; background: var(--code-bg); color: var(--ink-2); vertical-align: 1px; }
+  .tag.flag { background: var(--flag-soft); color: var(--flag); }
+
+  .tbl-wrap { overflow-x: auto; margin: 16px 0 20px; border: 1px solid var(--rule); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; font-family: "IBM Plex Mono", monospace; background: var(--code-bg); white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  td.n, th.n { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.dim { color: var(--muted); }
+
+  .timeline { list-style: none; padding: 0; margin: 20px 0; max-width: 68ch; }
+  .timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .timeline li:last-child { border-bottom: 0; }
+  .timeline .when { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--accent); padding-top: 3px; font-variant-numeric: tabular-nums; }
+  .timeline .what strong { display: block; }
+  .timeline .what span { color: var(--ink-2); font-size: 15px; }
+
+  .moat { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  @media (max-width: 600px) { .moat { grid-template-columns: 1fr; } }
+  .moat div { background: var(--surface); border: 1px solid var(--rule); padding: 14px 16px; font-size: 15px; }
+  .moat div b { display: block; font-size: 16px; margin-bottom: 4px; }
+  .moat div .grade { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); float: right; }
+
+  .sources { font-size: 14px; color: var(--ink-2); }
+  .sources li { margin-bottom: 4px; }
+  .sources a { word-break: break-all; }
+
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  #reading-return { text-align:center; padding:6px 10px; font-size:13px; background:var(--surface); border-bottom:1px solid var(--rule); }
+  #reading-return a { color:var(--ink-2); border:0; }
+  #tocbtn { position:fixed; right:18px; bottom:18px; z-index:70; border:1px solid var(--rule); background:var(--surface); color:var(--ink); border-radius:999px; cursor:pointer; font:inherit; font-size:13px; padding:10px 15px; box-shadow:0 4px 18px rgba(0,0,0,.13); }
+  @media (min-width:861px) { #tocbtn { display:none; } }
+  #drawer { position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.42); display:none; }
+  #drawer.open { display:block; }
+  #drawer .panel { position:absolute; right:0; top:0; bottom:0; width:min(320px,86vw); background:var(--bg); border-left:1px solid var(--rule); padding:22px 16px; overflow:auto; }
+  #drawer a { display:block; font-size:14px; color:var(--ink-2); text-decoration:none; padding:8px 10px; border-radius:7px; border:0; }
+  #drawer a:hover { background:var(--code-bg); }
+  @media print { #tocbtn, #drawer, #reading-return { display:none !important; } }
+</style>
+
+</head>
+<body>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回资料</a></div>
+<div class="page">
+  <nav class="toc" aria-label="目录">
+    <div class="label">目录</div>
+    <ol>
+      <li><a href="#summary">一页结论</a></li>
+      <li><a href="#company">公司概况</a></li>
+      <li><a href="#product">产品</a></li>
+      <li><a href="#business">业务情况</a></li>
+      <li><a href="#finance">财务状况</a></li>
+      <li><a href="#history">发展历程</a></li>
+      <li><a href="#moat">护城河</a></li>
+      <li><a href="#competitors">竞争对手</a></li>
+      <li><a href="#risks">风险与判断</a></li>
+      <li><a href="#sources">来源</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="masthead">
+      <p class="eyebrow">公司研究 · 产品发布社区</p>
+      <h1>Product Hunt 深度调研</h1>
+      <p class="dek">一个从邮件列表长成的“新产品发布日”仪式，卖过一次公司，换过四任 CEO，裁过六成人。现在它想从“发布日的投票榜”变成“产品的长期口碑库”。本文看它的产品、生意、钱、来路、护城河和对手。</p>
+      <div class="meta">
+        <span>写于 2026-09-05</span>
+        <span>资料截至 2026-09</span>
+        <span>数字带“估”字的为第三方估算</span>
+      </div>
+    </header>
+
+    <section id="summary">
+      <h2>一页结论</h2>
+      <p>Product Hunt 是一个每天给新产品排名的社区网站。创业者在这里发布产品，用户投票，当天票数最高的拿“Product of the Day”。它 2013 年 11 月由 Ryan Hoover 用一个邮件列表工具起家，2014 年进 YC 并拿到 a16z 610 万美元 A 轮，2016 年 12 月以约 2000 万美元卖给 AngelList，2020 年由投资人 Josh Buckley 注资接手，2023 年 9 月起由 Rajiv Ayyangar 任 CEO。</p>
+      <p>它的收入来自广告，规模在几百万美元一年，团队十几个人。2023 年 10 月裁掉六成员工后，公司把首页推荐率从几乎全推砍到一成左右，停掉办了十年的 Golden Kitty 年度奖，改成按季度评“真实增长”的 Orbit Awards，加了论坛、产品评价和“替代品”页面。方向是从一天的投票榜转向长期的产品发现和口碑。</p>
+
+      <div class="facts">
+        <div class="fact"><div class="k">成立</div><div class="v">2013-11</div><div class="s">邮件列表起家</div></div>
+        <div class="fact"><div class="k">卖出价</div><div class="v">~$20M</div><div class="s">2016 年 AngelList</div></div>
+        <div class="fact"><div class="k">月访问</div><div class="v">3.6M 估</div><div class="s">Similarweb，2026-07</div></div>
+        <div class="fact"><div class="k">邮件订阅</div><div class="v">650K+</div><div class="s">公司广告页口径</div></div>
+        <div class="fact"><div class="k">团队</div><div class="v">~14</div><div class="s">官网团队页人数</div></div>
+        <div class="fact"><div class="k">收入</div><div class="v">$4–8M 估</div><div class="s">第三方估算，跨度大</div></div>
+      </div>
+
+      <div class="callout">
+        <p><strong>怎么看这家公司。</strong>它值钱的地方是一个仪式和一个品牌：“在 Product Hunt 上发布”是硅谷创业者的成人礼，网站域名权重 91，65 万人订阅它的日报。拖累它的是仪式本身：一天定胜负，票能刷，来的流量好奇多、下单少，一份创始人调查里九成人说不会再发一次。管理层看到了这一点，过去两年所有改动都在往“发布之后”走。这个转向能不能成，取决于它能否在 G2 和大模型之间找到一个自己的位置。</p>
+      </div>
+    </section>
+
+    <section id="company">
+      <h2>公司概况</h2>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>项目</th><th>内容</th></tr>
+          <tr><td>法律主体</td><td>Product Hunt, Inc.，私营，总部美国旧金山</td></tr>
+          <tr><td>创始</td><td>2013 年 11 月 6 日，Ryan Hoover 用 Linkydink 建了一个分享新产品的邮件列表；感恩节假期和 Nathan Bashaw 做出第一版网站</td></tr>
+          <tr><td>CEO</td><td>Rajiv Ayyangar，2023 年 9 月起。此前是远程协作工具 Tandem 的联合创始人，2014 年起就是 Product Hunt 用户，自己在上面发布过 8 次</td></tr>
+          <tr><td>其他高管</td><td>President Josh Buckley（2020 年注资并任 CEO，现任总裁）、CTO Mike Kerzhner、核心产品总经理 Jake Crump、创始人 Ryan Hoover（顾问角色，2017 年起运营 Weekend Fund）</td></tr>
+          <tr><td>股东</td><td>AngelList（2016 年收购方，Naval Ravikant 留任董事）、Josh Buckley（2020 年“重大投资”）、早期投资人 a16z、YC 等。2020 年后从 AngelList 体系拆出独立运营，具体股权未披露 <span class="tag flag">待确认</span></td></tr>
+          <tr><td>团队</td><td>2016 年被收购时 13 人；2023 年 10 月裁员前约 100 人，裁掉约 60 人；官网团队页现列 14 人，另有 111 位校友</td></tr>
+          <tr><td>广告客户举例</td><td>Vercel、AWS、ElevenLabs、DigitalOcean、Framer、Intercom</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="product">
+      <h2>产品</h2>
+      <p>核心是一个每天重置的排行榜。太平洋时间零点，当天的产品同时上线，用户投票和评论，24 小时后定出当日前几名。围绕这个榜单，网站长出了日报、论坛、产品页、评价和奖项。</p>
+
+      <h3>发布（Launch）</h3>
+      <ul>
+        <li>提交免费，任何人都能发。产品被推上首页（Featured）由编辑团队决定，标准是“有用、新颖、做工好、有创意”，权重不公开。</li>
+        <li>2020 到 2023 年，六成到九成八的提交都能上首页。2024 年 1 月降到 25%，2024 年 9 月只剩约 10%。同期每天上首页的产品从 47 个降到 16 个。CEO 在 2024 年 10 月的日报里写：“我们不能把每个人的 AI 套壳都推上去。”</li>
+        <li>2024 年加了 Launch Assistant（贴网址自动填标题、标语、截图）、发布前仪表盘、草稿模式；固定零点自动上线，不再选时间。</li>
+        <li>不准直接拉票。官方帮助中心说有算法监测异常投票，人工复核，会删票、限号。2025 年起论坛里能看到大量卖票服务的投诉和封号记录。</li>
+      </ul>
+
+      <h3>发布之后</h3>
+      <ul>
+        <li><strong>产品页和 Shoutouts。</strong>每个产品有长期主页。发布时可以“喊出”自己用到的其他产品，2024 年 7 月取消了三个的上限并加了分类。这些数据反过来生成“顶级创业者在用什么”的分类页，以及 2024 年 8 月推出的 Top Product 徽章（前万分之一）。</li>
+        <li><strong>论坛。</strong>2025 年初把讨论区改成 Reddit 式的产品论坛，每个产品一个板块，能发更新、招聘、提问。2025 年 8 月起，“即将上线”页面被取消，新产品先在论坛开帖。</li>
+        <li><strong>替代品页面。</strong>2025 年在发布页加了“类似产品”推荐，并扩建了 Alternatives 页面。这是往 G2 那类评价站靠的动作。</li>
+        <li><strong>Orbit Awards。</strong>2025 年 11 月宣布停办十年的 Golden Kitty 年度奖，改成按季度、按品类、看真实增长和评价质量的 Orbit Awards，2025 年 12 月 1 日第一期评 AI 听写工具，后续是 vibe coding、AI 自动化、AI 会议记录、编程代理。最后一届 Golden Kitty 的年度产品是 Cursor。</li>
+        <li><strong>日报和周报。</strong>65 万以上订阅者，2024 年 10 月改版。这是它触达用户的主要渠道，也是广告位。</li>
+      </ul>
+
+      <h3>历史上做过又停掉的</h3>
+      <p>播客、图书、游戏垂直版块（2015 年，很快收缩）；Ship 创业者工具套件（2017 年）；新闻聚合 App Sip（2018 年 2 月上线，2019 年 7 月关闭）；6000 万美元的 Hyper 基金（2021 年 7 月，30 万美元换 5%，2023 年 10 月停办）；大使计划、评论踩、封面图开关、登录连续天数（2025 年都是加了又撤）。</p>
+    </section>
+
+    <section id="business">
+      <h2>业务情况</h2>
+      <h3>谁在用</h3>
+      <p>发布方是创业者和独立开发者，看的人是早期尝鲜者、投资人、媒体和同行。公司广告页给的受众画像：创始人、独立开发者、工程师、设计师、产品和市场人员。地区上美国占不到两成，印度占 13%，剩下分散在全球。</p>
+
+      <h3>规模</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>指标</th><th>数值</th><th>来源</th></tr>
+          <tr><td>月访问量</td><td class="n">约 360 万次，环比 -13%</td><td class="dim">Similarweb，2026 年 7 月</td></tr>
+          <tr><td>全球网站排名</td><td class="n">15,386</td><td class="dim">Similarweb，2026 年 7 月</td></tr>
+          <tr><td>月页面浏览</td><td class="n">900 万以上</td><td class="dim">公司广告页</td></tr>
+          <tr><td>月登录用户</td><td class="n">20 万以上</td><td class="dim">公司广告页</td></tr>
+          <tr><td>日报订阅</td><td class="n">65 万以上</td><td class="dim">公司广告页</td></tr>
+          <tr><td>月提交产品</td><td class="n">4000 以上</td><td class="dim">2024 年 9 月，第三方统计</td></tr>
+          <tr><td>每日上首页</td><td class="n">约 16 个</td><td class="dim">2024 年 9 月，第三方统计</td></tr>
+          <tr><td>直接访问占比</td><td class="n">58%</td><td class="dim">Similarweb，2026 年 7 月</td></tr>
+        </table>
+      </div>
+      <p>流量结构里直接访问接近六成，说明来的人多数是熟客，靠日报和习惯回访，搜索引擎带来的新客不多。2023 年 10 月裁员时 CEO 说“流量从来没这么高过”，2025 年底 Similarweb 也记到环比上涨，但 2026 年 7 月又回落。整体看，它的流量在几百万一个月的量级上横盘了几年。</p>
+
+      <h3>怎么赚钱</h3>
+      <ul>
+        <li><strong>广告。</strong>自助投放起价 5000 美元，包含首页信息流原生位和发布推广；托管方案每月 1 万美元起，包含横幅、日报冠名、赞助讨论和 AMA。日榜第四位是固定的推广位。裁员时保留的三个团队里有一个就是广告销售。</li>
+        <li><strong>招聘版块。</strong>早年每条职位 299 美元 30 天。这是 Hoover 在 2016 年就说“本来每月能赚 3 万美元却没做”的那块。现在规模不明。</li>
+        <li><strong>发布本身免费。</strong>官方发布指南写“100% 免费”。网上流传的“付费发布 29 美元”“Maker Pass”是第三方平台的定价，和 Product Hunt 无关。</li>
+        <li><strong>正在找的新模式。</strong>CEO 说想在广告之外做“把创业者和客户连起来”的收入，比如联盟分成。替代品页、评价、Orbit Awards 都在为这个铺路。</li>
+      </ul>
+
+      <h3>发布一次能得到什么</h3>
+      <p>第三方汇总的数据大致是：当天前三名能带来 5000 到 1.5 万访问，前十名 1000 到 3000，十名以外不到 500，其中大部分在前六小时。访问转注册通常 1% 到 3%，做得好的 15% 以上。B2C 产品一次好的发布能有几百到一千多注册，B2B 通常几十到几百。大多数人看重的是那条域名权重 91 的反向链接、一枚可以贴在官网上的徽章，以及“上过 Product Hunt”这句话。</p>
+      <p>负面的声音也多。OpenHunts 2024 年的一份调查说 89% 的创始人不会再发一次；独立开发者社区流行的说法是 Reddit 和 Indie Hackers 带来的注册比 Product Hunt 多 3 到 8 倍，因为那些人本来就在找解决方案。这些调查样本都不大，但方向一致：Product Hunt 给的是曝光，给不了精准客户。</p>
+    </section>
+
+    <section id="finance">
+      <h2>财务状况</h2>
+      <p>私营公司，没有财报。能找到的披露和估算按时间排列。</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>时间</th><th>数据</th><th>来源</th></tr>
+          <tr><td class="n">2014</td><td>YC 前融约 100 万美元（原计划 40 万）；秋天 a16z 领投 A 轮 610 万美元，累计约 700 万美元</td><td class="dim">YC 博客、Forbes</td></tr>
+          <tr><td class="n">2016</td><td>Hoover 承认可以靠招聘广告“每月赚 3 万美元”但一直没做；担心投资人看到收入太小</td><td class="dim">YC 博客访谈</td></tr>
+          <tr><td class="n">2016-12</td><td>AngelList 以约 2000 万美元收购。相对 700 万美元融资和 a16z 的 A 轮估值，投资人回报有限</td><td class="dim">TechCrunch、Forbes、Entrepreneur</td></tr>
+          <tr><td class="n">2020-10</td><td>Josh Buckley “重大投资”并任 CEO，金额未披露</td><td class="dim">Product Hunt 官方公告</td></tr>
+          <tr><td class="n">2021-07</td><td>关联基金 Hyper 募 6000 万美元，2023 年 10 月停办</td><td class="dim">TechCrunch</td></tr>
+          <tr><td class="n">2023</td><td>年收入约 220 万美元（估）</td><td class="dim">Latka</td></tr>
+          <tr><td class="n">2023-10</td><td>裁员 60%，CEO 称“财务状况很好”，非财务原因</td><td class="dim">TechCrunch</td></tr>
+          <tr><td class="n">2024</td><td>年收入约 390 万美元（估）</td><td class="dim">Latka</td></tr>
+          <tr><td class="n">2026</td><td>年收入约 790 万美元（估）</td><td class="dim">Kona Equity，方法不明</td></tr>
+        </table>
+      </div>
+      <p>把这些拼起来：一个十几个人的团队，每年几百万美元广告收入，大概率能自己养活自己。它不需要再融资，也没有大股东逼着它高速增长，所以能容忍 2023 年那种“先砍人再重做”的决定。反过来，它也没有钱去打一场和 G2 或大模型的正面战争。第三方收入估算从 390 万到 790 万美元，差一倍，只能当量级看。</p>
+
+      <h3>融资与交易明细</h3>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>时间</th><th>事件</th><th class="n">金额</th><th>对手方</th></tr>
+          <tr><td class="n">2014-07</td><td>加入 YC S14</td><td class="n">—</td><td>Y Combinator</td></tr>
+          <tr><td class="n">2014 秋</td><td>A 轮</td><td class="n">$6.1M</td><td>Andreessen Horowitz 领投，Naval Ravikant 等天使跟投</td></tr>
+          <tr><td class="n">2016-12</td><td>被收购</td><td class="n">~$20M</td><td>AngelList</td></tr>
+          <tr><td class="n">2020-10</td><td>新 CEO 注资</td><td class="n">未披露</td><td>Josh Buckley</td></tr>
+          <tr><td class="n">2021-07</td><td>关联基金 Hyper</td><td class="n">$60M</td><td>Buckley 与 Dustin Curtis 等发起</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="history">
+      <h2>发展历程</h2>
+      <ul class="timeline">
+        <li><span class="when">2013-11</span><div class="what"><strong>邮件列表起步</strong><span>Hoover 在手游平台 PlayHaven 上班，业余用 Linkydink 建了一个分享新产品的邮件组。感恩节和 Nathan Bashaw 做出网站。</span></div></li>
+        <li><span class="when">2014</span><div class="what"><strong>YC 和 a16z</strong><span>进 YC 前三个月月增 50%。7 月宣布加入 YC，秋天 a16z 领投 610 万美元 A 轮。</span></div></li>
+        <li><span class="when">2015</span><div class="what"><strong>拿奖，铺垂直版块</strong><span>2 月获 TechCrunch Crunchie“最佳新创业公司”。同年开播客、图书、游戏版块，12 月出 iPhone 应用。Hoover 事后反省：当时该把社区做深，同时开三个新品类是错的。</span></div></li>
+        <li><span class="when">2016-12</span><div class="what"><strong>卖给 AngelList</strong><span>约 2000 万美元，13 人团队独立运营。Naval 的设想是把找投资、招人、发产品放在一个网络里。</span></div></li>
+        <li><span class="when">2017–2019</span><div class="what"><strong>做工具，试新闻</strong><span>2017 年 9 月推 Ship 创业者工具套件；2018 年 2 月出新闻 App Sip，2019 年 7 月关掉；2019 年 7 月加 Launch Day 功能。累计 20 万个产品发布、3.5 亿次产品浏览、750 场线下聚会。</span></div></li>
+        <li><span class="when">2020-10</span><div class="what"><strong>Hoover 退出，Buckley 接手</strong><span>Hoover 公开说自己“不再是真实的自己”，倦怠和抑郁。手游公司 Mino Games 创始人、天使投资人 Josh Buckley 注资并任 CEO，公司从 AngelList 体系拆出。</span></div></li>
+        <li><span class="when">2021</span><div class="what"><strong>Hyper 基金，换 CEO</strong><span>7 月 Buckley 发起 6000 万美元的 Hyper，30 万美元换 5%，卖点是 Product Hunt 的分发。8 月总经理 Ashley Higgins 接任 CEO。</span></div></li>
+        <li><span class="when">2023-09</span><div class="what"><strong>Rajiv Ayyangar 任 CEO</strong><span>老用户、Tandem 联合创始人。上任目标：改善产品发现、支持发布之后的创业者、用 AI、加强审核。</span></div></li>
+        <li><span class="when">2023-10</span><div class="what"><strong>裁员六成</strong><span>约 100 人裁 60 人，留下工程、广告和社区团队。Hyper 停办。CEO 说流量创新高、财务健康，裁员是为了“速度和聚焦”。</span></div></li>
+        <li><span class="when">2024</span><div class="what"><strong>提高门槛，补齐工具</strong><span>首页推荐率从几乎全推降到约 10%。加 Launch Assistant、发布前仪表盘、草稿、Shoutouts 无上限、品类页、Top Product 徽章，日报改版，榜单改成积分制。</span></div></li>
+        <li><span class="when">2025</span><div class="what"><strong>论坛、验证、替代品页</strong><span>年初上线产品论坛；账号验证徽章；发布页加“类似产品”；8 月取消“即将上线”页；11 月停办 Golden Kitty，12 月 1 日第一期 Orbit Awards。</span></div></li>
+        <li><span class="when">2026</span><div class="what"><strong>打击刷票，广告产品化</strong><span>论坛里持续封禁付费投票团伙；广告页明码标价 5000 美元自助和 1 万美元每月托管。</span></div></li>
+      </ul>
+      <p>把这条线压一下：前三年是一个社区玩具加一笔风投；2016 到 2020 年是 AngelList 的一个部门；2020 到 2023 年试过用基金变现分发能力；2023 年至今是一个小团队在把“发布日”改造成“产品库”。</p>
+    </section>
+
+    <section id="moat">
+      <h2>护城河</h2>
+      <p>按由深到浅排。</p>
+      <div class="moat">
+        <div><span class="grade">深</span><b>仪式与品牌</b>“今天在 Product Hunt 上发布”是一句创业者都懂的话。十二年的积累让它成了默认选项，创业公司的官网、融资稿、招聘页都会写“Product of the Day”。这个位置是时间换来的，新平台用钱买不到。</div>
+        <div><span class="grade">深</span><b>徽章反链循环</b>域名权重 91。每个发布过的产品都被鼓励在官网贴徽章并回链，几万个网站的外链撑起它的搜索权重，权重又让它的产品页在搜索里排前面。这个循环越滚越大，且不需要它花钱。</div>
+        <div><span class="grade">中</span><b>65 万人的日报</b>直接访问占六成，说明用户靠习惯回来。日报是它触达这些人的管道，也是广告主付钱的原因。但这批人是“看新东西”的人，并非“要买东西”的人。</div>
+        <div><span class="grade">中</span><b>十二年产品目录</b>20 万以上产品、创始人自己填的 Shoutouts、评价和替代品关系。这是它做“产品发现”和“Alternatives”页面的原料，也是它和 G2 竞争的本钱。</div>
+        <div><span class="grade">浅</span><b>投票榜本身</b>一天定胜负的机制容易被刷，也是它最常被骂的地方。管理层已经在用编辑推荐、积分制和季度奖去稀释它的权重。</div>
+        <div><span class="grade">浅</span><b>早期尝鲜者社区</b>社区确实存在，但独立开发者正在流向 Reddit、X、Indie Hackers 和一批周榜制的小平台。留下来的核心用户在减少还是稳定，没有公开数据。</div>
+      </div>
+      <p>它的短板和护城河是同一件事。仪式感来自“一天”，一天又意味着流量一闪而过；品牌来自“上榜”，上榜又催生了刷票产业；日报读者是尝鲜者，尝鲜者不下单。所以它这两年所有的改动都在拆自己最出名的那个机制。</p>
+    </section>
+
+    <section id="competitors">
+      <h2>竞争对手</h2>
+      <p>Product Hunt 同时在三件事上有对手：发布当天的流量、发布之后的产品发现、以及做为广告位的开发者受众。</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>对手</th><th>定位</th><th>机制</th><th>对 Product Hunt 的威胁</th></tr>
+          <tr><td><strong>Hacker News（Show HN）</strong></td><td>YC 旗下的技术社区</td><td>免费，纯投票，无编辑推荐</td><td>技术产品的首选。一条 Show HN 能带 3500 到 4.3 万访问，但九成帖子沉底。受众更硬核，转化更好。</td></tr>
+          <tr><td><strong>Reddit / X / LinkedIn</strong></td><td>通用社交</td><td>细分社区或个人关注者</td><td>独立开发者说这里的注册是 Product Hunt 的 3 到 8 倍，因为读者本来就在找方案。Product Hunt 自己的“发布后”策略也建议先在这些地方攒人。</td></tr>
+          <tr><td><strong>Indie Hackers</strong></td><td>独立开发者社区（Stripe 旗下）</td><td>帖子加收入公开</td><td>一份 2024 年统计说每条有互动的帖子转化 23%，Product Hunt 是 3%。量小但客户质量高。</td></tr>
+          <tr><td><strong>Peerlist Launchpad、Uneed、Fazier、MicroLaunch、Dev Hunt、Tiny Startups</strong></td><td>一批 2023 年后冒出的小发布平台</td><td>多为周榜制，一周内都能被看到；部分收费</td><td>直接承接被 Product Hunt“不推荐”政策挡在门外的 90%。单个都小，合起来分走了独立开发者的注意力。</td></tr>
+          <tr><td><strong>BetaList</strong></td><td>上线前产品</td><td>免费排队 4 到 6 周，付费一天</td><td>占住“发布前”这一段。Product Hunt 2025 年取消了自己的“即将上线”页。</td></tr>
+          <tr><td><strong>G2 / Capterra</strong></td><td>软件评价站</td><td>用户评价加付费排名</td><td>Product Hunt 往“评价、替代品、季度奖”走，就是走进 G2 的地盘。G2 有十几年评价积累和企业采购流量。</td></tr>
+          <tr><td><strong>AI 工具目录</strong></td><td>There’s An AI For That、Futurepedia 等</td><td>按品类收录，SEO 驱动</td><td>AI 产品是 Product Hunt 当下最大的发布品类，这些目录专吃这一块。</td></tr>
+          <tr><td><strong>大模型本身</strong></td><td>ChatGPT、Perplexity 等</td><td>“帮我找一个做 X 的工具”</td><td>产品发现这件事正在从“逛榜单”变成“问 AI”。Product Hunt 的目录能否被 AI 引用，取决于它的评价数据有多好。</td></tr>
+          <tr><td><strong>应用商店与媒体</strong></td><td>App Store、TechCrunch 等</td><td>编辑推荐</td><td>老对手。Product Hunt 当年就是靠“比媒体快、比商店有社区”切进来的。</td></tr>
+        </table>
+      </div>
+      <p>放在一起看，Product Hunt 的位置是“最有名，但不再唯一”。技术产品去 Hacker News，要客户去 Reddit，要评价去 G2，要 AI 工具去专门目录。它剩下的独占之处是那枚徽章和那条反链。</p>
+    </section>
+
+    <section id="risks">
+      <h2>风险与判断</h2>
+      <h3>风险</h3>
+      <ul>
+        <li><strong>拆自己的招牌。</strong>推荐率降到一成，意味着九成发布者拿不到他们来这里要的东西。他们会去周榜制的小平台，并把口碑带走。</li>
+        <li><strong>刷票没有解。</strong>只要榜单值钱，就有人卖票。封号是猫鼠游戏，编辑推荐又会被骂不透明。</li>
+        <li><strong>流量到顶。</strong>几百万月访问横盘多年，2026 年 7 月环比下降 13%。直接访问占六成，说明新客来源单一。</li>
+        <li><strong>评价站是别人的主场。</strong>G2 有采购流量和企业客户，Product Hunt 的评价来自尝鲜者，商业价值不同。</li>
+        <li><strong>AI 改变产品发现。</strong>用户问 AI 就能得到推荐，逛榜单的必要性下降。同时 AI 让做产品的人变多，提交量涨、质量降，编辑压力更大。</li>
+        <li><strong>团队太小。</strong>十几个人要同时维护榜单、论坛、评价、奖项、广告和反作弊。</li>
+      </ul>
+
+      <h3>判断</h3>
+      <p>Product Hunt 是一个成功的媒体品牌和一个平庸的生意。它在 2016 年以 2000 万美元卖出，十年后收入几百万美元，团队十几人。作为公司，它早就过了增长期；作为一个行业仪式，它还活着，而且没有替代者能在品牌上接近它。</p>
+      <p>现任团队的选择是对的：与其守着一个被刷烂的日榜，不如把十二年的产品数据做成评价和发现。但这条路上 G2 在前面，大模型在旁边，它没有钱和人打硬仗。最可能的结果是它维持现状，做一个盈利的小生意，偶尔被哪家大公司当作品牌资产买走。</p>
+
+      <h3>对我们的参考</h3>
+      <ul>
+        <li>Product Hunt 发布要当成一次品牌和外链动作。指望它带客户会失望。预期是一条高权重反链、一枚徽章、几百到一千个好奇的访客，注册率 1% 到 3%。</li>
+        <li>被推上首页的概率约一成，判断标准是“有用、新颖、做工好、有创意”。第三方经验是准备 400 个愿意在前四小时来评论的支持者，并且不能直接说“请投票”。</li>
+        <li>Slax Reader、Slax Note 这类工具型产品，Hacker News 和 Reddit 的对口社区带来的注册可能比 Product Hunt 更多，应该同一天一起发。</li>
+        <li>Product Hunt 自己从“投票榜”转向“评价和替代品”，说明榜单类产品能留下的是数据，当天的热度留不住。做社区产品时，一开始就要想清楚每天的热闹最后能变成什么。</li>
+      </ul>
+    </section>
+
+    <section id="sources">
+      <h2>来源</h2>
+      <ol class="sources">
+        <li>Wikipedia, Product Hunt. <a href="https://en.wikipedia.org/wiki/Product_Hunt">en.wikipedia.org/wiki/Product_Hunt</a></li>
+        <li>TechCrunch, 2016-12-01, AngelList acquires Product Hunt. <a href="https://techcrunch.com/2016/12/01/angelhunt/">techcrunch.com</a></li>
+        <li>Forbes, 2016-12-01, AngelList Acquires Product Hunt To Go After Job Search. <a href="https://www.forbes.com/sites/alexkonrad/2016/12/01/angellist-acquires-product-hunt-to-go-after-job-search/">forbes.com</a></li>
+        <li>GeekWire, 2016, AngelList acquires tech tastemaker Product Hunt. <a href="https://www.geekwire.com/2016/angellist-acquires-product-hunt/">geekwire.com</a></li>
+        <li>Y Combinator Blog, Ryan Hoover on Product Hunt’s Acquisition and Lessons Learned. <a href="https://ycombinator.com/blog/ryan-hoover-on-product-hunts-acquisition-and-lessons-learned-about-startup-launches-with-dalton-caldwell">ycombinator.com</a></li>
+        <li>Product Hunt, 2020-10-22, Product Hunt’s New CEO: Josh Buckley. <a href="https://www.producthunt.com/stories/product-hunt-s-new-ceo-josh-buckley">producthunt.com</a></li>
+        <li>TechCrunch, 2021-07-20, New fund Hyper debuts with $300k checks. <a href="https://techcrunch.com/2021/07/20/hyper-is-a-new-fund-that-offers-300k-checks-and-promises-of-a-media-slingshot-for-founders/">techcrunch.com</a></li>
+        <li>Product Hunt, 2023-09-18, Product Hunt maker, now CEO. <a href="https://www.producthunt.com/stories/product-hunt-maker-now-ceo">producthunt.com</a></li>
+        <li>TechCrunch, 2023-10-19, Product Hunt cleans house with layoffs impacting 60% of staff. <a href="https://techcrunch.com/2023/10/19/product-hunt-cleans-house-with-layoffs-impacting-60-of-staff/">techcrunch.com</a></li>
+        <li>Product Hunt 广告页. <a href="https://www.producthunt.com/sponsor">producthunt.com/sponsor</a></li>
+        <li>Product Hunt 团队页. <a href="https://www.producthunt.com/about">producthunt.com/about</a></li>
+        <li>Product Hunt 发布指南. <a href="https://www.producthunt.com/launch">producthunt.com/launch</a></li>
+        <li>Product Hunt 更新日志. <a href="https://www.producthunt.com/changes">producthunt.com/changes</a></li>
+        <li>Product Hunt 帮助中心，How does Product Hunt ensure fair voting. <a href="https://help.producthunt.com/en/articles/11869098-how-does-product-hunt-ensure-fair-voting-and-prevent-spam-or-vote-manipulation">help.producthunt.com</a></li>
+        <li>Product Hunt 论坛，Rajiv Ayyangar, RIP Golden Kitty Awards. Long live Orbit Awards. <a href="https://www.producthunt.com/p/producthunt/rip-golden-kitty-awards-long-live-orbit-awards">producthunt.com</a></li>
+        <li>Product Hunt 论坛，How has Product Hunt changed in the last year? 2025 Recap. <a href="https://www.producthunt.com/p/general/how-has-product-hunt-changed-in-the-last-year-2025-recap">producthunt.com</a></li>
+        <li>Awesome Directories, Product Hunt Launch Strategy 2025: After Algorithm Changed. <a href="https://awesome-directories.com/blog/product-hunt-launch-guide-2025-algorithm-changes/">awesome-directories.com</a></li>
+        <li>Shno, Product Hunt Launch Statistics for 2026（第三方数据汇总）. <a href="https://www.shno.co/marketing-statistics/product-hunt-launch-statistics">shno.co</a></li>
+        <li>Similarweb, producthunt.com（2026 年 7 月）. <a href="https://www.similarweb.com/website/producthunt.com/">similarweb.com</a></li>
+        <li>LaunchList, 12 Product Hunt Alternatives That Still Drive Real Traffic (2026). <a href="https://getlaunchlist.com/blog/product-hunt-alternatives">getlaunchlist.com</a></li>
+        <li>Luka, Product Hunt Is Dead for Indie Hackers（独立开发者视角，有立场）. <a href="https://luka.to/blog/product-hunt-dead-indie-hackers-first-users-2026">luka.to</a></li>
+        <li>Latka、Kona Equity：收入与员工数的第三方估算。</li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<button id="tocbtn" aria-label="打开目录">目录</button>
+<div id="drawer"><div class="panel"><nav id="drawerlist"></nav></div></div>
+<script>
+(function(){
+  var dr=document.getElementById("drawer"),dl=document.getElementById("drawerlist");
+  if(!dr||!dl) return;
+  document.getElementById("tocbtn").addEventListener("click",function(){dr.classList.add("open")});
+  dr.addEventListener("click",function(e){if(e.target===dr||e.target.tagName==="A")dr.classList.remove("open")});
+  document.querySelectorAll("nav.toc a").forEach(function(a){dl.appendChild(a.cloneNode(true))});
+})();
+</script>
+</body>
+</html>
