@@ -196,3 +196,15 @@ description = "2005 年的一个博客，五易其主：AOL、Verizon、Apollo�
 original_url = "https://techcrunch.com/"
 reading_url = "/reading/techcrunch/"
 
+
+[[materials]]
+slug = "china-economy-2026-09"
+title = "中国经济，好还是差"
+subtitle = "2026 年 9 月的冷热评估与六指标跟踪"
+author = "Luca"
+category = "misc"
+date = "2026-09-05T23:22:31+08:00"
+year = "2026"
+description = "中国经济到底好还是差：把 2026 年的官方数据分到冷热两边（出口、高技术制造热；房产、投资、信贷、就业冷），解释宏观数据和个人体感为什么对不上，按四个标准给判断，再用六个月度指标的逐月图表持续跟踪。数据截至 2026 年 8 月发布。"
+original_url = ""
+reading_url = "/reading/china-economy-2026-09/"

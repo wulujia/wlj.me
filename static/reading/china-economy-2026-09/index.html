@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="中国经济到底好还是差：把 2026 年的官方数据分到冷热两边（出口、高技术制造热；房产、投资、信贷、就业冷），解释宏观数据和个人体感为什么对不上，按四个标准给判断，再用六个月度指标的逐月图表持续跟踪。数据截至 2026 年 8 月发布。">
+<link rel="canonical" href="https://wlj.me/reading/china-economy-2026-09/">
+<meta property="og:title" content="中国经济，好还是差"><meta property="og:description" content="中国经济到底好还是差：把 2026 年的官方数据分到冷热两边（出口、高技术制造热；房产、投资、信贷、就业冷），解释宏观数据和个人体感为什么对不上，按四个标准给判断，再用六个月度指标的逐月图表持续跟踪。数据截至 2026 年 8 月发布。"><meta property="og:type" content="article"><meta property="og:url" content="https://wlj.me/reading/china-economy-2026-09/">
+<title>中国经济，好还是差</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f5f6f3;
+    --surface: #ffffff;
+    --ink: #17201f;
+    --ink-2: #4d5654;
+    --ink-3: #7d8683;
+    --rule: #dfe3df;
+    --rule-2: #cbd1cc;
+    --cold: #2a78d6;
+    --cold-wash: rgba(42, 120, 214, 0.10);
+    --hot: #eb6834;
+    --hot-wash: rgba(235, 104, 52, 0.10);
+    --mid: #f0efec;
+    --mixed: #8a8f8c;
+    --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #16191a;
+      --surface: #1e2224;
+      --ink: #f1f2ef;
+      --ink-2: #bcc2be;
+      --ink-3: #8b928e;
+      --rule: #2e3436;
+      --rule-2: #3d4446;
+      --cold: #3987e5;
+      --cold-wash: rgba(57, 135, 229, 0.16);
+      --hot: #d95926;
+      --hot-wash: rgba(217, 89, 38, 0.18);
+      --mid: #383835;
+      --mixed: #9aa19d;
+      --c1: #3987e5; --c2: #d95926; --c3: #199e70;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #16191a;
+    --surface: #1e2224;
+    --ink: #f1f2ef;
+    --ink-2: #bcc2be;
+    --ink-3: #8b928e;
+    --rule: #2e3436;
+    --rule-2: #3d4446;
+    --cold: #3987e5;
+    --cold-wash: rgba(57, 135, 229, 0.16);
+    --hot: #d95926;
+    --hot-wash: rgba(217, 89, 38, 0.18);
+    --mid: #383835;
+    --mixed: #9aa19d;
+    --c1: #3987e5; --c2: #d95926; --c3: #199e70;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 880px; margin: 0 auto; padding: 48px 24px 96px; }
+  .col { max-width: 640px; }
+
+  h1, h2, h3 { font-family: "Noto Serif SC", "Songti SC", "SimSun", serif; text-wrap: balance; margin: 0; }
+  h1 { font-size: 40px; line-height: 1.25; font-weight: 700; letter-spacing: 0.01em; }
+  h2 { font-size: 24px; line-height: 1.4; font-weight: 700; margin: 64px 0 16px; padding-top: 20px; border-top: 1px solid var(--rule-2); }
+  h3 { font-size: 17px; font-weight: 700; margin: 28px 0 8px; font-family: "Noto Sans SC", sans-serif; }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 16px; padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--ink-3); }
+  a { color: inherit; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--ink-2); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+  strong { font-weight: 700; }
+  .num, .mono { font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+  .lede { font-size: 18px; line-height: 1.8; color: var(--ink-2); margin: 20px 0 0; }
+  .meta { font-size: 13px; color: var(--ink-3); margin-top: 20px; display: flex; gap: 18px; flex-wrap: wrap; }
+
+  /* Verdict block: the two halves side by side */
+  .verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 40px 0 0; border: 1px solid var(--rule-2); background: var(--rule-2); }
+  .verdict > div { background: var(--surface); padding: 22px 22px 18px; }
+  .verdict .tag { font-size: 12px; letter-spacing: 0.12em; font-weight: 700; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 8px; }
+  .verdict .tag i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+  .verdict .hot-t i { background: var(--hot); }
+  .verdict .cold-t i { background: var(--cold); }
+  .verdict .big { font-family: "Noto Serif SC", serif; font-size: 22px; line-height: 1.45; font-weight: 700; margin-bottom: 10px; }
+  .verdict p { font-size: 14.5px; line-height: 1.75; color: var(--ink-2); margin: 0; }
+  .verdict-foot { border: 1px solid var(--rule-2); border-top: 0; background: var(--surface); padding: 16px 22px; font-size: 15px; line-height: 1.75; }
+
+  /* Chart */
+  figure { margin: 24px 0 8px; position: relative; }
+  .chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .chart-head h3 { margin: 0; }
+  .chart-sub { font-size: 13px; color: var(--ink-3); }
+  .chart-wrap { overflow-x: auto; position: relative; margin-top: 8px; }
+  .chart-wrap svg { display: block; min-width: 620px; width: 100%; height: auto; }
+  .chart-wrap text { font-family: "Noto Sans SC", sans-serif; font-size: 13px; fill: var(--ink-2); }
+  .chart-wrap text.val { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; fill: var(--ink); }
+  .chart-wrap text.axis { font-family: "IBM Plex Mono", monospace; font-size: 11px; fill: var(--ink-3); }
+  .chart-wrap line.grid { stroke: var(--rule); stroke-width: 1; }
+  .chart-wrap line.zero { stroke: var(--rule-2); stroke-width: 1; }
+  .chart-wrap .bar.hot { fill: var(--hot); }
+  .chart-wrap .bar.cold { fill: var(--cold); }
+  .chart-wrap .hit { fill: transparent; cursor: default; }
+  .chart-wrap .row.dim .bar { opacity: 0.35; }
+  .legend { display: flex; gap: 20px; font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+  .legend .h { background: var(--hot); } .legend .c { background: var(--cold); }
+  figcaption { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin-top: 10px; }
+  .tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12.5px; line-height: 1.5; padding: 6px 10px; border-radius: 4px; white-space: nowrap; z-index: 3; }
+  .tip[hidden] { display: none; }
+
+  /* Scorecard */
+  .board { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 20px; }
+  @media (max-width: 720px) { .board, .verdict { grid-template-columns: 1fr; } }
+  .board h3 { margin: 0 0 10px; display: flex; align-items: center; gap: 9px; }
+  .board h3 i { width: 12px; height: 12px; display: inline-block; }
+  .board .hot-h i { background: var(--hot); } .board .cold-h i { background: var(--cold); }
+  .rows { border-top: 2px solid var(--ink); }
+  .row-i { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .row-i .k { font-size: 14px; line-height: 1.5; }
+  .row-i .k small { display: block; color: var(--ink-3); font-size: 12px; line-height: 1.5; margin-top: 2px; }
+  .row-i .v { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 500; white-space: nowrap; text-align: right; padding-top: 1px; }
+  .board .hot-h ~ .rows .v { color: var(--ink); }
+
+  /* Why the gap: reasons */
+  .reasons { counter-reset: r; list-style: none; padding: 0; margin: 16px 0 0; }
+  .reasons li { padding: 14px 0 14px 44px; border-top: 1px solid var(--rule); position: relative; margin: 0; }
+  .reasons li:last-child { border-bottom: 1px solid var(--rule); }
+  .reasons li::before { counter-increment: r; content: counter(r); position: absolute; left: 0; top: 14px; width: 28px; height: 28px; border: 1px solid var(--rule-2); border-radius: 50%; display: grid; place-items: center; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-2); }
+  .reasons b { display: block; font-weight: 700; margin-bottom: 2px; }
+  .reasons p { margin: 0; color: var(--ink-2); font-size: 15px; }
+
+  /* Four-lens table */
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; margin: 16px 0; }
+  .tbl-wrap { overflow-x: auto; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule); line-height: 1.6; }
+  th { font-size: 12px; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+  td:first-child { font-weight: 700; white-space: nowrap; }
+  .pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 3px; white-space: nowrap; }
+  .pill.hot { background: var(--hot-wash); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hot); }
+  .pill.cold { background: var(--cold-wash); color: var(--ink); box-shadow: inset 0 0 0 1px var(--cold); }
+  .pill.mix { background: var(--mid); color: var(--ink); box-shadow: inset 0 0 0 1px var(--mixed); }
+
+  /* Watch list */
+  .watch { display: grid; gap: 0; margin-top: 12px; border-top: 2px solid var(--ink); }
+  .watch > div { display: grid; grid-template-columns: 180px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 14.5px; }
+  .watch .n { font-weight: 700; }
+  .watch .n small { display: block; font-weight: 400; color: var(--ink-3); font-size: 12px; }
+  @media (max-width: 560px) { .watch > div { grid-template-columns: 1fr; gap: 4px; } }
+
+  .note { border-left: 3px solid var(--rule-2); padding: 4px 0 4px 16px; color: var(--ink-2); font-size: 15px; margin: 20px 0; }
+  .sources { font-size: 13.5px; color: var(--ink-2); }
+  .sources li { margin-bottom: 4px; }
+  @media (prefers-reduced-motion: no-preference) { .chart-wrap .bar { transition: opacity .15s; } }
+
+  /* ---- six-indicator charts (scoped) ---- */ { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 16px; line-height: 1.85; -webkit-font-smoothing: antialiased; }.ind .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }.ind .col { max-width: 640px; }.ind h1, .ind h2 { font-family: "Noto Serif SC", "Songti SC", serif; text-wrap: balance; margin: 0; }.ind h1 { font-size: 38px; line-height: 1.25; font-weight: 700; }.ind h2 { font-size: 22px; line-height: 1.4; font-weight: 700; margin: 0 0 4px; }.ind h3 { font-size: 16px; font-weight: 700; margin: 24px 0 8px; }.ind p { margin: 0 0 14px; }.ind ul { margin: 0 0 14px; padding-left: 1.4em; }.ind li { margin-bottom: 6px; }.ind li::marker { color: var(--ink-3); }.ind a { color: inherit; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }.ind a:focus-visible, .ind summary:focus-visible { outline: 2px solid var(--c1); outline-offset: 2px; }.ind .mono { font-family: "IBM Plex Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }.ind .eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }.ind .lede { font-size: 18px; line-height: 1.8; color: var(--ink-2); margin: 18px 0 0; }.ind .meta { font-size: 13px; color: var(--ink-3); margin-top: 16px; }.ind /* Summary board */
+  .ind-board { border-top: 2px solid var(--ink); margin: 36px 0 8px; }.ind .ind-board > div { display: grid; grid-template-columns: 30px 1fr 150px 92px; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 14.5px; }.ind .ind-board .i { font-family: "IBM Plex Mono", monospace; color: var(--ink-3); font-size: 12px; }.ind .ind-board .n { font-weight: 700; }.ind .ind-board .n small { display: block; font-weight: 400; color: var(--ink-3); font-size: 12px; line-height: 1.5; }.ind .ind-board .v { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; font-size: 14px; text-align: right; }.ind .pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 9px; border-radius: 3px; white-space: nowrap; text-align: center; }.ind .pill.cold { background: var(--c1-wash); box-shadow: inset 0 0 0 1px var(--c1); }.ind .pill.hot { background: var(--c2-wash); box-shadow: inset 0 0 0 1px var(--c2); }.ind .pill.mix { background: var(--mid); box-shadow: inset 0 0 0 1px var(--ink-3); }
+  @media (max-width: 640px) {.ind .ind-board > div { grid-template-columns: 24px 1fr 80px; }.ind .ind-board .v { display: none; } }.ind /* Sections */
+  .ind section { margin-top: 64px; padding-top: 22px; border-top: 1px solid var(--rule-2); }.ind .sec-head { display: flex; gap: 14px; align-items: baseline; }.ind .sec-head .num { font-family: "IBM Plex Mono", monospace; color: var(--ink-3); font-size: 13px; }.ind .sub { color: var(--ink-3); font-size: 13.5px; margin: 0 0 14px; }.ind figure { position: relative; margin: 18px 0 0; background: var(--surface); border: 1px solid var(--rule); padding: 18px 18px 12px; }.ind .fig-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px; }.ind .fig-head b { font-size: 15px; }.ind .fig-head span { font-size: 12.5px; color: var(--ink-3); }.ind .legend { display: flex; gap: 18px; font-size: 13px; color: var(--ink-2); margin: 4px 0 6px; flex-wrap: wrap; }.ind .legend span { display: inline-flex; align-items: center; gap: 7px; }.ind .legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }.ind .legend i.sq { width: 12px; height: 12px; }.ind .chart { position: relative; overflow-x: auto; }.ind .chart svg { display: block; width: 100%; min-width: 560px; height: auto; }.ind .chart text { font-family: "IBM Plex Mono", Menlo, monospace; font-size: 11px; fill: var(--ink-3); }.ind .chart text.lab { font-family: "Noto Sans SC", sans-serif; font-size: 12px; fill: var(--ink-2); }.ind .chart text.end { font-size: 12px; fill: var(--ink); }.ind .chart line.grid { stroke: var(--rule); stroke-width: 1; }.ind .chart line.ref { stroke: var(--rule-2); stroke-width: 1; }.ind .chart line.zero { stroke: var(--ink-3); stroke-width: 1; }.ind .chart line.cross { stroke: var(--ink-3); stroke-width: 1; }.ind .chart path.line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }.ind .chart .ring { fill: var(--surface); }.ind .chart .hit { fill: transparent; }.ind .tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12px; line-height: 1.5; padding: 6px 10px; border-radius: 4px; white-space: nowrap; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; z-index: 3; }.ind .tip b { font-family: "Noto Sans SC", sans-serif; font-weight: 500; }.ind .tip[hidden] { display: none; }.ind figcaption { font-size: 13px; color: var(--ink-3); line-height: 1.65; margin-top: 8px; }.ind details { margin-top: 8px; font-size: 13px; }.ind summary { cursor: pointer; color: var(--ink-2); }.ind .tbl { overflow-x: auto; margin-top: 8px; }.ind table { border-collapse: collapse; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; font-size: 12.5px; }.ind th, .ind td { padding: 4px 14px 4px 0; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }.ind th { color: var(--ink-3); font-weight: 500; }.ind td:first-child, .ind th:first-child { text-align: left; }.ind .read { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 28px; margin-top: 18px; }
+  @media (max-width: 640px) {.ind .read { grid-template-columns: 1fr; } }.ind .read h3 { margin: 0 0 6px; font-size: 14px; color: var(--ink-3); font-weight: 500; letter-spacing: .04em; }.ind .read p { font-size: 15px; margin: 0; }.ind .read .verdict { display: flex; align-items: center; gap: 10px; margin-top: 10px; }.ind .note { border-left: 3px solid var(--rule-2); padding: 4px 0 4px 16px; color: var(--ink-2); font-size: 14.5px; margin: 18px 0; }.ind .sources { font-size: 13.5px; color: var(--ink-2); }
+  @media (prefers-reduced-motion: no-preference) {.ind .chart path.line, .ind .chart rect.bar { transition: opacity .15s; } }
+
+  .ind h2 { border-top: 0; padding-top: 0; margin: 0 0 4px; font-size: 22px; }
+  .ind section { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--rule-2); }
+  .ind .pill { background: var(--mid); }
+  .ind .pill.cold { background: var(--cold-wash); box-shadow: inset 0 0 0 1px var(--cold); }
+  .ind .pill.hot { background: var(--hot-wash); box-shadow: inset 0 0 0 1px var(--hot); }
+
+  #reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+  #reading-return a { color: var(--ink-2); text-decoration: none; }
+  @media print { #reading-return { display: none !important; } }
+</style>
+</head><body>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回资料</a></div>
+<div class="page">
+  <div class="eyebrow">Assessment · 2026 年 9 月 5 日</div>
+  <h1>中国经济，好还是差</h1>
+  <p class="lede col">你看到的“消费还行、出口还行”和朋友们说的“经济不好”，都是真的。它们看的是同一个经济的两个半边。这一页给出一个评估框架，把公开数据分到冷热两边，再回答好还是差。</p>
+  <div class="meta">
+    <span>数据截至 2026 年 8 月发布，含六个跟踪指标的逐月图表</span>
+    <span>来源：国家统计局、人民银行、财政部、海关，及 Merics、Citi、中欧商学院的分析</span>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="tag hot-t"><i></i>火焰：生产端、外销端</div>
+      <div class="big">出口、高技术制造、服务消费在涨，而且涨得快。</div>
+      <p>上半年出口增 13.4%，高技术制造业增加值增 13.3%，服务零售增 5%。2025 年贸易顺差 1.2 万亿美元创纪录，2026 年在往更高走。这是你看到“还不错”的来源。</p>
+    </div>
+    <div>
+      <div class="tag cold-t"><i></i>海水：家庭端、内需端</div>
+      <div class="big">房价、投资、信贷、就业在跌，家庭在还债，不在借钱。</div>
+      <p>房地产投资上半年跌 18%，70 城房价连跌 37 个月，7 月居民贷款净减少 4603 亿，青年失业率 17.9%。这是你朋友说“不好”的来源。</p>
+    </div>
+  </div>
+  <div class="verdict-foot">一句话判断：<strong>经济总量在增长，但增长没有落到家庭头上。</strong>增长靠出口和工厂，家庭靠的是房子、工资和工作，这三样都在冷的那一半。</div>
+
+  <div class="col">
+  <h2>先看数字：谁在涨，谁在跌</h2>
+  <p>把 2026 年上半年到 7 月的主要指标按同比增速排一排，冷热一目了然。涨的都在生产和出口那边，跌的都在房子和投资那边。</p>
+  </div>
+
+  <figure>
+    <div class="chart-head">
+      <h3>2026 年主要指标同比增速</h3>
+      <span class="chart-sub">单位：%，上半年或 1 到 7 月累计</span>
+    </div>
+    <div class="chart-wrap" id="chart"></div>
+    <div class="legend"><span><i class="h"></i>增长</span><span><i class="c"></i>收缩</span></div>
+    <figcaption>社会消费品零售总额以商品为主，服务零售是国家统计局单独发布的口径。固定资产投资为 1 到 7 月累计，其余为上半年。来源见文末。</figcaption>
+  </figure>
+
+  <div class="col">
+  <h2>评估框架：五个部门，分冷热</h2>
+  <p>判断一个经济体好坏，光看 GDP 会被误导。我按五个部门看：外贸、企业、家庭、政府、价格。每个部门挑两三个最硬的数，再标冷热。</p>
+  </div>
+
+  <div class="board">
+    <div>
+      <h3 class="hot-h"><i></i>热的一半</h3>
+      <div class="rows">
+        <div class="row-i"><div class="k">出口（人民币计，上半年）<small>7 月按美元计增近 24%，对东盟、欧洲增速最高</small></div><div class="v">+13.4%</div></div>
+        <div class="row-i"><div class="k">贸易顺差（2025 全年）<small>历史最高，2026 年前两个月已达 2136 亿美元</small></div><div class="v">$1.2 万亿</div></div>
+        <div class="row-i"><div class="k">高技术制造业增加值（上半年）<small>锂电池 +39%，半导体 +23%，工业机器人 +28%</small></div><div class="v">+13.3%</div></div>
+        <div class="row-i"><div class="k">工业增加值（上半年）<small>7 月放缓到 4.5%</small></div><div class="v">+5.4%</div></div>
+        <div class="row-i"><div class="k">服务零售（1 到 7 月）<small>暑期旅游收入增 10% 以上，票房增 20% 以上</small></div><div class="v">+5.0%</div></div>
+        <div class="row-i"><div class="k">居民人均可支配收入（上半年，名义）<small>实际 +4.2%；农村 +6.4% 快于城镇 +4.4%</small></div><div class="v">+5.2%</div></div>
+        <div class="row-i"><div class="k">财政收入（上半年）<small>个税 +8%，证券印花税 +97%，股市活跃</small></div><div class="v">+4.7%</div></div>
+        <div class="row-i"><div class="k">GDP 平减指数（二季度）<small>12 个季度以来首次转正，部分来自中东战争推高的油价</small></div><div class="v">+1.6%</div></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="cold-h"><i></i>冷的一半</h3>
+      <div class="rows">
+        <div class="row-i"><div class="k">实际 GDP（二季度）<small>一季度 5.0%，上半年 4.7%，疫情后首次低于“5% 左右”目标</small></div><div class="v">+4.3%</div></div>
+        <div class="row-i"><div class="k">社会消费品零售（7 月）<small>5 月出现 2022 年底以来首次负增长；6 月国内乘用车销量 -16%</small></div><div class="v">+0.6%</div></div>
+        <div class="row-i"><div class="k">固定资产投资（1 到 7 月）<small>上半年 -5.7%，跌幅还在扩大</small></div><div class="v">-6.7%</div></div>
+        <div class="row-i"><div class="k">房地产开发投资（上半年）<small>历史最大半年跌幅；销售面积较 2020 年峰值跌约 65%</small></div><div class="v">-18%</div></div>
+        <div class="row-i"><div class="k">70 城新房价格（7 月，同比）<small>连续第 37 个月下跌；环比 -0.1%，仅 17 城上涨</small></div><div class="v">-3.2%</div></div>
+        <div class="row-i"><div class="k">居民贷款（7 月，新增）<small>净减少；全部新增贷款 -3400 亿，年内第二次收缩</small></div><div class="v">-4603 亿</div></div>
+        <div class="row-i"><div class="k">16 到 24 岁失业率（7 月）<small>城镇整体 5.2%，25 到 29 岁 7.2%；今年 1270 万毕业生</small></div><div class="v">17.9%</div></div>
+        <div class="row-i"><div class="k">土地出让收入（上半年）<small>只剩 2021 年同期峰值的 30%，地方财政的根基</small></div><div class="v">-31.5%</div></div>
+        <div class="row-i"><div class="k">制造业 PMI（8 月，官方）<small>连续两个月低于 50；从业人员指数 48.7</small></div><div class="v">49.8</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+  <p class="note">两个提醒。一是价格“转正”里有输入型成分：2026 年 2 月底开打的伊朗战争把油价推到 100 美元上下，6 月 PPI 涨 4.1%，对企业是成本压力，对家庭是购买力压力。二是收入涨 5.2%、消费支出只涨 3.7%，城镇更是只涨 3.0%。收入没停，但人们把多出来的钱存起来了，或者拿去还房贷。</p>
+
+  <h2>为什么数据和体感对不上</h2>
+  <p>宏观数据说“增长 4.7%”，朋友说“很差”。这两句话可以同时成立，原因有六个。</p>
+
+  <ol class="reasons">
+    <li><b>人的体感是名义的，统计是实际的</b><p>工资条、公司营收、房子估值都是名义数。过去三年 GDP 平减指数为负，名义增速只有 4% 左右，比实际增速低。同样是“增长 5%”，2019 年名义增 7% 到 8%，现在名义只有 4%，落到每个人头上就是工资不涨、营收不涨。</p></li>
+    <li><b>K 型分化，你的朋友圈刚好在冷的那一边</b><p>热的一半是出口制造、AI、新能源、半导体，集中在江浙和珠三角的工厂。冷的一半是房地产、互联网、传统线下服务、餐饮零售、公务员。做互联网、投资、消费品的人，访谈样本天然偏冷。农村收入增速 6.4% 高于城镇 4.4%，也说明冷的更多是城市中产。</p></li>
+    <li><b>财富效应压过收入效应</b><p>收入涨 4% 到 5% 是真的，但一套房跌 20% 到 30% 也是真的。对一个城市家庭，房产占财富六到七成，房价三年的跌幅远大于三年工资的涨幅。人是看净资产决定花不花钱的。</p></li>
+    <li><b>出口好，但出口不怎么创造本地就业和利润</b><p>二季度净出口贡献了 GDP 增量的两成多，但制造业 PMI 从业人员指数一直在 50 以下。价格战之下，2025 年工业利润全年只增 0.6%。Bruegel 把这叫“没有利润的增长”。工厂在忙，但没多招人，也没多发钱。</p></li>
+    <li><b>家庭在去杠杆</b><p>7 月新增贷款净减少 3400 亿，居民贷款净减少 4603 亿，M2 增速 7.7%。三年期存款利率从 3% 以上降到 1.6%，人们还是选择存钱和提前还房贷。这是典型的资产负债表衰退行为：不管利率多低，先还债。</p></li>
+    <li><b>预期没有修复</b><p>消费者信心指数在 90 上下，2022 年以来没有回到过疫情前的 120 以上。信心低的时候，同样的收入会带来更低的消费，服务消费好而商品消费差，就是人们把钱花在“当下的体验”上，不买“未来的耐用品”，比如车和房。</p></li>
+  </ol>
+
+  <h2>那么，好还是差</h2>
+  <p>“好还是差”要先问“对谁、按什么标准”。分四个标准回答。</p>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>标准</th><th>判断</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr><td>总量增长</td><td><span class="pill mix">中等偏弱</span></td><td>4.3% 到 4.7% 是除疫情外三十年最低，但放在大经济体里仍是最快之一。二季度首次没达到 5% 目标。</td></tr>
+      <tr><td>产业竞争力</td><td><span class="pill hot">好</span></td><td>关税之下出口反而创纪录，结构从服装家具换成了电动车、电池、半导体。这是真实力，不是刺激出来的。</td></tr>
+      <tr><td>家庭生活</td><td><span class="pill cold">差，且还在变差</span></td><td>房价、就业、信贷三项同时收缩，消费支出增速低于收入增速。7 月各项数据比 6 月更弱。</td></tr>
+      <tr><td>可持续性</td><td><span class="pill cold">风险高</span></td><td>增长靠外需，贸易伙伴跟进加关税的概率在上升。靠生产不靠消费的模式，利润薄，就业弱，撑不了太久。</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="col">
+  <p>综合起来：<strong>中国经济现在是“企业能出口，家庭不消费”的状态。</strong>它没有崩，工厂端甚至很强；但普通人的生活水平在下降，因为房子在跌、工作难找、工资名义上不涨。朋友们说的“不好”，说的是家庭端，这个判断是对的。你看到的“还不错”，出口是真的不错，消费只有服务类不错，商品消费接近零增长。</p>
+
+  <p>下半年的关键变量是政策。Merics 和 Citi 都预计年底前会有新一轮财政刺激（Citi 的基准是增量 1 万亿元），但学界的建议更激进：中欧商学院朱天提出 2026 年名义 GDP 目标定到 7%，发数万亿消费券直接补家庭。目前的做法是以旧换新（一季度 625 亿）和反内卷，力度和方向都还在“暖工厂”，没到“暖家庭”。</p>
+
+  <h2>怎么持续跟踪</h2>
+  <p>不用看几十个指标。下面六个每月都有，够用来判断冷的那一半有没有回暖。每个指标先给一句判断标准，再画出官方数据的逐月走势，图下附数据表和来源，你可以自己下结论。</p>
+  </div>
+
+
+<div class="ind">
+<div class="ind-board" id="board"></div>
+  <p class="sub">“现状”为最新一期数据，“判断”按各指标旁边写的标准。</p>
+
+  <!-- 1 -->
+  <section id="s1">
+    <div class="sec-head"><span class="num">1</span><h2>名义 GDP 增速，对比实际增速</h2></div>
+    <p class="sub">季度同比，%。名义增速按现价 GDP 计算，是人们感受到的那个数；实际增速剔除了价格。两条线的差就是价格变化。</p>
+    <figure>
+      <div class="fig-head"><b>GDP 季度同比：名义与实际</b><span>2018Q1 到 2026Q2</span></div>
+      <div class="legend"><span><i style="background:var(--c2)"></i>名义增速</span><span><i style="background:var(--c1)"></i>实际增速</span></div>
+      <div class="chart" id="c-gdp"></div>
+      <figcaption>名义增速由统计局各季度现价 GDP 初步核算值计算（当季值 = 累计值减上季累计值，再与上年同季相比），不含事后修订，与官方口径可能相差 0.1 到 0.3 个百分点。2020 到 2021 年受疫情基数影响，读数失真。</figcaption>
+      <details><summary>数据表</summary><div class="tbl" id="t-gdp"></div></details>
+    </figure>
+    <div class="read">
+      <div><h3>数据说了什么</h3><p>2023 年三季度到 2026 年一季度，名义增速连续 11 个季度低于实际增速，也就是价格总水平在跌。2024 年三季度到 2025 年四季度，名义增速一直在 3.8% 到 4.6% 之间。2026 年二季度名义增速 5.9%，三年来第一次高于实际。这一跳主要来自油价和 AI 产业链涨价，是输入型的。</p></div>
+      <div><h3>判断标准</h3><p>名义增速低于 5%，工资、营收、房价的名义数都难涨，体感一定差。回到 6% 到 7% 并持续两个季度，才算走出通缩。</p><div class="verdict"><span class="pill mix">刚过 5%，一个季度</span></div></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <div class="sec-head"><span class="num">2</span><h2>住户贷款当月新增</h2></div>
+    <p class="sub">亿元。正数是家庭这个月净借了钱，负数是净还了钱。包含房贷、消费贷和个体经营贷。</p>
+    <figure>
+      <div class="fig-head"><b>住户贷款当月增减</b><span>2025 年 1 月到 2026 年 7 月</span></div>
+      <div class="legend"><span><i class="sq" style="background:var(--c2)"></i>净增加</span><span><i class="sq" style="background:var(--c1)"></i>净减少</span></div>
+      <div class="chart" id="c-loan"></div>
+      <figcaption>人民银行每月公布年初至今累计值，当月值为相邻两期之差。2025 年 3、6、9 月的累计值官方以“万亿元”两位小数公布，这三个月及其后一个月的当月值有正负 50 亿元的误差。</figcaption>
+      <details><summary>数据表</summary><div class="tbl" id="t-loan"></div></details>
+    </figure>
+    <div class="read">
+      <div><h3>数据说了什么</h3><p>2025 年 12 个月里有 6 个月家庭在净还钱，全年只增加 4417 亿元，其中短期贷款减少 8351 亿元。2026 年前 7 个月有 4 个月为负，累计减少 8271 亿元。这是有月度数据以来第一次出现年初至今为负。</p></div>
+      <div><h3>判断标准</h3><p>连续为负就是家庭在去杠杆。当月值转正并连续三个月为正，才说明家庭重新敢借钱。</p><div class="verdict"><span class="pill cold">去杠杆中</span></div></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <div class="sec-head"><span class="num">3</span><h2>70 城新房价格环比</h2></div>
+    <p class="sub">%。看环比而非同比，因为同比要滞后一年才能反映止跌。下面第二张图数每月有多少个城市在涨。</p>
+    <figure>
+      <div class="fig-head"><b>70 个大中城市新建商品住宅价格环比，简单平均</b><span>2019 年 1 月到 2026 年 7 月</span></div>
+      <div class="legend"><span><i class="sq" style="background:var(--c2)"></i>上涨</span><span><i class="sq" style="background:var(--c1)"></i>下跌</span></div>
+      <div class="chart" id="c-house"></div>
+      <figcaption>按统计局公布的 70 个城市各自的环比指数取简单平均，不加权。媒体常引用的“70 城环比”多为同类算法，数值可能相差 0.1 个百分点。</figcaption>
+      <details><summary>数据表</summary><div class="tbl" id="t-house"></div></details>
+    </figure>
+    <figure>
+      <div class="fig-head"><b>环比上涨的城市数</b><span>共 70 城，2019 年 1 月到 2026 年 7 月</span></div>
+      <div class="chart" id="c-houseup"></div>
+      <figcaption>虚线为 35 城，即过半。</figcaption>
+    </figure>
+    <div class="read">
+      <div><h3>数据说了什么</h3><p>环比均值从 2023 年 6 月起连续 38 个月为负。跌幅在 2025 年 10 月最深，此后逐月收窄，2026 年 6 月收窄到 -0.15%。上涨城市数从 2025 年 9 月的 5 个回升到 2026 年 6 月的 20 个，7 月 17 个。上一次过半是 2023 年 5 月。</p></div>
+      <div><h3>判断标准</h3><p>环比均值转正，且上涨城市过半，两者同时持续三个月，才算止跌。现在是跌幅收窄，不是止跌。</p><div class="verdict"><span class="pill cold">仍在跌，跌幅收窄</span></div></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <div class="sec-head"><span class="num">4</span><h2>商品消费与服务消费的增速差</h2></div>
+    <p class="sub">年初至今累计同比，%。社会消费品零售总额以商品为主，服务零售额是统计局 2023 年起单独发布的口径，只发布累计值。</p>
+    <figure>
+      <div class="fig-head"><b>社会消费品零售总额与服务零售额，累计同比</b><span>2024 年 1 月到 2026 年 7 月</span></div>
+      <div class="legend"><span><i style="background:var(--c2)"></i>服务零售额</span><span><i style="background:var(--c1)"></i>社会消费品零售总额</span></div>
+      <div class="chart" id="c-retail"></div>
+      <figcaption>1 月数据与 2 月合并发布，图中 1 月为空。2023 年下半年服务零售额累计增速在 19% 到 20%，是 2022 年封控的低基数所致，未画入。</figcaption>
+      <details><summary>数据表</summary><div class="tbl" id="t-retail"></div></details>
+    </figure>
+    <div class="read">
+      <div><h3>数据说了什么</h3><p>服务零售增速两年多来稳定在 5% 到 6%。商品零售增速在 2025 年上半年靠以旧换新冲到 5%，下半年开始回落，2026 年前 7 个月只有 1.2%。两者的差距从 2025 年底的 1.8 个百分点扩大到 3.8 个百分点。人们还在花“体验的钱”，不买耐用品。</p></div>
+      <div><h3>判断标准</h3><p>差距收窄到 2 个百分点以内才正常。差距扩大说明商品消费在单边走弱。</p><div class="verdict"><span class="pill cold">差距扩大中</span></div></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <div class="sec-head"><span class="num">5</span><h2>16 到 24 岁失业率，不含在校生</h2></div>
+    <p class="sub">%。按月份叠放三年，方便剔除季节性：每年 7、8 月毕业季是高点，之后回落。</p>
+    <figure>
+      <div class="fig-head"><b>城镇 16 到 24 岁劳动力失业率，不含在校生，按年份叠放</b><span>2024 年 1 月到 2026 年 7 月</span></div>
+      <div class="legend"><span><i style="background:var(--c1)"></i>2026</span><span><i style="background:var(--c2)"></i>2025</span><span><i style="background:var(--c3)"></i>2024</span></div>
+      <div class="chart" id="c-youth"></div>
+      <figcaption>统计局 2024 年 1 月起改为发布不含在校生的口径，此前数据不可比。各月数值整理自统计局月度发布及财新、界面等对发布的报道。</figcaption>
+      <details><summary>数据表</summary><div class="tbl" id="t-youth"></div></details>
+    </figure>
+    <div class="read">
+      <div><h3>数据说了什么</h3><p>2026 年 1 到 7 月，每个月都高于 2024 年同月；除 2 月外，每个月都高于 2025 年同月。7 月 17.9%，比去年同月高 0.1 个百分点，比前年高 0.8 个百分点。三年的曲线形状一样，整体在往上抬。</p></div>
+      <div><h3>判断标准</h3><p>看 9 到 11 月能不能回到 15% 以下。2024 年这三个月是 17.6、17.1、16.1；2025 年是 17.7、17.3、16.9。</p><div class="verdict"><span class="pill cold">逐年抬高</span></div></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <div class="sec-head"><span class="num">6</span><h2>制造业 PMI 从业人员指数</h2></div>
+    <p class="sub">指数，50 为分界。这是问工厂“这个月用工比上月多还是少”的答案汇总。出口再好，看这个才知道有没有变成工作。</p>
+    <figure>
+      <div class="fig-head"><b>制造业 PMI：从业人员指数与总指数</b><span>2021 年 9 月到 2026 年 8 月</span></div>
+      <div class="legend"><span><i style="background:var(--c1)"></i>从业人员指数</span><span><i style="background:var(--c2)"></i>制造业 PMI 总指数</span></div>
+      <div class="chart" id="c-pmi"></div>
+      <figcaption>统计局月度发布，经季节调整。总指数由新订单、生产、从业人员、配送时间、原材料库存五项加权，从业人员权重 20%。</figcaption>
+      <details><summary>数据表</summary><div class="tbl" id="t-pmi"></div></details>
+    </figure>
+    <div class="read">
+      <div><h3>数据说了什么</h3><p>从业人员指数从 2023 年 3 月起连续 42 个月低于 50。总指数在 50 上下来回，从业人员指数始终在下面 1 到 2 个点。2026 年 4 到 8 月均值 48.7，比 2025 年同期的 48.0 高，是三年来最好的一段，但仍没到 50。</p></div>
+      <div><h3>判断标准</h3><p>回到 50 以上并站稳，才说明出口景气传导到了就业。</p><div class="verdict"><span class="pill mix">低于 50，略有改善</span></div></div>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="col">
+  <h3>访谈时怎么问，能减少偏差</h3>
+  <p>朋友访谈的样本偏冷，可以在提问上补救。少问“经济好不好”，多问五件具体的事，再按冷热归类：</p>
+  <ul>
+    <li>你的公司主要做内销还是外销？客户是家庭还是企业或政府？</li>
+    <li>过去 12 个月，你的名义工资或公司营收变了多少？裁员比例是多少？</li>
+    <li>你名下的房子，现在估值比买入价高还是低？高低多少？</li>
+    <li>如果现在利率再降一个点，你会借钱吗？借来干什么？</li>
+    <li>过去一年花钱最多的三样东西是什么？有没有推迟买车或买房？</li>
+  </ul>
+  <p>答案会自然分成两堆。外销、制造、AI 的人在一堆，内销、地产、互联网、消费的人在另一堆。两堆的比例和差距，就是你自己的“冷热表”。</p>
+
+  <h2>数据来源</h2>
+  <p class="note">六个指标里，四个直接取官方发布值；两个（名义 GDP 增速、70 城房价均值）官方不直接发布，按官方分项数据计算，算法写在图下。所有计算可复现，原始数据表附在每张图下。</p>
+  <ul class="sources">
+    <li>GDP 现价累计值与实际同比：<a href="https://www.stats.gov.cn/sj/zxfb/202607/t20260716_1964142.html">国家统计局季度 GDP 初步核算</a>；历史序列取自东方财富数据中心对统计局发布的整理。</li>
+    <li>住户贷款：<a href="https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html">人民银行月度金融统计数据报告</a>，2025 年 1 月至 2026 年 7 月各期。</li>
+    <li>70 城房价：<a href="https://www.stats.gov.cn/sj/zxfb/202608/t20260817_1965050.html">国家统计局 70 个大中城市商品住宅销售价格变动情况</a>，分城市环比指数，2019 年 1 月至 2026 年 7 月。</li>
+    <li>社会消费品零售总额与服务零售额：<a href="https://www.stats.gov.cn/sj/zxfb/202608/t20260817_1965056.html">国家统计局月度国民经济运行情况</a>各期。</li>
+    <li>青年失业率：国家统计局月度分年龄组失业率发布；<a href="https://economy.caixin.com/2026-01-22/102406740.html">财新</a>、<a href="https://m.jiemian.com/article/14622694.html">界面</a>对各月发布的报道。</li>
+    <li>PMI：<a href="https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html">国家统计局月度采购经理指数运行情况</a>，2021 年 9 月至 2026 年 8 月各期。</li>
+  </ul>
+  <h3>评估部分引用</h3>
+  <ul class="sources">
+    <li><a href="https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html">国家统计局，2026 年上半年国民经济运行情况</a></li>
+    <li><a href="https://www.stats.gov.cn/english/PressRelease/202607/t20260717_1964154.html">国家统计局，2026 年上半年居民收入和消费支出</a></li>
+    <li><a href="https://www.stats.gov.cn/english/PressRelease/202609/t20260901_1965170.html">国家统计局，2026 年 8 月采购经理指数</a></li>
+    <li><a href="https://finance.yahoo.com/economy/articles/chinas-july-industrial-output-grew-070411726.html">Reuters，7 月工业增加值、社零、固定资产投资</a></li>
+    <li><a href="https://www.caixinglobal.com/2026-08-15/chinas-new-bank-loans-shrink-in-july-as-borrowing-demand-stays-weak-102474332.html">财新，7 月新增贷款收缩</a></li>
+    <li><a href="https://www.caixinglobal.com/2026-08-21/chinas-services-spending-outpaces-goods-as-travel-entertainment-gain-102476266.html">财新，1 到 7 月服务零售与商品零售</a></li>
+    <li><a href="https://tradingeconomics.com/china/youth-unemployment-rate/news/478755">Trading Economics，7 月青年失业率</a></li>
+    <li><a href="https://tradingeconomics.com/china/housing-index">Trading Economics，70 城新房价格</a></li>
+    <li><a href="https://finance.biggo.com/news/9e4b3ad3-0170-4393-bfb4-25efcff73165">财政部上半年财政收支（转引）</a></li>
+    <li><a href="https://finance.biggo.com/news/e99740eb-39eb-4ed6-b0fe-5973b42ee67b">上半年土地出让收入（转引）</a></li>
+    <li><a href="https://finance.biggo.com/news/c1efd22b-d31b-48d1-8e4b-4dbf158e5642">二季度 GDP 平减指数转正（转引）</a></li>
+    <li><a href="https://merics.org/en/tracker/chinas-economy-q2-domestic-woes-dampen-growth-imbalances-intensify">Merics，二季度经济追踪</a></li>
+    <li><a href="https://www.citigroup.com/global/insights/china-economics-2026-outlook-mind-the-gap">Citi，2026 Outlook: Mind the Gap</a></li>
+    <li><a href="https://cn.ceibs.edu/new-papers-columns/28330">朱天（中欧商学院），通缩三年后的中国经济：一半海水，一半火焰</a></li>
+    <li><a href="https://www.bruegel.org/working-paper/growth-without-profits-how-will-involution-china-end">Bruegel，Growth without profits</a></li>
+    <li><a href="https://www.cnbc.com/2026/01/27/china-industrial-profits-2025-december-growth-factory-consumer-demand.html">CNBC，2025 年工业利润</a></li>
+    <li><a href="https://www.nbcnews.com/world/asia/china-reports-record-12-trillion-trade-surplus-2025-defying-trumps-tar-rcna253940">NBC，2025 年贸易顺差 1.2 万亿美元</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war">2026 年伊朗战争的经济影响（综述）</a></li>
+  </ul>
+  </div>
+</div>
+
+<script>
+(function () {
+  var data = [
+    { k: "出口（人民币计）", v: 13.4, p: "上半年，海关总署" },
+    { k: "高技术制造业增加值", v: 13.3, p: "上半年，统计局" },
+    { k: "工业增加值", v: 5.4, p: "上半年，统计局" },
+    { k: "居民可支配收入（名义）", v: 5.2, p: "上半年，实际 +4.2%" },
+    { k: "服务零售", v: 5.0, p: "1 到 7 月，统计局" },
+    { k: "社会消费品零售", v: 1.3, p: "上半年；7 月单月 +0.6%" },
+    { k: "固定资产投资", v: -6.7, p: "1 到 7 月累计" },
+    { k: "房地产开发投资", v: -18.0, p: "上半年，历史最大跌幅" },
+    { k: "土地出让收入", v: -31.5, p: "上半年，财政部" }
+  ];
+  var W = 760, labelW = 196, padR = 56, padT = 22, padB = 30, rowH = 34, barH = 18;
+  var min = -42, max = 20;
+  var plotX = labelW, plotW = W - labelW - padR;
+  var px = plotW / (max - min);
+  var x0 = plotX + (0 - min) * px;
+  var H = padT + rowH * data.length + padB;
+  var NS = "http://www.w3.org/2000/svg";
+  var svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", "2026 年主要指标同比增速，正值为增长，负值为收缩");
+  function el(tag, attrs, text) {
+    var e = document.createElementNS(NS, tag);
+    for (var a in attrs) e.setAttribute(a, attrs[a]);
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  // gridlines + axis ticks
+  [-40, -30, -20, -10, 0, 10, 20].forEach(function (t) {
+    var x = plotX + (t - min) * px;
+    svg.appendChild(el("line", { x1: x, x2: x, y1: padT - 6, y2: H - padB + 6, "class": t === 0 ? "zero" : "grid" }));
+    svg.appendChild(el("text", { x: x, y: H - padB + 20, "text-anchor": "middle", "class": "axis" }, (t > 0 ? "+" : "") + t + "%"));
+  });
+  var tip = document.createElement("div");
+  tip.className = "tip"; tip.hidden = true;
+  data.forEach(function (d, i) {
+    var y = padT + i * rowH + (rowH - barH) / 2;
+    var g = el("g", { "class": "row" });
+    var x1 = plotX + (d.v - min) * px;
+    var left = Math.min(x0, x1), width = Math.abs(x1 - x0);
+    var hot = d.v >= 0;
+    // bar: square at baseline, 4px radius at data end -> draw as path
+    var r = 4, p;
+    if (hot) {
+      p = "M" + x0 + " " + y + " H" + (x1 - r) + " a" + r + " " + r + " 0 0 1 " + r + " " + r + " V" + (y + barH - r) + " a" + r + " " + r + " 0 0 1 -" + r + " " + r + " H" + x0 + " Z";
+    } else {
+      p = "M" + x0 + " " + y + " H" + (x1 + r) + " a" + r + " " + r + " 0 0 0 -" + r + " " + r + " V" + (y + barH - r) + " a" + r + " " + r + " 0 0 0 " + r + " " + r + " H" + x0 + " Z";
+    }
+    g.appendChild(el("path", { d: p, "class": "bar " + (hot ? "hot" : "cold") }));
+    g.appendChild(el("text", { x: labelW - 12, y: y + barH / 2 + 4.5, "text-anchor": "end" }, d.k));
+    var lab = (hot ? "+" : "") + d.v.toFixed(1) + "%";
+    g.appendChild(el("text", { x: hot ? x1 + 8 : x1 - 8, y: y + barH / 2 + 4.5, "text-anchor": hot ? "start" : "end", "class": "val" }, lab));
+    var hit = el("rect", { x: 0, y: padT + i * rowH, width: W, height: rowH, "class": "hit" });
+    hit.addEventListener("mouseenter", function () {
+      Array.prototype.forEach.call(svg.querySelectorAll(".row"), function (r) { if (r !== g) r.classList.add("dim"); });
+      tip.textContent = d.k + " " + lab + " · " + d.p;
+      tip.hidden = false;
+    });
+    hit.addEventListener("mousemove", function (ev) {
+      var fig = wrap.parentNode, fb = fig.getBoundingClientRect();
+      var x = ev.clientX - fb.left, y = ev.clientY - fb.top;
+      var tw = tip.offsetWidth, th = tip.offsetHeight;
+      var left = x + 14; if (left + tw > fb.width - 8) left = x - tw - 14;
+      var top = y - th - 10; if (top < 4) top = y + 16;
+      tip.style.left = left + "px"; tip.style.top = top + "px";
+    });
+    hit.addEventListener("mouseleave", function () {
+      Array.prototype.forEach.call(svg.querySelectorAll(".row"), function (r) { r.classList.remove("dim"); });
+      tip.hidden = true;
+    });
+    g.appendChild(hit);
+    svg.appendChild(g);
+  });
+  var wrap = document.getElementById("chart");
+  wrap.appendChild(svg);
+  wrap.parentNode.appendChild(tip);
+})();
+</script>
+<script>
+var DATA = {"gdp":[{"t":"2018Q1","nominal":11.0,"real":6.8},{"t":"2018Q2","nominal":10.9,"real":6.7},{"t":"2018Q3","nominal":10.2,"real":6.5},{"t":"2018Q4","nominal":9.9,"real":6.4},{"t":"2019Q1","nominal":7.6,"real":6.4},{"t":"2019Q2","nominal":8.0,"real":6.2},{"t":"2019Q3","nominal":7.2,"real":6.0},{"t":"2019Q4","nominal":7.1,"real":6.0},{"t":"2020Q1","nominal":-5.3,"real":-6.8},{"t":"2020Q2","nominal":2.9,"real":3.2},{"t":"2020Q3","nominal":5.4,"real":4.9},{"t":"2020Q4","nominal":7.0,"real":6.5},{"t":"2021Q1","nominal":21.6,"real":18.3},{"t":"2021Q2","nominal":13.6,"real":7.9},{"t":"2021Q3","nominal":10.4,"real":4.9},{"t":"2021Q4","nominal":10.3,"real":4.0},{"t":"2022Q1","nominal":8.7,"real":4.8},{"t":"2022Q2","nominal":3.9,"real":0.4},{"t":"2022Q3","nominal":5.9,"real":3.9},{"t":"2022Q4","nominal":2.9,"real":2.9},{"t":"2023Q1","nominal":5.5,"real":4.5},{"t":"2023Q2","nominal":5.7,"real":6.3},{"t":"2023Q3","nominal":4.1,"real":4.9},{"t":"2023Q4","nominal":4.3,"real":5.2},{"t":"2024Q1","nominal":4.2,"real":5.3},{"t":"2024Q2","nominal":4.0,"real":4.7},{"t":"2024Q3","nominal":3.8,"real":4.6},{"t":"2024Q4","nominal":4.6,"real":5.4},{"t":"2025Q1","nominal":4.5,"real":5.4},{"t":"2025Q2","nominal":3.8,"real":5.2},{"t":"2025Q3","nominal":3.9,"real":4.8},{"t":"2025Q4","nominal":3.9,"real":4.5},{"t":"2026Q1","nominal":4.9,"real":5.0},{"t":"2026Q2","nominal":5.9,"real":4.3}],"hloans":[{"t":"2025-01","v":4438,"cum":4438,"rounded":false},{"t":"2025-02","v":-3891,"cum":547,"rounded":false},{"t":"2025-03","v":9853,"cum":10400,"rounded":true},{"t":"2025-04","v":-5216,"cum":5184,"rounded":false},{"t":"2025-05","v":540,"cum":5724,"rounded":false},{"t":"2025-06","v":5976,"cum":11700,"rounded":true},{"t":"2025-07","v":-4893,"cum":6807,"rounded":false},{"t":"2025-08","v":303,"cum":7110,"rounded":false},{"t":"2025-09","v":3890,"cum":11000,"rounded":true},{"t":"2025-10","v":-3604,"cum":7396,"rounded":false},{"t":"2025-11","v":-2063,"cum":5333,"rounded":false},{"t":"2025-12","v":-916,"cum":4417,"rounded":false},{"t":"2026-01","v":4565,"cum":4565,"rounded":false},{"t":"2026-02","v":-6507,"cum":-1942,"rounded":false},{"t":"2026-03","v":4905,"cum":2963,"rounded":false},{"t":"2026-04","v":-7865,"cum":-4902,"rounded":false},{"t":"2026-05","v":-1412,"cum":-6314,"rounded":false},{"t":"2026-06","v":2646,"cum":-3668,"rounded":false},{"t":"2026-07","v":-4603,"cum":-8271,"rounded":false}],"house":[{"t":"2019-01","mom":0.61,"yoy":10.82,"up":58,"flat":4,"down":8,"n":70},{"t":"2019-02","mom":0.53,"yoy":11.09,"up":57,"flat":4,"down":9,"n":70},{"t":"2019-03","mom":0.61,"yoy":11.3,"up":65,"flat":1,"down":4,"n":70},{"t":"2019-04","mom":0.62,"yoy":11.35,"up":67,"flat":1,"down":2,"n":70},{"t":"2019-05","mom":0.71,"yoy":11.26,"up":67,"flat":1,"down":2,"n":70},{"t":"2019-06","mom":0.66,"yoy":10.78,"up":63,"flat":2,"down":5,"n":70},{"t":"2019-07","mom":0.59,"yoy":10.09,"up":60,"flat":7,"down":3,"n":70},{"t":"2019-08","mom":0.58,"yoy":9.09,"up":55,"flat":5,"down":10,"n":70},{"t":"2019-09","mom":0.53,"yoy":8.57,"up":53,"flat":5,"down":12,"n":70},{"t":"2019-10","mom":0.5,"yoy":7.99,"up":50,"flat":3,"down":17,"n":70},{"t":"2019-11","mom":0.3,"yoy":7.27,"up":44,"flat":5,"down":21,"n":70},{"t":"2019-12","mom":0.35,"yoy":6.81,"up":50,"flat":4,"down":16,"n":70},{"t":"2020-01","mom":0.27,"yoy":6.45,"up":47,"flat":8,"down":15,"n":70},{"t":"2020-02","mom":0.02,"yoy":5.92,"up":21,"flat":26,"down":23,"n":70},{"t":"2020-03","mom":0.13,"yoy":5.41,"up":38,"flat":10,"down":22,"n":70},{"t":"2020-04","mom":0.42,"yoy":5.2,"up":50,"flat":9,"down":11,"n":70},{"t":"2020-05","mom":0.49,"yoy":4.95,"up":57,"flat":2,"down":11,"n":70},{"t":"2020-06","mom":0.58,"yoy":4.87,"up":61,"flat":2,"down":7,"n":70},{"t":"2020-07","mom":0.47,"yoy":4.75,"up":59,"flat":5,"down":6,"n":70},{"t":"2020-08","mom":0.56,"yoy":4.72,"up":59,"flat":2,"down":9,"n":70},{"t":"2020-09","mom":0.34,"yoy":4.52,"up":55,"flat":7,"down":8,"n":70},{"t":"2020-10","mom":0.15,"yoy":4.16,"up":45,"flat":6,"down":19,"n":70},{"t":"2020-11","mom":0.12,"yoy":3.96,"up":36,"flat":6,"down":28,"n":70},{"t":"2020-12","mom":0.12,"yoy":3.73,"up":42,"flat":6,"down":22,"n":70},{"t":"2021-01","mom":0.28,"yoy":3.71,"up":53,"flat":3,"down":14,"n":70},{"t":"2021-02","mom":0.36,"yoy":4.06,"up":56,"flat":2,"down":12,"n":70},{"t":"2021-03","mom":0.41,"yoy":4.37,"up":62,"flat":2,"down":6,"n":70},{"t":"2021-04","mom":0.48,"yoy":4.45,"up":62,"flat":3,"down":5,"n":70},{"t":"2021-05","mom":0.52,"yoy":4.47,"up":62,"flat":3,"down":5,"n":70},{"t":"2021-06","mom":0.41,"yoy":4.3,"up":55,"flat":3,"down":12,"n":70},{"t":"2021-07","mom":0.3,"yoy":4.1,"up":51,"flat":3,"down":16,"n":70},{"t":"2021-08","mom":0.16,"yoy":3.7,"up":46,"flat":4,"down":20,"n":70},{"t":"2021-09","mom":-0.08,"yoy":3.27,"up":27,"flat":7,"down":36,"n":70},{"t":"2021-10","mom":-0.25,"yoy":2.84,"up":13,"flat":5,"down":52,"n":70},{"t":"2021-11","mom":-0.33,"yoy":2.4,"up":9,"flat":2,"down":59,"n":70},{"t":"2021-12","mom":-0.28,"yoy":1.98,"up":15,"flat":5,"down":50,"n":70},{"t":"2022-01","mom":-0.04,"yoy":1.65,"up":28,"flat":3,"down":39,"n":70},{"t":"2022-02","mom":-0.13,"yoy":1.15,"up":27,"flat":3,"down":40,"n":70},{"t":"2022-03","mom":-0.07,"yoy":0.66,"up":29,"flat":3,"down":38,"n":70},{"t":"2022-04","mom":-0.3,"yoy":-0.11,"up":18,"flat":5,"down":47,"n":70},{"t":"2022-05","mom":-0.17,"yoy":-0.79,"up":25,"flat":2,"down":43,"n":70},{"t":"2022-06","mom":-0.1,"yoy":-1.29,"up":31,"flat":1,"down":38,"n":70},{"t":"2022-07","mom":-0.11,"yoy":-1.67,"up":30,"flat":0,"down":40,"n":70},{"t":"2022-08","mom":-0.29,"yoy":-2.1,"up":19,"flat":1,"down":50,"n":70},{"t":"2022-09","mom":-0.28,"yoy":-2.3,"up":15,"flat":1,"down":54,"n":70},{"t":"2022-10","mom":-0.37,"yoy":-2.41,"up":10,"flat":2,"down":58,"n":70},{"t":"2022-11","mom":-0.25,"yoy":-2.33,"up":16,"flat":3,"down":51,"n":70},{"t":"2022-12","mom":-0.25,"yoy":-2.29,"up":15,"flat":0,"down":55,"n":70},{"t":"2023-01","mom":-0.0,"yoy":-2.26,"up":36,"flat":1,"down":33,"n":70},{"t":"2023-02","mom":0.3,"yoy":-1.86,"up":55,"flat":2,"down":13,"n":70},{"t":"2023-03","mom":0.44,"yoy":-1.35,"up":64,"flat":1,"down":5,"n":70},{"t":"2023-04","mom":0.32,"yoy":-0.74,"up":62,"flat":1,"down":7,"n":70},{"t":"2023-05","mom":0.1,"yoy":-0.48,"up":46,"flat":0,"down":24,"n":70},{"t":"2023-06","mom":-0.06,"yoy":-0.43,"up":31,"flat":1,"down":38,"n":70},{"t":"2023-07","mom":-0.23,"yoy":-0.57,"up":20,"flat":1,"down":49,"n":70},{"t":"2023-08","mom":-0.29,"yoy":-0.55,"up":17,"flat":1,"down":52,"n":70},{"t":"2023-09","mom":-0.3,"yoy":-0.57,"up":15,"flat":1,"down":54,"n":70},{"t":"2023-10","mom":-0.38,"yoy":-0.58,"up":11,"flat":3,"down":56,"n":70},{"t":"2023-11","mom":-0.37,"yoy":-0.7,"up":9,"flat":2,"down":59,"n":70},{"t":"2023-12","mom":-0.45,"yoy":-0.89,"up":7,"flat":1,"down":62,"n":70},{"t":"2024-01","mom":-0.37,"yoy":-1.24,"up":11,"flat":3,"down":56,"n":70},{"t":"2024-02","mom":-0.36,"yoy":-1.9,"up":8,"flat":3,"down":59,"n":70},{"t":"2024-03","mom":-0.34,"yoy":-2.65,"up":11,"flat":2,"down":57,"n":70},{"t":"2024-04","mom":-0.58,"yoy":-3.51,"up":6,"flat":0,"down":64,"n":70},{"t":"2024-05","mom":-0.71,"yoy":-4.3,"up":2,"flat":0,"down":68,"n":70},{"t":"2024-06","mom":-0.67,"yoy":-4.88,"up":4,"flat":2,"down":64,"n":70},{"t":"2024-07","mom":-0.65,"yoy":-5.28,"up":2,"flat":2,"down":66,"n":70},{"t":"2024-08","mom":-0.73,"yoy":-5.69,"up":2,"flat":1,"down":67,"n":70},{"t":"2024-09","mom":-0.71,"yoy":-6.09,"up":3,"flat":1,"down":66,"n":70},{"t":"2024-10","mom":-0.51,"yoy":-6.22,"up":7,"flat":0,"down":63,"n":70},{"t":"2024-11","mom":-0.2,"yoy":-6.07,"up":17,"flat":4,"down":49,"n":70},{"t":"2024-12","mom":-0.08,"yoy":-5.73,"up":23,"flat":4,"down":43,"n":70},{"t":"2025-01","mom":-0.07,"yoy":-5.43,"up":24,"flat":4,"down":42,"n":70},{"t":"2025-02","mom":-0.14,"yoy":-5.22,"up":18,"flat":7,"down":45,"n":70},{"t":"2025-03","mom":-0.08,"yoy":-4.99,"up":24,"flat":5,"down":41,"n":70},{"t":"2025-04","mom":-0.12,"yoy":-4.55,"up":22,"flat":3,"down":45,"n":70},{"t":"2025-05","mom":-0.22,"yoy":-4.08,"up":13,"flat":4,"down":53,"n":70},{"t":"2025-06","mom":-0.27,"yoy":-3.69,"up":14,"flat":0,"down":56,"n":70},{"t":"2025-07","mom":-0.31,"yoy":-3.37,"up":6,"flat":4,"down":60,"n":70},{"t":"2025-08","mom":-0.3,"yoy":-2.95,"up":9,"flat":4,"down":57,"n":70},{"t":"2025-09","mom":-0.41,"yoy":-2.66,"up":5,"flat":2,"down":63,"n":70},{"t":"2025-10","mom":-0.45,"yoy":-2.6,"up":6,"flat":0,"down":64,"n":70},{"t":"2025-11","mom":-0.39,"yoy":-2.78,"up":8,"flat":3,"down":59,"n":70},{"t":"2025-12","mom":-0.37,"yoy":-3.05,"up":6,"flat":6,"down":58,"n":70},{"t":"2026-01","mom":-0.37,"yoy":-3.33,"up":5,"flat":3,"down":62,"n":70},{"t":"2026-02","mom":-0.28,"yoy":-3.46,"up":10,"flat":7,"down":53,"n":70},{"t":"2026-03","mom":-0.21,"yoy":-3.59,"up":14,"flat":2,"down":54,"n":70},{"t":"2026-04","mom":-0.19,"yoy":-3.65,"up":14,"flat":7,"down":49,"n":70},{"t":"2026-05","mom":-0.2,"yoy":-3.64,"up":16,"flat":2,"down":52,"n":70},{"t":"2026-06","mom":-0.15,"yoy":-3.54,"up":20,"flat":1,"down":49,"n":70},{"t":"2026-07","mom":-0.18,"yoy":-3.41,"up":17,"flat":6,"down":47,"n":70}],"svc":[{"t":"2023-07","v":20.3},{"t":"2023-08","v":19.4},{"t":"2023-09","v":18.9},{"t":"2023-10","v":19.0},{"t":"2023-11","v":19.5},{"t":"2023-12","v":20.0},{"t":"2024-02","v":12.3},{"t":"2024-04","v":8.4},{"t":"2024-05","v":7.9},{"t":"2024-06","v":7.5},{"t":"2024-07","v":7.2},{"t":"2024-08","v":6.9},{"t":"2024-09","v":6.7},{"t":"2024-10","v":6.5},{"t":"2024-11","v":6.4},{"t":"2024-12","v":6.2},{"t":"2025-02","v":4.9},{"t":"2025-03","v":5.0},{"t":"2025-04","v":5.1},{"t":"2025-05","v":5.2},{"t":"2025-06","v":5.3},{"t":"2025-07","v":5.2},{"t":"2025-08","v":5.1},{"t":"2025-09","v":5.2},{"t":"2025-10","v":5.3},{"t":"2025-11","v":5.4},{"t":"2025-12","v":5.5},{"t":"2026-02","v":5.6},{"t":"2026-03","v":5.5},{"t":"2026-04","v":5.6},{"t":"2026-05","v":5.4},{"t":"2026-06","v":5.3},{"t":"2026-07","v":5.0}],"retail_ytd":[{"t":"2023-02","v":3.5},{"t":"2023-03","v":5.8},{"t":"2023-04","v":8.5},{"t":"2023-05","v":9.3},{"t":"2023-06","v":8.2},{"t":"2023-07","v":7.3},{"t":"2023-08","v":7},{"t":"2023-09","v":6.8},{"t":"2023-10","v":6.9},{"t":"2023-11","v":7.2},{"t":"2023-12","v":7.2},{"t":"2024-02","v":5.5},{"t":"2024-03","v":4.7},{"t":"2024-04","v":4.1},{"t":"2024-05","v":4.1},{"t":"2024-06","v":3.7},{"t":"2024-07","v":3.5},{"t":"2024-08","v":3.4},{"t":"2024-09","v":3.3},{"t":"2024-10","v":3.5},{"t":"2024-11","v":3.5},{"t":"2024-12","v":3.5},{"t":"2025-02","v":4},{"t":"2025-03","v":4.6},{"t":"2025-04","v":4.7},{"t":"2025-05","v":5},{"t":"2025-06","v":5},{"t":"2025-07","v":4.8},{"t":"2025-08","v":4.6},{"t":"2025-09","v":4.5},{"t":"2025-10","v":4.3},{"t":"2025-11","v":4},{"t":"2025-12","v":3.7},{"t":"2026-02","v":2.8},{"t":"2026-03","v":2.4},{"t":"2026-04","v":1.9},{"t":"2026-05","v":1.4},{"t":"2026-06","v":1.3},{"t":"2026-07","v":1.2}],"youth":[{"t":"2024-01","v":14.6},{"t":"2024-02","v":15.3},{"t":"2024-03","v":15.3},{"t":"2024-04","v":14.7},{"t":"2024-05","v":14.2},{"t":"2024-06","v":13.2},{"t":"2024-07","v":17.1},{"t":"2024-08","v":18.8},{"t":"2024-09","v":17.6},{"t":"2024-10","v":17.1},{"t":"2024-11","v":16.1},{"t":"2024-12","v":15.7},{"t":"2025-01","v":16.1},{"t":"2025-02","v":16.9},{"t":"2025-03","v":16.5},{"t":"2025-04","v":15.8},{"t":"2025-05","v":14.9},{"t":"2025-06","v":14.5},{"t":"2025-07","v":17.8},{"t":"2025-08","v":18.9},{"t":"2025-09","v":17.7},{"t":"2025-10","v":17.3},{"t":"2025-11","v":16.9},{"t":"2025-12","v":16.5},{"t":"2026-01","v":16.3},{"t":"2026-02","v":16.1},{"t":"2026-03","v":16.9},{"t":"2026-04","v":16.3},{"t":"2026-05","v":15.6},{"t":"2026-06","v":14.9},{"t":"2026-07","v":17.9}],"emp":[{"t":"2021-09","v":49.0,"head":49.6},{"t":"2021-10","v":48.8,"head":49.2},{"t":"2021-11","v":48.9,"head":50.1},{"t":"2021-12","v":49.1,"head":50.3},{"t":"2022-01","v":48.9,"head":50.1},{"t":"2022-02","v":49.2,"head":50.2},{"t":"2022-03","v":48.6,"head":49.5},{"t":"2022-04","v":47.2,"head":47.4},{"t":"2022-05","v":47.6,"head":49.6},{"t":"2022-06","v":48.7,"head":50.2},{"t":"2022-07","v":48.6,"head":49},{"t":"2022-08","v":48.9,"head":49.4},{"t":"2022-09","v":49.0,"head":50.1},{"t":"2022-10","v":48.3,"head":49.2},{"t":"2022-11","v":47.4,"head":48},{"t":"2022-12","v":44.8,"head":47},{"t":"2023-01","v":47.7,"head":50.1},{"t":"2023-02","v":50.2,"head":52.6},{"t":"2023-03","v":49.7,"head":51.9},{"t":"2023-04","v":48.8,"head":49.2},{"t":"2023-05","v":48.4,"head":48.8},{"t":"2023-06","v":48.2,"head":49},{"t":"2023-07","v":48.1,"head":49.3},{"t":"2023-08","v":48.0,"head":49.7},{"t":"2023-09","v":48.1,"head":50.2},{"t":"2023-10","v":48.0,"head":49.5},{"t":"2023-11","v":48.1,"head":49.4},{"t":"2023-12","v":47.9,"head":49},{"t":"2024-01","v":47.6,"head":49.2},{"t":"2024-02","v":47.5,"head":49.1},{"t":"2024-03","v":48.1,"head":50.8},{"t":"2024-04","v":48.0,"head":50.4},{"t":"2024-05","v":48.1,"head":49.5},{"t":"2024-06","v":48.1,"head":49.5},{"t":"2024-07","v":48.3,"head":49.4},{"t":"2024-08","v":48.1,"head":49.1},{"t":"2024-09","v":48.2,"head":49.8},{"t":"2024-10","v":48.4,"head":50.1},{"t":"2024-11","v":48.2,"head":50.3},{"t":"2024-12","v":48.1,"head":50.1},{"t":"2025-01","v":48.1,"head":49.1},{"t":"2025-02","v":48.6,"head":50.2},{"t":"2025-03","v":48.2,"head":50.5},{"t":"2025-04","v":47.9,"head":49},{"t":"2025-05","v":48.1,"head":49.5},{"t":"2025-06","v":47.9,"head":49.7},{"t":"2025-07","v":48.0,"head":49.3},{"t":"2025-08","v":47.9,"head":49.4},{"t":"2025-09","v":48.5,"head":49.8},{"t":"2025-10","v":48.3,"head":49},{"t":"2025-11","v":48.4,"head":49.2},{"t":"2025-12","v":48.2,"head":50.1},{"t":"2026-01","v":48.1,"head":49.3},{"t":"2026-02","v":48.0,"head":49},{"t":"2026-03","v":48.6,"head":50.4},{"t":"2026-04","v":48.8,"head":50.3},{"t":"2026-05","v":48.6,"head":50},{"t":"2026-06","v":48.5,"head":50.3},{"t":"2026-07","v":49.0,"head":49.2},{"t":"2026-08","v":48.7,"head":49.8}]};
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, text) { var e = document.createElementNS(NS, tag); for (var a in attrs) e.setAttribute(a, attrs[a]); if (text != null) e.textContent = text; return e; }
+  function css(name) { return "var(" + name + ")"; }
+  function fmt(v, d) { if (v == null) return "–"; var s = Math.abs(v).toFixed(d == null ? 1 : d); return (v > 0 ? "+" : v < 0 ? "-" : "") + s; }
+  function fmtNoSign(v, d) { return v == null ? "–" : v.toFixed(d == null ? 1 : d); }
+
+  // Generic chart: categorical x, numeric y. type: 'line' | 'bar'
+  function chart(id, o) {
+    var wrap = document.getElementById(id);
+    var W = 820, H = o.height || 300, mL = o.mL || 44, mR = o.mR || 64, mT = 14, mB = 30;
+    var pw = W - mL - mR, ph = H - mT - mB;
+    var n = o.x.length, slot = pw / n;
+    var y0 = o.yMin, y1 = o.yMax;
+    function X(i) { return mL + slot * (i + 0.5); }
+    function Y(v) { return mT + ph - (v - y0) / (y1 - y0) * ph; }
+    var svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": o.aria || "" });
+    // grid
+    for (var t = y0; t <= y1 + 1e-9; t += o.yStep) {
+      var yy = Y(t), isZero = Math.abs(t) < 1e-9 && o.zeroLine !== false;
+      svg.appendChild(el("line", { x1: mL, x2: W - mR, y1: yy, y2: yy, "class": isZero ? "zero" : "grid" }));
+      svg.appendChild(el("text", { x: mL - 8, y: yy + 4, "text-anchor": "end" }, (o.yFmt || function (v) { return v; })(t)));
+    }
+    (o.refs || []).forEach(function (r) {
+      var yy = Y(r.y);
+      svg.appendChild(el("line", { x1: mL, x2: W - mR, y1: yy, y2: yy, "class": "ref", "stroke-dasharray": r.dash ? "4 4" : null }));
+      if (r.label) svg.appendChild(el("text", { x: mL + 6, y: yy - 5, "class": "lab" }, r.label));
+    });
+    // x ticks
+    o.x.forEach(function (lab, i) {
+      var tl = o.xTick(lab, i);
+      if (tl != null) {
+        svg.appendChild(el("line", { x1: X(i), x2: X(i), y1: mT + ph, y2: mT + ph + 4, "class": "grid" }));
+        svg.appendChild(el("text", { x: X(i), y: H - 8, "text-anchor": o.xAnchor || "middle" }, tl));
+      }
+    });
+    // marks
+    var seriesG = [];
+    o.series.forEach(function (s, si) {
+      var g = el("g", { "class": "s" });
+      if (o.type === "bar") {
+        var bw = Math.min(24, slot * 0.72);
+        s.values.forEach(function (v, i) {
+          if (v == null) return;
+          var x = X(i) - bw / 2, yv = Y(v), yz = Y(0), top = Math.min(yv, yz), h = Math.abs(yv - yz), r = Math.min(3, h);
+          var fill = v >= 0 ? css("--c2") : css("--c1");
+          var d = v >= 0
+            ? "M" + x + " " + yz + " V" + (top + r) + " a" + r + " " + r + " 0 0 1 " + r + " -" + r + " H" + (x + bw - r) + " a" + r + " " + r + " 0 0 1 " + r + " " + r + " V" + yz + " Z"
+            : "M" + x + " " + yz + " V" + (yz + h - r) + " a" + r + " " + r + " 0 0 0 " + r + " " + r + " H" + (x + bw - r) + " a" + r + " " + r + " 0 0 0 " + r + " -" + r + " V" + yz + " Z";
+          g.appendChild(el("path", { d: d, fill: fill, "class": "bar", "data-i": i }));
+        });
+      } else {
+        var d = "", pen = false, last = null;
+        s.values.forEach(function (v, i) {
+          if (v == null) { if (!s.connect) pen = false; return; }
+          d += (pen ? " L" : " M") + X(i).toFixed(1) + " " + Y(v).toFixed(1); pen = true; last = i;
+        });
+        g.appendChild(el("path", { d: d, "class": "line", stroke: css(s.color) }));
+        if (s.dots) s.values.forEach(function (v, i) { if (v != null) { g.appendChild(el("circle", { cx: X(i), cy: Y(v), r: 5, "class": "ring" })); g.appendChild(el("circle", { cx: X(i), cy: Y(v), r: 3.2, fill: css(s.color) })); } });
+        if (last != null) {
+          g.appendChild(el("circle", { cx: X(last), cy: Y(s.values[last]), r: 6, "class": "ring" }));
+          g.appendChild(el("circle", { cx: X(last), cy: Y(s.values[last]), r: 4, fill: css(s.color) }));
+          var ly = Y(s.values[last]) + (s.labelDy || 0) + 4;
+          g.appendChild(el("text", { x: X(last) + 10, y: ly, "class": "end" }, (s.endFmt || function (v) { return fmtNoSign(v); })(s.values[last])));
+        }
+      }
+      svg.appendChild(g); seriesG.push(g);
+    });
+    // hover layer
+    var cross = el("line", { x1: 0, x2: 0, y1: mT, y2: mT + ph, "class": "cross", visibility: "hidden" });
+    svg.appendChild(cross);
+    var hit = el("rect", { x: mL, y: mT, width: pw, height: ph, "class": "hit" });
+    svg.appendChild(hit);
+    var tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true;
+    wrap.appendChild(svg); wrap.parentNode.appendChild(tip);
+    function show(ev) {
+      var box = svg.getBoundingClientRect(), sx = (ev.clientX - box.left) / box.width * W;
+      var i = Math.max(0, Math.min(n - 1, Math.floor((sx - mL) / slot)));
+      cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i)); cross.setAttribute("visibility", "visible");
+      var rows = o.series.map(function (s) { return "<b>" + s.name + "</b> " + (s.tipFmt || o.tipFmt || fmtNoSign)(s.values[i]); });
+      tip.innerHTML = "<b>" + (o.xLabel ? o.xLabel(o.x[i], i) : o.x[i]) + "</b><br>" + rows.join("<br>");
+      tip.hidden = false;
+      var fig = wrap.parentNode, fb = fig.getBoundingClientRect();
+      var px = X(i) / W * box.width + (box.left - fb.left);
+      var tw = tip.offsetWidth, left = px + 14; if (left + tw > fb.width - 8) left = px - tw - 14;
+      tip.style.left = left + "px"; tip.style.top = (mT / H * box.height + (box.top - fb.top) + 4) + "px";
+      seriesG.forEach(function (g) { Array.prototype.forEach.call(g.querySelectorAll(".bar"), function (b) { b.style.opacity = (+b.getAttribute("data-i") === i) ? 1 : 0.55; }); });
+    }
+    hit.addEventListener("mousemove", show);
+    hit.addEventListener("mouseleave", function () { cross.setAttribute("visibility", "hidden"); tip.hidden = true; seriesG.forEach(function (g) { Array.prototype.forEach.call(g.querySelectorAll(".bar"), function (b) { b.style.opacity = 1; }); }); });
+  }
+  function table(id, head, rows) {
+    var w = document.getElementById(id), t = document.createElement("table");
+    var tr = document.createElement("tr"); head.forEach(function (h) { var th = document.createElement("th"); th.textContent = h; tr.appendChild(th); }); t.appendChild(tr);
+    rows.forEach(function (r) { var tr = document.createElement("tr"); r.forEach(function (c) { var td = document.createElement("td"); td.textContent = c; tr.appendChild(td); }); t.appendChild(tr); });
+    w.appendChild(t);
+  }
+  function janTick(lab) { return lab.slice(5) === "01" ? lab.slice(0, 4) : null; }
+  function cn(lab) { return lab.slice(0, 4) + " 年 " + parseInt(lab.slice(5), 10) + " 月"; }
+
+  // 1. GDP
+  var g = DATA.gdp;
+  chart("c-gdp", { type: "line", x: g.map(function (d) { return d.t; }), yMin: -10, yMax: 25, yStep: 5, yFmt: function (v) { return v + "%"; },
+    refs: [{ y: 5, label: "5%", dash: true }],
+    series: [
+      { name: "名义", color: "--c2", values: g.map(function (d) { return d.nominal; }), labelDy: -8 },
+      { name: "实际", color: "--c1", values: g.map(function (d) { return d.real; }), labelDy: 8 }
+    ],
+    xTick: function (l) { return l.slice(4) === "Q1" ? l.slice(0, 4) : null; }, tipFmt: function (v) { return fmtNoSign(v) + "%"; }, aria: "GDP 季度同比，名义与实际" });
+  table("t-gdp", ["季度", "名义 %", "实际 %", "差 (pp)"], g.map(function (d) { return [d.t, fmtNoSign(d.nominal), fmtNoSign(d.real), fmt(+(d.nominal - d.real).toFixed(1))]; }));
+
+  // 2. Household loans
+  var hl = DATA.hloans;
+  chart("c-loan", { type: "bar", x: hl.map(function (d) { return d.t; }), yMin: -10000, yMax: 10000, yStep: 5000, yFmt: function (v) { return v === 0 ? "0" : (v / 10000).toFixed(1).replace(".0", "") + " 万亿"; }, mL: 60,
+    series: [{ name: "当月新增", values: hl.map(function (d) { return d.v; }), tipFmt: function (v) { return fmt(v, 0) + " 亿元"; } }],
+    xTick: function (l) { return (l.slice(5) === "01" || l.slice(5) === "07") ? l.slice(0, 4) + "-" + l.slice(5) : null; }, xLabel: cn, aria: "住户贷款当月新增" });
+  table("t-loan", ["月份", "当月新增 (亿元)", "年初至今累计 (亿元)", "备注"], hl.map(function (d) { return [d.t, fmt(d.v, 0), fmt(d.cum, 0), d.rounded ? "累计值按万亿两位小数公布" : ""]; }));
+
+  // 3. House prices
+  var hp = DATA.house;
+  chart("c-house", { type: "bar", x: hp.map(function (d) { return d.t; }), yMin: -1, yMax: 1, yStep: 0.5, yFmt: function (v) { return fmt(v, 1) + "%"; },
+    series: [{ name: "环比均值", values: hp.map(function (d) { return d.mom; }), tipFmt: function (v) { return fmt(v, 2) + "%"; }}],
+    xTick: janTick, xLabel: cn, height: 260, aria: "70 城新房价格环比简单平均" });
+  chart("c-houseup", { type: "line", x: hp.map(function (d) { return d.t; }), yMin: 0, yMax: 70, yStep: 35, yFmt: function (v) { return v; }, zeroLine: false,
+    refs: [{ y: 35, label: "过半", dash: true }],
+    series: [{ name: "上涨城市数", color: "--c2", values: hp.map(function (d) { return d.up; }), endFmt: function (v) { return v + " 城"; } }],
+    xTick: janTick, xLabel: cn, height: 200, tipFmt: function (v) { return v + " 城"; }, aria: "环比上涨城市数" });
+  table("t-house", ["月份", "环比均值 %", "同比均值 %", "上涨", "持平", "下跌"], hp.slice().reverse().map(function (d) { return [d.t, fmt(d.mom, 2), fmt(d.yoy, 2), d.up, d.flat, d.down]; }));
+
+  // 4. Retail goods vs services
+  var months = []; for (var y = 2024; y <= 2026; y++) for (var m = 1; m <= 12; m++) { var k = y + "-" + (m < 10 ? "0" : "") + m; if (k <= "2026-07") months.push(k); }
+  var svc = {}; DATA.svc.forEach(function (d) { svc[d.t] = d.v; }); var ry = {}; DATA.retail_ytd.forEach(function (d) { ry[d.t] = d.v; });
+  chart("c-retail", { type: "line", x: months, yMin: 0, yMax: 14, yStep: 2, yFmt: function (v) { return v + "%"; },
+    series: [
+      { name: "服务零售额", color: "--c2", values: months.map(function (k) { return svc[k] == null ? null : svc[k]; }), connect: true, dots: true },
+      { name: "社零总额", color: "--c1", values: months.map(function (k) { return ry[k] == null ? null : ry[k]; }), connect: true, dots: true }
+    ],
+    xTick: function (l) { return (l.slice(5) === "01" || l.slice(5) === "07") ? l.slice(0, 4) + "-" + l.slice(5) : null; }, xLabel: cn, tipFmt: function (v) { return v == null ? "–" : fmtNoSign(v) + "%"; }, aria: "商品与服务零售累计同比" });
+  table("t-retail", ["截至月份", "服务零售额 %", "社零总额 %", "差 (pp)"], months.filter(function (k) { return svc[k] != null || ry[k] != null; }).map(function (k) { return [k, fmtNoSign(svc[k]), fmtNoSign(ry[k]), (svc[k] != null && ry[k] != null) ? fmt(+(svc[k] - ry[k]).toFixed(1)) : "–"]; }));
+
+  // 5. Youth unemployment, seasonal overlay
+  var yo = {}; DATA.youth.forEach(function (d) { yo[d.t] = d.v; });
+  var mx = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+  function yr(yy) { return mx.map(function (m) { var k = yy + "-" + (m.length < 2 ? "0" : "") + m; return yo[k] == null ? null : yo[k]; }); }
+  chart("c-youth", { type: "line", x: mx, yMin: 12, yMax: 20, yStep: 2, yFmt: function (v) { return v + "%"; }, zeroLine: false,
+    refs: [{ y: 15, label: "15%", dash: true }],
+    series: [
+      { name: "2026", color: "--c1", values: yr(2026), dots: true, endFmt: function (v) { return "2026: " + v; } },
+      { name: "2025", color: "--c2", values: yr(2025), dots: true, endFmt: function (v) { return "2025: " + v; }, labelDy: -6 },
+      { name: "2024", color: "--c3", values: yr(2024), dots: true, endFmt: function (v) { return "2024: " + v; }, labelDy: 8 }
+    ],
+    xTick: function (l) { return l + " 月"; }, xLabel: function (l) { return l + " 月"; }, tipFmt: function (v) { return v == null ? "–" : fmtNoSign(v) + "%"; }, aria: "青年失业率按年份叠放" });
+  table("t-youth", ["月份", "2024", "2025", "2026"], mx.map(function (m) { var k = (m.length < 2 ? "0" : "") + m; return [m + " 月", fmtNoSign(yo["2024-" + k]), fmtNoSign(yo["2025-" + k]), fmtNoSign(yo["2026-" + k])]; }));
+
+  // 6. PMI
+  var e = DATA.emp;
+  chart("c-pmi", { type: "line", x: e.map(function (d) { return d.t; }), yMin: 44, yMax: 54, yStep: 2, yFmt: function (v) { return v; }, zeroLine: false,
+    refs: [{ y: 50, label: "50" }],
+    series: [
+      { name: "从业人员", color: "--c1", values: e.map(function (d) { return d.v; }), labelDy: 8 },
+      { name: "总指数", color: "--c2", values: e.map(function (d) { return d.head; }), labelDy: -6 }
+    ],
+    xTick: janTick, xLabel: cn, aria: "制造业 PMI 从业人员指数与总指数" });
+  table("t-pmi", ["月份", "从业人员指数", "制造业 PMI"], e.slice().reverse().map(function (d) { return [d.t, fmtNoSign(d.v), fmtNoSign(d.head)]; }));
+
+  // Summary board
+  var last = function (a) { return a[a.length - 1]; };
+  var rows = [
+    ["1", "名义 GDP 增速", "季度同比", last(g).t + " 名义 " + last(g).nominal + "%，实际 " + last(g).real + "%", "mix", "刚过 5%"],
+    ["2", "住户贷款当月新增", "月度", last(hl).t + " " + fmt(last(hl).v, 0) + " 亿元", "cold", "去杠杆中"],
+    ["3", "70 城房价环比", "简单平均，月度", last(hp).t + " " + fmt(last(hp).mom, 2) + "%，" + last(hp).up + " 城上涨", "cold", "仍在跌"],
+    ["4", "商品与服务消费增速差", "累计同比", "2026-07 服务 5.0%，商品 1.2%，差 3.8 pp", "cold", "差距扩大"],
+    ["5", "16 到 24 岁失业率", "不含在校生，月度", "2026-07 17.9%，去年同月 17.8%", "cold", "逐年抬高"],
+    ["6", "PMI 从业人员指数", "月度", last(e).t + " " + last(e).v + "，连续 42 个月低于 50", "mix", "略有改善"]
+  ];
+  var b = document.getElementById("board");
+  rows.forEach(function (r) {
+    var d = document.createElement("div");
+    d.innerHTML = '<span class="i">' + r[0] + '</span><span class="n">' + r[1] + '<small>' + r[2] + '</small></span><span class="v">' + r[3] + '</span><span class="pill ' + r[4] + '">' + r[5] + '</span>';
+    b.appendChild(d);
+  });
+})();
+</script>
+</body></html>
