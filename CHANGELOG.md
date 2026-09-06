@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-06
+
+- 新增资料页《新加坡经济战略检讨，讲了什么》，`static/reading/singapore-esr-2026/index.html`，自包含 HTML（时间线 / 三个原则 / 八个方向 32 条建议与已落地政策 / 数字速览 / 与 2010、2017 两次检讨的对比 / 对创业者相关条目表 / 委员会名单 / 来源），`index,follow` + canonical，顶部返回资料链接。`data/reading-materials.toml` 新增 report 条目，`original_url` 指向 MTI 的报告 PDF。
+
 ## 2026-09-05
 
 - 新增资料页《中国经济，好还是差》，`static/reading/china-economy-2026-09/index.html`，自包含 HTML（冷热两分的评估框架 / 主要指标同比图 / 数据和体感为何对不上 / 四个标准的判断 / 六个月度跟踪指标的逐月图表与数据表 / 来源与方法），`index,follow` + canonical，顶部返回资料链接。`data/reading-materials.toml` 新增 misc 条目。
