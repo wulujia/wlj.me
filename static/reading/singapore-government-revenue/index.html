@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="新加坡政府 2025 财年修订账：经常收入 1,309 亿，NIRC 275 亿。个人所得税只排第三。钱来自税、费、投资回报的一半，外加 50 年储备。">
+<link rel="canonical" href="https://wlj.me/reading/singapore-government-revenue/">
+<title>新加坡政府的钱从哪来</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f4f6f8; --surface: #ffffff;
+    --ink: #141c22; --ink-2: #47545c; --ink-3: #78858d;
+    --rule: #dde3e7; --rule-2: #c5ced4;
+    --a: #0f766e; --a-wash: rgba(15,118,110,.10);
+    --b: #b45309; --b-wash: rgba(180,83,9,.10);
+    --c: #1d4ed8; --c-wash: rgba(29,78,216,.10);
+    --mid: #eceff1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #151a1e; --surface: #1d2328;
+      --ink: #eef2f4; --ink-2: #b9c3c9; --ink-3: #8a969d;
+      --rule: #2c353b; --rule-2: #404b52;
+      --a: #2dd4bf; --a-wash: rgba(45,212,191,.14);
+      --b: #f59e0b; --b-wash: rgba(245,158,11,.16);
+      --c: #60a5fa; --c-wash: rgba(96,165,250,.16);
+      --mid: #2a3238;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-size: 16px; line-height: 1.9; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+  .col { max-width: 660px; }
+  h1, h2 { font-family: "Noto Serif SC", "Songti SC", serif; text-wrap: balance; margin: 0; }
+  h1 { font-size: 38px; line-height: 1.25; font-weight: 700; }
+  h2 { font-size: 24px; line-height: 1.4; font-weight: 700; margin: 64px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); }
+  h3 { font-size: 16.5px; font-weight: 700; margin: 26px 0 8px; }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 16px; padding-left: 1.4em; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--ink-3); }
+  a { color: inherit; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--ink-2); }
+  a:focus-visible { outline: 2px solid var(--a); outline-offset: 2px; }
+  strong { font-weight: 700; }
+  .mono { font-family: "IBM Plex Mono", Menlo, monospace; font-variant-numeric: tabular-nums; }
+  .eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+  .lede { font-size: 18px; line-height: 1.8; color: var(--ink-2); margin: 18px 0 0; }
+  .meta { font-size: 13px; color: var(--ink-3); margin-top: 18px; line-height: 1.7; }
+
+  .piles { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 36px 0 8px; }
+  .piles > div { background: var(--surface); padding: 22px 22px 18px; }
+  .piles .tag { font-size: 12px; letter-spacing: .12em; font-weight: 700; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 8px; }
+  .piles .tag i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+  .piles .a i { background: var(--a); }
+  .piles .b i { background: var(--b); }
+  .piles .big { font-family: "Noto Serif SC", serif; font-size: 22px; line-height: 1.45; font-weight: 700; margin-bottom: 10px; }
+  .piles p { font-size: 14.5px; line-height: 1.75; color: var(--ink-2); margin: 0; }
+  @media (max-width: 700px) { .piles { grid-template-columns: 1fr; } }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 4px; }
+  @media (max-width: 700px) { .stats { grid-template-columns: 1fr 1fr; } }
+  .st { background: var(--surface); border: 1px solid var(--rule); padding: 12px 14px 10px; }
+  .st b { display: block; font-family: "IBM Plex Mono", Menlo, monospace; font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .st span { display: block; font-size: 12.5px; color: var(--ink-3); line-height: 1.5; margin-top: 4px; }
+
+  .bars { margin: 20px 0 8px; }
+  .bar-row { display: grid; grid-template-columns: 8.5em 1fr 6.2em; gap: 10px; align-items: center; margin-bottom: 8px; }
+  .bar-row .k { font-size: 13.5px; line-height: 1.3; }
+  .bar-row .track { height: 10px; background: var(--mid); border-radius: 99px; overflow: hidden; }
+  .bar-row .track i { display: block; height: 100%; border-radius: 99px; background: var(--a); }
+  .bar-row.nirc .track i { background: var(--b); }
+  .bar-row.rest .track i { background: var(--ink-3); opacity: .55; }
+  .bar-row .v { font-family: "IBM Plex Mono", Menlo, monospace; font-size: 13px; font-variant-numeric: tabular-nums; text-align: right; color: var(--ink-2); }
+  @media (max-width: 560px) {
+    .bar-row { grid-template-columns: 1fr auto; }
+    .bar-row .track { grid-column: 1 / -1; }
+    .bar-row .v { grid-column: 2; grid-row: 1; }
+  }
+
+  .tbl-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; margin: 14px 0 6px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule); line-height: 1.65; }
+  th { font-size: 12px; letter-spacing: .08em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+  td.num, th.num { text-align: right; font-family: "IBM Plex Mono", Menlo, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td:first-child { font-weight: 700; }
+  tfoot td { border-bottom: 0; font-weight: 700; }
+
+  .rates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 8px; }
+  @media (max-width: 700px) { .rates { grid-template-columns: 1fr; } }
+  .rate { background: var(--surface); border: 1px solid var(--rule); padding: 16px 18px 14px; }
+  .rate b { display: block; font-family: "IBM Plex Mono", Menlo, monospace; font-size: 28px; font-weight: 500; line-height: 1.15; }
+  .rate span { display: block; font-size: 13px; color: var(--ink-3); margin-top: 4px; }
+  .rate p { font-size: 14px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.65; }
+
+  .note { border-left: 3px solid var(--rule-2); padding: 4px 0 4px 16px; color: var(--ink-2); font-size: 15px; margin: 20px 0; }
+  .quote { font-family: "Noto Serif SC", serif; font-size: 17px; line-height: 1.8; color: var(--ink-2); padding: 6px 0 6px 18px; border-left: 3px solid var(--a); margin: 18px 0; }
+  .quote small { display: block; font-family: "Noto Sans SC", sans-serif; font-size: 12.5px; color: var(--ink-3); margin-top: 6px; }
+  .sources { font-size: 13.5px; color: var(--ink-2); }
+  .sources li { margin-bottom: 4px; }
+  figcaption { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin: 8px 0 16px; }
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;background:var(--surface);border-bottom:1px solid var(--rule)"><a href="https://wlj.me/reading/" style="color:inherit">← 返回资料</a></div>
+<div class="page">
+  <div class="eyebrow">Reading notes · 2026 年 9 月 6 日</div>
+  <h1>新加坡政府的钱从哪来</h1>
+  <p class="lede col">个人所得税、企业所得税税率都不算高，政府却看起来很有钱。两堆钱：当年预算，和历年储备。下面数字用 2025 财年修订数，来自财政部。</p>
+  <div class="meta">单位：十亿新元（S$ billion）。1 个十亿 = 100 亿新元。财年从 4 月 1 日到次年 3 月 31 日。</div>
+
+  <div class="piles">
+    <div>
+      <div class="tag a"><i></i>当年预算</div>
+      <div class="big">税、费，再加投资回报的一半</div>
+      <p>经常收入 1,309 亿，加上 NIRC 275 亿，总收入 1,584 亿。个人所得税只排第三，比 GST 还小。</p>
+    </div>
+    <div>
+      <div class="tag b"><i></i>历年储备</div>
+      <div class="big">50 年盈余 + 土地，拿去投资</div>
+      <p>卖地进 Past Reserves，不拿来花当年的账。GIC、Temasek、MAS 去投。宪法规定最多花预期长期实际回报的一半。</p>
+    </div>
+  </div>
+
+  <div class="col">
+  <h2>当年这笔账</h2>
+  <p>2025 财年修订：经常收入占 GDP 的 16.3%。加上 NIRC 之后，总收入占 GDP 的 19.8%。总支出 1,245 亿，占 GDP 的 15.5%。Overall Fiscal Position 盈余 151 亿。</p>
+  </div>
+
+  <div class="stats">
+    <div class="st"><b>158.4</b><span>总收入（十亿）</span></div>
+    <div class="st"><b>130.9</b><span>经常收入</span></div>
+    <div class="st"><b>27.5</b><span>NIRC 投资回报</span></div>
+    <div class="st"><b>15.1</b><span>财政盈余</span></div>
+  </div>
+
+  <h3>总收入从哪来</h3>
+  <p class="col">下面按「经常收入 + NIRC」合计 1,584 亿来排。NIRC 单独一项比个人所得税大。</p>
+  <div class="bars">
+    <div class="bar-row"><span class="k">企业所得税</span><span class="track"><i style="width:22.2%"></i></span><span class="v">352 亿 · 22%</span></div>
+    <div class="bar-row nirc"><span class="k">NIRC 投资回报</span><span class="track"><i style="width:17.4%"></i></span><span class="v">275 亿 · 17%</span></div>
+    <div class="bar-row"><span class="k">GST</span><span class="track"><i style="width:13.4%"></i></span><span class="v">213 亿 · 13%</span></div>
+    <div class="bar-row"><span class="k">个人所得税</span><span class="track"><i style="width:13.0%"></i></span><span class="v">206 亿 · 13%</span></div>
+    <div class="bar-row"><span class="k">COE 拥车证</span><span class="track"><i style="width:5.5%"></i></span><span class="v">87 亿 · 5%</span></div>
+    <div class="bar-row"><span class="k">外劳税</span><span class="track"><i style="width:4.5%"></i></span><span class="v">71 亿 · 5%</span></div>
+    <div class="bar-row"><span class="k">产业税</span><span class="track"><i style="width:4.4%"></i></span><span class="v">70 亿 · 4%</span></div>
+    <div class="bar-row"><span class="k">印花税</span><span class="track"><i style="width:4.3%"></i></span><span class="v">68 亿 · 4%</span></div>
+    <div class="bar-row"><span class="k">政府收费</span><span class="track"><i style="width:3.5%"></i></span><span class="v">55 亿 · 3%</span></div>
+    <div class="bar-row rest"><span class="k">其余经常收入</span><span class="track"><i style="width:11.7%"></i></span><span class="v">186 亿 · 12%</span></div>
+  </div>
+  <figcaption>百分比相对总收入 1,584 亿。其余包括博彩税、关税、汽车注册附加费、预扣税、土地增值税等。四舍五入，加总可能对不上 100%。</figcaption>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>项目</th><th class="num">S$ 十亿</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>企业所得税 CIT</td><td class="num">35.24</td><td>经常收入里最大单项</td></tr>
+      <tr><td>GST</td><td class="num">21.30</td><td>9%，几乎所有消费</td></tr>
+      <tr><td>个人所得税 PIT</td><td class="num">20.64</td><td>第三，小于 GST</td></tr>
+      <tr><td>COE 拥车证</td><td class="num">8.66</td><td>Vehicle Quota Premiums</td></tr>
+      <tr><td>外劳税</td><td class="num">7.14</td><td>Foreign Worker Levy</td></tr>
+      <tr><td>产业税</td><td class="num">6.99</td><td>Asset Taxes，主要是房产</td></tr>
+      <tr><td>印花税</td><td class="num">6.80</td><td>买卖房产、股票</td></tr>
+      <tr><td>政府收费（不含 COE）</td><td class="num">5.48</td><td>停车、执照等</td></tr>
+      <tr><td>其他税（土地增值税等）</td><td class="num">3.98</td><td>Land Betterment Charge、吨税</td></tr>
+      <tr><td>关税 / 消费税 / 碳税</td><td class="num">3.98</td><td></td></tr>
+      <tr><td>博彩税</td><td class="num">3.63</td><td></td></tr>
+      <tr><td>预扣税</td><td class="num">2.49</td><td>付给非居民的利息、分红等</td></tr>
+      <tr><td>汽车税（ARF 等）</td><td class="num">2.39</td><td>Motor Vehicle Taxes</td></tr>
+      <tr><td>其他经常收入</td><td class="num">1.73</td><td>法定机构上缴、节水税等</td></tr>
+      <tr><td>经常收入合计</td><td class="num">130.86</td><td>GDP 的 16.3%</td></tr>
+      <tr><td>NIRC</td><td class="num">27.53</td><td>储备投资回报拿来花的部分</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>总收入</td><td class="num">158.39</td><td>GDP 的 19.8%</td></tr>
+    </tfoot>
+  </table>
+  </div>
+  <figcaption>来源：财政部 <a href="https://www.mof.gov.sg/news-resources/revenue-and-expenditure/">Revenue and Expenditure</a>，2025 财年修订数。细项加总因四舍五入与合计可能差 0.01。</figcaption>
+
+  <div class="col">
+  <p>所得税（企业 + 个人 + 预扣）约占经常收入四成出头。财政部说，NIRC 大约覆盖每年开支的 20%，FY2020 以来平均约 GDP 的 3.5%。</p>
+  <p>卖地不在上面这张表里。2025/26 政府财务报表：Sales of Land 约 203 亿，进 Past Reserves，不拿来付当年开支。</p>
+  </div>
+
+  <div class="col">
+  <h2>税率看起来低，现金仍进得来</h2>
+  </div>
+
+  <div class="rates">
+    <div class="rate"><b>17%</b><span>企业所得税</span><p>大量跨国企业利润在新加坡入账。17% 乘上大税基，就是 352 亿。</p></div>
+    <div class="rate"><b>0–24%</b><span>个人所得税</span><p>累进，有减免。工资税看起来轻，车和房另算。</p></div>
+    <div class="rate"><b>9%</b><span>GST</span><p>几乎所有消费都交。213 亿，已经超过个税。</p></div>
+  </div>
+
+  <div class="col">
+  <p>OECD 口径的 tax-to-GDP：新加坡 2024 年 13.4%，OECD 平均 34.1%。收入税之外还有 GST、COE 加汽车注册附加费、印花税、外劳税、产业税。一辆车、一套公寓的有效税负，远高于一份工资。</p>
+  <p>COE 加汽车税合计约 110 亿，已经接近个税的一半。印花税加产业税约 138 亿，接近 GST。</p>
+  </div>
+
+  <div class="col">
+  <h2>另一堆：历年储备</h2>
+  <p>Past Reserves = 历年盈余 + 卖地 + 投资回报。宪法保护，动用要总统同意。COVID 期间抽了约 400 亿。</p>
+  <p>三家投资实体：</p>
+  <ul>
+    <li><strong>Temasek</strong>：Net Portfolio Value，2026 年 3 月 31 日按市值计 5,180 亿。</li>
+    <li><strong>MAS</strong>：官方外汇储备，2026 年 5 月约 5,490 亿 / 4,300 亿美元。</li>
+    <li><strong>GIC</strong>：管理规模不公布。财政部只说 well over US$100 billion。公布 GIC，等于公布金融储备总量。</li>
+  </ul>
+  <p>NIRC 的规则写在宪法里：最多花 GIC、MAS、Temasek 净资产「预期长期实际回报」的 50%，以及其余 Past Reserves 净投资收入的 50%。2026 财年估计 NIRC 285 亿。</p>
+  <div class="quote">土地是新加坡主要的自然资源，因而被保护为 Past Reserves 的一部分。<small>财政部，《储备用来做什么》</small></div>
+  <p>政府卖 10 年及以上租约（通常 99 年）的所得进储备，只花投资回报的一半。HDB 用地也按市值进储备。财政部的说法：直接花卖地款，收入会跟着地价周期晃；政府也可能为了多收钱而把地价抬高。所以卖地变投资，再花回报的一半。</p>
+  <p>挪威用石油做类似的事。新加坡用的是 50 年盈余，外加土地。</p>
+  </div>
+
+  <div class="col">
+  <h2>开支也小</h2>
+  <p>2025 财年总支出 1,245 亿，占 GDP 的 15.5%。预算规模 1,433 亿，占 GDP 的 17.9%。欧盟政府开支大约占 GDP 的一半。</p>
+  <p>没有大规模现收现付福利。住房主要是 HDB 加买家付款。退休是 CPF。</p>
+  <div class="note">CPF 不是政府收入。CPF 买 Special Singapore Government Securities。政府证券法规定这笔钱不能拿来开支。政府欠会员本金和保底利息。</div>
+  <p>中等收入税率、许多其他收费、一大笔拿去投资的老本、一个小政府。2025 财年 Overall Fiscal Position 盈余 151 亿。</p>
+  </div>
+
+  <div class="col">
+  <h2>来源</h2>
+  <ul class="sources">
+    <li><a href="https://www.mof.gov.sg/news-resources/revenue-and-expenditure/">财政部 Revenue and Expenditure</a>，2025 财年修订 / 2026 财年估计</li>
+    <li><a href="https://www.factually.gov.sg/corrections-and-clarifications/where-does-government-revenue-come-from/">Factually：政府收入从哪来</a></li>
+    <li><a href="https://www.mof.gov.sg/policies/reserves/what-are-the-reserves-used-for/">财政部：储备用来做什么</a></li>
+    <li><a href="https://www.mof.gov.sg/policies/reserves/net-investment-returns-contribution/">NIRC 规则</a></li>
+    <li><a href="https://www.mof.gov.sg/policies/reserves/what-are-singapores-reserves/">什么是新加坡的储备</a></li>
+    <li>政府财务报表 FY2025/26：卖地约 203 亿</li>
+    <li>Temasek Review 2026；MAS Official Foreign Reserves，2026 年 5 月</li>
+    <li>OECD Revenue Statistics in Asia and the Pacific 2026：新加坡 tax-to-GDP 13.4%</li>
+  </ul>
+  </div>
+</div>
+</body>
+</html>

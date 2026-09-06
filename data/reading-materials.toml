@@ -77,6 +77,19 @@ original_url = "https://www.whitehouse.gov/ostp/news-updates/2026/07/21/science-
 reading_url = "/reading/science-new-golden-age/"
 
 [[materials]]
+slug = "singapore-government-revenue"
+title = "新加坡政府的钱从哪来"
+subtitle = ""
+author = "新加坡财政部 × Luca（整理）"
+category = "report"
+date = "2026-09-06T17:30:00+08:00"
+year = "2026"
+description = "2025 财年修订数：经常收入 1,309 亿新元，NIRC 275 亿。个人所得税只排第三。钱来自税、费、投资回报的一半，外加 50 年盈余和土地。"
+original_url = "https://www.mof.gov.sg/news-resources/revenue-and-expenditure/"
+reading_url = "/reading/singapore-government-revenue/"
+post_slug = "singapore-government-revenue"
+
+[[materials]]
 slug = "temasek-review-2026"
 title = "Temasek Review 2026 速读"
 subtitle = ""

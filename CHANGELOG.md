@@ -2,6 +2,7 @@
 
 ## 2026-09-06
 
+- 新增资料页：《新加坡政府的钱从哪来》，`static/reading/singapore-government-revenue/index.html`。用 2025 财年修订数拆经常收入、NIRC、卖地和储备；`data/reading-materials.toml` 补条目。
 - 新增资料页《新加坡经济战略检讨，讲了什么》，`static/reading/singapore-esr-2026/index.html`，自包含 HTML（时间线 / 三个原则 / 八个方向 32 条建议与已落地政策 / 数字速览 / 与 2010、2017 两次检讨的对比 / 对创业者相关条目表 / 委员会名单 / 来源），`index,follow` + canonical，顶部返回资料链接。`data/reading-materials.toml` 新增 report 条目，`original_url` 指向 MTI 的报告 PDF。
 
 ## 2026-09-05
