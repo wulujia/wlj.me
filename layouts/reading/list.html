@@ -64,7 +64,7 @@
       <p>{{ .description }}</p>
     </div>
     <div>
-      <a class="read-more button inline" href="{{ .reading_url | absURL }}">[打开资料]</a>
+      <a class="read-more button inline" href="{{ .reading_url | absURL }}">[打开整理]</a>
       {{- if .original_url }}
       <a class="read-more button inline" href="{{ .original_url }}" target="_blank" rel="noopener">[原文]</a>
       {{- end }}
@@ -74,7 +74,7 @@
     </div>
   </article>
   {{ end }}
-  <p class="reading-empty" id="reading-empty" hidden>这个分类下还没有资料。</p>
+  <p class="reading-empty" id="reading-empty" hidden>这个分类下还没有整理。</p>
 </div>
 
 <script>
