@@ -2,7 +2,7 @@
 
 ## 2026-09-06
 
-- 撤回日志《Slax Reader · 项目地图与开发指南》，改为自包含 HTML 资料页 `/reading/slax-reader-project-guide/`；`data/reading-materials.toml` 新增资料索引。
+- 撤回日志《Slax Reader · 项目地图与开发指南》，改为自包含 HTML 资料页 `/reading/slax-reader-project-guide/`；`data/reading-materials.toml` 新增资料索引。旧 `/posts/` URL 改为 noindex 跳转页。
 - 整理列表按钮「打开整理」改「打开」，各页顶部「← 返回整理」改「← 返回」。
 - `reading` 栏目改名「整理」（URL 保持 `/reading/` 不变）：`content/reading/_index.md` 标题、`hugo.toml` 菜单名、列表页「打开整理」按钮、各整理页顶部「← 返回整理」同步改。
 
