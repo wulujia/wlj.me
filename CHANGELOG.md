@@ -2,6 +2,7 @@
 
 ## 2026-09-06
 
+- 整理列表按钮「打开整理」改「打开」，各页顶部「← 返回整理」改「← 返回」。
 - `reading` 栏目改名「整理」（URL 保持 `/reading/` 不变）：`content/reading/_index.md` 标题、`hugo.toml` 菜单名、列表页「打开整理」按钮、各整理页顶部「← 返回整理」同步改。
 
 - 新增资料页：《新加坡政府的钱从哪来》，`static/reading/singapore-government-revenue/index.html`。用 2025 财年修订数拆经常收入、NIRC、卖地和储备；`data/reading-materials.toml` 补条目。

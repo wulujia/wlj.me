@@ -14,4 +14,4 @@ slug: "singapore-government-revenue"
 - 投资回报 NIRC 275 亿，单独一项比个人所得税大。
 - 卖地约 203 亿不进当年开支，进储备，再花回报的一半。
 
-[打开阅读页](https://wlj.me/reading/singapore-government-revenue/)
+[打开](https://wlj.me/reading/singapore-government-revenue/)
