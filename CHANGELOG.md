@@ -2,6 +2,8 @@
 
 ## 2026-09-06
 
+- 新增资料页《OpenClaw 开源运营笔记》，`static/reading/openclaw-open-source-ops/index.html`，自包含 HTML（规模 / 小项目能搬走什么 / 对贡献者的具体要求 / Barnacle 规则引擎 / ClawSweeper AI 评审 / 分层 AGENTS.md / 安全 / 发布 / 治理 / 社区 / CI / 标签 / 代价 / 方法与来源），左侧固定大纲，`index,follow` + canonical，顶部返回链接。`data/reading-materials.toml` 新增 report 条目。
+- 新增资料页《Omarchy 开源运营笔记》，`static/reading/omarchy-open-source-ops/index.html`，同款规格（规模 / 可借鉴 / omarchy 技能 / 崩溃分诊技能 / 四条更新通道 / 更新安全网 / 贡献者要求 / 插件分流 / 测试 / 设计先行 / 发布 / 合并 / 治理 / 社区 / 欠账 / 方法与来源）。`data/reading-materials.toml` 新增 report 条目。
 - 撤回日志《Slax Reader · 项目地图与开发指南》，改为自包含 HTML 资料页 `/reading/slax-reader-project-guide/`；`data/reading-materials.toml` 新增资料索引。旧 `/posts/` URL 改为 noindex 跳转页。
 - 整理列表按钮「打开整理」改「打开」，各页顶部「← 返回整理」改「← 返回」。
 - `reading` 栏目改名「整理」（URL 保持 `/reading/` 不变）：`content/reading/_index.md` 标题、`hugo.toml` 菜单名、列表页「打开整理」按钮、各整理页顶部「← 返回整理」同步改。

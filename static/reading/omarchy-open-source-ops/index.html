@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="研究 Omarchy 开源仓库的运营：随系统发行、自动挂进所有 agent 的 omarchy 技能与崩溃分诊技能，四条更新通道与 dev 链接，更新安全网，AGENTS.md 与七份专题指南，插件分流，测试、发布、合并、治理与社区。先给可借鉴的做法，再按效果逐条给证据，每条附钉在提交的文件行号链接。">
+<link rel="canonical" href="https://wlj.me/reading/omarchy-open-source-ops/">
+<meta property="og:title" content="Omarchy 开源运营笔记"><meta property="og:description" content="研究 Omarchy 开源仓库的运营：随系统发行、自动挂进所有 agent 的 omarchy 技能与崩溃分诊技能，四条更新通道与 dev 链接，更新安全网，AGENTS.md 与七份专题指南，插件分流，测试、发布、合并、治理与社区。先给可借鉴的做法，再按效果逐条给证据，每条附钉在提交的文件行号链接。"><meta property="og:type" content="article"><meta property="og:url" content="https://wlj.me/reading/omarchy-open-source-ops/">
+<title>Omarchy 开源运营笔记</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root { color-scheme: light; --bg:#f6f5f2; --surface:#fffefb; --ink:#1c1a17; --ink-2:#4f4a43; --ink-3:#847c72; --rule:#e3dfd8; --rule-2:#cdc6bb; --acc:#8a3b12; --acc-wash:rgba(138,59,18,.08); --mid:#ecebe6; --quote:#f1efe9; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --bg:#181715; --surface:#201e1b; --ink:#f0ece6; --ink-2:#c2bbb1; --ink-3:#8f887e; --rule:#33302b; --rule-2:#4a453f; --acc:#e08a5a; --acc-wash:rgba(224,138,90,.14); --mid:#2b2925; --quote:#242220; } }
+  :root[data-theme="dark"] { color-scheme: dark; --bg:#181715; --surface:#201e1b; --ink:#f0ece6; --ink-2:#c2bbb1; --ink-3:#8f887e; --rule:#33302b; --rule-2:#4a453f; --acc:#e08a5a; --acc-wash:rgba(224,138,90,.14); --mid:#2b2925; --quote:#242220; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; font-size:16px; line-height:1.95; -webkit-font-smoothing:antialiased; }
+  .layout { display:grid; grid-template-columns: 260px minmax(0, 720px); gap: 48px; max-width: 1080px; margin: 0 auto; padding: 48px 24px 96px; }
+  .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.6; padding-right: 8px; }
+  .outline .label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+  .outline ul { list-style: none; margin: 0; padding: 0; }
+  .outline > .toc > ul > li { margin: 0 0 6px; }
+  .outline > .toc > ul > li > a { font-weight: 700; }
+  .outline ul ul { margin: 2px 0 6px 12px; border-left: 1px solid var(--rule); padding-left: 10px; }
+  .outline ul ul li { margin: 0 0 2px; }
+  .outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+  .outline a:hover { color: var(--ink); }
+  .outline a.active { color: var(--acc); }
+  .outline details { display: none; }
+  main { min-width: 0; }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding: 32px 18px 80px; }
+    .outline { position: static; max-height: none; padding: 0; border: 1px solid var(--rule); background: var(--surface); }
+    .outline .label { display: none; }
+    .outline details { display: block; }
+    .outline details summary { cursor: pointer; padding: 10px 14px; font-weight: 700; font-size: 14px; }
+    .outline details .toc { padding: 0 14px 12px; }
+    .outline > .toc { display: none; }
+  }
+  h1,h2 { font-family:"Noto Serif SC","Songti SC",serif; text-wrap:balance; }
+  h1 { font-size:34px; line-height:1.3; margin:0 0 10px; font-weight:700; }
+  h2 { font-size:22px; line-height:1.4; margin:56px 0 14px; padding-top:18px; border-top:1px solid var(--rule-2); font-weight:700; scroll-margin-top: 16px; }
+  h3 { font-size:17px; margin:30px 0 8px; font-weight:700; scroll-margin-top: 16px; }
+  p { margin:0 0 16px; } p > strong:first-child { color:var(--acc); }
+  ul,ol { margin:0 0 16px; padding-left:1.5em; } li { margin-bottom:6px; } li::marker { color:var(--ink-3); }
+  code { font-family:"IBM Plex Mono",Menlo,monospace; font-size:.86em; background:var(--mid); padding:1px 5px; border-radius:3px; }
+  blockquote { margin: 14px 0 18px; padding: 10px 16px; background: var(--quote); border-left: 3px solid var(--acc); color: var(--ink-2); font-size: 14.5px; line-height: 1.75; }
+  blockquote p { margin: 0; }
+  .tbl { overflow-x:auto; margin:14px 0 20px; }
+  table { border-collapse:collapse; width:100%; font-size:14px; line-height:1.6; }
+  th,td { text-align:left; vertical-align:top; padding:8px 12px 8px 0; border-bottom:1px solid var(--rule); }
+  th { font-size:12px; letter-spacing:.08em; color:var(--ink-3); font-weight:500; border-bottom:2px solid var(--ink); white-space: nowrap; }
+  td { font-variant-numeric: tabular-nums; }
+  .eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin-bottom:14px; }
+  .intro { color:var(--ink-2); font-size:15px; border-left:3px solid var(--acc); padding-left:14px; margin:18px 0 8px; }
+  a { color:inherit; text-decoration-color:var(--rule-2); text-underline-offset:3px; }
+  main a:hover { text-decoration-color: var(--acc); }
+  a:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+  #reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+  #reading-return a { color: var(--ink-2); text-decoration: none; }
+  @media print { #reading-return { display: none !important; } }
+</style>
+</head><body>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回</a></div>
+<div class="layout">
+  <nav class="outline" aria-label="目录">
+    <p class="label">Outline</p>
+    <details><summary>目录</summary><div class="toc">
+<ul>
+<li><a href="#一-规模与结论">一、规模与结论</a></li>
+<li><a href="#二-可借鉴">二、可借鉴</a></li>
+<li><a href="#三-把贡献步骤装进操作系统-omarchy-技能">三、把贡献步骤装进操作系统：omarchy 技能</a><ul>
+<li><a href="#3-1-要解决的问题">3.1 要解决的问题</a></li>
+<li><a href="#3-2-做法-一个随系统发行-自动挂进所有-agent-的技能">3.2 做法：一个随系统发行、自动挂进所有 agent 的技能</a></li>
+<li><a href="#3-3-做法-contributing-md-是给-agent-看的贡献指南">3.3 做法：contributing.md 是给 agent 看的贡献指南</a></li>
+<li><a href="#3-4-为什么这么设计">3.4 为什么这么设计</a></li>
+<li><a href="#3-5-效果">3.5 效果</a></li>
+</ul>
+</li>
+<li><a href="#四-崩溃分诊技能-让-agent-先判断-是不是-Omarchy-的-bug">四、崩溃分诊技能：让 agent 先判断“是不是 Omarchy 的 bug”</a><ul>
+<li><a href="#4-1-要解决的问题">4.1 要解决的问题</a></li>
+<li><a href="#4-2-做法">4.2 做法</a></li>
+<li><a href="#4-3-效果">4.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#五-四条更新通道-把用户变成分层的测试员">五、四条更新通道：把用户变成分层的测试员</a><ul>
+<li><a href="#5-1-要解决的问题">5.1 要解决的问题</a></li>
+<li><a href="#5-2-做法">5.2 做法</a></li>
+<li><a href="#5-3-效果">5.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#六-更新命令的安全网-把支持问题消灭在发生之前">六、更新命令的安全网：把支持问题消灭在发生之前</a><ul>
+<li><a href="#6-1-要解决的问题">6.1 要解决的问题</a></li>
+<li><a href="#6-2-做法">6.2 做法</a></li>
+<li><a href="#6-3-效果">6.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#七-对贡献者的具体要求">七、对贡献者的具体要求</a><ul>
+<li><a href="#7-1-一份-AGENTS-md-CLAUDE-md-只有一行">7.1 一份 AGENTS.md，CLAUDE.md 只有一行</a></li>
+<li><a href="#7-2-七份专题指南">7.2 七份专题指南</a></li>
+<li><a href="#7-3-为什么这么写">7.3 为什么这么写</a></li>
+<li><a href="#7-4-门口的规矩">7.4 门口的规矩</a></li>
+<li><a href="#7-5-效果">7.5 效果</a></li>
+</ul>
+</li>
+<li><a href="#八-插件系统-把功能需求从-PR-里分流出去">八、插件系统：把功能需求从 PR 里分流出去</a><ul>
+<li><a href="#8-1-要解决的问题">8.1 要解决的问题</a></li>
+<li><a href="#8-2-做法">8.2 做法</a></li>
+<li><a href="#8-3-效果">8.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#九-测试-本地两套-图形验收进虚拟机">九、测试：本地两套，图形验收进虚拟机</a><ul>
+<li><a href="#9-1-做法">9.1 做法</a></li>
+<li><a href="#9-2-效果">9.2 效果</a></li>
+</ul>
+</li>
+<li><a href="#十-设计先行-plans-与-docs">十、设计先行：plans/ 与 docs/</a></li>
+<li><a href="#十一-发布节奏与镜像滞后">十一、发布节奏与镜像滞后</a></li>
+<li><a href="#十二-谁在合并-一个人加一个-agent-农场">十二、谁在合并：一个人加一个 agent 农场</a><ul>
+<li><a href="#12-1-数据">12.1 数据</a></li>
+<li><a href="#12-2-DHH-自己的描述">12.2 DHH 自己的描述</a></li>
+<li><a href="#12-3-没有被合并的那些">12.3 没有被合并的那些</a></li>
+</ul>
+</li>
+<li><a href="#十三-治理与钱">十三、治理与钱</a></li>
+<li><a href="#十四-社区">十四、社区</a></li>
+<li><a href="#十五-没做好的地方">十五、没做好的地方</a></li>
+<li><a href="#十六-方法与来源">十六、方法与来源</a></li>
+</ul>
+</div>
+</details>
+    <div class="toc">
+<ul>
+<li><a href="#一-规模与结论">一、规模与结论</a></li>
+<li><a href="#二-可借鉴">二、可借鉴</a></li>
+<li><a href="#三-把贡献步骤装进操作系统-omarchy-技能">三、把贡献步骤装进操作系统：omarchy 技能</a><ul>
+<li><a href="#3-1-要解决的问题">3.1 要解决的问题</a></li>
+<li><a href="#3-2-做法-一个随系统发行-自动挂进所有-agent-的技能">3.2 做法：一个随系统发行、自动挂进所有 agent 的技能</a></li>
+<li><a href="#3-3-做法-contributing-md-是给-agent-看的贡献指南">3.3 做法：contributing.md 是给 agent 看的贡献指南</a></li>
+<li><a href="#3-4-为什么这么设计">3.4 为什么这么设计</a></li>
+<li><a href="#3-5-效果">3.5 效果</a></li>
+</ul>
+</li>
+<li><a href="#四-崩溃分诊技能-让-agent-先判断-是不是-Omarchy-的-bug">四、崩溃分诊技能：让 agent 先判断“是不是 Omarchy 的 bug”</a><ul>
+<li><a href="#4-1-要解决的问题">4.1 要解决的问题</a></li>
+<li><a href="#4-2-做法">4.2 做法</a></li>
+<li><a href="#4-3-效果">4.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#五-四条更新通道-把用户变成分层的测试员">五、四条更新通道：把用户变成分层的测试员</a><ul>
+<li><a href="#5-1-要解决的问题">5.1 要解决的问题</a></li>
+<li><a href="#5-2-做法">5.2 做法</a></li>
+<li><a href="#5-3-效果">5.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#六-更新命令的安全网-把支持问题消灭在发生之前">六、更新命令的安全网：把支持问题消灭在发生之前</a><ul>
+<li><a href="#6-1-要解决的问题">6.1 要解决的问题</a></li>
+<li><a href="#6-2-做法">6.2 做法</a></li>
+<li><a href="#6-3-效果">6.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#七-对贡献者的具体要求">七、对贡献者的具体要求</a><ul>
+<li><a href="#7-1-一份-AGENTS-md-CLAUDE-md-只有一行">7.1 一份 AGENTS.md，CLAUDE.md 只有一行</a></li>
+<li><a href="#7-2-七份专题指南">7.2 七份专题指南</a></li>
+<li><a href="#7-3-为什么这么写">7.3 为什么这么写</a></li>
+<li><a href="#7-4-门口的规矩">7.4 门口的规矩</a></li>
+<li><a href="#7-5-效果">7.5 效果</a></li>
+</ul>
+</li>
+<li><a href="#八-插件系统-把功能需求从-PR-里分流出去">八、插件系统：把功能需求从 PR 里分流出去</a><ul>
+<li><a href="#8-1-要解决的问题">8.1 要解决的问题</a></li>
+<li><a href="#8-2-做法">8.2 做法</a></li>
+<li><a href="#8-3-效果">8.3 效果</a></li>
+</ul>
+</li>
+<li><a href="#九-测试-本地两套-图形验收进虚拟机">九、测试：本地两套，图形验收进虚拟机</a><ul>
+<li><a href="#9-1-做法">9.1 做法</a></li>
+<li><a href="#9-2-效果">9.2 效果</a></li>
+</ul>
+</li>
+<li><a href="#十-设计先行-plans-与-docs">十、设计先行：plans/ 与 docs/</a></li>
+<li><a href="#十一-发布节奏与镜像滞后">十一、发布节奏与镜像滞后</a></li>
+<li><a href="#十二-谁在合并-一个人加一个-agent-农场">十二、谁在合并：一个人加一个 agent 农场</a><ul>
+<li><a href="#12-1-数据">12.1 数据</a></li>
+<li><a href="#12-2-DHH-自己的描述">12.2 DHH 自己的描述</a></li>
+<li><a href="#12-3-没有被合并的那些">12.3 没有被合并的那些</a></li>
+</ul>
+</li>
+<li><a href="#十三-治理与钱">十三、治理与钱</a></li>
+<li><a href="#十四-社区">十四、社区</a></li>
+<li><a href="#十五-没做好的地方">十五、没做好的地方</a></li>
+<li><a href="#十六-方法与来源">十六、方法与来源</a></li>
+</ul>
+</div>
+
+  </nav>
+  <main>
+    <div class="eyebrow">Research notes · 2026 年 9 月 6 日</div>
+    <h1>Omarchy 开源运营笔记</h1>
+<p class="intro">研究对象：github.com/omacom/omarchy（2026 年 8 月从 basecamp 组织迁到 omacom 组织）。数据截至 2026 年 9 月 6 日。仓库文件链接钉在提交 <code>adcc96a</code>（2026 年 9 月 6 日的 quattro 分支），点开看到的就是本文引用的那一行。方法和来源见文末。</p>
+<h2 id="一-规模与结论">一、规模与结论</h2>
+<p>Omarchy 是一个操作系统：Arch Linux 打底，Hyprland 做窗口管理，Quickshell 做桌面。仓库里有 451 个命令脚本、22 个主题、106 个迁移脚本、51 章用户手册、16 个自带桌面插件。它的开源运营和普通软件库的差别在这里：用户的机器上就装着它的全部源码和工具，所以很多“社区流程”被做成了操作系统命令，随系统一起发到每台机器上。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star / Fork</td>
+<td>38,400 / 4,100</td>
+</tr>
+<tr>
+<td>提交数 / 作者数</td>
+<td>6,358 / 537</td>
+</tr>
+<tr>
+<td>创始人提交占比</td>
+<td>DHH 72%，Ryan Hughes 12%</td>
+</tr>
+<tr>
+<td>PR 总数</td>
+<td>4,783</td>
+</tr>
+<tr>
+<td>PR 合并 / 关闭未合并 / 打开</td>
+<td>1,186（25%）/ 1,745（36%）/ 1,852（39%）</td>
+</tr>
+<tr>
+<td>Issue 总数（打开）</td>
+<td>3,872（1,418，37%）</td>
+</tr>
+<tr>
+<td>2026 年 8 月新开 PR / 合并</td>
+<td>1,692 / 241</td>
+</tr>
+<tr>
+<td>9 月初每天新开 PR</td>
+<td>85 到 126</td>
+</tr>
+<tr>
+<td>Discord</td>
+<td>35,000 人</td>
+</tr>
+<tr>
+<td>插件市场</td>
+<td>Quattro 发布三天 330 个，现在 500 多个</td>
+</tr>
+</tbody>
+</table></div>
+<p>一句话结论：Omarchy 把“怎么报 bug、怎么调试、怎么改代码、怎么测试、怎么发 PR”全部做成了装在系统里的命令和 agent 技能，让每个用户机器上的 AI agent 都能按它的规矩办事；仓库本身几乎没有流程，没有 CI，没有机器人分诊，合并靠 DHH 一个人加他的 agent 农场。前一半是它最值得学的地方，后一半是它现在最大的欠账。</p>
+<h2 id="二-可借鉴">二、可借鉴</h2>
+<ul>
+<li>把贡献指南做成产品的一部分。用户的 agent 是第一道支持，那就把分流规则、诊断命令、报告清单写成技能，随产品发到用户机器上，再让初始化脚本自动挂进所有 agent 的技能目录。</li>
+<li>报 bug 前的四道闸：先判断管辖范围，先搜重复，用户点头才发，机器报告必须署名。这四条可以直接搬进任何产品的 agent 技能。</li>
+<li>非交互开关。每个诊断命令都给 <code>--no-sudo --print</code> 这样的开关，并在技能里写“ALWAYS use these flags”。agent 跑不了交互命令。</li>
+<li>让用户分层做测试员：stable、rc、edge、dev 四条通道，切换是一条命令，dev 通道直接把系统指向 git 检出。</li>
+<li>设计文档先过另一家模型的对抗评审，并把修订记录写在文档第三行。</li>
+<li>功能需求走插件系统，主仓库只收修复和核心改动。</li>
+<li>别学的部分：没有 CI、没有 PR 出口、没有社区版规。这些在 3.8 万 star 的规模上已经开始漏水。</li>
+</ul>
+<p>下面是每条的依据，按效果从大到小排，每条写清要解决的问题、做法、效果、证据。</p>
+<h2 id="三-把贡献步骤装进操作系统-omarchy-技能">三、把贡献步骤装进操作系统：omarchy 技能</h2>
+<h3 id="3-1-要解决的问题">3.1 要解决的问题</h3>
+<p>一个新 Linux 发行版的支持负担，大头是“我的机器出了问题，我不知道是不是 bug，也不知道要给你什么信息”。Omarchy 的用户里有大量第一次用 Linux 的人，而且几乎每个人都在机器上装了 Claude Code、Codex 一类的 agent。问题就变成：怎么让用户的 agent 替维护者做第一轮支持和分诊。</p>
+<h3 id="3-2-做法-一个随系统发行-自动挂进所有-agent-的技能">3.2 做法：一个随系统发行、自动挂进所有 agent 的技能</h3>
+<p>仓库里 <code>default/agents/skills/omarchy/</code> 是一个 agent 技能，七个文件：SKILL.md 294 行，加 contributing、hooks、plugins、theming、capture、hyprland 六份专题指南。它随 <code>omarchy</code> 包安装到 <code>/usr/share/omarchy</code>，然后由用户初始化脚本符号链接到每个 agent 的技能目录。</p>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-provision-user#L87-L101" target="_blank" rel="noopener">bin/omarchy-provision-user#L87-L101</a>：循环 <code>default/agents/skills/*/</code>，把每个技能链接到 <code>~/.agents/skills</code>、<code>~/.claude/skills</code>、<code>~/.codex/skills</code>、<code>~/.pi/agent/skills</code>、<code>~/.gemini/config/skills</code>、<code>~/.hermes/skills</code>，以及 Hermes 每个 profile 的 skills 目录。注释写明“Loops every skill directory, so shipping a new one needs no edit here”。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/17-ai.md#L57-L61" target="_blank" rel="noopener">manual/17-ai.md#L57-L61</a>：用户手册说明这个技能是干什么的，并提醒“treat this skill as experimental”，建议先用 plan mode，出问题就 <code>omarchy reinstall configs</code>。</li>
+</ul>
+<p>SKILL.md 的关键段落：</p>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/SKILL.md#L21-L38" target="_blank" rel="noopener">SKILL.md#L21-L38</a>“When This Skill MUST Be Used”：凡是要改 <code>~/.config/hypr/</code>、<code>~/.config/omarchy/</code>、终端配置、主题、截图、锁屏，agent 必须先读这个技能。“If you're about to edit a config file in ~/.config/ on this system, STOP and use this skill first.” 同时划清边界：改 Omarchy 源码、写迁移、跑 <code>omarchy dev</code> 不归它管。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/SKILL.md#L51-L62" target="_blank" rel="noopener">SKILL.md#L51-L62</a>“Critical Safety Rules”：<code>/usr/share/omarchy/</code> 只读，因为下次更新会覆盖；提权按“有终端用 sudo，没终端用 pkexec”。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/SKILL.md#L109-L131" target="_blank" rel="noopener">SKILL.md#L109-L131</a>“Command Discovery”：教 agent 用 <code>omarchy --all</code>、<code>omarchy &lt;group&gt;</code>、机器可读的命令清单，以及“Read a command's source to understand it”。命令源码本身就是文档。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/SKILL.md#L230-L246" target="_blank" rel="noopener">SKILL.md#L230-L246</a>“Troubleshooting”：<code>omarchy debug --no-sudo --print</code>，注释是“ALWAYS use these flags to avoid interactive prompts”，然后是 <code>omarchy refresh config</code>、<code>omarchy reinstall configs</code> 三级恢复。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/SKILL.md#L248-L259" target="_blank" rel="noopener">SKILL.md#L248-L259</a>“Decision Framework”：先判断请求属于哪一类，再决定读哪份指南。“Report this bug to Omarchy”这一类导向 contributing.md。</li>
+</ul>
+<h3 id="3-3-做法-contributing-md-是给-agent-看的贡献指南">3.3 做法：contributing.md 是给 agent 看的贡献指南</h3>
+<p>仓库没有 CONTRIBUTING.md。给人看的那份没有，给 agent 看的这份有，65 行，装在每台机器上：</p>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/contributing.md#L6-L15" target="_blank" rel="noopener">contributing.md#L6-L15</a>：三条分流。已验证的 bug 去 GitHub issue，“Issues are for validated bugs only, not support requests”；功能想法去 Discussions 的 Suggestions 分类；支持和“这算不算 bug”去 Discord，“Start here when the problem isn't clearly a bug in Omarchy itself”。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/contributing.md#L17-L50" target="_blank" rel="noopener">contributing.md#L17-L50</a>“Filing a Good Bug Report”：<code>omarchy version</code>；<code>omarchy debug --no-sudo --print</code> 生成诊断日志（同时写到 <code>/tmp/omarchy-debug.log</code>）；交互版会把日志传到 logs.omarchy.org，24 小时过期，返回可分享的链接；用 <code>omarchy capture screenshot</code> 或 <code>omarchy screenrecord</code> 录下问题；最后 <code>gh issue create --repo basecamp/omarchy</code>。写明 <code>gh</code> 传不了媒体文件，所以把截图路径交给用户自己拖进网页表单。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/contributing.md#L52-L65" target="_blank" rel="noopener">contributing.md#L52-L65</a>“Submitting a PR”：“Never develop against /usr/share/omarchy”，用 <code>gh repo fork basecamp/omarchy --clone</code>；按仓库的 AGENTS.md 办，“it is the authority on contributions”；提交要原子，推送前跑 <code>./test/all</code>，用 <code>gh pr create</code> 开 PR；修视觉问题的 PR 要带前后截图。</li>
+</ul>
+<p>配套的系统命令：</p>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-debug#L1-L20" target="_blank" rel="noopener">bin/omarchy-debug#L1-L20</a>：命令元数据声明 <code>--no-sudo</code> 和 <code>--print</code> 两个开关，就是给 agent 用的非交互路径。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-upload-log#L95-L140" target="_blank" rel="noopener">bin/omarchy-upload-log#L95-L140</a>：安装日志、本次启动日志、上次启动日志、系统信息，分别上传到 logs.omarchy.org。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/.github/ISSUE_TEMPLATE/bug.yml#L2-L8" target="_blank" rel="noopener">.github/ISSUE_TEMPLATE/bug.yml#L2-L8</a>：唯一的 issue 表单，描述是“Report a validated bug -- NOT FOR SUPPORT REQUESTS”，开头一句“Remember: Omarchy is an open source gift, not a product you bought from a vendor”。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/.github/ISSUE_TEMPLATE/config.yml#L1-L8" target="_blank" rel="noopener">.github/ISSUE_TEMPLATE/config.yml#L1-L8</a>：空白 issue 关闭，Suggestion 去 Discussions，Support 去 Discord。</li>
+</ul>
+<h3 id="3-4-为什么这么设计">3.4 为什么这么设计</h3>
+<p>三条分流规则在 GitHub 表单里写了一遍，在 agent 技能里又写了一遍。前者拦的是人，后者拦的是用户的 agent。Omarchy 的用户遇到问题时，第一反应往往是问自己机器上的 agent，而这个 agent 读到的第一份材料就是 Omarchy 自己写的：先去 Discord 确认，确认了再带着 <code>omarchy debug</code> 的日志和截图去开 issue。维护者不用在 issue 里追问“你什么显卡、什么版本、日志呢”，因为技能已经把这些列成了清单。</p>
+<h3 id="3-5-效果">3.5 效果</h3>
+<ul>
+<li>issue 标签只有 <code>bug</code>（1,827 个）、<code>enhancement</code>（260 个）、<code>support</code>（26 个）。支持类 issue 只有 26 个，说明分流在起作用。</li>
+<li>最近 100 个关闭的 issue，中位关闭时间 3.6 小时，76% 标为“已完成”，20%“不计划”，4%“重复”。抽 5 个看关闭人，全是作者自己：有的发现是重复，有的自己修好了，有的“开错了”。</li>
+<li>代价：issue 打开的占 37%（1,418 个），没有分诊标签，没有机器人。分流把噪音挡在门外，但进门以后还是排队。</li>
+</ul>
+<h2 id="四-崩溃分诊技能-让-agent-先判断-是不是-Omarchy-的-bug">四、崩溃分诊技能：让 agent 先判断“是不是 Omarchy 的 bug”</h2>
+<h3 id="4-1-要解决的问题">4.1 要解决的问题</h3>
+<p>操作系统上什么都会崩：浏览器、文件管理器、Qt 库。用户看到“Process crashed”通知，第一反应是去 Omarchy 报 bug。绝大多数不是 Omarchy 的 bug。</p>
+<h3 id="4-2-做法">4.2 做法</h3>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-agent-crash#L26-L52" target="_blank" rel="noopener">bin/omarchy-agent-crash#L26-L52</a>：崩溃通知点下去，这个命令从 <code>coredumpctl</code> 取出记录，拼成提示词，调用用户设定的默认 agent，指明“Use the diagnose-crash skill”。注释解释为什么方法写在技能里：“so it is edited in one place and works with whichever agent is default”。没有技能机制的 agent 就直接读技能文件。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/diagnose-crash/SKILL.md#L1-L30" target="_blank" rel="noopener">diagnose-crash/SKILL.md#L1-L30</a>：“Work from evidence. The goal is an honest account of what happened, not a plausible-sounding story.” 先看 <code>coredumpctl info</code> 的命令行，再看 <code>coredumpctl list</code> 是一次性还是反复，再排除内存耗尽，“A process killed by the OOM killer is not a bug in that process”。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/diagnose-crash/reporting.md#L5-L24" target="_blank" rel="noopener">diagnose-crash/reporting.md#L5-L24</a>“Is it even Omarchy's bug?”：列出 Omarchy 的管辖范围，<code>omarchy-*</code> 命令、Quickshell 桌面和插件、它发的 Hyprland 和终端配置、主题、安装和迁移脚本、打包方式。“A crash in a program Omarchy merely installs is not an Omarchy bug unless Omarchy's own packaging or configuration is implicated.” 不是它的，就说清楚然后停下，不要替用户去上游报。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/diagnose-crash/reporting.md#L26-L36" target="_blank" rel="noopener">reporting.md#L26-L36</a>“Three conditions, all required”：有证据的已验证 bug；用户明确同意，“Show them the exact title and body you propose, and wait for a yes. Never file unprompted”；<code>gh auth status</code> 通过，没装或没登录就不要替用户装，把写好的文本交给用户自己发。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/diagnose-crash/reporting.md#L38-L55" target="_blank" rel="noopener">reporting.md#L38-L55</a>“Search before filing”：“A duplicate issue costs a maintainer more time than no report at all.”</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/diagnose-crash/reporting.md#L96-L104" target="_blank" rel="noopener">reporting.md#L96-L104</a>“Signing”：issue 或评论结尾必须署名“Filed by <model name> via <agent harness>”，用真实的模型和工具名，不确定就说不确定，不要编版本号。</li>
+</ul>
+<h3 id="4-3-效果">4.3 效果</h3>
+<p>这套技能是 Quattro 4.0（2026 年 8 月 14 日）才加的，样本还少。能看到的是 issue 里出现了带署名的机器报告，以及 omarchybot 提的 PR，比如 <a href="https://github.com/omacom/omarchy/pull/8549" target="_blank" rel="noopener">#8549</a>“Let a crash diagnosis mute that program's notifications”，已由 DHH 合并。设计上它把“先判断管辖、先搜重复、用户点头才发、署名”四道闸放在了用户机器上，而 OpenClaw 把同样的闸放在仓库的机器人里。</p>
+<h2 id="五-四条更新通道-把用户变成分层的测试员">五、四条更新通道：把用户变成分层的测试员</h2>
+<h3 id="5-1-要解决的问题">5.1 要解决的问题</h3>
+<p>滚动发行版最怕两件事：上游 Arch 的新包把配置搞坏，自己的新版本把用户机器搞坏。测试要靠人，人要分层。</p>
+<h3 id="5-2-做法">5.2 做法</h3>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/30-updates.md#L11-L19" target="_blank" rel="noopener">manual/30-updates.md#L11-L19</a>：四条通道。stable 跟官方发布，配套的 Arch 镜像故意落后一个月，“so we can catch any new incompatibilities that require config changes before they cause problems for people”；edge 跟最新开发版和最新 Arch 包，“You should only do this if you're experienced with Linux”；RC 在大版本前做最终验证，“come hang out in #omarchy-release-candidates on the Discord”；dev 直接连 <code>~/omarchy</code> 的源码检出，给“working directly on Omarchy, and willing to tolerate breakage”的人。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-channel-set#L12-L20" target="_blank" rel="noopener">bin/omarchy-channel-set#L12-L20</a> 和 <a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-channel-set#L37-L39" target="_blank" rel="noopener">#L37-L39</a>：切到 dev 通道要二次确认；确认后没有检出就 <code>git clone</code>，然后 <code>omarchy-dev-link</code> 把系统的 <code>/usr/share/omarchy</code> 指向这个检出。从这一刻起，用户改一行源码，系统就在跑改过的版本。</li>
+<li><code>bin/</code> 里的 <code>omarchy-dev-*</code> 命令共 11 个：<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-dev-status" target="_blank" rel="noopener">omarchy-dev-status</a> 看链接状态，<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-dev-pkg-test" target="_blank" rel="noopener">omarchy-dev-pkg-test</a> 从本地检出打包安装，<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-dev-ui-preview" target="_blank" rel="noopener">omarchy-dev-ui-preview</a> 和 <a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-dev-theme-preview" target="_blank" rel="noopener">omarchy-dev-theme-preview</a> 预览界面和主题，<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-dev-add-migration#L33-L41" target="_blank" rel="noopener">omarchy-dev-add-migration</a> 新建迁移。</li>
+<li>迁移的规矩：<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/migrations.md#L118-L129" target="_blank" rel="noopener">agents/skills/migrations.md#L118-L129</a>，文件名是 unix 时间戳（<code>omarchy-dev-add-migration</code> 用最后一次提交的时间生成），第一行 <code>echo</code> 说明做什么，必须幂等，严格顺序执行，失败就退出非零并停住队列，“never mark later migrations complete against state an earlier migration has not established”。仓库里现在 106 个迁移。</li>
+</ul>
+<h3 id="5-3-效果">5.3 效果</h3>
+<ul>
+<li>一个普通用户按手册切到 edge，就成了 Arch 新包的测试员；切到 dev，就成了拿着完整开发环境的贡献者。不用装工具链，不用配路径，因为系统自带。</li>
+<li>8 月的 RC 通道验证撑起了 Quattro 4.0 的发布。发布说明里按功能列作者 @，很多来自这批人。</li>
+<li>代价：这套体系没有对应的公开数据，多少人在 edge、多少人在 dev 无从统计。</li>
+</ul>
+<h2 id="六-更新命令的安全网-把支持问题消灭在发生之前">六、更新命令的安全网：把支持问题消灭在发生之前</h2>
+<h3 id="6-1-要解决的问题">6.1 要解决的问题</h3>
+<p>滚动发行版的支持工单大头是“更新以后起不来了”。</p>
+<h3 id="6-2-做法">6.2 做法</h3>
+<p><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-update" target="_blank" rel="noopener">bin/omarchy-update</a> 96 行，做了这些事：</p>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-update#L12" target="_blank" rel="noopener">#L12</a>：整个更新过程用 <code>script</code> 录到 <code>/tmp/omarchy-update.log</code>。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-update#L15-L16" target="_blank" rel="noopener">#L15-L16</a>：加锁，防止两个更新同时跑。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-update#L19" target="_blank" rel="noopener">#L19</a>：ERR 陷阱。任何一步出错，红字提示“Something went wrong during the update!”，然后给出 Discord 地址。支持入口写在错误信息里。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-update#L36-L37" target="_blank" rel="noopener">#L36-L37</a>：更新前先 <code>omarchy-snapshot create</code> 做 Btrfs 快照，快照失败只警告不阻断。坏了在启动菜单选回去（<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/30-updates.md#L31" target="_blank" rel="noopener">manual/30-updates.md#L31</a>）。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-update#L40-L53" target="_blank" rel="noopener">#L40-L53</a>：固定顺序，先更新源码（dev 通道）、密钥环、系统包，再跑迁移，再跑用户的 post-update 钩子，再 AUR 包、mise、孤儿包，最后 <a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/bin/omarchy-update-analyze-logs#L1-L12" target="_blank" rel="noopener">omarchy-update-analyze-logs</a> 扫日志找已知故障模式，比如 initramfs 生成失败就红字提醒“Review logs before restart”。</li>
+<li>直接跑 <code>pacman -Syu</code> 会被拦下，因为会跳过快照、迁移和配置更新。设计文档 <a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/update-process.md#L63" target="_blank" rel="noopener">docs/update-process.md#L63</a>“Raw pacman guard”、<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/update-process.md#L151" target="_blank" rel="noopener">#L151</a>“Path 2: direct sudo pacman -Syu attempt”写清了用户绕过时怎么处理，<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/update-process.md#L292" target="_blank" rel="noopener">#L292</a>“Closed decisions”和 <a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/update-process.md#L319" target="_blank" rel="noopener">#L319</a>“Remaining concerns”记录了已定和未定的事。</li>
+<li>用户自己的自动化走钩子，不用改系统文件：<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/hooks.md#L6-L22" target="_blank" rel="noopener">hooks.md#L6-L22</a>，<code>~/.config/omarchy/hooks/&lt;事件&gt;.d/</code>，六种事件：低电量、换字体、开机后、更新后、重新同步包之前、换主题。</li>
+</ul>
+<h3 id="6-3-效果">6.3 效果</h3>
+<p>这一节没法用仓库数据量化，但它决定了 Discord 的 #omarchy-help 里是什么问题。“更新挂了”的标准答案是“看红字，去 Discord，贴 omarchy-debug”，三样东西都是更新脚本自己给的。</p>
+<h2 id="七-对贡献者的具体要求">七、对贡献者的具体要求</h2>
+<h3 id="7-1-一份-AGENTS-md-CLAUDE-md-只有一行">7.1 一份 AGENTS.md，CLAUDE.md 只有一行</h3>
+<p><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/CLAUDE.md" target="_blank" rel="noopener">CLAUDE.md</a> 的全部内容是 <code>@AGENTS.md</code>。<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a> 133 行，八节：</p>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/AGENTS.md#L1-L13" target="_blank" rel="noopener">#L1-L13</a>“Task Guides”：按改动位置指到 <code>agents/skills/</code> 下七份专题指南，改 <code>bin/</code> 读 command-metadata，改 <code>install/</code> 读 install-scripts，改 <code>shell/</code> 读 shell-dev，加图标读 icon-font，写验收测试读 acceptance-tests，有视觉改动读 visual-verification，写迁移读 migrations。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/AGENTS.md#L22-L33" target="_blank" rel="noopener">#L22-L33</a>“Style”：markdown 不硬换行；两空格缩进；bash 5 的 <code>[[ ]]</code> 和 <code>(( ))</code>；<code>[[ ]]</code> 里变量不加引号、字面量加引号；数字比较用 <code>(( count &lt; 50 ))</code> 不用 <code>-lt</code>；简单双分支写完整 <code>if/else</code>；shebang 统一 <code>#!/bin/bash</code>；<code>install/</code> 和 <code>migrations/</code> 下的脚本被 source，故意不写 shebang。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/AGENTS.md#L61-L70" target="_blank" rel="noopener">#L61-L70</a>“Runtime Environment”和“Privileged Commands”：<code>$OMARCHY_PATH</code> 由会话环境设定，不要从 <code>HOME</code> 推导；提权规则引用用户技能里的“Privilege Escalation”一节，“the repo's own scripts follow it”。同一条规则，用户的 agent 和贡献者的 agent 读的是同一段。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/AGENTS.md#L72-L76" target="_blank" rel="noopener">#L72-L76</a>“Git”：提交原子，一个提交一件事；提交信息简短说明改了什么。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/AGENTS.md#L105-L122" target="_blank" rel="noopener">#L105-L122</a>“Tests”：<code>./test/all</code> 跑 CLI 和 shell 两套，故意不跑图形验收；新 shell 测试放 <code>test/shell.d/*-test.sh</code> 自动被捡起；图形验收在一次性虚拟机里跑；“Visual changes must be verified in the running UI in addition to automated tests”。</li>
+</ul>
+<h3 id="7-2-七份专题指南">7.2 七份专题指南</h3>
+<p><a href="https://github.com/omacom/omarchy/tree/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills" target="_blank" rel="noopener">agents/skills/</a> 下七个文件，每份第一句都是“Read this before …”：</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>行数</th>
+<th>管什么</th>
+<th>关键规则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/migrations.md" target="_blank" rel="noopener">migrations.md</a></td>
+<td>172</td>
+<td><code>migrations/</code></td>
+<td>时间戳命名、<code>echo</code> 开头、幂等、失败停队列</td>
+</tr>
+<tr>
+<td><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/icon-font.md" target="_blank" rel="noopener">icon-font.md</a></td>
+<td>79</td>
+<td>品牌字体图标</td>
+<td>加字形的完整流程</td>
+</tr>
+<tr>
+<td><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/shell-dev.md#L14-L26" target="_blank" rel="noopener">shell-dev.md</a></td>
+<td>49</td>
+<td>Quickshell 桌面</td>
+<td>插件目录位置、manifest 必填字段、面板必须暴露 <code>open(payloadJson)</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/acceptance-tests.md#L12-L24" target="_blank" rel="noopener">acceptance-tests.md</a></td>
+<td>46</td>
+<td>图形验收</td>
+<td>在 omarchy-iso 的虚拟机里跑，<code>--reuse-base --sync-omarchy</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/visual-verification.md#L12-L23" target="_blank" rel="noopener">visual-verification.md</a></td>
+<td>44</td>
+<td>视觉改动</td>
+<td><code>omarchy capture screenshot fullscreen save</code>，动画录短视频</td>
+</tr>
+<tr>
+<td><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/command-metadata.md#L5-L20" target="_blank" rel="noopener">command-metadata.md</a></td>
+<td>31</td>
+<td><code>bin/</code> 命令</td>
+<td>文件头 80 行内的 <code># omarchy:summary=</code> 等元数据，路由器靠它生成帮助</td>
+</tr>
+<tr>
+<td><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/agents/skills/install-scripts.md#L1-L20" target="_blank" rel="noopener">install-scripts.md</a></td>
+<td>19</td>
+<td><code>install/</code></td>
+<td>叶子脚本被 source、不要 <code>exit</code>、用 <code>$OMARCHY_INSTALL</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>这些文件不进任何包，只在仓库里（<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/file-layout.md#L29-L31" target="_blank" rel="noopener">docs/file-layout.md#L29-L31</a>）。它们和第三节的用户技能是两套：用户技能教 agent 怎么用系统，贡献者指南教 agent 怎么改系统。SKILL.md 明确写了“Do NOT use this skill for Omarchy development tasks”。</p>
+<h3 id="7-3-为什么这么写">7.3 为什么这么写</h3>
+<p>OpenClaw 的 26 份 AGENTS.md 是按目录分层，每个目录一份。Omarchy 的做法是一份总纲加七份按任务类型分的指南，靠总纲第一节做路由。原因是仓库结构：451 个脚本平铺在 <code>bin/</code>，按目录分层没有意义，按“改命令、改安装、改桌面、写迁移”分才对得上贡献者的实际动作。</p>
+<h3 id="7-4-门口的规矩">7.4 门口的规矩</h3>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/.github/CODEOWNERS" target="_blank" rel="noopener">.github/CODEOWNERS</a>：“Merges to protected branches need sign-off from an org owner. <code>* @dhh @ryanrhughes</code>”。两个人。</li>
+<li>没有 CONTRIBUTING.md，没有 PR 模板，没有 GitHub Actions 工作流（<code>.github/</code> 下只有 CODEOWNERS、SECURITY.md 和两个 issue 表单文件）。GitHub 的社区健康度检查得分 50。</li>
+<li>贡献者能读到的规矩，全部在 AGENTS.md、七份指南和装在系统里的 contributing.md。</li>
+</ul>
+<h3 id="7-5-效果">7.5 效果</h3>
+<p>抽样最近 300 个合并的 PR：作者 DHH 自己 122 个（41%），omarchybot 30 个，其余 148 个来自社区。评审记录里 GitHub Copilot 的评审机器人 106 次、omarchybot 20 次、Spencer Bull 11 次、DHH 3 次；150 个是“评论”，11 个是“批准”。规矩是给 agent 写的，评审也主要是 agent 在做。</p>
+<h2 id="八-插件系统-把功能需求从-PR-里分流出去">八、插件系统：把功能需求从 PR 里分流出去</h2>
+<h3 id="8-1-要解决的问题">8.1 要解决的问题</h3>
+<p>桌面环境的功能请求无穷无尽：天气、日历、音乐、剪贴板。每一个都做成 PR，仓库会被淹没。</p>
+<h3 id="8-2-做法">8.2 做法</h3>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/shell/plugins/README.md#L1-L12" target="_blank" rel="noopener">shell/plugins/README.md#L1-L12</a>：16 个第一方插件和第三方插件用同一份 <code>manifest.json</code> 契约，唯一区别是第一方被标 <code>__isFirstParty: true</code>。用户插件放 <code>~/.config/omarchy/plugins/&lt;id&gt;/</code>。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/32-shell-plugins.md" target="_blank" rel="noopener">manual/32-shell-plugins.md</a>：用户手册教从 git 装插件（<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/32-shell-plugins.md#L32" target="_blank" rel="noopener">#L32</a>）、克隆一个内置插件来改（<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/32-shell-plugins.md#L59" target="_blank" rel="noopener">#L59</a>）、自己写（<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/32-shell-plugins.md#L73" target="_blank" rel="noopener">#L73</a>）、分享（<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/manual/32-shell-plugins.md#L98" target="_blank" rel="noopener">#L98</a>）。</li>
+<li>装在系统里的 agent 技能 <a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/default/agents/skills/omarchy/plugins.md#L1-L18" target="_blank" rel="noopener">plugins.md#L1-L18</a>：shell.json 和用户插件代码保存即热重载，agent 改完立刻能看。</li>
+<li>市场：<a href="https://github.com/omacom/omarchy-plugin-marketplace" target="_blank" rel="noopener">omarchy-plugin-marketplace</a> 是社区维护的，提交走 issue 表单，要有清单、README 和许可证；上架前要“fresh exact-commit scan”和维护者的“approved-and-verified”决定；README 直说安装命令拉的是可变的上游 HEAD，“not verification-bound”，装前自己看代码。<a href="https://github.com/omacom/omarchy-plugin-registry" target="_blank" rel="noopener">omarchy-plugin-registry</a> 是下一步，crates.io 式的索引，Ed25519 签名，带下架开关。</li>
+<li>基金会办了<a href="https://omarchy.org/news/2026/08/the-first-plugin-competition/" target="_blank" rel="noopener">插件竞赛</a>，一等奖 2,500 美元，核心团队评审。</li>
+</ul>
+<h3 id="8-3-效果">8.3 效果</h3>
+<p>Quattro 发布三天，市场 330 个插件，现在 500 多个。这些功能没有一个变成主仓库的 PR。对比：同期主仓库每天新开 85 到 126 个 PR，8 月只合并了 241 个。插件把最容易膨胀的那一类需求接走了。</p>
+<h2 id="九-测试-本地两套-图形验收进虚拟机">九、测试：本地两套，图形验收进虚拟机</h2>
+<h3 id="9-1-做法">9.1 做法</h3>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/test/all#L11-L17" target="_blank" rel="noopener">test/all#L11-L17</a>：跑 <code>test/cli</code> 和 <code>test/shell</code>，“Run every suite even when an earlier one fails, so a single failure can't hide whole suites behind it”。<code>test/shell.d/</code> 下 229 个测试文件。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/testing.md" target="_blank" rel="noopener">docs/testing.md</a>：<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/testing.md#L9" target="_blank" rel="noopener">#L9</a> 套件地图，<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/testing.md#L35" target="_blank" rel="noopener">#L35</a> base-test.sh 契约，<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/testing.md#L68" target="_blank" rel="noopener">#L68</a> 依赖合成器的测试怎么办，<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/testing.md#L92" target="_blank" rel="noopener">#L92</a> 用 bash 单测 shell 里的 JavaScript。</li>
+<li>图形验收 9 个测试在 <code>test/acceptance.d/</code>，在 <a href="https://github.com/omacom/omarchy-iso" target="_blank" rel="noopener">omarchy-iso</a> 仓库的 <code>bin/omarchy-iso-test</code> 里跑：无头 QEMU，通过 QMP 截屏加 OCR 读屏，模拟按键，装完系统后在虚拟机里跑验收套件。</li>
+<li>没有 GitHub Actions。测试全靠贡献者本地跑，规矩写在 AGENTS.md 里，合并前靠评审 agent 和 DHH 把关。</li>
+</ul>
+<h3 id="9-2-效果">9.2 效果</h3>
+<p>对一个操作系统来说，能用 CI 跑的只有脚本级测试，真正的验收必须装一遍系统。Omarchy 选择把验收工具做完整、把 CI 省掉。代价是 PR 页面上没有任何绿勾，贡献者也没有“通过了”的信号。</p>
+<h2 id="十-设计先行-plans-与-docs">十、设计先行：plans/ 与 docs/</h2>
+<ul>
+<li><a href="https://github.com/omacom/omarchy/tree/adcc96a78226735d6fddf5196fb3f71e8c49d584/plans" target="_blank" rel="noopener">plans/</a> 四份功能设计：backup、dots、remote、server。每份第三行标注版本和评审来源。<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/plans/backup.md#L3" target="_blank" rel="noopener">plans/backup.md#L3</a>：“Revision 2 incorporates adversarial review by codex (xhigh): honest threat model, secrets moved out of the backup scope and out of ~/.config, corrected timer/pause mechanics …”。<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/plans/dots.md#L3" target="_blank" rel="noopener">plans/dots.md#L3</a>：“Rev 2 incorporated adversarial review by codex (xhigh) and grok”。设计文档先让另一家的模型对抗评审，再动手写代码。</li>
+<li><a href="https://github.com/omacom/omarchy/tree/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs" target="_blank" rel="noopener">docs/</a> 九份内部设计文档：文件布局、命令路由器、更新流程、测试、主题、菜单、通知、桌面、音频调优。<a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/docs/file-layout.md#L7-L26" target="_blank" rel="noopener">docs/file-layout.md#L7-L26</a> 写清一个仓库出两个 Arch 包，哪些目录进哪个包，为什么 <code>omarchy-settings</code> 必须先于 <code>useradd</code> 装好。</li>
+<li>这两个目录都不进包，只给贡献者和 agent 看。</li>
+</ul>
+<p>效果：难以量化。可见的是 DHH 在播客里的说法，Quattro“没有一行代码是我手写的”，他审的是安全相关代码和架构决定。plans/ 就是那些架构决定的落地形态。</p>
+<h2 id="十一-发布节奏与镜像滞后">十一、发布节奏与镜像滞后</h2>
+<ul>
+<li>发布工具在 <a href="https://github.com/omacom/omarchy-pkgs" target="_blank" rel="noopener">omarchy-pkgs</a> 仓库：<code>omarchy-release start 4.0.2</code> 开分支和暂存 PR，<code>pick</code> 多选要挑进来的已合并 PR，<code>rc</code> 发到 RC 通道，<code>ship</code> 一次完成打标签、提升 rc 到 stable、GitHub release 草稿、ISO、官网。每条命令幂等，“ship refuses to promote a commit no RC was cut from”。</li>
+<li>包通道 edge 到 rc 到 stable，和用户侧的四条更新通道一一对应。stable 的 Arch 镜像 <a href="https://github.com/omacom-io/omarchy-mirror" target="_blank" rel="noopener">omarchy-mirror</a> 故意落后一个月。</li>
+<li>节奏：2025 年 7、8 月各 15 和 13 个版本，之后每月 1 到 6 个。大版本有名字，2.0 是 Linux 34 岁生日那天发的，Quattro 4.0 是 2026 年 8 月 14 日。<a href="https://github.com/omacom/omarchy/releases/tag/v4.0.0" target="_blank" rel="noopener">4.0 的发布说明</a>按功能逐条列作者 @，DHH 手写，没有从 PR 自动生成。</li>
+</ul>
+<h2 id="十二-谁在合并-一个人加一个-agent-农场">十二、谁在合并：一个人加一个 agent 农场</h2>
+<h3 id="12-1-数据">12.1 数据</h3>
+<p>抽样最近 300 个已合并的 PR（2026 年 7 月 21 日到 9 月 6 日）：</p>
+<ul>
+<li>合并人：DHH 265 个（88%），Ryan Hughes 28 个，Spencer Bull 6 个。</li>
+<li>从开到合并：中位数 2.9 小时，75 分位 20.5 小时，90 分位 67.6 小时。</li>
+<li>omarchybot 是 2026 年 8 月 15 日注册的账号，Quattro 发布的第二天。它开的 PR 有长篇正文，比如 <a href="https://github.com/omacom/omarchy/pull/10176" target="_blank" rel="noopener">#10176</a>“Bound the Bluetooth panel's discovery retry”，从 BlueZ 的行为讲到修法，结尾写明“Two things this deliberately leaves alone”。它也给别人的 PR 做评审。</li>
+</ul>
+<h3 id="12-2-DHH-自己的描述">12.2 DHH 自己的描述</h3>
+<p>Lex Fridman 播客第 501 期：四五台迷你电脑放在壁橱里，Tailscale 连起来，用 <a href="https://github.com/herdrdev/herdr" target="_blank" rel="noopener">Herdr</a> 调度 Claude Code、Codex、OpenCode，最多 16 个 agent 并行。agent 写代码开 PR，评审 agent 过一遍，他做最后的合并或拒绝。三个月合并了 1,000 多个 PR。面对上千个待审 PR，做法是“让 agent 分诊，我从几百个没合并的 PR 里挑最好的功能”。他说宁可收 agent 写的 PR 也不想收人写的，因为拒绝起来没有负罪感。</p>
+<h3 id="12-3-没有被合并的那些">12.3 没有被合并的那些</h3>
+<ul>
+<li>抽最近 25 个关闭未合并的 PR，查关闭事件的操作者：25 个全是作者自己关的，没有一个是维护者关的。300 个关闭未合并的样本里，59% 的作者和仓库没有任何关联，26% 关闭时一条评论都没有。</li>
+<li>1,852 个开着的 PR，1,811 个来自 DHH 和 omarchybot 之外的人。抽样 300 个最新打开的 PR，246 个零评论。</li>
+<li>DHH 8 月底在 X 上说：Quattro 发布时待审 PR 约 200 个，现在约 1,000 个，“I promise they'll all get reviewed”，同时说连做三个月、发布后每天 16 小时，“Might just need a quick break”。</li>
+</ul>
+<h2 id="十三-治理与钱">十三、治理与钱</h2>
+<ul>
+<li><a href="https://omarchy.org/teams/" target="_blank" rel="noopener">omarchy.org/teams</a>：Core Team（<a href="https://omarchy.org/news/2026/09/the-omarchy-core-team/" target="_blank" rel="noopener">9 月公告</a>，成员是早期贡献者和主题作者，以个人身份）、Security Team、Rangers（<a href="https://omarchy.org/news/2026/08/introducing-the-omarchy-rangers/" target="_blank" rel="noopener">8 月公告</a>，3 人在罗马尼亚、乌拉圭、尼泊尔，职责是在 Discord 帮新人）。公告里没有决策规则、评审流程或发布权限的说明。</li>
+<li><a href="https://omarchy.org/news/2026/08/omacom-foundation-launches-with-8-million/" target="_blank" rel="noopener">Omacom Foundation</a>，2026 年 8 月 21 日成立，持有商标、出钱养基础设施、赞助上游。12 位创始赞助人各 100 万美元，包括 Tobi Lütke、Patrick Collison、Michael Dell、Jack Dorsey、Peter Steinberger、DHH 本人。钱花在 Hyprland 独家赞助、Quickshell 和 mise 首席赞助、驻留艺术家、插件竞赛、第一个全职雇员是内核开发者。9 月 3 日起<a href="https://omarchy.org/news/2026/09/omacom-patronage-is-open-to-everyone/" target="_blank" rel="noopener">普通人也能赞助</a>，四档 16 到 8,192 美元。</li>
+<li><a href="https://github.com/omacom/omarchy/blob/adcc96a78226735d6fddf5196fb3f71e8c49d584/.github/SECURITY.md#L3-L17" target="_blank" rel="noopener">.github/SECURITY.md#L3-L17</a>：私下报给 security@omarchy.org；漏洞的定义是“跨越有意义的安全边界”，只是不够健壮的代码算改进，他们仍会考虑合并并在发布说明里致谢；安全致谢页面看的是有没有确认漏洞，与严重程度无关。</li>
+</ul>
+<h2 id="十四-社区">十四、社区</h2>
+<ul>
+<li>Discord 从 2025 年 7 月的 1,500 人到 2026 年 8 月的 35,000 人。频道按用途分：#omarchy-help、#omarchy-on-other、#omarchy-release-candidates。所有支持导向这里。没有公开的版规和版主名单。2025 年 11 月有人在 Discussions 里<a href="https://github.com/omacom/omarchy/discussions/3426" target="_blank" rel="noopener">投诉 Discord 变得有毒</a>，无维护者回复，2026 年 2 月关闭；2026 年 9 月有人<a href="https://github.com/omacom/omarchy/discussions/10349" target="_blank" rel="noopener">提议加行为准则</a>并开了 PR，社区回复“How about no?”，无维护者回复。</li>
+<li>GitHub Discussions 1,736 个帖子，8 个分类。最近 100 个帖子里 78 个是 Suggestions，77 个零回复，0 个被标为已回答。它的作用是功能请求的收件箱，让 issue 只留 bug。</li>
+<li><a href="https://omarchy.org/news/2026/08/omarchy-meetups-around-the-world/" target="_blank" rel="noopener">线下聚会</a>由基金会推动。</li>
+</ul>
+<h2 id="十五-没做好的地方">十五、没做好的地方</h2>
+<ul>
+<li>待审 PR 没有出口。39% 的 PR 开着，抽样 82% 零评论。OpenClaw 用机器人关掉 57% 的 PR，每个都留原因和重开方法；Omarchy 既不关也不答。DHH 承诺“都会看”，但当前节奏是每天新开 100 个左右、8 月合并 241 个。</li>
+<li>没有 CI。贡献者拿不到“通过了”的信号，评审 agent 也拿不到测试结果。<code>./test/all</code> 是纯脚本测试，完全可以在 Actions 里跑。</li>
+<li>Discussions 里 78% 是建议，77% 零回复。收件箱没有人看，等于没有收件箱。</li>
+<li>Discord 3.5 万人，没有版规、版主名单和申诉渠道。投诉帖和行为准则提议都无维护者回复。</li>
+<li>治理公告没有决策规则。Core Team 谁能合并、谁定方向、Ryan 和 DHH 之外谁有权限，公开材料里查不到。</li>
+<li>装在系统里的技能只覆盖“用系统”和“报 bug”。贡献者指南（<code>agents/skills/</code>）不进包，切到 dev 通道的用户要自己去仓库里找。</li>
+</ul>
+<h2 id="十六-方法与来源">十六、方法与来源</h2>
+<ul>
+<li>仓库：<code>git clone</code> omacom/omarchy 至提交 <code>adcc96a78226735d6fddf5196fb3f71e8c49d584</code>（2026 年 9 月 6 日），通读 AGENTS.md、CLAUDE.md、<code>.github/</code> 全部文件、<code>default/agents/skills/</code>、<code>agents/skills/</code>、<code>bin/omarchy-update*</code>、<code>bin/omarchy-dev-*</code>、<code>bin/omarchy-provision-user</code>、<code>bin/omarchy-agent-crash</code>、<code>bin/omarchy-debug</code>、<code>bin/omarchy-upload-log</code>、<code>manual/</code>、<code>docs/</code>、<code>plans/</code>、<code>test/</code>、<code>shell/plugins/README.md</code>；<code>git shortlog</code> 统计作者；<code>ls | wc -l</code> 统计命令、主题、迁移、测试数量。所有行号在本地克隆上用 grep 逐条核对。</li>
+<li>GitHub API：仓库统计；按月的 PR、issue、合并计数；最近六天每日新开 PR；标签计数；最近 300 个合并、300 个关闭、300 个打开 PR 的抽样（GraphQL）；100 个关闭 issue 抽样；25 个关闭 PR 的关闭事件操作者；100 个合并 PR 的评审者；Discussions 计数与最近 100 个帖子；omarchybot 的 PR 和评审；工作流列表；分支规则集。</li>
+<li>相关仓库：<a href="https://github.com/omacom/omarchy-pkgs" target="_blank" rel="noopener">omarchy-pkgs</a> README 与 <code>bin/omarchy-release</code>；<a href="https://github.com/omacom/omarchy-iso" target="_blank" rel="noopener">omarchy-iso</a> README 与 <code>bin/omarchy-iso-test</code>；<a href="https://github.com/omacom-io/omarchy-mirror" target="_blank" rel="noopener">omarchy-mirror</a>；<a href="https://github.com/omacom/omarchy-plugin-marketplace" target="_blank" rel="noopener">omarchy-plugin-marketplace</a>；<a href="https://github.com/omacom/omarchy-plugin-registry" target="_blank" rel="noopener">omarchy-plugin-registry</a>；<a href="https://github.com/herdrdev/herdr" target="_blank" rel="noopener">herdr</a>。</li>
+<li>官方：<a href="https://omarchy.org/teams/" target="_blank" rel="noopener">omarchy.org/teams</a>；omarchy.org/news 2026 年 8 到 9 月各篇：<a href="https://omarchy.org/news/2026/08/omacom-foundation-launches-with-8-million/" target="_blank" rel="noopener">基金会成立</a>、<a href="https://omarchy.org/news/2026/09/the-omarchy-core-team/" target="_blank" rel="noopener">Core Team</a>、<a href="https://omarchy.org/news/2026/08/introducing-the-omarchy-rangers/" target="_blank" rel="noopener">Rangers</a>、<a href="https://omarchy.org/news/2026/08/omarchy-meetups-around-the-world/" target="_blank" rel="noopener">聚会</a>、<a href="https://omarchy.org/news/2026/08/the-first-plugin-competition/" target="_blank" rel="noopener">插件竞赛</a>、<a href="https://omarchy.org/news/2026/09/omacom-patronage-is-open-to-everyone/" target="_blank" rel="noopener">赞助开放</a>。</li>
+<li>DHH 本人：<a href="https://world.hey.com/dhh/omarchy-2-0-16fefc15" target="_blank" rel="noopener">Omarchy 2.0</a>、<a href="https://world.hey.com/dhh/a-petabyte-worth-of-omarchy-in-a-month-a1fc538e" target="_blank" rel="noopener">A petabyte worth of Omarchy in a month</a>；Lex Fridman 播客第 501 期（据 <a href="https://finance.biggo.com/podcast/24748b357b42d559" target="_blank" rel="noopener">BigGo 的文字摘要</a>）；X 上关于待审 PR 数量的帖子。</li>
+<li>统计口径：Discord 人数来自官网和 DHH 博客的自述；“零评论”按 API 返回的评论数计；合并时长按 PR 创建到合并的时间差计。</li>
+</ul>
+  </main>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function(a){ return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id){ if (current === id) return; current = id; links.forEach(function(a){ a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); }); }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function(t){ io.observe(t); });
+})();
+</script>
+</body></html>
