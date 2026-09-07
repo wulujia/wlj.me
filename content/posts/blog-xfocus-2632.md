@@ -4,6 +4,7 @@ date: 2007-05-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2632"
+noindex: true
 ---
 
 **我已经把安全焦点的QQ群设置成只接收消息了，可能只有到股市崩盘的那一天，我才会设回来。当身边

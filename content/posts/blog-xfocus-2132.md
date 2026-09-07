@@ -4,6 +4,7 @@ date: 2006-10-07T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2132"
+noindex: true
 ---
 
 Google推出了[Code Search](http://google.com/codesearch)，方便程序员进行源代码搜索，可是转眼间，便有无数或黑或白帽的“安全工作者”们，找出了Google代码搜索的另类使用方式，比如：

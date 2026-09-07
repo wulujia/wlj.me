@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["SEO","Security","Ops"]
 draft: false
 slug: "amp-warning-subdomain-takeover"
+description: "从 Search Console 一封 AMP 报警邮件查起：源码里根本没有 amphtml，最后挖出一个被接管的子域名。排查过程和修法。"
 ---
 
 AMP（Accelerated Mobile Pages）是 Google 2015 年推的移动端加速网页框架，强制简化 HTML 和 JS、内容托管在 Google CDN，目的是让手机搜索结果秒开。后来普及度一般，2021 年 Google 把它从移动搜索排名加权里移除，现在基本是历史遗产，但 Search Console 还会扫描和报警。

@@ -4,6 +4,7 @@ date: 2005-07-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1115"
+noindex: true
 ---
 
 用 [tk](http://blog.xfocus.net/index.php?blogId=9) 的话说，这是一个里程碑。

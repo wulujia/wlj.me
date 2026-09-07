@@ -4,6 +4,7 @@ date: 2005-06-23T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1003"
+noindex: true
 ---
 
 Blog服务器坏的时间够长的，总算可以写字了 :)

@@ -4,6 +4,7 @@ date: 2006-06-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1848"
+noindex: true
 ---
 
 原文：[中国移动的IM计划](http://www.i170.com/article/26862)

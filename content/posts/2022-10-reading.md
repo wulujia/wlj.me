@@ -4,6 +4,7 @@ date: 2022-10-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2022-10-reading"
+noindex: true
 ---
 
 - Shape Up 10.08

@@ -4,6 +4,7 @@ date: 2024-10-23T22:14:18+08:00
 tags: ["AI", "Tech", "WeChat"]
 draft: false
 slug: "bezos-day-one-letters"
+description: "读贝索斯 2016 年致股东信：真正的客户至上、质疑代理、拥抱外部趋势、快速决策。小公司怎么保持 Day 1 的活力。"
 ---
 
 每天地铁通勤时，我选择要么看书，要么听 Podcast，要么看 YouTube——其实都是为了学英语。最近看的是 Amazon 贝索斯的 Invent and Wander。今天看到 2016 年的，内容可以从下面的链接获取（在 2017 目录下的 2016 Letter to Shareholders.pdf）。

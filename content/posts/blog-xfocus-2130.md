@@ -4,6 +4,7 @@ date: 2006-10-06T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2130"
+noindex: true
 ---
 
 铁卷电子文档安全系统的全功能版本，目前能够透明支持包括Office 97-2007、WPS、PDF、OpenOffice、Microsoft

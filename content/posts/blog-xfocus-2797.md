@@ -4,6 +4,7 @@ date: 2007-08-02T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2797"
+noindex: true
 ---
 
 前面几天，没事总会去看看China

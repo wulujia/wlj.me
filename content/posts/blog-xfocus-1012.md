@@ -4,6 +4,7 @@ date: 2005-06-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1012"
+noindex: true
 ---
 
 前天晚上和Jordan、董博士在一家小茶馆聊了会儿天。

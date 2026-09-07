@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Life","AI","Tools"]
 draft: false
 slug: "oscar-cpap-data-analysis"
+description: "CPAP 呼吸机 SD 卡里有每两秒采样的数据。用 OSCAR 和脚本看 14 晚的记录：CPAP 是什么、OSCAR 是什么、数据里有什么、能算出什么。"
 ---
 
 之前那篇 Apple Watch 数据分析说过，Apple Watch 推断的"夜间呼吸异常事件"不准。要看 CPAP 真实效果只能看机器本身的 SD 卡——那里有每一晚每两秒采样的数据。

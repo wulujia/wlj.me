@@ -4,6 +4,7 @@ date: 2005-07-19T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1096"
+noindex: true
 ---
 
 床的粘度很大，周一早上6:20睡眼惺松依依不舍地爬起来，赶上深圳->重庆的飞机。

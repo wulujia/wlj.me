@@ -4,6 +4,7 @@ date: 2007-07-05T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2746"
+noindex: true
 ---
 
 看《大国崛起》第二集，讲荷兰成长的时候，提到了一个故事：

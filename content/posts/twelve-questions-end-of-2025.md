@@ -4,6 +4,7 @@ date: 2025-12-25T07:59:25+08:00
 tags: ["WeChat", "AI", "Life"]
 draft: false
 slug: "twelve-questions-end-of-2025"
+description: "每年年底给自己的十二个问题，2025 年版：计划完成了多少、新一年想做什么、记忆深刻的人和事、读了什么、学到了什么。"
 ---
 
 1. 有没有遵守和完成年初的计划？

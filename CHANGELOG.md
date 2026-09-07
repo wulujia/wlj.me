@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-07
+
+- 索引策略：新增 `scripts/seo-noindex.py`，给 2010 年前且正文不足 1500 字、或任何正文不足 150 字的日志加 `noindex: true`（Search Console 近 90 天有曝光的页面豁免），本次标记 697 篇，可索引日志从 1367 降到 670。`12q1y-2025` 与 `twelve-questions-end-of-2025` 内容重复，前者 noindex。依据：站点上线 5 个月，GSC 90 天 423 次曝光 0 点击，索引正常但拿不到排名，先把稀释权重的旧转帖收掉。
+- 40 篇 2024 年以来正文超 2000 字的文章手写 `description`，不再用自动摘要。
+- 新增 `/featured/` 精选页（`content/featured.md` + `layouts/_default/featured.html`，数据在 `data/featured.toml`，四组），加入菜单，`showMenuItems` 7 → 8；首页顶部新增 10 篇精选链接块。`is-indexable` 把 `/featured/` 列为可索引，sitemap 自动带上。
+- 文章页末尾新增「相关文章」：Hugo Related 按标签取 5 篇，排除 noindex 页。
+- 新增 `scripts/blog-wulujia-redirects.csv`：旧域名 blog.wulujia.com 的文章 URL 到 wlj.me 的 301 映射（Wayback 抓到的路径 + 首次迁移的 53 篇 + 改名记录），格式对应 Cloudflare Bulk Redirects。旧域名目前返回 525，需要在 Cloudflare 上传这份列表或加通配规则。
+
 ## 2026-09-06
 
 - 新增资料页《OpenClaw 开源运营笔记》，`static/reading/openclaw-open-source-ops/index.html`，自包含 HTML（规模 / 小项目能搬走什么 / 对贡献者的具体要求 / Barnacle 规则引擎 / ClawSweeper AI 评审 / 分层 AGENTS.md / 安全 / 发布 / 治理 / 社区 / CI / 标签 / 代价 / 方法与来源），左侧固定大纲，`index,follow` + canonical，顶部返回链接。`data/reading-materials.toml` 新增 report 条目。

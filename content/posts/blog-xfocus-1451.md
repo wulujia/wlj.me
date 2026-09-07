@@ -4,6 +4,7 @@ date: 2005-11-07T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1451"
+noindex: true
 ---
 
 一份韩国泡菜炒饭，一份罗宋汤，外加一小份水果沙拉，今天的午餐挺让人开胃。

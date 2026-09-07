@@ -4,6 +4,7 @@ date: 2007-01-10T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2404"
+noindex: true
 ---
 
 刚才killer给了个链接，http://top.baidu.com/top10.html，是百度中文搜索风云榜上升最快的风云榜，其中有两个关键字与[超级巡警](http://www.dswlab.com/)有关：

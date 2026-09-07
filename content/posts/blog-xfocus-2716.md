@@ -4,6 +4,7 @@ date: 2007-06-19T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2716"
+noindex: true
 ---
 
 至于last.fm，我知道了有些时日了，却从来提不起兴致去看看。在昨天推荐完音乐网站之后，早上起来，神清气爽之际，突然记起。

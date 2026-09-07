@@ -4,6 +4,7 @@ date: 2004-09-27T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-502"
+noindex: true
 ---
 
 前些时间试了dotproject、php-collab、copper、crm-ctt、phpgroupware等一堆可以用来作crm或者项目管理的软件后，比较喜欢dotproject。

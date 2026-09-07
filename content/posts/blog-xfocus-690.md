@@ -4,6 +4,7 @@ date: 2005-01-20T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-690"
+noindex: true
 ---
 
 [sbilly](http://www.sinoutopia.org/mt/) 问：用怎样的心态来进行讨论与争论？

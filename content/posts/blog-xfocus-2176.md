@@ -4,6 +4,7 @@ date: 2006-10-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2176"
+noindex: true
 ---
 
 “匪皋则伊”是武侯祠诸葛亮殿内的一方横匾，让我半天摸不着头脑，因此特地拍了下来。

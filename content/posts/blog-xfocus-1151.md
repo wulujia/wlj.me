@@ -4,6 +4,7 @@ date: 2005-07-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1151"
+noindex: true
 ---
 
 圈外人的眼中，8月18至20日的 [XCON](http://xcon.xfocus.net/) 绝对是一场黑客大会。

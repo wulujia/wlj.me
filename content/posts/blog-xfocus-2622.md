@@ -4,6 +4,7 @@ date: 2007-05-10T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2622"
+noindex: true
 ---
 
 听过这本书的名头，或者见它卖得很好，希望买来赶赶潮流的朋友，可以打消这个念头了。

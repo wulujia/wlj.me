@@ -4,6 +4,7 @@ date: 2006-03-10T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1702"
+noindex: true
 ---
 
 公司一直用的是 [phpBugTracker](http://phpbt.sourceforge.net/) 作为公司软件缺陷管理的平台，搁在小呆的服务器上跑了将近一年。这回公司搬了新办公室，又来了几位新同事，就干脆将服务架回公司内部，也能省却安全上的烦恼。

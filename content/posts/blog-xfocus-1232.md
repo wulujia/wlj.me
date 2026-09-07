@@ -4,6 +4,7 @@ date: 2005-08-25T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1232"
+noindex: true
 ---
 
 看看 Google 这几年，是得慨叹一番。

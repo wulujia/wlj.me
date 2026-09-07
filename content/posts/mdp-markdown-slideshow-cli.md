@@ -4,6 +4,7 @@ date: 2025-02-22T19:57:00+08:00
 tags: ["Life"]
 draft: false
 slug: "mdp-markdown-slideshow-cli"
+noindex: true
 ---
 
 ```

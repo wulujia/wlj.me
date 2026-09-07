@@ -4,6 +4,7 @@ date: 2006-12-01T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2284"
+noindex: true
 ---
 
 昨天难得被K大叔表扬了一句，说我给研发的自由度比较大是对的，能够充分发挥他们的创新精神。其实，之所以这么做，也是不得已呀，因为，我是公司里[智商](http://www.wulujia.com/Article_39382)倒数第二低的家伙，要我想，咋想得过来嘛😢

@@ -4,6 +4,7 @@ date: 2005-07-10T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-1052"
+noindex: true
 ---
 
 花了三个多小时快读了小说《黑金道》，通篇讲的是通过黑白结合的斗争，仇杀、贿赂、色情、欺诈，让我觉得有意思的是：

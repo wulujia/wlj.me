@@ -4,6 +4,7 @@ date: 2008-09-11T00:53:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-9152b80e"
+noindex: true
 ---
 
 今天，在公司内部的知识管理系统上发起了一个投票，针对的主题是“是否应该在[公司主页](http://www.unnoo.com/)宣传[铁卷](http://www.unnoo.com/products/TotalfileGuard/)成功案例”，选项有三个：

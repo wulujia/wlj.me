@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["AI","创业","翻译"]
 draft: false
 slug: "building-for-next-model"
+description: "Claude Code 负责人 Boris Cherny 在红杉的访谈整理：Claude Code 怎么意外做出来、他现在怎么工作、为什么要为下一代模型而不是当前模型做产品。"
 ---
 
 上次整理过 Lenny's Podcast 那期 Boris Cherny 的中文版：[编程已被"解决"之后的世界](https://wlj.me/posts/world-after-coding-is-solved/)。这次是 Boris 在 Sequoia Capital 的另一场访谈（2026-05-04 发布，[YouTube 24 分钟版](https://www.youtube.com/watch?v=SlGRN8jh2RI)），重叠不多，更聚焦在 Claude Code 起源、他现在的工作方式，以及组织和团队的变化。下面是我整理润色的中文版。

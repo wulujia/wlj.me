@@ -4,6 +4,7 @@ date: 2006-10-26T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2166"
+noindex: true
 ---
 
 PageMaker是出版业的首选工具之一，很多人用它来排版说明书、教材。前些天耿先生提出了，在他所处的教材制作行业中，有这样的需求，并且希望试

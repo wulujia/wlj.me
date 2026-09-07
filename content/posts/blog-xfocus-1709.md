@@ -4,6 +4,7 @@ date: 2006-03-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1709"
+noindex: true
 ---
 
 继续施展无敌马屁功，没想到还真有上当的，小鼻涕禁不住飘飘然，又乖乖地汉化了一个软件 ;)

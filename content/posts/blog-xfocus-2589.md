@@ -4,6 +4,7 @@ date: 2007-04-24T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2589"
+noindex: true
 ---
 
 今天冒着脚痛之苦，到山姆走了一圈，继续对摆在柜台上任人把玩的24寸iMAC口水乱流，在xundi师父的诱惑下，决定今晚装一个tiger尝尝鲜。

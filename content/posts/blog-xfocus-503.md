@@ -4,6 +4,7 @@ date: 2004-09-29T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-503"
+noindex: true
 ---
 
 中国青年出版社出版的毛泽东传，由一个老外，philip short写的，由于文化、视角的不同，看起来别有些味道。由于这两天比较忙，只看到第三章。

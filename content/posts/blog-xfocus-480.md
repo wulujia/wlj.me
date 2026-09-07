@@ -4,6 +4,7 @@ date: 2004-09-14T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-480"
+noindex: true
 ---
 
 中国民间网络安全组织筹办的信息安全技术焦点峰会(Xcon 2004)于2004年9月15日正式在北京中裕世纪大酒店拉开了序幕。本次会议是由网络安全焦点([http://www.xfocus.net](http://www.xfocus.net/))主持和召集的，吸引了国内外大批的网络与信息安全专家。

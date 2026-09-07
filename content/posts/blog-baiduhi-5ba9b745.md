@@ -4,6 +4,7 @@ date: 2008-12-22T08:23:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-5ba9b745"
+noindex: true
 ---
 
 写这段话，其实是因为有朋友在我转载的文章

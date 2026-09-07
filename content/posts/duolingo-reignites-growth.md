@@ -4,6 +4,7 @@ date: 2024-08-04T08:07:24+08:00
 tags: ["Life", "WeChat"]
 draft: false
 slug: "duolingo-reignites-growth"
+description: "Duolingo 前首席产品官 Jorge Mazal 讲多邻国怎么从增长停滞做到四年用户增长 4.5 倍：几次失败的游戏化尝试，以及最后起作用的几个产品改动。"
 ---
 
 Lenny 在 2023 年 2 月发表过一篇 How Duolingo reignited user growth，是 Duolingo 前首席产品官 Jorge Mazal 分享的，让已经成熟的 Duolingo 由几个产品变化驱动，增长 4.5 倍的故事。

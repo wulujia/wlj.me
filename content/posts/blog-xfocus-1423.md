@@ -4,6 +4,7 @@ date: 2005-10-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1423"
+noindex: true
 ---
 
 的确是个值得一去的地方。这张是小鼻涕照的，山峰俊秀。

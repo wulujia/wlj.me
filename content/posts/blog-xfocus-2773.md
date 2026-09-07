@@ -4,6 +4,7 @@ date: 2007-07-16T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2773"
+noindex: true
 ---
 
 之前[铁卷](http://www.unnoo.com/)产品开发上相对无序些，饶是glacier研发管理方面颇有心得，也还是把他累得一踏糊涂。最近铁卷的产品管理到了一个比较关键的时候了，因此俺打算在BLOG上少说些铁卷，且等些日子，让她再让我眼前一亮吧

@@ -4,6 +4,7 @@ date: 2006-02-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1587"
+noindex: true
 ---
 
 前段时间做了几个网站，试过不少内容管理系统，最终选用的有两个，一是[SlimCMS](http://www.slim-cms.com/)，一是[dedeCMS](http://www.dedecms.com/)。

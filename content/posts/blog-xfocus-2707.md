@@ -4,6 +4,7 @@ date: 2007-06-17T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2707"
+noindex: true
 ---
 
 在MSN上看到一款防病毒软件的广告，写着：“难道中了病毒就会把我的黄片都删除掉？”

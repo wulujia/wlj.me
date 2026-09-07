@@ -4,6 +4,7 @@ date: 2006-06-01T00:00:00+08:00
 tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-1843"
+noindex: true
 ---
 
 今天上午六点多就起来了，头脑清醒而且无心干活之际，看了一集百家讲坛里的易中天说晁错，易教授能把历史讲得如评书般生动，本身就是一绝。

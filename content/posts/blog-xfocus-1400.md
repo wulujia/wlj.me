@@ -4,6 +4,7 @@ date: 2005-10-19T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1400"
+noindex: true
 ---
 
 晚上在 ping 两台 HP-UX 的服务器时，发现回应不太一样：

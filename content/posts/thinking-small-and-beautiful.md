@@ -4,6 +4,7 @@ date: 2025-07-23T16:33:35+08:00
 tags: ["Life", "WeChat"]
 draft: false
 slug: "thinking-small-and-beautiful"
+description: "小而美的公司和软件怎么定义？团队规模、业务范围、产品体验、商业模型、组织流程，逐项拆开写清楚，再回答市场反馈不好时该怎么办。"
 ---
 
 脑子里在盘旋着“小而美”的一些问题，于是提了些问题，感觉脑子清晰一点了。

@@ -4,6 +4,7 @@ date: 2007-08-03T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2801"
+noindex: true
 ---
 
 上周因为要写点东西，四处找朋友索取各种市场报告，比如IDC的《China IT Security Market Analysis

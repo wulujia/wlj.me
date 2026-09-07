@@ -4,6 +4,7 @@ date: 2009-01-18T23:18:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-de6b1d95"
+noindex: true
 ---
 
 2009年来了好些天，一直没能静下心来好好想想，过去一年的得失。但是脑子里一直翻腾着这些事儿，或许还是该一点一点写下来。

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup","Management","Small and Beautiful"]
 draft: false
 slug: "shiguredo-company-docs"
+description: "时雨堂（Shiguredo）是一家做 WebRTC 中间件 Sora 的日本公司，员工上限 5 人，创始人 100% 持股。他们把雇佣条件、薪资、奖金、评价制度、产品战略全部公开在 GitHub。这是其中七份文档的中文压缩版。"
 ---
 
 株式会社時雨堂（Shiguredo）2013 年 3 月在东京成立，主营 WebRTC 实时音视频中间件 Sora，GitHub 账号是 [shiguredo](https://github.com/shiguredo)。创始人 voluntas 持股 100%，公司登记的代表取締役是中井亮介。员工人数上限写死为 5 人。

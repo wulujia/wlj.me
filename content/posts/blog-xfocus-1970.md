@@ -4,6 +4,7 @@ date: 2006-08-01T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1970"
+noindex: true
 ---
 
 前些时候，抽了一天时间剥了个国外网站的皮，做了公司网站[现在的模样](http://www.unnoo.com/)：

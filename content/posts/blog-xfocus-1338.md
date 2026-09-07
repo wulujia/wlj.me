@@ -4,6 +4,7 @@ date: 2005-09-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1338"
+noindex: true
 ---
 
 glacier 同学用他残次的低分辨率手机照下了民生银行脚本出错的一张图片。

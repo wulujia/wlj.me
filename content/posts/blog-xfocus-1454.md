@@ -4,6 +4,7 @@ date: 2005-11-07T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1454"
+noindex: true
 ---
 
 小区的电梯里统一放了些公益广告，其中有一则的主题是对超速行驶者提出的安全行车劝告：

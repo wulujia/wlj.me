@@ -4,6 +4,7 @@ date: 2007-05-19T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2641"
+noindex: true
 ---
 
 http://wulujia.com/Article_66655

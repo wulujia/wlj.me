@@ -4,6 +4,7 @@ date: 2007-01-24T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2429"
+noindex: true
 ---
 
 今天在北京机场买了本《于丹<论语>心得》，薄薄的小册子，很快就翻看完了，觉得这本书很象一杯清茶，清心明目

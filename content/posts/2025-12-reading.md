@@ -4,6 +4,7 @@ date: 2025-12-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2025-12-reading"
+noindex: true
 ---
 
 - 流量池

@@ -4,6 +4,7 @@ date: 2006-01-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1554"
+noindex: true
 ---
 
 前几天听说，gmail、hotmail和yahoo mail都存在能让人偷窥的问题，这种事，用 [tk](http://blog.xfocus.net/index.php?blogId=9) 恶毒的心灵揣测，还是宁信其有的好。虽然我相信自己不会在“骇客”们的攻击目标范围，但在 gmail 邮箱里保存些备份资料的事，看来是做不得了……

@@ -4,6 +4,7 @@ date: 2024-10-20T23:09:26+08:00
 tags: ["WeChat", "Startup"]
 draft: false
 slug: "cofounder-discussion-checklist"
+description: "First Round Capital 给联合创始人的 50 个问题中文版：工作风格、角色分配、股权、冲突处理。找合伙人前各自填一份，交换着读。"
 ---
 
 前些天看到一篇文章里提到了 First Round Capital 关于寻找联合创始人，有个问题清单，50 个问题，是一种有用的自我评估，有助于了解什么对你最重要。如果你计划创业，并且在寻找联合创始人，不妨先自己填一份，找到可能合适的伙伴时，邀请他填一份，然后交换阅读，可以增进对彼此的认知。

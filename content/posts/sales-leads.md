@@ -4,6 +4,7 @@ date: 2024-06-27T20:19:00+08:00
 tags: ["Idea"]
 draft: false
 slug: "sales-leads"
+noindex: true
 ---
 
 找到、订阅销售线索：[https://getleads.fueltofly.com/](https://getleads.fueltofly.com/)。

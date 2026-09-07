@@ -4,6 +4,7 @@ date: 2007-05-15T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2631"
+noindex: true
 ---
 
 前段时间，深圳来了几位新同事，但技术服务部门一直是空着的。最近陆续签了不少铁卷的单子，但部署却全由销售出马。幸好，俺们的销售基本是科班出身，技术功底都比较扎实，最近[mrcool](http://www.coolsir.org/)连签单带部署，算是涨了不少经验值。

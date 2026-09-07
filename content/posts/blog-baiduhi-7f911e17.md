@@ -4,6 +4,7 @@ date: 2008-08-20T12:29:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-7f911e17"
+noindex: true
 ---
 
 我使用 [Tracks](http://www.rousette.org.uk/projects/) 作为时间管理工具已经有三个月了，感觉相当不错。最近和部分同事、朋友聊天时，感觉时间管理问题还困扰着蛮多人的，因此，推荐一下。

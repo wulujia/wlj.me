@@ -4,6 +4,7 @@ date: 2007-07-09T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2757"
+noindex: true
 ---
 
 史记

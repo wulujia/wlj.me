@@ -4,6 +4,7 @@ date: 2004-08-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-415"
+noindex: true
 ---
 
 自己的自觉性真的不够，2003年初就签下来，欠着朋友的一本书，直到现在还是拖着。

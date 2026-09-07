@@ -4,6 +4,7 @@ date: 2004-10-06T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-509"
+noindex: true
 ---
 
 以前用bloxsom做过一个linkblog，专门收集每天看到的值得推荐的文章，也搞了个小cgi来生成，但用起来还是比较麻烦，因而那一亩三分地便渐渐荒芜了。

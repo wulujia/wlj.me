@@ -4,6 +4,7 @@ date: 2007-02-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2472"
+noindex: true
 ---
 
 看到这个消息，总算舒了一口气。以后继续坚持做有价值的事情，少打口水仗吧。

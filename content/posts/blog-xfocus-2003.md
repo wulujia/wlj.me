@@ -4,6 +4,7 @@ date: 2006-08-13T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2003"
+noindex: true
 ---
 
 服务器上重要数据越来越多了，不做个备份，睡觉也不踏实。以前用过rsync做过服务器同步，但现在想想，需要的功能很简单：

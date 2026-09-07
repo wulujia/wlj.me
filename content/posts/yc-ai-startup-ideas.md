@@ -4,6 +4,7 @@ date: 2025-01-31T11:58:43+08:00
 tags: ["WeChat", "Tools", "AI"]
 draft: false
 slug: "yc-ai-startup-ideas"
+description: "YC 2025 年春季 Requests for Startups 的中文整理：安全的 AI 应用市场、AI 时代的基础设施、垂直 AI 等每位合伙人点名想投的方向。"
 ---
 
 刚刚在 Twitter 看到 YC 发布了 2025 年春季的 # Requests for Startups——邀请创业者在这些领域尝试突破。链接是：

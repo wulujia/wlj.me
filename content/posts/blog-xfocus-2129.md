@@ -4,6 +4,7 @@ date: 2006-10-06T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2129"
+noindex: true
 ---
 
 Office 2007 Beta版默认的文档格式已经不是原来的二进制的doc、xls、ppt了，而是采用了打包的xml文件，从[微软的主页上](http://www.microsoft.com/china/msdn/library/office/office/ms406049.mspx?mfr=true)的相关描述，可以看到微软从坚持采用二进制的文档格式，发展到目前的Office XML格式，开放性、兼容性甚至安全性都会得到提升。

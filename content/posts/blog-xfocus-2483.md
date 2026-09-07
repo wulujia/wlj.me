@@ -4,6 +4,7 @@ date: 2007-02-20T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2483"
+noindex: true
 ---
 
 还是年后要用，很久没有折腾过这些东西，居然在配置X的时候卡了一下，花了将近一小时才全部搞好。顺手记录一下：

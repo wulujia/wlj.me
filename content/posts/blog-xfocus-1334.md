@@ -4,6 +4,7 @@ date: 2005-09-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1334"
+noindex: true
 ---
 
 这还是一张老光盘。BO 对于大家当然不陌生 :)

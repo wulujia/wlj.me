@@ -4,6 +4,7 @@ date: 2007-08-25T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2835"
+noindex: true
 ---
 
 拖了差不多一年了，[超级巡警](http://bbs.sucop.com/)的这个保险箱一直还在内部的beta测试中，直到360推出了他们的保险箱……

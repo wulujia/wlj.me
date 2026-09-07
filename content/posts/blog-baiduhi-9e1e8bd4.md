@@ -4,6 +4,7 @@ date: 2008-10-09T10:39:00+08:00
 tags: ["Life", "Photography"]
 draft: false
 slug: "blog-baiduhi-9e1e8bd4"
+noindex: true
 ---
 
 来源：[IT 世界网](http://www.it.com.cn/f/edu/0810/8/668863_2.htm)

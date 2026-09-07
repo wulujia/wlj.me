@@ -4,6 +4,7 @@ date: 2006-04-01T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1759"
+noindex: true
 ---
 
 这个工具实际上是用自己的一个 shell 替代了 windows 系统中默认的 explorer 并且限制我们在该 shell 中的用户权限，这在目前险恶的计算机网络环境中极有意义！

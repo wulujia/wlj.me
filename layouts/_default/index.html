@@ -5,6 +5,19 @@
       {{ .Content }}
     </div>
   {{ end }}
+  {{ with .Site.Data.featured.home }}
+    <div class="featured-home">
+      <h2>精选 · <a href="/featured/">全部</a></h2>
+      <ul>
+        {{ $site := $.Site }}
+        {{ range . }}
+          {{ with index (where $site.RegularPages "Params.slug" .) 0 }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
   <div class="posts">
     {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
     {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}

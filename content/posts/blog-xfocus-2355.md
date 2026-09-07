@@ -4,6 +4,7 @@ date: 2006-12-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2355"
+noindex: true
 ---
 
 让人先是一笑，然后觉得有些笑不出来。

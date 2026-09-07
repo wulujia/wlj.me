@@ -4,6 +4,7 @@ date: 2024-03-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2024-03-reading"
+noindex: true
 ---
 
 - Clear Thinking: Turning Ordinary Moments into Extraordinary Results

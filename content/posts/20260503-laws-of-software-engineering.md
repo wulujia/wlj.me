@@ -4,6 +4,7 @@ date: 2026-05-03T10:00:00+08:00
 tags: ["软件工程","Reference"]
 draft: false
 slug: "laws-of-software-engineering"
+description: "软件工程定律网站的完整采集：康威定律、过早优化、海勒姆定律等经典概念，中英对照，附一句话说明。适合当参考手册查。"
 ---
 
 [lawsofsoftwareengineering.com](https://lawsofsoftwareengineering.com/) 这个站做得很漂亮，配色、卡片排版都挺花心思。

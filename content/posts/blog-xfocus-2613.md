@@ -4,6 +4,7 @@ date: 2007-05-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2613"
+noindex: true
 ---
 
 这两天回家，虽然肩上有很多未完成的工作，但却提不起兴致来做事，看了十来集的[《犯罪心理》第一季](http://lib.verycd.com/2005/09/23/0000066165.html)。

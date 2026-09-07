@@ -4,6 +4,7 @@ date: 2006-12-05T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2292"
+noindex: true
 ---
 
 可怜的glacier，又让人给卖了 🏅

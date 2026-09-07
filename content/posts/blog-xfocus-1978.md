@@ -4,6 +4,7 @@ date: 2006-08-04T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1978"
+noindex: true
 ---
 
 事情的经过是这样的：

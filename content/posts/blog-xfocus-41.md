@@ -4,6 +4,7 @@ date: 2004-05-20T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-41"
+noindex: true
 ---
 
 图新鲜，用了debian的unstable，结果fcitx的2.0.2-1版本似乎有问题，和firefox、gaim的配合总是会出错，只好装回2.0.1的。 

@@ -4,6 +4,7 @@ date: 2006-12-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2306"
+noindex: true
 ---
 
 [I170](http://www.i170.com/)界面上的模块可定制性如果更强大些，可能会有更多人愿意花时间在“玩”I170上，更容易激发出人的热情，FANS也会更多，或许有助于真正形成这里的“[乐高文化](http://www.i170.com/Article/1103)”。

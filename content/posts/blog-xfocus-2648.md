@@ -4,6 +4,7 @@ date: 2007-05-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2648"
+noindex: true
 ---
 
 上午star说，在著名的[SANS](http://www.sans.org/)上居然出现[俺的blog链接](http://isc.sans.org/diary.html?storyid=2814)，小小地虚荣了一下，仔细一看，嘻嘻，原来掠人之美了，是[killer同学](index.php?blogId=2)写的那篇[赛门铁克的公告](index.php?op=ViewArticle&articleId=2636&blogId=1#comments)：

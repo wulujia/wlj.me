@@ -4,6 +4,7 @@ date: 2006-10-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2181"
+noindex: true
 ---
 
 [包子](http://blog.xfocus.net/index.php?blogId=3)在blog上贴了个链接，是纪念南京大屠杀的一首歌《[1937年](http://down.wulujia.com/media/1937.wmv)》，推荐大家都下载回去看看。反正以我狭隘的思想境界，是不会接受什么“中日友好”的。

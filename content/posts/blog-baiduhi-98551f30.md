@@ -4,6 +4,7 @@ date: 2008-12-18T01:18:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-98551f30"
+noindex: true
 ---
 
 前些天，在群里聊天的时候，stardust说了一句：”一个企业的文化体现的是一种选择能力，而不是教育能力。“

@@ -4,6 +4,7 @@ date: 2007-04-05T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2549"
+noindex: true
 ---
 
 昨天搜索“大成天下”的时候，找出这么个[供求信息网站](http://www.i170.com/Attach/2B7C1C21-EF16-4332-AB6B-FEED87551564)来，乐了（我还一时眼花，看到一个“勒索病毒专利产品推广”，大惊，定睛一看，才松口气😛）。

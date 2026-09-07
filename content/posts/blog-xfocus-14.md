@@ -4,6 +4,7 @@ date: 2004-07-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-14"
+noindex: true
 ---
 
 以前在看寻秦记的时候，就很惊诧于黄易的想象力，愣是能将一个现代人折腾回春秋，还愣给焚书坑儒找了个借口。 

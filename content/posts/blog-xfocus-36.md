@@ -4,6 +4,7 @@ date: 2004-03-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-36"
+noindex: true
 ---
 
 把文件内容反转,从第1行开始，每一行依次放在文件的开头处:g/^/m0 

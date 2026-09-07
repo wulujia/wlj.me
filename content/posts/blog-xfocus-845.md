@@ -4,6 +4,7 @@ date: 2005-04-19T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-845"
+noindex: true
 ---
 
 家装基本结束，没有请人来打扫，而是自己动手。

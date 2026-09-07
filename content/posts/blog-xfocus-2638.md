@@ -4,6 +4,7 @@ date: 2007-05-19T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2638"
+noindex: true
 ---
 
 原文章：[寻人又成功啦!](http://www.i170.com/article/66510)

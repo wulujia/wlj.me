@@ -4,6 +4,7 @@ date: 2004-07-01T00:00:00+08:00
 tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-49"
+noindex: true
 ---
 
 在博客中国上看到一篇《央视被“摆平”的一个不应忽略的“细节”》，详见：[http://www.blogchina.com/new/display/37025.html](http://www.blogchina.com/new/display/37025.html)，唤起了某些回忆。 

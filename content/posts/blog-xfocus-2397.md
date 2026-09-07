@@ -4,6 +4,7 @@ date: 2007-01-09T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2397"
+noindex: true
 ---
 
 在百度贴吧看到这么一个贴子，开始心里有些憋屈，后来想想，释然。

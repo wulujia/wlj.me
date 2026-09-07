@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Life","AI","Tools"]
 draft: false
 slug: "ai-analyze-apple-watch-data"
+description: "把 Apple Watch 九年健康数据导出来让 Claude 跑脚本分析，盯上三件事：阻塞性睡眠呼吸暂停要重新用 CPAP、HRV 偏低、VO2max 在跌。数据怎么导、怎么切。"
 ---
 
 断断续续带了几块不同的表，数据都在苹果手机里。

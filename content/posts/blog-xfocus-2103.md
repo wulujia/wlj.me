@@ -4,6 +4,7 @@ date: 2006-09-24T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2103"
+noindex: true
 ---
 
 前年初试Google

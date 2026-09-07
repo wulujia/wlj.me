@@ -4,6 +4,7 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1803"
+noindex: true
 ---
 
 愿妈妈节日快乐 😛

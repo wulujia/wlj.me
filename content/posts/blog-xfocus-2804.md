@@ -4,6 +4,7 @@ date: 2007-08-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2804"
+noindex: true
 ---
 
 上午公司停电，但却偏有急事，非得上网不可，只得匆匆赶到科技园的上岛──那儿有无线。途中给[coolc](http://blog.xfocus.net/index.php?blogId=16)打了个电话，告诉他：我们到科技园了，你中午要有空，过来一块儿吃饭吧，俺们请。

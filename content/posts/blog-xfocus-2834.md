@@ -4,6 +4,7 @@ date: 2007-08-25T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2834"
+noindex: true
 ---
 
 在 MAC MBP 机器上使用 Boot Camp Beta 1.4 运行 Windows XP，因为 MBP

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["AI","Docs","Tools"]
 draft: false
 slug: "warp-docs-agent-workflow"
+description: "Warp 开源了文档站 docs.warp.dev 的源码，里面有一整套用 AI agent 维护文档的工作流：25 个 skill、规则、模板、参考资料。逐项拆开看它怎么组织。"
 ---
 
 Warp 是从终端起家的 AI 开发环境。2026 年 5 月，它把产品文档站 docs.warp.dev 的源代码开源了，仓库地址 [github.com/warpdotdev/docs](https://github.com/warpdotdev/docs)。这个仓库除了文档内容本身，还配了一整套用 AI agent 维护文档的工作流。

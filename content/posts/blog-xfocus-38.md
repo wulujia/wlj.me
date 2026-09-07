@@ -4,6 +4,7 @@ date: 2004-04-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-38"
+noindex: true
 ---
 
 今天躺在床上的时候，突然想起安徒生这篇经典童话来了。特地翻出来看了看，觉得很有趣，备了一份在这里。 

@@ -4,6 +4,7 @@ date: 2006-12-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2348"
+noindex: true
 ---
 
 绿盟发布名为矩阵的内网安全管理系统，广告词是“把安全延伸到每一个角落，安全策略随需而动”，号称能实现3A（anytime、anywhere、anyone）的安全保护。

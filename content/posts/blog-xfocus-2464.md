@@ -4,6 +4,7 @@ date: 2007-02-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2464"
+noindex: true
 ---
 
 事件的经过是这样的：

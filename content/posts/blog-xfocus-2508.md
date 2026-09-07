@@ -4,6 +4,7 @@ date: 2007-03-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2508"
+noindex: true
 ---
 
 春节时回家，[爸爸](http://www.wuwufu.com/)翻出这张发黄的印稿时，就勾起我的一些回忆……谢谢老爸有心。

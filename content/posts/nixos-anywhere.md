@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Tools","Ops","NixOS"]
 draft: false
 slug: "nixos-anywhere"
+description: "nixos-anywhere 用 kexec 把任何能 SSH 登录的 Linux 机器远程装成 NixOS，不用 U 盘，不用厂商镜像。原理、要准备什么、一个完整的例子。"
 ---
 
 装 NixOS 通常要做安装 U 盘，进安装环境，手动分区，手动装。云主机更麻烦，很多厂商没有 NixOS 镜像，只给 Debian、Ubuntu。

@@ -4,6 +4,7 @@ date: 2007-03-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2507"
+noindex: true
 ---
 
 有舍才有得。

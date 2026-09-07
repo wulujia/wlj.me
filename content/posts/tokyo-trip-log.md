@@ -4,6 +4,7 @@ date: 2024-11-22T22:08:35+08:00
 tags: ["WeChat", "Tech", "Life"]
 draft: false
 slug: "tokyo-trip-log"
+description: "在东京走访多家公司后记下的日本创业信息：to B 业务怎么谈、招聘第一个人要注意什么、为什么 PLG 不一定行、案例和信任为什么重要。"
 ---
 
 上周在东京，走访了许多公司，收获了一些在日本创业的信息：

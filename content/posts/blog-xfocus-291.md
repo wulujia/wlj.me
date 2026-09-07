@@ -4,6 +4,7 @@ date: 2004-08-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-291"
+noindex: true
 ---
 
 很早以前曾经贴过的，日子一长，又淡忘了，似乎又喜欢奇技淫巧了……

@@ -4,6 +4,7 @@ date: 2007-03-20T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2517"
+noindex: true
 ---
 
 三天前，小鼻涕

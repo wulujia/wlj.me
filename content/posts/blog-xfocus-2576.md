@@ -4,6 +4,7 @@ date: 2007-04-16T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2576"
+noindex: true
 ---
 
 [monit](http://www.tildeslash.com/monit/)是一款用于Unix系统的进程监视与保护程序，在Debian和Ubuntu下，只需要运行：

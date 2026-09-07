@@ -4,6 +4,7 @@ date: 2006-06-16T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1876"
+noindex: true
 ---
 
 昨天和一位朋友聊天。他们的有个产品做成了盒子，里面是 CentOS，卖去了。但是开了 ssh。

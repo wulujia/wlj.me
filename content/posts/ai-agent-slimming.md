@@ -4,6 +4,7 @@ date: 2026-04-16T07:19:58+08:00
 tags: ["AI","Tools"]
 draft: false
 slug: "ai-agent-slimming"
+description: "OpenClaw 跑了几个月 token 账单越来越肥，一小时瘦身做了四件事：降心跳频率、把纯 shell 任务迁出 AI、加通用 wrapper 脚本，效果和数字都记下来。"
 ---
 
 我的 OpenClaw 跑了几个月，token 账单越来越肥。今天花了一个小时做了一轮瘦身，效果不错，记录一下。

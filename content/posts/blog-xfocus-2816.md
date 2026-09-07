@@ -4,6 +4,7 @@ date: 2007-08-13T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2816"
+noindex: true
 ---
 
 嘿嘿，有多少人是被标题骗进来的？

@@ -4,6 +4,7 @@ date: 2008-10-26T16:29:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-cf536709"
+noindex: true
 ---
 
 已经完全点不亮了。查了一下，同样症状的有不少，都是 NVIDIA 惹得祸。

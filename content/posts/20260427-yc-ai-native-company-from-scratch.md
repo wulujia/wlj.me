@@ -4,6 +4,7 @@ date: 2026-04-27T07:42:00+08:00
 tags: ["AI","创业","翻译"]
 draft: false
 slug: "20260427-yc-ai-native-company-from-scratch"
+description: "YC 合伙人 Diana 2026 年 2 月演讲的中文整理：AI 原生公司应该怎么跑，团队该有什么角色，开环和闭环的区别，哪些做法能让公司立刻更快。"
 ---
 
 > 翻译自 YC 合伙人 Diana 的演讲：[How To Build A Company With AI From The Ground Up](https://www.youtube.com/watch?v=EN7frwQIbKc)，2026 年 2 月。我按自己的语感重新整理了一遍，方便中文读者读起来不卡。

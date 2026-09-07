@@ -4,6 +4,7 @@ date: 2026-04-12T20:00:00+08:00
 tags: ["AI", "Education"]
 draft: false
 slug: "ai-education"
+description: "智能变便宜之后，人为什么还要学习？从古埃及书吏、雅典的完整的人、中世纪大学到现代教育，看教育每一次因为什么而改变，再回答 AI 时代该学什么。"
 ---
 
 ## 我的问题

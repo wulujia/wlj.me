@@ -4,6 +4,7 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1922"
+noindex: true
 ---
 
 **产品****X影音****暴风影音****基本信息**版本V 1.0V6.04.08采用机制Mplayer动态链接库MPC+各种解码器是否自带全功能解码器是是网址[http://www.xsf.com](http://www.xsf.com/)http://www.yesure.com/storm/**程序大小**安装包大小4.10MB21.2MB安装完的大小5.04MB42.8MB**部份多媒体文件资源占用对比（高性能机器）

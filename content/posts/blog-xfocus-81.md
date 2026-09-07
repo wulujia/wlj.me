@@ -4,6 +4,7 @@ date: 2004-08-05T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-81"
+noindex: true
 ---
 
 公司所在楼层的厕所有两道门，外面一道，只有门框而无实质，因此男士在嘘嘘时的安全感都寄托在里面那道门上……而且，事实是：

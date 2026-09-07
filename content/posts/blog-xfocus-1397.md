@@ -4,6 +4,7 @@ date: 2005-10-18T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1397"
+noindex: true
 ---
 
 安全评估中数据库评估是很重要的一个环节，但国内在 sybase 安全方面的资料极为匮乏，希望这篇文档能够对初学者起到基本指引的作用。

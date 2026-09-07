@@ -4,6 +4,7 @@ date: 2005-07-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1085"
+noindex: true
 ---
 
 屋里空气不错，如果有脚比我臭的兄弟就不要脱鞋了 ;)

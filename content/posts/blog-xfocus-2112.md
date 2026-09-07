@@ -4,6 +4,7 @@ date: 2006-09-30T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2112"
+noindex: true
 ---
 
 今天登陆[Google Reader](http://www.google.com/reader/)时，发现它旧貌换新颜了。很长时间以来，一直对它半是满意半恼怒：满意的是它的在线模式，我不用被某一台电脑绑得牢牢的，出差不带电脑都不会有太大的不便。恼怒的是我只订阅了七十多个feed，用它管理和阅读就觉得很吃力，远不如使用客户端方便……

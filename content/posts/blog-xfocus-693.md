@@ -4,6 +4,7 @@ date: 2005-01-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-693"
+noindex: true
 ---
 
 姑且不论骇客的道德观如何，至少有一点很明确：他们在网络上表现得很无政府主义。

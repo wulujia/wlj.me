@@ -4,6 +4,7 @@ date: 2007-01-25T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2434"
+noindex: true
 ---
 
 先转一段[zzzevazzz](http://zzzevazzz.bokee.com/6014998.html#comment)的blog：

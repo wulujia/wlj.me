@@ -4,6 +4,7 @@ date: 2005-01-20T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-688"
+noindex: true
 ---
 
 Jordan、PP、Ben等几位朋友都推荐过24小时反恐这部连续剧，而且劝我，要挑一个清闲的周末，做好通宵不眠的准备，因为很可能看着看着，欲罢不能。

@@ -4,6 +4,7 @@ date: 2024-09-28T09:50:37+08:00
 tags: ["WeChat", "Reading"]
 draft: false
 slug: "mrbeast-success-secrets"
+description: "MrBeast 公司员工培训手册的中文翻译：他怎么理解 YouTube 的点击率和留存，怎么拍、怎么剪、怎么带团队。原文是 2024 年流出的内部文档。"
 ---
 
 MrBeast 是 Youtube 订阅者最多的频道，2024 年 9 月的数字是 3.17 亿。这是他们公司的员工培训手册。

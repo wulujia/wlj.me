@@ -4,6 +4,7 @@ date: 2008-08-02T02:39:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-1673a8d3"
+noindex: true
 ---
 
 今天网上[看文章](http://apple4.us/2008/08/post-135.html)，看到一段话：

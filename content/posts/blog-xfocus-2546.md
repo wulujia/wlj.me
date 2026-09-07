@@ -4,6 +4,7 @@ date: 2007-04-03T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2546"
+noindex: true
 ---
 
 在我的blog上，刚刚有一位“esafenet”留了个言，号称亿赛通软件有重大BUG，[并留下了链接](http://hi.baidu.com/esafenet/)。

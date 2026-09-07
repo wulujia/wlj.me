@@ -4,6 +4,7 @@ date: 2007-05-24T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2654"
+noindex: true
 ---
 
 昨晚从glacier家喝完小酒，晃晃悠悠赶回家，紧急处理一个客户打来的电话……

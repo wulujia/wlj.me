@@ -4,6 +4,7 @@ date: 2004-05-21T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-43"
+noindex: true
 ---
 
 昨天因为产品的事给zxd老总打电话，小聊二十来分钟，期间z总的一句： 

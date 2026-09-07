@@ -4,6 +4,7 @@ date: 2004-05-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-46"
+noindex: true
 ---
 
 完整的ppt可以参见：[http://xfocus.net/projects/Xcon/7.html](http://xfocus.net/projects/Xcon/7.html) 

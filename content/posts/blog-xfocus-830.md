@@ -4,6 +4,7 @@ date: 2005-04-10T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-830"
+noindex: true
 ---
 
 公司正式运营一段时间，对我们几个新手来说，要处理的事务有不少并非擅长，的确忙乱着，但也很开心。

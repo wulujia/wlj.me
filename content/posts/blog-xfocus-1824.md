@@ -4,6 +4,7 @@ date: 2006-05-25T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1824"
+noindex: true
 ---
 
 看到朋友们在讨论两个消息：

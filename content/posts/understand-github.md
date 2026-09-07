@@ -4,6 +4,7 @@ date: 2024-04-07T21:16:35+08:00
 tags: ["AI", "Tech", "WeChat"]
 draft: false
 slug: "understand-github"
+description: "GitHub 的发展史和关键数字整理：解决了开发者什么问题、抓住了哪个二十年的机会，以及创始人关于“先发布再修”的原话。"
 ---
 
 这些天对 GitHub 的信息做了些收集整理，看网上没有很完整的信息，发出来共享。

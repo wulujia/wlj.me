@@ -4,6 +4,7 @@ date: 2006-11-23T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2251"
+noindex: true
 ---
 
 昨晚跟原来[华泰网安](http://www.i170.com/attachment/att_1/wlj/_EB4D5F73-E40A-4243-973A-41D1D2E4C81C.jpg)的一帮兄弟们聚餐，大家多少又恢复了些当年酒桌了八秒消灭一条鱼的英姿，导致后来不得不规定：吃饭的时候，臀部离座面积不得超过50%……

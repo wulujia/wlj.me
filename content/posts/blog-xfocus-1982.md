@@ -4,6 +4,7 @@ date: 2006-08-06T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1982"
+noindex: true
 ---
 
 [沈总](http://blog.sina.com.cn/u/1246430843)看了我的[这篇牢骚](http://wulujia.com/Article_33557)，给了我些[建议](http://blog.sina.com.cn/u/4a4b067b0100052l)，比如看看吴思的文章，例如这篇《[硬伙企业](http://blog.sina.com.cn/u/53d4d4c0010000p5)》。多谢沈总了。

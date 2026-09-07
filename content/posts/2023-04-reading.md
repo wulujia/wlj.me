@@ -4,6 +4,7 @@ date: 2023-04-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2023-04-reading"
+noindex: true
 ---
 
 - 让大象飞 by 史蒂夫.霍夫曼

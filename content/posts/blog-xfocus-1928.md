@@ -4,6 +4,7 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1928"
+noindex: true
 ---
 
 Jordan转载了一篇文章[Estimate the true cost of a new security control](http://techrepublic.com.com/5100-1009_11-6093996.html?tag=sc)，看完颇有感触：无论是中立的咨询顾问还是产品厂商，在与客户交流的时候，能把这些信息给客户交代清楚，一则尽责，二来其实也可以提高印象分 :)

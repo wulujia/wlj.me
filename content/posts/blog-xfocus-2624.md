@@ -4,6 +4,7 @@ date: 2007-05-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2624"
+noindex: true
 ---
 
 虽说自卖自夸容易招人嫌，可是举贤不避亲也是一种美好的品德嘛，所以，在这里俺还是要推荐一下[超级巡警](http://www.dswlab.com/)和俺们的[维金专杀](http://hi.baidu.com/supercop/blog/item/2840db50a56f535d1138c26a.html)

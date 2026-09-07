@@ -4,6 +4,7 @@ date: 2006-12-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2339"
+noindex: true
 ---
 
 看见老冒在2006-12-13写的《[再见, 写在UUZone三周岁的前一天](http://www.uuzone.com/blog/mao/149664.htm)》

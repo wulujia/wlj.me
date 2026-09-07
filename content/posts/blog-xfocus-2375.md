@@ -4,6 +4,7 @@ date: 2007-01-01T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2375"
+noindex: true
 ---
 
 UPX是一款绝佳的压缩软件，通常用于发布软件前的压缩，可以让生成的软件更小。

@@ -4,6 +4,7 @@ date: 2007-08-02T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2794"
+noindex: true
 ---
 
 还记得五六年前，在跟[沈总](http://blog.sina.com.cn/u/1246430843)提出一些非常稚嫩的对公司运营的意见时，沈总提到过，他一年只想做好两三件事情。这话一直记着。

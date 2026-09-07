@@ -4,6 +4,7 @@ date: 2024-07-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2024-07-reading"
+noindex: true
 ---
 
 - The God Father

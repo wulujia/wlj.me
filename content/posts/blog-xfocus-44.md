@@ -4,6 +4,7 @@ date: 2004-05-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-44"
+noindex: true
 ---
 
 因为stardict的音标总是无法正确显示，昨天加了几个字体后运行了defoma-reconfigure，结果却有问题，stardict一点设置就出错退出。 

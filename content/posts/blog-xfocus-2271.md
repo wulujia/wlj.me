@@ -4,6 +4,7 @@ date: 2006-11-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2271"
+noindex: true
 ---
 
 在北京的时候，Xiao跟我说：

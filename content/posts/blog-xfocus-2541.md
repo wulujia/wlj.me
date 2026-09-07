@@ -4,6 +4,7 @@ date: 2007-04-02T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2541"
+noindex: true
 ---
 
 前两天就知道4-1是愚人节，但是在东北淳朴民风熏陶下，渐入佳境，已经忘了这凶险的时间了。

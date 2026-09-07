@@ -4,6 +4,7 @@ date: 2004-08-10T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-313"
+noindex: true
 ---
 
 [http://risker.org/misc/ssp2p/index.html](http://risker.org/misc/ssp2p/index.html)

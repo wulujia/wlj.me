@@ -4,6 +4,7 @@ date: 2026-04-18T20:30:00+08:00
 tags: ["AI","Tools","Tech"]
 draft: false
 slug: "gbrain-multi-device"
+description: "两台 Mac 共用一个 GBrain 知识库的部署实录：markdown 放 Dropbox 做源头，GitHub 做版本备份，每台机器独立 PGLite 索引。包括踩过的坑。"
 ---
 
 一台常开的台式 / 常驻机负责跑重活，一台笔记本带在身边随写随记。两台机器共用一个 GBrain，写在哪台都能在另一台搜到。

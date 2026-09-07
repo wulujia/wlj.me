@@ -4,6 +4,7 @@ date: 2004-02-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-29"
+noindex: true
 ---
 
 一时拍脑袋，想出这些今年该做好的东西，也是最近老纠缠在脑子里的，先记下来。 

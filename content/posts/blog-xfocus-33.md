@@ -4,6 +4,7 @@ date: 2004-03-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-33"
+noindex: true
 ---
 
 今天在xfocus的群里面有件很有趣的事，但很值得深思，先贴一段qq聊天记录： 

@@ -4,6 +4,7 @@ date: 2004-01-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-18"
+noindex: true
 ---
 
 7日晚上居然和一个出租车司机顶上牛了。 

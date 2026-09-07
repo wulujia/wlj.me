@@ -4,6 +4,7 @@ date: 2007-05-10T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2621"
+noindex: true
 ---
 
 从今天开始，一个月不出差。

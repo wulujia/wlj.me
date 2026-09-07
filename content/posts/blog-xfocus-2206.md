@@ -4,6 +4,7 @@ date: 2006-11-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2206"
+noindex: true
 ---
 
 最初做X浏览器纯属娱乐，因为自己用Firefox，又烦Firefox的配置文件默认保存在系统盘，烦每次重装系统都要重新装一遍扩展……一开始用[PortableFirefox](http://johnhaller.com/jh/mozilla/portable_firefox/)自己定制，后来觉得仍有不满意之处，于是请[glacier](index.php?blogId=15)写了个加载程序……这就是现在的X浏览器的雏形了，虽然不见得有多少技术含量，但还是有些朋友喜欢，心里也挺高兴。

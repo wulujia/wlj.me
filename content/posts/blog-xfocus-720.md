@@ -4,6 +4,7 @@ date: 2005-02-02T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-720"
+noindex: true
 ---
 
 为了方便迁移，现在windows上能用开源软件的都尽量用着，比如，装了firefox、thunderbird、openoffice 1.9、gvim、还有gnuwin32下的所有工具。

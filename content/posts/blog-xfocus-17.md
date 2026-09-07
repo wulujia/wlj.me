@@ -4,6 +4,7 @@ date: 2004-01-08T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-17"
+noindex: true
 ---
 
 浏览blog的时候看到一个“同花顺理论”，蛮有启发的，至少现在我的工作中有不少状态是相似的，就前两个月的评估项目里也存在同样的问题! 

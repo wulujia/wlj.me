@@ -4,6 +4,7 @@ date: 2024-01-28T09:09:00+08:00
 tags: ["Life"]
 draft: false
 slug: "debian-install-ibus-pinyin"
+noindex: true
 ---
 
 安装拼音输入法

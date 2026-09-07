@@ -4,6 +4,7 @@ date: 2006-11-17T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2224"
+noindex: true
 ---
 
 在[Mrcool](http://www.coolsir.org/)同学的努力下，终于将Google的企业邮箱试用申请下来了，这些天正在体验中，感觉相当不错：

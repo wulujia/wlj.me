@@ -30,7 +30,7 @@ enableRobotsTXT = true
 [params]
   contentTypeName = "posts"
   mainSections = ["posts"]
-  showMenuItems = 7
+  showMenuItems = 8
   fullWidthTheme = false
   centerTheme = true
   showLastUpdated = true
@@ -68,6 +68,11 @@ enableRobotsTXT = true
     identifier = "posts"
     name = "日志"
     url = "/posts/"
+    weight = 9
+  [[menu.main]]
+    identifier = "featured"
+    name = "精选"
+    url = "/featured/"
     weight = 10
   [[menu.main]]
     identifier = "startupnotes"

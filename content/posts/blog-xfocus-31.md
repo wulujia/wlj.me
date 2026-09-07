@@ -4,6 +4,7 @@ date: 2004-02-26T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-31"
+noindex: true
 ---
 
 跨过这座山，就是一马平川…… 

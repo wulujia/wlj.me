@@ -4,6 +4,7 @@ date: 2024-08-07T23:41:08+08:00
 tags: ["WeChat", "AI", "Startup"]
 draft: false
 slug: "decoding-perplexity"
+description: "从 Perplexity CEO Aravind Srinivas 的两个访谈里摘出的产品思考：Google 留下的市场空间、怎么靠引用阻止幻觉、为什么不做另一个搜索引擎。"
 ---
 
 最近越来越喜欢使用 Perplexity，觉得他们的产品做得很有灵气。然后找了他们的两个访谈，读来很有收获，做些摘录和意译。

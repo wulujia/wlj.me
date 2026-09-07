@@ -4,6 +4,7 @@ date: 2004-01-26T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-27"
+noindex: true
 ---
 
 昨晚阿盾的妈妈生日，去拜年兼贺生日。老大也携老婆一块去了。吃罢小坐聊天。五人，我，盾，盾's，潘，潘's。 

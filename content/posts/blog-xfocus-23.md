@@ -4,6 +4,7 @@ date: 2004-01-20T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-23"
+noindex: true
 ---
 
 今天回家，一个小时的路程而已，就看报打发了。 

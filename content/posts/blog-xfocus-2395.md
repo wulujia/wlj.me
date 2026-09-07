@@ -4,6 +4,7 @@ date: 2007-01-09T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2395"
+noindex: true
 ---
 
 有时候觉得，自己被封闭在一个很小的圈子里，看不到圈外的世界。

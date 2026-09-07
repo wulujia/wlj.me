@@ -4,6 +4,7 @@ date: 2005-10-28T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1419"
+noindex: true
 ---
 
 10月28日上午，温州。

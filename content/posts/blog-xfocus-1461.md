@@ -4,6 +4,7 @@ date: 2005-11-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1461"
+noindex: true
 ---
 
 昨天到书城买了几斤书后，突然记起前些日子和 ering 跟 glacier 说起的要练字的计划，就到书城楼下的美术用品商店去买了笔墨，顺手抄了几本字贴回家。

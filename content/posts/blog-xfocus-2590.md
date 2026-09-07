@@ -4,6 +4,7 @@ date: 2007-04-24T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2590"
+noindex: true
 ---
 
 周末两天，玩物丧志，用苹果折磨了自己两天。

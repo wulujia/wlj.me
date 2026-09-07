@@ -4,6 +4,7 @@ date: 2005-02-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-725"
+noindex: true
 ---
 
 忘了跟着哪个链接居然走到了[“任正非的博客”](http://renzhengfei.blogchina.com/)。华为老大拥有的各种神秘光环，使我毫不犹豫地点击，同时心想：“华为要有什么大动作了吗？为什么会有这种风格改变？”

@@ -4,6 +4,7 @@ date: 2005-02-17T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-750"
+noindex: true
 ---
 
 今天看到donews上一的则新闻，说[信息产业部官方报纸《中国电子报》网站被黑](http://www.donews.com/donews/article/7/74051.html)，挂的是骇客的[“广告”](http://blog.xfocus.net/resserver.php?blogId=1&resource=crack3.jpg)--留下了个号称“职业防黑”同时还“专业黑站”的qq号18819022。

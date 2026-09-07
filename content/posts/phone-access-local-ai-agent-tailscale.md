@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Tools","Tech","AI"]
 draft: false
 slug: "phone-access-local-ai-agent-tailscale"
+description: "DeepSeek 的 agent harness dsh 只绑本地端口，故意不开放局域网。用 Tailscale 反代之后，手机上也能安全地用自己电脑里的 AI agent。"
 ---
 
 DeepSeek 开源了自己的 agent harness，叫 dsh。装上跑一条命令就能用：

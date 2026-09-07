@@ -4,6 +4,7 @@ date: 2025-04-18T20:01:44+08:00
 tags: ["WeChat", "Reading", "Marketing"]
 draft: false
 slug: "best-books-of-five-years"
+description: "近五年读过觉得值得推荐的书，按心理社科、产品商业、技术等分类，每本一句话说为什么。"
 ---
 
 ## 心理/社科

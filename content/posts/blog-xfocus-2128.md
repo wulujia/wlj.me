@@ -4,6 +4,7 @@ date: 2006-10-06T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2128"
+noindex: true
 ---
 
 公安部计算机信息系统安全产品质量监督检验中心在2003年底颁布并实施了一份《信息技术文件加密产品安全检验规范》，阅读并用[freemind](http://www.i170.com/user/wlj/Article_3000)做了个图，辅助记忆。

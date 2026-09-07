@@ -4,6 +4,7 @@ date: 2007-05-20T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2644"
+noindex: true
 ---
 
 做大众消费市场，在市场营销和广告方面，的确是需要投入。

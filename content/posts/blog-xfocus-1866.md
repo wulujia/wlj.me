@@ -4,6 +4,7 @@ date: 2006-06-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1866"
+noindex: true
 ---
 
 Google 地图中国区的照片更新了，理所当然，我要去找找泉州 ;)

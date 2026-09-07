@@ -4,6 +4,7 @@ date: 2026-04-15T23:03:24+0800
 tags: ["AI", "Tools", "Product"]
 draft: false
 slug: "world-after-coding-is-solved"
+description: "Lenny 采访 Claude Code 创建者 Boris Cherny 的要点：他 2025 年 11 月起 100% 代码由 Claude Code 生成，瓶颈从写代码转到 code review，再转到决定做什么。"
 ---
 
 Lenny's Podcast 在 2026 年 2 月 19 日采访了 Boris Cherny。Boris 是 Claude Code 的创建者和负责人，现在在 Anthropic，此前在 Meta 当过 Principal Engineer，自学编程出身，也写过 Programming TypeScript。

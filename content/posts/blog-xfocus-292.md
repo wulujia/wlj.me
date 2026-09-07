@@ -4,6 +4,7 @@ date: 2004-02-01T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-292"
+noindex: true
 ---
 
 前两个星期在书店买了本叫《血酬定律－－中国历史中的生存游戏》的书，作者吴思。

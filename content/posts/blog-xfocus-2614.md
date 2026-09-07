@@ -4,6 +4,7 @@ date: 2007-05-04T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2614"
+noindex: true
 ---
 
 这个标题实在有些土，开始前，先聊聊其它的吧。

@@ -4,6 +4,7 @@ date: 2008-08-23T03:21:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-e1b781cb"
+noindex: true
 ---
 
 下午和 glacier、killer 聊天，提到虚拟机，于是海阔天空：

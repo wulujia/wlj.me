@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Security","Tech"]
 draft: false
 slug: "brave-origin-blind-token"
+description: "Brave Origin 买断版靠盲签名激活，服务器不知道是谁在用。用一组小学算术把盲签名走一遍，看它怎么做到既验证付费又不留查表记录。"
 ---
 
 Brave 6 月上线了 Origin，59.99 美元买断。Leo、News、Rewards、VPN、Wallet、Talk、Tor、Speedreader、Web Discovery 全部从二进制里编译掉，只留 Shields 和 Chromium 内核。Linux 免费。

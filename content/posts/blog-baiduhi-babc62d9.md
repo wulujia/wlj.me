@@ -4,6 +4,7 @@ date: 2009-01-30T17:24:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-babc62d9"
+noindex: true
 ---
 
 各位兄弟身边如果有合适的朋友，请帮忙推荐一下吧，谢谢了！

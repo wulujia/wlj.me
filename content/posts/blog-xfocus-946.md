@@ -4,6 +4,7 @@ date: 2005-05-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-946"
+noindex: true
 ---
 
 [五福在家 自得其乐](http://www.i170.com/user/wuyisi)

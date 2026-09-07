@@ -4,6 +4,7 @@ date: 2006-09-24T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2102"
+noindex: true
 ---
 
 “互联网江湖中，要想迅速发展，有两种方法，耍流氓和伴大款。”上个月在北京的时候，caoz师父是这么指导我的。

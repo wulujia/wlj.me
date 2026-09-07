@@ -4,6 +4,7 @@ date: 2006-12-21T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2361"
+noindex: true
 ---
 
 原文章：[没有老冒的UUZone](http://www.i170.com/article/51542)老冒

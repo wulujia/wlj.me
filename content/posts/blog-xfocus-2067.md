@@ -4,6 +4,7 @@ date: 2006-09-10T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2067"
+noindex: true
 ---
 
 一时兴起，又想建一个firefox的维基百科，前些日子听人说twiki相当不错，装上试了试，语法和moinmoin不太一样，因为网络安全焦点维基百科已经用了moinmoin，还是遵从自己的习惯，仍然用它吧。

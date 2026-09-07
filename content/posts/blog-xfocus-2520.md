@@ -4,6 +4,7 @@ date: 2007-03-20T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2520"
+noindex: true
 ---
 
 [这小子](http://www.coolsir.org/)才22岁，真是一个让人羡慕，尽可以随意折腾的年纪。

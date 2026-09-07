@@ -4,6 +4,7 @@ date: 2005-02-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-761"
+noindex: true
 ---
 
 虽然常用Linux，但工作中也还是一直理直气壮地用着各式各样的盗版软件，用惯了，偶尔看到些打击盗版的言论，心里不舒服一下，转瞬也就忘记了。刚才打开资源管理器时，无意中看到菜单里有这么一条“[这份 Windows 合法吗？](http://www.microsoft.com/resources/howtotell/ww/windows/default.mspx)”。

@@ -4,6 +4,7 @@ date: 2005-02-14T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-746"
+noindex: true
 ---
 
 李路劝我：你该信点什么，这样会很快乐。

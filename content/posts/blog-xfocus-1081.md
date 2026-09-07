@@ -4,6 +4,7 @@ date: 2005-07-15T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1081"
+noindex: true
 ---
 
 即便以前用windows，也没有怎么好好用过google toolbar，大概是当时用的myie的缘故，直接在地址栏里输入要查询的字词就能搜索了，何苦多消耗资源。前几天看到google toolbar出了支持firefox的版本，没来由的就想试试（毕竟当年装机圣手的好奇天性还没被完全抹杀）。

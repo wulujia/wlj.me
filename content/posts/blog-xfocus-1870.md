@@ -4,6 +4,7 @@ date: 2006-06-13T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1870"
+noindex: true
 ---
 
 里面很多细节描写相当值得玩味。

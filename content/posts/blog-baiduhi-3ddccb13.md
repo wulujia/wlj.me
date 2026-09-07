@@ -4,6 +4,7 @@ date: 2011-02-23T12:53:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-3ddccb13"
+noindex: true
 ---
 
 做了个小论坛，供自己记录用。

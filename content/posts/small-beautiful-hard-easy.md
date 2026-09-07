@@ -4,6 +4,7 @@ date: 2026-02-17T12:10:00+08:00
 tags: ["WeChat", "Tools", "Startup"]
 draft: false
 slug: "small-beautiful-hard-easy"
+description: "37signals 创始人 Jason Fried 和 Founders Podcast 的对话整理：27 年年年盈利、62 人团队，怎么理解“足够”，为什么不融资、不扩张。"
 ---
 
 37signals 创始人 Jason Fried 与 Founders Podcast 主持人 David Senra 的深度对话。Jason 经营 37signals 27 年，年年盈利，62 人团队，做出了 Basecamp 和 HEY。这是一个关于"足够"的故事。

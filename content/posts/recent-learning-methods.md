@@ -4,6 +4,7 @@ date: 2025-01-12T20:12:03+08:00
 tags: ["WeChat", "AI", "Reading"]
 draft: false
 slug: "recent-learning-methods"
+description: "最近在试的学习和工作方法：把论文和书导入知识库直接提问，共享知识库做客服测试，以及看到 NotebookLM 之后的想法。"
 ---
 
 学习方面，主要是做某个方向学习（比如 AI）时，找到论文、书籍，可以存到知识库里，无论是自己学习，或者是与人共读，都是不错的选择。比如，我想看基本 Critical Tinking、逻辑相关的书，会：

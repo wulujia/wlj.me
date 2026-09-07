@@ -4,6 +4,7 @@ date: 2007-07-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2763"
+noindex: true
 ---
 
 昨晚开始，总是在右键点击Finder中的文件时，Finder直接崩溃重起，平均点击三到四次会崩溃一回，回忆了一下最近可能导致这类问题的操作：

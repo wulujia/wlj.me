@@ -4,6 +4,7 @@ date: 2007-05-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2630"
+noindex: true
 ---
 
 Killer旧作，但好象一直没有公开发到外面，可以在下面链接下载：

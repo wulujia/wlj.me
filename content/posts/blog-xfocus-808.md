@@ -4,6 +4,7 @@ date: 2005-03-28T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-808"
+noindex: true
 ---
 
 翻看前些天买的一本《管理学－构建新时代的竞争优势》，在前言里看到一个词叫“建设性冲突”，觉得很有意义。

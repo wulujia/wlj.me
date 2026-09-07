@@ -4,6 +4,7 @@ date: 2007-03-24T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2523"
+noindex: true
 ---
 
 都说在家靠父母，出门靠朋友，果然不差。

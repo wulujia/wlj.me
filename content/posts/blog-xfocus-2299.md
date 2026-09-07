@@ -4,6 +4,7 @@ date: 2006-12-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2299"
+noindex: true
 ---
 
 原文章：[获得更小的PPT](http://www.i170.com/article/50650)

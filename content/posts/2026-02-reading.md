@@ -4,6 +4,7 @@ date: 2026-02-28T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2026-02-reading"
+noindex: true
 ---
 
 - 温暖的科技

@@ -4,6 +4,7 @@ date: 2006-10-27T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2173"
+noindex: true
 ---
 
 **演示环境**

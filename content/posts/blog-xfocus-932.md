@@ -4,6 +4,7 @@ date: 2005-05-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-932"
+noindex: true
 ---
 
 收邮件列表的时候，看到几则和微软相关的新闻：

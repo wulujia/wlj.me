@@ -4,6 +4,7 @@ date: 2024-04-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2024-04-reading"
+noindex: true
 ---
 
 - Just for fun: The Story of an Accidental Revolutionary

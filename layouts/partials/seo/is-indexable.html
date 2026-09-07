@@ -14,7 +14,7 @@
     {{- $isIndexable = true -}}
   {{- else if and .IsPage (eq .Section "startupnotes") -}}
     {{- $isIndexable = true -}}
-  {{- else if or (eq .RelPermalink "/about/") (eq .RelPermalink "/archives/") -}}
+  {{- else if or (eq .RelPermalink "/about/") (eq .RelPermalink "/archives/") (eq .RelPermalink "/featured/") -}}
     {{- $isIndexable = true -}}
   {{- end -}}
 {{- end -}}

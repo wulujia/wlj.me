@@ -4,6 +4,7 @@ date: 2006-11-19T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2229"
+noindex: true
 ---
 
 昨天傍晚买了几本小说，其中包括刘猛的新作《刺客》和周健良的《终身制职业2》。手不释卷看到凌晨2点才看完，觉得挺过瘾。

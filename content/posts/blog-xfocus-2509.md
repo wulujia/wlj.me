@@ -4,6 +4,7 @@ date: 2007-03-16T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2509"
+noindex: true
 ---
 
 凯文大叔今天下班前说了句很值得玩味的话：“产品是要人家掏钱……解决方案是给人家带来价值。”

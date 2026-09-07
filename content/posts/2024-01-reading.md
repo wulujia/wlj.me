@@ -4,6 +4,7 @@ date: 2024-01-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2024-01-reading"
+noindex: true
 ---
 
 - The mom test

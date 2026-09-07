@@ -4,6 +4,7 @@ date: 2007-07-28T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2788"
+noindex: true
 ---
 
 最近一周多的时间，[铁卷](http://www.unnoo.com/products/infoguard/)接连在两家电子电路设计企业进行大范围部署，也因此对各类单片机、嵌入式的程序有了进一步的了解，目前测试并在实际应用中使用正常的软件包括Wave、CodeWarrior、Keil、IsaGraf

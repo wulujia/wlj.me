@@ -4,6 +4,7 @@ date: 2007-08-25T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2831"
+noindex: true
 ---
 
 [大成天下](http://unnoo.com/)只是信息安全行业里的一家小公司，团队气氛比较好，在这儿工作，压力未必小，但心情应该可以比较舒畅。团队的技术负责人（[glacier](index.php?blogId=15)、[killer](index.php?blogId=2)……）在技术上是毫不藏私的，如果希望快速成长，不妨来看看。可以通过[智联招聘](http://company.zhaopin.com/P5/CC1454/4514/CC145445140.htm?DYWE=1187071548111.362655.1187074879.1187084499.3)发送简历，也可以将简历直接投递到hr@unnoo.com，所有简历都是俺在看，要有兴趣，不妨试试。招聘的职位包括：

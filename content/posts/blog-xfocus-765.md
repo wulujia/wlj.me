@@ -4,6 +4,7 @@ date: 2005-02-26T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-765"
+noindex: true
 ---
 
 盛大与新浪的故事很热闹。平静已久的媒体找到的宣泄的出口……

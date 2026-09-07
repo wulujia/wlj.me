@@ -4,6 +4,7 @@ date: 2007-03-19T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2514"
+noindex: true
 ---
 
 前些时候，[mrcool](http://www.coolsir.org/)神秘兮兮地说要送公司一件礼物，我还寻思着，这小子不知在想啥[怪主意](index.php?op=ViewArticle&articleId=2358&blogId=15)呢，今儿答案出来了，就是这T恤（俺用手机拍的，不知咋整，给拍反了，呵，将就着看吧）。

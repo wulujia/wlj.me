@@ -4,6 +4,7 @@ date: 2004-09-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-461"
+noindex: true
 ---
 
 风险评估风起云涌地火了一段时间，随后的SOC又铺天盖地而来。

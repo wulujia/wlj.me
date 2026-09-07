@@ -4,6 +4,7 @@ date: 2006-05-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1831"
+noindex: true
 ---
 
 有和俺做友情链接的，可以把链接转到这个地方啦。

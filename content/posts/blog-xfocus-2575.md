@@ -4,6 +4,7 @@ date: 2007-04-16T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2575"
+noindex: true
 ---
 
 可以看[中国人才热线上的招聘要求](http://www.cjol.com/main/jobseeker/SearchResult.asp?JobLocation_CODE=&JobFunction_CODE=&JobPostingPeriod=30&KeyWord=%B4%F3%B3%C9%CC%EC%CF%C2&JobCategory_FullTime=1&JobCategory_PartTime=1&JobCategory_Graduate=1&MaxYearsOfExperience=&SortingFields=SYS_UpdateTime%7CDESC&FilterID=0)，在这里俺也多发一遍吧，多些眼球总是好事。

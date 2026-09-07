@@ -4,6 +4,7 @@ date: 2005-03-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-770"
+noindex: true
 ---
 
 周末听 [benjurry](http://blog.xfocus.net/index.php?blogId=13) 讲了一位朋友Xu在销售上的小故事，觉得很有急智，记下来。

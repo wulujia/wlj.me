@@ -4,6 +4,7 @@ date: 2004-02-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-30"
+noindex: true
 ---
 
 今天看到[http://www.nanfangdaily.com.cn/zm/20040205/xw/sd/200402050254.asp](http://www.nanfangdaily.com.cn/zm/20040205/xw/sd/200402050254.asp)里宝马案与“多数人暴政”这篇文章，提几个问题： 

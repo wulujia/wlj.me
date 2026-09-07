@@ -4,6 +4,7 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-1792"
+noindex: true
 ---
 
 嗯，不用担心，俺是被这本叫《暗算》的小说暗算了……

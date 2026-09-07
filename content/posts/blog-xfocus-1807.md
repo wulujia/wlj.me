@@ -4,6 +4,7 @@ date: 2006-05-19T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1807"
+noindex: true
 ---
 
 一直以来，都是用 Word 制作产品的各类文档，包括 datasheet、catalog、白皮书、技术手册这些东西。

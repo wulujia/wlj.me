@@ -4,6 +4,7 @@ date: 2006-10-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2115"
+noindex: true
 ---
 
 原文：[高中的同学，你还记得几个？](http://www.i170.com/article/26682)在[DBAnotes](http://www.dbanotes.net/)的推荐下，看了闽南作家何葆国先生的《[二十年后的聚会](http://xys.freedns.us/xys/netters/psi6/hebaoguo2.txt)》。看他写的平凡人平凡事平凡的二十年，心里竟然隐隐有几分害怕。

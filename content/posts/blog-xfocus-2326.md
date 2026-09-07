@@ -4,6 +4,7 @@ date: 2006-12-13T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2326"
+noindex: true
 ---
 
 [Anti-Spyware Toolkit](http://bbs.xsf.com/forumdisplay.php?fid=10)，个人版的中文名是[超级巡警](http://www.dswlab.com/)，

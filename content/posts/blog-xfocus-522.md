@@ -4,6 +4,7 @@ date: 2004-10-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-522"
+noindex: true
 ---
 
 

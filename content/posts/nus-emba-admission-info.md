@@ -4,6 +4,7 @@ date: 2023-07-21T15:09:00+08:00
 tags: ["Life"]
 draft: false
 slug: "nus-emba-admission-info"
+noindex: true
 ---
 
 官方网站：https://emba.nus.edu.sg/admissions-funding/

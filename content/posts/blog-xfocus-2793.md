@@ -4,6 +4,7 @@ date: 2007-07-31T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2793"
+noindex: true
 ---
 
 下午专心致志地看了一些[falcon兄](http://www.i170.com/user/falcon)推荐的总结2006，展望2007的文档，其中包括：

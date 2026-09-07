@@ -4,6 +4,7 @@ date: 2007-06-26T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2731"
+noindex: true
 ---
 
 [

@@ -4,6 +4,7 @@ date: 2005-07-26T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1144"
+noindex: true
 ---
 
 午餐的饭是绿豆饭，闻起来很是清香，据小鼻涕说吃了消暑解腻。一肉一菜一盅雪梨银耳一罐啤酒。

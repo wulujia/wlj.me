@@ -4,6 +4,7 @@ date: 2006-07-20T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1941"
+noindex: true
 ---
 
 [FreeMind测试版本的下载地址](http://freemind.sourceforge.net/dimitri_testversions/)变了，下午有点时间，下回来接着用。

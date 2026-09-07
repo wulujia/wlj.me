@@ -4,6 +4,7 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-1804"
+noindex: true
 ---
 
 《市场竞争策略分析与最佳策略选择》这本书，里面有价值的只是些小故事，还不知道真实度如何。

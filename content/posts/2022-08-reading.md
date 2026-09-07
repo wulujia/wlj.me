@@ -4,6 +4,7 @@ date: 2022-08-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2022-08-reading"
+noindex: true
 ---
 
 - 火星救援 08.09

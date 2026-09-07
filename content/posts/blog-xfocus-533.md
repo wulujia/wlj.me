@@ -4,6 +4,7 @@ date: 2004-10-20T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-533"
+noindex: true
 ---
 
 在快下班的时候，打开久违了的卓越商城。网页里的这部份吸引了我的目光……

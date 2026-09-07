@@ -4,6 +4,7 @@ date: 2006-06-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1863"
+noindex: true
 ---
 
 我来试试网络的一个最简单应用吧，寻人，找一个好朋友，我的初、高中同学。

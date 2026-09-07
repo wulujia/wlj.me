@@ -4,6 +4,7 @@ date: 2006-11-17T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2222"
+noindex: true
 ---
 
 公司同事和我都是销售新手，工作中不少细节上犯过些小错误，记录下来，也算提醒自己：

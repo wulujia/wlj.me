@@ -4,6 +4,7 @@ date: 2006-05-30T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1835"
+noindex: true
 ---
 
 在群里面，chair 说：“[汉芯](http://www.google.com/search?hl=zh-CN&lr=lang_zh-CN&q=%E6%B1%89%E8%8A%AF)，[麒麟](http://www.google.com/search?hl=zh-CN&newwindow=1&q=%E9%BA%92%E9%BA%9F+freebsd&lr=lang_zh-CN)，[方舟](http://www.google.com/search?hl=zh-CN&newwindow=1&q=%E6%96%B9%E8%88%9F+CPU&lr=lang_zh-CN)，三国鼎立。他们也好意思起这些中国特色的名字，不错，脸皮厚这关他们过了。”

@@ -4,6 +4,7 @@ date: 2007-01-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2430"
+noindex: true
 ---
 
 虽然只是听说，但这个案例实在让我有些心惊肉跳，记一笔，让自己有个警惕。至少从里面我应该学着考虑：

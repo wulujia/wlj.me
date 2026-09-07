@@ -4,6 +4,7 @@ date: 2006-05-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1823"
+noindex: true
 ---
 
 说了许久，要写这篇文档的，但一拖再拖，大体结构暂定如下。

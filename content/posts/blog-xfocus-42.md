@@ -4,6 +4,7 @@ date: 2004-05-21T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-42"
+noindex: true
 ---
 
 前两天火车站买了本讲林彪和四野的书。 

@@ -4,6 +4,7 @@ date: 2007-08-02T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2796"
+noindex: true
 ---
 
 下午arrow给我发了幅图片，大家可以看看，这个女孩是顺时针在转圈儿，还是逆时针？

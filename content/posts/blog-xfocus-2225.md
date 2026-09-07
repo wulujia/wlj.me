@@ -4,6 +4,7 @@ date: 2006-11-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2225"
+noindex: true
 ---
 
 [正心道场](http://www.bztkd.com/)就是

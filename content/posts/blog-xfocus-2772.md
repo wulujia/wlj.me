@@ -4,6 +4,7 @@ date: 2007-07-16T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2772"
+noindex: true
 ---
 
 瑞星卡卡、Windows优化大师、木马克星，都是不错的防流氓软件和防木马的产品，与之相比，超级巡警似乎还能抗衡，见下面几张图：

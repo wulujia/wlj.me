@@ -4,6 +4,7 @@ date: 2005-10-16T00:00:00+08:00
 tags: ["Security"]
 draft: false
 slug: "xfocus-release-a828"
+noindex: true
 ---
 
 渗透测试（Penetration Test）是指安全工程师尽可能完整地模拟黑客使用的漏洞发现技术和攻击手段，对目标网络/系统/主机/应用的安全性作深入的探测，发现系统最脆弱的环节的过程。渗透测试能够直观的让管理人员知道自己网络所面临的问题。

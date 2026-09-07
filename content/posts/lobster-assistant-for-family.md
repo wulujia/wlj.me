@@ -4,6 +4,7 @@ date: 2026-02-25T20:18:25+08:00
 tags: ["WeChat", "AI", "Tech"]
 draft: false
 slug: "lobster-assistant-for-family"
+description: "给文科背景的朋友写的 OpenClaw 入门：要一台什么样的电脑、花多少钱、选什么模型、在中国能不能用，以及为什么一定要和工作电脑分开。"
 ---
 
 最近打听小龙虾的朋友有点多，所以我干脆写篇短文，把文科背景朋友们最经常问的问题，做个粗浅的回答。

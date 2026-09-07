@@ -4,6 +4,7 @@ date: 2007-04-17T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2577"
+noindex: true
 ---
 
 原文章：[性格缺陷](http://www.i170.com/article/1724)

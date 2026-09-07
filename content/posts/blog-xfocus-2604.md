@@ -4,6 +4,7 @@ date: 2007-04-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2604"
+noindex: true
 ---
 
 在苹果的网站上[对FileVault的描述](http://docs.info.apple.com/article.html?path=Mac/10.4/zh/mh1877.html)是：

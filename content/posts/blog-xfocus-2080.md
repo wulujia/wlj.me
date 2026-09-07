@@ -4,6 +4,7 @@ date: 2006-09-16T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2080"
+noindex: true
 ---
 
 glacier又带队苦熬了这么些日子，大伙儿也眼瞅着[铁卷](http://www.unnoo.com/)也日渐成熟了。

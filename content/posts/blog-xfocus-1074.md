@@ -4,6 +4,7 @@ date: 2005-07-14T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1074"
+noindex: true
 ---
 
 昨天做的代理商培训，由于来不及做一个完整的ppt，只好用freemind组织思想，并且将一些零散的资料整合起来，效果也还不错。

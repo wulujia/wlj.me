@@ -4,6 +4,7 @@ date: 2005-08-06T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1175"
+noindex: true
 ---
 
 I170 的“记事本”功能让我看到了网络知识管理工具的一个影子。

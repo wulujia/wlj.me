@@ -4,6 +4,7 @@ date: 2004-01-23T00:00:00+08:00
 tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-24"
+noindex: true
 ---
 
 从joy_woo的blog链接到罂粟—画皮屋，看到一篇小文，有趣，转之。(俺这里没有什么表情，罂粟那儿表情丰富，也可乐……只是窃以为，得把最后一句：“看这世间的男子”改成“看这世间的女子”:) 

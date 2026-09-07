@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Tech","Tools"]
 draft: false
 slug: "eink-phone-essential-apps"
+noindex: true
 ---
 
 昨天重装了 eink 手机。安装后希望装少而精的几个工具即可：

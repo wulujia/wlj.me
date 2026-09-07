@@ -4,6 +4,7 @@ date: 2008-09-19T10:59:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-2d7bfdfa"
+noindex: true
 ---
 
 这篇是公司的软文，但是确实还有大部分人机器上都还有漏洞，所以，转载一下。

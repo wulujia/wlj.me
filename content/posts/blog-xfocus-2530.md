@@ -4,6 +4,7 @@ date: 2007-03-27T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-2530"
+noindex: true
 ---
 
 很长时间以来，一直在各种时间管理、Todolist、GTD的软件之间徘徊，前阶段非常欣赏的一款软件是Outlook

@@ -4,6 +4,7 @@ date: 2005-09-25T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1326"
+noindex: true
 ---
 
 这是我一直强烈推荐的工具，极棒。

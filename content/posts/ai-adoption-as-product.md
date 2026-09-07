@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["AI","创业","翻译"]
 draft: false
 slug: "ai-adoption-as-product"
+description: "Delight.ai 的 John Kim 怎么在公司内部推广 AI：token 使用排行榜、AI quests、让营销团队两天做出能收款的周边商店。整理自 How I AI 访谈。"
 ---
 
 来源：How I AI 频道访谈，主持人 Claire Vo，嘉宾 John Kim（Delight.ai）。视频 https://www.youtube.com/watch?v=uH39OZ-KnkY 。下面是我整理润色的中文版。

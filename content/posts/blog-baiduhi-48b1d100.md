@@ -4,6 +4,7 @@ date: 2009-02-02T15:48:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-48b1d100"
+noindex: true
 ---
 
 RSS地址：[http://wulujia.com/index.php/feed/](http://wulujia.com/index.php/feed/)

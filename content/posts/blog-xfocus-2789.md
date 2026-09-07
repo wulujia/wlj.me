@@ -4,6 +4,7 @@ date: 2007-07-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2789"
+noindex: true
 ---
 
 经常看到网上有人在问：什么原因导致所有网页文件都被加了[iframe](http://www.google.cn/search?complete=1&hl=zh-CN&newwindow=1&client=firefox-a&rls=org.mozilla%3Azh-CN%3Aofficial&hs=UfL&q=%E7%BD%91%E9%A1%B5%E6%8C%82%E9%A9%AC+iframe&btnG=Google+%E6%90%9C%E7%B4%A2&meta=)？

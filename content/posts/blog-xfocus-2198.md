@@ -4,6 +4,7 @@ date: 2006-11-05T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2198"
+noindex: true
 ---
 
 查询web服务器程序、uptime、历史IP等等：[http://www.netcraft.com/](http://www.netcraft.com/)

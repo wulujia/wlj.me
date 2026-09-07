@@ -4,6 +4,7 @@ date: 2005-07-14T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1073"
+noindex: true
 ---
 
 看到一则新闻：[](http://news.sina.com.cn/c/2005-07-14/02096427731s.shtml)

@@ -4,6 +4,7 @@ date: 2004-10-30T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-547"
+noindex: true
 ---
 
 star是一个很好的朋友。

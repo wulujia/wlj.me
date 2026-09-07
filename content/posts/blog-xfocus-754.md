@@ -4,6 +4,7 @@ date: 2005-02-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-754"
+noindex: true
 ---
 
 以前跟小鼻涕、glacier和wollf闲聊的时候提到过一个极具商业价值的“伟大发明”，制造梦境。刚才和继生瞎扯时，又提到了，两人说得挺来劲，干脆blog之 :)

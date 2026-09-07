@@ -4,6 +4,7 @@ date: 2004-10-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-505"
+noindex: true
 ---
 
 国庆大假，对商家而言正是大收获的季节，今天陪女朋友在茂业百货走了走，发现商家在一些细节上用了心。

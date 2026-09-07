@@ -4,6 +4,7 @@ date: 2026-04-24T07:08:52+08:00
 tags: ["Tech"]
 draft: false
 slug: "macos-cron-launchd"
+description: "macOS 上 cron 任务突然报 Operation not permitted，查下去是 TCC 隐私权限和 PATH 两个问题。顺便把 cron 和 launchd 的差别过一遍。"
 ---
 
 今天在终端收到一封 cron 发来的邮件，说某个脚本 "Operation not permitted"。查下去是两个问题合在一起，顺手也把 cron 和 launchd 在 macOS 上的差别重新过了一遍。

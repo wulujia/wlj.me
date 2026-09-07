@@ -4,6 +4,7 @@ date: 2005-07-23T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-1135"
+noindex: true
 ---
 
 前几天出差重庆的时候，花了点时间读了《决定质量的6个关键角色》（英文名是<Everyday Heroes of the Quality Movement>），觉得还不错，值得跟朋友推荐。

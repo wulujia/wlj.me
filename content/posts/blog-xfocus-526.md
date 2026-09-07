@@ -4,6 +4,7 @@ date: 2004-10-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-526"
+noindex: true
 ---
 
 闲来无事，瞎拍了张书架的照片。这个书架是不绣钢组合式的，很结实而且漂亮，当时我一眼就喜欢上了。

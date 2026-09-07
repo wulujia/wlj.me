@@ -4,6 +4,7 @@ date: 2026-05-03T11:00:00+08:00
 tags: ["产品","Reference"]
 draft: false
 slug: "pm-frameworks-100"
+description: "100 个产品设计框架的完整列表，中英文名称加一句话说明：设计思维、用户旅程地图、JTBD、Kano 模型等，按站点收录顺序整理。"
 ---
 
 [pmframe.works](https://pmframe.works/) 风格和[软件工程定律站](/posts/laws-of-software-engineering/)同款——卡片好看、聚合经典概念。这个收的是产品经理工具箱。

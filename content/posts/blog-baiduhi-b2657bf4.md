@@ -4,6 +4,7 @@ date: 2008-08-15T23:28:00+08:00
 tags: ["Business"]
 draft: false
 slug: "blog-baiduhi-b2657bf4"
+noindex: true
 ---
 
 这三年下来，和弟兄们一起，做了一些产品，简单数数，大体如下（可能有遗漏）：

@@ -4,6 +4,7 @@ date: 2004-06-07T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-47"
+noindex: true
 ---
 
 前两天到一家基金公司和他们电脑部的老总聊了一会安全，倒是很投机。 

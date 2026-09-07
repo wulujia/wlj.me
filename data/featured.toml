@@ -1,0 +1,18 @@
+# 精选文章。home 列表出现在首页顶部；groups 渲染在 /featured/。slug 对应 content/posts/*.md 的 slug 字段。
+home = ["shiguredo-company-docs", "small-beautiful-hard-easy", "zsxq-nine-years", "building-for-next-model", "world-after-coding-is-solved", "ai-education", "gbrain-multi-device", "ai-agent-slimming", "brave-origin-blind-token", "ai-analyze-apple-watch-data"]
+
+[[groups]]
+name = "创业与小而美"
+slugs = ["shiguredo-company-docs", "small-beautiful-hard-easy", "thinking-small-and-beautiful", "zsxq-nine-years", "zsxq-ten-years", "zsxq-finding-pmf", "20260427-yc-ai-native-company-from-scratch", "yc-ai-startup-ideas", "cofounder-discussion-checklist", "hacker-mindset", "tokyo-trip-log"]
+
+[[groups]]
+name = "AI 与产品"
+slugs = ["building-for-next-model", "world-after-coding-is-solved", "ai-adoption-as-product", "ai-education", "decoding-perplexity", "duolingo-reignites-growth", "understand-github", "bezos-day-one-letters", "mrbeast-success-secrets", "warp-docs-agent-workflow", "pm-frameworks-100", "laws-of-software-engineering"]
+
+[[groups]]
+name = "工具与实录"
+slugs = ["gbrain-multi-device", "ai-agent-slimming", "lobster-assistant-for-family", "phone-access-local-ai-agent-tailscale", "nixos-anywhere", "macos-cron-launchd", "backup-work-email", "open-source-ai-listening-assistants", "brave-origin-blind-token", "amp-warning-subdomain-takeover", "recent-learning-methods"]
+
+[[groups]]
+name = "生活与阅读"
+slugs = ["ai-analyze-apple-watch-data", "oscar-cpap-data-analysis", "best-books-of-five-years", "twelve-questions-end-of-2025", "scifi-heavenly-book"]

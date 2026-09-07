@@ -4,6 +4,7 @@ date: 2006-12-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2308"
+noindex: true
 ---
 
 [豆瓣](http://www.douban.com/people/wlj/)新增的“[我去](http://www.douban.com/subject/8000413/)”功能，让我今天花了半个多小时在上边流连。i170的主题，如果是旅游、行走类的，也有类似的“去过、想去”等功能，但豆瓣**很漂亮地用flash做了个简捷有效的视觉呈献，使用起来非常符合“可视”的操作习惯**（这就是[创新](http://www.wulujia.com/Article_34876)呀），玩着玩着，旅行的欲望就被刺激起来了……到深圳后，出游越来越少，希望过两年能有闲，好好弥补一把。

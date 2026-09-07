@@ -4,6 +4,7 @@ date: 2006-11-06T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2202"
+noindex: true
 ---
 
 咖啡的香气让小鼻涕有些上瘾，家里早有原先买冰箱时的赠品——西门子咖啡壶，加上昨天中午到SAMS买了咖啡粉，万事俱备了。

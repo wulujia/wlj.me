@@ -4,6 +4,7 @@ date: 2007-07-13T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2769"
+noindex: true
 ---
 
 现在只要跟技术相关的事儿，我基本不闻不问（主要是闻了问了，也未必能搞得明白），由此也被killer着实鄙视了几回。比如[超级巡警](http://www.google.cn/search?q=%E8%B6%85%E7%BA%A7%E5%B7%A1%E8%AD%A6&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-US:unofficial&client=firefox-a)3.x已经具备的映像劫持（IFEO）修复工具，我就一直没明白是咋回事，今天比较有空，找了找资料，总结了一下：

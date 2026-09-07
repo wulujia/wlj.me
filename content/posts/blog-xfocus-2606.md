@@ -4,6 +4,7 @@ date: 2007-04-27T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2606"
+noindex: true
 ---
 
 几分钟之前，强烈感受到，一起创业的伙伴，每一个，当真都可以当我的老师。

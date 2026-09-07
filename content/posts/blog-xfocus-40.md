@@ -4,6 +4,7 @@ date: 2004-03-05T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-40"
+noindex: true
 ---
 
 和普通模式图像大小是一样的，很讨厌，其实换个输出设备就可以了。 

@@ -4,6 +4,7 @@ date: 2006-08-16T00:00:00+08:00
 tags: ["AI", "Tech"]
 draft: false
 slug: "blog-xfocus-2013"
+noindex: true
 ---
 
 周日晚上给家里的台式机装了一个ubuntu 6.06，解一解长期没有linux桌面的馋。这一安装，发现ubuntu的一个很棒的创新！

@@ -4,6 +4,7 @@ date: 2023-07-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2023-07-reading"
+noindex: true
 ---
 
 - 人类灭绝

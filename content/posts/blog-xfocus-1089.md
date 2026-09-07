@@ -4,6 +4,7 @@ date: 2005-07-17T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1089"
+noindex: true
 ---
 
 反恐里，信息安全是不是能占领一席之地？

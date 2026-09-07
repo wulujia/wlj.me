@@ -4,6 +4,7 @@ date: 2007-08-13T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2813"
+noindex: true
 ---
 
 这个表格是zzzevazzz贴到CHINACISSP论坛上的，同行可为师，记下来，俺可以时不时去学习一下。

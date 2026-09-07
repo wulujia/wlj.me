@@ -4,6 +4,7 @@ date: 2004-01-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-21"
+noindex: true
 ---
 
 从别人那里听来一个很悲哀的比喻： 

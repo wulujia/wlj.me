@@ -4,6 +4,7 @@ date: 2024-05-08T11:08:00+08:00
 tags: ["Life"]
 draft: false
 slug: "have-i-been-pwned"
+noindex: true
 ---
 
 澳大利亚在线安全专家特 Troy Hunt 创建的系统：https://haveibeenpwned.com/。

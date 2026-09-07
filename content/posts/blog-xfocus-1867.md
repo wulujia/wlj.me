@@ -4,6 +4,7 @@ date: 2006-06-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1867"
+noindex: true
 ---
 
 我是昨天晚上看完[这部片子](http://base.verycd.com/entries/0000009423/)的，本来当时就想写一篇《防火墙的漏洞》来吓人，困了，就拖到现在了。

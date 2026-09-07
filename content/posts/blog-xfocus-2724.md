@@ -4,6 +4,7 @@ date: 2007-06-24T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2724"
+noindex: true
 ---
 
 转载自柴静：http://blog.sina.com.cn/u/48b0d37b01000aum

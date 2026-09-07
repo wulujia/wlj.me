@@ -4,6 +4,7 @@ date: 2024-06-20T10:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "wecom-on-arch-linux"
+noindex: true
 ---
 
 ```

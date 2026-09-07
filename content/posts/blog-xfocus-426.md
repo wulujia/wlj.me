@@ -4,6 +4,7 @@ date: 2004-08-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-426"
+noindex: true
 ---
 
 主要是看到了几个东西还不错。

@@ -4,6 +4,7 @@ date: 2007-07-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2766"
+noindex: true
 ---
 
 在MAC

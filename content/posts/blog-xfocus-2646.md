@@ -4,6 +4,7 @@ date: 2007-05-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2646"
+noindex: true
 ---
 
 最近迷上了设计得很漂亮的东西（比如苹果），觉得能够赏心悦目，真是很过瘾的事情。

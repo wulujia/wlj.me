@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["AI","Tools","Education"]
 draft: false
 slug: "open-source-ai-listening-assistants"
+description: "想要一个在 Mac 上边听课边转写、还能实时提示的 AI 助手。Hedy 好用但闭源，这里对比三个开源项目：Raven、Anarlog、Meetily，信息截至 2026 年 8 月。"
 ---
 
 需求很明确。

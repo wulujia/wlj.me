@@ -4,6 +4,7 @@ date: 2005-05-14T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-926"
+noindex: true
 ---
 
 没事上 [Freemind](http://freemind.sf.net/) 的主站看了看，发现又出了新的测试版本了，喜欢尝鲜的兄弟不妨试试。简单看了看，有些新东西，比起0.71稳定版来，多出的功能有：

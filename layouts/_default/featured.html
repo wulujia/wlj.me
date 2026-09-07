@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ with .Content }}<div class="index-content">{{ . }}</div>{{ end }}
+  {{ $site := .Site }}
+  {{ range .Site.Data.featured.groups }}
+    <h2>{{ .name }}</h2>
+    <ul class="featured-list">
+      {{ range .slugs }}
+        {{ $slug := . }}
+        {{ with index (where $site.RegularPages "Params.slug" $slug) 0 }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+            <span class="post-date">{{ .Date.Format "2006-01" }}</span>
+            {{ with .Description }}<div class="featured-desc">{{ . }}</div>{{ end }}
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Tools","Ops"]
 draft: false
 slug: "backup-work-email"
+description: "企业微信邮箱、腾讯企业邮箱没有批量导出，备份要走 IMAP。三条路：Mac 邮件 App 导出 mbox、imapsync 搬到 Gmail、自己写脚本存本地，各自的好处和坑。"
 ---
 
 企业微信邮箱、腾讯企业邮箱，网页端和客户端都只能一封一封另存，没有批量导出。想把几年的邮件整个拿到手，得走 IMAP。

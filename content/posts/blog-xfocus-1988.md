@@ -4,6 +4,7 @@ date: 2006-08-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1988"
+noindex: true
 ---
 
 [阿福](http://afu.i170.cn/)毕竟是专业的，设计一个我喜欢一个！
