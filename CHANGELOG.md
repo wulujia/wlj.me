@@ -2,7 +2,7 @@
 
 ## 2026-09-07
 
-- 索引策略：新增 `scripts/seo-noindex.py`，给 2010 年前且正文不足 1500 字、或任何正文不足 150 字的日志加 `noindex: true`（Search Console 近 90 天有曝光的页面豁免），本次标记 697 篇，可索引日志从 1367 降到 670。`12q1y-2025` 与 `twelve-questions-end-of-2025` 内容重复，前者 noindex。依据：站点上线 5 个月，GSC 90 天 423 次曝光 0 点击，索引正常但拿不到排名，先把稀释权重的旧转帖收掉。
+- 索引策略：上午给 697 篇旧转帖 / 短文加了 `noindex: true`（2010 年前且不足 1500 字，或不足 150 字），Luca 决定全部撤回，同日恢复为全部可索引，`scripts/seo-noindex.py` 一并删除。原因：站点拿不到排名的主因是没有外链，不是页面数量；这批页面是否收录对结果影响很小，先不动。`12q1y-2025` 与 `twelve-questions-end-of-2025` 内容重复的问题保留待处理。
 - 40 篇 2024 年以来正文超 2000 字的文章手写 `description`，不再用自动摘要。
 - 新增 `/featured/` 精选页（`content/featured.md` + `layouts/_default/featured.html`，数据在 `data/featured.toml`，四组），加入菜单，`showMenuItems` 7 → 8；首页顶部新增 10 篇精选链接块。`is-indexable` 把 `/featured/` 列为可索引，sitemap 自动带上。
 - 文章页末尾新增「相关文章」：Hugo Related 按标签取 5 篇，排除 noindex 页。

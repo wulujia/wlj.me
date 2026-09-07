@@ -4,7 +4,6 @@ date: 2005-03-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-772"
-noindex: true
 ---
 
 和 [李路](http://blog.xfocus.net/index.php?blogId=8) 聊到最近与几位兄弟即将开始的 [创业](http://www.unnoo.com/) ，他说起 [绿盟科技](http://www.nsfocus.com/) 员工大会上 [老沈](http://news.xinhuanet.com/employment/2003-04/15/content_832327.htm) 引用了李叔同“不是一生寒彻骨，怎得梅花扑鼻香？”、“有才而性缓定属大才，有智而气和斯为大智”的名句作为期望，与公司同事共勉。

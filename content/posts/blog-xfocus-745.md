@@ -4,7 +4,6 @@ date: 2005-02-14T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-745"
-noindex: true
 ---
 
 2-12，厦门，中山路。

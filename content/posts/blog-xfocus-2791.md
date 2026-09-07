@@ -4,7 +4,6 @@ date: 2007-07-31T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2791"
-noindex: true
 ---
 
 这些名言其实都是同一个人说的，牛逼的家伙呀 🌷

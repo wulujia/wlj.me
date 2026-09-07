@@ -4,7 +4,6 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1923"
-noindex: true
 ---
 
 铁卷所号称的内核级的透明加解密究竟是怎么回事呢？说白了，就是应用软件（例如Word）压根不晓得什么加不加密、解不解密的事儿。

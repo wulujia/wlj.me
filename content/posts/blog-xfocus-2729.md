@@ -4,7 +4,6 @@ date: 2007-06-26T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2729"
-noindex: true
 ---
 
 上午放风──嗯，就是大伙儿上班累了，跑到楼道或抽烟或聊天的时候，终于从前面几个星期没日没夜加班的痛苦中解脱出来的[glacier](index.php?blogId=15)，聊到今儿他上班时清闲无事速读的书，一本讲windows内核叫《rootkit──windows内核的安全防护》的，说：“那翻译可能不是计算机行业的，不该翻的也乱翻，RING0\RING3翻译成“环0\环3”……好在没有连rootkit啥的一块翻了。”

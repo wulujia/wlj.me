@@ -4,7 +4,6 @@ date: 2008-11-25T10:33:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-3aefb901"
-noindex: true
 ---
 
 我因为脚伤没去，看着大伙儿的照片，还是心痒痒的。

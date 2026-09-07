@@ -4,7 +4,6 @@ date: 2007-01-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2392"
-noindex: true
 ---
 
 一是《[空中危机（FlightPlan）](http://ent.sina.com.cn/m/f/flightplan/index.html)》，从里面我看到了一位母亲的坚持。

@@ -4,7 +4,6 @@ date: 2006-03-08T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1697"
-noindex: true
 ---
 
 上回说过，小鼻涕正在为开源软件做贡献，汉化 [MODX CMS](http://www.modxcms.com/) 呢，这不，经过整整两天半傻盯着屏幕，好不容易大功告成了 ;) 

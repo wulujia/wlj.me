@@ -4,7 +4,6 @@ date: 2007-05-26T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2662"
-noindex: true
 ---
 
 周末，加上昨天一觉睡了十二个小时，今天精力超级充沛，所以，安装日文版windows

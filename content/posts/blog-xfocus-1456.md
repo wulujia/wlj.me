@@ -4,7 +4,6 @@ date: 2005-11-07T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1456"
-noindex: true
 ---
 
 coolc [天下大治](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=1449&blogId=16)后，通过外交渠道邀请 glacier 和 wlj 进行睦邻友好访问，2005 年 11 月 7 日 23 时许，glacier 一行三人对 coolc 家园进行了为期三分钟的正式访问。

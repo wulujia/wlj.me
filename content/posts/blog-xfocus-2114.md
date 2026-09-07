@@ -4,7 +4,6 @@ date: 2006-10-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2114"
-noindex: true
 ---
 
 国庆了，中华人民共和国57岁生日，百度献上了一个国庆logo。

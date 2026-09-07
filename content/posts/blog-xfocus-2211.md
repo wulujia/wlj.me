@@ -4,7 +4,6 @@ date: 2006-11-12T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-2211"
-noindex: true
 ---
 
 前不久，poop推荐给我的一篇文章《[别做正常的傻瓜 莫让“沉没成本”误导决策](http://www.ittime.com.cn/content.asp?id=4504)》，文章中写到：

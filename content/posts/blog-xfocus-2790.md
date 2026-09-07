@@ -4,7 +4,6 @@ date: 2007-07-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2790"
-noindex: true
 ---
 
 大约半年前，就听一位朋友（似乎是[blackhole](index.php?blogId=8)）说起过《[穷人的银行家](http://www.douban.com/subject/1812833/)》这本书，建议我一读。后来在[benjurry](index.php?blogId=13)家看到过，忘了顺走了……😢

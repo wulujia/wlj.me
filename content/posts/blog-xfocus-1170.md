@@ -4,7 +4,6 @@ date: 2005-08-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1170"
-noindex: true
 ---
 
 半斤多的基围虾去须，三只红蟹洗净对半剖开并去除腹部两排蟹腮。

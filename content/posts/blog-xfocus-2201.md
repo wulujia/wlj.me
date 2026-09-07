@@ -4,7 +4,6 @@ date: 2006-11-06T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2201"
-noindex: true
 ---
 
 刚才与一位和我们同进退的合作伙伴交流[铁卷](http://www.unnoo.com/)目前的文档和包装，我问他：“铁卷目前的文档还算完整了吧？该有的是不是都有了？”其实从我内心里，还是蛮自得的。结果他说：

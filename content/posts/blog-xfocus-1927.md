@@ -4,7 +4,6 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1927"
-noindex: true
 ---
 
 在Windows正版增值特价产品中看到[Microsoft Private Folder 1.0](http://www.microsoft.com/genuine/offers/Details.aspx?displaylang=zh-cn&countrycode=CHN&offerid=441c2998-248b-49cf-b084-f3a237b58f71)，微软自己的宣传是：

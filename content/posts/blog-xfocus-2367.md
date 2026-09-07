@@ -4,7 +4,6 @@ date: 2006-12-26T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2367"
-noindex: true
 ---
 
 数据安全实验室专业从事客户端安全产品的研究与开发，可以通过[网站](http://www.dswlab.com/)与[论坛](http://bbs.xsf.com/forumdisplay.php?fid=10)进一步了解团队细节。

@@ -4,7 +4,6 @@ date: 2006-05-28T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1828"
-noindex: true
 ---
 
 且不说技术如何，[亿赛通](http://www.esafenet.com/)和[前沿](http://www.frontiertech.info/)比防泄露市场上其它厂商来得大气些，至少他们敢把产品的用户手册和演示动画搁到网站上。

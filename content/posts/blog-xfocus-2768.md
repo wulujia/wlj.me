@@ -4,7 +4,6 @@ date: 2007-07-13T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2768"
-noindex: true
 ---
 
 前天cc告诉小鼻涕说，foxmail现在开放了免费邮箱，容量有5G，!@#$%^

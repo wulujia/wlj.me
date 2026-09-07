@@ -4,7 +4,6 @@ date: 2007-03-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2493"
-noindex: true
 ---
 
 我一直认为，工作做得不好，有两种原因：

@@ -4,7 +4,6 @@ date: 2006-12-12T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2316"
-noindex: true
 ---
 
 看了[这则报道](http://www.theinquirer.net/default.aspx?article=36252)，

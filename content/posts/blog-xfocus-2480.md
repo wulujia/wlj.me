@@ -4,7 +4,6 @@ date: 2007-02-18T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2480"
-noindex: true
 ---
 
 如果有朋友觉得有职位合适您，可以将简历发送到

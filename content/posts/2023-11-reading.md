@@ -4,7 +4,6 @@ date: 2023-11-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2023-11-reading"
-noindex: true
 ---
 
 - 一块牛排

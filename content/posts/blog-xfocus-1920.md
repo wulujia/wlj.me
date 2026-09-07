@@ -4,7 +4,6 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1920"
-noindex: true
 ---
 
 新装的 debian 服务器在启动时出现这样的错误：

@@ -4,7 +4,6 @@ date: 2007-07-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2784"
-noindex: true
 ---
 
 各位兄弟要是有空，也不妨多帮超级巡警写点应用心得的文章，俺请吃饭，哈哈

@@ -4,7 +4,6 @@ date: 2006-07-05T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1907"
-noindex: true
 ---
 
 由于[X影音](http://www.crsky.com/soft/7866.html)具有容错性高的特点，对存在部分格式错误以及数据损失的媒体文件的读取识别远超出同类产品，由于BT、eMule等下载工具的普及，网民经常会遇到下载的媒体文件不完整，数据有缺失的情况，X影音对相当部分数据缺失的媒体文件可以轻松播放。

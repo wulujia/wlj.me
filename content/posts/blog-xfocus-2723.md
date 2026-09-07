@@ -4,7 +4,6 @@ date: 2007-06-23T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2723"
-noindex: true
 ---
 
 使用苹果的笔记本电脑已经一周有余，这段时间，基本每天都有新的惊喜，原来一直以为，这么多年的电脑使用经验，Windows、Linux、

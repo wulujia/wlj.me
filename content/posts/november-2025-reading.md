@@ -4,7 +4,6 @@ date: 2025-11-30T00:00:00+08:00
 tags: ["Photography", "Reading"]
 draft: false
 slug: "november-2025-reading"
-noindex: true
 ---
 
 ## 11 月阅读

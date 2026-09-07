@@ -4,7 +4,6 @@ date: 2005-03-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-773"
-noindex: true
 ---
 
 今天 XiaoXing 还在愤怒着 [招聘广告遭遇盗版](http://www.xfocus.net/bbs/index.php?act=ST&f=22&t=46850&page=all) 的事情，拉着我扯了半天。她的观念是：“凡是恶的，就必须惩戒，姑息或者纵容都是不应该的。”

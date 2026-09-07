@@ -4,7 +4,6 @@ date: 2004-01-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-25"
-noindex: true
 ---
 
 回到家，很静。 

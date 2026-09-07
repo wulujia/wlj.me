@@ -4,7 +4,6 @@ date: 2006-07-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1930"
-noindex: true
 ---
 
 2005年11月23日，微软正式宣布向ECMA国际标准化组织提交Office Open XML文件的格式。最近这段时间，又看到一则新闻《[Microsoft to Support OpenDocument](http://www.betanews.com/article/Microsoft_to_Support_OpenDocument/1152166759)》，也提到了一个word 2007的插件[odf-converter](http://odf-converter.sourceforge.net/)，可以将word 2007制成的文件存为odf文档，这样就能够顺利地与OpenOffice、StarOffice、KOffice等开源的办公套件相兼容了。

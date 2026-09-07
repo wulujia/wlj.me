@@ -4,7 +4,6 @@ date: 2005-08-13T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1197"
-noindex: true
 ---
 
 前两天看[新闻](http://taiwan.cnet.com/news/software/0,2000064574,20100648,00.htm)，IBM 的 Lotus notes 第二季度销售成绩较去年同期增长 17% 已经连续三个季度呈两位数增长，联想起前段时间看到OASIS的[OpenDocument](http://en.wikipedia.org/wiki/OpenDocument)，这种开放的文档格式能够让用户方便地转移办公平台，并且不同办公系统用户之间的沟通不再困难。目前 Koffice、OpenOffice、Lotus notes 已经朝这个方向作出努力，国内也有类似永中 Office 之类的产品。不知道这些企业的努力，能不能将微软从固执的专有格式改变过来。当然，微软有他们独到的创新之处，事实上，仅仅是 Office 2003 中的 OneNote、InfoPath 等产品，已经有些颠覆传统办公平台的想法了。OneNote 的宣传语“万千笔记，一处锁定”，的确很是诱惑。

@@ -4,7 +4,6 @@ date: 2006-10-05T00:00:00+08:00
 tags: ["Life", "Photography"]
 draft: false
 slug: "blog-xfocus-2127"
-noindex: true
 ---
 
 两个域名注册查询的网站，都采用了ajax技术，输入完马上就可以得到域名是否被注册的结果，比较方便。

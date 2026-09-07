@@ -4,7 +4,6 @@ date: 2006-09-17T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2083"
-noindex: true
 ---
 
 晚上看了部电影《The.Legend.Of.Zorro》，佐罗传奇，女主角是漂亮的[凯瑟琳-泽塔-琼斯](http://ent.sina.com.cn/s/u/f/cthin.html)，几年前看过的《偷天陷井》中，就觉得她演得相当好，举手投足一颦一笑也很是迷人。用[X影音](http://www.crsky.com/soft/7866.html)边看边按s键截了几张图，大家一块儿欣赏 :)

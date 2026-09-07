@@ -4,7 +4,6 @@ date: 2004-08-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-416"
-noindex: true
 ---
 
 google的创意体现在很多看似不起眼的细节上，比如google网站的图案，比如orkut的邀请方式，比如gmail的标签。

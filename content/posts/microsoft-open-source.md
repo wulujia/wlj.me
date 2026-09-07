@@ -4,7 +4,6 @@ date: 2004-09-30T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "microsoft-open-source"
-noindex: true
 ---
 
 

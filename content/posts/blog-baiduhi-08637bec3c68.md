@@ -4,7 +4,6 @@ date: 2008-12-21T20:59:00+08:00
 tags: ["AI", "Life"]
 draft: false
 slug: "blog-baiduhi-08637bec3c68"
-noindex: true
 ---
 
 现在托管的服务器数量在增加，前段时间，已经不断出现各种由于系统管理水平不够，导致的服务器当机、系统不稳定等事件。

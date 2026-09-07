@@ -4,7 +4,6 @@ date: 2006-09-04T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2051"
-noindex: true
 ---
 
 nmap的作者fyodor在站点上做过“[兵器谱](http://sectools.org/index.html)”排名的

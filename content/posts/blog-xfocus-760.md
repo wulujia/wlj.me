@@ -4,7 +4,6 @@ date: 2005-02-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-760"
-noindex: true
 ---
 
 国内用着 [Linux](http://www.linux.org/) 的朋友应该用过 [firefly](http://firefly.idv.tw/test/Forum.php?Board=1&History=0) 做的一些软件中文化支持补丁，昨天到他的主页上，看到关于他最新绘制发布的字体的许可问题 firefly 与另一位自由软件工作者 fundawang 的[交流](http://firefly.idv.tw/test/Forum.php?Board=1&Article=0af9dd818093d712288ad530d7767fb5&Func=view&History=0&Mode=&KeyWord=&VPage=1)，其中的意思，很是令人推崇：

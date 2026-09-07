@@ -4,7 +4,6 @@ date: 2006-07-07T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1918"
-noindex: true
 ---
 
 昨天约人面试，打电话通知之后，收到这样一封邮件：

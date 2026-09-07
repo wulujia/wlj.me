@@ -4,7 +4,6 @@ date: 2004-08-29T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-428"
-noindex: true
 ---
 
 1、mod_limitpconn

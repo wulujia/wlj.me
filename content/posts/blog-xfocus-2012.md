@@ -4,7 +4,6 @@ date: 2006-08-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2012"
-noindex: true
 ---
 
 这两个问题都是出在用FTP备份文件的时候：

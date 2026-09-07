@@ -4,7 +4,6 @@ date: 2004-06-09T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-48"
-noindex: true
 ---
 
 五六年前，陆续看过黄仁宇的《万历十五年》、《赫逊河畔谈中国历史》等几本书。感觉相当不错，只是似乎偏重明史一些。 

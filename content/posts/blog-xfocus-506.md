@@ -4,7 +4,6 @@ date: 2004-10-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-506"
-noindex: true
 ---
 
 几天假期，爸妈到深圳一起住了几天，谈天时说到了我是在蜜罐中泡大的，然后就扯到了他们小时候的事情……

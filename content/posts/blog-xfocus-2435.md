@@ -4,7 +4,6 @@ date: 2007-01-28T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2435"
-noindex: true
 ---
 
 [大成天下](http://www.unnoo.com/)两岁了 :)

@@ -4,7 +4,6 @@ date: 2008-08-29T01:10:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-ffafd562"
-noindex: true
 ---
 
 和朋友聊天时，听到有人提起，说某安全公司的老总坦言当年头脑发热，想去纳斯达克上市，结果被三记耳光给打醒了：

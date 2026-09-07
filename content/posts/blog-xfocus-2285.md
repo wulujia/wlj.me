@@ -4,7 +4,6 @@ date: 2006-12-02T00:00:00+08:00
 tags: ["AI", "Life"]
 draft: false
 slug: "blog-xfocus-2285"
-noindex: true
 ---
 
 本文转载自[HuangMin's Blog](http://www.i170.com/user/huangmin/)，原文参见[链接](http://www.i170.com/Article/47947)。

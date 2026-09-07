@@ -4,7 +4,6 @@ date: 2004-02-05T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-28"
-noindex: true
 ---
 
 前些天和欧阳聊天的时候，突然意识到资源的排列组合是非常重要的。 

@@ -4,7 +4,6 @@ date: 2025-05-04T11:34:15+08:00
 tags: ["WeChat", "Startup"]
 draft: false
 slug: "startups-must-document"
-noindex: true
 ---
 
 上午翻了翻我的创业笔记。从 2016 年 10 月 20 日到现在，断断续续写了 827 条。

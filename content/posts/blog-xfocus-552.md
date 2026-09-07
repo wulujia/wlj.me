@@ -4,7 +4,6 @@ date: 2004-11-02T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-552"
-noindex: true
 ---
 
 apt-get install cdrecord后，由于使用非SCSI的刻录机，看了看/usr/share/doc/cdrecord/README.ATAPI.setup，是一篇名为Howto setup an ATAPI CD-RW/DVD+-RW recorder on Debian的文档，我是2.6的内核，因此：

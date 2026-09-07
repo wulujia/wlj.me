@@ -4,7 +4,6 @@ date: 2007-07-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2765"
-noindex: true
 ---
 
 [adium](http://www.adiumx.com/)，一款被很多MACER称为鸭子的开源多协议即时通讯工具，支持MSN、Gtalk、Yahoo

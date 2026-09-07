@@ -4,7 +4,6 @@ date: 2004-01-13T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-19"
-noindex: true
 ---
 
 发现大多数人，包括我自己，都很奇怪地会在做一件事情时，沉迷到事情本身中去，而忘记本来的目标。 

@@ -4,7 +4,6 @@ date: 2006-10-02T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2120"
-noindex: true
 ---
 
 没做过什么搜索引擎优化，[unnoo.com](http://unnoo.com/)和[secyou.cn](http://secyou.cn/)的PR值居然都是5了，感觉不错，没有做过广告，没有在媒体上发过软文，公司的[铁卷](http://www.unnoo.com/)还是吸引了不少用户、代理商的关注，互联网还真有意思 :)

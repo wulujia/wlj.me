@@ -4,7 +4,6 @@ date: 2005-07-05T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1023"
-noindex: true
 ---
 
 早在半年多前，[楚江](http://www.i170.com/memberis.do?mID=8)就有了做[一起来](http://www.i170.com/default.do)的想法了，只是一直在招兵买马潜心开发，就在这两天i170测试版上线，我也就试了试，随手用freemind做了下记录。

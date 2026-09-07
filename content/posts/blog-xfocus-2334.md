@@ -4,7 +4,6 @@ date: 2006-12-14T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2334"
-noindex: true
 ---
 
 [Killer](http://www.xsf.com/)在[超级巡警论坛](http://bbs.xsf.com/forumdisplay.php?fid=10&page=1)里贴了个感染了熊猫烧香后,在资源管理器中查看系统文件夹的抓图，果然够显眼 :)

@@ -4,7 +4,6 @@ date: 2024-10-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2024-10-reading"
-noindex: true
 ---
 
 - How to steal a dog

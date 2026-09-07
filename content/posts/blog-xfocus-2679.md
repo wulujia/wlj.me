@@ -4,7 +4,6 @@ date: 2007-06-05T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2679"
-noindex: true
 ---
 
 这个笑话，来源于一个叫bruce的邮件，几次沟通的邮件如下：

@@ -4,7 +4,6 @@ date: 2007-02-13T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2475"
-noindex: true
 ---
 
 这篇BLOG想必会写得很枯燥乏味，而且写不出什么来，因为我对法律极其不专业。

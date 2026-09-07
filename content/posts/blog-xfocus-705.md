@@ -4,7 +4,6 @@ date: 2005-01-26T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-705"
-noindex: true
 ---
 
 最近经常竞标，因此用FreeMind做了个小小的总结，供同道参考。

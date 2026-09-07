@@ -4,7 +4,6 @@ date: 2005-02-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-749"
-noindex: true
 ---
 
 前些日子下载了《中国3G世纪报告》，今天凌晨才看。这是一份由国情研究中心的胡鞍钢任编写组长，曾经[引起不少争议](http://www.mc21st.com/techsubject/focus/china%203G%20report/list.HTM)的文档。

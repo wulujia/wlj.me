@@ -4,7 +4,6 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1800"
-noindex: true
 ---
 
 看到一个 Maxthon 2.0 邀请预览版的下载，虽然这还是一个远未成熟的版本，但还是觉得压力很大。初步试下来，觉得

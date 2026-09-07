@@ -4,7 +4,6 @@ date: 2007-07-16T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2771"
-noindex: true
 ---
 
 今天看书时，看到一句“无恃其不来，恃吾有以待之；无恃其不攻，恃吾有所不可攻也”，心中一动。

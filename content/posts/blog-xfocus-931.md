@@ -4,7 +4,6 @@ date: 2005-05-14T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-931"
-noindex: true
 ---
 
 本案例是从真实事件中延伸想开，案例的蓝本可以参见 [XFOCUS](http://www.xfocus.net/bbs/index.php?act=ST&f=1&t=49324&page=all) 论坛。

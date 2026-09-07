@@ -4,7 +4,6 @@ date: 2007-08-25T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2832"
-noindex: true
 ---
 
 > [遭遇滑铁卢

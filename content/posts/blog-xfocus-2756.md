@@ -4,7 +4,6 @@ date: 2007-07-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2756"
-noindex: true
 ---
 
 近期对苹果比较狂热，入手了MACBOOK PRO。

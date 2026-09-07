@@ -4,7 +4,6 @@ date: 2023-08-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2023-08-reading"
-noindex: true
 ---
 
 - 我是落花生的女儿

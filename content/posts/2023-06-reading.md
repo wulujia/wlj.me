@@ -4,7 +4,6 @@ date: 2023-06-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2023-06-reading"
-noindex: true
 ---
 
 - 助推：小行动如何推动大变革

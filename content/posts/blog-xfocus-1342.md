@@ -4,7 +4,6 @@ date: 2005-09-30T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1342"
-noindex: true
 ---
 
 有兴趣尝试的朋友可以：http://www.i170.com/work/928 下载。

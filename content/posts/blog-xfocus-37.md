@@ -4,7 +4,6 @@ date: 2004-04-03T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-37"
-noindex: true
 ---
 
 有篇mini HOWTO不错，可以参考： 

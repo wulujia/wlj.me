@@ -4,7 +4,6 @@ date: 2004-01-19T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-22"
-noindex: true
 ---
 
 一位兄弟最近对管理感兴趣，昨天和今天在QQ上发了几条消息，其实蛮值得考虑的，在“战争”期间应该考虑。 

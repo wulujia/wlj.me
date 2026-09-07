@@ -4,7 +4,6 @@ date: 2024-09-03T17:27:00+08:00
 tags: ["Life"]
 draft: false
 slug: "english-auto-complete-on-mac"
-noindex: true
 ---
 
 今天才知道，原来 Mac 上输入英文，也可以有"自动完成"功能。

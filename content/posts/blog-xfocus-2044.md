@@ -4,7 +4,6 @@ date: 2006-09-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2044"
-noindex: true
 ---
 
 原文：[谁认识杨叔仲吗？](http://www.i170.com/article/27467)

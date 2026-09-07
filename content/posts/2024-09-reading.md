@@ -4,7 +4,6 @@ date: 2024-09-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2024-09-reading"
-noindex: true
 ---
 
 - 茶馆

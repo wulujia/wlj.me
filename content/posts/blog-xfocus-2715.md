@@ -4,7 +4,6 @@ date: 2007-06-19T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2715"
-noindex: true
 ---
 
 经常来这里逛的朋友们，前段时间可能会有些奇怪：为什么这家伙不象以前那样热情地写[铁卷](http://www.unnoo.com/)的事情了？

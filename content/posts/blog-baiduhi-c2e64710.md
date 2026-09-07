@@ -4,7 +4,6 @@ date: 2011-06-26T19:40:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-c2e64710"
-noindex: true
 ---
 
 大成天下详细解析了为什么索尼会被黑客攻击。

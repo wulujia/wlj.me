@@ -4,7 +4,6 @@ date: 2007-05-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2660"
-noindex: true
 ---
 
 先做个假设：

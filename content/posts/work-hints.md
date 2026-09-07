@@ -4,7 +4,6 @@ date: 2023-09-20T12:39:02+08:00
 tags: ["Work"]
 draft: false
 slug: "work-hints"
-noindex: true
 ---
 
 打算给自己一个稍有点仪式感的"工作暗示"：

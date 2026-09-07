@@ -4,7 +4,6 @@ date: 2007-05-25T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2661"
-noindex: true
 ---
 
 [前年的一篇日志中](http://wulujia.com/Article_1404)，我认为：这样一布局，互联网即电脑的大阵势就拉开了，这一场中原逐鹿，Google

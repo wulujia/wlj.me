@@ -4,7 +4,6 @@ date: 2007-01-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2421"
-noindex: true
 ---
 
 因为[俺的BLOG](index.php?op=ViewArticle&articleId=2420&blogId=1)和[超级巡警的论坛](http://www.xsf.com/thread-4104-1-1.html)都允许匿名发贴和匿名回复，这些天还是有不少匿名而且很凶悍的人上阵骂娘的。刚才chair说，干嘛不查下IP，正好有点闲功夫，花两分钟时间吧

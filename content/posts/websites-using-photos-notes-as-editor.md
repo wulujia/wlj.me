@@ -4,7 +4,6 @@ date: 2024-02-13T12:29:00+08:00
 tags: ["Product"]
 draft: false
 slug: "websites-using-photos-notes-as-editor"
-noindex: true
 ---
 
 粗略地看了 https://public.photos/ 和 https://montaigne.io/，应该是个独立开发者的作品，估计也没什么人使用和付费。

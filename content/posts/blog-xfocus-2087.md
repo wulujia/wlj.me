@@ -4,7 +4,6 @@ date: 2006-09-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2087"
-noindex: true
 ---
 
 记得六年前在[XFOCUS](http://xfocus.net/)的首页上（当时的XFOCUS还没有现在的规模，可以随时写上些“站长的话”之类的心情故事的），贴过一段失眠日记 😛

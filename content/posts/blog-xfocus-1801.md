@@ -4,7 +4,6 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1801"
-noindex: true
 ---
 
 这回要招的是 jsp 开发工程师（负责[铁卷](http://www.unnoo.com/web/products/filesecure) 2.0 版 Server

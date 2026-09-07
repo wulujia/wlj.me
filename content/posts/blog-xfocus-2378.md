@@ -4,7 +4,6 @@ date: 2007-01-02T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2378"
-noindex: true
 ---
 
 出处：DSW Avert    时间：2007年01月01日

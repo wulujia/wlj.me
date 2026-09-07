@@ -4,7 +4,6 @@ date: 2004-08-06T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-89"
-noindex: true
 ---
 
 前些天公司组织到广西阳朔旅游了一把，运营管理部的同事挺厉害，把旅行社的价格砍得很低。

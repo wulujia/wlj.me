@@ -4,7 +4,6 @@ date: 2004-11-06T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-556"
-noindex: true
 ---
 
 关于FreeMind，可以参考这篇文章：http://risker.org/tech/FreeMind/index.html

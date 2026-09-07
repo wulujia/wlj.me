@@ -4,7 +4,6 @@ date: 2007-03-24T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2528"
-noindex: true
 ---
 
 **1、切换播放内核**

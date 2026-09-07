@@ -4,7 +4,6 @@ date: 2006-11-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2275"
-noindex: true
 ---
 
 在Gmail里面看到这样一个广告，居然堂而皇之地写着“诺顿破解版”，这里至少有俩问题：

@@ -4,7 +4,6 @@ date: 2007-02-20T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2482"
-noindex: true
 ---
 
 俺家可爱的小外甥女可欣。

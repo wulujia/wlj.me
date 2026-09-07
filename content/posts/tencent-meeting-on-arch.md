@@ -4,7 +4,6 @@ date: 2024-07-05T10:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "tencent-meeting-on-arch"
-noindex: true
 ---
 
 刚刚在一篇文章里看到腾讯会议是有 arch 版本的，挺好，装上了。

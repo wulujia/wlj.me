@@ -4,7 +4,6 @@ date: 2006-09-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2059"
-noindex: true
 ---
 
 在给办公室电脑上的firefox

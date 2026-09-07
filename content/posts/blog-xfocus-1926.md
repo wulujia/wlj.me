@@ -4,7 +4,6 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1926"
-noindex: true
 ---
 
 微软Office 2007开发小组已经对新一代Office办公软件各个产品组件图标进行了全新设计。

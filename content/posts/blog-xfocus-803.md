@@ -4,7 +4,6 @@ date: 2005-03-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-803"
-noindex: true
 ---
 
 装修果然是件累人的事，小鼻涕多日劳碌，居然轻了六斤。

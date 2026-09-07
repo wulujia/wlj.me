@@ -4,7 +4,6 @@ date: 2006-02-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1679"
-noindex: true
 ---
 
 前几天，向一位管着 300 多人的生产型企业的负责人请教。聊天过程中，说到这么几个数字。

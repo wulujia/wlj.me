@@ -4,7 +4,6 @@ date: 2006-11-15T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2217"
-noindex: true
 ---
 
 原文章：[时间管理程序tracks安装](http://www.i170.com/article/33774)

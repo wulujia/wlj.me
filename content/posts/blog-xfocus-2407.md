@@ -4,7 +4,6 @@ date: 2007-01-13T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2407"
-noindex: true
 ---
 
 [Silence](http://wuhongsheng.com/2007/01/game.html)这厮抓壮丁把我给抓出来了，今天上午起床时终于记起带数码像机，所以就来完成这份“寻找印尼失踪飞机”的报告吧……

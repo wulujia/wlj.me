@@ -4,7 +4,6 @@ date: 2006-12-17T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2350"
-noindex: true
 ---
 
 这几天脑子里一直转悠着一个折磨我挺长时间的问题，要下决策，难下决策。

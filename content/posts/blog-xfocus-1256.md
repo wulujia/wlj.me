@@ -4,7 +4,6 @@ date: 2005-09-04T00:00:00+08:00
 tags: ["Photography", "Reading"]
 draft: false
 slug: "blog-xfocus-1256"
-noindex: true
 ---
 
 下载了《[去大后方](http://board.verycd.com/t214063.html)》这部 14 集，记录了抗战时期平凡民众迁徙、抗争历史的纪实片，一直没时间看。昨天看到 hielulu 说，抗战胜利 60 周年的纪念日就是 9 月 3 日，便放下手边的事，看了三集。觉得很不错，跟朋友们推荐。

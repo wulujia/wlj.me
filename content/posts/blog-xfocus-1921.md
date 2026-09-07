@@ -4,7 +4,6 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-1921"
-noindex: true
 ---
 
 这个标题真有气势，哈。其实这只是三部小说的名字。

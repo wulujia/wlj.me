@@ -4,7 +4,6 @@ date: 2007-02-01T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2443"
-noindex: true
 ---
 
 有才而性缓定属大才，有智而气和斯为大智。算是与受了委屈的同事们共勉。

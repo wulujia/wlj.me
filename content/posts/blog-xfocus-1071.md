@@ -4,7 +4,6 @@ date: 2005-07-13T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1071"
-noindex: true
 ---
 
 用了一段时间的kazehakase，总体上对这款浏览器是比较满意的，它具备几个优点：

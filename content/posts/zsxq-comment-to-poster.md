@@ -4,7 +4,6 @@ date: 2024-11-27T20:52:46+08:00
 tags: ["WeChat", "Startup"]
 draft: false
 slug: "zsxq-comment-to-poster"
-noindex: true
 ---
 
 知识星球 App 支持将评论生成海报，能更方便地将伙伴们精彩的留言分享出去啦。

@@ -4,7 +4,6 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1798"
-noindex: true
 ---
 
 与 Fasoo 一样，MarkAny 也是一家韩国公司，目前 MarkAny([http://www.markany.com](http://www.markany.com/))

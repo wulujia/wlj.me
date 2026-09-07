@@ -4,7 +4,6 @@ date: 2024-07-03T16:18:00+08:00
 tags: ["Life"]
 draft: false
 slug: "markmap"
-noindex: true
 ---
 
 在知识星球里看到方军推荐 Markmap（https://markmap.js.org/），我去看了看。

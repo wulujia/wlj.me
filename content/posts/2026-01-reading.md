@@ -4,7 +4,6 @@ date: 2026-01-31T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2026-01-reading"
-noindex: true
 ---
 
 - Inspird: How to create products customers love

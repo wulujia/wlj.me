@@ -4,7 +4,6 @@ date: 2007-07-04T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2745"
-noindex: true
 ---
 
 有一位Forwin朋友在BLOG的回复中[贴了个文章](http://www.i170.com/user/wlj/Article_25890#comm_140615)，建议我看看，说应该能够对我有帮助。

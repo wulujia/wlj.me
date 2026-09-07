@@ -4,7 +4,6 @@ date: 2006-03-01T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1678"
-noindex: true
 ---
 
 昨天看到一则新闻《[雅虎告离职者盗窃机密](http://www.unnoo.com/web/news/incident/193.html)》，心中居然“恶毒”地窃喜，隐隐有恨不能多发生些这种安全事件的想法 ;)

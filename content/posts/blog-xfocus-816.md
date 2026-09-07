@@ -4,7 +4,6 @@ date: 2005-04-03T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-816"
-noindex: true
 ---
 
 “如果你是锤子，就会把一切看成钉子”，这句话是不是蛮有意思的？

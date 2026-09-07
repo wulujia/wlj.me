@@ -4,7 +4,6 @@ date: 2007-06-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2734"
-noindex: true
 ---
 
 坏消息是Google文件遇到了错误。

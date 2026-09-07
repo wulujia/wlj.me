@@ -4,7 +4,6 @@ date: 2009-01-05T10:43:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-a0555343"
-noindex: true
 ---
 
 won@unnoo用业余时间，做了一份大成天下的渠道刊物，命名为《大成视界》。

@@ -4,7 +4,6 @@ date: 2006-09-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2046"
-noindex: true
 ---
 
 先贴几个链接：

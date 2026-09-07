@@ -4,7 +4,6 @@ date: 2025-06-30T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "2025-06-reading"
-noindex: true
 ---
 
 - 在巴东

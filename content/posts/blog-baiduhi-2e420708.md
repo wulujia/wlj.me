@@ -4,7 +4,6 @@ date: 2008-09-03T02:19:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-2e420708"
-noindex: true
 ---
 
 半个多月前，一位好朋友和我谈到他所在的公司时，他的评价是：

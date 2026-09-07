@@ -4,7 +4,6 @@ date: 2006-12-14T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2329"
-noindex: true
 ---
 
 《[不得往生](http://www.douban.com/subject/1911519/)》的封面设计得很土气，故弄玄虚地写着：“第一部以女性创业为主题的商战励志小说”，前些天从东北回深圳时在机场书店，服务员就象我推荐过。看看那封面，我连翻都懒得翻。

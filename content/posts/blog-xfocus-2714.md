@@ -4,7 +4,6 @@ date: 2007-06-19T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2714"
-noindex: true
 ---
 
 今天[ICBM](http://hi.baidu.com/icbm)向我推荐了一个音乐网站，在得知我基本从不听歌之后，居然还让我一定去看看。

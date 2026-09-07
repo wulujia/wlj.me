@@ -4,7 +4,6 @@ date: 2006-08-10T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1995"
-noindex: true
 ---
 
 原文：[『原创』我的销售心得（续2）－如何把握一个项目](http://www.i170.com/article/33586)

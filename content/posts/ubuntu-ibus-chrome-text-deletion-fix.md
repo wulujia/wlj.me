@@ -4,7 +4,6 @@ date: 2024-06-19T11:45:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "ubuntu-ibus-chrome-text-deletion-fix"
-noindex: true
 ---
 
 1. ibus-setup

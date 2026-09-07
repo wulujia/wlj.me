@@ -4,7 +4,6 @@ date: 2007-02-19T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2481"
-noindex: true
 ---
 
 年后有个小项目中用得上，所以今晚折腾着一个[watchdog](http://gentoo-wiki.com/HOWTO_Watchdog_Timer)程序，简单看了看帮助文件以及配置文件的格式，很是简单明了，懒得开虚拟机，就直接登陆到公司的WEB服务器上测试，先是apt-get

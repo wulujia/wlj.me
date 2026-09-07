@@ -4,7 +4,6 @@ date: 2007-04-24T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2591"
-noindex: true
 ---
 
 维金病毒（Worm.wiking，又名威金），是2006至2007年度影响最大的恶性病毒之一。由于其变种多、难于根治，目前多数杀毒软件只能抓一个，杀一个，没有行之有效的解决方案。

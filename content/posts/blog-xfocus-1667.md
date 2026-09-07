@@ -4,7 +4,6 @@ date: 2006-02-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1667"
-noindex: true
 ---
 
 前两天，benjurry 给我发了个链接“[虚拟货币统一战打响 百度、PAYPAL争夺先手](http://www.unnoo.com/web/news/colligation/185.html)”，感慨了一番。

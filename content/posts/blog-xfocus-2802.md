@@ -4,7 +4,6 @@ date: 2007-08-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2802"
-noindex: true
 ---
 
 IDS的市场占有率，启明星辰占了22.4%的份额，是当之无愧的老大。安氏的份额居然比绿盟高，倒是挺让我意外的。

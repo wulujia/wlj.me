@@ -4,7 +4,6 @@ date: 2007-04-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2572"
-noindex: true
 ---
 
 原文章：[宗教还是迷信](http://www.i170.com/article/61702)

@@ -4,7 +4,6 @@ date: 2006-06-30T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1897"
-noindex: true
 ---
 
 原文：[又见无间道](http://www.i170.com/article/29761)

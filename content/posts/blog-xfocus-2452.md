@@ -4,7 +4,6 @@ date: 2007-02-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2452"
-noindex: true
 ---
 
 大伙一块小小的腐败了一把，可惜今年还没法跟东北的弟兄们一块过，下个生日，争取大家一块儿到某个城市旅游。

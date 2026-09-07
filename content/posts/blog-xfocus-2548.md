@@ -4,7 +4,6 @@ date: 2007-04-04T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2548"
-noindex: true
 ---
 
 昨天发的《[这个行业的恶性竞争](http://wulujia.com/Article_61867)》，只是觉得有人恶意破坏亿赛通的名声，今天看来，还不是如此简单　💩

@@ -4,7 +4,6 @@ date: 2006-11-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2260"
-noindex: true
 ---
 
 跟Killer一块逛哈尔滨的电脑市场时，看到一牌子，上面写着“黑客高品质兼容电脑，1200（不含显示器）元起”，乐了😁

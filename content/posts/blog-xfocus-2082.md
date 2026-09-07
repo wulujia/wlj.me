@@ -4,7 +4,6 @@ date: 2006-09-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2082"
-noindex: true
 ---
 
 上周去了一趟珠海，返程时为了路上不致无聊，买了本小说《[射雕时代](http://book.sina.com.cn/nzt/lit/shediaoshidai/index.shtml)》，这本书将一个大学二年级家庭变故后辍学，十余年行骗生涯的故事写得颇有意思，主人公俨然劫富济贫的侠士，虽然是骗界高手却良心未泯，专骗恶人，平时捎带手还做几件好事。

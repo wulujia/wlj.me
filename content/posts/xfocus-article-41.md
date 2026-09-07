@@ -4,7 +4,6 @@ date: 2000-05-05T00:00:00+08:00
 tags: ["Security"]
 draft: false
 slug: "xfocus-article-41"
-noindex: true
 ---
 
 (quack_at_xfocus.org)

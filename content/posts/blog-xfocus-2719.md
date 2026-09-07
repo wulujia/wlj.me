@@ -4,7 +4,6 @@ date: 2007-06-23T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2719"
-noindex: true
 ---
 
 这篇《[自动加密类软件常见漏洞](http://www.i170.com/Attach/E37E9828-0C7D-48D7-A724-4C2D058E22D3)》总结了一些比较防泄密行业产品容易犯的低层次的错误，俺是转载的，从“安腾软件”网站上下载回来的。

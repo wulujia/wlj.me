@@ -4,7 +4,6 @@ date: 2005-07-12T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1064"
-noindex: true
 ---
 
 这几天看新闻，感觉社会治安似乎越来越乱，是我在杞人忧天吗？[](http://gd.news.sina.com.cn/social/2005-07-12/1485409.html)

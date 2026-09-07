@@ -4,7 +4,6 @@ date: 2007-07-28T00:00:00+08:00
 tags: ["Reading"]
 draft: false
 slug: "blog-xfocus-2787"
-noindex: true
 ---
 
 这两天在翻看刘顺仁的《财报就像一本故事书》，不过这些天工作强度有些大，没有完整的时间阅读，只是枕边厕上，偶尔翻阅。

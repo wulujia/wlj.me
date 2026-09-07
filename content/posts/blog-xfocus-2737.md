@@ -4,7 +4,6 @@ date: 2007-07-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2737"
-noindex: true
 ---
 
 1、vanillasoap出品的[capture](http://www.vanillasoap.com/widgets/)，功能很强，可以截取全屏、窗口、widget或选定窗口，可以按大小比例或图像质量存储，并且能够选择截屏后放在剪贴板中，或者保存为多种图像格式。

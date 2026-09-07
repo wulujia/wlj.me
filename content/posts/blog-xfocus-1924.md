@@ -4,7 +4,6 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1924"
-noindex: true
 ---
 
 看到一个颇具所谓 web 2.0 味道的投票网站：[http://vote.hellocity.cn/](http://vote.hellocity.cn/)，觉得做得很棒，推荐一下，也试着创建了一个投票：[您的单位是否发生过严重的电子文档泄密事件？](http://vote.hellocity.cn/v/10289)欢迎投票 :)

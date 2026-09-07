@@ -4,7 +4,6 @@ date: 2006-12-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2291"
-noindex: true
 ---
 
 晚上手欠，又折腾起家里的台式机了，仍然是[Ubuntu](http://www.wulujia.com/Article_34876)，这回是6.10。

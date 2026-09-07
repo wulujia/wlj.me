@@ -4,7 +4,6 @@ date: 2006-06-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1841"
-noindex: true
 ---
 
 今天很偶然地在网上找到一个高中母校的“[百年学生名单](http://qzpyzx.edu.qz.fj.cn/100year/class70-04.htm)”，翻到自己班级的[那一页](http://www.i170.com/attach/29D082F5-8AAB-4EA1-984A-86730C490E88)，不禁有些发愣，居然好些名字我听来都很陌生……

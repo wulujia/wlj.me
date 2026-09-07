@@ -4,7 +4,6 @@ date: 2006-10-27T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2172"
-noindex: true
 ---
 
 试用的朋友请注意，[铁卷](http://www.unnoo.com/)从3.0开始采用许可文件方式发放测试授权，当您下载安装程序，并安装完铁卷后：

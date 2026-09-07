@@ -4,7 +4,6 @@ date: 2006-11-28T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2280"
-noindex: true
 ---
 
 这个版本还在不断更新中，请朋友们试用并提出改进意见，感谢王晟这段时间的辛劳！

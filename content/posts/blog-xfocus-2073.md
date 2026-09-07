@@ -4,7 +4,6 @@ date: 2006-09-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2073"
-noindex: true
 ---
 
 上午一上班，随机器自启动的gtalk、msn、qq、skype和飞鸽传书都开起来了（现在居然是一个都不能少了……），可是平时很清静的skype今天居然异常火爆，弹出无数“会议”对话框来，粗略统计一下，三分钟内弹出的这种spam已经超过15条了。

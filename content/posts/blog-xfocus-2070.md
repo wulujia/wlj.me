@@ -4,7 +4,6 @@ date: 2006-09-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2070"
-noindex: true
 ---
 
 **先看图吧**

@@ -4,7 +4,6 @@ date: 2025-03-17T15:05:00+08:00
 tags: ["Life"]
 draft: false
 slug: "nice-mono-fonts"
-noindex: true
 ---
 
 ```

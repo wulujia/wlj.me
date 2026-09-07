@@ -4,7 +4,6 @@ date: 2004-08-22T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-398"
-noindex: true
 ---
 
 吴国柱·顾问的人生戏话

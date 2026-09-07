@@ -4,7 +4,6 @@ date: 2006-09-10T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2068"
-noindex: true
 ---
 
 刚才登上我的blogger的时候，看到提示说已经有测试版的blogger升级，试了一下，我的感觉变化并不是很大，主要的更新在于：

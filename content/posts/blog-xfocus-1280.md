@@ -4,7 +4,6 @@ date: 2005-09-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1280"
-noindex: true
 ---
 
 前些天一位朋友的 Linux 主机上说有个莫名其妙的 inetd 进程，开了 21000 端口，让我看看。

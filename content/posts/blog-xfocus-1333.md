@@ -4,7 +4,6 @@ date: 2005-09-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1333"
-noindex: true
 ---
 
 中秋后回了趟家，很久没有回去了，翻翻架上旧书，找找屉里杂物。无意中竟然翻出几张老光盘。

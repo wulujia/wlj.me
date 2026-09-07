@@ -4,7 +4,6 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1795"
-noindex: true
 ---
 
 刚才到中国银行的 ATM

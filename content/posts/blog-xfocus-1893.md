@@ -4,7 +4,6 @@ date: 2006-06-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1893"
-noindex: true
 ---
 
 与疯狂的 glacier 和体形健硕的 coolc 同学一起报了个跆拳道班，上周日下午是第一堂两小时的课。

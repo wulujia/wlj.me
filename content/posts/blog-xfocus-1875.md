@@ -4,7 +4,6 @@ date: 2006-06-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1875"
-noindex: true
 ---
 
 killer 贴了个图：

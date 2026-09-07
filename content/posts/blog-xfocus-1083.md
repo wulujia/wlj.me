@@ -4,7 +4,6 @@ date: 2005-07-15T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-1083"
-noindex: true
 ---
 
 在 [Sbilly](http://www.sinoutopia.org/plog/) 那里看到他对中国移动近期在强化技术人员信息与网络安全方面的技能（近期对安全评估尤其重视）的评价，仔细想了想，换个角度，或许我们有了更大的机会。

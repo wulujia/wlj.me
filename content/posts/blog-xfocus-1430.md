@@ -4,7 +4,6 @@ date: 2005-10-30T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1430"
-noindex: true
 ---
 
 2005 年 Q1 各操作系统的装机比率，数据由 Garner 提供。

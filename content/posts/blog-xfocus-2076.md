@@ -4,7 +4,6 @@ date: 2006-09-12T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2076"
-noindex: true
 ---
 
 昨天晚上为[killer](http://www.dswlab.com/)装一个[slim-cms](http://developer.berlios.de/projects/slimcms/)，因为是shtml，需要[SSI](http://www.uplinux.com/download/doc/apache/ApacheManual/howto/ssi.html)（Server Side Includes）支持，一开始只是简单地加了两句：

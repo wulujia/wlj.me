@@ -4,7 +4,6 @@ date: 2008-10-04T03:45:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-89b6b6fd"
-noindex: true
 ---
 
 手机上，一位好友发来短信求助。

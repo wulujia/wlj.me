@@ -4,7 +4,6 @@ date: 2005-07-02T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1017"
-noindex: true
 ---
 
 [米特尼克](http://www.google.com/search?q=%E7%B1%B3%E7%89%B9%E5%B0%BC%E5%85%8B&btnG=%E6%90%9C%E7%B4%A2&hl=zh-CN&newwindow=1)这个牛逼的黑客，为他新书推广做了个[访谈](http://www.vnunet.com/features/1162443)，在记者问起他“Do any hackers scare you?”时的回答是：“The people who are scary are the people in China, like the [Xfocus group](http://www.xfocus.net/index.html). Don't forget that China has been oppressed; [people are] not even able to visit Western news sites.”

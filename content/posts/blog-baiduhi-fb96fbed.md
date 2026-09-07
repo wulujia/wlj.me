@@ -4,7 +4,6 @@ date: 2008-11-02T15:31:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-fb96fbed"
-noindex: true
 ---
 
 国庆的时候，小鼻涕爸妈来深圳，弄了点地瓜叶。因为我们都喜欢吃，所以……我爸妈扛过来的大花盆也派上了用场——将地瓜叶的菜梗插到土里，自己种 :)

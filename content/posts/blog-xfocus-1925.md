@@ -4,7 +4,6 @@ date: 2006-07-15T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1925"
-noindex: true
 ---
 
 **等级保护的核心**

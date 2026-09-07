@@ -4,7 +4,6 @@ date: 2006-10-11T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2136"
-noindex: true
 ---
 
 Ecma（欧洲计算机制造商协会）在10月9日发布了Office Open

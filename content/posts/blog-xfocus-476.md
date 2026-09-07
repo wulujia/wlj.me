@@ -4,7 +4,6 @@ date: 2004-09-12T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-476"
-noindex: true
 ---
 
 前两天公司开了个新产品发布会，我有两个主题，有意做了下尝试，采用MindManager来讲，总体感觉，没有达到最佳效果…… 

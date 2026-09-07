@@ -4,7 +4,6 @@ date: 2006-10-24T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2159"
-noindex: true
 ---
 
 “黑客”无所不在，这回和QQ有关。小鼻涕的一位开网吧的朋友，最近网吧里老上不了QQ，然后有人告诉他：

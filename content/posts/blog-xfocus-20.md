@@ -4,7 +4,6 @@ date: 2004-01-16T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-20"
-noindex: true
 ---
 
 项目做多了，就没想法了。这似乎是很常见的情况。 

@@ -4,7 +4,6 @@ date: 2005-07-08T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1045"
-noindex: true
 ---
 
 靠近中午的时候，到 [i170](http://www.i170.com/) 找楚江，见了他们精干的开发团队，见到了他们调试完善中的 i170 客户端，听了楚江对 i170 的部份思路、规划以及当前状态的介绍，还是眼界大开。目前我们所看到的 i170 看来只是他们计划中的一部份，更精彩的在后头呢 :)[](http://blog.xfocus.net/index.php?blogId=15)

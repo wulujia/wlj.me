@@ -4,7 +4,6 @@ date: 2006-08-09T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1989"
-noindex: true
 ---
 
 阿福拿着俺的照片画的，见过我的人评价评价？

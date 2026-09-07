@@ -4,7 +4,6 @@ date: 2008-09-01T11:02:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-108108fa"
-noindex: true
 ---
 
 转帖文章：[http://article.pchome.net/content-703348-1.html](http://article.pchome.net/content-703348-1.html)

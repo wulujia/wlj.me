@@ -4,7 +4,6 @@ date: 2007-07-28T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2785"
-noindex: true
 ---
 
 [超级巡警](http://www.dswlab.com/)最近的发展势头比较好，于是又有人看不过眼了，在[XFOCUS](http://www.xfocus.net/bbs/index.php?act=ST&f=1&t=64449)上开始有人放起冷箭来了，节录几句，学习一下泼脏水的艺术：

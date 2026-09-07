@@ -4,7 +4,6 @@ date: 2005-11-26T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-1501"
-noindex: true
 ---
 
 这趟西北之行，我就带了一本《避开创业九大陷阱》，它的英文名是A Good Hard Kick in the Ass: Basic Training for Entrepreneurs，如果直译，就是冲着创业者屁股上的狠狠一脚 ;)

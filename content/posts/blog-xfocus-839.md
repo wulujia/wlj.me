@@ -4,7 +4,6 @@ date: 2005-04-16T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-839"
-noindex: true
 ---
 
 一个挑水夫有两个水桶，分吊在扁担的两头，一个桶有裂缝，另一个完好无缺。 

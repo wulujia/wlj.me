@@ -4,7 +4,6 @@ date: 2007-06-23T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2720"
-noindex: true
 ---
 
 经过水果店，看见椰子，一时心动，打算买个来试试。

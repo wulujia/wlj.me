@@ -4,7 +4,6 @@ date: 2007-01-13T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2408"
-noindex: true
 ---
 
 自从踩进开公司这个泥潭后，平时遇到杂七杂八的事情也有一些，最近这些天，看起来又不是很太平。

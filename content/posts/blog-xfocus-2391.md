@@ -4,7 +4,6 @@ date: 2007-01-07T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2391"
-noindex: true
 ---
 
 足有两年没见ben，原来他是去年被公司外派到日本工作了。这回他难得回了香港，就绕过来深圳，大伙相见甚欢。午餐的时候，我们问起了ben在日本的见闻

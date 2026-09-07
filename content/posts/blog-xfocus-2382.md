@@ -4,7 +4,6 @@ date: 2007-01-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2382"
-noindex: true
 ---
 
 刚刚用i170把[http://www.unnoo.net](http://www.unnoo.net/)的网站也搭起来了。

@@ -4,7 +4,6 @@ date: 2008-08-20T18:28:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-6135ccbf"
-noindex: true
 ---
 
 [http://search.51job.com/jobsearch/co_all_job.php?58198&coid=1260357](http://search.51job.com/jobsearch/co_all_job.php?58198&coid=1260357)

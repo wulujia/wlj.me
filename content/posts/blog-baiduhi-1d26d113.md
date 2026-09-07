@@ -4,7 +4,6 @@ date: 2008-10-04T12:16:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-1d26d113"
-noindex: true
 ---
 
 在 cnbeta 上看到两则新闻：

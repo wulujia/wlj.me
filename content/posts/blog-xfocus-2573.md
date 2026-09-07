@@ -4,7 +4,6 @@ date: 2007-04-16T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2573"
-noindex: true
 ---
 
 今天用ubuntu 6.10

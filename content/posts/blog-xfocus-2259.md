@@ -4,7 +4,6 @@ date: 2006-11-25T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2259"
-noindex: true
 ---
 
 赶到哈尔滨，和[DSWLAB](http://www.dswlab.com/)的弟兄们见面扯了扯，昨天中午到边上一家“[杀猪菜](http://www.baidu.com/s?tn=foxbaidudg&ie=gb2312&bs=%C9%B1%D6%ED%B2%CB&sr=&z=&cl=3&f=8&wd=%C9%B1%D6%ED%B2%CB&ct=0)”，热气腾腾地吃了一把，这帮兄弟也都是实在人，边吃边扯，挺过瘾。

@@ -4,7 +4,6 @@ date: 2007-07-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2739"
-noindex: true
 ---
 
 又到了让人馋涎欲滴的周末，昨天小鼻涕心情好，一大早就去采购，中午拉了[glacier](http://blog.xfocus.net/index.php?blogId=15)、wollf、[小黑](http://www.coolsir.org/boxcounter/)、

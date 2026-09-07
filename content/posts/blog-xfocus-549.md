@@ -4,7 +4,6 @@ date: 2004-10-31T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-549"
-noindex: true
 ---
 
 今天翻看philip short写的《毛泽东传》，看到其中记载的一段真假不详的“野史”，说主席同周恩来、刘少奇在谈策略。

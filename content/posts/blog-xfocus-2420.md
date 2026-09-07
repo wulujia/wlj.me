@@ -4,7 +4,6 @@ date: 2007-01-20T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2420"
-noindex: true
 ---
 
 嘿嘿，前两天[有人造谣](http://wulujia.com/Article_54851)，今天[killer](index.php?blogId=2)就看到新的熊猫烧香变种里面，把程序里搁着的那段话换成了：

@@ -4,7 +4,6 @@ date: 2004-10-31T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-548"
-noindex: true
 ---
 
 昨天看了片名为机械公敌(I, robot)的电影(当然，是盗版)，觉得很是精彩，画质精美，我尤其喜欢里面那位有着自由意志(FreeWill)的机器人桑尼的眼睛。

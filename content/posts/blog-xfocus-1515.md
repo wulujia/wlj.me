@@ -4,7 +4,6 @@ date: 2005-12-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1515"
-noindex: true
 ---
 
 小鼻涕有位朋友所在的公司，笔记本电脑需要员工自行购买，但只要满足：

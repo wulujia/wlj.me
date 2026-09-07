@@ -4,7 +4,6 @@ date: 2007-01-02T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2377"
-noindex: true
 ---
 
 **一、熊猫烧香有几个变种？**

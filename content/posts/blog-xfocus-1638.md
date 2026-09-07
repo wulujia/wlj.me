@@ -4,7 +4,6 @@ date: 2006-02-22T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1638"
-noindex: true
 ---
 
 你为什么该来大成天下？

@@ -4,7 +4,6 @@ date: 2006-10-04T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2123"
-noindex: true
 ---
 
 国庆数日，比起平时的工作，自是清闲了许多，难得的是心里没有事情，可以自在地看看书，上上网，很是轻松。昨天找[胡适](http://www.i170.com/user/wlj/Article_41430)的资料时，翻到了这样一组老照片，感觉颇有价值，便搁到[picasaweb](http://picasaweb.google.com/0x4141)上，大伙可以一块儿看看。

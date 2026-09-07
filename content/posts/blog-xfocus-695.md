@@ -4,7 +4,6 @@ date: 2005-01-21T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-695"
-noindex: true
 ---
 
 家里的 AP 的无线网卡是找朋友从国外带的 Microsoft MN70的水货，因为是 Microsoft，一直也没想着能在 Debian 下驱动起来，昨天偶然在插着无线网卡的时候运行了 lspci 命令，居然有一条提示是：

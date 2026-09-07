@@ -4,7 +4,6 @@ date: 2008-09-09T09:46:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-c0a23bc7"
-noindex: true
 ---
 
 点击下载：[超级巡警帮助文件](http://www.unnoo.com/uploads/docs/sucop_help.rar)

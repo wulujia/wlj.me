@@ -4,7 +4,6 @@ date: 2007-02-14T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2477"
-noindex: true
 ---
 
 最近几天心情不错，昨晚又喝了场小酒，早早睡了。

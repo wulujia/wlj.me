@@ -4,7 +4,6 @@ date: 2007-07-28T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2786"
-noindex: true
 ---
 
 积木？容器？变形金刚？

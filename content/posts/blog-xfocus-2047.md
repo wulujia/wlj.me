@@ -4,7 +4,6 @@ date: 2006-09-03T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2047"
-noindex: true
 ---
 
 电子文档安全保护（防泄密）类型的产品，看来很快将在市场上得到认同了，不枉glacier带队开发[铁卷](http://www.unnoo.com/)这么长时间的辛劳  😁

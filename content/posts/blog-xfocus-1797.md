@@ -4,7 +4,6 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-1797"
-noindex: true
 ---
 
 XPower Lab 究竟在做的是什么样的事情？想做成什么样子？今天收起心，自己仔细地想了想。

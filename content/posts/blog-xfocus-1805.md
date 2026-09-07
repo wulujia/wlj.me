@@ -4,7 +4,6 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1805"
-noindex: true
 ---
 
 看了绵绵的《如何编制产品销售手册》，正好最近[铁卷电子文档（图纸）安全系统](http://www.unnoo.com/web/products/filesecure)

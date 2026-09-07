@@ -4,7 +4,6 @@ date: 2006-12-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2312"
-noindex: true
 ---
 
 刚刚跟小鼻涕一起缩在被窝里看完《墨攻》，的确如ConradLyn所言，[墨攻只是个故事而已](http://www.i170.com/Article/50959)，拍得不错，但也只是不错而已，看第一遍的时候能全神贯注，但不会有想看第二遍的欲望。

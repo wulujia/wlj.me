@@ -4,7 +4,6 @@ date: 2005-07-31T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1157"
-noindex: true
 ---
 
 一直对 google 怀有敬畏之心，因为这家公司的聪明地运用着他们的力量。上个月去北京的时候，就有兄弟推荐 google earth 给我，声称极棒。前两天 san 到拉斯维加斯的 [Defcon](http://www.defcon.org/) 上演讲前，还流窜到 irc 里跟弟兄们报喜：“那边上有家麦当劳，如果和 ipxodi 接不上头，至少不会饿着。”他就是用 google earth 找到那麦当劳的。

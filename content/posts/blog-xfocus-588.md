@@ -4,7 +4,6 @@ date: 2004-11-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-588"
-noindex: true
 ---
 
 中午给g&w留言后出去了，吃饭、取干洗的衣服、上银行……

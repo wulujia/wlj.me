@@ -4,7 +4,6 @@ date: 2007-06-17T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2710"
-noindex: true
 ---
 
 本来一直用着putty作为SSH的客户端，并且按照《[利用PUTTY通过SSH端口转发实现FIREFOX和MSN加密代理访问](http://www.chedong.com/blog/archives/001246.html)》的方法，用plink脚本直接连国外的服务器做代理。最近用Linux和MAC的机率增大，偶尔在这些系统下要访问被伟大和谐的GFW过滤掉的网站，只好用普通的SSH客户端了。

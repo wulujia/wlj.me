@@ -4,7 +4,6 @@ date: 2006-03-27T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1744"
-noindex: true
 ---
 
 DRM(dightal right management) 在国内已经越来越受到人们的重视。我们也相当看好这一市场，目前推出的[铁卷电子文档保护系统](http://www.unnoo.com/web/products/filesecure/)，有两个版本，工业制图版（保护 AutoCAD 等制图软件创建和另存的文档）和办公版（用于 Microsoft Office、金山 WPS、PDF 等文档）。工业制图版已经在一家重工企业全面部署，对工业图纸能够起到相当好的保护作用 ;)

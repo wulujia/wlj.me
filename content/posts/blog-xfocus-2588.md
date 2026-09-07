@@ -4,7 +4,6 @@ date: 2007-04-24T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2588"
-noindex: true
 ---
 
 昨天在广州火车站，顺手买了本最近在豆瓣上看似超级流行的《墨迹》（[曾子墨](http://media.people.com.cn/GB/64901/75800/75801/index.html)的自传）。

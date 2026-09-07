@@ -4,7 +4,6 @@ date: 2006-10-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2118"
-noindex: true
 ---
 
 几天前，glacier、pp和我三家六口人小坐吃饭，我拿了几听从小鼻涕家带来的易拉罐装的黄酒，外包装是红色，酒名“红娘酒”。在餐馆温了温酒，边吃边聊，兴致颇佳。

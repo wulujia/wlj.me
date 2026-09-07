@@ -4,7 +4,6 @@ date: 2005-07-16T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1088"
-noindex: true
 ---
 
 已经有

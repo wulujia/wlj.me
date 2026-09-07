@@ -4,7 +4,6 @@ date: 2008-12-09T18:51:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-e9efb2b7"
-noindex: true
 ---
 
 这个 0day 应该是 knowsec 团队的挂马监测发现的，我们借来[宣传一下](http://www.sucop.com/html/503.html) :)

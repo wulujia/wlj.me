@@ -4,7 +4,6 @@ date: 2005-11-07T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1452"
-noindex: true
 ---
 
 前些日子在南京中山路那里的地铁口，发现几个很怪异的字样：战时封堵。

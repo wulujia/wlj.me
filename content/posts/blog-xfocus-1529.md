@@ -4,7 +4,6 @@ date: 2005-12-05T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1529"
-noindex: true
 ---
 
 MSN 上，Richard 说想到一个好的比喻来跟用户介绍“会话劫持”的概念：与带蓝牙支持的手机极其相似，A 正持手机与 B 在通话，C 打开 A 的蓝牙耳机，这时 A 的通话就断了，C 却能够用 A 的手机与 B 继续刚才的会话。

@@ -4,7 +4,6 @@ date: 2004-03-26T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-45"
-noindex: true
 ---
 
 今天升级gtk后simsun字体有点奇怪，antialias又出来了，而且似乎字体不受~/.gtkrc-2.0的控制，所以gvim、gaim、gqview、gimp之类的程序用起来都感觉巨不爽。 

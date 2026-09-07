@@ -4,7 +4,6 @@ date: 2005-07-06T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1028"
-noindex: true
 ---
 
 六月底到北京走了一圈，除了开会、和老朋友们见面谈天之外，还约了几位在网志、SNS圈子里面比较活跃的朋友。

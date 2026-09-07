@@ -4,7 +4,6 @@ date: 2006-06-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1894"
-noindex: true
 ---
 
 原文：[HW GW 不为人知的故事](http://www.i170.com/article/27410)

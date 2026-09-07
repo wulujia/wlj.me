@@ -4,7 +4,6 @@ date: 2007-04-28T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2608"
-noindex: true
 ---
 
 原文章：[评论：在销售铁卷的过程中，我遇到的一些常见的问题(zz)](http://www.i170.com/article/64643)

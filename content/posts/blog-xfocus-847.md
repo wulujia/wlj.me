@@ -4,7 +4,6 @@ date: 2005-04-21T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-847"
-noindex: true
 ---
 
 到 glacier 家小坐，讨论些事儿，顺便再蹭个网上上。爱狗的 glacier 家里添了新伙伴，一头七个月大很帅气的 [雪橇](http://www.99pet.com/dog/show.asp?id=94) ，名叫  KK ，这小帅狗一听人叫“KK，来……”就会很兴奋地扑上去，大家于是想搞明白，这孩子是真听得懂，或者是听着声音就扑，于是 glacier 就很恶劣地喊：“TK，过来！”

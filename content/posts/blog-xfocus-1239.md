@@ -4,7 +4,6 @@ date: 2005-08-28T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1239"
-noindex: true
 ---
 
 被 [Loveyuki](http://www.i170.com/user/Loveyuki) 和 [庄表伟](http://spaces.msn.com/members/zbw25/) 抓了壮丁。本来我对“连锁信”不太感兴趣，但被互联网这新瓶子装了的旧酒，似乎更难拒绝些。满足一下这两位朋友的窥私欲望吧。

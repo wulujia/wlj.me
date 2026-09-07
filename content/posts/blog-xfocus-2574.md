@@ -4,7 +4,6 @@ date: 2007-04-16T00:00:00+08:00
 tags: ["Management"]
 draft: false
 slug: "blog-xfocus-2574"
-noindex: true
 ---
 
 上午醒来后，刚开始翻看这本书，仅仅看了几十页，就联想到了一家公司。

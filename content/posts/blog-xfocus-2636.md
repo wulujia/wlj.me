@@ -4,7 +4,6 @@ date: 2007-05-18T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2636"
-noindex: true
 ---
 
 一、事件分析：

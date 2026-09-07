@@ -4,7 +4,6 @@ date: 2007-08-13T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2815"
-noindex: true
 ---
 
 一家家的公司并购案，显见网络广告蔚然成风。

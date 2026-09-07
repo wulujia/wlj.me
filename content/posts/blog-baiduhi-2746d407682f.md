@@ -4,7 +4,6 @@ date: 2008-10-14T23:53:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-2746d407682f"
-noindex: true
 ---
 
 这个题目，很像小学生作文 ;)

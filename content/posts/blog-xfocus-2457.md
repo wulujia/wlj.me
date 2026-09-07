@@ -4,7 +4,6 @@ date: 2007-02-04T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2457"
-noindex: true
 ---
 
 安装了Ubuntu 6.10

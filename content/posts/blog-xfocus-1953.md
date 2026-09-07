@@ -4,7 +4,6 @@ date: 2006-07-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1953"
-noindex: true
 ---
 
 俺老婆断断续续上瑜伽课，加一块也修炼了有二十八天了。在我这种筋骨僵直的人眼中，已经进步神速得不象话了。

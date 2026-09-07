@@ -4,7 +4,6 @@ date: 2006-05-18T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1799"
-noindex: true
 ---
 
 今天更新了 Windows Live Messenger 8.0 beta，顺手也装上了里面的“Safety

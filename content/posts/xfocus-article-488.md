@@ -4,7 +4,6 @@ date: 2003-03-05T00:00:00+08:00
 tags: ["Security"]
 draft: false
 slug: "xfocus-article-488"
-noindex: true
 ---
 
 (inburst_at_263.net)

@@ -4,7 +4,6 @@ date: 2007-01-13T00:00:00+08:00
 tags: ["Photography"]
 draft: false
 slug: "blog-xfocus-2409"
-noindex: true
 ---
 
 昨晚看片《[The Lives

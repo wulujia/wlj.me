@@ -4,7 +4,6 @@ date: 2006-09-06T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-2056"
-noindex: true
 ---
 
 因为很少照像，因此没有太多保存图片的需求，也就一直没有用[FlicKr](http://www.flickr.com/)这个很酷的Web2.0先驱。昨晚兴起，把以前注册过的一堆网站玩了一遍，就迷上了。现在可以访问我的flickr：[http://www.flickr.com/photos/61905688@N00/](http://www.flickr.com/photos/61905688@N00/)

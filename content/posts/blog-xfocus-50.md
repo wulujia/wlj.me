@@ -4,7 +4,6 @@ date: 2004-07-01T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-50"
-noindex: true
 ---
 
 在某个blog上看到： 

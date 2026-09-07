@@ -4,7 +4,6 @@ date: 2005-07-25T00:00:00+08:00
 tags: ["Tech"]
 draft: false
 slug: "blog-xfocus-1142"
-noindex: true
 ---
 
 我对工具的选择，尤其是对团队工具的选择要素是：

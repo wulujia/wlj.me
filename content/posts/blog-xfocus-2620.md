@@ -4,7 +4,6 @@ date: 2007-05-10T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2620"
-noindex: true
 ---
 
 索性放下，喝点小酒，聊聊天，心情相当愉快 :)

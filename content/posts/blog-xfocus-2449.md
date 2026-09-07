@@ -4,7 +4,6 @@ date: 2007-02-03T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-2449"
-noindex: true
 ---
 
 先看两则新闻，其一是《[不服处罚考研女生反指监考违规](http://fushun.nen.com.cn/80784443597389824/20070202/1841722_1.shtm)l》：

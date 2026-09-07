@@ -4,7 +4,6 @@ date: 2006-07-29T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1960"
-noindex: true
 ---
 
 看到“[长天暮鼓](http://www.ilmay.cn/post/new-gtalk.html)”说gtalk升级了，现在gtalk已经渐渐取代了以往qq、msn、skype在我机器上的地位，我当然要抢个鲜喽，[下载gtalk最新版](http://dl.google.com/googletalk/googletalk-setup-testing.exe)安装后：

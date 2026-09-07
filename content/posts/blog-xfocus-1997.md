@@ -4,7 +4,6 @@ date: 2006-08-11T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-1997"
-noindex: true
 ---
 
 俺五叔也赶上互联网的潮流啦，在网上盖了间“[合德轩](http://hi.baidu.com/wqz707/album)”，主要放他的绘画和现代书法作品。比如这幅现代书法，名为一方水土：

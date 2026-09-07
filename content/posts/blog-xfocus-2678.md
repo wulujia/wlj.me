@@ -4,7 +4,6 @@ date: 2007-06-03T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2678"
-noindex: true
 ---
 
 **要坚持做最好的产品，坚持卖很高的价格。**

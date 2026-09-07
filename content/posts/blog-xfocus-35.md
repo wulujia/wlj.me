@@ -4,7 +4,6 @@ date: 2004-03-20T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-35"
-noindex: true
 ---
 
 这几天已经深刻感受到把责任和权力同时放到下属那里的好处了，至少我已经有时间装上个Debian来玩一玩并且乱折腾了 ;) 

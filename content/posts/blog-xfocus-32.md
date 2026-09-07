@@ -4,7 +4,6 @@ date: 2004-02-27T00:00:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-xfocus-32"
-noindex: true
 ---
 
 今天莫名其妙想到了左权这个名字。 

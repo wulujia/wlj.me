@@ -4,7 +4,6 @@ date: 2007-08-13T00:00:00+08:00
 tags: ["Startup"]
 draft: false
 slug: "blog-xfocus-2814"
-noindex: true
 ---
 
 [超级巡警](http://www.sucop.com/)v4 beta4 改动：

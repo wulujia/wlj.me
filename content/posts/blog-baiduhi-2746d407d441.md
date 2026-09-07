@@ -4,7 +4,6 @@ date: 2008-12-11T11:02:00+08:00
 tags: ["Life"]
 draft: false
 slug: "blog-baiduhi-2746d407d441"
-noindex: true
 ---
 
 [http://www.sucop.com/html/504.html](http://www.sucop.com/html/504.html)
