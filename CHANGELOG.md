@@ -2,6 +2,7 @@
 
 ## 2026-09-07
 
+- 新增 `static/_redirects`：旧域名改名过的 67 篇文章，从 `/posts/<旧 slug>/` 301 到新 slug（Cloudflare Pages 读取此文件；配合 wulujia.com 上 `blog.wulujia.com/*` → `wlj.me/posts/$1/` 的通配跳转，不再需要 Bulk Redirects）。
 - 索引策略：上午给 697 篇旧转帖 / 短文加了 `noindex: true`（2010 年前且不足 1500 字，或不足 150 字），Luca 决定全部撤回，同日恢复为全部可索引，`scripts/seo-noindex.py` 一并删除。原因：站点拿不到排名的主因是没有外链，不是页面数量；这批页面是否收录对结果影响很小，先不动。`12q1y-2025` 与 `twelve-questions-end-of-2025` 内容重复的问题保留待处理。
 - 40 篇 2024 年以来正文超 2000 字的文章手写 `description`，不再用自动摘要。
 - 新增 `/featured/` 精选页（`content/featured.md` + `layouts/_default/featured.html`，数据在 `data/featured.toml`，四组），加入菜单，`showMenuItems` 7 → 8；首页顶部新增 10 篇精选链接块。`is-indexable` 把 `/featured/` 列为可索引，sitemap 自动带上。
