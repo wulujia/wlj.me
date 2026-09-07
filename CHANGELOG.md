@@ -2,6 +2,7 @@
 
 ## 2026-09-07
 
+- 资料页《中国经济，好还是差》（`static/reading/china-economy-2026-09/index.html`）加左侧固定大纲（桌面 sticky，900px 以下折成 details），顶部六个 h2 加 id，六个跟踪指标作为二级条目；补全打印样式（强制亮色、隐藏导航、图表和表格不跨页）。正文按写作规则过一遍：去掉“两个提醒。一是……二是”“这是真实力，不是刺激出来的”“现在是跌幅收窄，不是止跌”等对比句和结构报幕，改为直陈。
 - 新增 `static/_redirects`：旧域名改名过的 67 篇文章，从 `/posts/<旧 slug>/` 301 到新 slug（Cloudflare Pages 读取此文件；配合 wulujia.com 上 `blog.wulujia.com/*` → `wlj.me/posts/$1/` 的通配跳转，不再需要 Bulk Redirects）。
 - 索引策略：上午给 697 篇旧转帖 / 短文加了 `noindex: true`（2010 年前且不足 1500 字，或不足 150 字），Luca 决定全部撤回，同日恢复为全部可索引，`scripts/seo-noindex.py` 一并删除。原因：站点拿不到排名的主因是没有外链，不是页面数量；这批页面是否收录对结果影响很小，先不动。`12q1y-2025` 与 `twelve-questions-end-of-2025` 内容重复的问题保留待处理。
 - 40 篇 2024 年以来正文超 2000 字的文章手写 `description`，不再用自动摘要。

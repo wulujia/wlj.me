@@ -71,7 +71,32 @@
     line-height: 1.85;
     -webkit-font-smoothing: antialiased;
   }
-  .page { max-width: 880px; margin: 0 auto; padding: 48px 24px 96px; }
+  .layout { display: grid; grid-template-columns: 200px minmax(0, 880px); gap: 48px; max-width: 1180px; margin: 0 auto; padding: 48px 24px 96px; }
+  .page { min-width: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--surface); color: var(--ink); padding: 6px 10px; border: 1px solid var(--rule-2); }
+  .skip:focus { left: 8px; z-index: 10; }
+
+  /* Outline: sticky on the left, folds into a details box on narrow screens */
+  .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+  .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+  .outline ul { list-style: none; margin: 0; padding: 0; }
+  .outline > ul > li, .outline details > ul > li { margin: 0 0 7px; }
+  .outline details > ul > li > a { font-weight: 600; }
+  .outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+  .outline ul ul li { margin: 0 0 2px; }
+  .outline ul ul a { display: grid; grid-template-columns: 14px 1fr; gap: 6px; }
+  .outline ul ul .num { font-size: 11px; color: var(--ink-3); padding-top: 2px; }
+  .outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+  .outline a:hover { color: var(--ink); }
+  .outline a.active { color: var(--cold); }
+  .outline summary { display: none; }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+    .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+    .outline .label { display: none; }
+    .outline summary { display: block; cursor: pointer; font-weight: 600; }
+    .outline details:not([open]) ul { display: none; }
+  }
   .col { max-width: 640px; }
 
   h1, h2, h3 { font-family: "Noto Serif SC", "Songti SC", "SimSun", serif; text-wrap: balance; margin: 0; }
@@ -186,11 +211,51 @@
 
   #reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
   #reading-return a { color: var(--ink-2); text-decoration: none; }
-  @media print { #reading-return { display: none !important; } }
+  @page { size: A4; margin: 18mm 16mm; }
+  @media print {
+    :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; }
+    html { font-size: 11pt; }
+    body { background: #fff; color: #000; line-height: 1.6; }
+    .layout { display: block; max-width: none; padding: 0; }
+    #reading-return, .outline, .skip { display: none !important; }
+    h1, h2, h3 { break-after: avoid; }
+    figure, table, .verdict, .board, .note, .ind-board, .read { break-inside: avoid; }
+    p, li { orphans: 3; widows: 3; }
+    thead { display: table-header-group; }
+    tr { break-inside: avoid; }
+    a { color: #000; }
+    .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+    *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
 </style>
 </head><body>
+<a class="skip" href="#main">跳到正文</a>
 <div id="reading-return"><a href="https://wlj.me/reading/">← 返回</a></div>
-<div class="page">
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <p class="label">目录</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#numbers">先看数字</a></li>
+      <li><a href="#framework">评估框架</a></li>
+      <li><a href="#gap">数据和体感为什么对不上</a></li>
+      <li><a href="#verdict">好还是差</a></li>
+      <li><a href="#track">怎么持续跟踪</a>
+        <ul>
+          <li><a href="#s1"><span class="num">1</span>名义与实际 GDP 增速</a></li>
+          <li><a href="#s2"><span class="num">2</span>住户贷款当月新增</a></li>
+          <li><a href="#s3"><span class="num">3</span>70 城新房价格环比</a></li>
+          <li><a href="#s4"><span class="num">4</span>商品与服务消费增速差</a></li>
+          <li><a href="#s5"><span class="num">5</span>青年失业率</a></li>
+          <li><a href="#s6"><span class="num">6</span>PMI 从业人员指数</a></li>
+        </ul>
+      </li>
+      <li><a href="#sources">数据来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main class="page" id="main">
   <div class="eyebrow">Assessment · 2026 年 9 月 5 日</div>
   <h1>中国经济，好还是差</h1>
   <p class="lede col">你看到的“消费还行、出口还行”和朋友们说的“经济不好”，都是真的。它们看的是同一个经济的两个半边。这一页给出一个评估框架，把公开数据分到冷热两边，再回答好还是差。</p>
@@ -214,7 +279,7 @@
   <div class="verdict-foot">一句话判断：<strong>经济总量在增长，但增长没有落到家庭头上。</strong>增长靠出口和工厂，家庭靠的是房子、工资和工作，这三样都在冷的那一半。</div>
 
   <div class="col">
-  <h2>先看数字：谁在涨，谁在跌</h2>
+  <h2 id="numbers">先看数字：谁在涨，谁在跌</h2>
   <p>把 2026 年上半年到 7 月的主要指标按同比增速排一排，冷热一目了然。涨的都在生产和出口那边，跌的都在房子和投资那边。</p>
   </div>
 
@@ -229,7 +294,7 @@
   </figure>
 
   <div class="col">
-  <h2>评估框架：五个部门，分冷热</h2>
+  <h2 id="framework">评估框架：五个部门，分冷热</h2>
   <p>判断一个经济体好坏，光看 GDP 会被误导。我按五个部门看：外贸、企业、家庭、政府、价格。每个部门挑两三个最硬的数，再标冷热。</p>
   </div>
 
@@ -264,21 +329,21 @@
   </div>
 
   <div class="col">
-  <p class="note">两个提醒。一是价格“转正”里有输入型成分：2026 年 2 月底开打的伊朗战争把油价推到 100 美元上下，6 月 PPI 涨 4.1%，对企业是成本压力，对家庭是购买力压力。二是收入涨 5.2%、消费支出只涨 3.7%，城镇更是只涨 3.0%。收入没停，但人们把多出来的钱存起来了，或者拿去还房贷。</p>
+  <p class="note">价格“转正”里有输入型成分：2026 年 2 月底开打的伊朗战争把油价推到 100 美元上下，6 月 PPI 涨 4.1%，对企业是成本压力，对家庭是购买力压力。另一边，收入涨 5.2%、消费支出只涨 3.7%，城镇更是只涨 3.0%。收入没停，但人们把多出来的钱存起来了，或者拿去还房贷。</p>
 
-  <h2>为什么数据和体感对不上</h2>
+  <h2 id="gap">为什么数据和体感对不上</h2>
   <p>宏观数据说“增长 4.7%”，朋友说“很差”。这两句话可以同时成立，原因有六个。</p>
 
   <ol class="reasons">
     <li><b>人的体感是名义的，统计是实际的</b><p>工资条、公司营收、房子估值都是名义数。过去三年 GDP 平减指数为负，名义增速只有 4% 左右，比实际增速低。同样是“增长 5%”，2019 年名义增 7% 到 8%，现在名义只有 4%，落到每个人头上就是工资不涨、营收不涨。</p></li>
-    <li><b>K 型分化，你的朋友圈刚好在冷的那一边</b><p>热的一半是出口制造、AI、新能源、半导体，集中在江浙和珠三角的工厂。冷的一半是房地产、互联网、传统线下服务、餐饮零售、公务员。做互联网、投资、消费品的人，访谈样本天然偏冷。农村收入增速 6.4% 高于城镇 4.4%，也说明冷的更多是城市中产。</p></li>
+    <li><b>K 型分化，你的朋友圈刚好在冷的那一边</b><p>热的一半是出口制造、AI、新能源、半导体，集中在江浙和珠三角的工厂。冷的一半是房地产、互联网、传统线下服务、餐饮零售、公务员。做互联网、投资、消费品的人，访谈样本天然偏冷。农村收入增速 6.4% 高于城镇 4.4%，冷的更多是城市中产。</p></li>
     <li><b>财富效应压过收入效应</b><p>收入涨 4% 到 5% 是真的，但一套房跌 20% 到 30% 也是真的。对一个城市家庭，房产占财富六到七成，房价三年的跌幅远大于三年工资的涨幅。人是看净资产决定花不花钱的。</p></li>
     <li><b>出口好，但出口不怎么创造本地就业和利润</b><p>二季度净出口贡献了 GDP 增量的两成多，但制造业 PMI 从业人员指数一直在 50 以下。价格战之下，2025 年工业利润全年只增 0.6%。Bruegel 把这叫“没有利润的增长”。工厂在忙，但没多招人，也没多发钱。</p></li>
     <li><b>家庭在去杠杆</b><p>7 月新增贷款净减少 3400 亿，居民贷款净减少 4603 亿，M2 增速 7.7%。三年期存款利率从 3% 以上降到 1.6%，人们还是选择存钱和提前还房贷。这是典型的资产负债表衰退行为：不管利率多低，先还债。</p></li>
     <li><b>预期没有修复</b><p>消费者信心指数在 90 上下，2022 年以来没有回到过疫情前的 120 以上。信心低的时候，同样的收入会带来更低的消费，服务消费好而商品消费差，就是人们把钱花在“当下的体验”上，不买“未来的耐用品”，比如车和房。</p></li>
   </ol>
 
-  <h2>那么，好还是差</h2>
+  <h2 id="verdict">那么，好还是差</h2>
   <p>“好还是差”要先问“对谁、按什么标准”。分四个标准回答。</p>
   </div>
 
@@ -287,7 +352,7 @@
     <thead><tr><th>标准</th><th>判断</th><th>依据</th></tr></thead>
     <tbody>
       <tr><td>总量增长</td><td><span class="pill mix">中等偏弱</span></td><td>4.3% 到 4.7% 是除疫情外三十年最低，但放在大经济体里仍是最快之一。二季度首次没达到 5% 目标。</td></tr>
-      <tr><td>产业竞争力</td><td><span class="pill hot">好</span></td><td>关税之下出口反而创纪录，结构从服装家具换成了电动车、电池、半导体。这是真实力，不是刺激出来的。</td></tr>
+      <tr><td>产业竞争力</td><td><span class="pill hot">好</span></td><td>关税之下出口反而创纪录，结构从服装家具换成了电动车、电池、半导体，没靠刺激政策。</td></tr>
       <tr><td>家庭生活</td><td><span class="pill cold">差，且还在变差</span></td><td>房价、就业、信贷三项同时收缩，消费支出增速低于收入增速。7 月各项数据比 6 月更弱。</td></tr>
       <tr><td>可持续性</td><td><span class="pill cold">风险高</span></td><td>增长靠外需，贸易伙伴跟进加关税的概率在上升。靠生产不靠消费的模式，利润薄，就业弱，撑不了太久。</td></tr>
     </tbody>
@@ -299,7 +364,7 @@
 
   <p>下半年的关键变量是政策。Merics 和 Citi 都预计年底前会有新一轮财政刺激（Citi 的基准是增量 1 万亿元），但学界的建议更激进：中欧商学院朱天提出 2026 年名义 GDP 目标定到 7%，发数万亿消费券直接补家庭。目前的做法是以旧换新（一季度 625 亿）和反内卷，力度和方向都还在“暖工厂”，没到“暖家庭”。</p>
 
-  <h2>怎么持续跟踪</h2>
+  <h2 id="track">怎么持续跟踪</h2>
   <p>不用看几十个指标。下面六个每月都有，够用来判断冷的那一半有没有回暖。每个指标先给一句判断标准，再画出官方数据的逐月走势，图下附数据表和来源，你可以自己下结论。</p>
   </div>
 
@@ -360,7 +425,7 @@
     </figure>
     <div class="read">
       <div><h3>数据说了什么</h3><p>环比均值从 2023 年 6 月起连续 38 个月为负。跌幅在 2025 年 10 月最深，此后逐月收窄，2026 年 6 月收窄到 -0.15%。上涨城市数从 2025 年 9 月的 5 个回升到 2026 年 6 月的 20 个，7 月 17 个。上一次过半是 2023 年 5 月。</p></div>
-      <div><h3>判断标准</h3><p>环比均值转正，且上涨城市过半，两者同时持续三个月，才算止跌。现在是跌幅收窄，不是止跌。</p><div class="verdict"><span class="pill cold">仍在跌，跌幅收窄</span></div></div>
+      <div><h3>判断标准</h3><p>环比均值转正，且上涨城市过半，两者同时持续三个月，才算止跌。现在还在跌，只是跌幅在收窄。</p><div class="verdict"><span class="pill cold">仍在跌，跌幅收窄</span></div></div>
     </div>
   </section>
 
@@ -377,7 +442,7 @@
     </figure>
     <div class="read">
       <div><h3>数据说了什么</h3><p>服务零售增速两年多来稳定在 5% 到 6%。商品零售增速在 2025 年上半年靠以旧换新冲到 5%，下半年开始回落，2026 年前 7 个月只有 1.2%。两者的差距从 2025 年底的 1.8 个百分点扩大到 3.8 个百分点。人们还在花“体验的钱”，不买耐用品。</p></div>
-      <div><h3>判断标准</h3><p>差距收窄到 2 个百分点以内才正常。差距扩大说明商品消费在单边走弱。</p><div class="verdict"><span class="pill cold">差距扩大中</span></div></div>
+      <div><h3>判断标准</h3><p>差距收窄到 2 个百分点以内才正常。差距扩大，就是商品消费在单边走弱。</p><div class="verdict"><span class="pill cold">差距扩大中</span></div></div>
     </div>
   </section>
 
@@ -429,7 +494,7 @@
   </ul>
   <p>答案会自然分成两堆。外销、制造、AI 的人在一堆，内销、地产、互联网、消费的人在另一堆。两堆的比例和差距，就是你自己的“冷热表”。</p>
 
-  <h2>数据来源</h2>
+  <h2 id="sources">数据来源</h2>
   <p class="note">六个指标里，四个直接取官方发布值；两个（名义 GDP 增速、70 城房价均值）官方不直接发布，按官方分项数据计算，算法写在图下。所有计算可复现，原始数据表附在每张图下。</p>
   <ul class="sources">
     <li>GDP 现价累计值与实际同比：<a href="https://www.stats.gov.cn/sj/zxfb/202607/t20260716_1964142.html">国家统计局季度 GDP 初步核算</a>；历史序列取自东方财富数据中心对统计局发布的整理。</li>
@@ -461,6 +526,7 @@
     <li><a href="https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war">2026 年伊朗战争的经济影响（综述）</a></li>
   </ul>
   </div>
+</main>
 </div>
 
 <script>
@@ -727,6 +793,26 @@ var DATA = {"gdp":[{"t":"2018Q1","nominal":11.0,"real":6.8},{"t":"2018Q2","nomin
     d.innerHTML = '<span class="i">' + r[0] + '</span><span class="n">' + r[1] + '<small>' + r[2] + '</small></span><span class="v">' + r[3] + '</span><span class="pill ' + r[4] + '">' + r[5] + '</span>';
     b.appendChild(d);
   });
+})();
+</script>
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) det.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href').slice(1) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
 })();
 </script>
 </body></html>
