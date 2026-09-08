@@ -1,7 +1,7 @@
 ---
 title: "Bark 是什么：给 iPhone 推自定义通知的极简通道"
-date: 2026-09-08T11:37:53+08:00
-lastmod: 2026-09-08T11:37:53+08:00
+date: 2026-09-08T11:39:51+08:00
+lastmod: 2026-09-08T11:39:51+08:00
 author: "Luca"
 tags: ["Tech","Tools","AI"]
 draft: false
@@ -33,7 +33,7 @@ slug: "bark-ios-push"
 
 ## 是不是「现在 iOS 推送最简单的方式」？
 
-**对「推给我自己这部 iPhone」——基本是的，尤其在个人自动化/Agent 场景。**对比常见替代：
+<strong>对「推给我自己这部 iPhone」——基本是的，尤其在个人自动化/Agent 场景。</strong>对比常见替代：
 
 | 方案 | 简单度 | 到达形态 | 代价/限制 |
 | --- | --- | --- | --- |
@@ -44,12 +44,12 @@ slug: "bark-ios-push"
 | 邮件 / 短信 | 中 | 邮箱/短信 | 延迟与打扰形态不同；短信有成本 |
 | ntfy / Gotify 等 | 高 | 多端 | Android 友好；iOS 往往不如 Bark「开箱 APNs」顺 |
 
-**边界：**若你要 Android + iOS 统一、或必须进团队群可检索历史，钉钉/飞书/Telegram 仍更合适。Bark 赢在「个人、iOS、系统推送、一行 HTTP」。
+<strong>边界：</strong>若你要 Android + iOS 统一、或必须进团队群可检索历史，钉钉/飞书/Telegram 仍更合适。Bark 赢在「个人、iOS、系统推送、一行 HTTP」。
 
 ## 为什么特别适合 AI Agent
 
-- **完成即推：**长任务（训练、爬虫、cloud agent、本机脚本）结束时 `curl` 一下，手机震动，不必盯终端。
-- **无会话负担：**不用维护群聊机器人权限、不用 @机器人格式。
+- <strong>完成即推：</strong>长任务（训练、爬虫、cloud agent、本机脚本）结束时 `curl` 一下，手机震动，不必盯终端。
+- <strong>无会话负担：</strong>不用维护群聊机器人权限、不用 @机器人格式。
 - **可分级：**`level=timeSensitive` / `critical` 等，重要失败可更强硬提醒（具体能力随 iOS 版本与权限）。
 - **可分组：**`group=agent` / `group=deploy`，通知中心不搅成一团。
 - **可带跳转：**`url=` 点开直达日志页、PR、监控面板。
@@ -80,7 +80,7 @@ curl -X POST "https://api.day.app/push" \
 
 - **公共** `https://api.day.app`：零运维，个人低频完全够用。官网表述：2018 年上线，维护至少到 2031；维护期内 App 无广告收费承诺（以官网为准）。
 - **自建 bark-server**（[Finb/bark-server](https://github.com/Finb/bark-server)）：流量大、要加密推送、或不想依赖公共入口时用。文档称低配也能扛很高 QPS；个人 Agent 场景通常用公共服即可。
-- **隐私：**可走加密推送等能力（见官方「隐私与安全」说明）；自建可减少中间环节可见明文的路径，但仍要保护好 device key。
+- <strong>隐私：</strong>可走加密推送等能力（见官方「隐私与安全」说明）；自建可减少中间环节可见明文的路径，但仍要保护好 device key。
 
 ## 和钉钉/飞书/Telegram：怎么选（实用）
 
@@ -96,10 +96,10 @@ curl -X POST "https://api.day.app/push" \
 
 ## 使用注意
 
-- **Key = 权限：**泄露后他人可向你狂推。放环境变量，别写进公开仓库；可定期在 App 重置。
-- **仅 iOS 接收端：**家人安卓机收不到 Bark 系统推送。
-- **不是聊天软件：**弱于会话、表情、多人讨论。
-- **网络：**推送链路依赖能访问你选的 bark-server / api.day.app，以及设备能连上 APNs。
+- <strong>Key = 权限：</strong>泄露后他人可向你狂推。放环境变量，别写进公开仓库；可定期在 App 重置。
+- <strong>仅 iOS 接收端：</strong>家人安卓机收不到 Bark 系统推送。
+- <strong>不是聊天软件：</strong>弱于会话、表情、多人讨论。
+- <strong>网络：</strong>推送链路依赖能访问你选的 bark-server / api.day.app，以及设备能连上 APNs。
 
 ## 延伸阅读
 
