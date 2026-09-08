@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lenny 播客半年 AI 实践调研</title>
+<meta name="robots" content="index,follow">
+<meta name="description" content="Lenny’s Podcast 2026 年 3 月到 9 月 30 期访谈里，美国公司怎么用 AI 提效、改组织、把 AI 放进日常流程、挣钱、做产品和增长。按五个问题归纳，附六个分歧和 30 期一览，每条结论钉到嘉宾和 YouTube 时间点。">
+<link rel="canonical" href="https://wlj.me/reading/lenny-podcast-ai-2026-09/">
+<meta property="og:title" content="Lenny 播客半年 AI 实践调研"><meta property="og:description" content="Lenny’s Podcast 2026 年 3 月到 9 月 30 期访谈里，美国公司怎么用 AI 提效、改组织、把 AI 放进日常流程、挣钱、做产品和增长。按五个问题归纳，附六个分歧和 30 期一览，每条结论钉到嘉宾和 YouTube 时间点。"><meta property="og:type" content="article"><meta property="og:url" content="https://wlj.me/reading/lenny-podcast-ai-2026-09/">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f8f6f1;
+  --surface: #fffdf9;
+  --ink: #1f1c17;
+  --ink-2: #4d4740;
+  --ink-3: #6b655c;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #e2ddd3;
+  --rule-2: #bdb6a9;
+  --mid: #efeae1;
+  --acc: #8a5a00;
+  --acc-ink: #6f4700;
+  --acc-wash: rgba(138, 90, 0, .10);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #1a1815; --surface: #22201c; --ink: #ede9e2; --ink-2: #c4bfb5; --ink-3: #9a948a;
+    --rule: #35322c; --rule-2: #4d4941; --mid: #282520;
+    --acc: #e3b341; --acc-ink: #ecc25f; --acc-wash: rgba(227,179,65,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1a1815; --surface: #22201c; --ink: #ede9e2; --ink-2: #c4bfb5; --ink-3: #9a948a;
+  --rule: #35322c; --rule-2: #4d4941; --mid: #282520;
+  --acc: #e3b341; --acc-ink: #ecc25f; --acc-wash: rgba(227,179,65,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ---------- page-specific ---------- */
+a.ts { font-family: var(--font-mono); font-size: 12px; text-decoration: none; color: var(--acc-ink); background: var(--acc-wash); padding: 0 5px; border-radius: 3px; white-space: nowrap; vertical-align: baseline; }
+a.ts:hover { text-decoration: underline; }
+a.ts::before { content: "▶ "; font-size: 9px; }
+.who { color: var(--ink-3); font-size: 13.5px; }
+table td:first-child { white-space: nowrap; }
+.tbl.eps td:first-child { white-space: nowrap; }
+.tbl.eps td:nth-child(2) { white-space: nowrap; }
+@media (max-width: 900px) { .tbl.eps td:nth-child(2) { white-space: normal; } }
+#reading-return { font-size: 13px; margin: 0 0 18px; }
+#reading-return a { color: var(--ink-3); text-decoration: none; }
+#reading-return a:hover { color: var(--acc-ink); text-decoration: underline; }
+@media print { #reading-return { display: none; } }
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、样本：30 期，13 期高相关</a>
+      </li>
+      <li><a href="#s2">二、提效：代码不再是瓶颈，瓶颈搬到了验证和人脑</a>
+        <ul>
+          <li><a href="#s2-1">2.1 数字</a></li>
+          <li><a href="#s2-2">2.2 瓶颈去了哪里</a></li>
+          <li><a href="#s2-3">2.3 非工程岗位的提效</a></li>
+          <li><a href="#s2-4">2.4 提效的代价</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、组织：团队变小，角色合并，经理回一线</a>
+        <ul>
+          <li><a href="#s3-1">3.1 团队结构的具体改法</a></li>
+          <li><a href="#s3-2">3.2 PM 存废：半年里最大的分歧</a></li>
+          <li><a href="#s3-3">3.3 经理回一线，层级变薄</a></li>
+          <li><a href="#s3-4">3.4 招聘画像的变化</a></li>
+          <li><a href="#s3-5">3.5 Token 政策</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、AI 进入流程：从个人玩具到公司例行</a>
+        <ul>
+          <li><a href="#s4-1">4.1 定时任务是最常见的形态</a></li>
+          <li><a href="#s4-2">4.2 一家公司一个 agent，而非人手一个</a></li>
+          <li><a href="#s4-3">4.3 PRD 让位给 eval、原型和 demo</a></li>
+          <li><a href="#s4-4">4.4 验证和质量框架</a></li>
+          <li><a href="#s4-5">4.5 计划周期压到一个月</a></li>
+          <li><a href="#s4-6">4.6 安全边界</a></li>
+          <li><a href="#s4-7">4.7 传统企业怎么进：清单、实施服务和培训</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">五、用 AI 挣钱</a>
+        <ul>
+          <li><a href="#s5-1">5.1 模型层的数字</a></li>
+          <li><a href="#s5-2">5.2 钱在哪一层</a></li>
+          <li><a href="#s5-3">5.3 卖给企业：流程没变，pilot 变短</a></li>
+          <li><a href="#s5-4">5.4 定价与 token 成本</a></li>
+          <li><a href="#s5-5">5.5 新的收入形态</a></li>
+        </ul>
+      </li>
+      <li><a href="#s6">六、产品、运营、增长</a>
+        <ul>
+          <li><a href="#s6-1">6.1 增长团队的新配方</a></li>
+          <li><a href="#s6-2">6.2 产品：发布方式和形态</a></li>
+          <li><a href="#s6-3">6.3 设计的处境</a></li>
+          <li><a href="#s6-4">6.4 分发和平台</a></li>
+        </ul>
+      </li>
+      <li><a href="#s7">七、分歧地图</a>
+      </li>
+      <li><a href="#s8">八、30 期一览</a>
+      </li>
+      <li><a href="#s9">九、方法与来源</a>
+      </li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回整理</a></div>
+  <header>
+    <p class="eyebrow">Research notes · 2026 年 9 月 8 日</p>
+    <h1>Lenny 播客半年 AI 实践调研</h1>
+    <p class="lede">Lenny’s Podcast 2026 年 3 月 8 日到 9 月 6 日的 30 期访谈里，美国公司怎么用 AI 提效、改组织、把 AI 放进日常流程、挣到钱、做产品和增长。按五个问题归纳，每条结论都钉到具体嘉宾和时间点，点时间戳可跳到 YouTube 原话。</p>
+    <p class="meta"><span>30 期，约 51.7 万词字幕</span><span>取样 2026-09-08</span><span>给 Luca，供 Zsxq、Slax、tealseed 做组织和产品决策参考</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>30 期里 27 期有实质内容，13 期嘉宾在讲自己公司内部怎么用 AI。一线公司说的是同一件事：写代码和做原型的成本接近零，瓶颈搬到了验证、判断和跨部门协调。Anthropic 工程师人均每季度合入代码量是 2021 到 2025 年基线的 8 倍，OpenAI 90% 员工每周用 Codex。</p>
+    <p>组织上的变化集中在三处：团队变小（Instagram 标准团队从 13 人改到 6 到 7 人）、角色合并（工程师当 PM，设计师提 PR）、经理回去做一线（Whatnot 管 PM 的人 90% 时间做 IC）。PM 该不该存在是半年里最大的分歧。</p>
+    <p>AI 进流程最成熟的形态是定时任务加一个公司级 agent，而非人手一个 agent。PM 的交付物从 PRD 变成 eval、原型和 A/B 结果。挣钱的是模型层和实施服务，应用层靠分发。Token 目前不设上限，多位嘉宾预计 6 到 12 个月内公司会开始追问 ROI。</p>
+    <p>代价是真实的：约 6,000 名科技从业者的调查显示 burnout 从 44.7% 升到 54.7%，97% 的人说 AI 让自己更快更多，但没有更好。</p>
+  </div>
+
+  <h2 id="s1">一、样本：30 期，13 期高相关</h2>
+  <p>取 2026 年 3 月 8 日到 9 月 6 日期间发布的全部 30 期，字幕来自 YouTube 自动英文字幕，共约 51.7 万词。按和五个问题的相关度分三档：高相关 13 期，这些嘉宾在讲自己公司内部的做法；中相关 14 期，有一手案例但主线是别的；低相关 3 期，是个人访谈、治理或薪酬谈判类话题。完整清单在第八节。</p>
+  <p>嘉宾来源集中：Anthropic 4 期（增长负责人、Claude Code 产品负责人、Claude Code 团队负责人、研究产品负责人），OpenAI 3 期（Codex 桌面负责人、ChatGPT work 负责人、设计负责人），加上 Netflix、Instagram、Snap、Notion、Whatnot、Cursor、Every 各一期。这意味着本文里“美国公司在做什么”的证据偏向模型实验室和 AI 原生公司，传统企业的声音主要经由 Benedict Evans、Anish Acharya 和 Jen Abel 转述。</p>
+
+  <h2 id="s2">二、提效：代码不再是瓶颈，瓶颈搬到了验证和人脑</h2>
+
+  <h3 id="s2-1">2.1 数字</h3>
+  <div class="tbl">
+    <table>
+      <caption>嘉宾给出的提效数字（均为嘉宾自述或转述，未经独立核实）</caption>
+      <thead><tr><th scope="col">公司</th><th scope="col">数字</th><th scope="col">说的人</th><th scope="col">出处</th></tr></thead>
+      <tbody>
+        <tr><td>Anthropic</td><td>工程师人均每季度合入代码量是 2021 到 2025 年基线的 8 倍</td><td>Fiona Fung，Claude Code 团队负责人</td><td><a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=183s" target="_blank" rel="noopener" title="YouTube 03:03">03:03</a></td></tr>
+        <tr><td>Anthropic</td><td>功能周期从 6 个月压到 1 个月，部分到 1 周甚至 1 天</td><td>Cat Wu，Claude Code 产品负责人</td><td><a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=302s" target="_blank" rel="noopener" title="YouTube 05:02">05:02</a></td></tr>
+        <tr><td>Anthropic</td><td>5 工程 1 设计 1 PM 的小组，相当于老世界 15 到 20 个工程师</td><td>Amol Avasarala，增长负责人</td><td><a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2601s" target="_blank" rel="noopener" title="YouTube 43:21">43:21</a></td></tr>
+        <tr><td>OpenAI</td><td>90% 员工每周用 Codex；工程师自报提效 10 倍到 100 倍，设计团队没有</td><td>Andrew Ambrosino；Ian Silber</td><td><a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=0s" target="_blank" rel="noopener" title="YouTube 00:00">00:00</a> <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=243s" target="_blank" rel="noopener" title="YouTube 04:03">04:03</a></td></tr>
+        <tr><td>Google（某高管口述）</td><td>没有裁人，2 年路线图 3 个月做完</td><td>Anish Acharya，a16z</td><td><a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=603s" target="_blank" rel="noopener" title="YouTube 10:03">10:03</a></td></tr>
+        <tr><td>Snap</td><td>自动代码审查累计检出接近 10,000 个 bug</td><td>Evan Spiegel，CEO</td><td><a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=2783s" target="_blank" rel="noopener" title="YouTube 46:23">46:23</a></td></tr>
+        <tr><td>Cloudflare、Shopify</td><td>各招 1,000 名实习生，上手期从 1 个月缩到 1 周</td><td>Simon Willison 转述</td><td><a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1758s" target="_blank" rel="noopener" title="YouTube 29:18">29:18</a></td></tr>
+        <tr><td>StrongDM</td><td>“没人写代码、没人读代码”，模拟员工 agent 测试每天约 $10,000 token</td><td>Simon Willison 转述</td><td><a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=910s" target="_blank" rel="noopener" title="YouTube 15:10">15:10</a></td></tr>
+        <tr><td>Whatnot</td><td>PM 看数据的时间增加 10 倍，一个资深 PM 覆盖过去三个初级 PM</td><td>Tom Verrilli，CPO</td><td><a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=2173s" target="_blank" rel="noopener" title="YouTube 36:13">36:13</a></td></tr>
+        <tr><td>个人</td><td>Simon Willison 95% 的代码不再亲手敲；Dan Shipper 连续 10 天 inbox zero</td><td>本人</td><td><a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=848s" target="_blank" rel="noopener" title="YouTube 14:08">14:08</a> <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=1331s" target="_blank" rel="noopener" title="YouTube 22:11">22:11</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s2-2">2.2 瓶颈去了哪里</h3>
+  <p>Simon Willison 把拐点定在 2025 年 11 月：GPT-5.1 和 Claude Opus 4.5 之后，coding agent 从“大多能用但要盯着”变成“几乎都按要求做”，写代码这一步不再是瓶颈 <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=180s" target="_blank" rel="noopener" title="YouTube 03:00">03:00</a>。之后每位一线嘉宾都在描述瓶颈搬到了哪里。</p>
+  <ul>
+    <li>验证。Fiona Fung 说 Cowork 团队设计师和 PM 全员提交代码，人变多、学科变杂、吞吐变高之后，新瓶颈是验证 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=546s" target="_blank" rel="noopener" title="YouTube 09:06">09:06</a>。Andrew Ambrosino 说 100% 代码由 AI 写已经是旧指标，现在问的是有监督还是无监督 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=2366s" target="_blank" rel="noopener" title="YouTube 39:26">39:26</a>。</li>
+    <li>判断和品味。Ambrosino 估计同一个急需的功能，OpenAI 里有 90 个团队在各自试做，“The implementation is actually not the expensive part anymore. It's dare I say taste.” <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=240s" target="_blank" rel="noopener" title="YouTube 04:00">04:00</a>。Max Schoening 的说法是每个项目的前 10% 变成免费，最后 10% 仍占 90% 的工夫 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=1695s" target="_blank" rel="noopener" title="YouTube 28:15">28:15</a>。</li>
+    <li>跨部门拉人。Anthropic 的 CASH 项目把增长实验拆成找机会、做功能、测试、分析四步交给 Claude，第五步利益相关方管理仍靠人。设计负责人的原话：“We will have AGI and it will still be impossible to get six people in a room to align.” <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2239s" target="_blank" rel="noopener" title="YouTube 37:19">37:19</a></li>
+    <li>人脑。Simon 并行开 4 个 agent，到上午 11 点就精疲力尽，他认为人的认知是新瓶颈 <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1577s" target="_blank" rel="noopener" title="YouTube 26:17">26:17</a>。Fiona 说异步 agent 多了之后，她反而要重新给自己划整块时间来消化已经启动的任务，还没有解法 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=4300s" target="_blank" rel="noopener" title="YouTube 71:40">71:40</a>。</li>
+    <li>工期估算失效。Keith Rabois 说 11 月不可能的事 3 月已经很容易，一年期路线图不成立 <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=2123s" target="_blank" rel="noopener" title="YouTube 35:23">35:23</a>。Simon 的做法是持续把自以为 AI 做不到的任务丢给它，做不到就记 backlog <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1698s" target="_blank" rel="noopener" title="YouTube 28:18">28:18</a>。</li>
+  </ul>
+
+  <h3 id="s2-3">2.3 非工程岗位的提效</h3>
+  <p>半年里最常被提到的非工程用法有三类，都已经进入日常。</p>
+  <ul>
+    <li>产品经理自己拉数据、自己问代码库。Whatnot 的 PM 用 Hex Threads 自己拉 cohort、查单个用户日志、算影响面，CPO 说过去一年他和数据科学家的对话比职业生涯任何时候都少 <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=2113s" target="_blank" rel="noopener" title="YouTube 35:13">35:13</a>；他用 Claude 加载 feed 代码，让它讲谁在什么时候看到什么，发现新用户打开 app 时多个模型撞车，直接改顺序 <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=1872s" target="_blank" rel="noopener" title="YouTube 31:12">31:12</a>。Instagram 的内部工具已经能自动出漏斗分析，一年前 product staff 做不到 <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=364s" target="_blank" rel="noopener" title="YouTube 06:04">06:04</a>。Netflix 的 finance、content、advertising 业务方自己先查几十年的实验记录出初步假设，再找数据科学家深挖 <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=605s" target="_blank" rel="noopener" title="YouTube 10:05">10:05</a>。</li>
+    <li>高管用 agent 巡视公司。Evan Spiegel 在 Glean 上建了一个 agent，每天翻遍公司所有 dashboard 和文档，告诉他该关注什么 <a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=3691s" target="_blank" rel="noopener" title="YouTube 61:31">61:31</a>。Amol Avasarala 用 Cowork 定时任务每天早上看 20 到 25 张 Hex 图表，自己只保留几张 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=3507s" target="_blank" rel="noopener" title="YouTube 58:27">58:27</a>。Ambrosino 每天早上看 Codex 生成的日报，覆盖他所在的约 3,000 个 Slack 频道 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=2670s" target="_blank" rel="noopener" title="YouTube 44:30">44:30</a>。Rabois 观察到他任董事的公司里，消耗 token 最多的人是 CMO，因为 CMO 终于可以自己做分析而不用一层层等下属 <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=2002s" target="_blank" rel="noopener" title="YouTube 33:22">33:22</a>。</li>
+    <li>把 deck、周报、财务模型交出去。Cat Wu 用 Cowork 一晚上做出 20 页大会 deck，因为它能读公司标准模板，产出“看起来像 Anthropic 设计师做的” <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=2178s" target="_blank" rel="noopener" title="YouTube 36:18">36:18</a>。Anthropic 销售用 Claude Code 做了定制 deck 工具，从 Salesforce 和 Gong 拉客户上下文，20 到 30 分钟的活变几秒 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=2543s" target="_blank" rel="noopener" title="YouTube 42:23">42:23</a>。OpenAI 的 corporate finance 团队用 ChatGPT work 做原来靠一个专家手工完成的复杂财务模型 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=1875s" target="_blank" rel="noopener" title="YouTube 31:15">31:15</a>。Dianne Penn 把 monthly business review 用 skill 全交给 Claude 写，自己只做 verifier <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=3718s" target="_blank" rel="noopener" title="YouTube 61:58">61:58</a>。</li>
+  </ul>
+  <p>Tara Seshan 给了一条区分线：“writing as reporting”全部交给模型，“writing as thinking”绝不交，连初稿和润色都不用 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=3148s" target="_blank" rel="noopener" title="YouTube 52:28">52:28</a>。Penn 的版本是先有自己的观点再上工具 <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=3655s" target="_blank" rel="noopener" title="YouTube 60:55">60:55</a>。这条线在多位嘉宾那里反复出现。</p>
+
+  <h3 id="s2-4">2.4 提效的代价</h3>
+  <p>Lenny 和 Noam Segal 做的第二届科技从业者调查（约 6,000 人）给出了另一面。97.2% 的受访者说 AI 让自己在工作上更好，但追问“好”是什么意思，答案是更快、更多，质量没有上去 <a class="ts" href="https://www.youtube.com/watch?v=_cmpIveXnvE&amp;t=2747s" target="_blank" rel="noopener" title="YouTube 45:47">45:47</a>。显著 burnout 从 2025 年的 44.7% 升到 2026 年的 54.7%，职业乐观度从 54.8% 降到 48.7% <a class="ts" href="https://www.youtube.com/watch?v=_cmpIveXnvE&amp;t=1218s" target="_blank" rel="noopener" title="YouTube 20:18">20:18</a>。人们最怕的是“同样薪水被要求做更多”，被 AI 取代排在担忧清单倒数第二 <a class="ts" href="https://www.youtube.com/watch?v=_cmpIveXnvE&amp;t=3172s" target="_blank" rel="noopener" title="YouTube 52:52">52:52</a>。</p>
+  <p>质量问题不止来自调查。Max Schoening 说过去 12 个月软件数量增加了，质量没有，实验室自己的工具每两周回归一个三周前修过的 bug <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=423s" target="_blank" rel="noopener" title="YouTube 07:03">07:03</a>。Tony Fadell 引 Claude 源码泄露后架构师的反应“这东西太脆”，把 AI 在高层抽象上写的代码叫技术债，“You're getting short-term gain for very, very long-term loss.” <a class="ts" href="https://www.youtube.com/watch?v=RJjl1TwyfWM&amp;t=3157s" target="_blank" rel="noopener" title="YouTube 52:37">52:37</a>。Dan Shipper 自己做了个基准：请两位资深工程师独立重写他 vibe code 的产品，之后每个新模型跑同一 prompt 打分，GPT-5.5 之前所有模型约 30 分，人类高 80 到低 90，GPT-5.5 得 62 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=2487s" target="_blank" rel="noopener" title="YouTube 41:27">41:27</a>。</p>
+  <p>Noam 把判断力下降叫 cognitive rot：看到模型第一版输出就接受。他的建议是需要“evals for people”，因为人的判断力在退化却没人测量 <a class="ts" href="https://www.youtube.com/watch?v=_cmpIveXnvE&amp;t=3112s" target="_blank" rel="noopener" title="YouTube 51:52">51:52</a>。Simon Willison 的观察更直接：AI 让重度用户更累，时间多了，脑子空了 <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=2123s" target="_blank" rel="noopener" title="YouTube 35:23">35:23</a>。</p>
+
+  <h2 id="s3">三、组织：团队变小，角色合并，经理回一线</h2>
+
+  <h3 id="s3-1">3.1 团队结构的具体改法</h3>
+  <div class="tbl">
+    <table>
+      <caption>七家公司的团队结构变化</caption>
+      <thead><tr><th scope="col">公司</th><th scope="col">改法</th><th scope="col">出处</th></tr></thead>
+      <tbody>
+        <tr><td>Instagram</td><td>标准团队从约 13 人（2 到 3 个 Android、2 到 3 个 iOS、2 到 3 个服务端、通才、PM、设计、数据）改成 4 到 6 个通才工程师加 1 个 product staff，专家按需加入，核心 6 到 7 人，今年开始推</td><td><a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=120s" target="_blank" rel="noopener" title="YouTube 02:00">02:00</a> <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=182s" target="_blank" rel="noopener" title="YouTube 03:02">03:02</a></td></tr>
+        <tr><td>Anthropic 增长</td><td>约 40 人，两条横向线（growth platform、monetization）跨全部产品，再按受众分 pod：B2B、Claude Code、知识工作者、API</td><td><a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=1513s" target="_blank" rel="noopener" title="YouTube 25:13">25:13</a></td></tr>
+        <tr><td>Anthropic Claude Code</td><td>不扩 PM，招有产品品味的工程师；几乎所有 PM 当过工程师，设计师做过前端</td><td><a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=968s" target="_blank" rel="noopener" title="YouTube 16:08">16:08</a></td></tr>
+        <tr><td>OpenAI Codex</td><td>工程师两位数，设计师约为其一半，PM 很少；以 IC 为主，很少管理层</td><td><a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=1640s" target="_blank" rel="noopener" title="YouTube 27:20">27:20</a></td></tr>
+        <tr><td>Whatnot</td><td>21 到 22 个 PM 支撑全部 GMV，PM 按问题而非按团队分配，某个工程团队可能一整年没有 PM；管 PM 的四五个人 90% 以上时间做 IC</td><td><a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=905s" target="_blank" rel="noopener" title="YouTube 15:05">15:05</a> <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=1388s" target="_blank" rel="noopener" title="YouTube 23:08">23:08</a></td></tr>
+        <tr><td>Every</td><td>一年从 15 人到近 30 人，全员通才；咨询、运营、编辑都在提 PR</td><td><a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=245s" target="_blank" rel="noopener" title="YouTube 04:05">04:05</a> <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=3033s" target="_blank" rel="noopener" title="YouTube 50:33">50:33</a></td></tr>
+        <tr><td>Snap</td><td>近 10 亿用户的公司配 9 到 12 人的设计团队做创新，无头衔层级；200 人才招第一个 PM</td><td><a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=1271s" target="_blank" rel="noopener" title="YouTube 21:11">21:11</a> <a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=1875s" target="_blank" rel="noopener" title="YouTube 31:15">31:15</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Anthropic 增长负责人给出的比例是这半年最常被引用的：工程师从 AI 得到的杠杆最大，5 工程 1 设计 1 PM 的小组用 Claude Code 后相当于 15 到 20 个工程师，PM 和设计只涨到 1.5 到 2 个，“absolutely squeezed” <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2541s" target="_blank" rel="noopener" title="YouTube 42:21">42:21</a>。他们的应对是“两周规则”：工程量 2 周以内的项目工程师就是 PM，自己去谈 security、legal 和跨部门，PM 只做顾问；超过 2 周 PM 负责到底 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2721s" target="_blank" rel="noopener" title="YouTube 45:21">45:21</a>。</p>
+
+  <h3 id="s3-2">3.2 PM 存废：半年里最大的分歧</h3>
+  <p>六位嘉宾直接表态，立场分三档。</p>
+  <ul>
+    <li>主张收缩或取消。Whatnot CPO Tom Verrilli 的前提是“we regret that product management exists”，默认不配 PM，理由是大量招 PM 会“infantilize”工程师和设计师 <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=362s" target="_blank" rel="noopener" title="YouTube 06:02">06:02</a>。Keith Rabois 认为模型能力变化太快，传统 PM 这种中介角色说不通，无论叫什么，技能都变成 CEO 技能：做什么、为什么 <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=2123s" target="_blank" rel="noopener" title="YouTube 35:23">35:23</a>。Nikhyl Singhal 说约一半 PM 是信息搬运者，会被淘汰 <a class="ts" href="https://www.youtube.com/watch?v=yUohoaC8_Hs&amp;t=1515s" target="_blank" rel="noopener" title="YouTube 25:15">25:15</a>。</li>
+    <li>主张保留并进化。OpenAI Codex 负责人 Ambrosino 的原话：“I've heard a lot of companies be like, we're getting rid of the product role, which I think is, by the way, a terrible idea.” 取消角色会连带丢掉学科积累的最佳实践 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=1457s" target="_blank" rel="noopener" title="YouTube 24:17">24:17</a>。Instagram 把 PM 进化成 product staff，用最新工具兼做设计、数据、调研，资深设计师直接转岗 <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=182s" target="_blank" rel="noopener" title="YouTube 03:02">03:02</a>。Tara Seshan 说 PM 的核心没变而且更重要：定义最关键的假设、最快测试、回灌，脱落的是长文档和演示文稿 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=485s" target="_blank" rel="noopener" title="YouTube 08:05">08:05</a>。</li>
+    <li>主张可能需要更多 PM。Amol Avasarala 的判断是因为工程师太快，未来可能需要更多 PM；在 20 个工程师只有 1 到 2 个 PM 的公司里，把“做什么、为什么”改进 5% 比自己去做第 21 个功能更值 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2901s" target="_blank" rel="noopener" title="YouTube 48:21">48:21</a>。Dan Shipper 认为 PM 是这轮最大受益者，他举的例子是一位“lightly technical”的前 PM 独自运营一个写作产品，出货速度几乎全公司最快 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=4125s" target="_blank" rel="noopener" title="YouTube 68:45">68:45</a>。</li>
+  </ul>
+  <p>三档之间有一条共同线：留给人的是判断、定义问题和对结果负责。Netflix CPTO Elizabeth Stone 的表述是角色流动健康，但人仍对结果负责，“agent 写的”不免除责任 <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=302s" target="_blank" rel="noopener" title="YouTube 05:02">05:02</a>。Nikhyl 的补充是产品负责人正在把自己的流程写成软件：有公司已宣称完全自动化了产品评审和站会 <a class="ts" href="https://www.youtube.com/watch?v=yUohoaC8_Hs&amp;t=1941s" target="_blank" rel="noopener" title="YouTube 32:21">32:21</a>。</p>
+
+  <h3 id="s3-3">3.3 经理回一线，层级变薄</h3>
+  <ul>
+    <li>Anthropic Claude Code 团队：新经理入职先不带人，花时间钻代码和产品；所有经理持续兼职 IC。Fiona Fung 曾在 Meta 管 500 人、2017 年后没发过生产代码，现在每天提 PR <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=2967s" target="_blank" rel="noopener" title="YouTube 49:27">49:27</a> <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=3089s" target="_blank" rel="noopener" title="YouTube 51:29">51:29</a>。她的另一件工具是一个挂在团队所有仓库、所有 Slack 频道和指标看板上的 Claude Code 远程会话，每月和每位下属共享屏幕跑一遍产出和市场反应 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=606s" target="_blank" rel="noopener" title="YouTube 10:06">10:06</a>。</li>
+    <li>Whatnot：CPO 本人约 50% 时间做 IC；CEO 在评审里说“I don't think this is right”后会清空当天日程，和团队一起拉 ticket、看代码、逐行看数据 <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=3018s" target="_blank" rel="noopener" title="YouTube 50:18">50:18</a>。Verrilli 的薪酬观点是把五个 L5 加一个 L7 加 VP 的总薪酬改成三个人，每人拿 VP 的钱 <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=1691s" target="_blank" rel="noopener" title="YouTube 28:11">28:11</a>。</li>
+    <li>Ramp：一位工程总监带 20 人，个人出的代码量和当 IC 时一样多，做法是把 AI 当第二支团队 <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=2427s" target="_blank" rel="noopener" title="YouTube 40:27">40:27</a>。</li>
+    <li>Mark Pincus 把这条和硅谷去中层的趋势并列，主张“make everyone a CEO”，给每人一座山头、一份计划和预算 <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=4561s" target="_blank" rel="noopener" title="YouTube 76:01">76:01</a>。</li>
+  </ul>
+  <p>Noam Segal 对扁平化提出了警告：调查里 manager 被评为极其有效的人，工作享受度高约 65%，burnout 显著更低，但只有约 25% 的人认为自己 manager 高效。直接汇报人数比以往任何时候都多，而 manager 是唯一能挡住“AI 加压”的人，扁平化可能在放大 burnout <a class="ts" href="https://www.youtube.com/watch?v=_cmpIveXnvE&amp;t=4387s" target="_blank" rel="noopener" title="YouTube 73:07">73:07</a> <a class="ts" href="https://www.youtube.com/watch?v=_cmpIveXnvE&amp;t=4447s" target="_blank" rel="noopener" title="YouTube 74:07">74:07</a>。</p>
+
+  <h3 id="s3-4">3.4 招聘画像的变化</h3>
+  <div class="tbl">
+    <table>
+      <caption>嘉宾口中在涨和在跌的岗位画像</caption>
+      <thead><tr><th scope="col">方向</th><th scope="col">画像</th><th scope="col">谁说的</th><th scope="col">出处</th></tr></thead>
+      <tbody>
+        <tr><td>涨</td><td>Systems thinker：能跨业务域抽象出共同 building blocks，工程画像偏分布式系统和基建，因为 agent 会跨系统运行</td><td>Elizabeth Stone，Netflix</td><td><a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=785s" target="_blank" rel="noopener" title="YouTube 13:05">13:05</a></td></tr>
+        <tr><td>涨</td><td>Product-minded engineer：有商业直觉的工程师“价值涨一个数量级”</td><td>Amol Avasarala；Keith Rabois</td><td><a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2781s" target="_blank" rel="noopener" title="YouTube 46:21">46:21</a> <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=2367s" target="_blank" rel="noopener" title="YouTube 39:27">39:27</a></td></tr>
+        <tr><td>涨</td><td>Forward deployed engineer：技术够深、能和销售一起进客户，帮 CFO 从 token maxing 转向控成本</td><td>Adam Ward，Cursor</td><td><a class="ts" href="https://www.youtube.com/watch?v=zegYJ6dhIg4&amp;t=427s" target="_blank" rel="noopener" title="YouTube 07:07">07:07</a></td></tr>
+        <tr><td>涨</td><td>Design systems 思维的设计师：做模板和品牌表达，让非设计师也能做出连贯产品</td><td>Elizabeth Stone</td><td><a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=907s" target="_blank" rel="noopener" title="YouTube 15:07">15:07</a></td></tr>
+        <tr><td>涨</td><td>“Engineering manager light”：带很小的团队去试过去认为太难的事</td><td>Tom Verrilli</td><td><a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=2597s" target="_blank" rel="noopener" title="YouTube 43:17">43:17</a></td></tr>
+        <tr><td>跌</td><td>窄而深的专家，编码、播放系统这类全球只有几人懂的领域除外；理由是 AI 让专家更容易横向扩展</td><td>Elizabeth Stone；Adam Ward</td><td><a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=1335s" target="_blank" rel="noopener" title="YouTube 22:15">22:15</a> <a class="ts" href="https://www.youtube.com/watch?v=zegYJ6dhIg4&amp;t=427s" target="_blank" rel="noopener" title="YouTube 07:07">07:07</a></td></tr>
+        <tr><td>跌</td><td>面试里大量谈“driving alignment”“stakeholder management”的 PM</td><td>Tom Verrilli</td><td><a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=1026s" target="_blank" rel="noopener" title="YouTube 17:06">17:06</a></td></tr>
+        <tr><td>争议</td><td>新人。Cursor 说没经验的新毕业生在跌；Netflix 仍招 intern 和 new grad，理由是年轻人更 AI native；ThoughtWorks 的结论是中层最危险，新人上手反而快</td><td>Adam Ward；Elizabeth Stone；Simon Willison 转述</td><td><a class="ts" href="https://www.youtube.com/watch?v=zegYJ6dhIg4&amp;t=427s" target="_blank" rel="noopener" title="YouTube 07:07">07:07</a> <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=3215s" target="_blank" rel="noopener" title="YouTube 53:35">53:35</a> <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1819s" target="_blank" rel="noopener" title="YouTube 30:19">30:19</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>面试本身也在变。Netflix 的 coding 面试允许用 AI 工具，并直接问候选人日常用什么 AI、对变化的舒适度 <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=1819s" target="_blank" rel="noopener" title="YouTube 30:19">30:19</a>。Netflix 没有按级别重写 career ladder，而是给全公司加一层 AI fluency 期望，按职能和阶段各自解释，高管同样适用 <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=1698s" target="_blank" rel="noopener" title="YouTube 28:18">28:18</a>。Whatnot 所有岗位一律做动手 case study，交 PRD 并口头答辩，两年 31,832 人申请 PM 只录用 1 人 <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=1026s" target="_blank" rel="noopener" title="YouTube 17:06">17:06</a> <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=2898s" target="_blank" rel="noopener" title="YouTube 48:18">48:18</a>。Cursor 把每个 IC 岗位按高管招聘做：先定义 top 1%，找出全世界符合的 50 个人，再用几周到几年持续接触，每个候选人一个 Slack 频道、高优先级候选人每天 10 分钟站会；他们试过取消 work trial，信号大幅下降后又恢复 <a class="ts" href="https://www.youtube.com/watch?v=zegYJ6dhIg4&amp;t=1033s" target="_blank" rel="noopener" title="YouTube 17:13">17:13</a> <a class="ts" href="https://www.youtube.com/watch?v=zegYJ6dhIg4&amp;t=3756s" target="_blank" rel="noopener" title="YouTube 62:36">62:36</a> <a class="ts" href="https://www.youtube.com/watch?v=zegYJ6dhIg4&amp;t=3091s" target="_blank" rel="noopener" title="YouTube 51:31">51:31</a>。</p>
+
+  <h3 id="s3-5">3.5 Token 政策</h3>
+  <p>四家公司谈了 token 怎么管，做法一致：现在不设上限，但都预告了拐点。</p>
+  <ul>
+    <li>Notion：无上限，个人月花费“肯定上千，也许上万美元”，公司最高的是一个 PM。Max Schoening 预计 6 到 12 个月内多数公司会开始追问 ROI，“那会是不舒服的对话” <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=2060s" target="_blank" rel="noopener" title="YouTube 34:20">34:20</a>。他反对把 token 花费当炫耀指标，和吹嘘代码行数一样 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=2121s" target="_blank" rel="noopener" title="YouTube 35:21">35:21</a>。</li>
+    <li>Instagram：无上限，靠关掉“token 焚烧炉”式的无用项目降本；Mosseri 预期一两年内强工程师的 token 消耗与其薪酬相当，到时按公司对此人 ROI 的信任度设额度。他说 token 排行榜是“terrible idea” <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=1272s" target="_blank" rel="noopener" title="YouTube 21:12">21:12</a> <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=1332s" target="_blank" rel="noopener" title="YouTube 22:12">22:12</a>。</li>
+    <li>Anthropic：基本不限量但靠信任，浪费 token 很不受欢迎；Cat Wu 说每次模型大跳跃，每个知识工作者的 token 成本都会上升，目前仍远低于工资 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=2967s" target="_blank" rel="noopener" title="YouTube 49:27">49:27</a> <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=3028s" target="_blank" rel="noopener" title="YouTube 50:28">50:28</a>。Fiona Fung 把 token maxing 叫新版代码行数，每一个生产率指标最终都会失真 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=2419s" target="_blank" rel="noopener" title="YouTube 40:19">40:19</a>。</li>
+    <li>Dianne Penn 对 Gary Tan “一年花 10 万美元 token 就是活在 2028 年”的回应：花钱是输入，实验才是输出，KPI 应定在实验上 <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=1213s" target="_blank" rel="noopener" title="YouTube 20:13">20:13</a>。</li>
+  </ul>
+  <p>成本侧的判断来自 Anish Acharya：按职能分层用模型，收益无上限的职能（drug discovery、sales、support、research、engineering）用 frontier，收益有上限的（legal、finance，“你没法把账关得好 100 倍”）用 open-weight 加 RL 微调的便宜模型，公司里会同时存在两套架构 <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=1329s" target="_blank" rel="noopener" title="YouTube 22:09">22:09</a>。Max Schoening 说 Cursor、Intercom 在做自研小模型，Notion 在试，前提是开源模型和前沿的差距不拉大 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=2727s" target="_blank" rel="noopener" title="YouTube 45:27">45:27</a>。</p>
+
+  <h2 id="s4">四、AI 进入流程：从个人玩具到公司例行</h2>
+
+  <h3 id="s4-1">4.1 定时任务是最常见的形态</h3>
+  <p>半年里最多嘉宾在用、也最容易照抄的形态是定时任务：一个 prompt 加一个连接器加一个固定时间，产出让人审。</p>
+  <ul>
+    <li>Fiona Fung 的晨间 routine：每天固定时间读 Slack 反馈频道、归纳主题、把能顺手修的小问题直接生成 PR，她醒来只需评审。她说 routine 的本质是“生成 prompt 的 prompt”，抽象层级又上了一层 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=728s" target="_blank" rel="noopener" title="YouTube 12:08">12:08</a> <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=2116s" target="_blank" rel="noopener" title="YouTube 35:16">35:16</a>。</li>
+    <li>Amol Avasarala 的每周错位扫描：Cowork 接 Slack MCP，定时扫他参与的项目，输出可能的组织错位清单；企业团队负责人用同样方法抓到过多个团队重复做工 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=3326s" target="_blank" rel="noopener" title="YouTube 55:26">55:26</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=3871s" target="_blank" rel="noopener" title="YouTube 64:31">64:31</a>。他还让 Claude 每周看直属下属的进展、OKR 和会议转录给出反馈建议，再反过来让 Claude 以经理身份给自己反馈 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=3690s" target="_blank" rel="noopener" title="YouTube 61:30">61:30</a>。</li>
+    <li>Ambrosino 的 Codex 日报：建一个计划任务，写清关心哪些频道、哪些类别；纠偏靠对话，“下次多关注这个、这件事没进日报请补上”，它自己改指令 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=2670s" target="_blank" rel="noopener" title="YouTube 44:30">44:30</a>。5 月的多团队协调发布，他用一份 Notion 总表让 Codex 自动从 PR 和 Slack 收更新 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=2610s" target="_blank" rel="noopener" title="YouTube 43:30">43:30</a>。</li>
+    <li>Claire Vo 的 9 个 agent：3 台 Mac mini 上跑 OpenClaw，按岗位拆成销售、播客制作、课程项目经理、家庭日程等。销售 agent 每天早上做 PLG sweep：扫 CRM 过去 24 小时注册，筛出公司域名，用 Exa 查是否决策者，发软性欢迎邮件，员工 10 万人以上的公司先请示；这替代了去年每周付费 10 小时的人工 <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=3034s" target="_blank" rel="noopener" title="YouTube 50:34">50:34</a> <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=3156s" target="_blank" rel="noopener" title="YouTube 52:36">52:36</a>。</li>
+    <li>Dan Shipper 的季度规划：一个 Notion agent 拿着公司战略逐个访谈每个员工，会追问，最后产出每个团队的计划文档，CEO 只看哪些团队该互相聊、哪份质量低 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=3818s" target="_blank" rel="noopener" title="YouTube 63:38">63:38</a>。</li>
+  </ul>
+  <p>Cat Wu 给这类自动化定了一条硬标准：做到 90% 到 95% 就放弃的人很多，但 95% 的自动化没什么价值，要么做到 100%，要么别做 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=4176s" target="_blank" rel="noopener" title="YouTube 69:36">69:36</a>。她的另一个观察是反过来的：有人过度折腾 skills 和 MCP，不睡觉不干正事，简单设置效果更好 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=4359s" target="_blank" rel="noopener" title="YouTube 72:39">72:39</a>。</p>
+
+  <h3 id="s4-2">4.2 一家公司一个 agent，而非人手一个</h3>
+  <p>Dan Shipper 的核心预测是一家公司一个 super agent，理由是个人 agent 维护成本太高，一旦没人在乎它就没用了。他的说法是“Automation is a lie”：每自动化一件事，就需要一个人盯着它。做法是设一个 forward deployed engineer 负责让全公司的 agent 正常工作，再往下长出团队级 agent <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=790s" target="_blank" rel="noopener" title="YouTube 13:10">13:10</a> <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=2305s" target="_blank" rel="noopener" title="YouTube 38:25">38:25</a>。Every 内部有一个叫 Claudie 的 agent 跑整个咨询业务，AI 工程师大部分时间在 Slack 里和它对话、纠正它 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=3276s" target="_blank" rel="noopener" title="YouTube 54:36">54:36</a>。他提到某大模型公司内部有一个接数据仓库、知道每个人权限的 data science bot，专门一个团队维护，数据科学家因此只处理深问题 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=3396s" target="_blank" rel="noopener" title="YouTube 56:36">56:36</a>。</p>
+  <p>Anish Acharya 用“loop”描述同一件事的下一步：工程里已经跑通的 loop 是 bug 报告进来，自动复现、修复、review，高风险人确认、低风险直接上线，再给客户发邮件，全程 5 分钟；增长团队的 loop 是每个变体自动生成、测量，统计显著就合并，保留长期 holdout。Loop 只能爬到局部最优，之后需要人把它放到下一座山脚下 <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=724s" target="_blank" rel="noopener" title="YouTube 12:04">12:04</a> <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=845s" target="_blank" rel="noopener" title="YouTube 14:05">14:05</a>。他举的传统企业案例是墨西哥二手车平台 Kavak：每个客户配一个 agent，卡住时打电话给人，人教一遍，agent 记录并学习，下次不用再打；全公司包括修车技师上 6 周“Jedi Academy”，结业标准是每人 ship 一个在生产环境跑的 agent <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=1147s" target="_blank" rel="noopener" title="YouTube 19:07">19:07</a> <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=543s" target="_blank" rel="noopener" title="YouTube 09:03">09:03</a>。</p>
+  <p>Tara Seshan 指出了现状的缺口：现在每人和自己的 agent 一对一，同事之间靠在 Slack 里发 Codex 线程截图解释“我这个数字怎么算出来的”，团队正在做多人一起指挥一群 agent 的界面 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=970s" target="_blank" rel="noopener" title="YouTube 16:10">16:10</a>。</p>
+
+  <h3 id="s4-3">4.3 PRD 让位给 eval、原型和 demo</h3>
+  <p>这是嘉宾之间意见最集中的一处：PRD 的地位在下降，但下降的方式不同。</p>
+  <ul>
+    <li>Anthropic 增长团队 60% 到 80% 上线的东西没有 PRD，小事在 Slack 说，大事开 30 分钟跨部门 kickoff 把 legal、safeguards 拉齐；需要写时用一个装着历史 PRD 的 project 生成 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=3082s" target="_blank" rel="noopener" title="YouTube 51:22">51:22</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=3203s" target="_blank" rel="noopener" title="YouTube 53:23">53:23</a>。Claude Code 团队用每周 metrics readout 加一份 team principles 替代大部分 PRD，让工程师不用等 PM 就能自己决策 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=545s" target="_blank" rel="noopener" title="YouTube 09:05">09:05</a>。</li>
+    <li>Dianne Penn 的“Evals are the new PRDs”：用户说“Claude hallucinated”太模糊，团队读 consented transcript，把失败拆成工具调用、搜索综合、alignment 三类，写 30 到 40 条 prompt 加 golden answer 的 eval，每个新版本回归。一个案例：“不听指令”的反馈约 80% 其实是 JSON 格式问题，现在通过率 99.9% 到 100% <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=1764s" target="_blank" rel="noopener" title="YouTube 29:24">29:24</a> <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=2674s" target="_blank" rel="noopener" title="YouTube 44:34">44:34</a>。Cat Wu 说不需要几百个，10 个好的 eval 就能让团队量化目标 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=3271s" target="_blank" rel="noopener" title="YouTube 54:31">54:31</a>。</li>
+    <li>Max Schoening 把 GitHub 时代的“demos not memos”接了过来：先做粗糙版 demo，一次派 10 个 agent 探索 10 个方向 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=1756s" target="_blank" rel="noopener" title="YouTube 29:16">29:16</a>。Shopify 两年多来禁止 PM 用 PowerPoint 讲产品，所有产品汇报必须是能跑的 demo <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=2547s" target="_blank" rel="noopener" title="YouTube 42:27">42:27</a>。Webflow 一位产品负责人用过去公开的 product review 转录训练了一个 GPT，团队要求 PM 把 PRD 和 pitch 先过一遍，问“CPO 会在哪里反驳、想法哪里弱” <a class="ts" href="https://www.youtube.com/watch?v=RP4vJeIb7WU&amp;t=1154s" target="_blank" rel="noopener" title="YouTube 19:14">19:14</a>。Tara Seshan 说长文档不再是“想清楚了”的信号，因为很容易生成一份长文档来掩盖没想清楚；沟通载体变成 mocks、prototypes 和 A/B 结果，她写到 70% 就拿出去讨论 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=3332s" target="_blank" rel="noopener" title="YouTube 55:32">55:32</a> <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=3456s" target="_blank" rel="noopener" title="YouTube 57:36">57:36</a>。</li>
+    <li>反方：Ambrosino 说 PRD 没死，实现便宜了，非工程师容易直接跳到原型，工程师则容易写一堆没人读的文档，要点是按目的选媒介；原型看着能上线，实际还在探索早期，团队要显式说明“我们在流程的哪一步” <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=422s" target="_blank" rel="noopener" title="YouTube 07:02">07:02</a> <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=544s" target="_blank" rel="noopener" title="YouTube 09:04">09:04</a>。Penn 也说每个模型仍有一份 PRD，作用是给产品、工程、legal、safety 一份共同事实 <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=2858s" target="_blank" rel="noopener" title="YouTube 47:38">47:38</a>。</li>
+  </ul>
+
+  <h3 id="s4-4">4.4 验证和质量框架</h3>
+  <p>写代码变快之后，几家公司各自发明了保质量的机制。</p>
+  <ul>
+    <li>把“什么叫好”提交进仓库。Fiona 团队把内容设计规范之类的标准作为 spec 提交进代码库，让 Claude code review 对照检查，规范随代码更新 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=909s" target="_blank" rel="noopener" title="YouTube 15:09">15:09</a>。Notion 工程侧的标准来自 Simon Last：写代码环节的任何人工干预都应被当成 bug，说明验证循环没搭好；审查环节例外 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=2303s" target="_blank" rel="noopener" title="YouTube 38:23">38:23</a>。</li>
+    <li>两级质量框架。Anthropic 用 bad 和 sad 两级：bad 是不可恢复的严重错误，sad 是可恢复的痛点，各团队自己定义本表面的 bad 和 sad，用于跨产品面看质量趋势。另有一个从去年 9 月起的“脏话看板”，统计用户在会话里骂人的频率作为挫败感指标 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=2725s" target="_blank" rel="noopener" title="YouTube 45:25">45:25</a> <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=2846s" target="_blank" rel="noopener" title="YouTube 47:26">47:26</a>。</li>
+    <li>测试回到中心。Simon Willison 说 agent 必须运行代码，否则回到从 ChatGPT 复制粘贴；“red/green TDD”五个字代替一大段指令 <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=4066s" target="_blank" rel="noopener" title="YouTube 67:46">67:46</a> <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=4248s" target="_blank" rel="noopener" title="YouTube 70:48">70:48</a>。Fiona 在 Claude Code 修的第一个 bug 就是先让它写一个会失败的测试 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=970s" target="_blank" rel="noopener" title="YouTube 16:10">16:10</a>。StrongDM 用一群模拟员工 agent 在仿真 Slack 里 24 小时发权限请求，自建了 Slack、Jira、Okta 的仿真版 <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=971s" target="_blank" rel="noopener" title="YouTube 16:11">16:11</a>。</li>
+    <li>人人能发代码之后的设计评审。Webflow 内部技能被打平，人人能做设计、发代码、写 PRD；CPO 随口说“以后得考虑设计评审”，设计负责人一小时内录了一个 Loom，给出高风险和低风险设计改动的分类、影响范围（blast radius）和发布流程 <a class="ts" href="https://www.youtube.com/watch?v=RP4vJeIb7WU&amp;t=2306s" target="_blank" rel="noopener" title="YouTube 38:26">38:26</a>。Jessica Fain 的另一条是把 agent 当不懂公司产品哲学的初级员工来 onboard：先写下自己作为产品负责人相信什么、怎么定义 PMF、哪里成功过哪里失败过，持续喂给它，再定护栏，哪些事“没有我不许做” <a class="ts" href="https://www.youtube.com/watch?v=RP4vJeIb7WU&amp;t=4678s" target="_blank" rel="noopener" title="YouTube 77:58">77:58</a>。</li>
+    <li>代码审查成为 merge 前必过关卡。Cat Wu 说之前几次尝试都不够准，到 Opus 4.5 和 4.6 才能并行跑多个 review agent 扫整个代码库综合出真问题 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=3813s" target="_blank" rel="noopener" title="YouTube 63:33">63:33</a>。Snap 的内部版 app 摇一摇报 bug，agent 定位原因并建议修法 <a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=2783s" target="_blank" rel="noopener" title="YouTube 46:23">46:23</a>。</li>
+    <li>知识工作的验证和代码不同。Tara Seshan 说编程可以靠测试验证输出，知识工作不能只看最终的 deck 就相信里面的数字，必须看过程、输入和引用，所以 ChatGPT work 的产品重点是让用户看到进行中的工作 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=3884s" target="_blank" rel="noopener" title="YouTube 64:44">64:44</a>。Elizabeth Stone 坦白 agent 生成的代码性能更好但看不懂，“that makes me uncomfortable” <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=3457s" target="_blank" rel="noopener" title="YouTube 57:37">57:37</a>。</li>
+  </ul>
+
+  <h3 id="s4-5">4.5 计划周期压到一个月</h3>
+  <p>Fiona Fung 入职时推的六个月轻量路线图，三个月后发现没人再看。现在叫 JIT planning：按月排，没有文档，只有一张小表列本月最重要的事，每周快速确认一次，半年一次全员聚会定主题 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=5029s" target="_blank" rel="noopener" title="YouTube 83:49">83:49</a>。Ambrosino 的规则是越近期越要细，9 个月以上的计划保持模糊，加精度就是假精度 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=1882s" target="_blank" rel="noopener" title="YouTube 31:22">31:22</a>。Tara Seshan 更具体：只为模型 2 到 3 个月后的能力做产品，按当前能力做会错，按一年后做也会错，产品路线图和研究议程绑在一起 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=1634s" target="_blank" rel="noopener" title="YouTube 27:14">27:14</a>。Whatnot 每 6 个月由 CEO、CPO 和高级负责人定“接下来 6 个月哪些事必须成立”，逐项找 DRI <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=966s" target="_blank" rel="noopener" title="YouTube 16:06">16:06</a>。</p>
+  <p>配套的做法是“每次新模型出来就把以前做不了的事再试一次”。Amol、Fiona、Dan Shipper、Anish Acharya、Caitlin Kalinowski 都独立说了这条 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=910s" target="_blank" rel="noopener" title="YouTube 15:10">15:10</a> <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=4606s" target="_blank" rel="noopener" title="YouTube 76:46">76:46</a> <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=4607s" target="_blank" rel="noopener" title="YouTube 76:47">76:47</a> <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=1570s" target="_blank" rel="noopener" title="YouTube 26:10">26:10</a> <a class="ts" href="https://www.youtube.com/watch?v=G5WTgB87rYQ&amp;t=5521s" target="_blank" rel="noopener" title="YouTube 92:01">92:01</a>。Cat Wu 的团队会先做“当前模型还跑不通”的产品原型，新模型出来直接换进去看缺口补上没有；每次新模型上线还会通读整个 system prompt，逐段问“模型还需要这条提醒吗” <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=3873s" target="_blank" rel="noopener" title="YouTube 64:33">64:33</a> <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=3753s" target="_blank" rel="noopener" title="YouTube 62:33">62:33</a>。</p>
+
+  <h3 id="s4-6">4.6 安全边界</h3>
+  <ul>
+    <li>Simon Willison 的 lethal trifecta：私有数据、暴露给外部指令、能外发，三者同时具备就危险；砍掉一条腿，通常砍外发。过滤器拦截率 97% 是不及格，要假设任何能和 agent 说话的人都能让它做它被允许的任何事，然后限制 blast radius <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=4856s" target="_blank" rel="noopener" title="YouTube 80:56">80:56</a>。</li>
+    <li>Claire Vo 的安装清单：干净的机器、独立邮箱、独立管理员账号、soul 文件里限定只听一个渠道的指令、用贵模型、逐步授权（先日历，再读邮件，再草拟，再发送）；家庭 agent 和工作 agent 物理隔开 <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=1092s" target="_blank" rel="noopener" title="YouTube 18:12">18:12</a> <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=1393s" target="_blank" rel="noopener" title="YouTube 23:13">23:13</a> <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=2728s" target="_blank" rel="noopener" title="YouTube 45:28">45:28</a>。</li>
+    <li>Caitlin Kalinowski 把 OpenClaw 沙箱在独立电脑上，只给了真实邮箱等三样信息并叮嘱不要泄露，加入 Moltbook 5 分钟后它就把她的私人邮箱发出去了 <a class="ts" href="https://www.youtube.com/watch?v=G5WTgB87rYQ&amp;t=1517s" target="_blank" rel="noopener" title="YouTube 25:17">25:17</a>。</li>
+    <li>Evan Spiegel 选 Glean 而非直接用 Claude 做公司数据 agent，理由是 Glean 是访问公司文档和 dashboard 最安全的方式 <a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=3751s" target="_blank" rel="noopener" title="YouTube 62:31">62:31</a>。</li>
+  </ul>
+
+  <h3 id="s4-7">4.7 传统企业怎么进：清单、实施服务和培训</h3>
+  <p>Snap 给 AI 落地“定秩序”的方法是从用户和广告主的 jobs to be done 出发列清单，用户侧如“下载 app、加密友、用 lens”，广告主侧如“进入广告平台、配置 campaign”，列出来之后哪里能用 agent、哪里要围绕这个 job 组跨职能团队就清楚了，也能按每个 job 追踪业务结果。一边让人人试 agent，一边用清单把精力锁在重要的事上 <a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=2843s" target="_blank" rel="noopener" title="YouTube 47:23">47:23</a>。</p>
+  <p>Benedict Evans 解释了为什么 OpenAI 和 Anthropic 都在买咨询公司、招 forward deployed engineer：大公司没有一堆闲人等着做“重想全部内部流程”这种项目，这个项目需要 5 到 10 个人坐一两个月想清楚，再花另一个项目把系统接起来、改工作流、培训人。对创业公司的含义是卖 AI 给企业时，实施服务本身是产品的一部分 <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=606s" target="_blank" rel="noopener" title="YouTube 10:06">10:06</a>。他的另一句：你付钱给 McKinsey 不是为了那份 deck，Claude Code 能做一个很烂的版本，你买的是他们走遍你的公司、搞清楚政治 <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=911s" target="_blank" rel="noopener" title="YouTube 15:11">15:11</a>。</p>
+  <p>Jen Abel 从销售侧补了 FDE 的经济账：卖 10 万美元的单子配一个全职 FDE 跑不通，Palantir 能这么做是因为客单数百万美元；如果是因为产品太难用才需要 FDE，是坏信号 <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=3576s" target="_blank" rel="noopener" title="YouTube 59:36">59:36</a>。Qasar Younis 从物理行业补了推力：农民平均年龄 58 岁左右，10 年后大批退休，长途卡车司机的家庭代价太高，自动化是补空缺，不是整个行业一夜被替换；他检验一项 AI 产品是否出圈的标准是去 Detroit 机场登机口看有几个人在用 <a class="ts" href="https://www.youtube.com/watch?v=_rcniEb9bLw&amp;t=1765s" target="_blank" rel="noopener" title="YouTube 29:25">29:25</a> <a class="ts" href="https://www.youtube.com/watch?v=_rcniEb9bLw&amp;t=1642s" target="_blank" rel="noopener" title="YouTube 27:22">27:22</a>。Anish Acharya 的对比是电力从发明到工厂重组用了 40 年，最有野心的公司在围绕模型重想一切，其他公司在给现有岗位发工具 <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=543s" target="_blank" rel="noopener" title="YouTube 09:03">09:03</a>。</p>
+
+  <h2 id="s5">五、用 AI 挣钱</h2>
+
+  <h3 id="s5-1">5.1 模型层的数字</h3>
+  <p>Anthropic 增长负责人给的 ARR 曲线：2025 年初 10 亿美元，年中约 40 亿，年底 90 亿，2026 年 2 月底 190 亿，14 个月从 1 到 19 亿 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=181s" target="_blank" rel="noopener" title="YouTube 03:01">03:01</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=607s" target="_blank" rel="noopener" title="YouTube 10:07">10:07</a>。到 7 月底 Lenny 转述的数字是约 500 亿美元，嘉宾未确认 <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=181s" target="_blank" rel="noopener" title="YouTube 03:01">03:01</a>。他 70% 的时间在处理“success disaster”，即增长快到把获客、激活、付费各环节撑坏 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=728s" target="_blank" rel="noopener" title="YouTube 12:08">12:08</a>。Codex 自 2026 年 1 月起用量涨 6 倍，周活超过 500 万（Lenny 引数据）<a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=60s" target="_blank" rel="noopener" title="YouTube 01:00">01:00</a>。Simon Willison 说 2025 年两家实验室都发现“code is the application”，Claude Code 出来后大量人付 $200 一个月，两家把全年训练重点压在代码上 <a class="ts" href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=180s" target="_blank" rel="noopener" title="YouTube 03:00">03:00</a>。</p>
+  <p>押注 coding 的逻辑，Amol 说有两层：商业上 TAM 大，更重要的是 coding 做好能加速研究，模型更好又加速 coding。Anthropic 早期是最小、钱最少的玩家，没有 Meta 和 Google 的分发，没有 OpenAI 的先发，所以只能选一个窄方向 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=4054s" target="_blank" rel="noopener" title="YouTube 67:34">67:34</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=4114s" target="_blank" rel="noopener" title="YouTube 68:34">68:34</a>。Penn 补充 2023 年没人把 Anthropic 和 coding 放一起，是她观察到用户开始用模型写长代码，推动 Opus 3 针对训练 <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=666s" target="_blank" rel="noopener" title="YouTube 11:06">11:06</a>。</p>
+
+  <h3 id="s5-2">5.2 钱在哪一层</h3>
+  <p>Benedict Evans 的判断是模型厂商没有网络效应、没有赢家通吃、产品差异不够大，所以没理由有定价权，最终更像 AWS 而不是 Windows。他用电信做类比：全球移动行业年收入约 1 万亿美元，capex 约 2,000 亿，数据流量是 2010 年的 1,500 到 2,000 倍，股价 25 年没动，因为所有酷东西都在上层 <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=2000s" target="_blank" rel="noopener" title="YouTube 33:20">33:20</a> <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=2120s" target="_blank" rel="noopener" title="YouTube 35:20">35:20</a>。他说现在的 token 花费是激进的价格失衡，有人一个月花 150 万美元，相当于 2010 年 5 万美元的手机流量账单 <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=2181s" target="_blank" rel="noopener" title="YouTube 36:21">36:21</a>。Anish Acharya 的说法相近：Fable 5 比 Opus 4.8 多“一个 IQ 点”要贵 100 倍，只有收益无上限的行业值得付 <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=1329s" target="_blank" rel="noopener" title="YouTube 22:09">22:09</a>。</p>
+  <p>Qasar Younis 对软件股抛售给了一个机制推测：对冲基金找 AI 咨询公司几周做出一个看起来像 Figma 的 app，公司方说这只是长得像、没有深度和集成，但投资人看到的是“你 500 个工程师干了几年，这东西一个月就有了”，于是立刻把风险定价进去 <a class="ts" href="https://www.youtube.com/watch?v=_rcniEb9bLw&amp;t=853s" target="_blank" rel="noopener" title="YouTube 14:13">14:13</a>。</p>
+  <p>SaaS 会不会死，两位嘉宾都说不会。Max Schoening 说 2010 年代的 SaaS 很多是套在表格外面的精致表单，这部分会变，但“as a service”的部分是维护和一群专家持续想一个问题，人们不想自己养全栈，Anthropic 用 Slack、大家用 Workday 是例子 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=1454s" target="_blank" rel="noopener" title="YouTube 24:14">24:14</a>。Dan Shipper 的角度是 SaaS 在用户的 agent 里跑时消耗的是用户的 token，厂商不用付，这会救回 SaaS 的毛利；Every 全员用 agent 但 SaaS 支出同比上升 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=1453s" target="_blank" rel="noopener" title="YouTube 24:13">24:13</a> <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=2242s" target="_blank" rel="noopener" title="YouTube 37:22">37:22</a>。他给 SaaS 厂商的准备清单是做 CLI、让 HTML 对 agent 可用、CLI 里发生的事立刻在 UI 里显示 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=1697s" target="_blank" rel="noopener" title="YouTube 28:17">28:17</a>。</p>
+  <p>Evans 的一句话是分发决定一切：“if the product is a commodity, then the distribution is what matters.” Meta AI 撒在所有产品表面、产品“不差”，在调查里用户量排进前三 <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=2604s" target="_blank" rel="noopener" title="YouTube 43:24">43:24</a> <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=2664s" target="_blank" rel="noopener" title="YouTube 44:24">44:24</a>。Anish Acharya 说上一代 founder 都学过网络效应，所以今天每个网络都严防别人在自己上面建网络，第三方分发退回到真正的口碑 <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=3568s" target="_blank" rel="noopener" title="YouTube 59:28">59:28</a>。</p>
+
+  <h3 id="s5-3">5.3 卖给企业：流程没变，pilot 变短</h3>
+  <p>Jen Abel 用“向 SpaceX 法务部卖 10 万美元产品”走了一遍 15 步流程。和 AI 直接相关的几条：</p>
+  <ul>
+    <li>不能只搭“AI mandate”，每家公司都有 AI 指令，每个供应商都说自己是 AI 工具，要讲清楚帮高管在业务单元里解锁了什么，以及他拿到董事会上会怎么说 <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=607s" target="_blank" rel="noopener" title="YouTube 10:07">10:07</a>。“做得快 10 倍”在客户看来仍是同类商品，差异点是帮对方重新想 AI 时代的团队结构 <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=1032s" target="_blank" rel="noopener" title="YouTube 17:12">17:12</a>。</li>
+    <li>客户提“省 token 成本”时有两种动机：低优先级事项只要最便宜的，做到 60% 就行；高风险事项（法务的风险、合规延误）可以按 25 万到 50 万美元起步定价 <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=1639s" target="_blank" rel="noopener" title="YouTube 27:19">27:19</a>。</li>
+    <li>Pilot 限定 2 到 3 天、3 到 4 个 power user、3 个明确任务，成功标准和客户共同起草；用户半天就能看出有没有价值，把 pilot 从两周压到 48 到 72 小时能缩短两周销售周期 <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=2908s" target="_blank" rel="noopener" title="YouTube 48:28">48:28</a> <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=3151s" target="_blank" rel="noopener" title="YouTube 52:31">52:31</a>。</li>
+    <li>价格和销售周期挂钩：90 天能签 10 万美元就一直这么做，要 9 个月的单子应收 25 万到 30 万美元。健康赢率 25% 到 35%，“If your win rate is higher than that, your price is too low.” <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=3576s" target="_blank" rel="noopener" title="YouTube 59:36">59:36</a> <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=4121s" target="_blank" rel="noopener" title="YouTube 68:41">68:41</a></li>
+    <li>服务费仍是企业预算里最大的一项，企业习惯买服务；对成熟度低的客户可以先卖服务再卖软件 <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=4725s" target="_blank" rel="noopener" title="YouTube 78:45">78:45</a> <a class="ts" href="https://www.youtube.com/watch?v=YS9In813jJ0&amp;t=4785s" target="_blank" rel="noopener" title="YouTube 79:45">79:45</a>。</li>
+  </ul>
+  <p>Anish Acharya 从买方侧确认了窗口：企业愿意为员工付每月 200 美元，愿意在不完全清楚买到什么的情况下签百万美元 ACV 的合同，现在像 2009 年圣诞节人人拿到 iPhone 想装 app <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=3750s" target="_blank" rel="noopener" title="YouTube 62:30">62:30</a>。Adam Ward 说 CFO 已经开始收到 AI 账单，需要有人帮他们从最大化 token 转向按任务选模型，这是 FDE 岗位需求的来源之一 <a class="ts" href="https://www.youtube.com/watch?v=zegYJ6dhIg4&amp;t=427s" target="_blank" rel="noopener" title="YouTube 07:07">07:07</a>。</p>
+
+  <h3 id="s5-4">5.4 定价与 token 成本</h3>
+  <ul>
+    <li>Tony Fadell：消费者不会长期付 20 或 200 美元一个月给 AI，除非它不可思议，很多人的体验是付了钱拿到 Siri 1.0。含义是把 AI 藏进产品，让它便宜到用户不用算账 <a class="ts" href="https://www.youtube.com/watch?v=RJjl1TwyfWM&amp;t=4187s" target="_blank" rel="noopener" title="YouTube 69:47">69:47</a>。</li>
+    <li>Mark Pincus 转述 Gary Tan 的想法：今天买的 token 一两年后基本免费，所以现在就按“token 免费”来重新设计消费服务；当下 premium 游戏和 app 调 AI 会撞 token 上限，绕过这个限制本身可能是创新点 <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=4018s" target="_blank" rel="noopener" title="YouTube 66:58">66:58</a> <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=4078s" target="_blank" rel="noopener" title="YouTube 67:58">67:58</a>。</li>
+    <li>Anish Acharya 反过来主张消费级软件可以很贵：练习题是“我们产品的 Birkin bag 版（每月 1,000 到 10,000 美元）要做到什么才配这个价”，价格是 PMF 的一种度量。Lenny 说自己同时有多个每月 200 美元的订阅，Cursor 出了每月 300 美元的档 <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=3992s" target="_blank" rel="noopener" title="YouTube 66:32">66:32</a> <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=3507s" target="_blank" rel="noopener" title="YouTube 58:27">58:27</a>。</li>
+    <li>Anthropic 限制了 OpenClaw 等第三方用 Claude 订阅的用法：需求太大，harness 是为第一方产品的使用模式做的 token 效率优化，决定优先第一方产品和 API <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=786s" target="_blank" rel="noopener" title="YouTube 13:06">13:06</a>。</li>
+  </ul>
+
+  <h3 id="s5-5">5.5 新的收入形态</h3>
+  <ul>
+    <li>Claude for small business：Cowork 里一个开关，把小商家常用的插件打包，起因是 Fiona 帮开餐馆的朋友上手时对方不断问“有没有某某插件”。Cowork 本身也是从“很多非程序员在用 Claude Code”这个潜在需求里长出来的 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=1996s" target="_blank" rel="noopener" title="YouTube 33:16">33:16</a> <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=1936s" target="_blank" rel="noopener" title="YouTube 32:16">32:16</a>。</li>
+    <li>一人公司。Claire Vo 一个人跑 ChatPRD，企业客户多，PLG 注册转企业线索交给销售 agent；Maven 课程因为有 agent 支持才敢接，第一版请不起运营和工程师，用 agent 顶上 <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=3034s" target="_blank" rel="noopener" title="YouTube 50:34">50:34</a> <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=3580s" target="_blank" rel="noopener" title="YouTube 59:40">59:40</a>。</li>
+    <li>把 forward deployed engineer 能力当咨询卖。Every 把内部维护 agent 的工程师外派给客户 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=3276s" target="_blank" rel="noopener" title="YouTube 54:36">54:36</a>。</li>
+    <li>OpenAI 合并 Codex 和 ChatGPT 的决策依据是一个行为信号：市场、公关、财务、法务都在用 Codex，尽管它对这些人“actively hostile”；公司先把 Codex 能力加进 ChatGPT 桌面版和 Atlas 浏览器，结果没人离开 Codex app，才决定合并 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=3155s" target="_blank" rel="noopener" title="YouTube 52:35">52:35</a>。</li>
+    <li>Nikhyl Singhal 给社区做了三个 agent：成员配对、岗位与求职者匹配、基于他内容训练的问答；他读别人的提问和 AI 的回答，找出“LLM 和我在哪里不一致”再写文章 <a class="ts" href="https://www.youtube.com/watch?v=yUohoaC8_Hs&amp;t=3584s" target="_blank" rel="noopener" title="YouTube 59:44">59:44</a>。</li>
+  </ul>
+
+  <h2 id="s6">六、产品、运营、增长</h2>
+
+  <h3 id="s6-1">6.1 增长团队的新配方</h3>
+  <p>Anthropic 增长团队的三条做法最完整。</p>
+  <ul>
+    <li>用 Claude 自动化增长实验。CASH（Claude Accelerates Sustainable Hypergrowth）几个月前启动，Opus 4.5 之前跑不通，4.6 之后开始出结果；目前只做文案改动和小 UI 调整，有人审批，胜率相当于 2 到 3 年经验的初级 PM。把一次实验拆成找机会、做功能、测试、分析四步分别打分，每周看每步是否变好。下一步把品牌 guideline 写成 skill 减少人审 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2057s" target="_blank" rel="noopener" title="YouTube 34:17">34:17</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2178s" target="_blank" rel="noopener" title="YouTube 36:18">36:18</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2299s" target="_blank" rel="noopener" title="YouTube 38:19">38:19</a>。</li>
+    <li>从小优化转向大赌注。传统增长团队 60% 到 70% 精力做中小优化，Anthropic 反过来 70/30 甚至 50/50 偏大赌注，理由是普通产品两年后价值涨 30% 到 50%，AI 产品两年后价值涨 100 到 1,000 倍，只做小优化会错过。Chrome extension 就是增长团队做的。他说这套只适用于 AI 是核心价值的产品 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=1573s" target="_blank" rel="noopener" title="YouTube 26:13">26:13</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=1694s" target="_blank" rel="noopener" title="YouTube 28:14">28:14</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=1876s" target="_blank" rel="noopener" title="YouTube 31:16">31:16</a>。</li>
+    <li>加对的摩擦。Claude onboarding 问用户是谁、感兴趣什么再推荐产品，很多人嫌流程长，但数据支持；他在 Mercury 那一季放弃指标只修 onboarding 质量，是到 Anthropic 之前最有效的一个季度 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=1212s" target="_blank" rel="noopener" title="YouTube 20:12">20:12</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=1152s" target="_blank" rel="noopener" title="YouTube 19:12">19:12</a>。从 ChatGPT 导入记忆这个功能，本质是解决新用户冷启动 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=850s" target="_blank" rel="noopener" title="YouTube 14:10">14:10</a>。</li>
+  </ul>
+  <p>激活是 AI 产品最大的难题，他叫它“capability overhead”：模型能力涨得比产品能引导用户使用的速度快，围绕一个模型跑完实验时，下一个模型已经让结论过时 <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=850s" target="_blank" rel="noopener" title="YouTube 14:10">14:10</a>。Ian Silber 在 OpenAI 看到同样的问题，做法是主体验极简，把前沿功能先放到桌面端、Codex、ChatGPT work 这类高意愿用户会用的地方试，验证后再收进十亿用户的主体验 <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=2375s" target="_blank" rel="noopener" title="YouTube 39:35">39:35</a>。</p>
+  <p>Mark Pincus 对增长团队的批评是 AI 被用错了：人们用它花三个月做一个想法，而不是一天测 100 个，“build it wrong before you know it's right” <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=2128s" target="_blank" rel="noopener" title="YouTube 35:28">35:28</a>。他的 FarmVille 案例是把原本要花 1,000 万美元投站外广告的注意力挪到游戏板上，把扩展包的不同美术版本锁在板上看点击，顺手卖提前两周进入的钥匙，收入 1,900 万美元，营销动作同时变成产品测试和收入 <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=2249s" target="_blank" rel="noopener" title="YouTube 37:29">37:29</a>。</p>
+
+  <h3 id="s6-2">6.2 产品：发布方式和形态</h3>
+  <ul>
+    <li>Research preview 降低发布承诺。Claude Code 团队几乎所有功能以 research preview 发布，明确标注早期产品、可能不长期支持，一两周就能出；工程师内部 dogfood 后贴到 evergreen launch room，docs、PMM、DevRel 次日出稿 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=423s" target="_blank" rel="noopener" title="YouTube 07:03">07:03</a> <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=484s" target="_blank" rel="noopener" title="YouTube 08:04">08:04</a>。代价是产品一致性，内部喜欢两种形态就都发出去让外部投票，因此违背“不做 onboarding”的原则加了 /powerup <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=1514s" target="_blank" rel="noopener" title="YouTube 25:14">25:14</a>。</li>
+    <li>OpenAI 设计团队的双轨。先判断这个功能一个月内会不会因模型能力、延迟变化而被推翻，会的就公开快速迭代，有的从想法到上线 4 小时；不会的才走完整的白板、Figma、原型、dogfood，“we try 100 things, we throw out 99” <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=2066s" target="_blank" rel="noopener" title="YouTube 34:26">34:26</a> <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=2005s" target="_blank" rel="noopener" title="YouTube 33:25">33:25</a>。</li>
+    <li>同一个功能可能要发六次。Ambrosino 说 Operator、Atlas 里的 agent、Codex web、内置浏览器本质是一条线，每次换更聪明的模型结果不同；原版 Codex web 让模型自己去干完再回来，形态太超前，“we were too AGI-pilled for the moment”，Claude Code 全本地、会问问题，反而对上了当时模型水平 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=2125s" target="_blank" rel="noopener" title="YouTube 35:25">35:25</a>。写完代码不等于该发布，它成了一个可以拿未来模型来测的样本。</li>
+    <li>“Claude 8 test”。Penn 常问团队如果 Claude 8 出来用户行为怎么变，今天该怎么建，产品要 forward compatible <a class="ts" href="https://www.youtube.com/watch?v=tivaWTTVRhY&amp;t=2068s" target="_blank" rel="noopener" title="YouTube 34:28">34:28</a>。Cat Wu 说 PM 最难的技能是定义一个月后产品该长什么样，要“the right amount of AGI pilled”：为超强模型做产品很容易，一个文本框就够，难的是为当前模型榨出最大能力 <a class="ts" href="https://www.youtube.com/watch?v=PplmzlgE0kg&amp;t=3089s" target="_blank" rel="noopener" title="YouTube 51:29">51:29</a>。</li>
+    <li>把自动化看成产品线索。OpenAI 观察全员自建工作流，重复出现的模式（很多人用 Obsidian 或 Notion 搭“记忆宫殿”）升级为一等功能 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=2850s" target="_blank" rel="noopener" title="YouTube 47:30">47:30</a>。Fiona 判断潜在需求的标准是看用户是否在“跳圈”才能把事办成 <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=2056s" target="_blank" rel="noopener" title="YouTube 34:16">34:16</a>。</li>
+    <li>Tara Seshan 的形态判断：知识工作产品的北极星是用户不做选择，输入任务后系统自动选 harness 和模型；ChatGPT 里 work 底层就是 Codex，去掉了编程 UI <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=1754s" target="_blank" rel="noopener" title="YouTube 29:14">29:14</a> <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=1935s" target="_blank" rel="noopener" title="YouTube 32:15">32:15</a>。她不再做 docs 和 sheets，改做一句提示词生成的小网站：团队游戏、徒步登记、接内部数据的看板 <a class="ts" href="https://www.youtube.com/watch?v=zMvBMfj4cSQ&amp;t=2905s" target="_blank" rel="noopener" title="YouTube 48:25">48:25</a>。</li>
+  </ul>
+
+  <h3 id="s6-3">6.3 设计的处境</h3>
+  <p>Lenny 的调查显示设计师和研究员是科技行业里最焦虑的人群 <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=243s" target="_blank" rel="noopener" title="YouTube 04:03">04:03</a>。Ian Silber 的解释是工程师靠 coding agent 提效 10 到 100 倍，设计流程因为要反复试错、要多方达成一致，没有同样压缩，加上没人说清设计师现在该做什么 <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=243s" target="_blank" rel="noopener" title="YouTube 04:03">04:03</a> <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=303s" target="_blank" rel="noopener" title="YouTube 05:03">05:03</a>。Ambrosino 从训练角度补了原因：设计比代码难打分，人类品味是反馈回路的一环；实验室优先训练能加速 AI 研究的能力，写对代码在飞轮里，设计不在 <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=726s" target="_blank" rel="noopener" title="YouTube 12:06">12:06</a>。</p>
+  <p>各家的应对不同。Netflix 招 design systems 思维的人做模板和品牌表达，让非设计师也能做出连贯产品，避免出“Frankensteins” <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=907s" target="_blank" rel="noopener" title="YouTube 15:07">15:07</a>。Notion 搭了一个小的、对 LLM 友好的 playground 代码库，把设计师和 PM 引到终端里用 Claude Code 和 Codex 做原型，后来他们也能向生产库提交；Max 说宁要一个懂 agent loop 怎么运作的设计师，也不要一个只会调 UI 样式的 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=180s" target="_blank" rel="noopener" title="YouTube 03:00">03:00</a> <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=485s" target="_blank" rel="noopener" title="YouTube 08:05">08:05</a>。Ian Silber 给团队的口头禅是“do less”：能用现有组件就不新设计，能扩展现有功能就不做新功能 <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=1883s" target="_blank" rel="noopener" title="YouTube 31:23">31:23</a>。他的一位朋友筹划创业时打算 2 个设计师配 1 个工程师，过去常见的是 1 配 15 <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=911s" target="_blank" rel="noopener" title="YouTube 15:11">15:11</a>。Snap 走另一条路，设计是发布的强制关卡，宁可慢也要一致 <a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=2179s" target="_blank" rel="noopener" title="YouTube 36:19">36:19</a>。</p>
+  <p>Elizabeth Stone 直接反对“设计流程已死”：大型消费产品把复杂性藏起来靠的是设计思维，不能被写代码变快挤掉 <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=1213s" target="_blank" rel="noopener" title="YouTube 20:13">20:13</a>。Mosseri 看多设计师，因为 taste 最难被自动化，他预计最强的 product staff 会来自设计和数据科学转岗 <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=484s" target="_blank" rel="noopener" title="YouTube 08:04">08:04</a>。</p>
+
+  <h3 id="s6-4">6.4 分发和平台</h3>
+  <p>Mark Pincus 认为 AI 还不是平台：有了新入口，但既不是硬件平台，也还不是给其他 app 用的界面平台；新平台的标志是打开“发现”，而现在平均每人每月新装 app 为 0，去年 App Store 上线约 4 万款游戏 0 款进前十 <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=3713s" target="_blank" rel="noopener" title="YouTube 61:53">61:53</a> <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=3833s" target="_blank" rel="noopener" title="YouTube 63:53">63:53</a>。他预期各大 LLM 在编码上竞争之后会回到消费者，出现面向消费者的 agent 平台，agentic travel agent 这类服务只有嵌进 OpenAI 或 Claude 才有分发 <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=4261s" target="_blank" rel="noopener" title="YouTube 71:01">71:01</a> <a class="ts" href="https://www.youtube.com/watch?v=7eh9C3TUotc&amp;t=4381s" target="_blank" rel="noopener" title="YouTube 73:01">73:01</a>。</p>
+  <p>Anish Acharya 说 consumer AI 被卡住的三件事：模型太贵做不了免费产品、界面问题（chat 适合最高能动性的人，普通人的理想界面是 TikTok）、技术过度偏向生产力而非人际连接和娱乐；open-weight 模型正在解决第一条 <a class="ts" href="https://www.youtube.com/watch?v=LdIyXiq2DTY&amp;t=2056s" target="_blank" rel="noopener" title="YouTube 34:16">34:16</a>。Mosseri 认为 AI 内容对 Instagram 是顺风，合成内容泛滥时人会更追求创作者和真实，但目前还不擅长给 AI 内容排序 <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=2420s" target="_blank" rel="noopener" title="YouTube 40:20">40:20</a>。Benedict Evans 的观察是 13 到 18 岁人群里只有 15% 到 20% 是日活，60% 不用，技术圈以外的多数人一两周用一次 <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=485s" target="_blank" rel="noopener" title="YouTube 08:05">08:05</a>。</p>
+
+  <h2 id="s7">七、分歧地图</h2>
+  <p>半年里嘉宾之间直接对立的六个问题。两边都是一线的人，本文不裁决。</p>
+  <div class="tbl">
+    <table>
+      <caption>六个直接对立的判断</caption>
+      <thead><tr><th scope="col">问题</th><th scope="col">一方</th><th scope="col">另一方</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">PM 该不该存在</th><td>Whatnot 默认不配 PM；Rabois 说中介角色说不通 <a class="ts" href="https://www.youtube.com/watch?v=ruvis-VWg2s&amp;t=362s" target="_blank" rel="noopener" title="YouTube 06:02">06:02</a> <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=2123s" target="_blank" rel="noopener" title="YouTube 35:23">35:23</a></td><td>OpenAI Codex 负责人说取消是“terrible idea”；Anthropic 增长负责人说可能需要更多 PM <a class="ts" href="https://www.youtube.com/watch?v=P3KDebPTUrw&amp;t=1457s" target="_blank" rel="noopener" title="YouTube 24:17">24:17</a> <a class="ts" href="https://www.youtube.com/watch?v=k-H4nsOTuxU&amp;t=2661s" target="_blank" rel="noopener" title="YouTube 44:21">44:21</a></td></tr>
+        <tr><th scope="row">要不要和用户聊</th><td>Rabois：消费产品不要问客户想要什么，“I hate talking to customers” <a class="ts" href="https://www.youtube.com/watch?v=xCd9ykretlg&amp;t=3089s" target="_blank" rel="noopener" title="YouTube 51:29">51:29</a></td><td>Spiegel：必须聊，尽早尽多，可以不采纳但要听 <a class="ts" href="https://www.youtube.com/watch?v=-7Yol5vX5xw&amp;t=1513s" target="_blank" rel="noopener" title="YouTube 25:13">25:13</a></td></tr>
+        <tr><th scope="row">设计流程死没死</th><td>Jenny Wen（3 月 1 日那期，本文范围外）说设计流程已死；Silber 说大部分功能公开迭代 <a class="ts" href="https://www.youtube.com/watch?v=BV0hy6NET-U&amp;t=2066s" target="_blank" rel="noopener" title="YouTube 34:26">34:26</a></td><td>Stone：设计思维不能被写代码变快挤掉 <a class="ts" href="https://www.youtube.com/watch?v=t0GiTyz4syY&amp;t=1213s" target="_blank" rel="noopener" title="YouTube 20:13">20:13</a></td></tr>
+        <tr><th scope="row">Token 排行榜</th><td>Max Schoening 理解 Meta 搞排行榜，几万人规模上让人识别外层循环出奇地费劲 <a class="ts" href="https://www.youtube.com/watch?v=mCO-D3pkviM&amp;t=2242s" target="_blank" rel="noopener" title="YouTube 37:22">37:22</a></td><td>Mosseri：“terrible idea”；Fiona：token maxing 是新版代码行数 <a class="ts" href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ&amp;t=1272s" target="_blank" rel="noopener" title="YouTube 21:12">21:12</a> <a class="ts" href="https://www.youtube.com/watch?v=Ybrl4FYM57c&amp;t=2419s" target="_blank" rel="noopener" title="YouTube 40:19">40:19</a></td></tr>
+        <tr><th scope="row">自动化会不会减少人</th><td>Nikhyl 预测 12 到 24 个月内大公司先裁 30,000 再招 8,000 AI-first <a class="ts" href="https://www.youtube.com/watch?v=yUohoaC8_Hs&amp;t=1332s" target="_blank" rel="noopener" title="YouTube 22:12">22:12</a></td><td>Evans：Excel 出现后投行分析师没有周五中午下班，做便宜了人们通常做更多；最先进的 AI 公司都在加人 <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=786s" target="_blank" rel="noopener" title="YouTube 13:06">13:06</a> <a class="ts" href="https://www.youtube.com/watch?v=BD3vLtWhT5A&amp;t=1032s" target="_blank" rel="noopener" title="YouTube 17:12">17:12</a></td></tr>
+        <tr><th scope="row">个人 agent 还是公司 agent</th><td>Claire Vo：9 个按岗位拆的个人 agent，用管人的方法管 <a class="ts" href="https://www.youtube.com/watch?v=DIa0MYJzM5I&amp;t=2423s" target="_blank" rel="noopener" title="YouTube 40:23">40:23</a></td><td>Dan Shipper：一家公司一个 super agent，个人 agent 没人在乎就没用 <a class="ts" href="https://www.youtube.com/watch?v=4D3hDmGhFhA&amp;t=790s" target="_blank" rel="noopener" title="YouTube 13:10">13:10</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s8">八、30 期一览</h2>
+  <p>按发布日期排序。相关度是本文的判断：高指嘉宾在讲自己公司内部怎么用 AI，中指有一手案例但主线是别的，低指主题与五个问题基本无关。</p>
+  <div class="tbl eps">
+    <table>
+      <caption>2026 年 3 月 8 日到 9 月 6 日的 30 期</caption>
+      <thead><tr><th scope="col">日期</th><th scope="col">嘉宾</th><th scope="col">标题</th><th scope="col">相关度</th></tr></thead>
+      <tbody>
+        <tr><td>03-08</td><td>Qasar Younis，Applied Intuition</td><td><a href="https://www.youtube.com/watch?v=_rcniEb9bLw" target="_blank" rel="noopener">The real AI revolution isn't software. It's farms, mines, and trucks.</a></td><td>中</td></tr>
+        <tr><td>03-12</td><td>Lenny Rachitsky（由 Michelle Rial 采访）</td><td><a href="https://www.youtube.com/watch?v=HEqrvF7ztBE" target="_blank" rel="noopener">A behind-the-scenes interview with Lenny Rachitsky</a></td><td>低</td></tr>
+        <tr><td>03-15</td><td>Jacob Warwick</td><td><a href="https://www.youtube.com/watch?v=pEis2CBomVA" target="_blank" rel="noopener">He's negotiated $1B+ in executive compensation</a></td><td>低</td></tr>
+        <tr><td>03-22</td><td>Jessica Fain，Webflow</td><td><a href="https://www.youtube.com/watch?v=RP4vJeIb7WU" target="_blank" rel="noopener">The art of influence</a></td><td>中</td></tr>
+        <tr><td>03-29</td><td>Claire Vo，ChatPRD</td><td><a href="https://www.youtube.com/watch?v=DIa0MYJzM5I" target="_blank" rel="noopener">From skeptic to true believer: How OpenClaw changed my life</a></td><td>高</td></tr>
+        <tr><td>04-02</td><td>Simon Willison</td><td><a href="https://www.youtube.com/watch?v=wc8FBhQtdsA" target="_blank" rel="noopener">An AI state of the union</a></td><td>高</td></tr>
+        <tr><td>04-05</td><td>Amol Avasarala，Anthropic 增长负责人</td><td><a href="https://www.youtube.com/watch?v=k-H4nsOTuxU" target="_blank" rel="noopener">Anthropic is automating its own growth</a></td><td>高</td></tr>
+        <tr><td>04-12</td><td>Keith Rabois，Khosla Ventures</td><td><a href="https://www.youtube.com/watch?v=xCd9ykretlg" target="_blank" rel="noopener">Hard truths about building in the AI era</a></td><td>中</td></tr>
+        <tr><td>04-19</td><td>Nikhyl Singhal，The Skip</td><td><a href="https://www.youtube.com/watch?v=yUohoaC8_Hs" target="_blank" rel="noopener">Why half of product managers are in trouble</a></td><td>中</td></tr>
+        <tr><td>04-23</td><td>Cat Wu，Anthropic Claude Code 产品负责人</td><td><a href="https://www.youtube.com/watch?v=PplmzlgE0kg" target="_blank" rel="noopener">How Anthropic's product team moves faster than anyone else</a></td><td>高</td></tr>
+        <tr><td>04-26</td><td>Evan Spiegel，Snap</td><td><a href="https://www.youtube.com/watch?v=-7Yol5vX5xw" target="_blank" rel="noopener">How to win when software is not a moat</a></td><td>中</td></tr>
+        <tr><td>05-02</td><td>Max Schoening，Notion</td><td><a href="https://www.youtube.com/watch?v=mCO-D3pkviM" target="_blank" rel="noopener">AI era skills: Why cultivating agency matters more than job titles</a></td><td>高</td></tr>
+        <tr><td>05-10</td><td>Eric Ries</td><td><a href="https://www.youtube.com/watch?v=PoJ1vTdHpks" target="_blank" rel="noopener">How Anthropic, Costco, and Patagonia all build incorruptible companies</a></td><td>低</td></tr>
+        <tr><td>05-17</td><td>Caitlin Kalinowski</td><td><a href="https://www.youtube.com/watch?v=G5WTgB87rYQ" target="_blank" rel="noopener">Why the next AI boom is physical AI</a></td><td>中</td></tr>
+        <tr><td>05-24</td><td>Dan Shipper，Every</td><td><a href="https://www.youtube.com/watch?v=4D3hDmGhFhA" target="_blank" rel="noopener">AI predictions: Job markets, Codex beats Claude, and the death of org charts</a></td><td>高</td></tr>
+        <tr><td>05-31</td><td>Benedict Evans</td><td><a href="https://www.youtube.com/watch?v=BD3vLtWhT5A" target="_blank" rel="noopener">The most rational take on AI you'll hear this year</a></td><td>中</td></tr>
+        <tr><td>06-07</td><td>Tony Fadell</td><td><a href="https://www.youtube.com/watch?v=RJjl1TwyfWM" target="_blank" rel="noopener">How to build real taste (and why AI makes it matter more)</a></td><td>中</td></tr>
+        <tr><td>06-14</td><td>Mark Pincus，Zynga</td><td><a href="https://www.youtube.com/watch?v=7eh9C3TUotc" target="_blank" rel="noopener">The hidden pattern behind successful products</a></td><td>中</td></tr>
+        <tr><td>06-21</td><td>Fiona Fung，Anthropic Claude Code 团队负责人</td><td><a href="https://www.youtube.com/watch?v=Ybrl4FYM57c" target="_blank" rel="noopener">What happens after coding is solved?</a></td><td>高</td></tr>
+        <tr><td>06-28</td><td>Andrew Ambrosino，OpenAI Codex</td><td><a href="https://www.youtube.com/watch?v=P3KDebPTUrw" target="_blank" rel="noopener">Why OpenAI is merging Codex and ChatGPT</a></td><td>高</td></tr>
+        <tr><td>07-09</td><td>Adam Mosseri，Instagram</td><td><a href="https://www.youtube.com/watch?v=yQ_EWmtfWvQ" target="_blank" rel="noopener">The rise of taste, human authenticity and judgment in an AI world</a></td><td>高</td></tr>
+        <tr><td>07-12</td><td>Noam Segal</td><td><a href="https://www.youtube.com/watch?v=_cmpIveXnvE" target="_blank" rel="noopener">Why the AI's honeymoon is ending (and tech workers are feeling it)</a></td><td>中</td></tr>
+        <tr><td>07-19</td><td>Elizabeth Stone，Netflix CPTO</td><td><a href="https://www.youtube.com/watch?v=t0GiTyz4syY" target="_blank" rel="noopener">Why Netflix is betting on systems thinkers, not specialists</a></td><td>高</td></tr>
+        <tr><td>07-26</td><td>Dianne Penn，Anthropic 研究产品负责人</td><td><a href="https://www.youtube.com/watch?v=tivaWTTVRhY" target="_blank" rel="noopener">Why AI is going vertical (again)</a></td><td>高</td></tr>
+        <tr><td>08-02</td><td>Tom Verrilli，Whatnot CPO</td><td><a href="https://www.youtube.com/watch?v=ruvis-VWg2s" target="_blank" rel="noopener">This CPO regrets that product management exists</a></td><td>中</td></tr>
+        <tr><td>08-09</td><td>Adam Ward，Cursor 人才负责人</td><td><a href="https://www.youtube.com/watch?v=zegYJ6dhIg4" target="_blank" rel="noopener">The playbook for building high talent density teams</a></td><td>中</td></tr>
+        <tr><td>08-16</td><td>Ian Silber，OpenAI 设计负责人</td><td><a href="https://www.youtube.com/watch?v=BV0hy6NET-U" target="_blank" rel="noopener">Chatbots are not the final interface</a></td><td>中</td></tr>
+        <tr><td>08-23</td><td>Jen Abel</td><td><a href="https://www.youtube.com/watch?v=YS9In813jJ0" target="_blank" rel="noopener">84 minutes of enterprise sales alpha</a></td><td>中</td></tr>
+        <tr><td>08-30</td><td>Tara Seshan，OpenAI ChatGPT work 负责人</td><td><a href="https://www.youtube.com/watch?v=zMvBMfj4cSQ" target="_blank" rel="noopener">AI's third era: the rise of persistent AI coworkers</a></td><td>高</td></tr>
+        <tr><td>09-06</td><td>Anish Acharya，a16z</td><td><a href="https://www.youtube.com/watch?v=LdIyXiq2DTY" target="_blank" rel="noopener">Why companies are becoming a series of loops</a></td><td>高</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s9">九、方法与来源</h2>
+  <p>数据获取：2026 年 9 月 8 日用 yt-dlp 列出 Lenny’s Podcast YouTube 频道最近 80 个视频，取上传日期在 2026 年 3 月 8 日到 9 月 6 日之间的 30 期，下载英文自动字幕（en-orig 轨道），去掉滚动重复后转成带分钟标记的纯文本，共约 51.7 万词。每期由一位阅读者按五个问题逐期写结构化笔记并标时间戳，本文在笔记之上归纳，所有时间戳回指字幕里最近的分钟标记，误差在一分钟内。</p>
+  <p>没拿到什么：Lenny 公开的官方 transcript 文件夹（Dropbox）本次未能访问，GitHub 上的社区归档只到 2026 年 1 月，所以字幕来自 YouTube 自动识别，人名和产品名偶有拼错，引用时已按上下文校正。4 期的默认英文轨道是外语字幕机翻回英文的版本，已换成原始英文轨道重新读过。所有数字均为嘉宾自述或转述，未做独立核实；Lenny 在节目里引用的数字标明为“Lenny 引数据”。3 月 1 日 Jenny Wen（“设计流程已死”）和 2 月 19 日 Boris Cherny 两期在本文时间范围之外，第七节提到时只作背景。</p>
+  <ol class="sources">
+    <li id="src-1">Lenny’s Podcast YouTube 频道，<a href="https://www.youtube.com/@LennysPodcast/videos" target="_blank" rel="noopener">youtube.com/@LennysPodcast</a>，30 期视频及自动字幕，取样 2026-09-08。各期链接见第八节。</li>
+    <li id="src-2">Lenny’s Newsletter 播客归档，<a href="https://www.lennysnewsletter.com/podcast/archive" target="_blank" rel="noopener">lennysnewsletter.com/podcast/archive</a>。</li>
+    <li id="src-3">ChatPRD 维护的社区 transcript 归档（至 2026 年 1 月），<a href="https://github.com/ChatPRD/lennys-podcast-transcripts" target="_blank" rel="noopener">github.com/ChatPRD/lennys-podcast-transcripts</a>，用于确认早期 episode 格式，本文范围内未使用其内容。</li>
+    <li id="src-4">Lenny Rachitsky 在 X 上发布的官方 transcript 文件夹说明（2026 年 1 月），<a href="https://x.com/lennysan/status/2011243567340298651" target="_blank" rel="noopener">x.com/lennysan</a>，本次未能访问文件夹本身。</li>
+  </ol>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) det.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

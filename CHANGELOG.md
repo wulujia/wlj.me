@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-08
+
+- 新增资料页《Lenny 播客半年 AI 实践调研》，`static/reading/lenny-podcast-ai-2026-09/index.html`，自包含 HTML：样本 / 提效 / 组织 / AI 进入流程 / 用 AI 挣钱 / 产品运营增长 / 分歧地图 / 30 期一览 / 方法与来源，284 条 YouTube 时间戳直链，左侧固定大纲，`index,follow` + canonical，顶部返回链接。`data/reading-materials.toml` 新增 report 条目。
+
 ## 2026-09-07
 
 - 中国经济资料页目录：不带编号的二级条目（访谈时怎么问、评估部分引用）之前被竖排成一字一行，原因是子链接用了两列 grid，没有编号的文字落进 14px 的编号列。改为编号用固定宽度 inline-block，grid 去掉。
