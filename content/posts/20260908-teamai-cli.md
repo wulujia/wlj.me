@@ -4,6 +4,7 @@ date: 2026-09-08T12:36:25+08:00
 lastmod: 2026-09-08T12:36:25+08:00
 author: "Luca"
 tags: ["AI","Tools","Team"]
+description: "腾讯开源的 TeamAI 用 Git 和 MR 同步 Claude Code、Codex 等工具的 skills、rules、hooks、MCP 和团队经验；本文整理能力、安装方式与风险。"
 draft: false
 slug: "20260908-teamai-cli"
 ---
