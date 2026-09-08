@@ -1,0 +1,3694 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>台北國際照顧博覽會：養老產品分類與分析</title>
+<meta name="robots" content="index,follow">
+<meta name="description" content="2026 台北國際照顧博覽會官方產品目錄的分類統計：464 件產品、11 個官方類別的數量分布，產品數最多的展商 Top 20，攤位區域分布，以及分類口徑與抓取方法說明。">
+<link rel="canonical" href="https://wlj.me/reading/caresexpo-2026-taxonomy/">
+<meta property="og:title" content="台北國際照顧博覽會：養老產品分類與分析"><meta property="og:description" content="2026 台北國際照顧博覽會官方產品目錄的分類統計：464 件產品、11 個官方類別的數量分布，產品數最多的展商 Top 20，攤位區域分布，以及分類口徑與抓取方法說明。"><meta property="og:type" content="article"><meta property="og:url" content="https://wlj.me/reading/caresexpo-2026-taxonomy/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f1ea;
+  --surface: #fffdf8;
+  --ink: #1c2422;
+  --ink-2: #4d5654;
+  --ink-3: #7a837f;
+  --rule: #e2ddd2;
+  --accent: #0f6e56;
+  --accent-2: #c45c26;
+  --wash: rgba(15,110,86,.08);
+  --wash-2: rgba(196,92,38,.10);
+  --chip: #eef6f2;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #141816; --surface: #1c211f; --ink: #f2f4f1; --ink-2: #b7c0bc;
+    --ink-3: #87918d; --rule: #2c3431; --accent: #3cbc96; --accent-2: #e08955;
+    --wash: rgba(60,188,150,.12); --wash-2: rgba(224,137,85,.14); --chip: #24302c;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141816; --surface: #1c211f; --ink: #f2f4f1; --ink-2: #b7c0bc;
+  --ink-3: #87918d; --rule: #2c3431; --accent: #3cbc96; --accent-2: #e08955;
+  --wash: rgba(60,188,150,.12); --wash-2: rgba(224,137,85,.14); --chip: #24302c;
+}
+#reading-return { font-size: 13px; margin: 0 0 18px; }
+#reading-return a { color: var(--ink-3); text-decoration: none; }
+#reading-return a:hover { color: var(--accent); text-decoration: underline; }
+@media print { #reading-return { display: none; } }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Noto Sans TC", system-ui, sans-serif;
+  line-height: 1.65; font-size: 15px;
+}
+.wrap {
+  display: grid; grid-template-columns: 200px minmax(0, 1100px); gap: 36px;
+  max-width: 1360px; margin: 0 auto; padding: 40px 20px 80px;
+}
+main { min-width: 0; }
+/* outline: sticky rail on wide screens, folded <details> on narrow ones */
+.outline {
+  position: sticky; top: 20px; align-self: start; max-height: calc(100vh - 40px);
+  overflow-y: auto; font-size: 13px; line-height: 1.5;
+}
+.outline summary { display: none; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 6px; }
+.outline > details > ul > li > a { font-weight: 500; }
+.outline ul ul { margin: 4px 0 8px 8px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 2px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--accent); }
+.outline .group {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .04em;
+  color: var(--ink-3); text-transform: uppercase; margin: 14px 0 6px;
+}
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: 1fr; gap: 16px; padding: 20px 14px 60px; }
+  .outline {
+    position: static; max-height: none; background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px;
+  }
+  .outline summary { display: list-item; cursor: pointer; font-weight: 500; font-size: 14px; }
+  .outline details[open] summary { margin-bottom: 8px; }
+  .outline > details > ul { columns: 2; column-gap: 20px; }
+  .outline > details > ul > li { break-inside: avoid; }
+  .outline ul ul { columns: 1; }
+  .outline .group { column-span: all; }
+}
+@media (max-width: 520px) { .outline > details > ul { columns: 1; } }
+@media print {
+  .wrap { display: block; max-width: none; padding: 0; }
+  .outline { display: none; }
+  h2, h3 { break-after: avoid; }
+  .card, tr { break-inside: avoid; }
+}
+header.hero {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 18px;
+  padding: 28px 28px 22px; margin-bottom: 22px;
+}
+.kicker {
+  font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .04em;
+  color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+}
+h1 {
+  font-family: "Noto Serif TC", serif; font-weight: 700; font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.25; margin: 0 0 10px;
+}
+.sub { color: var(--ink-2); margin: 0 0 18px; max-width: 62ch; }
+.metrics {
+  display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px;
+}
+@media (max-width: 720px) { .metrics { grid-template-columns: repeat(2,1fr); } }
+.metric {
+  background: var(--wash); border-radius: 12px; padding: 12px 14px;
+}
+.metric .n { font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 500; color: var(--accent); }
+.metric .l { display:block; color: var(--ink-3); font-size: 12px; margin-top: 2px; }
+nav.toc {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px;
+}
+nav.toc a {
+  text-decoration: none; color: var(--ink); background: var(--chip);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 6px 12px; font-size: 13px;
+}
+nav.toc a span { color: var(--ink-3); margin-left: 6px; font-family: "IBM Plex Mono", monospace; }
+section.panel {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 18px;
+  padding: 22px 24px; margin: 18px 0;
+}
+h2, h3 { scroll-margin-top: 16px; }
+h2 { font-family: "Noto Serif TC", serif; font-size: 22px; margin: 0 0 8px; }
+h3 { font-size: 16px; margin: 0 0 6px; }
+.theme {
+  padding: 14px 0; border-bottom: 1px solid var(--rule);
+}
+.theme:last-child { border-bottom: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { color: var(--ink-3); font-weight: 500; font-size: 12px; }
+.cat { margin: 22px 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 20px; }
+.cat-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+.cat-head .eng { color: var(--ink-3); margin: 0; font-size: 13px; }
+.stats { display: flex; gap: 14px; }
+.stats .num { font-family: "IBM Plex Mono", monospace; font-size: 22px; color: var(--accent-2); display:block; }
+.stats .lbl { font-size: 11px; color: var(--ink-3); }
+.subs { margin: 12px 0 16px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.subs li {
+  background: var(--wash-2); border-radius: 8px; padding: 6px 10px; font-size: 12px; color: var(--ink-2);
+}
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px;
+}
+.card {
+  border: 1px solid var(--rule); border-radius: 14px; padding: 12px 14px; background: var(--bg);
+}
+.card-top { display: flex; justify-content: space-between; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-3); }
+.booth { color: var(--accent); font-weight: 500; }
+.card .card-title { margin: 8px 0 4px; font-size: 15px; font-weight: 700; line-height: 1.35; }
+.card .en { font-size: 12px; color: var(--ink-3); margin-bottom: 6px; }
+.card .co { font-size: 12px; color: var(--ink-2); margin-bottom: 8px; }
+.card .desc { margin: 0; font-size: 12px; color: var(--ink-2); }
+.muted { color: var(--ink-3); }
+footer { margin-top: 28px; color: var(--ink-3); font-size: 12px; }
+.two { display: grid; grid-template-columns: 1.4fr .8fr; gap: 16px; }
+@media (max-width: 800px) { .two { grid-template-columns: 1fr; } }
+code { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="outline" aria-label="目錄">
+  <details open>
+    <summary>目錄</summary>
+    <ul>
+      <li><a href="#sec-summary">研究結論（先看這個）</a>
+        <ul>
+          <li><a href="#sum-1">輔具與居家生活支援仍是展會主力</a></li>
+          <li><a href="#sum-2">營養保健與復能並列第二曲線</a></li>
+          <li><a href="#sum-3">科技產品數量有限，但敘事很重</a></li>
+          <li><a href="#sum-4">寵物長照成為獨立展區敘事</a></li>
+          <li><a href="#sum-5">服務與經營管理仍偏薄</a></li>
+          <li><a href="#sum-6">展商集中度偏高，宜注意「一家多品」</a></li>
+        </ul>
+      </li>
+      <li><a href="#sec-taxonomy">官方分類架構</a></li>
+      <li><a href="#sec-top20">產品數最多的展商 Top 20</a></li>
+      <li><a href="#sec-booths">攤位區域分布</a></li>
+      <li><a href="#sec-method">資料與方法說明</a></li>
+      <li class="group">品類</li>
+      <li><a href="#h-cat-119">輔具/生活支援</a></li>
+      <li><a href="#h-cat-120">保健營養品/食品/藥品</a></li>
+      <li><a href="#h-cat-118">運動/復能</a></li>
+      <li><a href="#h-cat-124">多元照顧與工具</a></li>
+      <li><a href="#h-cat-126">寵物長照</a></li>
+      <li><a href="#h-cat-121">耗材</a></li>
+      <li><a href="#h-cat-125">其他</a></li>
+      <li><a href="#h-cat-116">系統平台</a></li>
+      <li><a href="#h-cat-122">醫療&amp;檢測設備</a></li>
+      <li><a href="#h-cat-123">經營管理服務</a></li>
+      <li><a href="#h-cat-117">科技產品</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回整理</a></div>
+  <header class="hero">
+    <div class="kicker">Cares Expo Taipei · Product Catalog Brief</div>
+    <h1>台北國際照顧博覽會：養老產品分類與分析</h1>
+    <p class="sub">依官網產品目錄整理的結構化研究稿：官方分類架構、產品清單、跨品類觀察與資料置信度說明。方便會前掃貨或會後對照。</p>
+    <div class="metrics">
+      <div class="metric"><span class="n">464</span><span class="l">不重複產品</span></div>
+      <div class="metric"><span class="n">96</span><span class="l">展商／公司</span></div>
+      <div class="metric"><span class="n">11</span><span class="l">官方大類</span></div>
+      <div class="metric"><span class="n">606</span><span class="l">官方分類計數加總*</span></div>
+    </div>
+    <nav class="toc"><a href="#cat-119">輔具/生活支援 <span>55</span></a><a href="#cat-120">保健營養品/食品/藥品 <span>55</span></a><a href="#cat-118">運動/復能 <span>18</span></a><a href="#cat-124">多元照顧與工具 <span>57</span></a><a href="#cat-126">寵物長照 <span>2</span></a><a href="#cat-121">耗材 <span>7</span></a><a href="#cat-125">其他 <span>158</span></a><a href="#cat-116">系統平台 <span>22</span></a><a href="#cat-122">醫療&amp;檢測設備 <span>1</span></a><a href="#cat-123">經營管理服務 <span>2</span></a><a href="#cat-117">科技產品 <span>87</span></a></nav>
+  </header>
+
+  <section class="panel">
+    <h2 id="sec-summary">研究結論（先看這個）</h2>
+    <article class="theme"><h3 id="sum-1">輔具與居家生活支援仍是展會主力</h3><p>官方分類裡「輔具/生活支援」掛名產品最多（約 140 次計數），涵蓋行動輔具、床及周邊、轉移位機、衛浴與家具。這反映台灣長照現場最剛需的「移動—臥床—如廁」三條日常動線，也是採購與補助最成熟的品類。</p></article><article class="theme"><h3 id="sum-2">營養保健與復能並列第二曲線</h3><p>「保健營養品/食品/藥品」與「運動/復能」官方計數都接近九旬。前者以營養調理食品為主；後者以復能/復健設備為大宗。意味著展會不只賣「硬輔具」，也在爭奪「吃得進去、練得起來」的預防與延緩失能市場。</p></article><article class="theme"><h3 id="sum-3">科技產品數量有限，但敘事很重</h3><p>官方「科技產品」僅約 20 個掛名，但目錄裡大量廠商（如感測、手環、離床偵測、系統平台）用科技話術包裝。真正高密度的是「系統平台」（資訊/監控/健康管理）與可穿戴偵測，而非人形機器人或高階 AI 設備——實用落地型科技多於炫技。</p></article><article class="theme"><h3 id="sum-4">寵物長照成為獨立展區敘事</h3><p>官方單列「寵物長照」且計數不低（約 44），子類含居家環境用品、智慧監測、專用輔具。這是台灣照顧博覽會相對獨特的擴張：把「高齡」從人延伸到陪伴動物，可能吸引跨界消費與新品牌。</p></article><article class="theme"><h3 id="sum-5">服務與經營管理仍偏薄</h3><p>「經營管理服務」（人力仲介、保險、建築設計等）官方計數約 30，低於硬體品類。若你關注機構運營、外籍看護仲介或長照建築，現場需要主動約談，不能只靠逛產品牆。</p></article><article class="theme"><h3 id="sum-6">展商集中度偏高，宜注意「一家多品」</h3><p>464 件產品來自約 96 家展商。頭部廠商單家即可貢獻數十件（例如玩具、水產食品、科技模組），瀏覽時建議以「展商 × 品類」雙維度看，避免把同一供應商的系列品誤當成市場多元性。</p></article>
+  </section>
+
+  <section class="panel">
+    <h2 id="sec-taxonomy">官方分類架構</h2>
+    <p class="muted">來自 <code>/API/Web/Catalog/Category</code>。子分類計數是官網掛名次數；同一產品可跨類，故加總會大於 464。</p>
+    <table>
+      <thead><tr><th>#</th><th>大類</th><th>英文</th><th>官方計數</th><th>子分類數</th><th>最大子類</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>輔具/生活支援</td><td>Support</td><td>140</td><td>8</td><td>行動輔具（64）</td></tr><tr><td>2</td><td>保健營養品/食品/藥品</td><td>Nutritional Supplement / Food / Medicine</td><td>89</td><td>5</td><td>營養調理食品（53）</td></tr><tr><td>3</td><td>運動/復能</td><td>Exercise</td><td>86</td><td>5</td><td>復能/復健設備（65）</td></tr><tr><td>4</td><td>多元照顧與工具</td><td>Accompany</td><td>48</td><td>3</td><td>樂齡玩具（31）</td></tr><tr><td>5</td><td>寵物長照</td><td>Pet&#x27;s Long-term Care</td><td>44</td><td>6</td><td>居家環境與生活用品（33）</td></tr><tr><td>6</td><td>耗材</td><td>Disposable</td><td>44</td><td>4</td><td>生活用品（29）</td></tr><tr><td>7</td><td>其他</td><td>Others</td><td>40</td><td>1</td><td>其他（40）</td></tr><tr><td>8</td><td>系統平台</td><td>System</td><td>34</td><td>7</td><td>資訊管理系統（13）</td></tr><tr><td>9</td><td>醫療&amp;檢測設備</td><td>Medical</td><td>31</td><td>6</td><td>行動醫材（8）</td></tr><tr><td>10</td><td>經營管理服務</td><td>Management</td><td>30</td><td>5</td><td>其他專業服務（13）</td></tr><tr><td>11</td><td>科技產品</td><td>Tech.</td><td>20</td><td>5</td><td>生理量測（6）</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="two">
+    <section class="panel">
+      <h2 id="sec-top20">產品數最多的展商 Top 20</h2>
+      <table>
+        <thead><tr><th>#</th><th>公司</th><th>產品數</th></tr></thead>
+        <tbody><tr><td>1</td><td>榕建科技有限公司</td><td>52</td></tr><tr><td>2</td><td>天時福水產食品股份有限公司</td><td>31</td></tr><tr><td>3</td><td>好童年玩具企業有限公司</td><td>23</td></tr><tr><td>4</td><td>晴鹿有限公司</td><td>17</td></tr><tr><td>5</td><td>捷威科技股份有限公司</td><td>16</td></tr><tr><td>6</td><td>長庚學校財團法人長庚科技大學</td><td>14</td></tr><tr><td>7</td><td>旺來旺食品股份有限公司</td><td>14</td></tr><tr><td>8</td><td>惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</td><td>12</td></tr><tr><td>9</td><td>玩偶的家實業股份有限公司</td><td>12</td></tr><tr><td>10</td><td>台灣邦妮有限公司</td><td>10</td></tr><tr><td>11</td><td>強生醫療儀器股份有限公司</td><td>10</td></tr><tr><td>12</td><td>闊腦有限公司</td><td>10</td></tr><tr><td>13</td><td>社團法人台灣腦心智發展與心理復健學會</td><td>8</td></tr><tr><td>14</td><td>佳樂美健康事業股份有限公司</td><td>8</td></tr><tr><td>15</td><td>聚德富有限公司</td><td>8</td></tr><tr><td>16</td><td>立偉國際貿易有限公司</td><td>8</td></tr><tr><td>17</td><td>明源橡膠工業股份有限公司</td><td>7</td></tr><tr><td>18</td><td>耀億工業股份有限公司</td><td>7</td></tr><tr><td>19</td><td>禾荳荳銀髮藝術</td><td>7</td></tr><tr><td>20</td><td>東庚企業股份有限公司</td><td>7</td></tr></tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2 id="sec-booths">攤位區域分布</h2>
+      <table>
+        <thead><tr><th>區域</th><th>產品數</th></tr></thead>
+        <tbody><tr><td>N 區</td><td>233</td></tr><tr><td>M 區</td><td>196</td></tr><tr><td>未標攤位</td><td>35</td></tr></tbody>
+      </table>
+      <p class="muted" style="margin-top:12px">N / M 為攤位號字首（現場展區代號），未標攤位多為資料未填。</p>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2 id="sec-method">資料與方法說明</h2>
+    <ul><li>資料來源：Cares Expo 公開 API（GET /API/Web/Catalog/Category、分頁 POST /API/Web/Catalog/ProductAll），抓取時間 2026-09-07 13:39（UTC+8）。</li><li>官網分類計數加總約 606，高於不重複產品數 464——同一產品可掛多個子分類，故「分類計數 ≠ 獨立 SKU 數」。</li><li>子分類篩選 API（ProductBySubCategoryId）需登入態（回 401），因此下方「研究分類」是依品名/描述/展商關鍵字對照官方大類的分析歸類，不是後台原始標籤的逐筆還原；置信度：官方大類結構高，逐品歸類中等。</li><li>僅約四分之一產品有中文描述；其餘多半只有品名與英文名，細分判斷會偏保守並落入「其他」。</li><li>目錄頁：https://www.caresexpo.com/zh-tw/catalog/home ；展會本身為台北國際照顧博覽會（Cares Expo Taipei）。</li></ul>
+    <p class="muted">歸類方法統計：company hint 209 · keyword 97 · fallback/其他 158。</p>
+  </section>
+
+  <section class="cat" id="cat-119">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-119">輔具/生活支援</h2>
+      <p class="eng">Support</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">55</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">140</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>行動輔具</strong> · 官方計數 64</li><li><strong>床及周邊</strong> · 官方計數 21</li><li><strong>轉移位機</strong> · 官方計數 16</li><li><strong>生活輔具</strong> · 官方計數 15</li><li><strong>家具</strong> · 官方計數 11</li><li><strong>衛浴產品</strong> · 官方計數 9</li><li><strong>其他輔助產品</strong> · 官方計數 3</li><li><strong>無障礙設施</strong> · 官方計數 1</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">N0601-0604</span><span class="pid">#6434</span></div>
+  <p class="card-title">擺位墊 (豆型、L型、V型、U型)</p>
+  
+  <div class="co">世大化成股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1002、N1004</span><span class="pid">#10246</span></div>
+  <p class="card-title">賦動外骨骼助行器</p>
+  <div class="en">FUDO EXOSKELETON </div>
+  <div class="co">台中大雅動力技術科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0609-0614</span><span class="pid">#6029</span></div>
+  <p class="card-title">新式電動按摩床</p>
+  <div class="en">Silentnight - New Generation Electric Massage Bed Series</div>
+  <div class="co">台灣平安夜股份有限公司</div>
+  <p class="desc">電動床十大特色 1. 三段式震動按摩 2. 平躺適合左右側睡取代一般床墊 3. 大V型拉伸舒緩脊椎與肌肉 4. 頭部升高 舒緩胃食使道逆流 5. 腳部升高 舒緩靜脈曲張與水腫 6. 反躺 趴睡 拉筋 各種姿勢輕鬆辦到 7. 伸展 拉伸左右側肌肉舒緩筋骨 8. 人性化 遙控器 記憶使用習慣 9. 304不鏽鋼鋼骨結構及貼…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0501-0504</span><span class="pid">#5992</span></div>
+  <p class="card-title">名一交替式減壓氣墊床墊(未滅菌)特殊尺寸</p>
+  <div class="en">YOFA Alternating Air Mattress Special Size</div>
+  <div class="co">名一生物科技股份有限公司</div>
+  <p class="desc">1.特殊⼩尺⼨氣墊床墊（名一分離式移位床YM2000系列專⽤） 2.數位調壓、交替/定壓/⾼壓充氣功能 2.快速接頭、CPR快速洩氣閘、拉鍊式床罩 3.三管交替 狗骨型PU材質 共18管 4.防⽔、透濕 伸展纖維布床罩材質 ☆可申請長照補助☆ 衛部醫器製壹字第009627號</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0501-0504</span><span class="pid">#5990</span></div>
+  <p class="card-title">名一分離式移位床(未滅菌) 氣墊床墊</p>
+  <div class="en">YOFA Separable Mobile Bed-Alternating Air Model</div>
+  <div class="co">名一生物科技股份有限公司</div>
+  <p class="desc">配備氣墊床墊 交替充氣、變壓功能，避免局部皮膚受壓，造成褥瘡等問題。 氣墊床能夠移出變成氣墊床椅，於室外可維持充氣狀態。 分離式移位床功能與特點： 1. 結合電動床＋輪椅 省錢省時省力省空間 2. 獨特床椅可坐、可躺臥、可移動，背部與腿部具有電動升降設計 3. 自由合離設計，為您提供照護上的便利，節省多樣輔具開銷 4.…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0501-0504</span><span class="pid">#5991</span></div>
+  <p class="card-title">名一分離式移位床(未滅菌) 泡棉床墊</p>
+  <div class="en">YOFA Separable Mobile Bed-Standard Model</div>
+  <div class="co">名一生物科技股份有限公司</div>
+  <p class="desc">配備高密度泡棉床墊，質感舒適透氣。 床罩防潑水，且整體操作步驟簡易方便。 分離式移位床功能與特點： 1. 結合電動床＋輪椅 省錢省時省力省空間 2. 獨特床椅可坐、可躺臥、可移動，背部與腿部具有電動升降設計 3. 自由合離設計，為您提供照護上的便利，節省多樣輔具開銷 4. 床椅可室內、室外移動，符合居家、機構環境及診療…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5835</span></div>
+  <p class="card-title">Molift Raiser Pro 魔立站立式移位機 </p>
+  <div class="en">Molift Raiser Pro</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">魔立站立式移位機活動手腳架設計為使用者提供從坐姿到站立的便利，同時協助照護人員輕鬆處理此過程，順利進行移位。獨特的腳部支撐設計使使用者能夠輕鬆用單手進行操作。即使在狹小的空間中，特別設計的輪鎖（左輪或右輪）可在需要時立即提供煞車功能。腳踏板的表面處理帶有細顆粒，有效防滑。握把的設計也讓使用者能隨意抓握，保持身體穩固。這…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5838</span></div>
+  <p class="card-title">Molift Smart 150 魔立折疊式移位機</p>
+  <div class="en">Molift Smart 150</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">基於復能原則，以身體活動為主要目標為前提，創新的移位機不僅能輕鬆幫助家人移動身體，還能減輕照顧者的負擔。它設計小巧輕便，佔用空間極少，即使在狹窄區域也輕鬆放置和操作。而4點式懸吊系統確保安全舒適的轉移，減輕腹部壓力，提供寬敞愉悅的使用體驗。不僅如此，這款移位機還可以無需使用工具即可折疊，便於家中或旅行時攜帶和移動。 移…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5837</span></div>
+  <p class="card-title">Rollz Motion 行遍天下助步車</p>
+  <div class="en">Rollz Motion</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">對於那些渴望出外探險，但又擔心疲勞的用戶來說，Rollz Motion 行遍天下助步車絕對是滿足您行動需求的最佳選擇。這款產品可以輕鬆地從助步車轉換成輪椅，讓您在長途旅程中獲得充足的休息，同時提供更高的自信心，勇於嘗試不同的外出行程。轉換成輪椅的過程非常簡便，只需短短20秒，無需任何工具。這一項創新設計確實為您的探險之…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5841</span></div>
+  <p class="card-title">WIBO德國工藝全方位電動床 sentida 5</p>
+  <div class="en">wissner-bosserhoff sentida 5</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">老年生活的新概念越來越受歡迎，大家都希望居住安排更具家庭氛圍、個性化、安全、舒適和靈活性。我們深知這些需求和變化，對於“防跌倒”和“預防褥瘡”更是給予高度重視，這些都是我們的專業基礎。通過引進全新的電動床sentida 5和定制化概念，我們能更靈活、高效地回應各種需求。主要目標是以解決問題的方式，支援、維護和促進身體的…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#6042</span></div>
+  <p class="card-title">連站2.0助步車</p>
+  <div class="en">Linkage 2.0 Walking Aid</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">我們的目標是減輕使用者和照顧者對跌倒的恐懼。通過確保安全，我們使照顧與被照顧者能夠在無障礙的環境中進行漸進性的訓練，並在防摔的前提下逐步增加訓練時數，從而減少對輪椅的依賴。這不僅有助於恢復使用者的信心，同時通過保持上軀幹的穩定性和助步車的防摔特性，使上肢代償逐漸減少。對於專業治療人員而言，助步車的防摔特性意味著他們可以…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#6342</span></div>
+  <p class="card-title">10段升降桌4R系列</p>
+  <div class="en">10段升降桌系列</div>
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">雙色可選（深、淺） 單側腳輪便於移動，單人即可輕鬆搬運 10段式高度調整，每段 2 公分，可調高度60-80公分</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#5804</span></div>
+  <p class="card-title">FB-033 現代風電動床</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">簡約設計，原木質調3馬達電動床，盡顯溫馨家居感。 5 片式床板設計，更加貼合身型，減輕背部上抬時腹部的壓迫感 附腳輪設計，照顧者移動電動床時更加省力、方便</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#6343</span></div>
+  <p class="card-title">HJ-1212Q 調高式內凹桌</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">桌邊內凹式弧度設計，入座時可更靠近桌面 美耐皿桌板硬度高，髒污、碰撞不易殘留痕跡 椅腳5cm無段式高度調整</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#6371</span></div>
+  <p class="card-title">Multi Fit 移動式組合扶手</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">■ 依照身體狀況、生活環境，搭配您的最適組合。 ■ 站立起身、室內移動，安心安全又輕鬆。 ■ 高度(四段調整) ■ 扶手(水平方向；材質可更換，木調、樹脂)</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#5796</span></div>
+  <p class="card-title">PITATTO旋轉單人椅(雙控)</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">■ 操控新升級，左右雙向操控功能，慣用手可輕鬆操控。 ■ 每45度角一個鎖位，八向自動鎖定。 ■ 前後滑動功能，調整與餐桌間距離，便於入座用餐。 ■ 新增座椅高度調整功能，調整適合自己的座面高度。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#8578</span></div>
+  <p class="card-title">【禾善】單馬達起身沙發</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#8585</span></div>
+  <p class="card-title">【禾善】四馬達起身沙發</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#6429</span></div>
+  <p class="card-title">【禾善】後躺休息椅</p>
+  <div class="en">HS-2B82</div>
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">附加可收納式腳靠，隨時享受舒適生活</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#5798</span></div>
+  <p class="card-title">多模組椅</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">模組化構件，針對使用者有多樣性變化 扶手加寬，雙手更舒適 附拐杖夾，置放手杖好方便 椅墊面特殊鍍膜，防汙、抗菌、好清消</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#6344</span></div>
+  <p class="card-title">梯形桌-UFT系列</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">雙色可選（深、淺） 美耐皿桌板硬度高，髒污、碰撞不易殘留痕跡 鋼製桌腳，穩固不搖晃 可額外加購6公分延長桌腳</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#5799</span></div>
+  <p class="card-title">椅背握把椅</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">椅背上端握把設計，搬移輕鬆好施力 扶手前緣上揚造型，不只好握，起身更輕鬆 椅面抗病毒、抗菌塗層，衛生、好清潔</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0415-0428</span><span class="pid">#5797</span></div>
+  <p class="card-title">樂站椅</p>
+  
+  <div class="co">惠祥貿易股份有限公司台北分公司(禾善長照家居生活館)</div>
+  <p class="desc">扶手前端前伸設計，方便抓握，起身好省力 側邊扶手內凹造，釋放空間、大腿不卡關 椅墊店特殊鍍膜，防汙、抗菌、好清消</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0515-M0520</span><span class="pid">#9974</span></div>
+  <p class="card-title">A29星夜名床</p>
+  <div class="en">Starry night</div>
+  <div class="co">新巢精品家具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0515-M0520</span><span class="pid">#9977</span></div>
+  <p class="card-title">S2名床</p>
+  <div class="en">STAR LIGHT2</div>
+  <div class="co">新巢精品家具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0515-M0520</span><span class="pid">#9978</span></div>
+  <p class="card-title">維羅納名床</p>
+  <div class="en">CX702名床</div>
+  <div class="co">新巢精品家具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0515-M0520</span><span class="pid">#9975</span></div>
+  <p class="card-title">貝尼名床</p>
+  <div class="en">CX708</div>
+  <div class="co">新巢精品家具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10014</span></div>
+  <p class="card-title">天使系列 - L型扶手</p>
+  <div class="en">L Basic Type</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10015</span></div>
+  <p class="card-title">天使系列 - L型扶手+衛生紙架</p>
+  <div class="en">L Paper Holder Type</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10016</span></div>
+  <p class="card-title">天使系列 - L型置物架+衛生紙架</p>
+  <div class="en">L Shelf+ Paper Holder Type</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10258</span></div>
+  <p class="card-title">天使系列 - 偏置型扶手L</p>
+  <div class="en">Off-Set Type L</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10013</span></div>
+  <p class="card-title">天使系列 - 偏置型扶手M</p>
+  <div class="en">Off-Set Type M</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10010</span></div>
+  <p class="card-title">天使系列 - 基本型扶手</p>
+  <div class="en">Bagic Type</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10012</span></div>
+  <p class="card-title">天使系列 - 基本型扶手+毛巾架</p>
+  <div class="en">Towel Hanger Type</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10011</span></div>
+  <p class="card-title">天使系列 - 基本型扶手+衛生紙架</p>
+  <div class="en">Paper Holder Type</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10018</span></div>
+  <p class="card-title">天使系列 - 角度可調式扶手/三段</p>
+  <div class="en">Adjustable Type II</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10017</span></div>
+  <p class="card-title">天使系列 - 角度可調式扶手/兩段</p>
+  <div class="en">Adjustable Type I</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10275</span></div>
+  <p class="card-title">極酷系列 - L型扶手550</p>
+  <div class="en">L Type 550</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10272</span></div>
+  <p class="card-title">極酷系列 - 基本型扶手1200</p>
+  <div class="en">Basic Type 1200</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10269</span></div>
+  <p class="card-title">極酷系列 - 基本型扶手400</p>
+  <div class="en">Basic Type 400</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10270</span></div>
+  <p class="card-title">極酷系列 - 基本型扶手600</p>
+  <div class="en">Basic Type 600</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10271</span></div>
+  <p class="card-title">極酷系列 - 基本型扶手900</p>
+  <div class="en">Basic Type 900</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10273</span></div>
+  <p class="card-title">極酷系列 - 階梯型扶手ACT-1</p>
+  <div class="en">Stepped Type ACT-1</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0405</span><span class="pid">#10274</span></div>
+  <p class="card-title">極酷系列 - 階梯型扶手ACT-2</p>
+  <div class="en">Stepped Type ACT-2</div>
+  <div class="co">晴鹿有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10192</span></div>
+  <p class="card-title">Joyrider 電動輪椅</p>
+  <div class="en">Ultra-light Folding Electric Chair</div>
+  <div class="co">東庚企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10195</span></div>
+  <p class="card-title">站立移位機</p>
+  <div class="en">Powered Transfer Lift</div>
+  <div class="co">東庚企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10194</span></div>
+  <p class="card-title">輪椅律動機</p>
+  <div class="en">Mini Vibration</div>
+  <div class="co">東庚企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10196</span></div>
+  <p class="card-title">電動看護床</p>
+  <div class="en">Electric Home Care Bed</div>
+  <div class="co">東庚企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#6061</span></div>
+  <p class="card-title">富足康科技足墊-廣用款</p>
+  <div class="en">FOOTDISC Ladis/Men Dress Insole</div>
+  <div class="co">歐立達股份有限公司</div>
+  <p class="desc">本產品2021年獲頒經濟部標檢局市售優良輔具評選優勝。 專利立體足弓片，分散足底壓力，提升減震效能，減緩足底不適。 皮鞋、高跟鞋、休閒鞋、靴子、原鞋墊無法移除之鞋具。 2021 經濟部標準檢驗局身心障礙與高齡者友善市售輔具評選優勝</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#6062</span></div>
+  <p class="card-title">富足康科技足墊-強效運動款</p>
+  <div class="en">FOOTDISC Proactive Insole</div>
+  <div class="co">歐立達股份有限公司</div>
+  <p class="desc">本產品2020年與2021年連續獲頒經濟部標檢局市售優良輔具評選優勝。 前掌及後足跟採用PORON®避震墊，特殊吸震及彈性材質，減少激烈的運動中受到傷害；並且透過不同旋轉度設計、硬中帶軟的3DBS立體足弓片，可減少運動傷害，還可以增加運動效能。 適用足腿型： 扁平足/X型腿、直型腿 低足弓/ X型腿。 2020 經濟部…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1015-1022</span><span class="pid">#5824</span></div>
+  <p class="card-title">AI智慧輪椅座墊</p>
+  <div class="en">AI Smart Seat Cushion</div>
+  <div class="co">滙嘉健康生活科技股份有限公司</div>
+  <p class="desc">AI智慧輪椅坐墊, 智慧輔助肺活量訓練, 幫助追蹤健康與復原. 產品特色: 腹式呼吸/深呼吸練習 呼吸訓練紀錄與追蹤 健康成長紀錄與追蹤 離開提示與異常提示</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0425-0428</span><span class="pid">#7538</span></div>
+  <p class="card-title">循環踏步訓練設備</p>
+  <div class="en">Circulating Trainer</div>
+  <div class="co">睿德輔具股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0425-0428</span><span class="pid">#7537</span></div>
+  <p class="card-title">步態訓練設備</p>
+  <div class="en">Balance Walker</div>
+  <div class="co">睿德輔具股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0425-0428</span><span class="pid">#7536</span></div>
+  <p class="card-title">輔助站立訓練設備</p>
+  <div class="en">SA Balance Walker</div>
+  <div class="co">睿德輔具股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6141</span></div>
+  <p class="card-title">氣壓可调式美臀墊</p>
+  <div class="en">Enlarge New Share to facebook twitter plurk linkedin Foldable Air Seat Cushion for Lumbar and Hip Support</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">1.人體工學造型設計，舒適貼合挺腰塑臀 2.雙氣囊核心設計，左右可平衡調整〔托昇、平降〕 3.簡單快速觸控式氣壓調整鈕，可微調個人專屬黃金角度 4.背部靠墊四段升降調整，完美支撐脊椎部 5.背墊可摺疊收納，更為輕巧不佔空間。 6.氣壓充放調整不需電力，節能環保。 ※.多國專利保護中</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-120">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-120">保健營養品/食品/藥品</h2>
+      <p class="eng">Nutritional Supplement / Food / Medicine</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">55</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">89</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>營養調理食品</strong> · 官方計數 53</li><li><strong>保健食品</strong> · 官方計數 14</li><li><strong>調製劑</strong> · 官方計數 10</li><li><strong>營養品</strong> · 官方計數 8</li><li><strong>中草藥</strong> · 官方計數 4</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5876</span></div>
+  <p class="card-title">FoodCare 食倍樂食物塑型粉</p>
+  <div class="en">Suberakaze</div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・來自日本介護食專家 ・日本市佔率高達70%以上 ・獨家專利，全球首支酵素膠化劑 ・添加澱粉酵素去除澱粉食材黏性，改變糊餐質地，好吞不黏 ・將糊餐塑型，保持食物外觀，促進食欲 ・70度以下即可成型，提供温熱吞嚥調整餐 ・柔軟滑順，吞嚥安全 *讓長者不再吃糊糊泥泥的餐* https://www.cm-healthlife…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0623、M0625、M0627 </span><span class="pid">#6027</span></div>
+  <p class="card-title">氫Spa沐浴機</p>
+  <div class="en">Hydro Spa Shower Machine</div>
+  <div class="co">光騰國際科技股份有限公司</div>
+  <p class="desc">氫分子具有氧化還原作用，是所有分子中最小的元素，也是最輕的氣體。它以極強的滲透力特性，自由運行於細胞的核心。經由身體最大器官-皮膚，尤其對肌膚的滑潤，美容保健，特別有效。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6010</span></div>
+  <p class="card-title">Sourcingcares.com</p>
+  
+  <div class="co">創新照顧</div>
+  <p class="desc">sourcingcares是產品採購的 B2B 英文網站，涵蓋各種產品信息和最新技術趨勢，從輔助設備、健康和保健設備、醫療保健設備到物聯網解決方案和高齡科技</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0408</span><span class="pid">#6433</span></div>
+  <p class="card-title">介護食品測定儀</p>
+  <div class="en">Care Food Tester </div>
+  <div class="co">墊一店奇想國際有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0408</span><span class="pid">#6397</span></div>
+  <p class="card-title">食感試驗機. 質構儀. 介護食品測試機 </p>
+  <div class="en">TPA Texture Analyzer,  Care Food Tester</div>
+  <div class="co">墊一店奇想國際有限公司</div>
+  <p class="desc">介護食品測試儀 Care Food Tester Model: CF-200N 「友善」食品、「安心」守護 簡單快速的檢測出食品的分級和硬度。 隨著社會逐漸闖高齡化發展，對介護食品的需求也越來愈高。在繁忙的照護工作中，介護食品測試儀 CF-200N可以簡單快速的檢測出食品的硬度﹑立即判定出日本通用設計食品 (UDF)和…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10055</span></div>
+  <p class="card-title">【天時福】午仔魚</p>
+  <div class="en">Four Finger Threadfin GGS</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10054</span></div>
+  <p class="card-title">【天時福】午仔魚一夜干</p>
+  <div class="en">Premium Half-Dried Threadfin</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10035</span></div>
+  <p class="card-title">【天時福】古早味魚皮魚丸湯</p>
+  <div class="en">Milkfish Skin Soup</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10051</span></div>
+  <p class="card-title">【天時福】思鄉丸</p>
+  <div class="en">Milkfish Balls (Mushrooms)</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#9863</span></div>
+  <p class="card-title">【天時福】抹茶膠原蛋白麵</p>
+  <div class="en">Collagen Noodles Sesame Flavor</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10039</span></div>
+  <p class="card-title">【天時福】椒麻鱸魚排</p>
+  <div class="en">Spicy Steamed SeaBass Fillet with Chili Sauce</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10040</span></div>
+  <p class="card-title">【天時福】泰式檸檬鱸魚排</p>
+  <div class="en">Cooked Fish Fillet Thai Style Lemon</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10044</span></div>
+  <p class="card-title">【天時福】海味小卷米粉</p>
+  <div class="en">Loligo Squid Vermicelli</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10048</span></div>
+  <p class="card-title">【天時福】狀元魚淬</p>
+  <div class="en">Milk Fish Soup</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10032</span></div>
+  <p class="card-title">【天時福】皮蛋雙寶粥</p>
+  <div class="en">Fish with Century Egg Congee</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10041</span></div>
+  <p class="card-title">【天時福】破布子鱸魚排</p>
+  <div class="en">Cooked Fish Steak Cordia Dichotoma</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10046</span></div>
+  <p class="card-title">【天時福】芝香膠原雙鮮煲</p>
+  <div class="en">Taiwanese Sesame Oil Chicken &amp; Fish Soup</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10036</span></div>
+  <p class="card-title">【天時福】蒜味虱目魚肚</p>
+  <div class="en">Cooked Fish Steak Garlic</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10034</span></div>
+  <p class="card-title">【天時福】薑絲虱目魚肚湯</p>
+  <div class="en">Milkfish Belly Soup</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10033</span></div>
+  <p class="card-title">【天時福】藥膳鱸魚湯</p>
+  <div class="en">See Bass with Red Jujube Soup</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10050</span></div>
+  <p class="card-title">【天時福】虱目魚丸</p>
+  <div class="en">Milkfish Balls</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10058</span></div>
+  <p class="card-title">【天時福】虱目魚肚</p>
+  <div class="en">Milkfish Belly</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10031</span></div>
+  <p class="card-title">【天時福】虱目魚肚粥</p>
+  <div class="en">Milkfish Belly Congee</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10045</span></div>
+  <p class="card-title">【天時福】酸菜鱸魚冬粉</p>
+  <div class="en">Sea Bass with Pickled Cabbage and Glass Noodles</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10038</span></div>
+  <p class="card-title">【天時福】酸菜鱸魚排</p>
+  <div class="en">Steamed SeaBass Fillet with Pickled Cabbage</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10053</span></div>
+  <p class="card-title">【天時福】金目鱸魚三清</p>
+  <div class="en">Barramundi (Gilled, Gutted Scaled)</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#9861</span></div>
+  <p class="card-title">【天時福】養生鱸魚粥</p>
+  <div class="en">Sea Bass with Red Jujube Congee</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10042</span></div>
+  <p class="card-title">【天時福】魚塘鍋物</p>
+  <div class="en">Fish Casserole</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10052</span></div>
+  <p class="card-title">【天時福】鱸魚丸</p>
+  <div class="en">Sea Bass Balls</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10049</span></div>
+  <p class="card-title">【天時福】鱸魚水餃</p>
+  <div class="en">Sea Bass Dumplings</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10047</span></div>
+  <p class="card-title">【天時福】鱸魚淬</p>
+  <div class="en">Sea Bass Essence</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#9862</span></div>
+  <p class="card-title">【天時福】鱸魚膠原蛋白麵</p>
+  <div class="en">Collagen Noodles Shallot Flavor</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10057</span></div>
+  <p class="card-title">【天時福】鱸魚菲力</p>
+  <div class="en">Barramundi Fillet</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10037</span></div>
+  <p class="card-title">【天時福】鳳梨豆鼓虱目魚肚</p>
+  <div class="en">Steamed Milkfish Belly With Pineapple</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10056</span></div>
+  <p class="card-title">【天時福】黃金鯧</p>
+  <div class="en">Golden Pompano</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0308</span><span class="pid">#10043</span></div>
+  <p class="card-title">【天時福】黃金鯧米粉</p>
+  <div class="en">Golden Pompano Rice Vermiceli</div>
+  <div class="co">天時福水產食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10082</span></div>
+  <p class="card-title">加味四珍寶飲</p>
+  <div class="en">Augmented Four-Treasure Decoction</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10101</span></div>
+  <p class="card-title">港式陳皮蓮子紅豆沙</p>
+  <div class="en">Red Bean Paste with Tangerine Peel</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10083</span></div>
+  <p class="card-title">譽方媽媽人蔘雞湯養生燉料</p>
+  <div class="en">Ginseng Chicken Soup Herbal Stewing Mix</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10088</span></div>
+  <p class="card-title">譽方媽媽有機枸杞</p>
+  <div class="en">Organic Goji Berries</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10090</span></div>
+  <p class="card-title">譽方媽媽有機當歸</p>
+  <div class="en">Organic Dong Quai</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10087</span></div>
+  <p class="card-title">譽方媽媽有機紅棗</p>
+  <div class="en">Organic Red Dates</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10089</span></div>
+  <p class="card-title">譽方媽媽有機黃耆</p>
+  <div class="en">Organic Astragalus</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10080</span></div>
+  <p class="card-title">譽方媽媽極品燕窩銀杏玉露140g*10入</p>
+  <div class="en">Yu Fang Mom Bird&#x27;s Nest &amp; Ginkgo Jade Dew Drink</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10079</span></div>
+  <p class="card-title">譽方媽媽極品級燉燕窩玉露(低糖六入)</p>
+  <div class="en">white fungus cubilose drinks</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10086</span></div>
+  <p class="card-title">譽方媽媽燒酒雞養生燉料</p>
+  <div class="en">Herbal Stew Mix for Rice Wine Chicken</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10081</span></div>
+  <p class="card-title">譽方媽媽燕窩金花銀耳玉露140g*10入</p>
+  <div class="en">Bird&#x27;s Nest and Golden-Flower Tremella Jade Dew</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10084</span></div>
+  <p class="card-title">譽方媽媽薑母鴨養生燉料</p>
+  <div class="en">Herbal Stewing Mix for Ginger Duck</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10085</span></div>
+  <p class="card-title">譽方媽媽藥燉排骨養生燉料</p>
+  <div class="en">Herbal Stewing Mix for Pork Ribs (Wellness Blend)</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0310、M0312、M0314</span><span class="pid">#10091</span></div>
+  <p class="card-title">鄒炳良大師老同志普洱茶〔生茶／熟茶〕</p>
+  <div class="en">Pu-erh Tea [Raw / Ripe]</div>
+  <div class="co">旺來旺食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0410</span><span class="pid">#8683</span></div>
+  <p class="card-title">介護食品測定儀</p>
+  <div class="en">Care Food Tester</div>
+  <div class="co">瑞滄企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0901、0903</span><span class="pid">#6115</span></div>
+  <p class="card-title">體立能 高肌蛋白飲</p>
+  <div class="en">SUPER DRINK</div>
+  <div class="co">益達生醫股份有限公司</div>
+  <p class="desc">配方於 2024年取得台灣發明專利</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10119</span></div>
+  <p class="card-title">DENTISTE&#x27;牙醫選天然口腔保健液</p>
+  <div class="en">DENTISTE&#x27;  Oral Rinse</div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6138</span></div>
+  <p class="card-title">頸部舒壓枕</p>
+  <div class="en">Air Neck Stretch</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">輕巧、美觀、舒適的air neck strech，免電力-專利創新設計，可自動充氣軟Q舒適，按壓氣控鍵，可調頭部後仰角度，使肩、背自然擴胸伸展減壓放鬆，舒緩肩、背部不適，本產品為市面上唯一可作高、低調整之氣控枕，攜帶方便、男女適用是肩頸保健時尚精品。 低頭族 肩頸紓壓必備好物~ 長時間低頭者肩頸紓緩最佳首選~ 每日睡前…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0103</span><span class="pid">#9985</span></div>
+  <p class="card-title">粳津樂道米露</p>
+  <div class="en">Traditional Rice Broth</div>
+  <div class="co">陽光食品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-118">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-118">運動/復能</h2>
+      <p class="eng">Exercise</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">18</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">86</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>復能/復健設備</strong> · 官方計數 65</li><li><strong>理療器材</strong> · 官方計數 7</li><li><strong>個人運動用品</strong> · 官方計數 7</li><li><strong>運動器材</strong> · 官方計數 4</li><li><strong>認知訓練</strong> · 官方計數 3</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5932</span></div>
+  <p class="card-title">中化銀髮事業股份有限公司</p>
+  <div class="en">CHUNGHWA SENIOR LIFESTYLE SERVICES CO. LTD.</div>
+  <div class="co">中化銀髮事業股份有限公司</div>
+  <p class="desc">中化銀髮致力為長輩提供最優質且一站式照護服務。近年，從居家走入社區，全台六都設立七個《老大人服務站》，以及《暖時光》AI賦能日照，此次攜手愚人之友展出「生活即復能」實踐力。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5871</span></div>
+  <p class="card-title">KOYO光洋 前後自由復健褲</p>
+  <div class="en">KOYO OnlyOne Pants</div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・日本專做成人紙尿褲品牌 KOYO光洋 ・不分前後設計，可直接穿，不擔心穿錯面 ・四角褲型加強防漏，褲頭舒適不緊繃 ・加強防漏、集中吸收、皮膚乾爽不回滲 S:腰圍50-70cm M:腰圍60-90cm L-LL:腰圍80-140cm 日本製造</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1002、N1004</span><span class="pid">#10245</span></div>
+  <p class="card-title">賦動智慧復能專區</p>
+  <div class="en">FUDO Smart Rehabilitation Zone</div>
+  <div class="co">台中大雅動力技術科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5832</span></div>
+  <p class="card-title">ACTION 平面式減壓脂肪墊</p>
+  <div class="en">ACTION Professional™ Cushion</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">ACTION減壓脂肪墊承重強大（最大600公斤），即使放在硬桌面上加重，膝蓋仍不觸碰桌面，提供持續柔軟支撐。無反壓感。不含氣體浮動，支援自立生活及活動、復健運動和看護。經多年試驗，材質穩定，破損不漏液體或變硬，可用不含酒精消毒液或120℃以下熱水簡易清洗。ACTION減壓脂肪墊耐久穩固且安全，讓使用者舒適無憂。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0115</span><span class="pid">#6022</span></div>
+  <p class="card-title">合成壓紋彈力帶</p>
+  <div class="en">Synthetic Embossed Elastic Band</div>
+  <div class="co">明源橡膠工業股份有限公司</div>
+  <p class="desc">因應近年各年齡層開始注重肌力訓練及運動後的肌肉伸展與修復，研發團隊特地為市場研發出高品質的彈力帶，百分百由深根台灣四十多年工廠進行研發設計與生產製造。 有別於市售常見的乳膠彈力帶，研發團隊發揮創意，以醫療等級的止血帶配方為基礎，研發出高質感彈力帶。 優質特選原料，無異味 雙面鑽石紋路，使用時好抓握，不易滑脫 優良配方設…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0115</span><span class="pid">#6192</span></div>
+  <p class="card-title">合成彈力圈</p>
+  <div class="en">Exercise Loop Band</div>
+  <div class="co">明源橡膠工業股份有限公司</div>
+  <p class="desc">因應近年各年齡層開始注重肌力訓練及運動後的肌肉伸展與修復，研發團隊特地為市場研發出高品質的彈力帶，百分百由深根台灣四十多年工廠進行研發設計與生產製造。 有別於市售常見的乳膠彈力帶，研發團隊發揮創意，以醫療等級的止血帶配方為基礎，研發出高質感彈力帶。 優質特選原料，無異味 使用時好抓握，不易滑脫 優良配方設計，使用過程及…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0115</span><span class="pid">#6179</span></div>
+  <p class="card-title">肌力球</p>
+  <div class="en">Handy Ball</div>
+  <div class="co">明源橡膠工業股份有限公司</div>
+  <p class="desc">1. 符合人體工學，球體線條流暢貼合手部 2. 完美取代傳統鑄鐵啞鈴！使用起來更穩定更省腕力！ 3. 手心易掌握的大小，搭配織帶的輔助，讓整體訓練更上手！ 4. 適合族群：復健者、皮拉提斯訓練者、初階力量訓練者、輔助訓練增強者、改善體態者</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1015-1022</span><span class="pid">#8627</span></div>
+  <p class="card-title">AI智慧復健走道</p>
+  <div class="en">AI Smart Rehabilitation Walkway</div>
+  <div class="co">滙嘉健康生活科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#6412</span></div>
+  <p class="card-title">程式機器套件</p>
+  <div class="en">Robot Programming</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#6411</span></div>
+  <p class="card-title">腦心智訓練_合作賽</p>
+  <div class="en">Mental Muscles Training</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc">腦心智功能可以運用多種管道來維護和增能，且避免後續的失功能。其中一 個非藥物、非入侵的打根基方法，就是經由結構化的經驗累積來架構良好的腦心 智功能的體系。臨床神經心理學家（腦心智訓練教練）充分運用腦心智的理論來 建構出生活中的經驗（就像是生活教案），引導出一個人各種腦心智功能的高度 與強度。這就像是一個建築團隊，包含了…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#5705</span></div>
+  <p class="card-title">腦心智訓練_回家去</p>
+  <div class="en">Mental Muscles Training</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc">「腦神經科學」在21 世紀，就類似物質計量的「奈米」與資訊世界的「光纖」 一樣，它完全改寫了「人」對「自己」與「他人」的假設和理解。古老的科學邏輯議 題總是討論：身心是一元或是雙元，今日已知，要充分運用身心同時循環變化的一體 性與多體性來維持個體健康和功能，才是王道。是的，我們已經知道：心理功能架構 在以腦系統為主的監…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#5704</span></div>
+  <p class="card-title">腦心智訓練_大家眼中的積木山</p>
+  <div class="en">Mental Muscles Training</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc">「腦神經科學」在21 世紀，就類似物質計量的「奈米」與資訊世界的「光纖」 一樣，它完全改寫了「人」對「自己」與「他人」的假設和理解。古老的科學邏輯議 題總是討論：身心是一元或是雙元，今日已知，要充分運用身心同時循環變化的一體 性與多體性來維持個體健康和功能，才是王道。是的，我們已經知道：心理功能架構 在以腦系統為主的監…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#5706</span></div>
+  <p class="card-title">腦心智訓練_撞色排排看</p>
+  <div class="en">Mental Muscles Training</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc">「腦神經科學」在21 世紀，就類似物質計量的「奈米」與資訊世界的「光纖」 一樣，它完全改寫了「人」對「自己」與「他人」的假設和理解。古老的科學邏輯議 題總是討論：身心是一元或是雙元，今日已知，要充分運用身心同時循環變化的一體 性與多體性來維持個體健康和功能，才是王道。是的，我們已經知道：心理功能架構 在以腦系統為主的監…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#6409</span></div>
+  <p class="card-title">腦心智訓練_賽車囉</p>
+  <div class="en">Mental Muscles Training</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc">腦心智功能可以運用多種管道來維護和增能，且避免後續的失功能。其中一 個非藥物、非入侵的打根基方法，就是經由結構化的經驗累積來架構良好的腦心 智功能的體系。臨床神經心理學家（腦心智訓練教練）充分運用腦心智的理論來 建構出生活中的經驗（就像是生活教案），引導出一個人各種腦心智功能的高度 與強度。這就像是一個建築團隊，包含了…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#6410</span></div>
+  <p class="card-title">腦心智訓練_障礙賽</p>
+  <div class="en">Mental Muscles Training</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc">腦心智功能可以運用多種管道來維護和增能，且避免後續的失功能。其中一 個非藥物、非入侵的打根基方法，就是經由結構化的經驗累積來架構良好的腦心 智功能的體系。臨床神經心理學家（腦心智訓練教練）充分運用腦心智的理論來 建構出生活中的經驗（就像是生活教案），引導出一個人各種腦心智功能的高度 與強度。這就像是一個建築團隊，包含了…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0605</span><span class="pid">#5703</span></div>
+  <p class="card-title">邏輯積木組</p>
+  <div class="en">Logical Puzzle</div>
+  <div class="co">社團法人台灣腦心智發展與心理復健學會</div>
+  <p class="desc">邏輯積木-發展大腦前額葉，邏輯推理，訓練專注力，鍛鍊心智肌力。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1122、M1124 </span><span class="pid">#8797</span></div>
+  <p class="card-title">肌力寶-關節肌力訓練機器人</p>
+  <div class="en">NimBO-Isokinetic training robot</div>
+  <div class="co">福寶科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0623、M0625、M0627 </span><span class="pid">#10234</span></div>
+  <p class="card-title">&quot;福芯&quot;藍牙中頻電療器</p>
+  <div class="en">&quot;UGYM&quot; Pocket IF5000 Stimulator</div>
+  <div class="co">福芯科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-124">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-124">多元照顧與工具</h2>
+      <p class="eng">Accompany</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">57</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">48</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>樂齡玩具</strong> · 官方計數 31</li><li><strong>輔療服務</strong> · 官方計數 15</li><li><strong>桌遊</strong> · 官方計數 2</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10222</span></div>
+  <p class="card-title">創意竹棒 十合一幾何套組</p>
+  <div class="en">Creativity Kit</div>
+  <div class="co">台灣怡人玩具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10220</span></div>
+  <p class="card-title">桌上足球台</p>
+  <div class="en">Tabletop Football Game</div>
+  <div class="co">台灣怡人玩具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10225</span></div>
+  <p class="card-title">機器工廠骨牌遊戲組</p>
+  <div class="en">Robot Factory Domino </div>
+  <div class="co">台灣怡人玩具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10221</span></div>
+  <p class="card-title">竹筒彩珠</p>
+  <div class="en">Bamboo Rapido Who is the fastest Beads Catcher</div>
+  <div class="co">台灣怡人玩具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10218</span></div>
+  <p class="card-title">竹簍益智遊戲</p>
+  <div class="en">Pallina Original</div>
+  <div class="co">台灣怡人玩具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10223</span></div>
+  <p class="card-title">跨得瑞拉滾球軌道 - 基本程式組合</p>
+  <div class="en">Quadrilla Basic Coding Set</div>
+  <div class="co">台灣怡人玩具有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#5782</span></div>
+  <p class="card-title">iRelief 功能性眼罩</p>
+  <div class="en"> iRelief Functional Eye Cover</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">※ 高科技材質。 ※ 睡得舒服。 ※ 精緻簡潔。 ※ 透氣, 柔軟舒適。 ※ 隨時提供疲憊雙眼spa般享受 ※ 保持充沛活力再出發 規格： 三層柏克 / M</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6076</span></div>
+  <p class="card-title">柏克Farabloc小腿護套 </p>
+  <div class="en">Farabloc Lower Leg Guard</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc"> 輕薄、透氣、貼身舒適，長時間配帶也舒適無比。  運動員、上班族、勞力族、銀髮族都需要。  立體設計，以粘扣帶調整鬆緊與大小，可輕易調整到最舒適服貼位置。3- 源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6077</span></div>
+  <p class="card-title">柏克Farabloc短指護套 </p>
+  <div class="en"> Farabloc tendonitis mitt</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃是試圖以物理、非侵入性方式給與截肢父親舒適的保護。 侃培先生巧妙應用法拉第籠原理(Faraday cage)，應用高科技超細金屬纖維與尼龍纖維特殊結構交織成的功能布料…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6075</span></div>
+  <p class="card-title">柏克Farabloc護肘</p>
+  <div class="en"> Farabloc Elbow Guard</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃是試圖以物理、非侵入性方式給與截肢父親舒適的保護。 侃培先生巧妙應用法拉第籠原理(Faraday cage)，應用高科技超細金屬纖維與尼龍纖維特殊結構交織成的功能布料…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6073</span></div>
+  <p class="card-title">柏克Farabloc護腕</p>
+  <div class="en">Farabloc Wrist Guard</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃是試圖以物理、非侵入性方式給與截肢父親舒適的保護。 侃培先生巧妙應用法拉第籠原理(Faraday cage)，應用高科技超細金屬纖維與尼龍纖維特殊結構交織成的功能布料…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6080</span></div>
+  <p class="card-title">柏克Farabloc護腰 </p>
+  <div class="en"> Farabloc lower back belt</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃是試圖以物理、非侵入性方式給與截肢父親舒適的保護。 侃培先生巧妙應用法拉第籠原理(Faraday cage)，應用高科技超細金屬纖維與尼龍纖維特殊結構交織成的功能布料…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6081</span></div>
+  <p class="card-title">柏克Farabloc護膝   Farabloc knee cover</p>
+  <div class="en"> Farabloc knee cover</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃是試圖以物理、非侵入性方式給與截肢父親舒適的保護。 侃培先生巧妙應用法拉第籠原理(Faraday cage)，應用高科技超細金屬纖維與尼龍纖維特殊結構交織成的功能布料…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6083</span></div>
+  <p class="card-title">柏克Farabloc護襪  </p>
+  <div class="en">Farabloc boots</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃是試圖以物理、非侵入性方式給與截肢父親舒適的保護。 侃培先生巧妙應用法拉第籠原理(Faraday cage)，應用高科技超細金屬纖維與尼龍纖維特殊結構交織成的功能布料…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6079</span></div>
+  <p class="card-title">柏克Farabloc護頸  </p>
+  <div class="en">Farabloc neck wrap</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生，應用高科技超細金屬纖維與尼龍纖維特殊結構，為父親研發出Farabloc柏克金屬布，這高科技材質更延伸應用在頸部保健用途上。 使用方便、透氣、精緻簡潔、柔軟舒適，隨時隨地提供頸部SPA般的享受，充飽精神再出發。 ※ 提供極佳日常居家之頸部保護。 ※ …</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0607</span><span class="pid">#6074</span></div>
+  <p class="card-title">柏克Farabloc足踝護套</p>
+  <div class="en">Farabloc Ankle Guard</div>
+  <div class="co">台灣邦妮有限公司</div>
+  <p class="desc">源自於對截肢後不適的保護... 1969年，徳裔加拿大籍佛瑞德‧侃培(Frieder Kempe)先生致力於研發Farabloc柏克肢體裝具，其原始動機乃是試圖以物理、非侵入性方式給與截肢父親舒適的保護。 侃培先生巧妙應用法拉第籠原理(Faraday cage)，應用高科技超細金屬纖維與尼龍纖維特殊結構交織成的功能布料…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10136</span></div>
+  <p class="card-title">3.5M 彩虹氣球傘</p>
+  <div class="en">3.5M Rainbow Balloon Parachute</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10121</span></div>
+  <p class="card-title">iSport 樂活曲棍球套組(樂齡版)</p>
+  <div class="en">iSport Active Hockey Set for Seniors</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#6039</span></div>
+  <p class="card-title">iSport 趣味彈跳球</p>
+  <div class="en">iSport Fun Bouncing Ball</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc">趣味彈跳球的操作原理，是利用(彈力圓盤)的特殊彈性布，所造成的反彈力，讓毛球可以在(彈力圓盤)上面~做出(滾動)或是(彈跳)。這是是一項兼具(運動、休閒、娛樂)的樂齡玩具，可以一人玩、兩人互動，組數增加，更可以團體一起遊戲，甚至坐著、站著都可玩。我們知道，樂齡的朋友們的身體活動能力漸漸退化，趣味彈跳球能活化(手眼協調、…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10155</span></div>
+  <p class="card-title">休閒槌球組</p>
+  <div class="en">Leisure Croquet Set</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10132</span></div>
+  <p class="card-title">六色骰子組</p>
+  <div class="en">Six-Color Dice Set</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10139</span></div>
+  <p class="card-title">彈性體能圈</p>
+  <div class="en">Elastic Fitness Ring</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10131</span></div>
+  <p class="card-title">彈跳踏板</p>
+  <div class="en">Rebound Step Board</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10156</span></div>
+  <p class="card-title">彩色接力棒</p>
+  <div class="en">Colorful Relay Batons</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#6303</span></div>
+  <p class="card-title">德國Hape 創意竹棒 十合一幾何套組</p>
+  <div class="en">Creativity Kit Building Set</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc">★榮獲台灣樂齡玩具標章認證！ 創意竹棒鼓勵動手建構、建設性解決問題和富有想像力的動腦思考。 竹棒和靈活的連接零件可以進行重組，創造十種獨立的造型， 當然你也可以發揮想像力自行創造各種結構。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#6302</span></div>
+  <p class="card-title">德國Hape 竹簍益智遊戲</p>
+  <div class="en">Hape Pallina Original</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc">★榮獲台灣樂齡玩具標章認證！ ●經典竹製桌遊，將棒子抽出，不能讓球掉下來，充滿樂趣的全齡桌遊。 ●環保竹材堅硬耐久、耐腐、耐磨，拿在手裡手感相當細膩。 ●遊戲準備： １．將竹棒插入竹簍空隙，然後將所有的彩球放在縱橫交錯的竹棒上。 ２．玩家投擲骰子後，可以抽出和骰子顏色相同的竹棒。 ３．此時掉落的小球歸這位玩家，遊戲結束…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#6304</span></div>
+  <p class="card-title">德國Hape_機器工廠骨牌遊戲組</p>
+  <div class="en">Robot Factory Domino</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc">★榮獲台灣樂齡玩具標章認證！ 這款機械主題的骨牌發射器套組，是帶有彈射器、轉動輪、旋轉臂、滾珠蹺蹺板，利用能量轉化發射木球，絕對能讓孩子驚叫連連。還有翻斗軌道車、酷炫的木球接力、坡路和Z字軌道，層層機關讓人愛不釋手，可培養耐心、專注力、小手平衡。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10123</span></div>
+  <p class="card-title">拋接布球</p>
+  <div class="en">iSport Soft Fabric Ball Toss &amp; Catch Set</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10157</span></div>
+  <p class="card-title">拋接甜筒</p>
+  <div class="en">Toss &amp; Catch Cone</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10134</span></div>
+  <p class="card-title">方形豆袋</p>
+  <div class="en">Square Bean Bag</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10122</span></div>
+  <p class="card-title">歡樂布球拋接套組(樂齡版)</p>
+  <div class="en">iSport Active Ball Toss &amp; Catch Set </div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10137</span></div>
+  <p class="card-title">環形彈力繩</p>
+  <div class="en">Resistance Loop Band</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10151</span></div>
+  <p class="card-title">瓢蟲推推套組</p>
+  <div class="en">Ladybug Push Set</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10138</span></div>
+  <p class="card-title">臉譜投擲套組</p>
+  <div class="en">Face Toss Set</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10124</span></div>
+  <p class="card-title">舞動人生彩帶棒套組</p>
+  <div class="en">iSport Ribbon Stick Activity Set</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10140</span></div>
+  <p class="card-title">觸覺韻律球-紅</p>
+  <div class="en">Tactile Rhythm Ball-Red</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10142</span></div>
+  <p class="card-title">觸覺韻律球-紫</p>
+  <div class="en">Tactile Rhythm Ball-Purple</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10143</span></div>
+  <p class="card-title">觸覺韻律球-綠</p>
+  <div class="en">Tactile Sensory Ball-Green</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10141</span></div>
+  <p class="card-title">觸覺韻律球-藍</p>
+  <div class="en">Tactile Rhythm Ball-Blue</div>
+  <div class="co">好童年玩具企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1115-1120</span><span class="pid">#10313</span></div>
+  <p class="card-title">DIY 穿線玩具組</p>
+  <div class="en">DIY TOY</div>
+  <div class="co">岠騰企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1115-1120</span><span class="pid">#7526</span></div>
+  <p class="card-title">益智系統</p>
+  <div class="en">Cognikits</div>
+  <div class="co">智繪佳有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10277</span></div>
+  <p class="card-title">創意心鈴</p>
+  <div class="en">Pat Bells - 5 bells Pentatonic Shelf</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#8636</span></div>
+  <p class="card-title">套圈圈</p>
+  <div class="en">Wooden Ring Toss Game</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#8634</span></div>
+  <p class="card-title">急速爬坡</p>
+  <div class="en">Balance Color Matching Game</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10301</span></div>
+  <p class="card-title">手拉筋器</p>
+  <div class="en">Hand Stretch Board</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#8635</span></div>
+  <p class="card-title">爬坡球檯</p>
+  <div class="en">Bowling and Pinball Station</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#8633</span></div>
+  <p class="card-title">翻山越嶺</p>
+  <div class="en">Yard Game Balance and ladder golf</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10292</span></div>
+  <p class="card-title">腳響樂</p>
+  <div class="en">Pat Bells Feet Station</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10300</span></div>
+  <p class="card-title">記憶中的彈珠台</p>
+  <div class="en">Memory Pinball Game</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10295</span></div>
+  <p class="card-title">足部拉筋器</p>
+  <div class="en">Slant Board</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#8632</span></div>
+  <p class="card-title">轉盤迷宮</p>
+  <div class="en">Bead Steering</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10296</span></div>
+  <p class="card-title">轉轉花園</p>
+  <div class="en">Flower Garden</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#6023</span></div>
+  <p class="card-title">響叮噹</p>
+  <div class="en">Pat Bells</div>
+  <div class="co">玩偶的家實業股份有限公司</div>
+  <p class="desc">手拿彩色拍鈴，奏出清亮音樂！共有彩色拍鈴八顆(C、D、E、F、G、A、B、C)，附有顏色音符的各式曲目，運用手掌放鬆輕拍，按照音符顏色即可拍出美妙的樂曲，可訓練手眼協調靈敏度，也能刺激使用者的視覺、聽覺和身體動能追尋，培養專注力、記憶力和反應力，還可一人一拍鈴，合奏創作不再是夢想～ 尺寸: 外盒38.5x26x12.5…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0124</span><span class="pid">#10061</span></div>
+  <p class="card-title">情緒輔療-戒指花</p>
+  <div class="en">Emotional Therapy – Ring Flower</div>
+  <div class="co">禾荳荳銀髮藝術</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0124</span><span class="pid">#10063</span></div>
+  <p class="card-title">手作輔療-亮晶晶花球</p>
+  <div class="en">Handmade Therapy - Sparkling Flower Balls</div>
+  <div class="co">禾荳荳銀髮藝術</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0124</span><span class="pid">#10062</span></div>
+  <p class="card-title">手作輔療-星木珠</p>
+  <div class="en">Handmade Therapy - Starwood Pearl</div>
+  <div class="co">禾荳荳銀髮藝術</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0124</span><span class="pid">#10066</span></div>
+  <p class="card-title">節日輔療-真愛禮物</p>
+  <div class="en">Holiday Therapy – Love Gifts</div>
+  <div class="co">禾荳荳銀髮藝術</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-126">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-126">寵物長照</h2>
+      <p class="eng">Pet&#x27;s Long-term Care</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">2</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">44</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>居家環境與生活用品</strong> · 官方計數 33</li><li><strong>醫療耗材與護理用品</strong> · 官方計數 4</li><li><strong>寵物智慧照護科技及健康監測管理</strong> · 官方計數 3</li><li><strong>居家護理</strong> · 官方計數 2</li><li><strong>保健品與營養品、特殊配方及高齡寵物專用飼料</strong> · 官方計數 1</li><li><strong>專用輔具及復健、按摩設備</strong> · 官方計數 1</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#9911</span></div>
+  <p class="card-title">Mymate寵物智慧項圈</p>
+  <div class="en">Mymate smart pet collars</div>
+  <div class="co">云泰創新科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#9912</span></div>
+  <p class="card-title">Mymate寵物智慧項圈</p>
+  <div class="en">Mymate smart pet collars</div>
+  <div class="co">云泰創新科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-121">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-121">耗材</h2>
+      <p class="eng">Disposable</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">7</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">44</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>生活用品</strong> · 官方計數 29</li><li><strong>護理用品</strong> · 官方計數 12</li><li><strong>其他耗材</strong> · 官方計數 2</li><li><strong>消毒/清潔用品</strong> · 官方計數 1</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5872</span></div>
+  <p class="card-title">KOYO光洋 寬幅成人黏貼式紙尿褲</p>
+  <div class="en">KOYO OnlyOne Adult Diaper </div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・日本專做成人紙尿褲品牌 KOYO光洋 ・榮獲日本GOOD DESIGN AWARD優良設計獎 ・防漏側邊加深加寬 ・胯下舒適剪裁，彈性舒適貼合 ・可搭配尿片使用，黏貼膠帶好撕好黏 ・中線對齊標示，幫助照顧者辨識 ・消臭墊片設計，加強消臭除味 S:臀圍55-95cm M:臀圍75-110cm L-LL:臀圍85-135…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5873</span></div>
+  <p class="card-title">KOYO光洋 自然貼合紙尿片</p>
+  <div class="en">KOYO OnlyOne Pad </div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・日本專做成人紙尿褲品牌 KOYO光洋 ・尿片加壓線設計，更貼合排尿口 ・符合臀部曲線設計，貼合不外漏 ・強力吸收，直接滲入吸收體，不回滲 ・集中吸收區，尿液不擴散，肌膚乾爽 ・加強立體防漏側邊，強力防外漏 ・多種吸收量規格，尿量大也不擔心 一般款 4回尿量(600cc) 超長款 6-7回尿量(900-1050cc) …</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0615-0620</span><span class="pid">#6034</span></div>
+  <p class="card-title">添寧全透氣環帶式尿褲</p>
+  <div class="en">TENA ProSkin Flex </div>
+  <div class="co">台灣維達衛生用品股份有限公司</div>
+  <p class="desc">適用對象與時機： 1.滿足機構個人化照護模式 2. 照顧者需要更符合人體工學的更換尿布方式 3. 皮膚較敏感、容易有尿布疹的病人 4.失智或認知障礙</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0429、N0431</span><span class="pid">#6452</span></div>
+  <p class="card-title">康威多愛膚超薄型敷料(人工皮)</p>
+  <div class="en">DuoDERM Extra Thin</div>
+  <div class="co">龍生藥品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0429、N0431</span><span class="pid">#6457</span></div>
+  <p class="card-title">康威輕柔矽膠泡棉敷料</p>
+  <div class="en">Foam Lite</div>
+  <div class="co">龍生藥品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0429、N0431</span><span class="pid">#6458</span></div>
+  <p class="card-title">愛康膚寶柔泡棉敷料</p>
+  <div class="en">AQUACEL Foam Pro </div>
+  <div class="co">龍生藥品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0429、N0431</span><span class="pid">#6448</span></div>
+  <p class="card-title">愛康膚銀抗菌親水性纖維敷料</p>
+  <div class="en">AQUACEL Ag+ Extra dressing</div>
+  <div class="co">龍生藥品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-125">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-125">其他</h2>
+      <p class="eng">Others</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">158</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">40</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>其他</strong> · 官方計數 40</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">N1101、N1103</span><span class="pid">#10251</span></div>
+  <p class="card-title">820HP</p>
+  
+  <div class="co">3H</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1101、N1103</span><span class="pid">#10248</span></div>
+  <p class="card-title">SA-680R (SPINALINE)</p>
+  <div class="en">SA-680 (SPINALINE)</div>
+  <div class="co">3H</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1101、N1103</span><span class="pid">#10249</span></div>
+  <p class="card-title">SA-680R (SPINALINE)</p>
+  
+  <div class="co">3H</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1101、N1103</span><span class="pid">#10250</span></div>
+  <p class="card-title">SA-680R(SPINALINE)</p>
+  
+  <div class="co">3H</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1219</span><span class="pid">#6295</span></div>
+  <p class="card-title">CareTEX</p>
+  
+  <div class="co">CareTEX</div>
+  <p class="desc">「CareTEX」是日本最大最專業的B to B 養老展。匯集護理產品與老年護理設施，專為行業專業人士打造。參展者包括護理機構管理者、採購負責人，以及業內重要決策者。展會強調商業合作和專業交流，為行業帶來創新和發展。&quot;</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1225</span><span class="pid">#6435</span></div>
+  <p class="card-title">Reha·Homecare-KOREA</p>
+  <div class="en">Reha·Homecare 2026 - KOREA</div>
+  <div class="co">We Expo-Reha Homecare (Korea)</div>
+  <p class="desc">Korea Homecare·Rehabilitation·Welfare Exhibition (Reha·Homecare 2025) May 29 - 31, 2025 / COEX, Seoul</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0902、N0904</span><span class="pid">#10288</span></div>
+  <p class="card-title">中鎮醫療產品科技股份有限公司</p>
+  <div class="en">Tronjen Medical Technology Inc.</div>
+  <div class="co">中山醫學大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0902、N0904</span><span class="pid">#10318</span></div>
+  <p class="card-title">光之翼光學有限公司</p>
+  <div class="en">Ala Light • NSO</div>
+  <div class="co">中山醫學大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0902、N0904</span><span class="pid">#10284</span></div>
+  <p class="card-title">天行智能股份有限公司</p>
+  <div class="en">Sky Walk Intelligent</div>
+  <div class="co">中山醫學大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0902、N0904</span><span class="pid">#10283</span></div>
+  <p class="card-title">弗瑞帝生物科技有限公司</p>
+  <div class="en">Probity Biotechnology Ltd.</div>
+  <div class="co">中山醫學大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0902、N0904</span><span class="pid">#10290</span></div>
+  <p class="card-title">超肽生物科技股份有限公司</p>
+  <div class="en">S-TAI Biotechnology Co .,Ltd</div>
+  <div class="co">中山醫學大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0902、N0904</span><span class="pid">#10289</span></div>
+  <p class="card-title">阿爾傑科技股份有限公司</p>
+  <div class="en">ALGER TECHNOLOGY CO., LTD.</div>
+  <div class="co">中山醫學大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6281</span></div>
+  <p class="card-title">鄰近健康平台</p>
+  <div class="en">Neartohealth Ecosystem</div>
+  <div class="co">中康生醫股份有限公司</div>
+  <p class="desc">「 鄰近健康平台 奠基於中康生醫董事長暨創辦人趙國鈞以多年在第一線經營藥局的經驗，整合藥局、廠商及相關專業人士，現今已聯盟200多家社區獨立藥局，成為業界首創串聯全台各地 500 位專業藥師，一起為當地社區消費者提供更專業、便捷、優質的服務。為台灣照顧產業打造一個健康照護生態圈。 鄰近健康平台獨家特色: 1.全台灣第一…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1207</span><span class="pid">#10235</span></div>
+  <p class="card-title">御曲同工全人整合照護溝通協作平台</p>
+  <div class="en">NobelHarmony Connect</div>
+  <div class="co">九日生行動健康科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1207</span><span class="pid">#10236</span></div>
+  <p class="card-title">御老</p>
+  <div class="en">SilverGuardian</div>
+  <div class="co">九日生行動健康科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1020、1022、1024</span><span class="pid">#10199</span></div>
+  <p class="card-title">予瑞心樞｜智慧心血管在宅照護平台</p>
+  <div class="en">YuRine CardioLink</div>
+  <div class="co">予瑞生醫股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1005、M1007</span><span class="pid">#8693</span></div>
+  <p class="card-title">e代e棒</p>
+  <div class="en">eROD</div>
+  <div class="co">五洋科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5877</span></div>
+  <p class="card-title">FoodCare 吞樂美增稠粉</p>
+  <div class="en">Neo-High Toromeal III</div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・日本增稠劑領導品牌 ・超過10000家日本醫院/機構指定使用 ・無色無味，不影響食物風味 ・用量最省，少量就稠 ・液體飲料、湯品、糊餐皆可添加 ・吞嚥安全順順喝 https://www.cm-healthlife.com/ 淨重：100g/罐 產地：日本</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5875</span></div>
+  <p class="card-title">FoodCare 食倍樂 MEAT(肉類軟化劑)</p>
+  <div class="en">Suberakaze Meat</div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・來自日本介護食專家 ・輕鬆醃漬，肉類、海鮮、蔬菜都能柔軟入口 ・維持長輩咀嚼動力，食材多元應用 *把肉、海鮮、蔬菜變柔軟 ! 滿足長輩吃的願望* https://www.cm-healthlife.com/ 淨重：1kg/袋 產地：日本</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5874</span></div>
+  <p class="card-title">FoodCare 食膳樂MJ粉 (食物塑型)</p>
+  <div class="en">Mixer Powder MJ</div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・來自日本介護食專家 ・調整食物質地，滑順好吞 ・涼冷時呈現慕斯狀，適用水果、甜點 ・溫熱時呈現果凍狀，適用肉泥、菜泥 ・做法簡單方便上手 *讓長者不再吃糊糊泥泥的餐* https://www.cm-healthlife.com/ 淨重：450g/袋 產地：日本</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5870</span></div>
+  <p class="card-title">樂可麗舒 L8020乳酸菌漱口水</p>
+  <div class="en">L8020 Mouth Wash</div>
+  <div class="co">佳樂美健康事業股份有限公司</div>
+  <p class="desc">・添加L8020乳酸菌，可抑制牙周病菌、蛀牙病菌 ・配合正確刷牙方式，幫助強化口腔健康 ・低刺激配方不添加殺菌劑 ・無酒精成分，漱完滋潤不乾澀 *L8020乳酸菌，讓口腔環境恢復最初的健康純淨* 蜂蜜檸檬薄荷味(300ml) 蘋果薄荷味(300ml) 蘋果薄荷味(450ml+50ml)</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1227</span><span class="pid">#5805</span></div>
+  <p class="card-title">G動椅</p>
+  <div class="en">EMSELLA</div>
+  <div class="co">佳翟國際有限公司</div>
+  <p class="desc">EMSELLA</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1227</span><span class="pid">#5894</span></div>
+  <p class="card-title">核心美力</p>
+  <div class="en">EMBODY</div>
+  <div class="co">佳翟國際有限公司</div>
+  <p class="desc">候補</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#8803</span></div>
+  <p class="card-title">多頻道雷射暨電刺激治療儀 LA-200I</p>
+  <div class="en">Multi-Channel Laser TherapySystemWithTENS Function</div>
+  <div class="co">健康之星生技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0623、M0625、M0627 </span><span class="pid">#10238</span></div>
+  <p class="card-title">歐心氣泡氫水</p>
+  <div class="en">Oceanus  Hydrogen-Rich Sparkling Water</div>
+  <div class="co">光騰國際科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0623、M0625、M0627 </span><span class="pid">#10237</span></div>
+  <p class="card-title">氫LIFE吸氫機</p>
+  <div class="en">Hydrogen Life Hydrogen Absorption Machine</div>
+  <div class="co">光騰國際科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0623、M0625、M0627 </span><span class="pid">#10253</span></div>
+  <p class="card-title">雙效兩用氫水機</p>
+  <div class="en">Dual-effect hydrogen water machine</div>
+  <div class="co">光騰國際科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6011</span></div>
+  <p class="card-title">AnkeCare創新照顧雜誌</p>
+  <div class="en">AnkeCare Magazine</div>
+  <div class="co">創新照顧</div>
+  <p class="desc">台灣唯一照顧產業相關雜誌，提供照顧產業相關最新政策、趨勢以及創新發展資訊。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6048</span></div>
+  <p class="card-title">第一百根白毛</p>
+  
+  <div class="co">創新照顧</div>
+  <p class="desc">第一百根白毛</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0106-0107</span><span class="pid">#7532</span></div>
+  <p class="card-title">Vital CRM 客戶關係管理系統</p>
+  <div class="en">Vital CRM</div>
+  <div class="co">叡揚資訊股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0106-0107</span><span class="pid">#7535</span></div>
+  <p class="card-title">Vital HCM 人力資源管理系統</p>
+  <div class="en">Vital HCM </div>
+  <div class="co">叡揚資訊股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0106-0107</span><span class="pid">#7534</span></div>
+  <p class="card-title">Vital OD 公文管理系統</p>
+  <div class="en">Vital OD</div>
+  <div class="co">叡揚資訊股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6054</span></div>
+  <p class="card-title">Meet Suppliers Online</p>
+  
+  <div class="co">台北國際照顧博覽會</div>
+  <p class="desc">Taiwantrade.com is home to 660,000+ product catalogs and 70,000+ suppliers from the nation’s leading export industries. The website enables you to easily connec…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6052</span></div>
+  <p class="card-title">TIMTOS 2023 數位及活動 贊助方案</p>
+  <div class="en">TIMTOS 2023 Marketing, Branding &amp; Sponsorship Opportunities </div>
+  <div class="co">台北國際照顧博覽會</div>
+  <p class="desc">TIMTOS 2023 數位及活動 贊助方案</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6055</span></div>
+  <p class="card-title">台灣經貿網</p>
+  <div class="en">What is Taiwantrade?</div>
+  <div class="co">台北國際照顧博覽會</div>
+  <p class="desc">Taiwantrade.com – Taiwan’s foremost B2B platform Founded in 2002, Taiwantrade.com is Taiwan’s foremost B2B platform. Taiwantrade.com is organized by the Bureau …</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6053</span></div>
+  <p class="card-title">台灣經貿網VR工業虛擬館</p>
+  <div class="en">Taiwantrade Virtual Industry Pavilion</div>
+  <div class="co">台北國際照顧博覽會</div>
+  <p class="desc">The Taiwantrade.com Virtual Industry Pavilion provides a brand-new show going experience. Top Taiwanese machinery, hardware hand tools and auto parts manufactur…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#5937</span></div>
+  <p class="card-title">產品名稱</p>
+  
+  <div class="co">台北國際照顧博覽會</div>
+  <p class="desc">產品名稱</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1019</span><span class="pid">#10067</span></div>
+  <p class="card-title">運動健康促進整合服務</p>
+  <div class="en">Integrated Exercise and Health Promotion Services</div>
+  <div class="co">台灣運動健身產業協會</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6024</span></div>
+  <p class="card-title">幸福長照居服系統</p>
+  <div class="en">Happy Long-Term Care Home Care System</div>
+  <div class="co">國家衛生研究院</div>
+  <p class="desc">-</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0408</span><span class="pid">#9908</span></div>
+  <p class="card-title">Just One Pad液態矽膠保鮮膜</p>
+  <div class="en">Just One Pad Liquid Silicone Eco Wrap</div>
+  <div class="co">墊一店奇想國際有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0408</span><span class="pid">#9906</span></div>
+  <p class="card-title">LSR減壓坐墊</p>
+  <div class="en">LSR Pressure-free Seat Pad</div>
+  <div class="co">墊一店奇想國際有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0408</span><span class="pid">#9907</span></div>
+  <p class="card-title">LSR自由拼接吸管</p>
+  <div class="en">LSR connecting straw</div>
+  <div class="co">墊一店奇想國際有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0116</span><span class="pid">#10166</span></div>
+  <p class="card-title">大晴跳跳板</p>
+  <div class="en">DACHING® Springboard</div>
+  <div class="co">大晴健康生活有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1209</span><span class="pid">#10003</span></div>
+  <p class="card-title">後台管理系統</p>
+  
+  <div class="co">宇亨智能科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1209</span><span class="pid">#9992</span></div>
+  <p class="card-title">毫米波雷達</p>
+  <div class="en">mmWave Radar</div>
+  <div class="co">宇亨智能科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1209</span><span class="pid">#10005</span></div>
+  <p class="card-title">示警系統APP</p>
+  
+  <div class="co">宇亨智能科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1209</span><span class="pid">#10004</span></div>
+  <p class="card-title">警示系統APP</p>
+  
+  <div class="co">宇亨智能科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1115-1120</span><span class="pid">#10310</span></div>
+  <p class="card-title">巧拼地墊</p>
+  <div class="en">EVA mat</div>
+  <div class="co">岠騰企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1115-1120</span><span class="pid">#10311</span></div>
+  <p class="card-title">手作房屋</p>
+  <div class="en">DIY HOUSE</div>
+  <div class="co">岠騰企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1115-1120</span><span class="pid">#10312</span></div>
+  <p class="card-title">穿線英文數字組</p>
+  <div class="en">Educational toy letter and number with line</div>
+  <div class="co">岠騰企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5834</span></div>
+  <p class="card-title">Etac 如沐春風沐廁椅</p>
+  <div class="en">Etac Clean shower commode</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">使用益他如沐春風沐廁椅，無論對使用者或照護人員都非常安全且簡易，其設計和功能切合實際需求，提供確實而安全的浴室洗澡體驗。沐廁椅的推手把寬度設計使操作變得非常容易，而直立的手把在洗澡時非常適用，甚至在使用壁掛式馬桶座時也非常方便。座椅的背部可以打開，方便使用者進入座椅。足部支撐座設計獨特，柔軟帶有捲曲，為使用者提供腳部舒…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5833</span></div>
+  <p class="card-title">Etac 益他好朋友沐廁座椅</p>
+  <div class="en">Etac Swift Commode</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">益他好朋友沐廁座椅讓您在臥室使用時感受極致的舒適。精心設計的椅墊附有隱藏的可拆卸坐墊，拿起坐墊時自動上鎖安全蓋，為您提供安心保障。此沐廁椅貼心地設有向前傾斜功能，協助使用者輕鬆站立。柔軟的座墊和靠背是沐廁椅的標準配備，不僅可當作淋浴椅，也是免站立馬桶升高座墊的理想選擇。柔軟座墊的獨特的套環設計，讓您穩固地坐在座椅上，可…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0525-0528</span><span class="pid">#7524</span></div>
+  <p class="card-title">DeepZleep 智能睡眠養生器</p>
+  <div class="en">AmLife DeepZleep Smart Sleep Wellness Device</div>
+  <div class="co">恩萊國際有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0408</span><span class="pid">#6025</span></div>
+  <p class="card-title">日革防蟎墊</p>
+  <div class="en">NichiKaku Mite-Repellent Pad</div>
+  <div class="co">昊泰國際有限公司</div>
+  <p class="desc">塵蟎充斥在我們的生活環境當中，可能對身體造成種種不良影響，例如：過敏、皮膚癢、乾咳、呼吸不順等。日革研究所開發出了一種除蟎墊，裏面裝有塵蟎喜好的引誘劑。引誘劑會吸引塵蟎鑽入，並將塵蟎鎖在除蟎墊內。本公司的產品全部採用天然來源成分製成，沒有使用任何化學殺蟲成分。天然成份製造，經實驗室實驗，比食用鹽毒性還低(日本、台灣)，…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0408</span><span class="pid">#6046</span></div>
+  <p class="card-title">日革防蟎墊</p>
+  <div class="en">Ninja ROBO</div>
+  <div class="co">昊泰國際有限公司</div>
+  <p class="desc">防蟎專門店 ✔ 將防蟎墊放置在任何您認為有塵蟎出沒的地方，塵蟎會被防蟎墊內的氣味所吸引，當塵蟎進入防蟎墊內將會因為&quot;乾燥&quot;而死亡。 ✔ 三個月後，請將防蟎墊自外袋取出，放入塑膠袋內綁好並丟棄，隨後取出補充包內的防蟎墊放入外袋，將外袋放回原處繼續捕獲塵蟎。 ✔日本國家標準JIS實驗，抑制塵螨繁殖率100% ✔ 安全、簡單…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0115</span><span class="pid">#6112</span></div>
+  <p class="card-title">天然橡膠護腰帶</p>
+  <div class="en">Lumbar Waist Supporter</div>
+  <div class="co">明源橡膠工業股份有限公司</div>
+  <p class="desc">MIT 台灣製造: 業界技術領先，重視研發，品質優異的橡膠輔料製造商之一。 高品質與耐用: 擁有超過40年製造經建與專業技術。採用安全原物料，重視環保，研發出耐用的品質以延長使用期限。 會呼吸、卓越彈性的護腰帶: 特殊壓紋表面設計不易滑動鬆脫，有孔設計透氣性佳。善用天然橡膠特性與卓越配方技術，研發出達到良好支撐性與舒適…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0115</span><span class="pid">#6113</span></div>
+  <p class="card-title">止血帶</p>
+  <div class="en">Tourniquets</div>
+  <div class="co">明源橡膠工業股份有限公司</div>
+  <p class="desc">無乳膠, 非TPE 止血帶 合成壓紋止血帶, 取得台灣新型專利. 以表面壓紋設計, 有著良好的拉力, 使用時不會滑脫.</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0115</span><span class="pid">#6119</span></div>
+  <p class="card-title">石膏繃帶防水罩</p>
+  <div class="en">Cast &amp; Bandage Waterproof Protector</div>
+  <div class="co">明源橡膠工業股份有限公司</div>
+  <p class="desc">石膏繃帶防水罩, 主要用於四肢受傷情況下的日常沐浴防水護理. 1. 彈性束口位置, 使用合成橡膠製作而成, 不含乳膠過敏原. 2. 束口橡膠彈性強, 回復力佳. 3. 防水性能佳, 可重複使用. 4. 使用穿戴容易</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0115</span><span class="pid">#6117</span></div>
+  <p class="card-title">筋膜加壓帶</p>
+  <div class="en">FlowBand</div>
+  <div class="co">明源橡膠工業股份有限公司</div>
+  <p class="desc">Mylala筋膜加壓帶是一款多功能的合成壓紋彈力帶，透過筋膜加壓帶的厚度及彈性來改善關節活動度. 筋膜加壓帶的纏繞，可以增加血液流動，加速恢復，減少四肢腫脹。加壓後，肌肉軟組織的摩擦力可以排除體內老舊廢物，在短時間加壓後，血流量加大促進循環，讓擁有更多養份的血液，可以同時帶走堆積在血管內不必要的物質，幫助消腫改善筋膜的…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1021</span><span class="pid">#9995</span></div>
+  <p class="card-title">無線藍牙單導ECG監測器</p>
+  <div class="en">Single Lead Wireless ECG Sensor</div>
+  <div class="co">智感雲端科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1021</span><span class="pid">#9988</span></div>
+  <p class="card-title">閘道器</p>
+  <div class="en">Information Gateway</div>
+  <div class="co">智感雲端科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#8723</span></div>
+  <p class="card-title">住宿型照護管理解決方案</p>
+  <div class="en">Long-term Care Solution</div>
+  <div class="co">智齡科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#8725</span></div>
+  <p class="card-title">居家服務管理系統</p>
+  <div class="en">Home Care Solution</div>
+  <div class="co">智齡科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#8724</span></div>
+  <p class="card-title">日間照護管理系統</p>
+  <div class="en">Adult Day Care Solution</div>
+  <div class="co">智齡科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#8726</span></div>
+  <p class="card-title">智齡照護推車</p>
+  <div class="en">Jubo Trolley</div>
+  <div class="co">智齡科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10197</span></div>
+  <p class="card-title">居家照顧床</p>
+  <div class="en">Electric Home Care Bed</div>
+  <div class="co">東庚企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10193</span></div>
+  <p class="card-title">手腳運動機</p>
+  <div class="en">Movement Trainer</div>
+  <div class="co">東庚企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10198</span></div>
+  <p class="card-title">設施床</p>
+  <div class="en">Electric Adjustable Care Bed</div>
+  <div class="co">東庚企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10315</span></div>
+  <p class="card-title">淨解王 </p>
+  <div class="en">Jing Jie Wang Odor Eliminator</div>
+  <div class="co">榮沁企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10316</span></div>
+  <p class="card-title">魔術師</p>
+  <div class="en">Odor Control Bio Solution</div>
+  <div class="co">榮沁企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1005</span><span class="pid">#9864</span></div>
+  <p class="card-title">小安照顧助理</p>
+  <div class="en">ant CareSpot</div>
+  <div class="co">歐格電子股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#10189</span></div>
+  <p class="card-title">富足康科技足墊-膝蓋養護款</p>
+  <div class="en">FOOTDISC Ortho Insole</div>
+  <div class="co">歐立達股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#6066</span></div>
+  <p class="card-title">富足康舒壓坐墊</p>
+  <div class="en">FOOTDISC Ergonomic seat cushion</div>
+  <div class="co">歐立達股份有限公司</div>
+  <p class="desc">1.脊椎舒壓，減輕尾椎壓力，舒緩下背和尾椎不適。 2.減輕坐骨的壓力。 3.支撐系統以改善姿勢。 4.卸荷私密部位壓力，保持通風舒適。 5.凹凸設計允許空氣自由流動，防止悶熱。 6.完美地適合任何座椅。 適合辦公室，居家，汽車，火車，公車和卡車上長期久坐者的最佳配備。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#10190</span></div>
+  <p class="card-title">富足康舒壓拖鞋</p>
+  <div class="en">FOOTDISC Relax&amp;Health Slipper</div>
+  <div class="co">歐立達股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0605</span><span class="pid">#6133</span></div>
+  <p class="card-title">泰達自動手杖椅</p>
+  <div class="en">Ta Da Chair Serirs 1</div>
+  <div class="co">永朔實業有限公司</div>
+  <p class="desc">https://www.step2gold.com.tw/products/mixproduct</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0605</span><span class="pid">#10074</span></div>
+  <p class="card-title">泰達自動隨身椅air</p>
+  <div class="en">Ta -Da Chair series 3</div>
+  <div class="co">永朔實業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0605</span><span class="pid">#6134</span></div>
+  <p class="card-title">泰達隨身椅</p>
+  <div class="en">Ta Da Chair Series 2</div>
+  <div class="co">永朔實業有限公司</div>
+  <p class="desc">https://www.step2gold.com.tw/products/mixproduct-20220114083823</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0605</span><span class="pid">#6146</span></div>
+  <p class="card-title">泰達隨身椅PRO</p>
+  <div class="en">Ta Da Chair Series 2 Pro</div>
+  <div class="co">永朔實業有限公司</div>
+  <p class="desc">https://www.step2gold.com.tw/products/ta-da_chair_pro</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1015-1022</span><span class="pid">#5825</span></div>
+  <p class="card-title">UBabyCare聰明嬰兒床墊</p>
+  <div class="en">UBabyCare Smart Baby Mattress</div>
+  <div class="co">滙嘉健康生活科技股份有限公司</div>
+  <p class="desc">新生兒不會說話，往往很難從寶寶的精神狀態分辨他的健康狀況，許多症狀都不明顯不容易發現，從寶寶動作狀態可作為是否安全的指標。特別是剛出生的寶寶16-20小時都在睡覺，而100%父母卻無法安心入睡。照顧寶寶沒有使用手冊，如何利用科技24小時照顧寶寶免於風險，又能解決新手父母育兒的煩惱，是UBabyCare聰明嬰兒床墊產品創…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0410</span><span class="pid">#8684</span></div>
+  <p class="card-title">食感試驗機</p>
+  <div class="en">Texture Analyzer</div>
+  <div class="co">瑞滄企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#7520</span></div>
+  <p class="card-title">AIR PURE 地暖系統</p>
+  <div class="en">AIR PURE Floor Heating</div>
+  <div class="co">環渼節能科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#7521</span></div>
+  <p class="card-title">木作地暖系統</p>
+  <div class="en">Wood-Based Floor Heating</div>
+  <div class="co">環渼節能科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#7522</span></div>
+  <p class="card-title">泥作地暖系統</p>
+  <div class="en">Cement-Based Floor Heating</div>
+  <div class="co">環渼節能科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#7523</span></div>
+  <p class="card-title">溫度控制器</p>
+  <div class="en">Thermostat</div>
+  <div class="co">環渼節能科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0402、M0404、M0406        </span><span class="pid">#10239</span></div>
+  <p class="card-title">思憶康EX 長智配方</p>
+  <div class="en">Cerecom EX</div>
+  <div class="co">生活元素生醫股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0402、M0404、M0406        </span><span class="pid">#10240</span></div>
+  <p class="card-title">思憶康PLUS 智勝配方</p>
+  <div class="en">Cerecom PLUS</div>
+  <div class="co">生活元素生醫股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0108</span><span class="pid">#10112</span></div>
+  <p class="card-title">鱘御靈活精華粹</p>
+  <div class="en">Sturgeon Mobility Formula</div>
+  <div class="co">皇贊股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0901、0903</span><span class="pid">#6116</span></div>
+  <p class="card-title">益達肌肉刺激訓練儀</p>
+  <div class="en">YIDA Fitcore</div>
+  <div class="co">益達生醫股份有限公司</div>
+  <p class="desc">1. 大螢幕 操作間單 利於長者使用 2. 輕量小巧 攜帶方便 3. 充飽電可使用達2週(10次) 方便又環保 4. 取得中華民國新型專利</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0901、0903</span><span class="pid">#10072</span></div>
+  <p class="card-title">益達肌肉評估握力儀</p>
+  <div class="en">YIDA Muscle Mass And Strength Analyzer</div>
+  <div class="co">益達生醫股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0901、0903</span><span class="pid">#10073</span></div>
+  <p class="card-title">益達肌肉評估握力儀</p>
+  <div class="en">YIDA Muscle Mass And Strength Analyzer</div>
+  <div class="co">益達生醫股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0622、M0624、M0626、M0628</span><span class="pid">#8799</span></div>
+  <p class="card-title">失智症VR體驗工作坊</p>
+  <div class="en">Dementia VR Journey</div>
+  <div class="co">盤古銀髮股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1025、M1027</span><span class="pid">#8699</span></div>
+  <p class="card-title">智慧情境鈴</p>
+  <div class="en">U-Bell</div>
+  <div class="co">磊星科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1025、M1027</span><span class="pid">#6518</span></div>
+  <p class="card-title">無線主機</p>
+  <div class="en">MIini Gateway</div>
+  <div class="co">磊星科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1025、M1027</span><span class="pid">#8700</span></div>
+  <p class="card-title">緊急求助鈴</p>
+  <div class="en">Panic Button</div>
+  <div class="co">磊星科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0207-0214</span><span class="pid">#6040</span></div>
+  <p class="card-title">TOCA超軟毛小頭牙刷</p>
+  <div class="en">TOCA Ultra-Soft Bristle Small Head Toothbrush</div>
+  <div class="co">社團法人台灣口腔照護協會</div>
+  <p class="desc">0.01mm尖端超纖細軟毛，深入清潔牙齦，特別適合牙周病患者 握柄流線設計，6-99歲輕鬆潔牙不費力</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0207-0214</span><span class="pid">#9872</span></div>
+  <p class="card-title">Tocalight酵研淨白全效型牙膏</p>
+  <div class="en">Tocalight ProEnyme Total White Toothpaste</div>
+  <div class="co">社團法人台灣口腔照護協會</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#9817</span></div>
+  <p class="card-title">社團法人台灣聯合動物公園協會</p>
+  <div class="en">Taiwan United Animals Park Association</div>
+  <div class="co">社團法人台灣聯合動物公園協會</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0722-0742</span><span class="pid">#5904</span></div>
+  <p class="card-title">台灣銀髮產業協會</p>
+  <div class="en">CCPC</div>
+  <div class="co">社團法人台灣銀髮產業協會</div>
+  <p class="desc">&quot;安居生活，一起聰明變老吧 本會的會員橫跨11大產業別，共建銀髮市場全服務。銀髮產業將朝向『賦有意義的設計思維』發展，解密55~64歲準銀髮族，提出【安居生活】4大關鍵面向： 生活安心無虞的空間環境 生活品質提升的整合服務 人際互動連結的社群參與 實踐自我與貢獻的自我成長 找商機、找夥伴、找解方，請進下載 10大安居設…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1229</span><span class="pid">#10252</span></div>
+  <p class="card-title">鑽石光場眼鏡</p>
+  <div class="en">Lumofield Glasses</div>
+  <div class="co">祈光訊息能科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0124</span><span class="pid">#10059</span></div>
+  <p class="card-title">呼吸練習-飛起來</p>
+  <div class="en"> Breathing exercises</div>
+  <div class="co">禾荳荳銀髮藝術</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0124</span><span class="pid">#10070</span></div>
+  <p class="card-title">機構美學規劃活動</p>
+  <div class="en">Institutional Aesthetic Planning Activities</div>
+  <div class="co">禾荳荳銀髮藝術</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0124</span><span class="pid">#10077</span></div>
+  <p class="card-title">銀髮藝術長照服務</p>
+  <div class="en">Art Services for the Elderly in Long-Term Care</div>
+  <div class="co">禾荳荳銀髮藝術</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0925-0928</span><span class="pid">#8650</span></div>
+  <p class="card-title">智慧照顧管理系統</p>
+  <div class="en">C4U</div>
+  <div class="co">科技城股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10228</span></div>
+  <p class="card-title">BM橫機護肘</p>
+  <div class="en">BM elbow support</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10226</span></div>
+  <p class="card-title">BM橫機護腕</p>
+  <div class="en">BM wrist support</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10229</span></div>
+  <p class="card-title">BM橫機護踝</p>
+  <div class="en">BM Ankle support</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10230</span></div>
+  <p class="card-title">BM護膝</p>
+  <div class="en">BM Knee support</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10227</span></div>
+  <p class="card-title">BM透氣護腕</p>
+  <div class="en">BM wrist support S</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10232</span></div>
+  <p class="card-title">冠得樂雙向滑輪健美腰帶</p>
+  <div class="en">GUARDNERQTT</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10231</span></div>
+  <p class="card-title">冠得樂雙向滑輪軀幹裝具</p>
+  <div class="en">GUARDNERBELT</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0114</span><span class="pid">#10233</span></div>
+  <p class="card-title">超透氣腰部支撐輔助背心</p>
+  <div class="en">TASCHEL</div>
+  <div class="co">立偉國際貿易有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10241</span></div>
+  <p class="card-title">療癒黏土 (尤加利)</p>
+  <div class="en">Therapy Dough (Eucalyptus)</div>
+  <div class="co">米多實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10243</span></div>
+  <p class="card-title">療癒黏土 (甜橙)</p>
+  <div class="en">Therapy Dough (Sweet Orange)</div>
+  <div class="co">米多實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10244</span></div>
+  <p class="card-title">療癒黏土 (薰衣草)</p>
+  <div class="en">Therapy Dough (Lavender)</div>
+  <div class="co">米多實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0301-N0314</span><span class="pid">#10242</span></div>
+  <p class="card-title">療癒黏土 (野薑花)</p>
+  <div class="en">Therapy Dough (Ginger Flower)</div>
+  <div class="co">米多實業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#9819</span></div>
+  <p class="card-title">QSHION CBD 助眠枕_工學型</p>
+  <div class="en">QSHION CBD Pillow</div>
+  <div class="co">耀億工業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#9812</span></div>
+  <p class="card-title">QSHION 透氣分壓床墊</p>
+  <div class="en">QSHION Breathable and Multi-density Mattress</div>
+  <div class="co">耀億工業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#9815</span></div>
+  <p class="card-title">QSHION 透氣楔形坐墊</p>
+  <div class="en">QSHION Breathable wedge seat cushion</div>
+  <div class="co">耀億工業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#9818</span></div>
+  <p class="card-title">QSHION 透氣舒壓中空坐墊</p>
+  <div class="en">QSHION hollow seat cushion</div>
+  <div class="co">耀億工業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#9816</span></div>
+  <p class="card-title">QSHION 透氣舒壓坐墊</p>
+  <div class="en">QSHION  Relief Pressure seat cushion</div>
+  <div class="co">耀億工業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#9814</span></div>
+  <p class="card-title">QSHION 透氣釋壓床墊</p>
+  <div class="en">QSHION Breathable Mattress</div>
+  <div class="co">耀億工業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#9813</span></div>
+  <p class="card-title">QSHION 防水抑菌釋壓床墊</p>
+  <div class="en">QSHION Waterproof-cover Mattress</div>
+  <div class="co">耀億工業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10113</span></div>
+  <p class="card-title">BLS苩理蒔100%野生藍莓汁</p>
+  <div class="en">BLS Wilo Blueberry Juice </div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10120</span></div>
+  <p class="card-title">DENTISTE&#x27;牙醫選口腔衛生噴液</p>
+  <div class="en">DENTISTE&#x27; Fresh Breath Spray</div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10114</span></div>
+  <p class="card-title">DENTISTE&#x27;牙醫選夜用牙膏</p>
+  <div class="en">DENTISTE&#x27; Nighttime Toothpaste</div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10116</span></div>
+  <p class="card-title">DENTISTE&#x27;牙醫選天然淨白優質牙膏</p>
+  <div class="en">DENTISTE&#x27; Intensive Whitening Toothpaste</div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10117</span></div>
+  <p class="card-title">DENTISTE&#x27;牙醫選抗蛀牙膏</p>
+  <div class="en">DENTISTE&#x27; Anticavity max fluoride toothpaste</div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10118</span></div>
+  <p class="card-title">DENTISTE&#x27;牙醫選極敏感牙膏</p>
+  <div class="en">DENTISTE&#x27; ultra Sensitive Toothpaste</div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0206</span><span class="pid">#10115</span></div>
+  <p class="card-title">牙醫選再礦物質化修護牙膏</p>
+  <div class="en">DENTISTE&#x27; Repaire Toothpaste</div>
+  <div class="co">聚德富有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0101-0102</span><span class="pid">#10267</span></div>
+  <p class="card-title">便攜兩用式奈米霧化浴設備</p>
+  <div class="en">Dual-Mode Portable Nano Mist Bath System</div>
+  <div class="co">興仁國際實業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0101-0102</span><span class="pid">#10266</span></div>
+  <p class="card-title">便攜式奈米霧化浴設備</p>
+  <div class="en">Portable Nano Mist Bath System</div>
+  <div class="co">興仁國際實業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0101-0102</span><span class="pid">#10299</span></div>
+  <p class="card-title">奈米水霧洗頭設備</p>
+  <div class="en">Nano Mist Hair Washing System</div>
+  <div class="co">興仁國際實業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0101-0102</span><span class="pid">#10268</span></div>
+  <p class="card-title">床式奈米霧化浴設備</p>
+  <div class="en">Bed-Type Nano Mist Bath System</div>
+  <div class="co">興仁國際實業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0101-0102</span><span class="pid">#10297</span></div>
+  <p class="card-title">廂式奈米霧化浴設備</p>
+  <div class="en">Cabin-Type Nano Mist Bath System</div>
+  <div class="co">興仁國際實業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0101-0102</span><span class="pid">#10298</span></div>
+  <p class="card-title">貝殼式奈米霧化浴設備</p>
+  <div class="en">Shell-Type Nano Mist Bath System</div>
+  <div class="co">興仁國際實業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0106</span><span class="pid">#10023</span></div>
+  <p class="card-title">日月養生滴雞精</p>
+  <div class="en">Elite Pure Chicken Essence</div>
+  <div class="co">芳茂企業股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10007</span></div>
+  <p class="card-title">專業外籍幫傭媒合服務</p>
+  <div class="en">Migrant Domestic Helpers</div>
+  <div class="co">萬通國際人力開發股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10008</span></div>
+  <p class="card-title">機構式外籍照護人力媒合服務</p>
+  <div class="en">Institutional Caregivers</div>
+  <div class="co">萬通國際人力開發股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10293</span></div>
+  <p class="card-title">知鼻儀</p>
+  <div class="en">Know Your Nose</div>
+  <div class="co">萬通醫藥股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10291</span></div>
+  <p class="card-title">科愛 拇指外翻矯正器(未滅菌)</p>
+  <div class="en">Tech Love Bunion Corrector(Non-sterile)</div>
+  <div class="co">萬通醫藥股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10305</span></div>
+  <p class="card-title">科愛 頸椎固定器- 進階版(白藍)</p>
+  <div class="en">TechLove Neck Support Brace</div>
+  <div class="co">萬通醫藥股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10304</span></div>
+  <p class="card-title">科愛頸椎固定器- 進階版(白灰)</p>
+  <div class="en">TechLove Neck Support Brace </div>
+  <div class="co">萬通醫藥股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0834-M0845</span><span class="pid">#8774</span></div>
+  <p class="card-title">事件相機MTK開發套件</p>
+  <div class="en">EVS MTK Evaluation Kit</div>
+  <div class="co">蘊域科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1105</span><span class="pid">#10259</span></div>
+  <p class="card-title">用芯照顧系統</p>
+  <div class="en">Health core system</div>
+  <div class="co">虹朗科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10254</span></div>
+  <p class="card-title">貼心片</p>
+  <div class="en">YuGuard </div>
+  <div class="co">裕晶醫學科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#10200</span></div>
+  <p class="card-title">貼心音</p>
+  <div class="en">YuSound</div>
+  <div class="co">裕晶醫學科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1107</span><span class="pid">#10076</span></div>
+  <p class="card-title">泰坦適配 動能結構適配鞋墊</p>
+  <div class="en">FITATLAS INSOLE prescription custom orthotics</div>
+  <div class="co">護聯資訊股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0205       </span><span class="pid">#10029</span></div>
+  <p class="card-title">二刀流舌肌訓練器</p>
+  <div class="en">Dual-wielding tongue muscle trainer</div>
+  <div class="co">豐田生醫股份有公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#6045</span></div>
+  <p class="card-title">財稅、財顧與法律諮詢服務</p>
+  <div class="en">Financial, tax, financial planning, and legal consulting services.</div>
+  <div class="co">資誠聯合會計師事務所</div>
+  <p class="desc">高齡化社會使得健康照護市場需求不斷擴張，資誠（PwC）生醫產業服務團隊協助業者從設立、營運、募資、申請補助、建立制度、到上市上櫃、跨境合併、併購與永續發展等各階段，提供財會、稅務、財顧、法律及智財等專業服務的完整解決方案。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1001、N1003</span><span class="pid">#8727</span></div>
+  <p class="card-title">輕鬆握</p>
+  <div class="en">EZ WORK</div>
+  <div class="co">赫越企業有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1111-1114</span><span class="pid">#8713</span></div>
+  <p class="card-title">肌力歸-賦能訓練氣墊</p>
+  <div class="en">For-Power</div>
+  <div class="co">輔人科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6143</span></div>
+  <p class="card-title">全方位支撐小歇枕</p>
+  <div class="en">Inflatable Neck Pillow for Travel</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">三用充氣式旅行枕，非常適合旅行、辦公室、學校...等稍作休息時使用。 頸部特殊設計可完全固定支撐頸部，全方位的依託和支撐讓您能安心安穩的小歇片刻。 ▲雙頸枕包覆支撐設計：滿足左右不同睡姿，減少 頭部產生於頸部的壓力。 ▲雙枕柱環抱支撐放置：適用不同體型， 可舒適安穩的環抱左右枕柱或交疊於胸前，幫助 增加安全感。 ■可當…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6142</span></div>
+  <p class="card-title">可調式美臀墊</p>
+  <div class="en">ADJUSTABLE SEAT CUSHION</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">●專利張力式多段可調節裝置，可依體型調整墊體弧度「大、小」托護骨盤舒適度，適應各種體型使用者需求。 ●比人體工學更人體工學設計，弧度調節功能讓因「不良坐姿」自然的矯正坐姿，釋放久坐壓力。 ●於居家使用或攜帶戶外活動兩種用途，調節簡易、使用快速、簡單方便。 ●專利保護中</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6136</span></div>
+  <p class="card-title">撐腰人-最懂你的塑型坐墊</p>
+  <div class="en">Lumbar Support Adjustable Seat Cushion</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">區隔一般坐墊不同的感受，張力回彈緊密貼合/底部收臀防擴/多段支撐調節，讓你立即有感! 【商品特色】 ❶依照臀部完美弧度設計集中包覆防擴 ❷張力回彈不同體型坐姿依然隨時緊貼 ❸多段調節不同坐姿的腰支撐與臀包覆 ❹表面搭配遠紅外線機能表布幫助久坐 ❺SGS耐壓和耐久通過，一年原廠保固 產地：台灣</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6137</span></div>
+  <p class="card-title">氣壓可調式肩頸腰舒緩墊</p>
+  <div class="en">Three-in-One Air Pressure Relief Cushion for Pain Relief</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">●拉伸背部、促進胸膛擴充，達到頸部後仰，調整人體胸背半部周圍血液循環，在人們長時間於固定一種姿勢 「工作」中肩、頸所承受壓力之反作之影響，導致肩、頸容易疲憊與健康問題之改善。 ●解決現代人因常期使用3C產品過度之工作壓力導致頸、肩疲勞疼痛的問題。三用設計，操作簡單、方便，可於地板躺著或於坐椅上使用。 #多國專利保護中</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6140</span></div>
+  <p class="card-title">調整型美臀墊</p>
+  <div class="en">Adjustable Air Seat Cushion</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">1.人體工學造型設計，舒適貼合挺腰塑臀。 2.雙氣囊核心設計，後端、左右可平衡調整[托昇、平降]。 3.簡單快速觸控式氣壓調整鈕，可微調個人專屬黃金角度。 4.氣壓充放調整不需電力，節能環保。 ※.多國專利保護中</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0429、N0431</span><span class="pid">#6456</span></div>
+  <p class="card-title">康威多愛膚凝膠</p>
+  <div class="en">DuoDER Hydroactive GEL</div>
+  <div class="co">龍生藥品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0429、N0431</span><span class="pid">#6455</span></div>
+  <p class="card-title">康威適透膜粉(未滅菌)</p>
+  <div class="en">Stomahesive Protective Powder (non-sterile)</div>
+  <div class="co">龍生藥品股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-116">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-116">系統平台</h2>
+      <p class="eng">System</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">22</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">34</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>資訊管理系統</strong> · 官方計數 13</li><li><strong>健康管理系統</strong> · 官方計數 7</li><li><strong>安全監控系統</strong> · 官方計數 5</li><li><strong>環境控制系統</strong> · 官方計數 3</li><li><strong>其他系統</strong> · 官方計數 3</li><li><strong>緊急求救系統</strong> · 官方計數 2</li><li><strong>遠端照護系統</strong> · 官方計數 1</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">N0601-0604</span><span class="pid">#5981</span></div>
+  <p class="card-title">“世大”防褥瘡床墊(未滅菌)</p>
+  <div class="en">“SEDA”Anti-Decubitus Mattresses (Non-Sterile)</div>
+  <div class="co">世大化成股份有限公司</div>
+  <p class="desc">床是每個人生活的核心，對於高齡者來說，更是生活中不可或缺的重要項目。久臥痠麻與褥瘡的問題常常影響著高齡者身體健康與生活品質，更造成照護者極大的照護壓力。 為了改善高齡者的睡眠品質同時進行褥瘡防護，世大化成開發適用於居家與醫療照護使用的防褥瘡床墊，床墊材質採用模具成型高密度溫感釋壓高分子PU記憶材質，雙層加厚複合式結構設…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0207</span><span class="pid">#6189</span></div>
+  <p class="card-title">睡眠撲滿</p>
+  <div class="en">SleepBank</div>
+  <div class="co">勝得棻國際股份有限公司</div>
+  <p class="desc">睡眠撲滿以自然睡眠、原生科技、共同創造生命品質 睡眠，佔每個人生命時間的三分之一，透過充分的休息能使身體修復與自癒。聽起來很自然的睡眠行為，卻成為現代人夢寐以求的精神奢侈品，入睡或睡好變得不容易。2015年8月睡眠撲滿正式上市，全台灣首創〝獨家SFT頻率晶片＋舒曼波原生頻率〞結合，以高科技、零接觸、零干擾的方式，協助改…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0207</span><span class="pid">#6190</span></div>
+  <p class="card-title">記憶吐司</p>
+  <div class="en">FocuSleep</div>
+  <div class="co">勝得棻國際股份有限公司</div>
+  <p class="desc">人體運作本該日出而作日落而息，卻因現代資訊過多、課業、工作、生活壓力，常常超時工作、熬夜學習、日夜顛倒、疲勞轟炸，這些行為已打亂人體的正常運作，經常性的發生導致白天昏昏沉沉、精神無法集中，生活中的專注力不斷下降、沒有耐性。夜晚也因壓力大，自然深睡不足、大腦無法規律修護，降低記憶力與腦力，長期下早已不堪負荷，生活品質逐漸…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5831</span></div>
+  <p class="card-title">MeyWalk 4 趴趴走步行訓練機</p>
+  <div class="en">MeyWalk 4</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">MeyWalk 4 趴趴走步行訓練機是一款完美動態表現的步態訓練機，為使用者提供高效的步行訓練體驗。它具有3段式高度調整，可以根據不同使用者的身高進行適配，確保訓練的舒適性和有效性。該步行訓練機配備馬鞍椅/軀幹支撐連動裝置，這意味著當使用者移動軀幹時，馬鞍椅也會跟著調整，提供更穩固的支撐，使用者能夠更自信地行走和訓練。…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0509-0514</span><span class="pid">#5836</span></div>
+  <p class="card-title">Rollz Flex 說走就走助步車</p>
+  <div class="en">Rollz Flex</div>
+  <div class="co">強生醫療儀器股份有限公司</div>
+  <p class="desc">Rollz Flex說走就走助步車結合了時尚的設計，輕巧、穩固和大容量的完美融合。其簡潔優雅的外觀展現出高水準的藝術工藝。特別設計的輪子確保在重載情況下輕鬆操控，讓您享受無縫愉悅的行動體驗。這款助步車不僅是實用的行動輔助工具，更是展現您獨特魅力和個性的時尚配件。無論在街上漫步還是冒險探索，您每一步都散發出無窮的魅力。擁…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10009</span></div>
+  <p class="card-title">人力仲介加盟創業與營運支援</p>
+  <div class="en">Manpower Agency Franchise Program</div>
+  <div class="co">萬通國際人力開發股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8752</span></div>
+  <p class="card-title">三尋全腦樂活有限公司</p>
+  <div class="en">Threeseek WBHPromotion CO., LTD.</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8761</span></div>
+  <p class="card-title">女媧創造股份有限公司</p>
+  <div class="en">NUWA Robotics CO., LTD.</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8758</span></div>
+  <p class="card-title">安力達科技股份有限公司</p>
+  <div class="en">Anlida Technology Co., Ltd.</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8762</span></div>
+  <p class="card-title">忠義國際通商股份有限公司</p>
+  <div class="en">Loyalty Global Business Corporation</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8745</span></div>
+  <p class="card-title">悠康事業有限公司</p>
+  <div class="en">YUCOM CO.,LTD.</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8746</span></div>
+  <p class="card-title">日本關西銀髮服務協會</p>
+  <div class="en">KANSAI SILVER SERVICE ASSOCIATION</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8748</span></div>
+  <p class="card-title">明志科技大學</p>
+  <div class="en">MING CHI UNIVERSITY OF TECHNOLOGY</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8756</span></div>
+  <p class="card-title">瑪莎生活科技股份有限公司</p>
+  <div class="en">MASALIFE CO., Ltd</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8760</span></div>
+  <p class="card-title">眾志智慧科技股份有限公司</p>
+  <div class="en">Unity SmartTech Inc.</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8747</span></div>
+  <p class="card-title">綠之園健康事業股份有限公司</p>
+  <div class="en">MIDORI HEALTH CARE CO..LTD</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8755</span></div>
+  <p class="card-title">蘊域科技股份有限公司</p>
+  <div class="en">Yun-X Tek CO.,LTD.</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8751</span></div>
+  <p class="card-title">越華全球貿易開發股份有限公司</p>
+  <div class="en">VIET HUA TRADING CO.,LTD</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8749</span></div>
+  <p class="card-title">長庚養生文化村</p>
+  <div class="en">Chang Gung Health And Culture Village</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0915-0920</span><span class="pid">#8631</span></div>
+  <p class="card-title">高齡智慧照護產業加速器</p>
+  <div class="en">Smart Elder-Care Industry Accelerator</div>
+  <div class="co">長庚學校財團法人長庚科技大學</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6135</span></div>
+  <p class="card-title">枕上人-智控平衡枕</p>
+  <div class="en">Smart health technology pillow</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">從超越人體工學開發核心搭配獨家負壓靜力平衡技術，研發多年的路程中，我們終於設計完成了最貼心的枕頭【枕上人】可以自行調整成最符合您的形狀，依照每個人的輪廓去客製化 找出最舒適的高度及包容度，生活不再了既有產品而要妥協，而是讓產品自然融入你的生活。 【商品特色】 ❶【專利技術】負壓靜力平衡調節技術&amp;#169; ❷【黃金三角…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6139</span></div>
+  <p class="card-title">負壓調整型護頸套</p>
+  <div class="en">Adjustable Negative Pressure Neck Support Collar</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">●調節式-負壓護頸套，特殊專利設計「隱藏式負壓氣囊「控制開關」，可微調頸部「上、下」支撐角度調整。 ●解決現代人使用3C產品過度之頸部疼痛的問題。並適合可長期在工作中使用，操作簡單便利… ※.多國專利保護中</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-122">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-122">醫療&amp;檢測設備</h2>
+      <p class="eng">Medical</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">1</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">31</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>行動醫材</strong> · 官方計數 8</li><li><strong>預防醫學</strong> · 官方計數 7</li><li><strong>其他醫療器材</strong> · 官方計數 6</li><li><strong>檢測設備</strong> · 官方計數 5</li><li><strong>智慧醫療系統</strong> · 官方計數 4</li><li><strong>醫療設備</strong> · 官方計數 1</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">M1021</span><span class="pid">#9986</span></div>
+  <p class="card-title">即時心電監測平台</p>
+  <div class="en">Real-Time ECG Monitoring Platform</div>
+  <div class="co">智感雲端科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-123">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-123">經營管理服務</h2>
+      <p class="eng">Management</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">2</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">30</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>其他專業服務</strong> · 官方計數 13</li><li><strong>人力仲介</strong> · 官方計數 10</li><li><strong>建築/室內設計</strong> · 官方計數 4</li><li><strong>金融</strong> · 官方計數 2</li><li><strong>保險</strong> · 官方計數 1</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">M0207-0214</span><span class="pid">#5959</span></div>
+  <p class="card-title">口腔照護人力培育</p>
+  <div class="en">Oral care training</div>
+  <div class="co">社團法人台灣口腔照護協會</div>
+  <p class="desc">口腔照護諮詢： 一般民眾、機構單位 專業人員培訓： 學校養成教育課程 特殊需求者口腔照護指導員培訓 特殊需求者口腔照護服務員技術培訓 在職教育訓練： 各場域、社區民眾口腔預防保健宣導 各機構輔導</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0625-0628</span><span class="pid">#10006</span></div>
+  <p class="card-title">安心外籍看護一站式服務</p>
+  <div class="en">Migrant Live-in Caregivers</div>
+  <div class="co">萬通國際人力開發股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+  </div>
+</section><section class="cat" id="cat-117">
+  <header class="cat-head">
+    <div>
+      <h2 id="h-cat-117">科技產品</h2>
+      <p class="eng">Tech.</p>
+    </div>
+    <div class="stats">
+      <div><span class="num">87</span><span class="lbl">本研究歸類</span></div>
+      <div><span class="num">20</span><span class="lbl">官方計數*</span></div>
+    </div>
+  </header>
+  <ul class="subs"><li><strong>生理量測</strong> · 官方計數 6</li><li><strong>離床偵測</strong> · 官方計數 6</li><li><strong>其他科技設備</strong> · 官方計數 6</li><li><strong>定位裝置</strong> · 官方計數 1</li><li><strong>機器人</strong> · 官方計數 1</li></ul>
+  <div class="grid">
+    <article class="card">
+  <div class="card-top"><span class="booth">N0630</span><span class="pid">#10319</span></div>
+  <p class="card-title">wemo® 樂齡款手環</p>
+  <div class="en">wemo® Accessible Wearable Memo Band</div>
+  <div class="co">Cosmotec </div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0630</span><span class="pid">#10317</span></div>
+  <p class="card-title">wemo® 筆記手環＋專用筆</p>
+  <div class="en">wemo® Wearable Memo Band + wemo Pen</div>
+  <div class="co">Cosmotec </div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0601-0604</span><span class="pid">#5980</span></div>
+  <p class="card-title">WhizPad 安心臥智慧床墊照護系統</p>
+  <div class="en">WhizPad Care Relieve System</div>
+  <div class="co">世大化成股份有限公司</div>
+  <p class="desc">久臥褥瘡和離床跌倒是長者照護上經常碰到的問題，以床墊作為使用者生活核心，世大化成與世大智科合作打造極舒適的智慧床墊與其照護系統，主要材料為溫感釋壓記憶材質，材質會隨著人體溫度改變軟硬度，為身體創造最大接觸分壓與支撐面積，床墊減壓效果經臨床證明有助降低久臥壓傷發生率；本身不包含任何電子式感測元件，床墊活動感知器以軟質導電…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">—</span><span class="pid">#9913</span></div>
+  <p class="card-title">Mate tag全球智慧定位器</p>
+  <div class="en">Mate tag</div>
+  <div class="co">云泰創新科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1002、N1004</span><span class="pid">#10247</span></div>
+  <p class="card-title">賦動 體適能與動態監測數據分析系統</p>
+  <div class="en">FUDO AI Fitness &amp; Motion Assessment System</div>
+  <div class="co">台中大雅動力技術科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1102、N1104</span><span class="pid">#5740</span></div>
+  <p class="card-title">OGA雷達毫米波生理感測裝置</p>
+  <div class="en">OGA Physiological Detection Device</div>
+  <div class="co">尚茂智能科技股份有限公司</div>
+  <p class="desc">此毫米波雷達生理量測閘道裝置可針對人體呼吸、心跳之生理訊號(Vital Signs)進行感測，此為非接觸式生理訊號偵測並具隱私保護之毫米波雷達偵測系統。</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#10096</span></div>
+  <p class="card-title"> 共振鏡框</p>
+  <div class="en">Resonance eyeglasses</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8705</span></div>
+  <p class="card-title">ㄐㄧㄢˋ骨頭</p>
+  <div class="en">Bone Strengthener</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8770</span></div>
+  <p class="card-title">七轉片手串</p>
+  <div class="en">Bracelets</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8771</span></div>
+  <p class="card-title">共振中脈墊</p>
+  <div class="en">Midrib Pad</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8772</span></div>
+  <p class="card-title">共振板凳</p>
+  <div class="en">Resonance bench </div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#10093</span></div>
+  <p class="card-title">共振桶</p>
+  <div class="en">Resonance Wooden Foot Sauna </div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8769</span></div>
+  <p class="card-title">刮痧板</p>
+  <div class="en">Scraping board</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8704</span></div>
+  <p class="card-title">原生菌</p>
+  <div class="en">Probiotics</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#10094</span></div>
+  <p class="card-title">吹吹吹</p>
+  <div class="en">Air Ionizer</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8768</span></div>
+  <p class="card-title">壇中穴吊飾</p>
+  <div class="en">Hard Plastic heart shape necklace </div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8766</span></div>
+  <p class="card-title">撥筋機</p>
+  <div class="en">MASSAGE EQUIPMENT</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8702</span></div>
+  <p class="card-title">生物共振墊</p>
+  <div class="en">Bio-Calibration Plate</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#10092</span></div>
+  <p class="card-title">能量共振屋</p>
+  <div class="en">Resonance house </div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8703</span></div>
+  <p class="card-title">製水寶</p>
+  <div class="en">MSR HO-WATER </div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#8706</span></div>
+  <p class="card-title">開心油</p>
+  <div class="en">Happy Oil</div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0125-0126</span><span class="pid">#10095</span></div>
+  <p class="card-title">靜心寶</p>
+  <div class="en">Mindfulness machine </div>
+  <div class="co">捷威科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0606</span><span class="pid">#7525</span></div>
+  <p class="card-title">Ai Chatbot+室內定位</p>
+  <div class="en">AI Chatbot + Indoor Positioning</div>
+  <div class="co">智慧時尚股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0606</span><span class="pid">#6032</span></div>
+  <p class="card-title">D+健康定位錶</p>
+  <div class="en">D+ Health Locator Watch</div>
+  <div class="co">智慧時尚股份有限公司</div>
+  <p class="desc">D+健康定位錶為透過GPS進行定位之裝置，其裝置已含eSIM，用戶不需另插SIM卡即可使用。 可透過LINE與專屬平台等多元方式，得知配戴者所在位置，亦可自行設定電子圍籬，一旦配戴者離開電子圍籬區域，用戶將會收到LINE示警推播，且手錶上設有SOS緊急求助功能，當配戴者長按SOS按鈕時，用戶同樣會收到LINE示警推播；…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0606</span><span class="pid">#5974</span></div>
+  <p class="card-title">跌倒偵測感應器</p>
+  <div class="en">Fall Detection</div>
+  <div class="co">智慧時尚股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10145</span></div>
+  <p class="card-title">夜間時尚 反光折疊手杖 - 棕灰幾何</p>
+  <div class="en">Evening Fashion- Tropical Mosaic Brown(Foldable)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10153</span></div>
+  <p class="card-title">夜間時尚 反光折疊手杖 - 橘灰幾何</p>
+  <div class="en">Evening Fashion - Tropical Mosaic Orange(Foldable)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10146</span></div>
+  <p class="card-title">夜間時尚 反光折疊手杖 - 蜂巢黑</p>
+  <div class="en">Evening Fashion- Honeycomb Black(Foldable)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10110</span></div>
+  <p class="card-title">夜間時尚 反光折疊手杖 - 赤紅幾何</p>
+  <div class="en">Evening Fashion - Scarlet Checker(Foldable)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10148</span></div>
+  <p class="card-title">夜間時尚反光手杖 - 橘灰幾何</p>
+  <div class="en">Evening Fashion - Tropical Mosaic Orange</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10150</span></div>
+  <p class="card-title">夜間時尚反光手杖 - 水紋棕</p>
+  <div class="en">Evening Fashion - Star Traces Brown</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10152</span></div>
+  <p class="card-title">夜間時尚反光手杖 - 水紋銀</p>
+  <div class="en">Evening Fashion - Star Traces Silver</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10149</span></div>
+  <p class="card-title">夜間時尚反光手杖 - 水紋黑</p>
+  <div class="en">Evening Fashion - Star Traces Black</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10144</span></div>
+  <p class="card-title">夜間時尚反光手杖 - 蜂巢藍</p>
+  <div class="en">Evening Fashion - Honeycomb Blue</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10109</span></div>
+  <p class="card-title">夜間時尚反光手杖 - 蜂巢黑</p>
+  <div class="en">Evening Fashion - Honeycomb Black</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10147</span></div>
+  <p class="card-title">夜間時尚反光手杖 - 赤紅幾何</p>
+  <div class="en">Evening Fashion - Scarlet Checker</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10107</span></div>
+  <p class="card-title">天然木紋折疊手杖 - 栓木</p>
+  <div class="en">Natural Wood Graining Series - Sen Wood (foldable)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10262</span></div>
+  <p class="card-title">天然木紋折疊手杖 - 玫瑰木</p>
+  <div class="en">Natural Wood Graining Series - Rose Wood(foldable)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10261</span></div>
+  <p class="card-title">天然木紋系列手杖 - 栓木</p>
+  <div class="en">Natural Wood Graining Series - Sen Wood</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10108</span></div>
+  <p class="card-title">天然木紋系列手杖 - 玫瑰木</p>
+  <div class="en">Natural Wood Graining Series - Rose Wood</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10133</span></div>
+  <p class="card-title">皇家系列 EZjoint折疊手杖-鑽酒紅</p>
+  <div class="en">Royal Canes Series-Royal Burgundy(EZjoint folding)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10278</span></div>
+  <p class="card-title">皇家系列 施華洛世奇水晶手杖 - 祖母綠</p>
+  <div class="en">Royal Canes Series - Royal Green</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10279</span></div>
+  <p class="card-title">皇家系列 施華洛世奇水晶手杖 - 銀箔黑</p>
+  <div class="en">Royal Canes Series - Royal Black</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10135</span></div>
+  <p class="card-title">皇家系列 施華洛世奇水晶手杖 - 鑽酒紅</p>
+  <div class="en">Royal Canes Series - Royal Burgundy</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10276</span></div>
+  <p class="card-title">皇家系列EZjoint折疊手杖-珍珠玉白</p>
+  <div class="en">Royal Canes Series - Royal Champagne Gold(EZjoint)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10263</span></div>
+  <p class="card-title">皇家系列EZjoint折疊手杖-銀箔黑</p>
+  <div class="en">Royal Canes Series - Royal Black (EZjoint folding)</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10280</span></div>
+  <p class="card-title">皇家系列施華洛世奇水晶手杖 - 珍珠玉白</p>
+  <div class="en">Royal Canes Series - Royal Champagne Gold</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10179</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 彩蝶</p>
+  <div class="en">Vibrant Styles - Butterflies</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10178</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 春暖</p>
+  <div class="en">Vibrant Styles - Spring Symphony</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10177</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 杜鵑紅</p>
+  <div class="en">Vibrant Styles - Tahiti Red</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10111</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 杜鵑藍</p>
+  <div class="en">Vibrant Styles - Tahiti Blue</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10163</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 核桃木</p>
+  <div class="en">Vibrant Styles - Walnut</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10159</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 紅玫</p>
+  <div class="en">Vibrant Styles - Roses</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10165</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 紳士格紋</p>
+  <div class="en">Vibrant Styles - Classic Checker</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10182</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 紳士格紋</p>
+  <div class="en">Vibrant Styles - Classic Checker</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10181</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 茶香月季</p>
+  <div class="en">Vibrant Styles - Tartan Red</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10180</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 蔚藍格紋</p>
+  <div class="en">Vibrant Styles - Tartan Blue</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10164</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 藍色佩斯里</p>
+  <div class="en">Vibrant Styles - Aqua Breeze</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10176</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 鄉間</p>
+  <div class="en">Vibrant Styles - Bali</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10162</span></div>
+  <p class="card-title">繽紛生活折疊手杖 - 靜謐</p>
+  <div class="en">Vibrant Styles - Evening Blossom</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10160</span></div>
+  <p class="card-title">繽紛生活折疊手杖 -酒紅莊園</p>
+  <div class="en">Vibrant Styles - Purple Morris</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10255</span></div>
+  <p class="card-title">繽紛生活折疊手杖Premium - 心意</p>
+  <div class="en">Vibrant Styles - Roses</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10154</span></div>
+  <p class="card-title">繽紛生活折疊手杖Premium - 莓果</p>
+  <div class="en">Vibrant Styles Premium Series - Berries</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10161</span></div>
+  <p class="card-title">繽紛生活折疊手杖Premium - 蝶舞</p>
+  <div class="en">Vibrant Styles Premium Series - Butterflies</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10257</span></div>
+  <p class="card-title">繽紛生活折疊手杖Premium-前衛幾何</p>
+  <div class="en">Vibrant Styles Premium Series - Kaleidoscope</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10183</span></div>
+  <p class="card-title">繽紛生活折疊手杖Premium-花見小路</p>
+  <div class="en">Vibrant Styles Premium Series - Bahamas Floral</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10158</span></div>
+  <p class="card-title">繽紛生活折疊手杖Premium象牙白紅玫</p>
+  <div class="en">Vibrant Styles Premium Series - Cream Flowers</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10103</span></div>
+  <p class="card-title">自立式人體工學手杖-藍色佩斯里-左/右手</p>
+  <div class="en">Free-Standing Ergonomic Cane - Aqua Breeze</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10286</span></div>
+  <p class="card-title">自立式人體工學手杖-酒紅莊園(左/右手)</p>
+  <div class="en">Free-Standing Ergonomic Cane - Purple Morris</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10285</span></div>
+  <p class="card-title">自立式人體工學手杖-香檳金(左/右手用)</p>
+  <div class="en">Free-Standing Ergonomic Cane - Champagne Gold</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10287</span></div>
+  <p class="card-title">自立式人體工學折疊手杖-藍色佩斯里</p>
+  <div class="en">Self Standing Ergonomic Folding Cane - Aqua Breeze</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10102</span></div>
+  <p class="card-title">自立式人體工學折疊手杖-酒紅莊園左/右手</p>
+  <div class="en">Self Standing Ergonomic Folding Cane Purple Morris</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10105</span></div>
+  <p class="card-title">自立式人體工學折疊手杖-香檳金左/右手用</p>
+  <div class="en">Self Standing Ergonomic Folding Cane ChampagneGold</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10104</span></div>
+  <p class="card-title">自行站立人體工學手杖-紳士黑-左/右手用</p>
+  <div class="en">Free-Standing Ergonomic Cane Right/Left Hand</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10282</span></div>
+  <p class="card-title">舒適軟握把 方便上下樓梯之迷你四腳杖</p>
+  <div class="en">Refined Grace - Mini Quad Cane</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10106</span></div>
+  <p class="card-title">舒適軟握把方便上下樓梯迷你四腳杖-曜岩黑</p>
+  <div class="en">Refined Grace - Mini Quad Cane</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0407 </span><span class="pid">#10281</span></div>
+  <p class="card-title">舒適軟握把方便上下樓梯迷你四腳杖-杜鵑藍</p>
+  <div class="en">Mini Quad Cane - Tahiti Blue</div>
+  <div class="co">榕建科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1015-1022</span><span class="pid">#5827</span></div>
+  <p class="card-title">nFOPT® AI Smart Care</p>
+  
+  <div class="co">滙嘉健康生活科技股份有限公司</div>
+  <p class="desc">24小時安全與健康自動關懷! 居家照顧連續性遠端健康動態偵測更安心! 不穿不戴 無感偵測 將2mm智慧光纖薄墊，放於枕頭或床墊底下，不需穿戴且無電磁波，就能達到無感偵測，讓排斥穿著的長者也能輕鬆使用。 即使沒有發燒，nFOPT® 智慧光纖薄墊能在早期階段即可知道， 年長者可能健康變化，避免太晚發現提早關心健康。 產品特…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1015-1022</span><span class="pid">#5828</span></div>
+  <p class="card-title">nFOPT® 非侵入性光纖生理監測技術及AI自動巡房智慧照護系統</p>
+  <div class="en">Non-invasive Fiber Optic Physiological monitoring Technology (nFOPT®) and AI Smart Care System</div>
+  <div class="co">滙嘉健康生活科技股份有限公司</div>
+  <p class="desc">nFOPT® AI智慧照護系統以不穿戴、無電磁波的創新光纖科技，提供24小時安全與健康自動巡視，期為居家、長照與醫療機構紓解照顧壓力、提升照護品質更兼顧防疫。年長者因無法清楚表達自己且有共病，若流感、肺炎感染難被發現，智慧照護系統能連續追蹤可能的初期狀況，如呼吸、心率、連續性咳嗽、睡眠品質及各種生理活動。將2mm智慧光…</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1025、M1027</span><span class="pid">#8697</span></div>
+  <p class="card-title">二合一到達感測器</p>
+  <div class="en">2 in 1 Arrival Sensor</div>
+  <div class="co">磊星科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1025、M1027</span><span class="pid">#8701</span></div>
+  <p class="card-title">室內警報器</p>
+  <div class="en">Indoor Siren</div>
+  <div class="co">磊星科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M1025、M1027</span><span class="pid">#8698</span></div>
+  <p class="card-title">毫米波動態感測器</p>
+  <div class="en">mmWave Motion Sensor</div>
+  <div class="co">磊星科技有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N0315-0320</span><span class="pid">#10175</span></div>
+  <p class="card-title">LM-AI 168 立維智慧能照護床</p>
+  <div class="en">LM-AI 168 Smart Care Bed</div>
+  <div class="co">立明精密股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0601、0603</span><span class="pid">#10100</span></div>
+  <p class="card-title">波庇Ai多頻共振儀</p>
+  <div class="en"> BOBY AI Multi-Frequency Resonance Device</div>
+  <div class="co">綠境健康科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0834-M0845</span><span class="pid">#5830</span></div>
+  <p class="card-title">iCue智慧照護幫手</p>
+  <div class="en">iCue Smart Care Assistant</div>
+  <div class="co">維思感創股份有限公司</div>
+  <p class="desc">iCue 智慧感測墊，放置於一般睡眠床墊下，可偵測用戶在床上的即時行為狀態，如在離床通報、久臥通報等，同時提供長期連續性且非接觸式的生理狀態監測，包括呼吸率、呼吸波形及心率等，藉由 AI 數據分析及真人客服團隊，提供全方位的用戶專屬健康照護服務。 通訊介面： USB Type A 工作溫度： 10~35°C (室内) …</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">M0834-M0845</span><span class="pid">#8773</span></div>
+  <p class="card-title">守望者X 非接觸式邊緣 AI 跌倒偵測器</p>
+  <div class="en">Vigil-X Non-Contact Edge-AI Fall Detection</div>
+  <div class="co">蘊域科技股份有限公司</div>
+  <p class="desc muted">無產品描述</p>
+</article>
+<article class="card">
+  <div class="card-top"><span class="booth">N1211、N1213</span><span class="pid">#6144</span></div>
+  <p class="card-title">迷你摺疊按摩眼罩</p>
+  <div class="en">Mini Eye Massager</div>
+  <div class="co">闊腦有限公司</div>
+  <p class="desc">1.六種人性化〔律動〕按摩，三段強弱設定。 2.首創隱藏撓性定位裝置,隨臉型穴位定點服貼。 3.貼心視窗網孔設計,使用中可隨時透視外界。 4.輕薄短小迷你設計，旅遊工作隨身攜帶方便。 5.單晶片微電腦控製,時控8-15分自動關機。 6.具省電裝置，使用電壓DC3V（電池1.5V&amp;#215;2）</p>
+</article>
+  </div>
+</section>
+
+  <footer>
+    產生時間 2026-09-07 13:39（Asia/Singapore, UTC+8）· 來源 <a href="https://www.caresexpo.com/zh-tw/catalog/home">caresexpo.com/zh-tw/catalog/home</a>
+    · 檔名建議用於 Dropbox/misc 歸檔。
+  </footer>
+</main>
+</div>
+<script>
+// Fold the outline on narrow screens; highlight the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) {
+    det.removeAttribute('open');
+    det.addEventListener('click', function (e) { if (e.target.closest('a')) det.removeAttribute('open'); });
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

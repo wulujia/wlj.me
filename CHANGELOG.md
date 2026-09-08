@@ -2,6 +2,7 @@
 
 ## 2026-09-08
 
+- 新增資料頁《台北國際照顧博覽會：養老產品分類與分析》，`static/reading/caresexpo-2026-taxonomy/index.html`，自包含 HTML：研究結論 / 官方分類架構 / 展商 Top 20 / 攤位分布 / 十一個類別的產品卡 / 資料與方法說明，左側固定大綱，`index,follow` + canonical，頂部返回連結。發布前把 464 張產品卡的 `h4` 改為 `p.card-title`（卡片標題不是章節標題，原本 h2 直接跳 h4），並補 `:root[data-theme="dark"]` 讓手動切換主題生效。`data/reading-materials.toml` 新增 report 條目。
 - 新增资料页《Lenny 播客半年 AI 实践调研》，`static/reading/lenny-podcast-ai-2026-09/index.html`，自包含 HTML：样本 / 提效 / 组织 / AI 进入流程 / 用 AI 挣钱 / 产品运营增长 / 分歧地图 / 30 期一览 / 方法与来源，284 条 YouTube 时间戳直链，左侧固定大纲，`index,follow` + canonical，顶部返回链接。`data/reading-materials.toml` 新增 report 条目。
 
 ## 2026-09-07
