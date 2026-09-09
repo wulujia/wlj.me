@@ -3,6 +3,8 @@
 ## 2026-09-09
 
 - 新增日志《VPS 从 NixOS 迁出后，我会选 Debian》，`content/posts/20260909-nixos-server-debian.md`。记录从 NixOS 迁出虚拟主机服务时对 Debian、Ubuntu 和 Arch 的取舍，以及用新机、Docker Compose 和异机备份迁移的做法。
+- 创业笔记从 957 更新到 962，新增《AI First》《Reader Feishu Data Bot 的想法》《速度与对齐上下文》《霰弹》《激进》五篇免费试读，沿用原有按段落截取约前半篇的规则，后半篇不写入仓库。同步导入清单；知识星球登录凭证暂不可读，五篇日期采用源文件首次 Git 提交时间，并在日期索引中标记 `date_source: source_git_first_commit`，待可查询时核对真实发布日期。
+
 - 新增日志《AI 写代码快了，产品迭代还慢，怎么办？》，说明六阶段产出、执行方法与效果指标，补充 CLAUDE.md、REVIEW.md 和 eval。附原课瓶颈图及标明交接产出的循环图，保留课程来源链接。
 
 ## 2026-09-08
