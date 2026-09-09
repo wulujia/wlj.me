@@ -2,6 +2,7 @@
 
 ## 2026-09-09
 
+- 新增日志《VPS 从 NixOS 迁出后，我会选 Debian》，`content/posts/20260909-nixos-server-debian.md`。记录从 NixOS 迁出虚拟主机服务时对 Debian、Ubuntu 和 Arch 的取舍，以及用新机、Docker Compose 和异机备份迁移的做法。
 - 新增日志《AI 写代码快了，产品迭代还慢，怎么办？》，说明六阶段产出、执行方法与效果指标，补充 CLAUDE.md、REVIEW.md 和 eval。附原课瓶颈图及标明交接产出的循环图，保留课程来源链接。
 
 ## 2026-09-08
