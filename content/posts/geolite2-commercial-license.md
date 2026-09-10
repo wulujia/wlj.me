@@ -1,9 +1,10 @@
 ---
-title: "GeoLite2 商用许可边界"
+title: "GeoLite2 免费 IP 库可以商用吗"
 date: 2026-09-10T09:53:30+08:00
-tags: ["Note"]
+tags: ["Tech"]
 draft: false
-slug: "sp-note-20260910-095330"
+slug: "geolite2-commercial-license"
+aliases: ["/notes/sp-note-20260910-095330/"]
 ---
 
 MaxMind 的 GeoLite2 是一个免费的 IP 地理位置数据库。它可以商用，但用法不同，许可要求也不同。
