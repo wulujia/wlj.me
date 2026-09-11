@@ -28,13 +28,16 @@
     opacity: 0.7;
     margin-left: 4px;
   }
+  .reading-page-title { margin-bottom: 0.5rem; }
+  .reading-intro { margin-top: 0; }
+  .reading-intro > p:first-child { margin-top: 0; }
   .reading-item[hidden] { display: none; }
   .reading-empty { padding: 30px 0; opacity: 0.7; }
   .post-tags a { text-decoration: none; }
 </style>
 
-<h1 class="page-title">{{ .Title | markdownify }}</h1>
-<div class="index-content">
+<h1 class="page-title reading-page-title">{{ .Title | markdownify }}</h1>
+<div class="index-content reading-intro">
   <p>这些页面收录原作的中文翻译、梳理和要点摘录，用于中文阅读辅助，不能替代原作。</p>
   <nav class="reading-filter" aria-label="分类筛选">
     <a href="#" data-cat="all" class="active">全部<span class="count">{{ len $sorted }}</span></a>

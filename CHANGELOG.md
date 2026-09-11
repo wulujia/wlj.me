@@ -2,6 +2,7 @@
 
 ## 2026-09-11
 
+- 收紧 `/reading/` 页面标题「整理」和说明文字之间的垂直间距。
 - 新增资料页《检测与打击 AI 滥用：2026 年 9 月》，`static/reading/detecting-and-countering-ai-misuse-2026-09/index.html`。HTML 只保留中文译文，用 Kami 重排成长文阅读版，保留原报告 61 张图片，加入桌面固定大纲和移动端横向大纲，并提供双语 EPUB、PDF 下载。页面设为 `noindex,follow` 并从 sitemap 排除。`data/reading-materials.toml` 新增 report 条目；资料列表说明同步纳入中文翻译。
 
 ## 2026-09-09
