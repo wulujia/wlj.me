@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-11
+
+- 新增资料页《检测与打击 AI 滥用：2026 年 9 月》，`static/reading/detecting-and-countering-ai-misuse-2026-09/index.html`。HTML 只保留中文译文，用 Kami 重排成长文阅读版，保留原报告 61 张图片，加入桌面固定大纲和移动端横向大纲，并提供双语 EPUB、PDF 下载。页面设为 `noindex,follow` 并从 sitemap 排除。`data/reading-materials.toml` 新增 report 条目；资料列表说明同步纳入中文翻译。
+
 ## 2026-09-09
 
 - 拉取最新源仓库后，创业笔记从 962 更新到 965，新增《优惠券》《本职工作与向前一步》《牌桌现在的意义》三篇免费试读，沿用原有段落截半规则，后半篇不写入仓库。同步导入清单，日期暂用源文件首次 Git 提交时间，日期索引已标记来源，尚未核对星球实际发布日期。

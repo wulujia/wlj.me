@@ -293,3 +293,16 @@ year = "2026"
 description = "2026 台北國際照顧博覽會官方產品目錄的分類統計：464 件產品、11 個官方類別的數量分布，產品數最多的展商 Top 20，攤位區域分布，以及分類口徑與抓取方法說明。"
 original_url = "https://www.caresexpo.com/zh-tw/catalog/home"
 reading_url = "/reading/caresexpo-2026-taxonomy/"
+
+[[materials]]
+slug = "detecting-and-countering-ai-misuse-2026-09"
+title = "检测与打击 AI 滥用：2026 年 9 月"
+subtitle = "Anthropic 威胁情报报告中文译本"
+author = "Anthropic"
+category = "report"
+date = "2026-09-11T16:00:00+08:00"
+year = "2026"
+noindex = true
+description = "Anthropic 2026 年 9 月威胁情报报告中文译本，介绍其过去八个月发现并阻止的 AI 滥用案例，覆盖网络行动、影响力行动、监控、常规武器、生物滥用、诈骗和非法蒸馏。页面保留原报告 61 张图片，并提供双语 EPUB、PDF 下载。"
+original_url = ""
+reading_url = "/reading/detecting-and-countering-ai-misuse-2026-09/"
