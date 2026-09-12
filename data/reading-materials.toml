@@ -306,3 +306,15 @@ noindex = true
 description = "Anthropic 2026 年 9 月威胁情报报告中文译本，介绍其过去八个月发现并阻止的 AI 滥用案例，覆盖网络行动、影响力行动、监控、常规武器、生物滥用、诈骗和非法蒸馏。页面保留原报告 61 张图片，并提供双语 EPUB、PDF 下载。"
 original_url = "https://www.anthropic.com/threat-intelligence-report-september-2026"
 reading_url = "/reading/detecting-and-countering-ai-misuse-2026-09/"
+
+[[materials]]
+slug = "clio-privacy-preserving-insights-2024-12"
+title = "Clio：保护隐私的真实世界 AI 使用观察"
+subtitle = "论文中文译本"
+author = "Tamkin 等"
+category = "report"
+date = "2026-09-12T10:08:00+08:00"
+year = "2024"
+description = "2024 年 12 月论文中文译本。Clio 在不让人阅读原始对话的前提下，从百万级消费级助手对话中汇总真实使用方式，并用于安全监测。附 15 张原图，并提供双语 EPUB。"
+original_url = "https://arxiv.org/abs/2412.13678"
+reading_url = "/reading/clio-privacy-preserving-insights-2024-12/"

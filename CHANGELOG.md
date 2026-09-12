@@ -2,6 +2,7 @@
 
 ## 2026-09-12
 
+- 新增资料页《Clio：保护隐私的真实世界 AI 使用观察》，`static/reading/clio-privacy-preserving-insights-2024-12/index.html`。arXiv:2412.13678v1 论文中文译本，15 张原图随文，提供双语 EPUB 下载。`index,follow` + canonical，顶部返回整理、arXiv 原文。`data/reading-materials.toml` 新增 report 条目。
 - 为 Anthropic 威胁情报报告补充官方原文链接：报告页顶部显示「原文（Anthropic）」，Reading 列表显示「原文」。
 
 ## 2026-09-11
