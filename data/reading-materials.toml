@@ -304,5 +304,5 @@ date = "2026-09-11T16:00:00+08:00"
 year = "2026"
 noindex = true
 description = "Anthropic 2026 年 9 月威胁情报报告中文译本，介绍其过去八个月发现并阻止的 AI 滥用案例，覆盖网络行动、影响力行动、监控、常规武器、生物滥用、诈骗和非法蒸馏。页面保留原报告 61 张图片，并提供双语 EPUB、PDF 下载。"
-original_url = ""
+original_url = "https://www.anthropic.com/threat-intelligence-report-september-2026"
 reading_url = "/reading/detecting-and-countering-ai-misuse-2026-09/"
