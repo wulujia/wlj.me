@@ -2,6 +2,7 @@
 
 ## 2026-09-14
 
+- 新增资料页《DESIGN.md：创业公司的设计规则文件》，`static/reading/design-md-guide/index.html`。保留中文说明、双页面互动示例、文件分工和来源；加入“杂项”索引、返回整理链接、canonical 与分享元信息，沿用明暗主题、手机目录和打印样式。
 - 新增资料页《达里奥·阿莫代公开信与访谈》，`static/reading/dario-amodei-pace-the-frontier-2026-09/index.html`。公开信在前，CBS 加长访谈在后，保留 18 组问答、全文译文及来源说明；目录同步调整。加入 Reading 索引、canonical、分享元信息与返回链接，沿用明暗主题、手机目录和打印样式。
 
 ## 2026-09-12

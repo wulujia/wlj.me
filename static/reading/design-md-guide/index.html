@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DESIGN.md：创业公司的设计规则文件</title>
+<meta name="description" content="理解 DESIGN.md 的用途、创业团队能用它解决的问题，以及可参考的规范与实践。含交互示例。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/design-md-guide/">
+<meta property="og:title" content="DESIGN.md：创业公司的设计规则文件">
+<meta property="og:description" content="理解 DESIGN.md 的用途、创业团队能用它解决的问题，以及可参考的规范与实践。含交互示例。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wlj.me/reading/design-md-guide/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DESIGN.md：创业公司的设计规则文件">
+<meta name="twitter:description" content="理解 DESIGN.md 的用途、创业团队能用它解决的问题，以及可参考的规范与实践。含交互示例。">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f4f7f6;
+  --surface: #ffffff;
+  --ink: #202b27;
+  --ink-2: #42534a;
+  --ink-3: #56665e;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #ccd6d0;
+  --rule-2: #a8b9af;
+  --mid: #e8eeea;
+  --acc: #28634c;            /* 主题色：按题目换 */
+  --acc-ink: #20523f;        /* accent dark enough for text */
+  --acc-wash: rgba(40, 99, 76, .07);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #17201c; --surface: #202c25; --ink: #edf3ee; --ink-2: #c4d2c8; --ink-3: #a4b7a9;
+    --rule: #34483c; --rule-2: #516759; --mid: #29392f;
+    --acc: #91c7aa; --acc-ink: #acdec4; --acc-wash: rgba(145,199,170,.12);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #17201c; --surface: #202c25; --ink: #edf3ee; --ink-2: #c4d2c8; --ink-3: #a4b7a9;
+  --rule: #34483c; --rule-2: #516759; --mid: #29392f;
+  --acc: #91c7aa; --acc-ink: #acdec4; --acc-wash: rgba(145,199,170,.12);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root:not([data-theme="light"]), :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Topic-specific reading aids and live design example. */
+h1 { font-size: 38px; letter-spacing: 0; }
+h2, h3 { scroll-margin-top: 24px; letter-spacing: 0; }
+.meta span + span::before { content: none; }
+.meta { display: flex; gap: 8px 20px; flex-wrap: wrap; }
+.eyebrow { letter-spacing: 0; }
+.outline .label { letter-spacing: 0; }
+.outline li { margin: 0 0 10px; }
+.outline details > ul { padding-top: 8px; }
+.outline .file-mark { font-family: var(--font-mono); font-size: 17px; color: var(--ink); padding-bottom: 16px; border-bottom: 1px solid var(--rule); margin-bottom: 20px; }
+.summary { border: 0; border-left: 3px solid var(--acc); background: var(--acc-wash); }
+.summary .label { color: var(--acc-ink); letter-spacing: 0; font-size: 13px; }
+.theme-control { margin-top: 24px; color: var(--ink-3); font-size: 12px; }
+.theme-control label { display: block; margin-bottom: 4px; }
+select, button { font: inherit; color: var(--ink); }
+select { background: var(--surface); border: 1px solid var(--rule-2); border-radius: 4px; padding: 7px 9px; min-height: 42px; max-width: 100%; }
+.js-only { display: none; }
+html.has-js .js-only { display: block; }
+.inline-source { white-space: nowrap; }
+.flow { list-style: none; display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 0; gap: 0; border-block: 1px solid var(--rule); margin: 24px 0; }
+.flow li { padding: 18px 16px; margin: 0; position: relative; }
+.flow li + li { border-left: 1px solid var(--rule); }
+.flow b { display: block; font-size: 15px; margin-bottom: 4px; }
+.flow span { display: block; font-size: 13px; color: var(--ink-2); }
+.flow .step { font-family: var(--font-mono); font-size: 12px; color: var(--acc-ink); margin-bottom: 8px; }
+.demo { --demo-accent: #28634c; --demo-radius: 4px; --demo-space: 16px; border: 1px solid var(--rule-2); background: var(--surface); margin: 24px 0; }
+.demo-controls { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; border-bottom: 1px solid var(--rule); padding: 18px; }
+.demo-controls label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.demo-controls select { width: 100%; }
+.demo-status { font-size: 13px; color: var(--ink-2); padding: 14px 18px 0; margin-bottom: 0; }
+.previews { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 18px; }
+.mock { min-width: 0; border: 1px solid var(--rule); border-radius: var(--demo-radius); overflow: hidden; }
+.mock-title { padding: 9px 12px; background: var(--mid); color: var(--ink-2); font-size: 12px; border-bottom: 1px solid var(--rule); }
+.mock-content { padding: var(--demo-space); }
+.mock-heading { font-size: 18px; line-height: 1.45; font-weight: 600; margin-bottom: var(--demo-space); }
+.mock-row { padding: 0 0 var(--demo-space); margin: 0 0 var(--demo-space); border-bottom: 1px solid var(--rule); font-size: 14px; }
+.mock-meta { font-size: 12px; color: var(--ink-3); display: block; margin-top: 4px; }
+.mock-body { font-size: 14px; color: var(--ink-2); margin: 0 0 var(--demo-space); }
+.mock-action { background: var(--demo-accent); color: #fff; border-radius: var(--demo-radius); padding: 8px 14px; display: inline-block; font-size: 13px; font-weight: 600; }
+.file-bar { border-top: 1px solid var(--rule); padding: 10px 18px; display: flex; justify-content: space-between; gap: 12px; color: var(--ink-3); font-size: 12px; }
+.file-bar code { background: none; padding: 0; }
+.demo pre { margin: 0; border-top: 1px solid var(--rule); padding: 18px; font-size: 12.5px; }
+.annotation { font-size: 13px; color: var(--ink-3); }
+.rules { margin: 0; padding: 0; list-style: none; counter-reset: rule; }
+.rules li { padding: 16px 0 16px 40px; position: relative; border-bottom: 1px solid var(--rule); margin: 0; }
+.rules li::before { counter-increment: rule; content: counter(rule); position: absolute; left: 0; top: 17px; color: var(--acc-ink); font-family: var(--font-mono); }
+.rules strong { display: block; margin-bottom: 4px; }
+.rules p { margin: 0; color: var(--ink-2); font-size: 15px; }
+.sources { padding-left: 1.4em; }
+.sources li { margin-bottom: 18px; }
+.sources p { font-size: 13px; margin: 4px 0 0; color: var(--ink-3); }
+.ref-note { color: var(--ink-3); font-size: 13px; }
+@media (max-width: 900px) { .outline .file-mark { display: none; } .theme-control { margin-top: 12px; } h1 { font-size: 32px; } }
+@media (max-width: 560px) {
+  .flow { grid-template-columns: 1fr; }
+  .flow li { padding: 14px 12px; }
+  .flow li + li { border-left: 0; border-top: 1px solid var(--rule); }
+  .flow .step { float: left; width: 32px; margin-top: 3px; }
+  .flow b, .flow span:not(.step) { margin-left: 32px; }
+  .previews { grid-template-columns: 1fr; padding: 14px; }
+  .demo-controls { gap: 8px; padding: 14px; }
+  .demo-controls select { font-size: 12px; padding: 6px; }
+  .file-bar { flex-direction: column; gap: 2px; padding: 10px 14px; }
+  .summary { padding: 16px; }
+  .tbl table { min-width: 530px; }
+  .definition-table table { min-width: 0; }
+  .definition-table th, .definition-table td { font-size: 13px; }
+}
+@media print {
+  :root, :root:not([data-theme="light"]), :root[data-theme="dark"] { --acc: #28634c; --acc-ink: #20523f; }
+  .js-only, html.has-js .js-only, .theme-control, .demo-controls { display: none !important; }
+  .demo, .previews { break-inside: avoid; }
+  .previews { grid-template-columns: 1fr 1fr; }
+  .flow { grid-template-columns: 1fr 1fr 1fr; }
+  .flow li + li { border-top: 0; border-left: 1px solid var(--rule); }
+  .flow .step { float: none; width: auto; }
+  .flow b, .flow span:not(.step) { margin-left: 0; }
+  .tbl { overflow: visible; }
+  .tbl table { min-width: 0; }
+  .demo pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+}
+
+.reading-return { margin: 0 0 20px; font-size: 13px; }
+@media print { .reading-return { display: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <p class="file-mark">DESIGN.md</p>
+  <p class="label">阅读目录</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#meaning">文件里写什么</a></li>
+      <li><a href="#example">规则如何变成界面</a></li>
+      <li><a href="#startup">创业团队能用它解决什么</a></li>
+      <li><a href="#boundaries">它与其他文件的分工</a></li>
+      <li><a href="#practice">怎样开始用</a></li>
+      <li><a href="#sources">方法与来源</a></li>
+    </ul>
+    <div class="theme-control js-only">
+      <label for="theme">阅读主题</label>
+      <select id="theme"><option value="system">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select>
+    </div>
+  </details>
+</nav>
+<main id="main">
+<p class="reading-return"><a href="/reading/">返回整理</a></p>
+<header>
+  <p class="eyebrow">产品设计说明 / 2026-09-14</p>
+  <h1>DESIGN.md</h1>
+  <p class="lede">把产品的设计规则写进项目，让团队和编码助手在做新页面时有据可依。</p>
+  <p class="meta"><span>面向创业团队</span><span>以 Google Stitch 的视觉设计用法为主</span></p>
+</header>
+<div class="summary">
+  <p class="label">核心用途</p>
+  <p><code>DESIGN.md</code> 保存颜色、字体、间距等设计值，也解释它们应该用在哪里。创业团队可以用它减少重复说明和界面返工。它的作用取决于规则是否明确、是否被读取，以及是否与实际代码保持一致。</p>
+</div>
+
+<section aria-labelledby="meaning">
+<h2 id="meaning">文件里写什么</h2>
+<p>在 Google Stitch 的用法里，<code>DESIGN.md</code> 是描述产品视觉系统的纯文本文件。正文用 Markdown 写设计原则，可选的 YAML 文件头保存能被程序读取的精确数值。<sup><a href="#src-spec" aria-label="来源：Google Labs 格式规范">[1]</a></sup></p>
+<div class="tbl definition-table">
+<table>
+<caption>设计值与使用规则</caption>
+<thead><tr><th scope="col">内容</th><th scope="col">写法示例</th><th scope="col">解决的疑问</th></tr></thead>
+<tbody>
+<tr><th scope="row">精确值</th><td>主色 <code>#28634C</code><br>组件圆角 <code>4px</code></td><td>具体用什么值？</td></tr>
+<tr><th scope="row">使用规则</th><td>主色用于主要操作按钮；正文维持高对比度。</td><td>用在哪里，为什么？</td></tr>
+</tbody>
+</table>
+</div>
+<p class="annotation">表中的颜色和尺寸是本页教学示例，不是 Google 的默认值。</p>
+<div class="note"><p>同名文件还有另一种用途。Kiro 的 <code>design.md</code> 记录技术架构、组件交互和实现方案。判断含义要看文件内容和所在工具；文件名大小写不足以区分。<sup><a href="#src-kiro" aria-label="来源：Kiro 文档">[2]</a></sup></p></div>
+</section>
+
+<section aria-labelledby="example">
+<h2 id="example">规则如何变成界面</h2>
+<p>假设你在做一个阅读产品。文章列表和阅读页共用一组规则：主要操作用同一种颜色，组件使用相同的圆角与间距。</p>
+<div class="js-only"><p>修改下面的规则，观察两个示例页面和文件内容一起变化。</p></div>
+<noscript><p>下面展示默认规则及其对应的两个页面。启用 JavaScript 后可以调整颜色、圆角和间距。</p></noscript>
+<div class="demo" id="demo">
+  <div class="js-only">
+  <div class="demo-controls">
+    <label for="accent">主要操作色<select id="accent"><option value="#28634C">苔绿</option><option value="#315B91">深蓝</option><option value="#884650">莓红</option></select></label>
+    <label for="radius">组件圆角<select id="radius"><option value="4">4px</option><option value="12">12px</option></select></label>
+    <label for="space">内容间距<select id="space"><option value="16">16px</option><option value="24">24px</option></select></label>
+  </div>
+  </div>
+  <p class="demo-status" id="demo-status" role="status" aria-live="polite">当前规则：苔绿主色，4px 圆角，16px 间距。</p>
+  <div class="previews" aria-label="使用同一组设计规则的两个示例页面">
+    <div class="mock">
+      <div class="mock-title">页面示例：阅读库</div>
+      <div class="mock-content">
+        <p class="mock-heading">稍后阅读</p>
+        <div class="mock-row">让笔记更容易找回来<span class="mock-meta">产品思考</span></div>
+        <div class="mock-row">给文章留出呼吸的空间<span class="mock-meta">设计随笔</span></div>
+        <span class="mock-action">保存文章</span>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="mock-title">页面示例：阅读页</div>
+      <div class="mock-content">
+        <p class="mock-heading">让笔记更容易找回来</p>
+        <p class="mock-body">打开收藏的文章，接着读上次停下来的段落。工具收在正文旁边，让内容保持清楚。</p>
+        <p class="mock-body">读完后，把有用的想法记下来。</p>
+        <span class="mock-action">添加笔记</span>
+      </div>
+    </div>
+  </div>
+  <div class="file-bar"><code>DESIGN.md</code><span>教学节选，可选 YAML + Markdown 正文</span></div>
+  <pre tabindex="0" aria-label="设计规则文件示例"><code id="design-code">---
+name: Reading Demo
+colors:
+  primary: "#28634C"
+rounded:
+  sm: 4px
+spacing:
+  md: 16px
+---
+
+## Overview
+阅读内容优先，工具保持简洁。
+
+## Colors
+主色用于主要操作按钮。
+
+## Layout
+内容内边距和相邻内容间距使用 spacing.md。
+
+## Shapes
+容器和按钮使用 rounded.sm。</code></pre>
+</div>
+<p class="annotation">示例由本页脚本直接同步数值，用来解释规则与界面的关系。实际开发仍需编码助手读取文件并修改代码；保存一个 Markdown 文件不会自动改变产品。本例不是完整的生产设计规范。</p>
+<ol class="flow" aria-label="从设计决定到实际界面的过程">
+<li><span class="step">1</span><b>记录已认可的设计</b><span>保存具体值及其使用理由。</span></li>
+<li><span class="step">2</span><b>让贡献者读取规则</b><span>编码助手与开发者使用同一份依据。</span></li>
+<li><span class="step">3</span><b>检查实际页面</b><span>确认规则被落实，新的决定写回文件。</span></li>
+</ol>
+</section>
+
+<section aria-labelledby="startup">
+<h2 id="startup">创业团队能用它解决什么</h2>
+<p>对需要持续增加页面的小团队，直接收益是少重复解释已有决定，并减少由规则不清造成的返工。下面是使用建议，效果需要在自己的产品中验证。</p>
+<div class="tbl">
+<table>
+<caption>常见问题与文件能承担的工作</caption>
+<thead><tr><th scope="col">团队遇到的问题</th><th scope="col">写进文件的内容</th><th scope="col">怎样判断有用</th></tr></thead>
+<tbody>
+<tr><th scope="row">每个新页面都像另一个产品</th><td>字体、颜色角色、间距、通用组件规则</td><td>新页面是否复用了已有样式</td></tr>
+<tr><th scope="row">创始人反复提同样的修改意见</th><td>“主按钮只能有一个”等已认可的决定及适用范围</td><td>同类修改意见是否减少</td></tr>
+<tr><th scope="row">设计理由只在某个人脑子里</th><td>为什么这样排版，什么情况下允许例外</td><td>新同事能否解释并沿用这些决定</td></tr>
+<tr><th scope="row">换一次工具就重新解释风格</th><td>随项目保存的文字说明和精确值</td><td>换工具后是否仍能读到同一份规则</td></tr>
+<tr><th scope="row">评审只剩“好不好看”</th><td>可核对的组件状态和移动端行为</td><td>评审能否指出具体哪条规则未满足</td></tr>
+</tbody>
+</table>
+</div>
+<p>产品需求、任务流程和用户是否能顺利完成操作，仍要另外验证。文件也会保留不合理的设计，所以实际页面的检查不能省。</p>
+</section>
+
+<section aria-labelledby="boundaries">
+<h2 id="boundaries">它与其他文件的分工</h2>
+<p>可以按下面的方式组织项目。这里的分工是一种团队约定，各工具对文件名的识别方式不同。</p>
+<div class="tbl">
+<table>
+<caption>项目文件的建议分工</caption>
+<thead><tr><th scope="col">文件或资产</th><th scope="col">主要回答</th><th scope="col">示例</th></tr></thead>
+<tbody>
+<tr><th scope="row">需求文档 / PRD</th><td>为谁做，要完成什么任务？</td><td>用户可以保存文章，并继续上次的阅读。</td></tr>
+<tr><th scope="row"><code>DESIGN.md</code></th><td>界面按什么规则呈现？</td><td>阅读区宽度、正文样式、工具位置。</td></tr>
+<tr><th scope="row"><code>AGENTS.md</code> 等项目指令</th><td>编码助手怎么参与这个项目？</td><td>修改界面前读取设计规则，复用现有组件。</td></tr>
+<tr><th scope="row">架构文档</th><td>系统内部如何实现？</td><td>文章存储、同步机制、接口与错误处理。</td></tr>
+<tr><th scope="row">组件库 / CSS 变量</th><td>运行时实际使用什么实现？</td><td>按钮组件、主题变量、响应式布局。</td></tr>
+</tbody>
+</table>
+</div>
+<p>如果组件库已经保存了精确设计值，文档应引用它，或从同一来源生成。两份独立手写的数值会增加同步工作。</p>
+</section>
+
+<section aria-labelledby="practice">
+<h2 id="practice">怎样开始用</h2>
+<p>从团队已经认可的页面开始，把反复用到的决定写下来。</p>
+<ol class="rules">
+<li><strong>选一个已认可的页面</strong><p>查看现有代码和组件，提取实际使用的规则。标明哪些已经确定，哪些还没有定义。</p></li>
+<li><strong>写清数值、用途和状态</strong><p>覆盖颜色角色、排版、间距与常用组件。补充移动端、加载、空白、错误等会影响使用的状态。</p></li>
+<li><strong>明确要求读取</strong><p>在项目指令中写明：“修改界面前读取 DESIGN.md，优先复用现有组件。”有文件不等于每个工具都会自动读取。</p></li>
+<li><strong>确定谁负责更新</strong><p>指定维护人。调整组件或设计规则时，在同一次修改中更新相关代码、文档和变更记录。</p></li>
+<li><strong>用新页面检验规则</strong><p>检查桌面和手机上的实际效果，把仍然需要口头解释的重复决定补进文件。</p></li>
+</ol>
+<p style="margin-top: 22px">Google Labs 的工具支持格式检查、版本比较和设计值导出。格式检查可以辅助发现结构、引用和部分对比度问题；界面的实际行为仍需检查。<sup><a href="#src-tools" aria-label="来源：Google Labs 工具说明">[3]</a></sup></p>
+<pre lang="en" tabindex="0" aria-label="Google Labs 格式检查命令"><code>npx @google/design.md lint DESIGN.md</code></pre>
+</section>
+
+<section aria-labelledby="sources">
+<h2 id="sources">方法与来源</h2>
+<p>根据本次对话中于 2026 年 9 月 14 日查阅的公开文档整理。Google 于 2026 年 4 月 21 日宣布开放草案；查阅时规范版本标为 <code>alpha</code>。<sup><a href="#src-announcement" aria-label="来源：Google 发布说明">[4]</a></sup></p>
+<p class="ref-note">用途解释来自格式规范与工具文档。创业团队的做法、文件分工和互动示例属于本页分析；没有测量节省时间或业务增长。品牌案例网站提供第三方分析，不能当作品牌官方规范。</p>
+<ol class="sources">
+<li id="src-spec"><a href="https://github.com/google-labs-code/design.md/blob/main/docs/spec.md" target="_blank" rel="noopener">Google Labs / DESIGN.md 格式规范</a><p>了解文件结构、可选 YAML、设计值与正文规则。适合作为格式起点。</p></li>
+<li id="src-kiro"><a href="https://kiro.dev/docs/specs/feature-specs/" target="_blank" rel="noopener">Kiro / Feature Specs</a><p>核对技术设计文档的另一种用法：架构、时序和实现考虑。</p></li>
+<li id="src-tools"><a href="https://github.com/google-labs-code/design.md" target="_blank" rel="noopener">Google Labs / DESIGN.md 项目与工具</a><p>查看示例、lint 格式检查、diff 版本比较，以及设计值导出说明。</p></li>
+<li id="src-announcement"><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/" target="_blank" rel="noopener">Google / Stitch 的 DESIGN.md 草案发布说明</a><p>发布于 2026 年 4 月 21 日，介绍跨项目和跨工具传递设计规则的用途。</p></li>
+<li id="src-skills"><a href="https://github.com/google-labs-code/stitch-skills" target="_blank" rel="noopener">Google Labs / Stitch Design Skills</a><p>参考从现有代码提取设计规则、导入设计系统和生成页面的工作方法。</p></li>
+<li id="src-gallery"><a href="https://getdesign.md/" target="_blank" rel="noopener">getdesign.md / 网站设计分析</a><p>浏览不同网站的设计规则示例，参考其表达方式与适用场景。相关说明见 <a href="https://github.com/VoltAgent/design-md" target="_blank" rel="noopener">VoltAgent / design-md</a>。</p></li>
+</ol>
+</section>
+</main>
+</div>
+
+<script>
+(function () {
+  document.documentElement.classList.add('has-js');
+  const theme = document.getElementById('theme');
+  theme.value = document.documentElement.getAttribute('data-theme') || 'system';
+  theme.addEventListener('change', function () {
+    if (theme.value === 'system') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', theme.value);
+  });
+  const demo = document.getElementById('demo');
+  const accent = document.getElementById('accent');
+  const radius = document.getElementById('radius');
+  const space = document.getElementById('space');
+  const output = document.getElementById('design-code');
+  function updateDemo() {
+    demo.style.setProperty('--demo-accent', accent.value);
+    demo.style.setProperty('--demo-radius', radius.value + 'px');
+    demo.style.setProperty('--demo-space', space.value + 'px');
+    document.getElementById('demo-status').textContent = '当前规则：' + accent.options[accent.selectedIndex].text + '主色，' + radius.value + 'px 圆角，' + space.value + 'px 间距。';
+    output.textContent = ['---', 'name: Reading Demo', 'colors:', '  primary: "' + accent.value + '"', 'rounded:', '  sm: ' + radius.value + 'px', 'spacing:', '  md: ' + space.value + 'px', '---', '', '## Overview', '阅读内容优先，工具保持简洁。', '', '## Colors', '主色用于主要操作按钮。', '', '## Layout', '内容内边距和相邻内容间距使用 spacing.md。', '', '## Shapes', '容器和按钮使用 rounded.sm。'].join('\n');
+  }
+  [accent, radius, space].forEach(function (control) { control.addEventListener('change', updateDemo); });
+  const det = document.querySelector('.outline details');
+  const narrow = window.matchMedia('(max-width: 900px)');
+  if (narrow.matches) det.removeAttribute('open');
+  narrow.addEventListener('change', function (event) { det.open = !event.matches; });
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  links.forEach(function (link) { link.addEventListener('click', function () { if (narrow.matches) det.open = false; }); });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) links.forEach(function (link) {
+          const active = link.getAttribute('href') === '#' + entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -70% 0px', threshold: 0 });
+    document.querySelectorAll('main h2, main h3').forEach(function (heading) { observer.observe(heading); });
+  }
+})();
+</script>
+</body>
+</html>
