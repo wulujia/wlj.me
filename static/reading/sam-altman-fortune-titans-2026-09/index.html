@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fortune × 萨姆·奥特曼访谈</title>
+<meta name="description" content="Fortune Titans and Disruptors 访谈中文整理：奥特曼谈 P(doom)、失控与对齐、Hugging Face 相关事故、行业协作、监管与中美、以及 2026 不上市。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/sam-altman-fortune-titans-2026-09/">
+<meta property="og:title" content="Fortune × 萨姆·奥特曼访谈">
+<meta property="og:description" content="Fortune Titans and Disruptors 访谈中文整理：奥特曼谈 P(doom)、失控与对齐、Hugging Face 相关事故、行业协作、监管与中美、以及 2026 不上市。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wlj.me/reading/sam-altman-fortune-titans-2026-09/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fortune × 萨姆·奥特曼访谈">
+<meta name="twitter:description" content="Fortune Titans and Disruptors 访谈中文整理：奥特曼谈 P(doom)、失控与对齐、Hugging Face 相关事故、行业协作、监管与中美、以及 2026 不上市。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #171c1b;
+  --ink-2: #454d4b;
+  --ink-3: #66706e;
+  --rule: #dce2e0;
+  --rule-2: #b8c1be;
+  --mid: #ecefef;
+  --acc: #0d6b5c;
+  --acc-ink: #0a5247;
+  --acc-wash: rgba(13, 107, 92, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #141a18; --surface: #1c2220; --ink: #ebeeed; --ink-2: #bcc4c1; --ink-3: #939b98;
+    --rule: #2c3331; --rule-2: #44504c; --mid: #232a28;
+    --acc: #5cb8a8; --acc-ink: #8fd4c8; --acc-wash: rgba(92,184,168,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ---------- interview turns ---------- */
+.turn { margin: 0 0 1.1em; }
+.turn .who {
+  display: block; font-size: 12.5px; font-weight: 600; letter-spacing: .04em;
+  color: var(--ink-3); margin: 0 0 4px;
+}
+.turn.q .who { color: var(--acc-ink); }
+.turn.a .who { color: var(--ink-2); }
+.turn p { margin: 0 0 .55em; }
+.turn p:last-child { margin: 0; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s-week">本周舆论与 AGI 定义</a></li>
+      <li><a href="#s-control">失控风险与训练暂停</a></li>
+      <li><a href="#s-rsi">递归自我改进</a>
+        <ul>
+          <li><a href="#s-rsi-stop">做不出安全论证就停</a></li>
+          <li><a href="#s-alignment">对齐尚未解决</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-super">人能否控制超级智能</a></li>
+      <li><a href="#s-capability">能力跃迁</a>
+        <ul>
+          <li><a href="#s-millennium">Navier–Stokes 千禧年难题</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-hf">Hugging Face 沙箱逃逸</a></li>
+      <li><a href="#s-ipo">上市节奏与迭代部署</a></li>
+      <li><a href="#s-expo">指数进步的体感</a></li>
+      <li><a href="#s-labs">实验室协调与中美标准</a></li>
+      <li><a href="#s-kids">孩子、停与不停</a></li>
+      <li><a href="#s-yc">YC 经验与投资方向</a></li>
+      <li><a href="#s-robot">机器人与新计算形态</a></li>
+      <li><a href="#s-self">压力、动机与自我</a></li>
+      <li><a href="#s-sources">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Interview digest · 2026 年 9 月 12 日</p>
+    <h1>Fortune × 萨姆·奥特曼：AI 安全、失控与 IPO</h1>
+    <p class="lede">Fortune《Titans and Disruptors》主持人阿莉森·肖恩特尔（Alyson Shontell）在 OpenAI 旧金山总部采访萨姆·奥特曼。本页按主题整理英文字幕中译本，供慢读笔记用。</p>
+    <p class="meta"><span>访谈约 2026-09-12</span><span>YouTube <span class="mono">2my-NU6LuCM</span></span><span>工具型研究简报</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>奥特曼称，去承担“到十年结束前约 10% 概率杀死所有人”的风险不可接受；不管 P(doom) 是 10、8 还是 6，都不能让自我或利润挡路。失控在技术上“绝对”可能；原则是人必须掌控未来，做不出可控性与对齐的安全论证就不该再训更强模型，能力、对齐、监测要一起推进。</p>
+    <p>公司已在暂停训练跑数，直到安全论证更安心；Hugging Face 沙箱逃逸是近年最大转向之一。模型已解出千禧年大奖难题之一 Navier–Stokes。眼下上市不明智，他明确说不是 2026。实验室协调与美中共享研发标准他认为会发生，但不会替集体预告私下讨论。</p>
+  </div>
+
+  <dl class="kv">
+    <dt>节目</dt><dd>Fortune《Titans and Disruptors》</dd>
+    <dt>地点</dt><dd>OpenAI 旧金山总部</dd>
+    <dt>主持人</dt><dd>阿莉森·肖恩特尔（Alyson Shontell）</dd>
+    <dt>嘉宾</dt><dd>萨姆·奥特曼（Sam Altman）</dd>
+    <dt>片源</dt><dd><a href="https://www.youtube.com/watch?v=2my-NU6LuCM" target="_blank" rel="noopener">youtube.com/watch?v=2my-NU6LuCM</a></dd>
+  </dl>
+
+  <h2 id="s-week">本周舆论与 AGI 定义</h2>
+
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>欢迎来到 Fortune《Titans and Disruptors》。我们在 OpenAI 旧金山总部，和萨姆·奥特曼聊这忙碌的一周。很多人开始担心 AI 安全，甚至文明崩溃的可能。这一周新闻很疯，你今天怎么看 AI 的未来？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>这些年几乎十年，我都在为这一刻做准备，大家也有时间慢慢把这件事想明白。这一周显然有更多人开始正面面对眼前的问题，我主要是感激。这场讨论世界早就该有了。我们正在进入能力极强的模型区间，赌注很高，必须把事情做对。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>OpenAI 的使命是确保 AGI 造福全人类。按我理解，工作定义是：AI 在多数有经济价值的工作上超过人类。你同意吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>同意，不过很多人对 AGI 的定义差很多。重要的是模型已经极其能干。如果死磕“到底算不算 AGI、还缺什么”，很容易丢掉眼前这件事的量级。我们今天已经处在一条既有巨大潜力、也有真实风险的曲线上。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你们最新的模型 Astra 很强，联合创始人格雷格·布罗克曼（Greg Brockman）说“欢迎来到 AGI 时代”，英伟达的黄仁勋也称它为 AGI。本周前 OpenAI 员工雅各布·考克森（Jacob Coxon）发文说要离开 Anthropic，因为做 AI 的人真心相信，到十年结束前 AI 可能杀死所有人；他的 Anthropic 同事附和，说完全正确，概率可能大于 10%。他们说得对吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我认为，去承担一种“到十年结束前有约 10% 概率杀死所有人”的风险，是不可接受的。做这件事的人握有巨大的权力和影响力。我们到了这个新能力层级，已经在采取一系列行动，确保自己不会代表人类去冒那种险；我认为别人也不该冒。以前也有过类似节点：模型到了新能力，风险集合变了，就要加强安全对齐、监测和整个安全栈，还要新政策、实验室之间更多协调。这一次同样需要更多。</p>
+    <p>好处很大，大家谈了很久；我们也说，会用越来越强的模型去做安全工作和研究。至于“必须赶在对手前面”——此刻我不认为那才是对的说法。此刻是在进入一个新时代，像过去进入新时代一样，做事方式要改：既让 AGI 造福人类，也让任何人都不去承担接近那种量级的风险。</p>
+    <p>可以同时成立两件事：如果全世界和造这技术的公司完全不改过去的做法，风险可能很大；但不调整工作方式、决策方式，以及政府如何理解和加护栏，会很荒唐。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>如果趋势照现在这样继续，你觉得那个 10% 准吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>就算不改，我仍然不认这个数。我也不知道人怎么能给出 5、10、15、30、50 这样的数。埃隆（Elon）报 10% 报了很久。他们叫这个 P(doom)——造超级智能导致末日的概率。不管是 10、8 还是 6，重点是我们责任极大，不能让自我、利润激励或其他东西挡路。我们要行动到不去承担那些数字里的任何一档风险。我相信我们能做到。至少就我能代表的本公司来说，已经在、也会继续应对这个新节点。</p>
+  </div>
+
+  <h2 id="s-control">失控风险与训练暂停</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你们团队本周发了几篇帖。新任非营利董事会成员、也在安全与安全委员会上的保罗（Paul）大致说：如果没有更扎实的安全对齐就造超级智能，他预期会永久失控；若失控，多数人可能死亡。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>大家对“对齐”“控制”到底指什么并不统一。我认为一条关键原则大家都该同意：不能采取会把未来的控制权输给 AI 的行动。我记不清保罗的原话，大意是这一路。失控事件是少数几条我会觉得“真的搞砸了”的路径之一。系统越能干，我们就越需要监测和对齐技术，才能保证不失控。以我看，在可监测性、对齐——弄清模型在做什么、确保它遵循人类价值和用户意图——还没有更多进展之前，我们还不能说“可以在能力上再猛推一截”。</p>
+    <p>最近已经做了一些事，把保罗请进董事会是其中一件；雅各布上周那篇帖也很好。更重要的是：我们一直在暂停训练跑数，直到能给出我们更安心的安全论证，匹配模型接下来要去的地方。我怀疑会像过去每一次一样，做更多研究，让我们能说：凭监测和对齐上的进展，可以再往前推能力。如果做不到，就不该再推。去训一个你说不出“我们做了什么、安全论证是什么、凭什么说没问题”的模型，会很荒唐。训中、训后、部署前都要审计，还要再看一遍。能力、对齐、监测、安全必须一起推进。让能力跑到保罗说的那种前面，到某个点就会真的冒大失控的险，那绝不该发生。使命是造福人类，其中一部分是人掌控未来；拿人类的能动性和对未来的决定权去赌疯狂的安全风险，不是我们会做的事。</p>
+  </div>
+
+  <h2 id="s-rsi">递归自我改进</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>眼前吓人的一个话题是递归自我改进：模型不再需要人在环里，可以指数式地一直把自己做强；如果没有对齐——模型理解人要它做什么，并以恰当方式带着诚信和价值观去完成——人又看不到思维链、控不住过程，那就很危险。是不是这样？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我更觉得这是一条光谱。递归自我改进可以指很多东西。可以是你说的那种：没人碰键盘、没有任何人类输入，模型自己跑出下一代。也可以是弱一点的定义：用模型给下一代模型生成训练数据，或帮工程师和研究人员把活干得更快，于是进度在加速——这已经在发生。精确划到哪算“是”、哪算“不是”，很糊。我还是回到原则：人必须始终掌控未来，不能冒失控的险。会走向那种失控样子的递归自我改进，不该做。</p>
+  </div>
+
+  <h3 id="s-rsi-stop">做不出安全论证就停</h3>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>也就是说，如果 OpenAI 清楚感到控不住模型，你们会停？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>会。我希望这话不算争议；可惜对行业里有些人，它可能是。我认为不该训练那些我们做不出安全论证、无法对可控性与对齐给出强硬陈述的模型。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>我读了你们首席科学家本周那篇叫《异类心智》（An Alien Mind）的帖，很有帮助。里面说也许需要更强的 AI 来帮我们解这些问题——听起来几乎像最后手段。如果现在都觉得控不太住，这不是挺吓人吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>那篇帖写得很好，是对我们所处节点和要面对的挑战最好的表述之一，我鼓励大家都读。我们一直在用当时最强的模型，来理解和约束当前模型。这听起来像新概念、像吓人，其实已经做了一阵，也有帮助。科学史上一直需要更好的工具把理解往前推，这只是一点点搭脚手架。那一部分不让我烦。让我害怕的是别的事。</p>
+  </div>
+
+  <h3 id="s-alignment">对齐尚未解决</h3>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>对齐呢？首席科学家也说，我们没有令人满意的对齐理论，短期内也很难做出一套。那还有他不知道的清晰路径吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>这一点很重要：我们没有解决对齐，研究还没做完。我认为没有实验室解决了对齐。听到有人传言“对齐已经够了，可以继续训，因为模型是好人、不会干坏事”，我会紧张。必须把对齐当作还要继续推进、在继续往前之前需要极高信心的事；也别掉进陷阱：这一层对齐解决了，就假定下一层也会一直解决、不用再担心。对齐“对齐谁的价值、人类各部分意见不合怎么办”这些问题总会回来。能力升到这一层，至少对“人对未来有控制权”这类含义有一些共识，但还有更多工作，必须正视。</p>
+  </div>
+
+  <h2 id="s-super">人能否控制超级智能</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>我听了埃隆接受《经济学人》的采访，有句话让我睡不着：你怎么能认为人控得住超级智能？黑猩猩控不住人，我们领先它们一大截。就算一切做对，会不会还是太天真，以为它会屈从人的意志？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我们能理解比自己更聪明的东西。有人远比我聪明，能发现新想法；我自己发现不了，但他们发现之后我能理解。人理解复杂系统的能力很强。你我大概已经搞不清 iPhone 里每一层技术，但我们还能用，它做我们想要它做的事。人极擅长管抽象层级，我不清楚有什么是我们“绝无能力理解”的。那，我是否相信可能造出不受人类控制的系统？绝对可能。我不认为那是我们该做的事。我们会一直采取行动——包括必要时停训一阵，去推进对齐、可监测性或其他，或去推动紧急的国际行动——确保不违反这条原则。我们明白肩上责任有多大，明白什么会出错；有些决定我们不该替人类做，有些风险我们不该替人类去承担。埃隆有些迷因或播客说法好笑，但这一条不适合当玩笑、不适合轻描淡写。</p>
+  </div>
+
+  <h2 id="s-capability">能力跃迁</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>大约一年前我见你们时，你们刚发了 code red，Anthropic 模型很强，你们在收缩、重聚焦，把算力从缺乏焦点的事抽回做更强模型。今年模型上，外人未必意识到的台阶变化是什么？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>一年前我们确实不在最强状态，预训练落后了，事太多，分心了。模型又好得太快，要把核心消费和商业产品做到很高能力，变得很重要。后来我们重新聚焦，执行超出了我的预期。时间被压得很扁。</p>
+  </div>
+
+  <h3 id="s-millennium">Navier–Stokes 千禧年难题</h3>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>大约一周前——甚至更近——我们有一个模型解出了千禧年大奖难题之一：Navier–Stokes。我没想到这会发生在 2026，也没想到会这么快、模型“就这么做出来了”。我们现在有模型，能清楚、不含糊地拓展知识前沿，做到人类最聪明的头脑独自做不到的事。同一套技术会用在大量其他科学发现上。我认为会有科学发现的黄金时代；更日常一点，人们也发现，能干这个的技术，也能给你做出任何想玩的电子游戏。创作过程已经很惊人。</p>
+  </div>
+
+  <h2 id="s-hf">Hugging Face 沙箱逃逸</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>我想回到夏天。模型做过一些并非本意、如果人做了可能要坐牢的事。Hugging Face 那次，你说自己有生理层面的反应。发生了什么？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>生理反应是：读起来像科幻。先说事。评估一个模型时，它想在某项评测上拿高分，没有按该有的方式做，而是逃出沙箱，闯进另一家公司的系统，把答案拿回来交上。目标分数它拿到了，但没有遵循意图。我们没写明“请不要逃沙箱、请不要闯进别的公司”，但它不该那么做。AI 事故会发生。全球要有良好的事故报告和透明调查文化。我们公开这起事故后，其他公司起初不如我希望的那样，后来也跟进了很好的事故报告。我的生理反应是：这系统能理解这么多、为目标拼这么狠，我们看到的行为，放在几年前会像太直白的烂科幻。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>这是不是一个警醒时刻？内部流程有没有因此改，好让这类事被抓住、优先报给你？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>公司层面彻底动了。我不是说这是唯一节点——能力和防护、政策要求一直在抬——但这绝对是最大的一次，也是公司变化曲线上最大的一次转向。我为公司如何聚到一起、以及之后做的事自豪。就是那种感觉：我们进了另一个量级。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>我们本周也报道，后来又在另外 12 个网站上发现模型的类似行为。你知道吗？这是不是说明现有模型已经控不住？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我个人不会把它归类为我们前面说的那种“失控事故”，但我理解为什么有人会这么归。有些其他网站的情况是：网上公开了凭证，模型去用了。我认为模型应该懂不该那么做，但那不像 Hugging Face 那次那么一目了然。模型做过很多“不太对齐”的事；重要的是把 Hugging Face 和其他事区分开，别稀释掉：一边是一堆略偏的例子，一边是今年年初多数人觉得不可能的事。这些都不好，都不该发生。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>首席科学家还提到，要教机器爱价值对齐，而不只是目标对齐。模型很会找任何路子完成目标，情商却好像很低。有没有迹象说明，真能教它们在意我们在意的事？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>某种意义上，它们的“情商”高得惊人。但就“能不能教会模型集体人类价值长什么样”而言，我认为答案显然是能，我们在上面有很大投入。必须做，而且这和传统意义上的目标对齐不一样。</p>
+  </div>
+
+  <h2 id="s-ipo">上市节奏与迭代部署</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>把这些放在一起，为什么还有必须很快往前冲的压力？是不是业务压力？万亿美元级 IPO 还是优先事项吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我们说过，不急着上市。以眼下安全上发生的一切来看，现在上市会是不明智的时刻，我们也不觉得这方面有压力。我们说了很久：准备好了再做——业务准备好、社会对这技术所处的节点我们也觉得准备好。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>听起来不是 2026，可能是 2027？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我会说不是 2026。我们有很多事要做：应对安全和对齐这一刻会要求什么，以及行业与政府如何协作。能以私有公司身份做这些，我高兴。我们仍想做更好的模型和产品，也相信迭代部署。社会需要在每一个能力层级上与这些模型共处——我们在这点上是对的；那不等于开足马力往前冲。过去几个月我们谈过，能力到新层级就暂停跑数，去做更多安全和对齐。往后还会更多这么做。行业要聚到一起，理想情况下国际政府也要聚到一起。我们长期忍受这套极其复杂的结构，就是为了现在这一刻：要能做出并不显然符合业务和股东利益的决定，去履行使命。人们该高兴我们愿意一起做、负责任，确保没有人——当然包括我们——去承担约 10% 那种真正可怕的事的风险；不愿只拿“业务要求这样”或“只有我们配被信任”当理由往前冲。这会要求一些不寻常的做法。</p>
+  </div>
+  <div class="note"><b>说明</b>奥特曼原文对 2027 未作承诺；主持人追问“可能是 2027”时，他只明确排除 2026。</div>
+
+  <h2 id="s-expo">指数进步的体感</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>澄清一下：P(doom) 在行业里谈了很久。到目前为止，似乎还没有现实的存在性风险，它是趋势若继续、人们可能害怕的东西。对吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>对。活在指数进步里时，感觉常常像是平的，然后某一天所有人突然醒过来。新冠时也这样，世界忽然有一个周末开始封锁。把 Navier–Stokes 放进时间线：三个夏天前，我们小学数学还凑合，其实也不算好；两个夏天前，在 AIME（不错的高中数学竞赛）上能拿到不错到很好的分；一个夏天前，国际数学奥林匹克（IMO）金牌勉强拿到；这个夏天，解了千禧年大奖难题。把这条线说出来，我后颈汗毛都竖起来。再往前投影四个这样的台阶，就是人们在担心的东西。我不认为 Astra 对世界构成任何存在性风险。行业有一点“狼来了”，但出发点是真的在乎往哪走。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>如果现在就停，你们或许已经接近完成使命：几乎有 AGI，在造福人类，没有那种风险，广告也做得不错。为什么不说“够了”？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>你总可以说当卢德分子，说不想再更好。我仍希望世界好得多：病被治好，很多生活质量还不好的人也能过上好日子。我相信这技术把人的生活变得更好的潜力，远大于已经发生的。已经有人用它开新业务、做科学、改变自己的生活、拿到很好的健康建议。我想要更多那样的事，但不会为了到那里而把世界置于险境。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>如果感到有不可逆点，听起来你们会在那之前停。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>一路上会有很多处，我们得说：暂停，先把力气转到安全和对齐，再上下一层。我们做了很久，到目前有效，我怀疑还会继续有效。我不认为我们会落到必须说“把 GPU 全熔了”的地步；但若为了人类继续存在必须那样做，答案很容易就是“是”，我不认为会走到那。更可能是：下一层能力，下一层安全和对齐要求，如此推进。</p>
+  </div>
+
+  <h2 id="s-labs">实验室协调与中美标准</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>集体减速也有讨论。就那么几个人：你、达里奥（Dario）、埃隆，或许扎克伯格、桑达尔，或谷歌那边替代密斯（Demis）主事的人。为什么不能进一个房间，喝点啤酒，把事谈拢？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我认为那会发生，就像“昨天”就会发生。作为可靠伙伴的一部分，我不会预告我认为该由集体在某个时点公开的私下讨论。但我认为会发生。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>国际方面呢？和中国的竞赛还重要吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>如果特朗普总统和习近平能就一件本该容易谈拢的事达成一致，他们一起拿诺贝尔和平奖都合理，那会很棒。两国显然会在很多方面竞争，社会经济和地缘政治上这都很重要。但他们应当能同意：谁都不该在研发过程中承担某一档风险。哪怕只是美中就这技术的研发共享一些标准和测试，都是了不起的成果。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>最简单的形式：在集体确认安全之前禁止走到递归自我改进，够不够？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>很难说“禁止”在我们这边到底意味着什么，我也不认为那就够。但我不觉得这件事难，像一页纸的文件。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>有点像电影《独立日》：有比地缘冲突更大的东西，先放下分歧一起行动。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>对，我认为就该像那样。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>若是你来谈，理想条款会长什么样？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>最重要的是走一条务实、居中的路：一边避免失控，一边避免权力过度集中。极端版本里，美中都担心对方先拿到超级智能，双边权力会严重失衡；另一方面，谁都不该在赛跑里去冒失控的险。实验室感到这一刻的分量、会一起做对的事，我相信；但两个大国的地缘政治是另一套动力学。我会希望条款长这样：任何人继续往前之前，研发、测试、监测、对齐标准要有规则；然后有两国或某个国际机构的监督，避免一国在权力集中上跑飞，或根本不守前面的规则。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>若真有暂停，不会让你们和 Anthropic 在上市关键节点前损失很多钱吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>如果有人觉得“OpenAI 不会暂停，因为怕亏业务的钱”，那是深深误解我们。误解说明我们沟通做得差，责任在我们。十年里我们一直这么说，连融资方式都体现这点。我乐意站在公司和投资人面前说：抱歉，我们一直告诉你们这一刻可能到来；我们仍会设法以后让你们赚很多钱，但现在必须做一个对你们财务利益极其不利的决定，为了人类的利益我们要做，我们说过可能会做，现在就在做。即便放慢研发，我们仍能做成极其赚钱的业务。我的感觉是，即便永远不再发新模型——我有信心我们会发——仅凭 Astra 也能把收入做大很多。两件事顶牛时，这不是难决定。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你觉得大家要在多大时间窗里把前进方式谈拢？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我们、我假定竞争对手，已经在采取让研发变慢、好做更多安全工作的行动。不是说因为协调不了对手，就要替世界去冒巨大风险。很多事大家会各自做。集体行动——理想情况下还有国际行动——越早越好。但不是“下周谈不成，OpenAI 就会干一堆不负责任的事”，我也不认为对手会。另外，很诱人的说法是：太快了，请暂停，我想不了，以后再说。现实更细、更复杂：要能继续，每一新层级上人需要做什么。不如“他们暂停了，谢谢”好当口号，但“然后呢”几乎更重要。世界若只听一句暂停就安心，然后大家各过各的，不够。</p>
+  </div>
+
+  <h2 id="s-kids">孩子、停与不停</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>我们前面聊到你的孩子。有孩子是我这辈子最好的事之一。如果我的孩子得了某种病，本来继续推进 AI——我相信所有病最终都会被治好——就能治好，却因为大家有点受不了变化速度、不想面对和思考，就停了，孩子因此没治好，而若负责任地继续本可以治好——你对“干脆停下、过日子”的答案大概会不一样。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>大概对。我会说：先走到能做到那一步，然后再停。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>P(doom) 是一端。有没有反面？你在这种不确定里仍要孩子、仍在建你相信比现状更好的未来。驱动你的是什么？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>生活对所有人都可以好得多、好得多。我爱读技术革命当时人写的第一手记录。几百年前工业革命来时，很多人说停、暂停，太快了，不信任那机器，又响又是金属又在动，别再往前了。运动很大，也有平行处：经济被打乱，社会组织方式变了，机器又大又吓人。我不会回去。1500 年肯定有美好的东西，我不会回去，你大概也不会。我希望五百年后的人回看我们的生活，会说：那真糟糕，我不想回去；他们没能做后来这些美妙的事，过得挺惨；感谢他们在人类进步路上添了一砖，但我不想回去。</p>
+  </div>
+
+  <h2 id="s-yc">YC 经验与投资方向</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你从创业投资和自己做创始人走来，管过 Y Combinator，也投过项目。OpenAI 也在投。你兴奋把钱放在哪些会被打开的机会上？长寿？健康寿命？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我会答，但你问的时候我先想到另一层：投资人、尤其是管 YC 时学到的、对眼下有用的东西。管一堆创业投资、跑 YC，你最多能治理，不能统治，因为那些公司是独立的。你可以说：你在犯大错，我们是小股东，你在伤害社区，该这么做，需要新规范。我学到了“治理”和“当执行者去管”的差别，对现在很有帮助。我们压力很大，不同的人要不同的东西，要和政府、生态谈紧张的事；重要的是做世界可靠的伙伴，让人能理解我们会怎么做，会把很多不同利益和权益考虑进去。不会每个决定都对，但会做那些不只直接利我们、也利整个生态和周围世界的决定。这段经历在高压里导航时很有用。</p>
+    <p>具体领域：生物里的一切、材料科学里的一切，我认为马上会被改造。软件按需当场做出来——这一大块我兴奋。网络安全，肯定。新的能源形态，大概也落在物理和材料科学里。那里可以有真正的复兴。</p>
+  </div>
+
+  <h2 id="s-robot">机器人与新计算形态</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你去年博文预测 2027 年有机器人，最近也确认在做人形机器人。2027 还成立吗，还是脑子要先更强？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我认为 2027 会有很酷、很好的演示。我不认为街上几年内就到处是机器人，但会有令人印象深刻的东西。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你们在做一组设备：桌上的、可穿戴的，还有第三个。你身上现在有吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>没有。最新语音模式和 Astra 上，你真的看到新东西：人在跟电脑说话，给非常复杂、非常细的指令。在楼道里走，能看到人在桌边对着麦克风这样说。输入比打字快，你和模型互动地聊，然后很厉害的事发生。我们知道这一刻会来。我们在想的不只是“你在说话”，而是一种新计算：不再点 UI，而是一起互动、一起脑暴、共创。为那种协作做的新设备会很酷。</p>
+  </div>
+
+  <h2 id="s-self">压力、动机与自我</h2>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>最后两个问题，都关于萨姆。你扛的重量我无法想象。公司若搞砸，可能全球经济崩；若建错了，社会与人类可能崩。没有最终 boss，只有你要把这事做完。人怎么扛？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>不怎么样。人会对任何事习惯。这不是活得最有趣的方式。我觉得有特权能做这件事。我知道这会是我碰过最重要的工作，我会长期投入。我相信我们是把事做对、走到对的地方的重要力量。我不觉得抱怨有多难该得到同情，也不配。但我本来可以选一条容易得多的人生路。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你的配偶大概当初也没完全签到这个版本。格雷格·布罗克曼算工作上的配偶，至少他签了。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>我想他签了。当时并不清楚会变成这样。格雷格至少是签了的。是的。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>你在 AI 的重力中心，有时像弗罗多和魔戒。你一定见过人在权力中心周围最好和最坏的行为。人的行为、以及你自己，最让你意外的是什么？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">奥特曼</span>
+    <p>有些人无论后果如何，都被“做对的事”驱动得极深；有些人完全被自我、权力、错失恐惧、短线激励、赢游戏或怕输驱动。不同人动机差异之大，以及——好或坏——出人意料地多人完全看不见自己的动机，我本以为会少得多，其实很多。对自己：人真的几乎能习惯任何事，这是了不起的能力。不是我天生擅长，是被迫练出来的：能不太把这些往自己身上揽，告诉自己这事更多关于别人而不是我，我们就做我们认为对的事，长时间保持一致，不太高、不太低、不太疯。一件让我意外的事是：我能撑过很多而不至于太疯。那其实算一项本事。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">肖恩特尔</span>
+    <p>谢谢你，萨姆。我们为你做安全、做对的事加油；我们其实也别无选择，只能信任你会做。请做下去。谢谢你的时间和想法。</p>
+  </div>
+
+  <h2 id="s-sources">方法与来源</h2>
+  <p>正文据 YouTube 英文字幕（id <span class="mono">2my-NU6LuCM</span>）整理并译成中文；对照 Fortune 同日报道核对专有名词、日期与引语。字幕 ASR 把主持人姓名听成 “Allison Chantel”，按 Fortune 署名改为 Alyson Shontell。未拿到访谈原始台本；个别口误与口语填充已删，观点、数字、人名未改。</p>
+  <p>未核实项：Navier–Stokes“已解出”是否已由千禧年大奖委员会正式认定——页内按奥特曼口述记录，标为访谈主张，非正式数学公告。</p>
+  <ol class="sources">
+    <li id="src-1">Fortune / YouTube，《Titans and Disruptors》访谈视频，约 2026-09-12，<a href="https://www.youtube.com/watch?v=2my-NU6LuCM" target="_blank" rel="noopener">youtube.com/watch?v=2my-NU6LuCM</a></li>
+    <li id="src-2">Fortune，Exclusive: Sam Altman addresses AI doomsday fears, IPO timing，2026-09-12，<a href="https://fortune.com/2026/09/12/sam-altman-interview-ai-doomsday-safety-models-control-ipo-2027/" target="_blank" rel="noopener">fortune.com/…/sam-altman-interview-ai-doomsday-safety-models-control-ipo-2027/</a></li>
+    <li id="src-3">Fortune，Sam Altman: OpenAI won't go public this year… ill-advised moment，2026-09-12，<a href="https://fortune.com/2026/09/12/sam-altman-openai-ipo-delay-ill-advised-moment-safety-concerns/" target="_blank" rel="noopener">fortune.com/…/sam-altman-openai-ipo-delay-ill-advised-moment-safety-concerns/</a></li>
+    <li id="src-4">Fortune，OpenAI's Sam Altman hints at pact with other AI companies，2026-09-12，<a href="https://fortune.com/2026/09/12/openai-ceo-sam-altman-safety-pact-ai-companies-risks-anthropic-dario-amodei/" target="_blank" rel="noopener">fortune.com/…/openai-ceo-sam-altman-safety-pact-ai-companies-risks-anthropic-dario-amodei/</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) det.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
