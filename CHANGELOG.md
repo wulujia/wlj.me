@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-14
+
+- 新增资料页《达里奥·阿莫代公开信与访谈》，`static/reading/dario-amodei-pace-the-frontier-2026-09/index.html`。公开信在前，CBS 加长访谈在后，保留 18 组问答、全文译文及来源说明；目录同步调整。加入 Reading 索引、canonical、分享元信息与返回链接，沿用明暗主题、手机目录和打印样式。
+
 ## 2026-09-12
 
 - 新增资料页《Clio：保护隐私的真实世界 AI 使用观察》，`static/reading/clio-privacy-preserving-insights-2024-12/index.html`。arXiv:2412.13678v1 论文中文译本，15 张原图随文，提供双语 EPUB 下载。`index,follow` + canonical，顶部返回整理、arXiv 原文。`data/reading-materials.toml` 新增 report 条目。
