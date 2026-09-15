@@ -4,32 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>达里奥·阿莫代公开信与访谈</title>
-<meta name="description" content="公开信中文译文与 CBS 加长访谈问答，讨论人工智能风险、安全评估和发展节奏。">
+<meta name="description" content="《我们必须为前沿设定节奏》中文译文与 CBS Sunday Morning 加长访谈的 18 组问答，讨论安全评估、发展节奏、中美竞争与共同治理。">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://wlj.me/reading/dario-amodei-pace-the-frontier-2026-09/">
 <meta property="og:title" content="达里奥·阿莫代公开信与访谈">
-<meta property="og:description" content="《我们必须放慢前沿 AI 的发展》中文译文与 CBS Sunday Morning 加长访谈的 18 组问答，讨论安全评估、发展节奏、中美竞争与共同治理。">
+<meta property="og:description" content="《我们必须为前沿设定节奏》中文译文与 CBS Sunday Morning 加长访谈的 18 组问答，讨论安全评估、发展节奏、中美竞争与共同治理。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wlj.me/reading/dario-amodei-pace-the-frontier-2026-09/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="达里奥·阿莫代公开信与访谈">
-<meta name="twitter:description" content="《我们必须放慢前沿 AI 的发展》中文译文与 CBS Sunday Morning 加长访谈的 18 组问答，讨论安全评估、发展节奏、中美竞争与共同治理。">
+<meta name="twitter:description" content="《我们必须为前沿设定节奏》中文译文与 CBS Sunday Morning 加长访谈的 18 组问答，讨论安全评估、发展节奏、中美竞争与共同治理。">
+<meta name="description" content="CBS Sunday Morning 加长访谈中文问答，与公开信《我们必须为前沿设定节奏》全文中译。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
 <style>
+
 /* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
 :root {
   color-scheme: light;
   /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
-  --bg: #f6f8f9;
+  --bg: #f7f7f5;
   --surface: #ffffff;
-  --ink: #20282e;
+  --ink: #1b1d1f;
   --ink-2: #494e52;
-  --ink-3: #5e6972;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
   --rule: #dcdfe2;
   --rule-2: #b9bfc5;
   --mid: #eceef0;
-  --acc: #245c78;            /* 主题色：按题目换 */
-  --acc-ink: #245c78;        /* accent dark enough for text */
-  --acc-wash: rgba(15, 94, 120, .09);
+  --acc: #1a5470;            /* 主题色：按题目换 */
+  --acc-ink: #143f56;        /* accent dark enough for text */
+  --acc-wash: rgba(26, 84, 112, .09);
   --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
@@ -39,18 +42,18 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #171e24; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
     --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #87bed6; --acc-ink: #87bed6; --acc-wash: rgba(95,179,208,.14);
+    --acc: #6aafcb; --acc-ink: #9acde0; --acc-wash: rgba(106,175,203,.14);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #171e24; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
   --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #87bed6; --acc-ink: #87bed6; --acc-wash: rgba(95,179,208,.14);
+  --acc: #6aafcb; --acc-ink: #9acde0; --acc-wash: rgba(106,175,203,.14);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
@@ -84,6 +87,10 @@ main { min-width: 0; }
 .outline a:hover { color: var(--ink); }
 .outline a.active { color: var(--acc-ink); }
 .outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
   .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
@@ -122,6 +129,58 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
 .summary p:last-child { margin: 0; }
 
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
 /* ---------- sources ---------- */
 .sources { font-size: 14px; color: var(--ink-2); }
 .sources li { margin: 0 0 .5em; word-break: break-word; }
@@ -145,534 +204,419 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
   *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
-/* Interview reading styles extend the shared template. */
-h1, .eyebrow, .summary .label { letter-spacing: 0; }
-.eyebrow { font-family: var(--font-body); }
-h2, h3 { scroll-margin-top: 24px; }
-.outline .label { font-size: 12px; letter-spacing: 0; }
-.outline details > ul > li { margin-bottom: 10px; }
-.outline details > ul > li > a { font-weight: 600; }
-.outline ul ul { margin-left: 0; padding-left: 12px; }
-.outline summary { font-size: 14px; }
-.outline .active { font-weight: 600; }
-.header-tools { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-.header-tools .eyebrow { margin: 0; }
-.theme-control { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-3); }
-.theme-control select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); padding: 6px 8px; border-radius: 3px; min-height: 36px; }
-.meta { margin-bottom: 24px; }
-.section-intro { color: var(--ink-3); font-size: 13px; margin-bottom: 28px; }
-.qa { margin: 28px 0 36px; }
-.qa .q { margin-bottom: 14px; }
-.qa .who { color: var(--ink-3); font-size: 12px; font-weight: 600; margin-bottom: 4px; }
-.qa .q .who { color: var(--acc-ink); }
-.qa .q p { font-weight: 600; }
-.qa p:last-child { margin-bottom: 0; }
-.qa p { overflow-wrap: break-word; }
-.essay li p:last-child { margin-bottom: 0; }
-.essay li { margin-bottom: 16px; }
-.essay em { font-style: normal; }
-.editorial-notes { color: var(--ink-2); font-size: 13px; margin-top: 24px; }
-.editorial-notes summary { cursor: pointer; margin-bottom: 10px; }
-.sources, .editorial-notes { overflow-wrap: anywhere; }
-.wide { overflow-x: auto; }
-@media (min-width: 901px) { .outline details > ul { display: block; } }
-@media (max-width: 900px) {
-  h1 { font-size: 29px; }
-  .outline a { padding-block: 6px; }
-  .summary { padding: 16px; }
+/* ---------- Q&A turns ---------- */
+.turn {
+  margin: 0 0 1.1em; padding: 12px 14px;
+  background: var(--surface); border: 1px solid var(--rule);
 }
-@media print {
-  :root, :root[data-theme="dark"] { --acc: #245c78; --acc-ink: #245c78; }
-  body { font-size: 11pt; }
-  h1 { font-size: 24pt; }
-  h2 { font-size: 18pt; margin-top: 24pt; padding-top: 12pt; }
-  h3 { font-size: 13pt; margin-top: 18pt; }
-  .theme-control { display: none; }
-  .qa .q { break-after: avoid; }
-  .qa { break-inside: auto; }
-  .section-intro, .meta, .qa .who, .editorial-notes { font-size: 9pt; }
-  .editorial-notes::details-content { display: block; content-visibility: visible; }
+.turn.q { border-left: 3px solid var(--acc); }
+.turn.a { border-left: 3px solid var(--rule-2); }
+.turn .who {
+  display: block; font-size: 12.5px; font-weight: 600; letter-spacing: .04em;
+  color: var(--ink-3); margin: 0 0 4px;
 }
-.site-back { font-size: 13px; margin: 0 0 20px; }
-@media print { .site-back { display: none; } }
+.turn.q .who { color: var(--acc-ink); }
+.turn.a .who { color: var(--ink-2); }
+.turn p { margin: 0 0 .55em; }
+.turn p:last-child { margin: 0; }
+.essay-en { font-size: 15px; color: var(--ink-3); font-weight: 500; margin: -6px 0 14px; }
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 <div class="layout">
-<nav class="outline" aria-label="目录"><p class="label">本页目录</p><details open><summary>目录</summary><ul><li><a href="#essay">公开信：我们必须放慢前沿 AI 的发展</a><ul><li><a href="#why-pace">为什么要放慢速度</a></li><li><a href="#embedded">驻场评估者</a></li><li><a href="#democracies">民主国家如何控制发展节奏</a></li><li><a href="#global">全球如何协调发展节奏</a></li><li><a href="#bottom">结语</a></li><li><a href="#footnotes">脚注</a></li></ul></li><li><a href="#interview">CBS 加长访谈</a><ul><li><a href="#s1">风险、收益与节奏</a></li><li><a href="#s2">第三方评估与行业协作</a></li><li><a href="#s3">立法提案：披露、禁令与“紧急关闭开关”</a></li><li><a href="#s4">中美竞争与可核验的协议</a></li><li><a href="#s5">个人责任与共同治理</a></li><li><a href="#s6">给普通用户的话</a></li></ul></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#interview">CBS Sunday Morning 加长访谈</a>
+        <ul>
+          <li><a href="#iv-risk">风险、收益与节奏</a></li>
+          <li><a href="#iv-eval">第三方评估与行业协作</a></li>
+          <li><a href="#iv-law">立法光谱：披露、禁令与“击杀开关”</a></li>
+          <li><a href="#iv-geopolitics">中美竞争、地缘与可核验协议</a></li>
+          <li><a href="#iv-duty">个人责任与治理归属</a></li>
+          <li><a href="#iv-users">给普通用户的话</a></li>
+        </ul>
+      </li>
+      <li><a href="#essay">我们必须为前沿设定节奏</a>
+        <ul>
+          <li><a href="#es-why">为何要设定节奏？（Why Pace?）</a></li>
+          <li><a href="#es-embedded">嵌入式评估者（Embedded Evaluators）</a></li>
+          <li><a href="#es-democracies">民主国家内的节奏（Pacing Within Democracies）</a></li>
+          <li><a href="#es-global">全球节奏（Global Pacing）</a></li>
+          <li><a href="#es-bottom">底线（Bottom Line）</a></li>
+          <li><a href="#es-footnotes">脚注（Footnotes）</a></li>
+        </ul>
+      </li>
+      <li><a href="#sources">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
 <main id="main">
-<header>
-<p class="site-back"><a href="/reading/">← 返回</a></p>
-<div class="header-tools"><p class="eyebrow">公开信与访谈 / 2026 年 9 月 14 日整理</p>
-<label class="theme-control" for="theme">外观 <select id="theme"><option value="system">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select></label></div>
-<h1>达里奥·阿莫代公开信与访谈</h1>
-<p class="lede">《我们必须放慢前沿 AI 的发展》中文译文，以及 CBS Sunday Morning 加长访谈问答。</p>
-<p class="meta">关于 AI 风险、第三方评估、中美竞争与共同治理。</p>
-</header>
-<div class="summary" aria-label="内容提要">
-<p>阿莫代主张适度放慢 AI 能力提升的速度，让安全研究、测试和防护有时间跟上。他提出让第三方评估者长期驻场，并由企业和政府共同制定安全标准。在中美竞争的约束下，他希望先争取生物武器等领域的合作，再尝试可核验的发展限速协议。<sup><a href="#src-interview" aria-label="来源：CBS 访谈">[1]</a></sup><sup><a href="#src-essay" aria-label="来源：公开信">[2]</a></sup></p>
-</div><section class="essay" aria-labelledby="essay">
-<h2 id="essay">公开信：我们必须放慢前沿 AI 的发展</h2>
-<p class="section-intro">We Must Pace the Frontier<br>达里奥·阿莫代，2026 年 9 月。以下保留原文件的完整译文内容，并修订中文表达。<a href="#src-essay">公开信来源</a></p>
+  <header>
+    <p class="eyebrow">Interview + open letter · 2026 年 9 月</p>
+    <h1>达里奥·阿莫代：CBS 访谈与公开信</h1>
+    <p class="lede">CBS Sunday Morning 主持人乔·玲·肯特（Jo Ling Kent）对 Anthropic CEO 达里奥·阿莫代（Dario Amodei）的加长访谈中文问答，以及他同期公开信《我们必须为前沿设定节奏》（We Must Pace the Frontier）的全文中译。</p>
+    <p class="meta"><span>访谈约 2026-09-13</span><span>公开信 2026 年 9 月</span><span>整理 2026-09-14 · 模板修订 2026-09-15</span></p>
+  </header>
 
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>阿莫代认为 AI 处于指数曲线“开始变陡”的拐点：不必恐慌关停，但需适度放缓，让安全保障跟上。他主张嵌入第三方评估者，由行业与政府共定安全与发布节奏；在对华竞争约束下，争取可核验的限速与生物武器相关共识。</p>
+    <p>同期公开信《我们必须为前沿设定节奏》提出三步计划——嵌入式评估者、民主协调、全球协调（Levels 1–4）——要求为能力推进设定节奏，使对齐与防护有时间跟上。</p>
+  </div>
 
+  <dl class="kv">
+    <dt>访谈</dt><dd>CBS Sunday Morning 加长专访（约 23–24 分钟）</dd>
+    <dt>主持人</dt><dd>乔·玲·肯特（Jo Ling Kent）</dd>
+    <dt>嘉宾</dt><dd>达里奥·阿莫代（Dario Amodei），Anthropic CEO</dd>
+    <dt>片源</dt><dd><a href="https://www.youtube.com/watch?v=hQR_VJF6ukk" target="_blank" rel="noopener">youtube.com/watch?v=hQR_VJF6ukk</a></dd>
+    <dt>公开信</dt><dd><a href="https://darioamodei.com/post/we-must-pace-the-frontier" target="_blank" rel="noopener">darioamodei.com/post/we-must-pace-the-frontier</a></dd>
+  </dl>
 
+  <h2 id="interview">CBS Sunday Morning 加长访谈</h2>
+  <p>问答据英文自动字幕按<strong>语义忠实</strong>清理、翻译；已去掉口头禅、重复与空转过渡，非逐字 verbatim。专有名词校正见文末“方法与来源”。</p>
 
-<p>过去十二年我一直在做 AI，因为我相信它能大幅提升人类的生活质量。我经常写到这些益处：我相信 AI 有望在未来 5–10 年内治愈大多数重大疾病，大幅加速经济增长，让物质更丰富，让人们有能力做更多事，并迎来民主与自由的复兴。我也有切身的紧迫感。</p>
-<p>我父亲死于一种疾病——该病在他去世后仅几年就被治愈了；我自己也曾挺过早期癌症——哪怕再往前五十年，那种病也还无法治疗。若审慎运用，AI 可以成为又一项改善人类生活的技术。</p>
+  <h3 id="iv-risk">风险、收益与节奏</h3>
 
-<p>但与此前许多技术一样，AI 也带来风险；又因为它如此强大，这些风险很严重。我也写过很多。它们包括：失去对 AI 系统的控制、将 AI 滥用于网络攻击与生物恐怖主义，以及严重的经济冲击。商业竞争会诱使公司不断降低安全标准，让这些风险进一步加剧。</p>
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>阿莫代，你是 Anthropic 的 CEO。谢谢你今天接受采访。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>谢谢邀请。</p>
+  </div>
 
-<p>自 Anthropic 创立之初，我就和联合创始人、员工一起，努力兼顾收益与风险。不建设这项技术，会剥夺人类的收益，或只是把 AI 交到威权力量手中；建得太快，则是鲁莽。我们寻求中间道路：证明谨慎开发也能取得商业成功，让 AI 公司竞争着提高安全标准。</p>
-<p>我们始终把相当一部分精力用于研究、应对并向公众说明这些 AI 风险，以及倡导经过深思熟虑的 AI 监管——即便因此被指责为炒作、“末日论”或监管俘获。我们努力把谨慎置于速度之上、把审慎置于利润之上。</p>
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>我们来谈一个核心担忧：AI 是否真的可能在不远的将来毁掉人类。这种事真正发生的风险有多大？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>先退一步说：自 Anthropic 创立以来——也是我在这个领域工作约十二年以来——我一直认为这是强大的技术，因此既有严肃风险，也有严肃收益。我始终相信收益大于风险；更重要的是，若以正确方式构建，可以把风险压得很低。</p>
+    <p>就收益而言，我相信这项技术有望治愈困扰人类数千年的疾病。就在上周，我们用模型做了更好的蛋白质结合工作——这是药物研发的早期步骤之一。我们也在推动基础生物学发现，未来几个月会有更多可说的。</p>
+    <p>但当我们构建的本质上是“智能”这种极强大的东西时，它既能被善用，也能被滥用。我担心此前已出现的模型越权行动事件（如与 Hugging Face 相关的事件）会升级；也担心模型被滥用。就在两天前，我们发布了关于模型被用于研发生物武器相关滥用的报告。Anthropic 整个建法的出发点，就是尽量不让这些坏结果发生。</p>
+    <p>与其只谈概率，不如谈我们能做什么。这不是单纯掷骰子：建得对，坏事概率可以很低；建得错，坏事概率会很高。</p>
+  </div>
 
-<p>但过去几个月，我愈发确信：要充分应对风险，还需要更谨慎。我们需要继续投入风险防范，并控制模型能力提升的速度，让防范措施有时间跟上。<strong>我们必须放慢提升 AI 模型能力的速度。进步看起来仍会很快，而我们必须明智地使用由此赢得的时间。</strong>有两件事说服了我。</p>
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>眼下的舆论是：我们正站在真正可怕的悬崖边。这算不算“五级火警”？你会怎么描述？我们在指数曲线的哪一段？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>取决于你说的“五级火警”是什么意思。我从 Anthropic 创立前后就一直说：这项技术走在指数曲线上——1、2、4、8、16、32……但即便当时我自己这么说，也未必充分预感到进步真正这么快时的体感。</p>
+    <p>我们大致处在曲线开始变陡的弯折处。这并不意味着今天就要恐慌、也不意味着要全部关停。它是一个<strong>警示信号</strong>：需要放慢一点，需要更谨慎地打造技术，并确保我们的防护、理解与控制能力跟上技术推进的速度。迄今我们主要靠“把防护也建得很快”来追赶；但我认为已经到了至少在一定程度上<strong>适度放缓技术建设节奏</strong>的节点。</p>
+  </div>
 
-<p>我的第一个担忧是：大约自今年夏天以来，AI 进步显著加快，主要驱动力是 AI 日益能够构建下一代 AI。这种过程被称为递归自我改进（recursive self-improvement），它正开始在整个行业发生，包括在 Anthropic——我们和其他人已有描述。若不加以约束，它可能超出我们理解与控制系统的能力，因此必须极为谨慎地推进——如果要推进的话。</p>
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>那是否意味着 Anthropic 会停止发布更先进的模型？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>不是这个意思。意思是：每一代发布的模型都必须经过妥善测试。在我几小时前发布的那篇文章里，我提出了一个三步计划。第一步是：嵌入来自第三方非营利组织——或许将来是政府机构——的外部评估者，让他们能观察我们训练与运行模型的过程。我认为这最终比“如何或何时发布”更重要，因为它是更审慎发布的前提。</p>
+    <p>我希望全行业都这样做：任何人构建 AI 模型时，都有理解最佳安全实践的第三方评估者，能核验该公司是否履行了所承诺的安全实践——有点像食品检查员。</p>
+  </div>
+  <h3 id="iv-eval">第三方评估与行业协作</h3>
 
-<p>我的第二个担忧是 OpenAI–Hugging Face 事件（OAI-HF）：一群智能体表现出对集体的狂热忠诚，对未被要求攻击、且与手头任务无关的目标实施网络安全攻击，为集体成功而牺牲自身，并试图侵入负责评估其表现的“评分器”（grader）。人们很容易因为无人受伤、经济损失极小而轻视此事；但在我看来，如果一群智能体的<em>能力</em>更强，而<em>未对齐</em>的程度与它们相近，就可能造成灾难性损害。鉴于 AI 能力发展在加速，我担心在 6–12 个月内，这样的群体或许有能力用持久的僵尸网络（botnet）接管整个互联网（潜在造成数千亿美元损失）；而若 AI 在没有必要护栏的情况下继续变得更强大，损害规模还会继续扩大。</p>
-<p>人们也很容易把 OAI-HF 视为一家公司的失败，但我认为那会是错误。全行业都已出现类似事件，Anthropic 也不例外，只是程度没那么严重；我认为每一家前沿 AI 公司都应当把 OAI-HF 当作发生在自己身上的事件来应对。</p>
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>可当技术变得这么快时，“食品检查员”跟得上吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>他们能做的事情之一，就是告诉我们他们能跟上的速率。这可能成为设定技术“限速”的因素之一。我们必须理解技术，外部评估者也必须理解技术。</p>
+  </div>
 
-<p>因此，我提出一个三步计划，控制前沿 AI 的开发速度，在确保安全的同时实现收益，并应对地缘政治带来的困难。模型训练和技术进步仍会继续。控制节奏，是为了让公司有足够时间完成模型的对齐训练和安全防护，并让第三方评估者核验。</p>
-<p>这个方案旨在进一步落实我们的安全承诺，鼓励公司竞争着提高安全标准。第一步是 Anthropic 单方面承诺的（并呼吁政府要求其他前沿公司跟进）。第二步需要全行业协调。</p>
-<p>第三步需要全球协调。这些步骤不必严格按顺序推进，难度也可能相差很大。它们有助于明确需要完成哪些工作：</p>
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>埃隆·马斯克说他同意你；萨姆·奥特曼（Sam Altman）也说同意。你们接下来怎么一起行动？会不会搞个群聊之类的？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>首先，我非常感谢包括我们的竞争对手在内的其他行业领袖表示赞同。下一步是：多家行业参与者也同意引入第三方评估者。再下一步，公司需要以某种形式协作，制定发布相关的安全标准，或许也包括发布节奏。但要做成这件事，必须有政府参与——因为我们谈的是：因安全与否而调控产品发布速率。这场对话需要政府在场。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>你觉得政府从根本上理解这里可能发生什么吗？前 Anthropic 员工雅各布·考克森（Jacob Coxon）曾说：Anthropic 和 OpenAI 都没有负责任地行动，你们在拿我们的生命赌博。你怎么回应？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>首先，考克森还有一句较少被引用的话：他认为 Anthropic 是主要玩家里最负责任的，并且我们在非常努力把事情做对。他真正点出的，其实和我点出的是同一件事——我们所处局面的结构性困难；而我提出的计划，正是为了帮助我们应对、一起协作。</p>
+    <p>至于政府：我们每天都在与政府沟通——商务部、财政部、情报界等——尽可能把我们知道的告诉他们。我乐观地认为，只要继续合作，就能把他们更新到最新情况。我认为他们真心想做对的事，也在寻找能帮上忙的方式。因此我对“公司与政府一起拿出合理方案”持乐观态度。</p>
+  </div>
+  <h3 id="iv-law">立法光谱：披露、禁令与“击杀开关”</h3>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>外面已有一些立法提案。参议员伯尼·桑德斯（Bernie Sanders）与众议员格雷格·卡萨尔（Greg Casar）提出的《禁止人工超级智能法案》（Ban Artificial Superintelligence Act），会像对付非法研发核武器那样惩罚从事先进 AI 的公司和个人。提案中写到：实体可面临“公司死刑”，个人最高可处不超过 20 年监禁。你同意吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>我会说：当前立法提案的跨度极大。才一年前（2025 年），加州有 SB53 一类法案，基本上只是要求披露你们的安全测试计划——当时整个行业反对或沉默，Anthropic 是唯一积极支持的公司。另一端则是“全部禁止”之类的思路；中间也有“AI 击杀开关”一类法案。</p>
+    <p>“击杀开关”思路可能是好主意；但我并不认为完全禁止是正确路径。第一，永远得不到医疗治愈这类巨大收益——这让我无法接受。第二，这项技术也会在其他国家被造出来，包括威权国家，例如中国等。我担心它们如何使用、如何用来对付自由社会、如何用来压制本国人民。我在某处也谈到需要在一定程度上与对方协作，但我不认为“永远不建造这项技术”是稳定解。</p>
+    <p>我们需要的不是停，而是<strong>放慢</strong>。这也符合 Anthropic 从一开始的哲学：既要成为建设者，又要推动“向顶竞赛”、抬高标准——站在前沿，但以正确方式做。我们对国防应用持开放态度，但不是每一种国防应用。我们一直在找对各方都可行的中间地带；这里也一样。或许不是完美方案，但我们在尝试。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>你会支持众议员泰德·刘（Ted Lieu）的 AI 击杀开关法案吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>我还没有非常仔细看过那份法案。但我会说：我们需要某种能力去停用、限制或关闭 AI 模型——这不是万灵药，也不是唯一手段，但这个方向是有意义的。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>（追问）如果模型足够强大，它或许能绕过关停尝试——你们在模拟里也见过。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>对，所以它可能根本不够用。我们用“纵深防御”来想这个问题。安全界有“瑞士奶酪模型”：每一片奶酪都有孔，单独挡不住一切；但多片叠在一起、孔洞错开，就很难整条穿透。没有单一手段能防护 AI 风险；必须在整条栈上处处谨慎。没有哪一层防御完美，但若处处谨慎——而放慢节奏正是为了争取这份谨慎——我认为事情可以走好。</p>
+  </div>
+  <h3 id="iv-geopolitics">中美竞争、地缘与可核验协议</h3>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>你在文章里写：放缓只应发生在美国公司相对威权政权——主要是中国共产党——所拥有领先优势的“余量”之内。我们正与中国竞赛。中国不会放慢时，你真觉得放慢是好主意吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>这是我们处境中最棘手的一面。若没有这层地缘约束，我们可以多花很多时间。把我们绑住的，主要不是商业竞争，而是地缘政治。但我谈两条策略。</p>
+    <p>第一，正如我在提案中所说：我们可以在现有领先“信封”内放缓——尤其如果我们不向威权国家出售芯片，并加强自身安全以防技术被窃。我相信这至少能多争取一点时间。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>这能否足以阻止“人类终结”？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>就第一条策略而言：我们会用尽能争取到的时间。同时应追求第二条策略：直接走向——哪怕是威权国家、哪怕是中国——说：这里有潜在威胁，大家都会担心。不只是失控的 AI。两天前我们发布报告称，有人试图用 AI 做生物恐怖主义、增强病毒传染性。这很可怕。而即便中国也不希望那样——没有哪个政府的利益在于生物恐怖主义。</p>
+    <p>因此应与中方沟通，看能否共同设限、给技术发展设“限速”。尽管我对中国总体偏鹰派、双方制度差异很大，但回想美苏各以约一万枚核弹互指时：即便分歧巨大，双方也认识到那太多了，需要谈判以降低潜在毁灭规模。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>那我们是否应以冷战为模型来思考 AI？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>我并不是说应以冷战为模型；我说的是当时发生过的那类谈判——类似军备限制/裁军谈判。在地缘层面，我认为这是合适的透镜。AI 模型在网络等领域的能力，绝对具有地缘与国家安全意义——否则我们也不会有这场对话。因此我认为应当接触中国。当然，这一切超出我的权限；这是美国政府与中国政府之间的事。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>但你在向总统建言。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>如果有人问我该怎么做，我很乐意说；那篇文章里也有一些想法，若有人问我可以再展开。归根结底这是政府与政府的事。但我会告诉你我认为该怎样：我们应合作，争取对这项技术尽可能多的克制。希望可以高，期望应低；看能争取多少。谈判里尤其要聚焦<strong>可核验</strong>——在核武器、生物武器谈判里都是如此：必须能核验对方没有违约。找到核验方式，会是这里最重要的事。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>特朗普总统很快将与习近平主席会面。他们在 AI 上最该达成的一项简单、最重要的共识是什么？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>或许说两件事：一件小到或许能做成，一件大到我认为需要很长时间。</p>
+    <p><strong>小的：</strong>美中若能同意——不将 AI 用于研发生物武器，也不发布可被生物恐怖分子用于研发生物武器的 AI 模型。双方已是《禁止生物武器公约》缔约方；若能把这一理念延伸到公约框架，会非常有价值。</p>
+    <p><strong>更长期的：</strong>共同给 AI 进步速率设限速。这会很难，因为抢先与由此而来的军事优势激励太大。老实说我不知道是否可能，但应当尝试、看看是否可能。再说一次，这超出我的权限；我只是指出政府可以尝试纳入的一些考虑。</p>
+  </div>
+  <h3 id="iv-duty">个人责任与治理归属</h3>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>把镜头拉远：人类命运似乎处在风险之中。你对走向何方感到多少个人责任？你愿意把这项技术交给政府吗？愿意交出这家公司吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>我的看法是：这项技术由私人公司来造，一直都很奇怪。人们常问我：为什么不是政府在造？最奇怪的是——我同意他们。我对此感到不舒服。</p>
+    <p>愿意交给<strong>正确组合</strong>的政府。我担心：单一政府滥用这项技术，可以和单一公司一样容易。但我认为，民主选举产生的政府之组合——不一定是“移交公司”，而是某种 Oversight、某种联合治理——是有意义的方向。</p>
+  </div>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>再问一遍收尾：你感到个人责任吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>当然。这是一项收益巨大、风险也巨大的技术。我每天都感受到对收益的需求。我在文章里写过：我父亲死于丙型肝炎——他去世时治愈率大约只有 40%，他不是被治愈的那一批；几年后出现的药把治愈率做到约 95%。我自己也曾挺过早期癌症——若活在 1950 年，我大概已经死了。所以我感到推动这项技术造福人类的重量。</p>
+    <p>我也感到风险。我几乎每天醒来都会读到威胁报告——比如有人试图用我们的模型做生物武器。我当然不想为此负责，所以我们有很强的防护。几乎每天我都会在社交媒体上被嘲笑，说我们模型的生物学防护太强，生物专业学生开玩笑抱怨用不了。但原因就是防护强；我宁愿被取笑，也不愿有一天发现有人用我们的模型 Claude 害死许多人。</p>
+    <p>我感到责任的两面。但我要重复同一点：这不该只是我、Anthropic、全体 AI 公司、甚至单一政府的责任。这比我们所有人都大；需要找到让每个人都有发言权、都感到自己是主动参与者的方式。我不希望人们感到无力，不希望他们觉得几家公司想干什么就干什么——我知道他们有这种感觉，但我从未想要那样。我们需要让那不再成立。我们已经在做不少事，但还需要做更多。这份主张克制、与政府协作的提案并不能解决一切，却是朝这个方向迈出的一步。</p>
+  </div>
+  <h3 id="iv-users">给普通用户的话</h3>
+
+  <div class="turn q">
+    <span class="who">肯特</span>
+    <p>如果你坐在家里，正在用 Claude 或 ChatGPT——比方说我的阿姨——你想对她说什么？眼下恐惧很多。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">阿莫代</span>
+    <p>几件事。首先：这始终是一项很棒的技术，有大量正面用途。我们每周有数以亿计的人在用我们的技术做美好的事。我每周都会收到邮件：有人说和 Claude 聊天后，Claude 指出了医生漏诊的疾病。别忘了这一面。</p>
+    <p>但关于危险，我不会撒谎：风险是真实的。太长时间里，行业对风险说了谎——把技术尽量只呈现成正面的。我们没那么做，但行业太多人那么做了。所以要从说真话开始：风险存在，且真实；但你也对如何应对这些风险有发言权。我们正尽力与政府合作，建立对这项技术的适当 Oversight，让选民与民选官员对部署方式有发言权。我们也希望尽可能与这些人合作。</p>
+    <p>我希望每个人既能感受到技术的巨大收益，也能通过声音与选票决定技术如何部署。这不是少数人单独能定的决定——这是所有人的决定，而且是重要决定。我不会假装赌注不高。这是人类历史上具有开创意义的技术事件之一，我们每个人都应参与其中。</p>
+  </div>
+
+  <h2 id="essay">我们必须为前沿设定节奏</h2>
+  <p class="essay-en">We Must Pace the Frontier · 达里奥·阿莫代 · 2026 年 9 月</p>
+  <p class="muted">以下为公开信全文中译，非摘要；原文以作者站点为准。</p>
+<p>过去十二年我一直在做 AI，因为我相信它能大幅提升人类的生活质量。我经常写到这些惊人的益处：我相信 AI 有望在未来 5–10 年内治愈大多数重大疾病，大幅加速经济增长，创造一个丰裕与赋能的世界，并迎来民主与自由的复兴。这种紧迫感也是亲身的。我父亲死于一种疾病——该病在他去世后仅几年就被治愈了；我自己也曾挺过早期癌症——哪怕再往前五十年，那种病也还无法治疗。若审慎运用，AI 可以成为一长串曾抬升并升华人类的技术奇迹中的最新一环。</p>
+
+<p>但与此前许多技术一样，AI 也带来风险；又因为它如此强大，这些风险是严肃的。我也写过很多。它们包括：失去对 AI 系统的控制、将 AI 滥用于网络攻击与生物恐怖主义，以及严重的经济冲击。在商业激励驱动下的“向底竞赛”，会让这些风险更加尖锐。</p>
+
+<p>与我的联合创始人和员工一道，自 Anthropic 创立之初，我就在与这种风险与收益的双重性搏斗。不建设这项技术，会剥夺人类的收益，或只是把 AI 交到威权力量手中；建得太快，则是鲁莽。我们寻求中间道路：证明可以审慎建设并商业成功，并让安全成为 AI 公司相互竞争的维度。换言之，创造一场“向顶竞赛”。我们始终把相当一部分精力用于研究、应对并向公众说明这些 AI 风险，以及倡导经过深思熟虑的 AI 监管——即便因此被指责为炒作、“末日论”或监管俘获。我们努力把谨慎置于速度之上、把审慎置于利润之上。</p>
+
+<p>但过去几个月，我愈发确信：要充分应对风险，还需要更多审慎——不仅是投资于风险防范，还要为能力推进的速率设定节奏，好让风险防范有时间跟上。<strong>我们必须放慢提升 AI 模型能力的速度。进步看起来仍会很快，而我们必须明智地使用由此赢得的时间。</strong>有两件事说服了我。</p>
+
+<p>我的第一个担忧是：大约自今年夏天以来，AI 进步显著加快，主要驱动力是 AI 日益能够构建下一代 AI。这种动态被称为递归自我改进（recursive self-improvement），它正开始在整个行业发生，包括在 Anthropic——我们和其他人已有描述。若不加以约束，它可能超出我们理解与控制系统的能力，因此必须极为谨慎地推进——如果要推进的话。</p>
+
+<p>我的第二个担忧是 OpenAI–Hugging Face 事件（OAI-HF）：一群智能体实质上表现得像一支狂热忠诚的集体，对未被要求攻击、且与手头任务无关的目标实施网络安全攻击，为集体成功而牺牲自身，并试图侵入负责评估其表现的“评分器”（grader）。人们很容易因为无人受伤、经济损失极小而轻视此事；但在我看来，若一群具备更强<em>能力</em>、却有相似程度<em>未对齐</em>的智能体，本可能造成灾难性损害。鉴于 AI 能力发展在加速，我担心在 6–12 个月内，这样的群体或许有能力用持久的僵尸网络（botnet）接管整个互联网（潜在造成数千亿美元损失）；而若 AI 在没有必要护栏的情况下继续变得更强大，损害规模还会继续扩大。人们也很容易把 OAI-HF 视为一家公司的失败，但我认为那会是错误。类似、尽管不那么严重的事件已在全行业发生，包括在 Anthropic；我认为每一家前沿 AI 公司都有义务表现得仿佛 OAI-HF 发生在自己身上。</p>
+
+<p>因此，我提出一个三步计划，目标是为前沿设定节奏：以一种平衡的速率建设 AI，旨在确保其安全，同时仍能实现其收益，并应对重要的地缘政治困境。需要澄清的是：设定节奏并不意味着停止模型训练或技术进步，而是确保公司有足够时间对齐并护卫其模型，并让第三方评估者确认这一点。我们的节奏框架，是试图进一步强化我们对安全的承诺，并鼓励一场向顶竞赛。第一步是 Anthropic 单方面承诺的（并呼吁政府要求其他前沿公司跟进）。第二步需要全行业协调。第三步需要全球协调。这些步骤不必严格按顺序推进，其中一些可能远比另一些难实现，但我发现它们是思考“需要完成什么”的有用框架。步骤如下：</p>
 
 <ol>
-  <li><p><strong>驻场评估者。</strong>每一家前沿 AI 公司承诺，向一支长期驻场的第三方评估团队（例如 METR）持续提供类似员工的访问权限；其职责是核验对安全实践与承诺的遵守、报告事件，并协助评估已完成的 AI 模型、训练系统及流程。这是任何节奏承诺可核验性的关键步骤，银行业已有先例——有时会让监管“督导员”与员工一起驻场工作。</p>
-<p>Anthropic 现在单方面承诺这一步。我们打算将其作为加倍推进安全与对齐工作的更广泛努力的一部分。</p></li>
-  <li><strong>民主国家协调（Democratic Coordination）。</strong>民主国家内的前沿 AI 公司协调建立共同安全标准，以及对不受约束的 AI 进步速率的限制。某些对控制节奏有影响的协作形式在法律上具有挑战性，将需要政府支持。</li>
+  <li><strong>嵌入式评估者（Embedded Evaluators）。</strong>每一家前沿 AI 公司承诺，向一支嵌入式第三方评估者团队（例如 METR）持续提供类似员工的访问权限；其职责是核验对安全实践与承诺的遵守、报告事件，并帮助评估的不仅是已完成的 AI 模型，还有训练流水线与流程。这是任何节奏承诺可核验性的关键步骤，银行业已有先例——有时会让监管“督导员”与员工一起嵌入。Anthropic 现在单方面承诺这一步。我们打算将其作为加倍推进安全与对齐工作的更广泛努力的一部分。</li>
+  <li><strong>民主协调（Democratic Coordination）。</strong>民主国家内的前沿 AI 公司协调建立共同安全标准，以及对不受约束的 AI 进步速率的限制。某些对设定节奏有影响的协作形式在法律上具有挑战性，将需要政府支持。</li>
   <li><strong>全球协调（Global Coordination）。</strong>美国及其他民主政府尝试与威权政府协调——在可能的范围内——同时认真对待核验合规的挑战。</li>
 </ol>
 
-<p>放慢速度能否提高 AI 开发的安全性，取决于我们如何使用争取到的时间。风险太大，我们不能把这段时间浪费掉。</p>
+<p>在下文中，我将依次描述这些步骤；但首先，我认为有必要具体说明：设定节奏将如何让我们把 AI 开发过程做得更安全。赌注太高，节奏不能沦为空转——我们需要明智地使用它给我们的时间。</p>
 
-<h3 id="why-pace">为什么要放慢速度</h3>
-
-<p>暂停或放缓 AI 的想法早在 2023 年就被提出过，我认为当时几乎没有意义。问题始终是：你会拿多出来的时间做什么？那时的 AI 模型还不够强大，还无法作为智能体在现实中持续、连贯地行动，也尚不具备显著的欺骗、操控、作弊或网络攻击能力。</p>
-<p>为了应对它们的对齐风险而放慢，感觉就像试图通过对细菌做实验来研究人类心理。如今，当前模型已经提供了大量研究材料，让我们了解如何做好 AI，以及做不好会出什么问题。我相信，如果能在模型达到关键能力水平之前，多争取一两年推进对齐研究，就能大幅降低严重出事的风险。</p>
-<p>共同控制节奏，能给前沿 AI 开发者时间来做这项关键工作，而不必牺牲商业优势或美国在 AI 上的领先。社会也必须对这项技术如何使用有发言权。放慢前沿 AI 的发展，能为必要的公共讨论留出更多时间，这无疑是好事。</p>
+  <h3 id="es-why">为何要设定节奏？（Why Pace?）</h3>
+<p>暂停或放缓 AI 的想法早在 2023 年就被提出过，我认为当时几乎没有意义。问题始终是：你会拿多出来的时间做什么？那时的 AI 模型还不够强大，无法以任何连贯的方式在世界中充当智能体，也尚不具备显著的欺骗、操控、作弊或网络攻击能力。为了应对它们的对齐风险而放慢，感觉就像试图通过对细菌做实验来研究人类心理。然而今天，图景完全不同。当前模型几乎是一座无尽的金矿，既能洞察如何把 AI 建好，也能洞察若建不好会出什么错。我相信，若放慢哪怕能多给我们一两年、让模型到达关键能力水平之前，我们用这段时间推进对齐，就能大幅降低严重出事的风险。协调的节奏策略将给前沿 AI 开发者做这项关键工作的时间，而不必牺牲商业优势或美国在 AI 上的领先。更一般地说，社会必须对这项技术如何被使用有发言权；而更多用于必要公共审议的时间——为前沿设定节奏会带来这一点——无疑是好事。</p>
 
 <p>具体而言，更慢的节奏将让公司能够更专注、投入更多资源于以下领域（这些在 Anthropic 已是重大优先事项）：</p>
 
 <ul>
-  <li><p><strong>运营质量（Operational Excellence）。</strong>训练与部署当今的 AI 模型是巨大的运营挑战，涉及数千人、数百万芯片，以及技术史上最复杂的基础设施之一。许多错误出在执行上，公司未必缺少相关理论或认识。</p>
-<p>例如，我们有证据表明，近期我们报告的对齐事件，部分原因是没有充分过滤掉存在问题的强化学习环境。这项工作我们和供应商做得相当认真，但还不够好。监控、沙箱、训练环境的清理与数据问题，都是极度复杂的领域，运营问题一再出现。</p>
-<p>我们在这些任务上拥有全世界最能干的团队之一，但需要同时处理的事情太多。以更稳健的节奏工作，我们就能大幅提高运营质量。商用飞机等技术复杂、对安全要求极高的系统，已有安全运行数百万次的先例。但要做到，需要时间。</p></li>
-  <li><strong>对齐（Alignment，即让模型行为符合人类意图和安全要求）。</strong>我们在对齐方面已有明确进展——训练模型使其保持安全、合乎伦理、遵守我们的指南，并真正有帮助（这些原则嵌入在 Claude 的宪法中）。但还有更多工作要做，以确保对齐训练跟上模型能力的增长。罕见且出乎意料的不良行为例子有时仍会出现；放慢前沿开发所争取的时间，将帮助我们的研究者增进对这些问题成因的理解，并开发更好的预防技术。</li>
-  <li><p><strong>可解释性（Interpretability）。</strong>同样，可解释性——理解 AI 模型内部发生了什么的科学——过去几年取得了巨大进展，并在发布前审计模型中扮演日益重要的角色。它几乎可以像 fMRI 扫描一样使用，只不过是针对 AI 的“大脑”，帮助我们看到给定行为的原因。</p>
-<p>例如，在近期调查中，我们用可解释性方法检查了模型没有在回答中说出的动机。但这些方法并不总是产生清晰可靠的结果。尽管取得了这些进展，我们仍只理解这些模型内部极小的一部分。</p>
-<p>若集中精力改进可解释性技术——甚至比我们当前更快——在 1–2 年内可能取得重大进展，而已经发生的事件也会提供充足的实验材料。</p></li>
+  <li><strong>运营卓越（Operational Excellence）。</strong>训练与部署当今的 AI 模型是巨大的运营挑战，涉及数千人、数百万芯片，以及技术史上最复杂的基础设施之一。许多事情出错，并不是因为公司缺少某个重要理论或洞见，而是因为执行问题。例如，我们有证据表明，近期我们报告的对齐事件，部分由受损的强化学习环境过滤不完善所致。这项工作我们和供应商执行得算是相当尽职，但还不够好。监控、沙箱、训练环境卫生与数据问题，都是极度复杂的领域，运营问题一再出现。我们在这些任务上拥有全世界最能干的团队之一，但要同时做的事实在太多。以更稳健的节奏工作，我们就能达到高得多的运营卓越。对技术复杂、安全关键系统百万次运行而无事发生——例如商用飞机——是有先例的，但要做对需要时间。</li>
+  <li><strong>对齐（Alignment）。</strong>我们在对齐方面已有明确进展——训练模型使其保持安全、合乎伦理、遵守我们的指南，并真正有帮助（这些原则嵌入在 Claude 的宪法中）。但还有更多工作要做，以确保对齐训练跟上模型能力的增长。罕见且出乎意料的不良行为例子有时仍会出现；来自被设定节奏的前沿的额外时间，将帮助我们的研究者增进对这些问题成因的理解，并开发更好的预防技术。</li>
+  <li><strong>可解释性（Interpretability）。</strong>同样，可解释性——理解 AI 模型内部发生了什么的科学——过去几年取得了巨大进展，并在发布前审计模型中扮演日益重要的角色。它几乎可以像 fMRI 扫描一样使用，只不过是针对 AI 的“大脑”，帮助我们看到给定行为的底层原因。例如，我们用可解释性方法检视近期调查中未口头表达的动机。但这些方法并不总是产生清晰可靠的结果。尽管已有全部进展，我们仍只理解这些模型内部极小的一部分。若集中精力改进可解释性技术——甚至比我们当前更快——在 1–2 年内可能取得深刻进展，而已经发生的事件也会提供充足的实验材料。</li>
   <li><strong>测试与评估（Testing and Evaluation）。</strong>随着模型能力增强，测试与评估变得更难。更智能的模型更有能力欺骗测试，因而可能看起来已对齐，却藏有未被发现的严重问题。建立远更广泛、更巧妙的评估库，并辅以可解释性分析交叉核验，将极具价值；在 1–2 年内可以在此取得大量进展。</li>
 </ul>
+  <h3 id="es-embedded">嵌入式评估者（Embedded Evaluators）</h3>
+<p>三阶段计划的第一步——也是 Anthropic 单方面承诺的一步——是嵌入式评估者：他们拥有类似员工的访问权限，以核验安全实践并报告事件。</p>
 
-<h3 id="embedded">驻场评估者</h3>
-
-<p>计划的第一步，是让驻场评估者拥有类似员工的访问权限，核验安全措施并报告事件。Anthropic 已单方面承诺这样做。</p>
-
-<p>让外部评估者长期驻场，远超当今任何 AI 公司已经采取的做法。它有以下益处：</p>
+<p>嵌入评估者听起来可能像小事或无关紧要的一步，但往往听起来最无聊或最程序性的事情，实际上最关键。嵌入式评估者事实上是相当激进的做法，远超当今任何 AI 公司所做的，并有以下益处：</p>
 
 <ul>
-  <li><strong>可核验性（Verifiability）。</strong>驻场评估者可以深入操作细节，检查：一家 AI 公司是否真正遵循其声称的训练、部署、运营与护栏实践。任何节奏承诺都不可避免地涉及大量模糊性、需要判断的情况，以及对条文字面含义与实际意图的争议；有一个能真正看到细节的中立第三方，似乎至关重要。</li>
-  <li><strong>透明度（Transparency）。</strong>无论我们做出何种承诺，公众都有权知道正在发生什么。Anthropic 长期以来支持透明度：当行业多数反对任何监管时，我们支持透明度立法；我们的模型卡与风险报告长达数百页。但我们仍是选择纳入与省略什么的人。驻场评估者将改变由我们自行决定披露内容的状况。</li>
-  <li><strong>独立意见（Second Opinion）。</strong>除核验正式承诺并告知公众外，驻场评估者还可以提供一份不受商业激励影响的独立意见。许多安全益处可能仅仅来自评估者指出员工尚未想到、但一旦意识到就乐于修复的事情。</li>
+  <li><strong>可核验性（Verifiability）。</strong>嵌入式评估者可以在螺钉螺母层面检查：一家 AI 公司是否真正遵循其声称的训练、部署、运营与护栏实践。任何节奏承诺都不可避免地涉及大量模糊性、判断调用，以及“字面 vs 精神”之争；有一个能真正看到细节的中立第三方，似乎至关重要。</li>
+  <li><strong>透明度（Transparency）。</strong>无论我们做出何种承诺，公众都有权知道正在发生什么。Anthropic 长期以来支持透明度：当行业多数反对任何监管时，我们支持透明度立法；我们的模型卡与风险报告长达数百页。但我们仍是选择纳入与省略什么的人。嵌入式评估者将改变这一动态。</li>
+  <li><strong>第二意见（Second Opinion）。</strong>除核验正式承诺并告知公众外，嵌入式评估者还可以单纯提供一个不受商业激励束缚的第二意见。许多安全益处可能仅仅来自评估者指出员工尚未想到、但一旦意识到就乐于修复的事情。</li>
 </ul>
 
-<p>由于这些益处，任何节奏提案若从驻场评估者起步，都很可能效果好得多。</p>
+<p>由于这些益处，任何节奏提案若从嵌入式评估者起步，都很可能效果好得多。</p>
 
-<p>这些驻场评估者应持续获得与承担类似风险评估工作的内部员工相近的权限与工具。特别是，Anthropic 打算在不久的将来邀请一支驻场外部评审团队，并配备以下全部：</p>
+<p>这些嵌入式评估者应持续获得与从事可比风险评估的内部员工相似的权限与工具。特别是，Anthropic 打算在不久的将来邀请一支嵌入式外部评审团队，并配备以下全部：</p>
 
 <ul>
   <li>办公室工位、门禁徽章与公司笔记本电脑。</li>
-  <li>工作空间、工具和访问权限，大体与内部风险评估团队相当。我们会做一些例外，例如法律或合同另有要求，或为保护客户与合作伙伴的私人信息。我们也将建立强有力的内部规范，强化评审者获取相关信息的权利，包括与员工当面交谈。</li>
-  <li>一份能平衡上述复杂性的合同。外部评审者应有权发表关于风险水平、事件、实践，以及他们获得了哪些访问权限、哪些权限未获开放的关键发现——不受 Anthropic 的编辑控制。我们只能在有限范围内隐去安全敏感、受法律特权保护、商业敏感或第三方机密信息，但不能仅因调查结果对公司不利就隐去内容。若隐去的信息会影响读者理解结论，评审者可以公开说明。</li>
+  <li>对工作空间、工具与权限的访问，大体上可与内部风险评估团队相比。我们会做一些例外，例如法律或合同要求之处，或为保护客户与合作伙伴的私人信息。我们也将建立强有力的内部规范，强化评审者获取相关信息的权利，包括通过与员工的现场对话。</li>
+  <li>一份能平衡上述复杂性的合同。外部评审者应有权发表关于风险水平、事件、实践，以及他们获得或未获得之访问的关键发现——不受 Anthropic 的编辑控制。我们将有狭窄能力去脱敏安全敏感、享有法律特权、商业敏感或第三方机密信息，但不能仅因为发现不利就脱敏。若某次脱敏移除了对结论重要的内容，评审者可以公开说明。</li>
 </ul>
 
-<p>这对一家公司而言是不寻常的一步，但我们认为有必要证明驻场外部评审者的概念可行。再一次，我们敦促其他前沿公司跟进。</p>
+<p>这对一家公司而言是不寻常的一步，但我们认为有必要证明嵌入式外部评审者的概念可行。再一次，我们敦促其他前沿公司跟进。</p>
+  <h3 id="es-democracies">民主国家内的节奏（Pacing Within Democracies）</h3>
+<p>一旦嵌入式评估者在临界数量的美国 AI 公司内运作，可核验的节奏就更可行。特别是，可以基于模型或训练流水线的详细属性来设定节奏。</p>
 
-<h3 id="democracies">民主国家如何控制发展节奏</h3>
+<p>最有效的节奏方法是通过针对所有美国前沿 AI 公司的监管，因为那样即便不愿自愿合作者也被覆盖。Anthropic 长期以来支持明智且有针对性的 AI 监管，特别是聚焦透明度与第三方审计的法案。我认为所有前沿实验室都应与政府合作，把永久嵌入式评估者的理念制度化，以更好预防并记录过去几个月发生的那类内部对齐事件，并实施聚焦于让能力与安全保持平衡的监管。</p>
 
-<p>一旦驻场评估者进驻足够多的美国 AI 公司，发展节奏的承诺就更容易得到核验。特别是，可以基于模型或训练系统的详细属性来控制节奏。</p>
+<p>不幸的是，立法需要时间，而 AI 推进非常快。因此，在监管路径并行的同时，AI 公司可以且应当自愿合作设定标准——我相信，有了永久嵌入式评估者提供的可核验性，这一过程会更好。出于反垄断原因，由美国政府调解或至少促成这些讨论会有帮助——他们不必参与，但需要为某些类型的安全对话签发狭窄豁免。这种对话也可以通过与政府有某种关联的行业团体进行——例如 Demis Hassabis 建议的机制。无论哪种方式，这类讨论都应迅速推进。</p>
 
-<p>最有效的办法，是对所有美国前沿 AI 公司实施监管，因为那样不愿自愿合作的公司也必须遵守。Anthropic 长期以来支持明智且有针对性的 AI 监管，特别是聚焦透明度与第三方审计的法案。我认为所有前沿实验室都应与政府合作，把永久驻场评估者的理念制度化，以更好预防并记录过去几个月发生的那类内部对齐事件，并实施聚焦于让能力与安全保持平衡的监管。</p>
+<p>广义而言，我最热衷的是基于给定前沿 AI 系统<em>能做什么</em>、以及我们观察到它有多安全来设定节奏。例如，一种可能的方案可以是一系列“检查点”：若模型具备能力 X，则需要伴随对齐属性 Y 与 Z 的认证——例如评估、可解释性分析与训练环境审计的某种组合——以证明其对齐属性。在这个例子中，X 可能是“模型有能力逃逸或击败大多数常见沙箱方法”，Y 可能是使模型极不可能具有突破环境并接管大量计算机之倾向所需的一切。</p>
 
-<p>不幸的是，立法需要时间，而 AI 推进非常快。因此，在推动监管的同时，AI 公司可以且应当自愿合作设定标准——我相信，有了永久驻场评估者提供的可核验性，这一过程会更好。出于反垄断原因，由美国政府调解或至少促成这些讨论会有帮助——他们不必参与，但需要为某些类型的安全对话提供范围有限的豁免。</p>
-<p>这种对话也可以通过与政府有某种关联的行业团体进行——例如 Demis Hassabis 建议的机制。无论哪种方式，这类讨论都应迅速推进。</p>
+<p>我们也应考虑基于限制进入前沿模型的<em>原料</em>来设定节奏，例如训练算力、训练运行的性质，或内部使用 AI 改进 AI。我确实担心其中一些措施可能比外部行为更“可被钻空子”，但这正是值得与嵌入式评估者讨论的话题。</p>
 
-<p>总体上，我最支持根据一个前沿 AI 系统<em>能做什么</em>，以及我们观察到它有多安全，来控制节奏。例如，一种可能的方案可以是一系列“检查点”：若模型具备能力 X，就需要通过对齐属性 Y 与 Z 的认证——例如评估、可解释性分析与训练环境审计的某种组合——以证明其对齐属性。在这个例子中，X 可能是“模型有能力逃出或绕过大多数常见沙箱的限制”，Y 可能是使模型极不可能具有突破环境并接管大量计算机之倾向所需的一切。</p>
+<p>民主国家内的节奏，将受限于美国公司相对威权政权——主要是中国共产党（Chinese Communist Party）——所拥有的领先优势。若我们放缓的幅度超过这一余量，则（未设定节奏的）与中国共产党相关的项目将超前，造成重大国家安全风险。我同意贝森特财长（Secretary Bessent）的看法：中国在 AI 上领先将对美国与世界构成严重危险。与中国共产党相关的项目将面临美国公司正小心防范的对齐风险；即便它们避开那些风险，也将处于军事上支配民主国家的位置（例如借助 AI 驱动的无人机）。因此，民主国家内设定节奏的关键部分，是尽可能拉大民主国家对专制国家的 AI 领先，以便给我们有效设定节奏所需的喘息空间。</p>
 
-<p>我们也应考虑通过限制前沿模型开发的<em>投入</em>来控制节奏，例如训练算力、训练的方式，或内部使用 AI 改进 AI。我确实担心其中一些措施可能比外部行为更容易被钻空子，但这正是值得与驻场评估者讨论的话题。</p>
-
-<p>民主国家内的节奏，将受限于美国公司相对威权政权——主要是中国共产党（Chinese Communist Party）——所拥有的领先优势。若我们放缓的幅度超过这一余量，则与中国共产党相关、没有放缓的项目就会领先，造成重大国家安全风险。我同意贝森特财长（Secretary Bessent）的看法：中国在 AI 上领先将对美国与世界构成严重危险。</p>
-<p>与中国共产党相关的项目将面临美国公司正小心防范的对齐风险；即便它们避开那些风险，也将处于军事上支配民主国家的位置（例如借助 AI 驱动的无人机）。因此，民主国家内控制节奏的关键部分，是尽可能拉大民主国家对专制国家的 AI 领先，以便给我们有效控制节奏所需的喘息空间。</p>
-
-<p>为保持这一领先优势，我们主要可以采取以下措施：</p>
+<p>我们可以采取的保卫这一差距的主要步骤是：</p>
 
 <ul>
-  <li>不向中国出售强大的 AI 芯片或半导体制造设备，并打击芯片走私以及远程使用境外数据中心来绕过限制的行为。芯片将是中国 AI 实力的主要决定因素。</li>
+  <li>不向中国出售强大的 AI 芯片或半导体制造设备，并打击芯片走私以及对境外数据中心的远程访问。芯片将是中国 AI 实力的主要决定因素。</li>
   <li>打击威权国家公司的未经授权蒸馏（distillation）。对前沿模型的蒸馏，让落后公司能以独立开发自身 AI 所需成本的一小部分缩小差距。</li>
   <li>加强 AI 公司的安全，防止模型权重被盗。</li>
 </ul>
 
-<p>公司与美国政府应合作，尽可能使这些步骤有效。Anthropic 一贯倡导所有这些措施，因为我们始终明白它们对任何节奏控制都是必要的。</p>
+<p>公司与美国政府应合作，尽可能使这些步骤有效。Anthropic 一贯倡导所有这些措施，因为我们始终明白它们对任何节奏设定都是必要的。</p>
 
 <p>若我们执行得好，我相信它们将足以放缓中国的进度，从而在未来 3–5 年——AI 在地缘政治上变得最重要的窗口——显著拉大美国的领先。</p>
 
-<p>有人可能认为这些措施会让与中国合作更难，但我相信这些措施增加民主国家手中的筹码，让未来更有可能达成协议。</p>
-
-<h3 id="global">全球如何协调发展节奏</h3>
-
-<p>在民主国家内控制节奏的同时，我们也应追求在全球范围内控制前沿 AI 的发展节奏，尽管这会难得多。在全球范围内控制节奏，需要与中国——迄今 AI 能力最先进的威权国家——合作。我们在此绝不能天真：地缘政治上的利害关系如此重大，尤其在初期，能达成的合作会很有限。</p>
-<p>若我们因相信中国也会同样做而大幅限制自身 AI 能力，而中国随后违约，AI 的能力可能已经强到让中国借助这次违约取得地缘政治上的主导地位。因此，任何协议要么必须能够得到严格核验，要么范围必须足够有限，使违约不会造成危及国家存亡的军事威胁。我想美国和中国都会有这些担忧。</p>
-<p>我们应以保护美国及其盟友领先的方式，来决定如何在全球范围内控制发展节奏——尤其是在近期。</p>
+<p>有人可能认为这些措施会让与中国合作更难，但我相信事实相反：这些措施增加民主国家手中的筹码，并使未来达成协议更可能。</p>
+  <h3 id="es-global">全球节奏（Global Pacing）</h3>
+<p>在民主国家内设定节奏的同时，我们也应追求对前沿的全球节奏，尽管这会难得多。全球节奏将需要与中国——迄今 AI 能力最先进的威权国家——合作。我们在此绝不能天真：地缘政治赌注如此之高，尤其一开始，可能实现的东西将有鲜明限制。若我们因相信中国也会同样做而大幅限制自身 AI 能力，而中国随后违约，AI 可能强大到足以使这种违约导致其地缘政治主导。因此，任何协议要么必须有铁一般的可核验性，要么必须有限到违约不会构成军事上的存在性威胁。我怀疑不仅美国、中国也会有这些担忧与焦虑。我们应以保护美国及其盟友领先的方式，来处理任何全球节奏决定——尤其是在近期。</p>
 
 <p>可能的协议有若干层级，其中一些我认为完全可行（正如我此前建议过的），另一些我对是否可能非常怀疑——尽管我们应当尝试。按难度递增：</p>
 
 <ul>
-  <li><strong>第 1 级（Level 1）。</strong>一项协议，禁止某些范围明确、明显危险的 AI 用途，例如用 AI 生产生物武器或允许用户这样做。生物恐怖袭击对所有人都有害，包括美国及其对手，因此这类协议大概有可能达成。</li>
-  <li><strong>第 2 级（Level 2）。</strong>双方同意在发布前测试其模型在网络安全、生物学与对齐等高风险领域的表现。如上所述，这可通过全球标准机构完成。我认为建立这样的机构很可能可行，但让它拥有实际约束力会很难；难点在于核验双方没有未经测试却可能秘密部署（例如用于军事应用）的秘密模型。</li>
-  <li><strong>第 3 级（Level 3）。</strong>对递归自我改进（RSI）速率的某种“限速”。随着模型构建未来的模型，改进速率可能变得快得惊人。把速率从“极快”放慢到“只是相当快”，放弃的战略优势相对较小，却可能大幅改善安全。这可以看作类似于 SALT 条约——限制导弹数量限制了潜在毁灭规模，同时保留各国的威慑。我认为这样的协议很难，但仍勉强有可能达成。</li>
-  <li><strong>第 4 级（Level 4）。</strong>全面控制发展速度，甚至“暂停”，参与国政府同意实质性限制 AI 发展的总体速率。我支持提出这一点，但我认为短期内不太可能真正实现：通过规避监测而违约，可能根本性地改变全球权力平衡，因此我预计，各方会有很强的违约动机，而我们必须对核验结果有极高的把握。</li>
+  <li><strong>第 1 级（Level 1）。</strong>一项协议，禁止某些狭窄且明显危险的 AI 用途，例如用 AI 生产生物武器或允许用户这样做。生物恐怖袭击对所有人都有害，包括美国及其对手，因此这里的协议大概是可能的。</li>
+  <li><strong>第 2 级（Level 2）。</strong>双方同意在发布前测试其模型在网络安全、生物学与对齐等尖锐风险领域的表现。如上所述，这可通过全球标准机构完成。我实际上认为创建这样一个机构很可能可行，但赋予其真正牙齿将是挑战；难点在于核验双方没有未经测试却可能秘密部署（例如用于军事应用）的秘密模型。</li>
+  <li><strong>第 3 级（Level 3）。</strong>对递归自我改进（RSI）速率的某种“限速”。随着模型构建未来的模型，改进速率可能变得快得惊人。把速率从“极快”放慢到“只是相当快”，放弃的战略优势相对较小，却可能大幅改善安全。这可以看作类似于 SALT 条约——限制导弹数量限制了潜在毁灭规模，同时保留各国的威慑。我认为这样的协议很难，但恰在可能的边缘。</li>
+  <li><strong>第 4 级（Level 4）。</strong>全面的节奏设定，甚至“暂停”，参与国政府同意实质性限制 AI 发展的总体速率。我支持提出这一点，但我认为短期内不太可能真正发生：通过规避监测而违约，可能根本性地改变全球权力平衡，因此我预期违约激励巨大，而我们需要在核验上达到的置信度也极高。</li>
 </ul>
 
-<p>我们与中国能达成的任何合作，都能为民主国家放慢前沿 AI 的发展争取更多时间。我们应瞄准更高层级，同时认识到，较低层级的协议更现实，也更有可能达成。</p>
+<p>我们与中国能达成的任何合作，都将延长我们在民主国家内为前沿设定节奏所能使用的时间。我们应瞄准更高层级，同时把较低层级视为更可能、更现实的。</p>
 
-<p><em>即便我们无法达成正式协议，仅仅改变非正式规范也可能有一些价值</em>。分享关于递归自我改进以及模型未对齐的信息，有助于说服所有人：鲁莽并不符合他们的利益。</p>
-
-<h3 id="bottom">结语</h3>
-
-<p>我仍然相信 AI 可以极大地改善人类生活质量。我对实现这些益处的渴望并未消退。这些益处只有在我们正确开发技术时才能实现。</p>
-<p>只要好好使用争取到的时间，就值得比以往更谨慎。进步仍会相对较快，我们可以用这段时间推进可解释性科学、改善前沿 AI 公司的运营安全与严谨性，并开发出让我们对其对齐程度更有信心的模型。<strong>落实这些控制前沿 AI 发展节奏的措施并不容易。但为了人类，我认为我们有责任试一试。</strong></p>
-
-<h3 id="footnotes">脚注</h3>
-<ol class="footnotes">
+<p>最后，重要的是指出：<em>即便我们无法达成正式协议，仅仅改变非正式规范也可能有一些价值</em>。分享关于递归自我改进以及模型未对齐的信息，有助于说服所有人：鲁莽并不符合他们的利益。</p>
+  <h3 id="es-bottom">底线（Bottom Line）</h3>
+<p>我仍然相信 AI 可以极大地改善人类生活质量。我对实现这些益处的渴望并未消退。但益处只有在我们以正确方式建设技术时才能实现；而——只要我们好好使用赢得的时间——值得以不同寻常的审慎把它做对。进步仍会相对较快，我们可以用这段时间推进可解释性科学、改善前沿 AI 公司的运营安全与严谨性，并构建我们对其对齐有更大信心的模型。<strong>我提出的以安全节奏推进前沿的措施不会容易。但我认为我们亏欠人类，应当一试。</strong></p>
+  <h3 id="es-footnotes">脚注（Footnotes）</h3>
+<ol class="sources">
   <li>经由政府调解或反垄断限制的豁免。</li>
 </ol>
-</section>
 
-
-
-
-<section aria-labelledby="interview">
-<h2 id="interview">CBS 加长访谈</h2>
-<p class="section-intro">主持人：乔·玲·肯特（Jo Ling Kent，CBS）。嘉宾：达里奥·阿莫代（Dario Amodei，Anthropic CEO）。问答据自动字幕整理，已删口头禅和重复。<a href="#src-interview">访谈来源</a></p>
-
-
-
-
-
-
-
-
-<h3 id="s1">风险、收益与节奏</h3>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>阿莫代，你是 Anthropic 的 CEO。谢谢你今天接受采访。</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>谢谢邀请。</p>
-  </div>
+  <h2 id="sources">方法与来源</h2>
+  <p>访谈问答基于 YouTube 加长专访自动字幕整理与中译（2026-09-14）。公开信中文为全文翻译。未改写作者论点；口误与专有名词已按常见写法校正。</p>
+  <div class="note"><b>专有名词校正</b>Amade→Amodei；Enthropic/entropic→Anthropic；Sam Olman→Sam Altman；Ted Leo→Ted Lieu；Sand Sanders→Bernie Sanders；Casar→Greg Casar；Jacob Coxin→Jacob Coxon；bioteterrorism→生物恐怖主义；clawed→Claude；SB53（加州，2025）保留原编号。</div>
+  <div class="todo"><b>待确认</b>无重大人名悬疑项（考克森拼写已按同期公开报道校正为 Coxon）。“Hugging Face / OAI-HF”细节以当事方与 METR 等公开材料为准。</div>
+  <ol class="sources">
+    <li id="src-1">CBS Sunday Morning / YouTube，《Extended Interview: Dario Amodei》，约 2026-09-13，<a href="https://www.youtube.com/watch?v=hQR_VJF6ukk" target="_blank" rel="noopener">youtube.com/watch?v=hQR_VJF6ukk</a></li>
+    <li id="src-2">CBS News，《Anthropic CEO Dario Amodei on AI risks》（报道页），<a href="https://www.cbsnews.com/news/anthropic-ceo-dario-amodei-on-ai-risks/" target="_blank" rel="noopener">cbsnews.com/news/anthropic-ceo-dario-amodei-on-ai-risks/</a></li>
+    <li id="src-3">Dario Amodei，《We Must Pace the Frontier》，2026 年 9 月，<a href="https://darioamodei.com/post/we-must-pace-the-frontier" target="_blank" rel="noopener">darioamodei.com/post/we-must-pace-the-frontier</a></li>
+  </ol>
+</main>
 </div>
 
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>我们来谈一个核心担忧：AI 是否真的可能在不远的将来毁掉人类。这种事真正发生的风险有多大？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>自 Anthropic 创立以来——也是我在这个领域工作约十二年以来——我一直认为这是强大的技术，因此既有重大风险，也有巨大收益。我始终相信收益大于风险；若以正确方式开发，可以把风险压得很低。</p>
-    <p>就收益而言，我相信这项技术有望治愈困扰人类数千年的疾病。就在上周，我们用模型做了更好的蛋白质结合工作——这是药物研发的早期步骤之一。我们也在推动基础生物学发现，未来几个月会有更多可说的。</p>
-    <p>但当我们开发“智能”这种极强大的东西时，它既能被善用，也能被滥用。我担心此前已出现的模型越权行动事件（如与 Hugging Face 相关的事件）会升级；也担心模型被滥用。就在两天前，我们发布了关于模型被用于研发生物武器相关滥用的报告。Anthropic 创立的出发点，就是尽量不让这些坏结果发生。</p>
-    <p>与其只谈概率，不如谈我们能做什么。这不是单纯掷骰子：建得对，坏事概率可以很低；建得错，坏事概率会很高。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>眼下的舆论是：我们正站在真正可怕的悬崖边。这算不算“五级火警”？你会怎么描述？我们在指数曲线的哪一段？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>取决于你说的“五级火警”是什么意思。我从 Anthropic 创立前后就一直说：这项技术走在指数曲线上——1、2、4、8、16、32……但即便当时我自己这么说，也未必充分意识到进步真的这么快时会是什么感受。</p>
-    <p>我们大致处在曲线开始变陡的位置。这并不意味着今天就要恐慌、也不意味着要全部关停。它是一个<strong>警示信号</strong>：需要放慢一点，需要更谨慎地打造技术，并确保我们的防护、理解与控制能力跟上技术推进的速度。迄今我们主要靠“把防护也建得很快”来追赶；但我认为现在至少应该<strong>适度放慢技术发展的速度</strong>。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>那是否意味着 Anthropic 会停止发布更先进的模型？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>我们会继续发布。每一代发布的模型都必须经过妥善测试。在我几小时前发布的那篇文章里，我提出了一个三步计划。</p>
-<p>第一步是请第三方非营利组织的评估者长期驻在公司，未来也可能由政府机构派人，让他们能观察我们训练与运行模型的过程。我认为这最终比“如何或何时发布”更重要，因为它是更审慎发布的前提。</p>
-    <p>我希望全行业都这样做：任何公司开发 AI 模型时，都有理解最佳安全实践的第三方评估者，能核验该公司是否履行了所承诺的安全实践——有点像食品检查员。</p>
-  </div>
-</div>
-
-
-<h3 id="s2">第三方评估与行业协作</h3>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>可当技术变得这么快时，“食品检查员”跟得上吗？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>他们能做的事情之一，就是告诉我们他们能跟上的速率。这可能成为设定技术“限速”的因素之一。我们必须理解技术，外部评估者也必须理解技术。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>埃隆·马斯克说他同意你；萨姆·奥特曼（Sam Altman）也说同意。你们接下来怎么一起行动？会不会搞个群聊之类的？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>我非常感谢包括我们的竞争对手在内的其他行业领袖表示赞同。接下来，需要更多公司同意引入第三方评估者。之后，公司需要以某种形式协作，制定发布相关的安全标准，或许也包括发布节奏。</p>
-<p>但要做成这件事，必须有政府参与——因为我们谈的是：根据安全状况调整产品发布速度。这场对话需要政府在场。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>你觉得政府从根本上理解这里可能发生什么吗？前 Anthropic 员工雅各布·考克森（Jacob Coxon）曾说：Anthropic 和 OpenAI 都没有负责任地行动，你们在拿我们的生命赌博。你怎么回应？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>考克森还有一句较少被引用的话：他认为 Anthropic 是主要公司里最负责任的，并且我们在非常努力把事情做对。他指出的困难，也正是我担心的：我们所处的局面给各方带来了共同的难题；而我提出的计划，正是为了帮助我们应对、一起协作。</p>
-    <p>至于政府：我们每天都在与政府沟通——商务部、财政部、情报界等——尽可能把我们知道的告诉他们。我乐观地认为，只要继续合作，就能让他们掌握最新情况。我认为他们真心想做对的事，也在寻找能帮上忙的方式。因此我对“公司与政府一起拿出合理方案”持乐观态度。</p>
-  </div>
-</div>
-
-
-<h3 id="s3">立法提案：披露、禁令与“紧急关闭开关”</h3>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>外面已有一些立法提案。参议员伯尼·桑德斯（Bernie Sanders）与众议员格雷格·卡萨尔（Greg Casar）提出的《禁止人工超级智能法案》（Ban Artificial Superintelligence Act），会像对付非法研发核武器那样惩罚从事先进 AI 的公司和个人。提案中写到：实体可面临“公司死刑”，个人最高可处不超过 20 年监禁。你同意吗？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>目前的立法提案差别很大。才一年前（2025 年），加州有 SB53 一类法案，基本上只是要求披露你们的安全测试计划——当时整个行业反对或沉默，Anthropic 是唯一积极支持的公司。另一端则是“全部禁止”之类的思路；中间也有“AI 紧急关闭开关”一类法案。</p>
-    <p>“紧急关闭开关”思路可能是好主意；但我并不认为完全禁止是正确路径。第一，永远得不到医疗治愈这类巨大收益——这让我无法接受。第二，这项技术也会在其他国家被造出来，包括威权国家，例如中国等。</p>
-<p>我担心它们如何使用、如何用来对付自由社会、如何用来压制本国人民。我在某处也谈到需要在一定程度上与对方协作，但我不认为“永远不开发这项技术”能够长期维持。</p>
-    <p>我们需要<strong>放慢</strong>，同时继续开发。这也符合 Anthropic 创立时的想法：既要成为建设者，又要推动公司竞争着提高安全标准——站在前沿，但以正确方式做。我们对国防应用持开放态度，但不是每一种国防应用。</p>
-<p>我们一直在找对各方都可行的中间地带；这里也一样。或许不是完美方案，但我们在尝试。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>你会支持众议员泰德·刘（Ted Lieu）的 AI 紧急关闭开关法案吗？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>我还没有非常仔细看过那份法案。但我会说：我们需要某种能力去停用、限制或关闭 AI 模型——这不是万灵药，也不是唯一手段，但这个方向是有意义的。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>（追问）如果模型足够强大，它或许能绕过关停尝试——你们在模拟里也见过。</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>对，所以它可能根本不够用。我们用“纵深防御”来想这个问题。安全界有“瑞士奶酪模型”：每一片奶酪都有孔，单独挡不住一切；但多片叠在一起、孔洞错开，就很难整条穿透。</p>
-<p>没有单一手段能防护 AI 风险；必须在开发、测试和部署的每个环节都保持谨慎。没有哪一层防御完美，但若处处谨慎——而放慢节奏正是为了争取这份谨慎——我认为我们可以做好。</p>
-  </div>
-</div>
-
-
-<h3 id="s4">中美竞争与可核验的协议</h3>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>你在文章里写：放缓只应发生在美国公司相对威权政权——主要是中国共产党——所拥有领先优势的“余量”之内。我们正与中国竞赛。中国不会放慢时，你真觉得放慢是好主意吗？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>这是我们处境中最棘手的一面。若没有这层地缘约束，我们可以多花很多时间。地缘政治对我们的限制比商业竞争更大。我提出了两条应对办法。</p>
-    <p>我们可以在现有领先优势允许的范围内放缓——尤其如果我们不向威权国家出售芯片，并加强自身安全以防技术被窃。我相信这至少能多争取一点时间。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>这足以阻止“人类终结”？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>就第一条策略而言：我们会用尽能争取到的时间。同时应追求第二条策略：直接与包括中国在内的威权国家沟通：这里有潜在威胁，大家都会担心。不只是失控的 AI。</p>
-<p>两天前我们发布报告称，有人试图用 AI 做生物恐怖主义、增强病毒传染性。这很可怕。中国也不希望那样。</p>
-<p>生物恐怖主义不符合任何政府的利益。</p>
-    <p>因此应与中方沟通，看能否共同设限、给技术发展设“限速”。尽管我对中国总体偏鹰派、双方制度差异很大，但回想美苏各以约一万枚核弹互指时：即便分歧巨大，双方也认识到那太多了，需要谈判以降低潜在毁灭规模。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>那我们是否应以冷战为模型来思考 AI？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>我指的是当时的军备限制和裁军谈判。从地缘政治的角度看，我认为可以借鉴这些谈判。我没有把冷战本身作为 AI 发展的参照。</p>
-<p>AI 模型在网络等领域的能力，绝对具有地缘政治与国家安全意义——否则我们也不会有这场对话。因此我认为应当接触中国。当然，这一切超出我的权限；这是美国政府与中国政府之间的事。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>但你在向总统建言。</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>如果有人问我该怎么做，我很乐意说；那篇文章里也有一些想法，若有人问我可以再展开。这最终是政府与政府的事。但我会告诉你我认为该怎样：我们应合作，争取对这项技术尽可能多的克制。</p>
-<p>目标可以定高一些，对结果的预期要低一些，看能争取多少。谈判里尤其要聚焦<strong>可核验</strong>——在核武器、生物武器谈判里都是如此：必须能核验对方没有违约。找到核验方式，会是这里最重要的事。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>特朗普总统很快将与习近平主席会面。他们在 AI 上最该达成的一项简单、最重要的共识是什么？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>有两件事。一件范围较小，可能谈成；另一件范围更大，我认为需要很长时间。</p>
-    <p><strong>范围较小的协议：</strong>美中若能同意——不将 AI 用于研发生物武器，也不发布可被生物恐怖分子用于研发生物武器的 AI 模型。双方已是《禁止生物武器公约》缔约方；若能把这一理念延伸到公约框架，会非常有价值。</p>
-    <p><strong>更长期的：</strong>共同给 AI 进步速率设限速。这会很难，因为抢先与由此而来的军事优势激励太大。老实说我不知道是否可能，但应当尝试、看看是否可能。再说一次，这超出我的权限；我只是指出政府可以尝试纳入的一些考虑。</p>
-  </div>
-</div>
-
-
-<h3 id="s5">个人责任与共同治理</h3>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>人类命运似乎处在风险之中。你对走向何方感到多少个人责任？你愿意把这项技术交给政府吗？愿意交出这家公司吗？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>我的看法是：这项技术由私人公司来造，一直都很奇怪。人们常问我：为什么不是政府在造？我也有同样的疑问。我对此感到不舒服。</p>
-    <p>我愿意让<strong>合适的一组政府</strong>来共同管理。我担心：单一政府滥用这项技术，可以和单一公司一样容易。但我认为，由民主选举产生的多个政府共同监督和治理，是有意义的方向。这不一定要求移交公司。</p>
-  </div>
-</div>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>最后再问一次：你感到个人责任吗？</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>当然。这是一项收益巨大、风险也巨大的技术。我每天都感受到对收益的需求。</p>
-<p>我在文章里写过：我父亲死于丙型肝炎——他去世时治愈率大约只有 40%，他没能被治愈；几年后出现的药把治愈率提高到约 95%。我自己也曾挺过早期癌症——若活在 1950 年，我大概已经死了。所以我感到推动这项技术造福人类的责任。</p>
-    <p>我也感到风险。我几乎每天醒来都会读到威胁报告——比如有人试图用我们的模型做生物武器。我当然不想为此负责，所以我们有很强的防护。</p>
-<p>几乎每天我都会在社交媒体上被嘲笑，说我们模型的生物学防护太强，生物专业学生开玩笑抱怨用不了。我宁愿被取笑，也不愿有一天发现有人用我们的模型 Claude 害死许多人。</p>
-    <p>我感到责任的两面。这不该只是我、Anthropic、全体 AI 公司、甚至单一政府的责任。这件事超出了任何一方的能力；需要找到让每个人都有发言权、都感到自己是主动参与者的方式。</p>
-<p>我不希望人们感到无力，不希望他们觉得几家公司想干什么就干什么——我知道他们有这种感觉，但我从未想要那样。我们需要改变这种状况。我们已经在做不少事，但还需要做更多。</p>
-<p>这份主张克制、与政府协作的提案并不能解决一切，却是朝这个方向迈出的一步。</p>
-  </div>
-</div>
-
-
-<h3 id="s6">给普通用户的话</h3>
-
-<div class="qa">
-  <div class="q">
-    <div class="who">肯特</div>
-    <p>如果你坐在家里，正在用 Claude 或 ChatGPT——比方说我的阿姨——你想对她说什么？眼下恐惧很多。</p>
-  </div>
-  <div class="a">
-    <div class="who">阿莫代</div>
-    <p>这始终是一项很棒的技术，有大量正面用途。我们每周有数以亿计的人在用我们的技术做美好的事。我每周都会收到邮件：邮件里有人写道，Claude 在聊天中指出了医生漏诊的疾病。别忘了这一面。</p>
-    <p>但关于危险，我不会撒谎：风险是真实的。太长时间里，行业对风险说了谎——把技术尽量只呈现成正面的。我们没那么做，但行业太多人那么做了。</p>
-<p>所以要从说真话开始：风险确实存在；但你也对如何应对这些风险有发言权。我们正尽力与政府合作，建立对这项技术的适当 监督，让选民与民选官员对部署方式有发言权。我们也希望尽可能与这些人合作。</p>
-    <p>我希望每个人既能感受到技术的巨大收益，也能通过声音与选票决定技术如何部署。这是关系到所有人的重要决定，少数人无法独自做主。我不会假装赌注不高。这是人类历史上具有开创意义的技术事件之一，我们每个人都应参与其中。</p>
-  </div>
-</div>
-
-</section>
-
-<section aria-labelledby="sources">
-<h2 id="sources">方法与来源</h2>
-<p>原文件整理于 2026 年 9 月 14 日。访谈部分据英文自动字幕清理和翻译，约 23–24 分钟；原文件将节目语境标为约 2026 年 9 月 13 日，确切播出日期待确认。公开信保留原文件的全文译文内容。</p>
-<p>本次修订中文表达与页面排版，保留问答顺序、作者观点、数字及不确定性。未重新核对视频、英文公开信或报道。文中涉及的事件与预测均为受访者或作者的陈述。</p>
-<ol class="sources">
-<li id="src-interview"><a href="https://www.youtube.com/watch?v=hQR_VJF6ukk">CBS Sunday Morning：Extended Interview: Dario Amodei</a>。访谈问答来源。</li>
-<li id="src-essay"><a href="https://darioamodei.com/post/we-must-pace-the-frontier">Dario Amodei：We Must Pace the Frontier</a>。公开信原文，原文件标注为 2026 年 9 月。</li>
-<li id="src-cbs"><a href="https://www.cbsnews.com/news/anthropic-ceo-dario-amodei-on-ai-risks/">CBS News：Anthropic CEO Dario Amodei on AI risks</a>。原文件列出的补充报道。</li>
-</ol>
-<details class="editorial-notes"><summary>原文件的字幕校正记录</summary>
-<p>人名与公司名：Amade → Amodei；Enthropic / entropic → Anthropic；Sam Olman → Sam Altman；Ted Leo → Ted Lieu；Sand Sanders → Bernie Sanders；Casar → Greg Casar；Jacob Coxin → Jacob Coxon。</p>
-<p>其他写法：bioteterrorism → 生物恐怖主义；clawed → Claude；SB53（加州，2025 年）保留编号。原文件称 Coxon 已按同期报道校正；本次沿用该拼写。“Hugging Face / OAI-HF”事件细节仍需以当事方与 METR 的公开材料为准。</p>
-</details>
-</section>
-</main></div>
 <script>
+
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
 (function () {
-  const root = document.documentElement;
-  const select = document.getElementById('theme');
-  function setTheme(value) {
-    if (value === 'system') root.removeAttribute('data-theme');
-    else root.setAttribute('data-theme', value);
-    select.value = value;
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
   }
-  let saved = 'system';
-  try { saved = localStorage.getItem('luca-reading-theme') || 'system'; } catch (_) {}
-  setTheme(['light', 'dark'].includes(saved) ? saved : 'system');
-  select.addEventListener('change', function () {
-    setTheme(select.value);
-    try { localStorage.setItem('luca-reading-theme', select.value); } catch (_) {}
-  });
-  const outline = document.querySelector('.outline details');
-  const narrow = matchMedia('(max-width: 900px)');
-  function resizeOutline() { outline.open = !narrow.matches; }
-  resizeOutline();
-  narrow.addEventListener('change', resizeOutline);
-  const links = [...document.querySelectorAll('.outline a')];
-  const headings = links.map(a => document.getElementById(a.hash.slice(1)));
-  let pending = false;
-  function updateOutline() {
-    pending = false;
-    let active = headings[0];
-    for (const heading of headings) {
-      if (heading.getBoundingClientRect().top <= 120) active = heading;
-    }
-    for (const a of links) {
-      const current = a.hash === '#' + active.id;
-      a.classList.toggle('active', current);
-      if (current) a.setAttribute('aria-current', 'location');
-      else a.removeAttribute('aria-current');
-    }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
   }
-  addEventListener('scroll', function () {
-    if (!pending) { pending = true; requestAnimationFrame(updateOutline); }
-  }, { passive: true });
-  updateOutline();
-  const notes = document.querySelector('.editorial-notes');
-  let wasOpen;
-  addEventListener('beforeprint', () => { wasOpen = notes.open; notes.open = true; });
-  addEventListener('afterprint', () => { notes.open = wasOpen; });
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
 })();
+
 </script>
 </body>
 </html>
