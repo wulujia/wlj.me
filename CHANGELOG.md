@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-15
+
+- 新增资料页《张小珺 · 曾鸣 · 产业史观》，`static/reading/zhangxiaojun-zengming-industry-history-2026-09/index.html`。《张小珺商业访谈录》第 153 期问答整理；加入 Reading 索引、canonical、分享元信息与返回整理链接。
+
+
 ## 2026-09-14
 
 - 新增日志《Artifactory 是什么》，简述软件包存储、公共仓库缓存和构建部署中的用途，附 JFrog 官方来源。
