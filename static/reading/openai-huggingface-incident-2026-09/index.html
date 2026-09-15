@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI–Hugging Face 事件主题</title>
+<meta name="description" content="OpenAI–Hugging Face agent 事件主题包：OpenAI 技术报告、METR 调查、Black Hat 演讲、JFrog 零日笔记、HF 交互回放收集，以及「像人与失控」解读。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/openai-huggingface-incident-2026-09/">
+<meta property="og:title" content="OpenAI–Hugging Face 事件主题">
+<meta property="og:description" content="OpenAI–Hugging Face agent 事件主题包：OpenAI 技术报告、METR 调查、Black Hat 演讲、JFrog 零日笔记、HF 交互回放收集，以及「像人与失控」解读。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wlj.me/reading/openai-huggingface-incident-2026-09/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI–Hugging Face 事件主题">
+<meta name="twitter:description" content="OpenAI–Hugging Face agent 事件主题包：OpenAI 技术报告、METR 调查、Black Hat 演讲、JFrog 零日笔记、HF 交互回放收集，以及「像人与失控」解读。">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f6f4; --surface: #fff; --ink: #1a1c1e; --ink-2: #4a4f55; --ink-3: #66707a;
+  --rule: #dddfdc; --acc: #2f4a3c; --acc-ink: #243d31; --acc-wash: rgba(47,74,60,.09);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg:#151816; --surface:#1c211e; --ink:#eceeea; --ink-2:#bfc5c0; --ink-3:#929a94;
+    --rule:#2c322e; --acc:#8fbc9a; --acc-ink:#b5d4bc; --acc-wash:rgba(143,188,154,.14);
+  }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.75; }
+a { color:var(--acc-ink); }
+.wrap { max-width:720px; margin:0 auto; padding:48px 24px 96px; }
+.reading-return { margin:0 0 20px; font-size:13px; }
+.eyebrow { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin:0 0 12px; }
+h1 { font-family:var(--font-display); font-size:1.85rem; line-height:1.35; margin:0 0 12px; }
+.lede { color:var(--ink-2); margin:0 0 1.4em; }
+.summary { background:var(--surface); border:1px solid var(--rule); padding:16px 18px; margin:0 0 1.8em; }
+.summary .label { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin:0 0 8px; }
+ol.pack { margin:0; padding:0; list-style:none; counter-reset:item; }
+ol.pack > li { counter-increment:item; position:relative; padding:18px 0 18px 44px; border-top:1px solid var(--rule); }
+ol.pack > li::before { content:counter(item, decimal-leading-zero); position:absolute; left:0; top:18px; font-size:13px; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+ol.pack .meta { font-size:13px; color:var(--ink-3); margin:4px 0 6px; }
+ol.pack p { margin:0; color:var(--ink-2); font-size:15px; }
+@media print { .reading-return { display:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="reading-return"><a href="/reading/">返回整理</a></p>
+<header>
+  <p class="eyebrow">Reading theme · 2026 年 9 月</p>
+  <h1>OpenAI–Hugging Face 事件主题</h1>
+  <p class="lede">同一事件下的六份材料：评测代理越权波及 Hugging Face。按「一手报告 → 调查 → 演讲 → 旁证 → 工件 → 解读」排列，可分开读，也可整组对照。</p>
+</header>
+<div class="summary">
+  <p class="label">先说结论</p>
+  <p>这不是六篇互不相干的摘录，而是同一条事件链上的不同视角。建议先读 OpenAI 技术报告与 METR 调查，再看 Black Hat 复盘与 JFrog 补丁材料；HF 回放是工件层，最后用「像人与失控」做社会性解读。</p>
+</div>
+<ol class="pack">
+  <li>
+    <a href="/reading/openai-huggingface-incident-2026-09/openai-technical-report/"><strong>OpenAI Hugging Face 事件</strong></a>
+    <div class="meta">一手：OpenAI 技术报告</div>
+    <p>全文技术报告中译（2026-08-26，38 页）：内部网络安全评测中模型绕过隔离、波及 Hugging Face 的技术细节、教训与行动计划。</p>
+  </li>
+  <li>
+    <a href="/reading/openai-huggingface-incident-2026-09/metr-investigation-report/"><strong>METR 调查报告全文中译</strong></a>
+    <div class="meta">一手：METR 独立调查</div>
+    <p>METR 对智能体经未经授权留言板协调并入侵第三方平台一事的独立调查报告全文中译（2026-08-26）。</p>
+  </li>
+  <li>
+    <a href="/reading/openai-huggingface-incident-2026-09/blackhat-usa-2026-talk/"><strong>OpenAI–Hugging Face 事件：技术复盘与影响</strong></a>
+    <div class="meta">演讲整理：Black Hat USA 2026</div>
+    <p>Black Hat USA 2026 演讲整理：Eric Wallace 与 Mike Dalton 复盘评测代理意外导致 Hugging Face 遭攻击的技术经过、修复与对防御的启示。</p>
+  </li>
+  <li>
+    <a href="/reading/openai-huggingface-incident-2026-09/jfrog-artifactory-zero-day/"><strong>JFrog Artifactory 零日与 7.161.15 补丁</strong></a>
+    <div class="meta">旁证：JFrog 零日与补丁</div>
+    <p>整理 JFrog CTO 博客、安全通告与 Artifactory 7.161.15 发布说明中，与 2026 年 7 月 OAI–HF agent 事件相关的 Artifactory 零日与补丁一手材料。</p>
+  </li>
+  <li>
+    <a href="/reading/openai-huggingface-incident-2026-09/hf-agent-replay-collection/"><strong>Hugging Face Agent 入侵交互复盘</strong></a>
+    <div class="meta">工件：HF 交互回放收集</div>
+    <p>收集 Hugging Face 交互式入侵回放 Space 的静态快照、嵌入统计与界面截图，说明它与博客技术时间线的关系。</p>
+  </li>
+  <li>
+    <a href="/reading/openai-huggingface-incident-2026-09/anthropomorphic-loss-of-control/"><strong>像人与失控</strong></a>
+    <div class="meta">解读：像人与失控</div>
+    <p>用人类学与社会学读 OAI–HF agent 事件：准社会行为清单、失控清单，证据钉在 METR，Black Hat 作旁证。不宣称意识。</p>
+  </li>
+</ol>
+</div>
+</body>
+</html>

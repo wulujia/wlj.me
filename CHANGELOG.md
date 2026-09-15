@@ -2,6 +2,9 @@
 
 ## 2026-09-15
 
+- 新增资料主题《OpenAI–Hugging Face 事件主题》，`static/reading/openai-huggingface-incident-2026-09/`。主题首页串联六份材料：OpenAI 技术报告中译、METR 调查中译、Black Hat USA 2026 演讲整理、JFrog Artifactory 零日笔记、HF Agent 回放收集、「像人与失控」解读；均含 canonical 与返回链接。
+
+- `publish.sh` 新增 `reading` 子命令，整理页改为脚本发布：校验 HTML head（title、手写 description、robots、canonical 与 slug 一致、返回整理链接、图片 alt），复制目录到 `static/reading/<slug>/`，追加 `data/reading-materials.toml` 条目（date 取当前时间），在 CHANGELOG 当天标题下加一行，本机有 hugo 时构建并检查 sitemap，再 commit、push。支持 `--noindex`、`--post-slug`、`--changelog`、`--dry-run`。 发布前加两道检查：文章先过 luca-writing 的 `lint_ai_flavor.py`，整理页先过 luca-html 的 `check_html.py`（含正文的 luca-writing 检查），有 warning 或 error 就不写入、不提交；文章里的 `<!-- lint-disable-line -->` 标记发布时自动删掉。原有 `./publish.sh input.md tags` 用法不变，另加 `post` 子命令别名。`CLAUDE.md`、`AGENTS.md`、`README.md` 同步补发布流程。
 - 新增资料页《张小珺 · 曾鸣 · 产业史观》，`static/reading/zhangxiaojun-zengming-industry-history-2026-09/index.html`。《张小珺商业访谈录》第 153 期问答整理；加入 Reading 索引、canonical、分享元信息与返回整理链接。
 
 
