@@ -485,3 +485,49 @@ blockquote::before {
 .startupnote-more h3 { margin-bottom: 0.5rem; }
 .startupnote-more ul { padding-left: 1.1rem; }
 .startupnote-more li { margin: 0.2rem 0; }
+
+/* --- Section landing pages: one title, one top gap --- */
+
+/* The section title repeats the nav label, so hide it visually
+   but keep it for search engines and screen readers. */
+.page-title--hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+/* Same distance from the nav to the first row on every section page,
+   matching the 30px an article page gets from .post. */
+.content:has(> .page-title--hidden) {
+  padding-top: 30px;
+}
+
+.page-title--hidden + * {
+  margin-top: 0;
+}
+
+.page-title--hidden + .archives-overview {
+  padding-top: 0;
+}
+
+.page-title--hidden + .posts > .post:first-of-type {
+  padding-top: 0;
+}
+
+.page-title--hidden + .index-content > *:first-child,
+.page-title--hidden + .terms > ul:first-child,
+.page-title--hidden + .terms > .index-content > *:first-child {
+  margin-top: 0;
+}
+
+/* Current section in the nav, now that the page title is gone. */
+.navigation-menu__inner a[aria-current="page"],
+.menu__dropdown a[aria-current="page"] {
+  border-bottom: 1px solid currentColor;
+}

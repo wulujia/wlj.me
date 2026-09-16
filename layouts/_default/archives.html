@@ -1,44 +1,76 @@
 {{ define "main" }}
-  <h1 class="page-title">{{ .Title | default "归档" }}</h1>
-  {{ $pages := where .Site.RegularPages "Type" "posts" }}
-  {{ $groups := $pages.GroupByDate "2006" }}
+  <h1 class="page-title page-title--hidden">{{ .Title | default "归档" }}</h1>
+
+  {{/* Posts and reading pages share one timeline. */}}
+  {{ $items := slice }}
+  {{ range where .Site.RegularPages "Type" "posts" }}
+    {{ $tag := "" }}
+    {{ with .Params.tags }}{{ $tag = index . 0 }}{{ end }}
+    {{ $items = $items | append (dict
+      "sortKey" (.Date.Format "2006-01-02T15:04:05")
+      "year" (.Date.Format "2006")
+      "day" (.Date.Format "01-02")
+      "title" .Title
+      "url" .RelPermalink
+      "tag" $tag) }}
+  {{ end }}
+  {{ range (index (index .Site.Data "reading-materials") "materials") }}
+    {{ $date := time .date }}
+    {{ $items = $items | append (dict
+      "sortKey" ($date.Format "2006-01-02T15:04:05")
+      "year" ($date.Format "2006")
+      "day" ($date.Format "01-02")
+      "title" .title
+      "url" .reading_url
+      "tag" "整理") }}
+  {{ end }}
+  {{ $items = sort $items "sortKey" "desc" }}
+
+  {{ $years := slice }}
+  {{ range $items }}
+    {{ if not (in $years .year) }}{{ $years = $years | append .year }}{{ end }}
+  {{ end }}
+  {{ $groups := slice }}
+  {{ range $years }}
+    {{ $groups = $groups | append (dict "year" . "items" (where $items "year" .)) }}
+  {{ end }}
+
   {{/* --- Activity Overview --- */}}
   {{ $maxCount := 1 }}
   {{ range $groups }}
-    {{ if gt (len .Pages) $maxCount }}
-      {{ $maxCount = len .Pages }}
+    {{ if gt (len .items) $maxCount }}
+      {{ $maxCount = len .items }}
     {{ end }}
   {{ end }}
 
   <div class="archives-overview">
     {{ range $groups }}
-      {{ $count := len .Pages }}
+      {{ $count := len .items }}
       {{ $bars := int (add (mul (div (float $count) (float $maxCount)) 7) 1) }}
-      <a href="#year-{{ .Key }}" class="year-bar" title="{{ .Key }}: {{ $count }} 篇">
-        <span class="year-label">{{ .Key }}</span>
+      <a href="#year-{{ .year }}" class="year-bar" title="{{ .year }}: {{ $count }} 条">
+        <span class="year-label">{{ .year }}</span>
         <span class="year-blocks">{{ strings.Repeat $bars "█" }}</span>
         <span class="year-count">{{ $count }}</span>
       </a>
     {{ end }}
   </div>
 
-  {{/* --- Post List with Collapsible Years --- */}}
+  {{/* --- Entry List with Collapsible Years --- */}}
   <div class="posts">
     {{ range $groups }}
-      {{ $year := int .Key }}
-      {{ $count := len .Pages }}
-      <details id="year-{{ .Key }}" class="year-section" open>
+      {{ $count := len .items }}
+      <details id="year-{{ .year }}" class="year-section" open>
         <summary>
-          <span class="year-heading">{{ .Key }}</span>
+          <span class="year-heading">{{ .year }}</span>
           <span class="post-count">({{ $count }})</span>
         </summary>
         <ul class="posts-list">
-          {{ range .Pages }}
+          {{ range .items }}
             <li>
-              <span class="post-date">{{ .Date.Format "01-02" }}</span>
-              <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-              {{ with .Params.tags }}
-                <span class="post-tag">#{{ index . 0 }}</span>
+              <span class="post-date">{{ .day }}</span>
+              <a href="{{ .url }}">{{ .title | markdownify }}</a>
+              {{ with .tag }}
+                <span class="post-tag">#{{ . }}</span>
               {{ end }}
             </li>
           {{ end }}

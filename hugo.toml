@@ -68,42 +68,42 @@ enableRobotsTXT = true
     identifier = "posts"
     name = "日志"
     url = "/posts/"
-    weight = 9
-  [[menu.main]]
-    identifier = "featured"
-    name = "精选"
-    url = "/featured/"
     weight = 10
-  [[menu.main]]
-    identifier = "startupnotes"
-    name = "创业笔记"
-    url = "/startupnotes/"
-    weight = 11
   [[menu.main]]
     identifier = "reading"
     name = "整理"
     url = "/reading/"
-    weight = 13
-  [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
-    weight = 15
+    weight = 20
   [[menu.main]]
     identifier = "notes"
     name = "笔记"
     url = "/notes/"
-    weight = 12
+    weight = 30
+  [[menu.main]]
+    identifier = "startupnotes"
+    name = "创业笔记"
+    url = "/startupnotes/"
+    weight = 40
+  [[menu.main]]
+    identifier = "featured"
+    name = "精选"
+    url = "/featured/"
+    weight = 50
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 60
   [[menu.main]]
     identifier = "tags"
     name = "标签"
     url = "/tags/"
-    weight = 20
+    weight = 70
   [[menu.main]]
     identifier = "about"
     name = "关于"
     url = "/about/"
-    weight = 30
+    weight = 80
 
 [outputs]
   home = ["HTML", "RSS", "LLMS", "LLMSFULL"]

@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h1 class="page-title">{{ .Title | default "创业笔记" }}</h1>
+  <h1 class="page-title page-title--hidden">{{ .Title | default "创业笔记" }}</h1>
   {{ with .Content }}
     <div class="index-content">
       {{ . }}

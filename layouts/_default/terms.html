@@ -1,0 +1,23 @@
+{{ define "main" }}
+  {{- $labels := dict "tags" "标签" "categories" "分类" -}}
+  <h1 class="page-title page-title--hidden">{{ index $labels .Type | default .Title }}</h1>
+  <div class="terms">
+    {{ with .Content }}
+      <div class="index-content">
+        {{ . }}
+      </div>
+    {{ end }}
+    <ul>
+      {{ $type := .Type }}
+      {{ range $key, $value := .Data.Terms.Alphabetical }}
+        {{ $name := .Name }}
+        {{ $count := .Count }}
+        {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+          <li>
+            <a class="terms-title" href="{{ .Permalink }}">{{ .Name }} [{{ $count }}]</a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}
