@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深圳房价走势与南山详析</title><meta name="description" content="深圳全市宏观背景、人口、房价交易、住房供应与两年情景，附南山近年价格、片区及小区详析。"><meta name="robots" content="index,follow"><link rel="canonical" href="https://wlj.me/reading/shenzhen-housing-outlook/">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f4f7f8;
+  --surface: #ffffff;
+  --ink: #182d36;
+  --ink-2: #415761;
+  --ink-3: #536974;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #216579;            /* 主题色：按题目换 */
+  --acc-ink: #1a5669;        /* accent dark enough for text */
+  --acc-wash: rgba(33, 101, 121, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Report controls and responsive refinements. */
+h1, th, .summary .label, .eyebrow {letter-spacing:0;}
+h2, h3 {scroll-margin-top:24px;}
+.toolbar {display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 24px;font-size:13px;color:var(--ink-3);}
+select, button {font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule-2);padding:6px 9px;border-radius:3px;}
+button {cursor:pointer;}
+.outline details > ul > li {margin:0 0 9px;}
+.outline details > ul > li > a {font-weight:600;}
+.source-note {font-size:13px;color:var(--ink-3);}
+.summary {border-left:4px solid var(--acc);}
+.summary strong {color:var(--acc-ink);}
+table {font-variant-numeric:tabular-nums;min-width:530px;}
+.forecast-table {min-width:650px;}
+.forecast-table tbody tr:first-child {background:var(--acc-wash);}
+.forecast-table td:nth-child(2), .forecast-table td:nth-child(3) {white-space:nowrap;}
+.sources li {scroll-margin-top:24px;padding-left:4px;}
+.sources li:target {background:var(--acc-wash);}
+footer {margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-size:12px;color:var(--ink-3);}
+@media(max-width:900px){h1{font-size:30px;}.meta{margin-bottom:24px;}.summary{padding:16px;}}
+@media print{.toolbar{display:none;}table,.forecast-table{min-width:0;table-layout:auto;} .tbl{overflow:visible;}table{break-inside:auto;font-size:10pt;}th{font-size:9pt;} .sources a{overflow-wrap:anywhere;} .sources li{break-inside:avoid;} .meta{margin-bottom:18pt;}}
+</style></head>
+<body><a class="skip" href="#main">跳到正文</a><div class="layout">
+<nav class="outline" aria-label="目录"><p class="label">阅读目录</p><details open><summary>目录</summary><ul><li><a href="#section-1">中国经济与居民信贷</a></li><li><a href="#section-2">美国与全球经济</a></li><li><a href="#section-3">深圳经济、人口与购买力</a><ul><li><a href="#section-4">潜在买家的家庭财务</a></li><li><a href="#section-5">卖方压力与置换资金</a></li></ul></li><li><a href="#section-6">深圳房价与成交</a><ul><li><a href="#section-7">可比价格与修复覆盖面</a></li></ul></li><li><a href="#section-26">二手住宅价格指数：全国与深圳</a><ul><li><a href="#section-27">全国：跌幅收窄，尚未止跌</a></li><li><a href="#section-28">深圳：连涨六个月，涨幅逐月缩小</a></li><li><a href="#section-29">指数对两年判断的修正</a></li></ul></li><li><a href="#section-8">深圳住房供应与库存</a><ul><li><a href="#section-9">片区供应与交付时间</a></li></ul></li><li><a href="#section-10">住房政策与月供</a><ul><li><a href="#section-11">政策执行与资金约束</a></li></ul></li><li><a href="#section-12">深圳租金与估值</a><ul><li><a href="#section-13">净持有回报与替代选择</a></li><li><a href="#section-14">新旧产品与区域替代</a></li></ul></li><li><a href="#section-15">证据状态与判断边界</a></li><li><a href="#section-16">南山详看：近年价格与片区差异</a><ul><li><a href="#section-17">南山房价的阶段变化</a></li><li><a href="#section-18">2025 年的小区成交变化</a></li><li><a href="#section-19">南山新房价格与二手房的差异</a></li><li><a href="#section-20">南山内部的片区差异</a></li><li><a href="#section-21">南山的经济与住房需求背景</a></li><li><a href="#section-22">南山未来两年的判断</a></li></ul></li><li><a href="#section-23">深圳未来两年的情景判断</a><ul><li><a href="#section-24">恢复节奏</a></li><li><a href="#section-25">不同房源的表现</a></li></ul></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
+<main id="main"><header><p class="eyebrow">住房市场研究 · 2026 年 9 月</p><h1>深圳房价走势与南山详析</h1>
+<p class="lede">深圳全市的宏观背景与两年展望，南山近年房价、片区及小区的详细变化。</p>
+<p class="meta">更新于 2026-09-16<br>深圳全市分析 · 南山重点详析 · 人民币名义价格</p>
+<div class="toolbar"><label for="theme">阅读主题</label><select id="theme"><option value="system">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select><button type="button" id="print">打印 / 保存 PDF</button></div></header>
+<div class="summary"><p class="label">走势判断</p><p>深圳已出现局部、温和修复，但现有购买力和有效供应证据不足以确认未来两年全市持续上涨。8 月 70 城指数显示，深圳二手房环比已连涨六个月，累计约 +1.9%，但月度涨幅从 5 月的 0.6% 缩到 8 月的 0.1%；全国 70 城中 62 城仍在下跌。南山在高位调整后出现部分小区回稳与高端新房活跃，普通存量房和部分次新房仍有价格压力，区内差异需要单独观察。全市数值区间仅为未经校准的条件情景；南山的定性判断不代表全市，也没有据此另设可信的区级涨幅。</p></div>
+<p class="muted">价格判断以普通商品住宅二手房的可比成交为主，采用人民币名义价格；新房、机构样本与媒体案例分别说明。尚未取得覆盖深圳全市及南山的长期同质小区成交序列，数值情景未经过模型回测；对市场分化的把握高于对具体涨跌幅和转折月份的把握。</p>
+<h2 id="section-1">中国经济与居民信贷</h2>
+<p>中国经济仍在增长，居民需求和房地产投资偏弱。</p>
+<div aria-label="中国经济与居民信贷 · 数据" class="tbl" role="region" tabindex="0"><table><caption>中国经济与居民信贷 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">数据期与结果</th>
+<th scope="col">对深圳住房的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">中国实际 GDP</th>
+<td>2026 年上半年同比 +4.7%；二季度 +4.3%</td>
+<td>总量增长提供就业基础，二季度放缓限制预期改善</td>
+</tr>
+<tr>
+<th scope="row">社会消费品零售总额</th>
+<td>1—7 月同比 +1.2%；7 月 +0.6%</td>
+<td>居民商品消费偏弱，购房支出扩张缺少强劲需求背景</td>
+</tr>
+<tr>
+<th scope="row">房地产开发投资</th>
+<td>1—7 月同比 -19.2%</td>
+<td>房地产调整仍在持续</td>
+</tr>
+<tr>
+<th scope="row">新建商品房销售面积、销售额</th>
+<td>1—7 月同比 -11.8%、-13.1%</td>
+<td>全国市场仍承压；金额除以面积不是同质房价指数</td>
+</tr>
+<tr>
+<th scope="row">制造业 PMI</th>
+<td>8 月 49.8</td>
+<td>接近荣枯线，尚未进入广泛扩张</td>
+</tr>
+<tr>
+<th scope="row">CPI、核心 CPI、PPI</th>
+<td>8 月同比 +0.8%、+1.0%、+3.8%</td>
+<td>成本上涨强于终端消费价格上涨，部分企业利润承压</td>
+</tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：<sup><a aria-label="来源 1：国家统计局上半年经济数据" href="#src-1" title="国家统计局上半年经济数据">[1]</a></sup>、<sup><a aria-label="来源 2：1—7 月经济数据" href="#src-2" title="1—7 月经济数据">[2]</a></sup>、<sup><a aria-label="来源 3：房地产数据" href="#src-3" title="房地产数据">[3]</a></sup>、<sup><a aria-label="来源 4：8 月 PMI" href="#src-4" title="8 月 PMI">[4]</a></sup>、<sup><a aria-label="来源 5：8 月价格解读" href="#src-5" title="8 月价格解读">[5]</a></sup>。</p>
+<p>信贷结构对房价更直接。7 月末 M2 同比增长 7.7%，但前七个月住户贷款净减少 8,271 亿元，其中中长期贷款仅净增加 1,010 亿元。中长期住户贷款包含住房以外的用途，净增量还受偿还旧贷影响，不能把它等同于新发房贷。不过，这组数据不足以支持居民正在全面增加负债的判断。<sup><a aria-label="来源 6：央行 7 月金融数据，上海市委金融办转载" href="#src-6" title="央行 7 月金融数据，上海市委金融办转载">[6]</a></sup></p>
+<p>我的推论是，货币供应增长对房价的支持，需要经过就业、收入、贷款需求和实际成交。企业拿到贷款、政府发行债券，都不能直接推算成居民购房资金。</p>
+<p>8 月 20 日一年期 LPR 为 3.0%，五年期以上为 3.5%。LPR 是参考利率，个人实际房贷利率还取决于银行报价和合同条件。当前利率提供支持，但不能把未来连续降息当作已确定的条件。<sup><a aria-label="来源 7：中国货币网 LPR 公告" href="#src-7" title="中国货币网 LPR 公告">[7]</a></sup></p>
+<h2 id="section-2">美国与全球经济</h2>
+<p>美国和全球经济通过出口订单、企业利润、融资环境影响深圳。</p>
+<p>IMF 7 月预测全球经济 2026 年增长 3.0%，2027 年增长 3.4%。其主要判断是，战争带来的能源冲击与 AI 相关技术投资同时影响增长，全球通胀回落受阻。这是预测，不是已经实现的增长；也不覆盖本文最后一年的全部时间。<sup><a aria-label="来源 8：IMF 2026 年 7 月经济展望" href="#src-8" title="IMF 2026 年 7 月经济展望">[8]</a></sup></p>
+<p>美国二季度实际 GDP 环比折年增长 1.5%，低于一季度的 2.1%，但私人国内最终需求增长 4.2%。美国 GDP 的环比折年口径不能直接与中国同比增速比较。8 月失业率为 4.1%，非农就业增加 16.2 万人；CPI 同比 3.4%，核心 CPI 为 2.4%。这组数据更接近经济继续扩张、通胀仍需控制的状态。<sup><a aria-label="来源 9：BEA 二季度第二次估计" href="#src-9" title="BEA 二季度第二次估计">[9]</a></sup>、<sup><a aria-label="来源 10：BLS 8 月就业" href="#src-10" title="BLS 8 月就业">[10]</a></sup>、<sup><a aria-label="来源 11：BLS 8 月 CPI" href="#src-11" title="BLS 8 月 CPI">[11]</a></sup></p>
+<p>美联储 7 月 29 日将联邦基金利率目标区间维持在 3.50%—3.75%，三位投票者希望加息。研究日之后的会议结果未纳入判断。<sup><a aria-label="来源 12：美联储 7 月声明" href="#src-12" title="美联储 7 月声明">[12]</a></sup></p>
+<p>对深圳的传导，我更看重以下关系：</p>
+<ul>
+<li>全球电子、计算和设备投资增长，有利于深圳相关企业收入；只有进一步转化为本地招聘、工资、奖金和股权收入，才会形成住房购买力。</li>
+<li>能源和运输成本上涨会挤压部分企业利润。贸易限制升级还会增加订单和投资的不确定性。</li>
+<li>美元利率高企可能增加人民币汇率和跨境融资压力，对中国宽松政策形成约束，但中国仍有自己的货币政策空间。</li>
+<li>如果美国降息来自通胀回落且需求稳定，对深圳更有利；如果来自严重衰退，出口和就业损失可能超过融资成本下降的好处。</li>
+</ul>
+<p>以上是传导机制推论，不是已经测出的房价影响系数。不能从“美联储降息多少”机械推出“深圳房价上涨多少”。</p>
+<h2 id="section-3">深圳经济、人口与购买力</h2>
+<p>深圳的本地经济支持强于全国房地产市场的表现。</p>
+<div aria-label="深圳经济、人口与购买力 · 数据" class="tbl" role="region" tabindex="0"><table><caption>深圳经济、人口与购买力 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">已查证数据</th>
+<th scope="col">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">实际 GDP</th>
+<td>2026 年上半年同比 +5.8%</td>
+<td>高于同期全国增速</td>
+</tr>
+<tr>
+<th scope="row">规模以上工业增加值</th>
+<td>1—7 月同比 +9.2%</td>
+<td>生产活动保持较快增长</td>
+</tr>
+<tr>
+<th scope="row">出口</th>
+<td>1—7 月同比 +13.9%；7 月单月 +5.7%</td>
+<td>外需提供支撑，单月增速有所放缓</td>
+</tr>
+<tr>
+<th scope="row">社会消费品零售总额</th>
+<td>1—7 月同比 +1.1%</td>
+<td>消费扩张明显弱于工业增长</td>
+</tr>
+<tr>
+<th scope="row">房地产开发投资</th>
+<td>1—7 月同比 -26.7%</td>
+<td>本地地产投资仍在收缩</td>
+</tr>
+<tr>
+<th scope="row">居民人均可支配收入</th>
+<td>2026 年上半年 46,166 元，同比 +4.8%</td>
+<td>居民购买力稳步增加，暂不支持房价长期大幅跑赢收入</td>
+</tr>
+<tr>
+<th scope="row">常住人口</th>
+<td>2025 年末 1,824.85 万，增加 25.90 万</td>
+<td>城市居住需求仍在扩大</td>
+</tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：<sup><a aria-label="来源 13：深圳上半年经济数据" href="#src-13" title="深圳上半年经济数据">[13]</a></sup>、<sup><a aria-label="来源 14：深圳 1—7 月经济数据" href="#src-14" title="深圳 1—7 月经济数据">[14]</a></sup>、<sup><a aria-label="来源 15：深圳商报引用深圳调查队收入数据" href="#src-15" title="深圳商报引用深圳调查队收入数据">[15]</a></sup>、<sup><a aria-label="来源 16：深圳 2025 年统计公报" href="#src-16" title="深圳 2025 年统计公报">[16]</a></sup>。</p>
+<p>人口增加是深圳的重要支撑，但 25.90 万是常住人口净增加，包含自然增长和迁移等因素，不能全部标为净流入，更不能直接折算成新增购房套数。新居民可能租房、合租、住单位宿舍，也可能尚未形成独立家庭。真正影响商品房需求的是有稳定收入、首付款和留城意愿的家庭数量。本次未获得足以判断其最新变化的家庭形成、迁入者收入和年龄结构数据。</p>
+<p>全国 2025 年人口减少 339 万，同时城镇人口增加 1,030 万。全国人口下降与深圳人口增加可以并存。出生人口下降对未来住房需求有长期影响，未来两年的深圳价格更直接受现有成年人口迁移、收入和信贷影响。<sup><a aria-label="来源 17：国家统计局人口解读" href="#src-17" title="国家统计局人口解读">[17]</a></sup></p>
+<p>产业增长能支撑部分片区，但不能假设所有居民同样受益。深圳 2025 年人均可支配收入为 84,945 元。假设一个三口家庭的总收入恰好是这一数字的三倍，购买一套 500 万元住宅，相当于约 19.6 年家庭全部可支配收入，尚未扣除生活开销。这只是负担能力算例，不是深圳官方房价收入比，也没有采用家庭收入中位数。它说明普通家庭仍需要较大首付款、已有住房权益或家庭支持。</p>
+<h3 id="section-4">潜在买家的家庭财务</h3>
+<p>购买力需要落实到家庭。</p>
+<p>还需要知道潜在买家的家庭收入分布、稳定就业人数、可动用存款、已有负债、首付款来源，以及是否需要先卖旧房。应分别观察首次置业、改善置换和投资购买，避免把全体居民平均收入当成购房家庭收入。本次没有取得这些人群的代表性样本，收入和人口增长只能提供方向性支持，无法据此估算未来两年的净购房需求。</p>
+<p>全球产业景气也需要落实到深圳的岗位、工资、奖金和股权变现。出口金额增长可能同时受价格、产品结构和转口业务影响；未经核验，不能把它全部视为本地家庭购买力增长。判断具体片区时，需要匹配当地就业构成与实际居住需求。</p>
+<h3 id="section-5">卖方压力与置换资金</h3>
+<p>卖方压力与置换资金。</p>
+<p>卖方是否急于变现，会影响买方需要支付的价格。需跟踪按揭负担、经营资金压力、急售折扣、挂牌后多次降价和退出市场的原因；司法拍卖还要区分首次上拍、重复上拍、成交与流拍，不能把拍卖数量直接当作全市断供规模。本次没有获得足以判断这些压力当前增减的数据。</p>
+<p>假设一户家庭出售价值 500 万元的住房，尚欠贷款 300 万元，未扣费用的权益为 200 万元。如果售价降至 400 万元，贷款余额不变，权益降为 100 万元：房价下降 20%，可释放权益减少 50%。这是算例，不是深圳家庭的典型负债情况。目标住房若同步降价，也会改变置换差额，需要将旧房净卖款、新房总价和新增贷款一起计算。只观察贷款利率，会遗漏置换链中的资金约束。</p>
+<h2 id="section-6">深圳房价与成交</h2>
+<p>价格和成交已经改善，但不同统计口径给出的信号需要分开看。</p>
+<div aria-label="深圳房价与成交 · 数据" class="tbl" role="region" tabindex="0"><table><caption>深圳房价与成交 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">最新查证值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">国家统计局深圳新房指数</th>
+<td>2026 年 8 月环比 +0.2%，同比 -2.3%（7 月：+0.2%、-2.9%）</td>
+</tr>
+<tr>
+<th scope="row">国家统计局深圳二手房指数</th>
+<td>2026 年 8 月环比 +0.1%，同比 -2.7%（7 月：+0.2%、-3.6%）</td>
+</tr>
+<tr>
+<th scope="row">二手住宅网签</th>
+<td>8 月 4,275 套</td>
+</tr>
+<tr>
+<th scope="row">新建商品住宅网签</th>
+<td>8 月 2,589 套</td>
+</tr>
+<tr>
+<th scope="row">一二手住宅网签合计</th>
+<td>8 月 6,864 套，同比 +8.5%</td>
+</tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：<sup><a aria-label="来源 38：国家统计局 8 月房价解读" href="#src-38" title="国家统计局 8 月房价解读">[38]</a></sup>、<sup><a aria-label="来源 18：国家统计局 7 月房价解读" href="#src-18" title="国家统计局 7 月房价解读">[18]</a></sup>、<sup><a aria-label="来源 19：深圳住建局转载 8 月市场报道" href="#src-19" title="深圳住建局转载 8 月市场报道">[19]</a></sup>。</p>
+<p>6 月深圳新房、二手房指数均环比上涨 0.3%，7 月均为 0.2%，8 月分别为 0.2% 和 0.1%，修复幅度温和且在收窄。二手房指数 3—8 月连涨六个月，逐月数值见第 26 节。因此，判断深圳仍在毫无改善地单边下跌，不符合已查证数据。<sup><a aria-label="来源 20：国家统计局 6 月房价解读" href="#src-20" title="国家统计局 6 月房价解读">[20]</a></sup></p>
+<p>与此同时，澎湃引用机构数据称，8 月二手住宅成交均价为每平方米 5.78 万元，环比下降 3.7%，当月低总价住宅占比提高。这与 7 月官方指数既不是同一个月份，也不是同一种统计。每月成交房源的位置、面积和楼龄变化，会影响简单成交均价，不能据此认定所有房源一个月统一跌了 3.7%。深房中协的合同发起“录得量”也不同于住建网签，不能混用。<sup><a aria-label="来源 21：澎湃 8 月交易报道" href="#src-21" title="澎湃 8 月交易报道">[21]</a></sup></p>
+<p>同一来源的数据仍有小差异：8 月新房、二手房成交套数在住建局转载报道与澎湃报道中一致，但同比增幅不同，分别为 20.4% 与 21.5%、2.4% 与约 2%。本文采用一致的套数和合计同比，不用这些差异做趋势推演。</p>
+<h3 id="section-7">可比价格与修复覆盖面</h3>
+<p>价格历史与修复覆盖面。</p>
+<p>国家统计局二手住宅价格调查采用重点调查与典型调查结合的方法，基础数据来自经纪机构、居住服务平台和实地采价。因此，指数适合观察总体方向，不能替代每套房的可实现售价。<sup><a aria-label="来源 22：国家统计局房价统计说明，附注调查方法" href="#src-22" title="国家统计局房价统计说明，附注调查方法">[22]</a></sup></p>
+<p>应按片区、总价和楼龄建立持续观察的小区样本，比较面积、楼层、朝向与装修接近的真实成交，覆盖此前下跌阶段和近期回升阶段。同时统计上涨小区占比、成交频率、挂牌天数和议价幅度，避免只有成交活跃的小区进入样本。还要检查过去相似的量价回升是否持续。南山专题补充了片区历史和小区案例，但仍未建立覆盖全市的长期可比样本；近期月度上涨不足以确认两年趋势，也无法校准情景区间的上下界。</p>
+<h2 id="section-26">二手住宅价格指数：全国与深圳的位置</h2>
+<p>国家统计局 9 月 15 日发布 8 月 70 个大中城市二手住宅销售价格指数。这是本文唯一覆盖全国、口径统一、逐月可比的价格序列。下面用它把全国和深圳放到同一把尺子上。</p>
+<h3 id="section-27">全国：跌幅收窄，尚未止跌</h3>
+<div aria-label="2026 年 8 月 70 城二手住宅价格指数 · 数据" class="tbl" role="region" tabindex="0"><table><caption>2026 年 8 月 70 城二手住宅价格指数 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">2026 年 8 月</th>
+<th scope="col">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">环比上涨城市</th>
+<td>3 个：上海 +0.3%、扬州 +0.2%、深圳 +0.1%</td>
+<td>持平 5 个（沈阳、大连、宁波、合肥、广州），下跌 62 个</td>
+</tr>
+<tr>
+<th scope="row">环比中位数</th>
+<td>-0.3%</td>
+<td>最低为海口 -1.0%</td>
+</tr>
+<tr>
+<th scope="row">一线 / 二线 / 三线环比</th>
+<td>+0.1% / -0.3% / -0.3%</td>
+<td>一线涨幅比 7 月回落 0.1 个百分点</td>
+</tr>
+<tr>
+<th scope="row">一线 / 二线 / 三线同比</th>
+<td>-2.7% / -4.9% / -5.6%</td>
+<td>降幅分别比 7 月收窄 1.0、0.2、0.2 个百分点</td>
+</tr>
+<tr>
+<th scope="row">同比中位数</th>
+<td>-5.3%</td>
+<td>70 城中 45 城落在 -4% 到 -7% 之间</td>
+</tr>
+<tr>
+<th scope="row">同比降幅最小</th>
+<td>上海 -0.8%、沈阳 -0.9%</td>
+<td>其后宁波、深圳、丹东并列 -2.7%</td>
+</tr>
+<tr>
+<th scope="row">同比降幅最大</th>
+<td>泸州 -9.0%</td>
+<td>唐山、九江、平顶山 -7.4%</td>
+</tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：<sup><a aria-label="来源 38：国家统计局 8 月房价解读" href="#src-38" title="国家统计局 8 月房价解读">[38]</a></sup>、<sup><a aria-label="来源 39：8 月 70 城二手住宅价格指数表，公众号转载" href="#src-39" title="8 月 70 城二手住宅价格指数表，公众号转载">[39]</a></sup>、<sup><a aria-label="来源 43：21 经济网 8 月 70 城报道" href="#src-43" title="21 经济网 8 月 70 城报道">[43]</a></sup>。中位数、区间计数按 70 城表格复算。</p>
+<div aria-label="2026 年 3—8 月二手住宅指数走势 · 数据" class="tbl" role="region" tabindex="0"><table><caption>2026 年 3—8 月二手住宅指数走势 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">月份</th>
+<th scope="col">3 月</th>
+<th scope="col">4 月</th>
+<th scope="col">5 月</th>
+<th scope="col">6 月</th>
+<th scope="col">7 月</th>
+<th scope="col">8 月</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">环比上涨城市数</th>
+<td>13</td><td>12</td><td>10</td><td>9</td><td>5</td><td>3</td>
+</tr>
+<tr>
+<th scope="row">一线城市环比</th>
+<td>+0.4%</td><td>+0.4%</td><td>+0.4%</td><td>+0.3%</td><td>+0.2%</td><td>+0.1%</td>
+</tr>
+<tr>
+<th scope="row">一线城市同比</th>
+<td>-7.4%</td><td>-6.8%</td><td>-5.8%</td><td>-4.9%</td><td>-3.7%</td><td>-2.7%</td>
+</tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：<sup><a aria-label="来源 40：国家统计局 3 月房价解读" href="#src-40" title="国家统计局 3 月房价解读">[40]</a></sup>、<sup><a aria-label="来源 41：国家统计局 4 月房价解读" href="#src-41" title="国家统计局 4 月房价解读">[41]</a></sup>、<sup><a aria-label="来源 42：国家统计局 5 月房价解读" href="#src-42" title="国家统计局 5 月房价解读">[42]</a></sup>、<sup><a aria-label="来源 20：国家统计局 6 月房价解读" href="#src-20" title="国家统计局 6 月房价解读">[20]</a></sup>、<sup><a aria-label="来源 18：国家统计局 7 月房价解读" href="#src-18" title="国家统计局 7 月房价解读">[18]</a></sup>、<sup><a aria-label="来源 38：国家统计局 8 月房价解读" href="#src-38" title="国家统计局 8 月房价解读">[38]</a></sup>。5 月上涨城市数由 6 月解读“9 个，比上月减少 1 个”倒推；7 月的 5 个取自公众号作者的表格统计，官方解读只给出“上涨或持平 8 个”。</p>
+<p>公众号“坏消息真多”9 月 15 日的判断是，没有任何迹象表明中国房价已经止跌企稳，官方措辞“跌幅收窄”的意思是跌得慢了。对照数据，这个判断在全国层面成立：70 城里 62 个环比在跌，同比中位数 -5.3%，上涨城市数量半年内从 13 个缩到 3 个。一线城市半年累计上涨 1.8%，是唯一在涨的板块，但月度涨幅逐月收缩，8 月只剩 0.1%。<sup><a aria-label="来源 39：8 月 70 城二手住宅价格指数表，公众号转载" href="#src-39" title="8 月 70 城二手住宅价格指数表，公众号转载">[39]</a></sup></p>
+<p>同比降幅收窄有一半是算术。一线城市同比从 3 月的 -7.4% 走到 8 月的 -2.7%，收窄 4.7 个百分点，这期间环比累计只涨了 1.8%，其余约 3 个百分点来自去年下半年的跌幅逐月移出比较基期。按这个机制，只要今后几个月环比不转负，一线同比会在 2027 年初前后自然回到 0 附近。届时“同比转正”的标题不能当成新增的上涨证据。</p>
+<p>K 形分化不完全按城市等级划分。同比降幅最小的九个城市里，一线只有上海和深圳，其余七个是沈阳、宁波、丹东、牡丹江、大连、西宁、锦州。这些城市跌得早，基数已经低。扬州 8 月环比上涨 0.2%，同比仍是 -7.1%。单月环比排名不能替代对一座城市所处阶段的判断。</p>
+<p>该文还举了天水的例子：当地租售比超过 3%，房租能覆盖月供，房价仍在阴跌，原因是年轻人流出、租金也在跌。这对深圳的含义与第 12 节一致：租金回报率只在租金本身稳定时才能托住价格，静态租售比不是底。</p>
+<h3 id="section-28">深圳：连涨六个月，涨幅逐月缩小</h3>
+<div aria-label="2026 年 3—8 月一线城市二手住宅指数 · 数据" class="tbl" role="region" tabindex="0"><table><caption>2026 年 3—8 月一线城市二手住宅指数 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">月份</th>
+<th scope="col">深圳环比</th>
+<th scope="col">深圳同比</th>
+<th scope="col">上海环比</th>
+<th scope="col">北京环比</th>
+<th scope="col">广州环比</th>
+</tr>
+</thead>
+<tbody>
+<tr><th scope="row">3 月</th><td>+0.4%</td><td>-7.0%</td><td>+0.4%</td><td>+0.6%</td><td>+0.2%</td></tr>
+<tr><th scope="row">4 月</th><td>+0.3%</td><td>-6.5%</td><td>+0.7%</td><td>+0.4%</td><td>+0.2%</td></tr>
+<tr><th scope="row">5 月</th><td>+0.6%</td><td>-5.5%</td><td>+0.6%</td><td>+0.1%</td><td>+0.1%</td></tr>
+<tr><th scope="row">6 月</th><td>+0.3%</td><td>-4.7%</td><td>+0.4%</td><td>+0.1%</td><td>+0.4%</td></tr>
+<tr><th scope="row">7 月</th><td>+0.2%</td><td>-3.6%</td><td>+0.3%</td><td>0.0%</td><td>+0.4%</td></tr>
+<tr><th scope="row">8 月</th><td>+0.1%</td><td>-2.7%</td><td>+0.3%</td><td>-0.1%</td><td>0.0%</td></tr>
+<tr><th scope="row">六个月累计</th><td>+1.9%</td><td>—</td><td>+2.7%</td><td>+1.1%</td><td>+1.3%</td></tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：<sup><a aria-label="来源 40：国家统计局 3 月房价解读" href="#src-40" title="国家统计局 3 月房价解读">[40]</a></sup>、<sup><a aria-label="来源 41：国家统计局 4 月房价解读" href="#src-41" title="国家统计局 4 月房价解读">[41]</a></sup>、<sup><a aria-label="来源 42：国家统计局 5 月房价解读" href="#src-42" title="国家统计局 5 月房价解读">[42]</a></sup>、<sup><a aria-label="来源 20：国家统计局 6 月房价解读" href="#src-20" title="国家统计局 6 月房价解读">[20]</a></sup>、<sup><a aria-label="来源 18：国家统计局 7 月房价解读" href="#src-18" title="国家统计局 7 月房价解读">[18]</a></sup>、<sup><a aria-label="来源 38：国家统计局 8 月房价解读" href="#src-38" title="国家统计局 8 月房价解读">[38]</a></sup>。累计值按各月环比连乘，四舍五入至一位小数。</p>
+<p>深圳 8 月环比 +0.1%，在 70 城里排第三；同比 -2.7%，并列第三；1—8 月平均比去年同期低 5.5%，排在第 27 位。三个数字讲的是同一件事的三个阶段：今年头两个月还在补跌，3 月起连涨六个月，月度涨幅在 5 月见顶后逐月递减。</p>
+<p>把同比和环比放在一起倒推：8 月同比 -2.7%，3—8 月累计 +1.9%，则 2025 年 9 月到 2026 年 2 月这六个月深圳累计下跌约 4.5%。这一轮回升到目前为止收复了前一轮下跌的四成左右。这是从公布指数推算的近似值，本次未逐月核对去年下半年的原始数据。</p>
+<p>深圳与上海的差距在 7、8 月拉开。上海 8 月环比 +0.3%，连续两个月停在这个水平，同比只剩 -0.8%；深圳环比已降到 0.1%。北京 8 月转为 -0.1%，广州持平。一线四城中，只有上海还保持着 3 月时的动能。</p>
+<p>第 6 节提到 8 月成交均价环比 -3.7%（澎湃引用机构数据），与指数 +0.1% 方向相反。指数控制了房源结构，均价没有。同月出现相反方向，更可能的解释是低总价房源成交占比提高，而不是同一批房子一个月跌了 3.7%。这一点对南山专题同样适用：小区案例的回落与全市指数的微涨可以并存。</p>
+<h3 id="section-29">指数对两年判断的修正</h3>
+<p>对第 23 节“缓慢修复假设”的影响是方向不变、位置下调。3 月深圳每月涨 0.4%，折成年率约 5%；8 月的 0.1% 折成年率约 1.2%，已经低于第 3 节的居民收入增速 4.8%。按 8 月的动能，-5% 至 +8% 的区间内更可能落在下半段。若 9 月环比归零或转负，六个月的连涨就此结束，全市判断应向区间下沿移动。</p>
+<p>三个可以直接观察的信号，9 月数据预计 10 月中下旬发布：</p>
+<ul>
+<li>深圳二手房环比。回到 +0.2% 以上，说明 7、8 月的减速是暂时的；0 或负值，说明这一轮修复已经用完。</li>
+<li>环比上涨城市数。从 3 个回到 5 个以上，说明修复在扩散；跌到 1—2 个甚至 0，一线也难独自走强。</li>
+<li>上海环比。上海是当前唯一稳定在 +0.3% 的城市。它转弱之前，深圳独立走强的可能性很低。</li>
+</ul>
+<p>同比指标在未来半年会失真。深圳同比按现有轨迹在 2027 年一季度前后回到 0 附近，其中大部分来自基数移出。判断深圳是否真正止跌，看环比连续性和上涨城市数量，不看同比。</p>
+<p>指数只能回答方向和相对位置。它不能给出某套房的可实现售价，也不能替代第 7 节要求的同小区可比成交。南山的两类样本（漾日湾畔回稳、次新房回落）都可以在全市指数 +0.1% 的月份同时发生。</p>
+<h2 id="section-8">深圳住房供应与库存</h2>
+<p>供应端同时存在新增减少和存量竞争。</p>
+<p>深圳 2026 年住房计划提出建设筹集保障性住房 3 万套（间）、供应 4 万套（间）。这是年度计划，不能当作已经交付；建设筹集与供应不能简单相加，也不能把“套（间）”全部等同于可出售商品住宅。我的推论是，这些房源为部分居民提供租住和购买替代，可能减轻低总价商品房及租赁市场的需求压力。<sup><a aria-label="来源 23：深圳年度住房计划说明" href="#src-23" title="深圳年度住房计划说明">[23]</a></sup></p>
+<p>本次找到的克而瑞深圳月报转载称，8 月预售库存为 21,958 套，包含现售的整体库存为 89,480 套，整体去化周期 22.6 个月。不过，我没有取得能够复算的登记明细，报告部分住宅分析含公寓，分区套数也未直接加总到全市值。这里保留为低置信度参考，不用其确定市场何时见底。单看预售库存下降，也不足以证明全市可售住房短缺。<sup><a aria-label="来源 24：克而瑞深圳月报转载" href="#src-24" title="克而瑞深圳月报转载">[24]</a></sup></p>
+<p>开发投资下降可能减少后续新增供应，但不等于当前库存已经清完。二手挂牌、已竣工未售、城市更新交付和保障房都需要纳入，而且必须统一物业类型和时间。库存口径是本次预测最重要的数据缺口之一。</p>
+<h3 id="section-9">片区供应与交付时间</h3>
+<p>按片区核算有效供应。</p>
+<p>新房和二手房应各自建立可复算的账：期末有效待售量＝期初待售量＋新增进入销售的房源－已售房源－撤出销售的房源。二手房要跨平台去重，并识别重新挂牌；新房要区分预售、现售、用途和真实可售状态。未来两年应按季度记录预计上市与交付项目，避免把已经出售的交付住房再次算成待售供应。</p>
+<p>开发投资下降不能证明预测期内供应不足。前期已开工项目仍会上市或交付，回迁、保障房和城市更新也会改变附近租购需求。深圳 2026 年建设用地供应计划明确涉及商品住房用地供应的总量、时序和空间布局；实际供应判断仍需项目进度和成交验证。<sup><a aria-label="来源 25：深圳 2026 年建设用地供应计划" href="#src-25" title="深圳 2026 年建设用地供应计划">[25]</a></sup></p>
+<p>目前缺少统一口径的片区有效库存与季度新增供应。原报告引用的全市库存只能作为参考，不能用来确定某片区即将短缺，或将某个去化月数直接当成价格见底阈值。</p>
+<h2 id="section-10">住房政策与月供</h2>
+<p>政策提供了降低月供的条件。</p>
+<p>深圳 4 月政策扩大了部分家庭在福田、南山、宝安新安的购买额度，并提高公积金基础贷款额度，家庭由 110 万元提高至 130 万元。额外上浮额度有资格条件，不能把最高额度当作所有人的实际可贷金额。<sup><a aria-label="来源 26：深圳 4 月政策" href="#src-26" title="深圳 4 月政策">[26]</a></sup></p>
+<p>8 月 28 日公布的全国房地产信贷政策将个人住房贷款最长期限从 30 年延长至 40 年，具体期限由购房人与银行协商。政策还调整了开发融资和购房贷款发放安排。政策上限不代表所有深圳银行已经全面执行，也不代表每一位借款人都能获批。<sup><a aria-label="来源 27：央行政策问答，辽宁金融部门转载" href="#src-27" title="央行政策问答，辽宁金融部门转载">[27]</a></sup></p>
+<p>以 300 万元贷款、固定年利率 3.5%、等额本息为例：30 年月供约 13,471 元，40 年约 11,622 元，减少约 13.7%；若持有到期且利率不变，总利息分别约 185 万元、258 万元。延长期限改善月度现金流，增加整个贷款期的利息负担。算例利率是假设，不是个人银行报价。</p>
+<h3 id="section-11">政策执行与资金约束</h3>
+<p>政策落地与资金约束。</p>
+<p>政策效果需要看实际执行：哪些银行提供相应贷款、获批人群有多大、首付与利率条件如何、公积金提高额度有多少人使用。年度住房计划还需跟踪已拨资金、实际收购或交付，以及保障房的区位和入住情况。地方财政收支、土地收入和项目融资能力关系到落实速度，本次没有建立相应的资金与完成进度表。</p>
+<p>购房端的支持还需与开发融资、资金监管和交付安排一起评估。保护购房资金有助于降低交付风险，但开发商的资金需求和推盘节奏也可能改变。尚无执行数据时，不能把每项政策的理论支持直接相加成房价涨幅，也不能把已经影响成交的政策再次完整计入未来上涨空间。</p>
+<h2 id="section-12">深圳租金与估值</h2>
+<p>租金仍是估值约束。</p>
+<p>贝壳平台样本经克而瑞转载的 8 月观察报告给出深圳二手房租金回报率约 2.10%。这是平台样本，不代表全市；本文也不把它当作扣除空置、维修、税费后的净收益率。<sup><a aria-label="来源 28：8 月 15 城市场观察" href="#src-28" title="8 月 15 城市场观察">[28]</a></sup></p>
+<p>用简化关系“房价＝年租金÷租金回报率”做敏感性分析：如果年租金不变，要求的回报率从 2.1% 升至 2.5%，对应价格下降 16%；如果回报率不变、租金连续两年每年增加 5%，对应价格累计增加约 10.3%。这不是实际租金预测，也没有完整计入自住价值和交易成本，但说明房价对回报要求变化很敏感。低租金回报使投资收益更依赖转售价格。</p>
+<h3 id="section-13">净持有回报与替代选择</h3>
+<p>实际持有回报与替代选择。</p>
+<p>应使用已签租约和实际收租，扣除空置、维修、业主承担的物业费用及相关税费，再评估净租金回报。购房还需要计入买卖费用、实际贷款利息和首付款的机会成本，并与相同风险和流动性条件下的替代投资比较。还贷本金会减少负债，属于现金流支出；计算经济成本时要与利息区分，避免重复计入。</p>
+<p>租金回报率上升可能来自售价下降，不能单独证明租赁需求增强。比较自住买房与租房时，应使用同类住房、相同居住期限，列出首付、月供、租金及期末净资产；没有具体房源和贷款条件，本次不能给出可靠的盈亏平衡涨幅。</p>
+<h3 id="section-14">新旧产品与区域替代</h3>
+<p>新旧产品与区域替代。</p>
+<p>新房需要将折扣、装修和车位等优惠折算进总成本，并核对可合法使用的面积、交付质量与后续维护费用；不能只比较建筑面积单价。新产品若提高居住效率，会增加同片区旧房的竞争压力。学校入学条件、地铁实际通勤、物业质量等，也需要逐小区核查，行政区名称不足以替代这些判断。</p>
+<p>东莞、惠州住房与深圳的替代关系，需要结合真实通勤成本和迁居人群判断；香港相关购房需求，需要核验实际成交来源、资金条件和数量。当前没有证据可以量化这些因素对全市价格的净影响，因此不将其预设为上涨或下跌的理由。</p>
+<h2 id="section-15">证据状态与判断边界</h2>
+<p>证据缺口如何约束判断。</p>
+<div aria-label="证据状态与判断边界 · 数据" class="tbl" role="region" tabindex="0"><table><caption>证据状态与判断边界 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">观察对象</th>
+<th scope="col">当前证据状态</th>
+<th scope="col">对结论的约束</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">价格走势及历史经验</th>
+<td>已有 3—8 月官方指数序列（第 26 节），缺少同小区长期可比成交与历史校准</td>
+<td>可描述近期修复及其减速，不能确认持续上涨或给出可靠概率</td>
+</tr>
+<tr>
+<th scope="row">有效供应</th>
+<td>已有年度计划与机构库存，缺少去重、分区和季度项目账</td>
+<td>不能据投资下降推断两年内房源短缺</td>
+</tr>
+<tr>
+<th scope="row">家庭购买力</th>
+<td>已有总人口和平均收入，缺少潜在买家资产负债与家庭形成样本</td>
+<td>不能把经济增长直接换算为新增购房套数</td>
+</tr>
+<tr>
+<th scope="row">卖方及置换链</th>
+<td>尚缺急售、负债与置换资金数据</td>
+<td>无法判断卖方议价能力是否持续改善</td>
+</tr>
+<tr>
+<th scope="row">租金和持有成本</th>
+<td>已有平台租金回报率，缺少可比签约租金、空置和完整成本</td>
+<td>无法确认租赁需求转强及投资盈亏平衡点</td>
+</tr>
+<tr>
+<th scope="row">政策执行</th>
+<td>已有政策文件，缺少银行获批与财政项目完成数据</td>
+<td>只能列条件，不能估算已实现的全部需求增量</td>
+</tr>
+<tr>
+<th scope="row">产品及区域竞争</th>
+<td>已列作用机制，缺少可比房源和买家来源数据</td>
+<td>分区、分小区判断仍需逐项验证</td>
+</tr>
+</tbody>
+</table></div>
+<p>前三项应优先补齐。当前更稳妥的判断是短期已有修复信号、两年方向仍待验证。遗漏证据不能统一按利好或利空填入模型，新增这一表也不代表相应数据已收集完成。</p>
+<h2 id="section-16">南山详看：近年价格与片区差异</h2>
+<p>南山是深圳全市分析中的重点观察区域。以下将价格变化细化到年份、片区和小区，保留与全市指标的口径区别。</p>
+<h3 id="section-17">南山房价的阶段变化</h3>
+<p>下表按发生时间排列。它记录每个阶段已找到的证据，价格口径并不相同，不能逐行计算累计涨跌。</p>
+<div aria-label="南山房价的阶段变化 · 数据" class="tbl" role="region" tabindex="0"><table><caption>南山房价的阶段变化 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">时段</th>
+<th scope="col">南山相关价格证据</th>
+<th scope="col">能支持的判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2020 年末—2021 年上半年</th>
+<td>乐有家将 2020 年 12 月—2021 年 2 月列为深圳二手成交价高位期；南山大冲等片区随后出现明显调整</td>
+<td>可用作本轮调整的背景，各小区高点月份并不一致</td>
+</tr>
+<tr>
+<th scope="row">2021 年上半年至 2022 年下半年</th>
+<td>乐有家样本中，大冲片区二手成交价格下降约 23%；科技园、蛇口、南油等片区降幅超过 20%</td>
+<td>早期调整已覆盖南山多个成熟片区</td>
+</tr>
+<tr>
+<th scope="row">2023 年</th>
+<td>招商蛇口租赁住房基金文件列示南山商品住宅成交均价 96,446 元/㎡，同比下降 14.89%；乐有家 6 月报告显示前海部分二手成交已接近参考价</td>
+<td>调整延续；商品住宅均价的细分口径不足，不能当成南山二手房指数</td>
+</tr>
+<tr>
+<th scope="row">2024 年第四季度</th>
+<td>乐有家门店样本显示，南山二手成交均价较 2023 年第四季度止跌</td>
+<td>确有阶段性回稳；全年均价与第四季度变化要分开</td>
+</tr>
+<tr>
+<th scope="row">2025 年</th>
+<td>漾日湾畔季度均价略升；润玺二期、深铁阅山境及诺德假日花园等报道案例继续回落</td>
+<td>区内存在回稳和继续调整两种情况</td>
+</tr>
+<tr>
+<th scope="row">2026 年上半年至 7 月</th>
+<td>高端新房成交活跃；克而瑞 7 月南山新房住宅口径成交均价约 13.72 万元/㎡</td>
+<td>支持高端新房热度回升，尚不足以证明普通二手房普涨</td>
+</tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：2021—2022 年对应<sup><a aria-label="来源 29：第一财经 2022 年 11 月 5 日报道" href="#src-29" title="第一财经 2022 年 11 月 5 日报道">[29]</a></sup>；2023 年对应<sup><a aria-label="来源 30：招商基金招募说明书，第 191—192 页" href="#src-30" title="招商基金招募说明书，第 191—192 页">[30]</a></sup>与<sup><a aria-label="来源 31：乐有家 2023 年 6 月报告" href="#src-31" title="乐有家 2023 年 6 月报告">[31]</a></sup>；2024 年对应<sup><a aria-label="来源 32：中国经营报 2025 年 1 月报道，新浪转载" href="#src-32" title="中国经营报 2025 年 1 月报道，新浪转载">[32]</a></sup>。2025—2026 年的具体样本与来源列于下文。</p>
+<h4>2021—2022：高位之后的调整</h4>
+<p>第一财经引用乐有家的片区成交数据，显示南山大冲、科技园、蛇口和南油均参与了这一轮下降。大冲约 23% 的降幅，比较的是 2021 年上半年与 2022 年下半年截至报道时的样本，并非完整年度同比，也没有逐套控制房源品质。这个证据足以否定“靠近科技企业的成熟片区不会跌”的判断，却不能告诉我们其中每个小区的具体损失。</p>
+<p>2021 年 2 月二手房参考价出台，与市场交易降温在时间上相连。参考价曾影响贷款评估和首付负担，但不能把之后全部降幅归因于这一项政策；就业收入、疫情、信贷和卖方预期也在变化。参考价本身属于行政参考值，不能用作某个小区在 2021 年的实际市场价。</p>
+<h4>2023：价格继续调整，短期回暖未形成普遍反转</h4>
+<p>招商基金文件中的南山商品住宅均价从 2022 年高位回落，2023 年为 96,446 元/㎡，同比下降 14.89%，文件称已回到 2020 年附近。其图表还显示 2019—2020 年较平稳，2021—2022 年升高、2023 年回落。原文没有给出足以核实一手与二手覆盖范围的说明，本文只保留它作为另一项历史市场观察，不把它与机构二手均价相接。</p>
+<p>二手房方面，乐有家 2023 年 6 月的报告列出中海阳光玫瑰园、前海港湾花园等接近参考价成交的小区。报告同时发现，后海、华侨城、蛇口仍出现在高于参考价较多的成交分类中。南山内部的溢价差异当时已经存在；“高于参考价”只说明相对行政参考值的位置，不能直接解释为当期上涨。</p>
+<h4>2024：年末回稳，恢复幅度需要限定时间</h4>
+<p>中国经营报引用乐有家门店数据称，南山 2024 年第四季度二手成交均价同比止跌。这里的比较基期是 2023 年第四季度，不能改写成“2024 年南山全年上涨”，更不能理解为回到 2021 年高位。</p>
+<p>随后的小区记录显示，这一轮回稳的持续性并不一致。部分房源在 2024 年末成交价格抬高后，2025 年又回落；另一些小区在 2025 年保持稳定。判断南山近年的走势，需要同时容纳这两类样本。</p>
+<h3 id="section-18">2025 年的小区成交变化</h3>
+<h4>回稳样本：漾日湾畔</h4>
+<p>时代财经报道乐有家年度数据：漾日湾畔 2025 年全年成交 43 套，第一季度成交均价约 10.79 万元/㎡，第四季度约 11.00 万元/㎡。按公布值计算，两季度均价差约为 +1.9%。这支持该小区在当年相对稳定的判断；两个季度成交户型不同，不能当作同一套房升值 1.9%。报道未公布每季成交套数，样本波动仍需考虑。<sup><a aria-label="来源 33：时代财经年度市场报道，21 经济网刊载" href="#src-33" title="时代财经年度市场报道，21 经济网刊载">[33]</a></sup></p>
+<h4>回落样本：次新房、前海和华侨城</h4>
+<p>以下记录来自 2026 年 2 月 4 日“深圳买房计划”在深圳房地产信息网发布的回顾，原文引用贝壳找房数据。本文未拿到对应网签合同、全部成交清单或具体房号，证据强度低于可复核的登记数据。仅用于展示区内差异，不作为全区跌幅估计。</p>
+<div aria-label="2025 年的小区成交变化 · 数据" class="tbl" role="region" tabindex="0"><table><caption>2025 年的小区成交变化 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">小区及房源</th>
+<th scope="col">较早报道成交</th>
+<th scope="col">较晚报道成交</th>
+<th scope="col">两个报道价格之差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">润玺二期，约 117㎡ 三房</th>
+<td>2024 年 10 月约 1,600 万元</td>
+<td>2025 年 10 月约 1,396 万元</td>
+<td>-12.8%</td>
+</tr>
+<tr>
+<th scope="row">深铁阅山境，约 102㎡</th>
+<td>2024 年末约 730 万元</td>
+<td>2025 年末约 583 万元</td>
+<td>-20.1%</td>
+</tr>
+<tr>
+<th scope="row">诺德假日花园，约 48㎡</th>
+<td>2024 年末约 428 万元</td>
+<td>2025 年末约 310 万元</td>
+<td>-27.6%</td>
+</tr>
+<tr>
+<th scope="row">天鹅湖花园三期，约 123㎡ 三房</th>
+<td>2024 年 12 月约 1,870 万元</td>
+<td>2025 年 11 月约 1,568 万元</td>
+<td>-16.1%</td>
+</tr>
+</tbody>
+</table></div>
+<p class="source-note">来源：<sup><a aria-label="来源 34：深圳房地产信息网，2025 年小区成交回顾" href="#src-34" title="深圳房地产信息网，2025 年小区成交回顾">[34]</a></sup>。变化按“较晚总价 ÷ 较早总价 − 1”计算，四舍五入至一位小数。面积相近不代表楼栋、朝向、楼层及装修相同；这些百分比是报道价格之间的差，不是同一套房的重复成交收益率。</p>
+<p>天鹅湖花园三期还有一个较长的观察窗口：同一报道所列约 123㎡ 户型在 2023 年约为 1,618 万元，2024 年 12 月约为 1,870 万元，2025 年 11 月约为 1,568 万元。按这些不同房源的记录，先升后降的幅度明显大于首尾约 3.1% 的下降。只选择 2024 年末作为起点，会看到较大跌幅；以 2023 年作为起点，得到的叙述就不同。</p>
+<p>这组案例经过媒体筛选，跌价样本并不代表南山小区的随机抽样。它与漾日湾畔的回稳记录放在一起，能够支持“部分小区继续下调、部分小区趋稳”的描述，不能估计两类小区各占多少。</p>
+<h3 id="section-19">南山新房价格与二手房的差异</h3>
+<p>克而瑞 2026 年 7 月报告列示，南山区新房住宅成交面积约 9.79 万㎡，成交均价为 137,202 元/㎡。报告对新房住宅采用包含住宅、别墅和住宅公寓的口径，项目金额榜还注明包含酒店式公寓，因此这里保留其机构口径，不将其视为纯普通住宅的官方统计。</p>
+<p>同月金额榜中，中信城开信悦湾成交均价约 24.53 万元/㎡，安缇雅苑约 19.05 万元/㎡。这类高价项目集中成交，会提高南山当月均价。克而瑞也将核心豪宅成交占比变化列为均价高位的重要原因。<sup><a aria-label="来源 35：克而瑞 2026 年 7 月报告，第 2.3、2.6 节" href="#src-35" title="克而瑞 2026 年 7 月报告，第 2.3、2.6 节">[35]</a></sup></p>
+<p>因此，13.72 万元/㎡回答的是该机构当月成交样本的平均价格，不能拿来给南山所有二手房估价，也不能与漾日湾畔的 11 万元/㎡计算所谓全区涨幅。月度新房均价还受到上市项目、户型大小和集中备案时间影响。</p>
+<p>新房与二手房竞争也体现在交付以后。润玺二期、深铁阅山境进入二手市场后的回落案例说明，开盘时的市场热度与交付后的可实现售价可以出现明显差距。原有新房溢价需要接受周边二手房、后续新盘和实际居住品质的比较。</p>
+<h3 id="section-20">南山内部的片区差异</h3>
+<p>这里使用市场常见片区名称，边界并不等于行政街道；前海相关表述仅指下列南山项目，不外推到扩区后的整个前海合作区。</p>
+<div aria-label="南山内部的片区差异 · 数据" class="tbl" role="region" tabindex="0"><table><caption>南山内部的片区差异 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">片区或房源类别</th>
+<th scope="col">本次找到的历史变化</th>
+<th scope="col">当前可以作出的描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">后海、南山中心区</th>
+<td>漾日湾畔 2025 年季度均价相对稳定</td>
+<td>成熟片区存在回稳样本，尚缺更广的小区覆盖</td>
+</tr>
+<tr>
+<th scope="row">大冲、科技园</th>
+<td>大冲 2021—2022 年机构样本降幅约 23%；润玺二期在 2025 年仍有回落案例</td>
+<td>产业和配套支撑不能消除高位买入及同类供应的影响</td>
+</tr>
+<tr>
+<th scope="row">华侨城</th>
+<td>天鹅湖花园三期部分户型报道价格在 2024 年末升高后回落</td>
+<td>豪宅也有周期波动，选取起点会显著改变跌幅描述</td>
+</tr>
+<tr>
+<th scope="row">南山前海相关片区</th>
+<td>2023 年部分项目接近参考价成交；诺德假日花园 2025 年案例继续下调</td>
+<td>前海概念之下，不同小区和面积段的价格表现仍有差异</td>
+</tr>
+<tr>
+<th scope="row">西丽</th>
+<td>深铁阅山境在 2025 年出现回落案例</td>
+<td>次新项目也面临重新定价，不能把单个项目外推为整个西丽</td>
+</tr>
+<tr>
+<th scope="row">蛇口、深圳湾高端新房</th>
+<td>2026 年 7 月高价项目集中成交；蛇口在早期调整中也曾出现明显降幅</td>
+<td>最新新房热度与旧房历史变化同时存在，应分别解释</td>
+</tr>
+<tr>
+<th scope="row">南头、南油普通存量房</th>
+<td>南油有 2021—2022 年片区回调证据；缺少两地覆盖至 2026 年的可比成交序列</td>
+<td>暂不提供最新统一均价和累计跌幅</td>
+</tr>
+</tbody>
+</table></div>
+<p>表中历史证据对应前文的财经报道、机构报告和小区样本。对片区差异的解释属于分析推论；本次没有生成片区涨跌排行榜。物业维护、户型、楼龄、噪音和同类挂牌竞争，都会让同一个片区内的价格变化拉开距离。</p>
+<h3 id="section-21">南山的经济与住房需求背景</h3>
+<p>南山区统计局公布，2026 年上半年 GDP 为 5,445.43 亿元，实际同比增长 5.9%；第二产业增长 7.0%，第三产业增长 5.6%。本地经济仍在扩张，服务业占比较高，但企业增加值无法直接替代购房家庭的收入、奖金或现金资产。<sup><a aria-label="来源 36：南山区 2026 年上半年经济运行情况" href="#src-36" title="南山区 2026 年上半年经济运行情况">[36]</a></sup></p>
+<p>住房供给也没有停止。南山统计年鉴 2025 的表 8-4 列示，2020—2024 年商品住宅销售面积分别为 79.78、92.25、81.10、92.25、98.84 万㎡；2024 年住宅施工面积为 844.09 万㎡。这是房地产开发统计口径，销售面积与施工面积用途不同，后者包括已售及未售、不同进度项目，不能当成当期待售库存。<sup><a aria-label="来源 37：南山统计年鉴 2025，表 8-4" href="#src-37" title="南山统计年鉴 2025，表 8-4">[37]</a></sup></p>
+<p>这组数据至少说明，南山存在持续开发与销售活动。“成熟城区”并不自动意味着某个小区未来两年没有新增竞争。项目交付既会增加入住，也会让部分房源进入出租和转售市场；究竟增加多少，需要逐项目确认。</p>
+<p>本次没有核验到南山最新潜在购房家庭的收入分布、净迁入家庭数和资产负债数据，因此只能确认城市需求背景仍有支撑，无法将人口增量折算为南山新增购房套数。</p>
+<h3 id="section-22">南山未来两年的判断</h3>
+<p>对 2026 年 9 月至 2028 年 9 月，我倾向于“分化中的缓慢修复”，这是一项有条件的方向判断。南山的产业和成熟配套有助于维持居住需求，已有小区回稳与高端新房成交的证据；但近期案例也表明，部分房源的价格调整可以晚于全市交易回暖。</p>
+<p>南山二手住宅能否整体上涨，取决于新增购买力能否承接存量房和后续交付房源。靠近稳定就业、居住品质较好、同类竞争较少的房源更有条件稳定；同类供应较多、原有溢价较高的次新房，以及居住品质落后的老房，仍有价格压力。这是基于供需关系的推论，尚未由覆盖全区的小区样本验证。</p>
+<p>南山新房公布均价继续上升，与普通二手房继续调整，是可以同时出现的路径。高端项目卖得较好，首先说明对应产品和买家群体的需求；把这一表现扩展为整个南山恢复到上一轮高位，还缺少证据。</p>
+<p>现有资料不足以计算南山从 2021 年高点至今的统一跌幅，也不足以设定未来两年可信的全区涨跌区间。原深圳报告的数值情景未经过历史校准，本次不将其移用为南山预测。对具体方向的把握低于对“不同小区会继续分化”这一判断的把握。</p>
+<h2 id="section-23">深圳未来两年的情景判断</h2>
+<p>未来两年的条件情景如下。以 2026 年 9 月可比二手商品住宅成交价格为 100，虽然当月完整官方指数尚未发布，这个 100 只是预测起点的标准化表示。</p>
+<div aria-label="深圳未来两年的情景判断 · 数据" class="tbl" role="region" tabindex="0"><table><caption>深圳未来两年的情景判断 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">情景</th>
+<th scope="col">2028 年 9 月价格水平</th>
+<th scope="col">两年累计变化</th>
+<th scope="col">需要满足的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">缓慢修复假设</th>
+<td>95—108</td>
+<td>-5% 至 +8%</td>
+<td>深圳收入温和增长、人口继续增加、政策落实、供应逐步消化，外部没有重大恶化</td>
+</tr>
+<tr>
+<th scope="row">上行情景</th>
+<td>110—120</td>
+<td>+10% 至 +20%</td>
+<td>科技收入和财富效应扩大，租金持续上涨，家庭信贷回升，可比库存明显下降</td>
+</tr>
+<tr>
+<th scope="row">下行情景</th>
+<td>75—85</td>
+<td>-25% 至 -15%</td>
+<td>外需或科技行业受冲击，就业收入走弱，挂牌及迫售增加，需求恢复不足</td>
+</tr>
+</tbody>
+</table></div>
+<p>8 月指数把当前位置放在“缓慢修复假设”的下半段：深圳环比连涨六个月但只剩 +0.1%，全国 70 城中 62 城下跌。上行情景需要环比重新回到 +0.3% 以上并有更多城市跟进；下行情景的第一个信号是深圳环比转负、上涨城市数归零。具体触发条件见第 29 节。</p>
+<p>这些数值仅用于比较不同条件下的价格情景，尚无足够证据确定哪一种最可能，也不构成完整概率分布。-5% 至 +8% 的上下界没有经过历史校准，应避免将其当成可接受买入价、风险上限或投资收益承诺。现有证据不足以给出可辩护的概率加权预期涨幅。</p>
+<h3 id="section-24">恢复节奏</h3>
+<p>在缓慢修复假设下，未来 6—12 个月仍可能出现政策和供应节奏带来的月度反复。3—8 月环比从 0.4% 缩到 0.1%，说明第一轮修复的动能已接近用完，下一轮要靠新的政策或收入条件；12—24 个月能否持续恢复，需要购买力、可比价格、实际租金和库存共同验证。这是条件路径，尚不能确定市场转折月份，也不能假定第二年自动转涨。</p>
+<h3 id="section-25">不同房源的表现</h3>
+<div aria-label="不同房源的表现 · 数据" class="tbl" role="region" tabindex="0"><table><caption>不同房源的表现 · 数据</caption>
+<thead>
+<tr>
+<th scope="col">房源特征</th>
+<th scope="col">缓慢修复假设下的相对表现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">靠近稳定、高收入就业，交通和生活配套成熟，同类供应有限</th>
+<td>较有条件率先稳定和上涨；南山、福田和宝安中心部分项目可按这些条件筛选</td>
+</tr>
+<tr>
+<th scope="row">通勤可接受、总价可负担、已有居住需求支撑的普通住宅</th>
+<td>更接近全市缓慢修复路径</td>
+</tr>
+<tr>
+<th scope="row">同类供应较多、兑现配套较远、楼龄及物业管理竞争力弱</th>
+<td>降价和出售周期压力更大，即使全市指数转正也可能继续下跌</td>
+</tr>
+<tr>
+<th scope="row">改善型新房</th>
+<td>产品和成交结构可能支撑公布均价，但需核对折扣、赠送面积及交付后的二手竞争力</td>
+</tr>
+</tbody>
+</table></div>
+<p>以上是房源特征的推论，不是行政区涨幅排行榜。南山的高买入价和大量同类供应也会造成亏损，外围有稳定就业、成熟配套和合理价格的房源也能表现较好。南山专题中的案例未经逐套品质调整，不能据此给单套房可靠估价。</p><h2 id="sources">方法与来源</h2><p>研究更新：2026 年 9 月 16 日（9 月 15 日版本基础上补入 8 月 70 城二手住宅价格指数及 3—8 月序列）。本文分析中国、美国与全球宏观背景，以及深圳全市经济、人口、交易、供应、政策和未来两年价格情景；南山作为重点区域，进一步展开 2021—2026 年历史、片区差异与小区成交。宏观和深圳全市数据截点为 2026 年 9 月 14 日，南山历史资料补查至 9 月 15 日。</p><p>价格判断以普通商品住宅二手房的可比成交为主，采用人民币名义价格；新房、机构样本与媒体案例分别说明。尚未取得覆盖深圳全市及南山的长期同质小区成交序列，数值情景未经过模型回测；对市场分化的把握高于对具体涨跌幅和转折月份的把握。</p><p>深圳官方价格指数使用已查证的 2026 年 8 月值，并回溯 3—8 月逐月环比与同比；交易数据到 8 月，人口总量到 2025 年末。70 城指数的中位数、区间计数和六个月累计值按公布数字复算，未取得逐月原始明细。南山最新新房观察到 2026 年 7 月；小区前后成交通常为不同房源，未完全控制楼层、朝向和装修。商务公寓、商铺、办公楼和小产权房不在住宅预测范围内；引用机构包含公寓的统计时另作说明。</p><p>历史资料优先采用官方统计、机构原始报告和财经记者报道；媒体引用的平台成交单列为案例，不视作已核验的逐套网签。小区价格差按公开数值复算，未调整通胀、楼层、朝向和装修。市场描述与未来推论在正文中分别标明。</p><ol class="sources"><li id="src-1"><a href="https://www.stats.gov.cn/sj/xwfbh/fbhwd/202607/t20260715_1964121.html" target="_blank" rel="noopener">国家统计局上半年经济数据</a></li><li id="src-2"><a href="https://www.stats.gov.cn/sj/zxfb/202608/t20260817_1965056.html" target="_blank" rel="noopener">1—7 月经济数据</a></li><li id="src-3"><a href="https://www.stats.gov.cn/zwfwck/sjfb/202608/t20260817_1965053.html" target="_blank" rel="noopener">房地产数据</a></li><li id="src-4"><a href="https://www.stats.gov.cn/sj/zxfb/202608/t20260831_1965154.html" target="_blank" rel="noopener">8 月 PMI</a></li><li id="src-5"><a href="https://www.stats.gov.cn/sj/sjjd/202609/t20260909_1965261.html" target="_blank" rel="noopener">8 月价格解读</a></li><li id="src-6"><a href="https://jrj.sh.gov.cn/SCGK194/20260817/2918b201c7c94119b337ab099c4363ae.html" target="_blank" rel="noopener">央行 7 月金融数据，上海市委金融办转载</a></li><li id="src-7"><a href="https://www.chinamoney.com.cn/chinese/rdgz/20260820/3399885.html" target="_blank" rel="noopener">中国货币网 LPR 公告</a></li><li id="src-8"><a href="https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026" target="_blank" rel="noopener">IMF 2026 年 7 月经济展望</a></li><li id="src-9"><a href="https://www.bea.gov/news/2026/gdp-second-estimate-and-corporate-profits-2nd-quarter-2026" target="_blank" rel="noopener">BEA 二季度第二次估计</a></li><li id="src-10"><a href="https://www.bls.gov/news.release/empsit.htm" target="_blank" rel="noopener">BLS 8 月就业</a></li><li id="src-11"><a href="https://www.bls.gov/news.release/archives/cpi_09112026.htm" target="_blank" rel="noopener">BLS 8 月 CPI</a></li><li id="src-12"><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm" target="_blank" rel="noopener">美联储 7 月声明</a></li><li id="src-13"><a href="https://www.sz.gov.cn/cn/xxgk/zfxxgj/tjsj/tjfx/content/post_12907732.html" target="_blank" rel="noopener">深圳上半年经济数据</a></li><li id="src-14"><a href="https://www.sz.gov.cn/cn/xxgk/zfxxgj/tjsj/tjfx/content/post_12948838.html" target="_blank" rel="noopener">深圳 1—7 月经济数据</a></li><li id="src-15"><a href="https://finance.eastmoney.com/a/202607233819399821.html" target="_blank" rel="noopener">深圳商报引用深圳调查队收入数据</a></li><li id="src-16"><a href="https://www.sz.gov.cn/cn/xxgk/zfxxgj/tjsj/tjgb/content/post_12805133.html" target="_blank" rel="noopener">深圳 2025 年统计公报</a></li><li id="src-17"><a href="https://www.stats.gov.cn/sj/sjjd/202601/t20260119_1962338.html" target="_blank" rel="noopener">国家统计局人口解读</a></li><li id="src-18"><a href="https://www.stats.gov.cn/xxgk/jd/sjjd2020/202608/t20260817_1965046.html" target="_blank" rel="noopener">国家统计局 7 月房价解读</a></li><li id="src-19"><a href="https://zjj.sz.gov.cn/xxgk/gzdt/content/post_12967052.html" target="_blank" rel="noopener">深圳住建局转载 8 月市场报道</a></li><li id="src-20"><a href="https://www.stats.gov.cn/sj/sjjd/202607/t20260715_1964114.html" target="_blank" rel="noopener">国家统计局 6 月房价解读</a></li><li id="src-21"><a href="https://m.thepaper.cn/newsDetail_forward_34001864" target="_blank" rel="noopener">澎湃 8 月交易报道</a></li><li id="src-22"><a href="https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202607/t20260715_1964115.html" target="_blank" rel="noopener">国家统计局房价统计说明，附注调查方法</a></li><li id="src-23"><a href="https://www.sz.gov.cn/cn/xxgk/zfxxgj/zwdt/content/post_12784360.html" target="_blank" rel="noopener">深圳年度住房计划说明</a></li><li id="src-24"><a href="https://bbs.szhome.com/500-500090-article-394024.html" target="_blank" rel="noopener">克而瑞深圳月报转载</a></li><li id="src-25"><a href="https://pnr.sz.gov.cn/xxgk/ghjh/content/post_12661747.html" target="_blank" rel="noopener">深圳 2026 年建设用地供应计划</a></li><li id="src-26"><a href="https://www.sz.gov.cn/cn/xxgk/zfxxgj/bmdt/content/post_12760206.html" target="_blank" rel="noopener">深圳 4 月政策</a></li><li id="src-27"><a href="https://jrjg.ln.gov.cn/lnsdfjrjddlj/ywzq/yxybx/2026090115130980148/index.shtml" target="_blank" rel="noopener">央行政策问答，辽宁金融部门转载</a></li><li id="src-28"><a href="https://www.leju.com/news/2026-09-03/09317501088582325810186.shtml" target="_blank" rel="noopener">8 月 15 城市场观察</a></li><li id="src-29"><a href="https://www.yicai.com/news/101585038.html" target="_blank" rel="noopener">第一财经 2022 年 11 月 5 日报道</a></li><li id="src-30"><a href="https://static.cmfchina.com/fundarticle/20250926/20018640492623.pdf#page=191" target="_blank" rel="noopener">招商基金招募说明书，第 191—192 页</a></li><li id="src-31"><a href="https://www.leyoujia.com/zx/detail/97257.html" target="_blank" rel="noopener">乐有家 2023 年 6 月报告</a></li><li id="src-32"><a href="https://finance.sina.com.cn/jjxw/2025-01-11/doc-ineepqvm5672322.shtml" target="_blank" rel="noopener">中国经营报 2025 年 1 月报道，新浪转载</a></li><li id="src-33"><a href="https://www.21jingji.com/article/20260120/herald/5d152ab030767346b425ade139be56a2.html" target="_blank" rel="noopener">时代财经年度市场报道，21 经济网刊载</a></li><li id="src-34"><a href="https://toutiao.szhome.com/detail/392925.html?xg=1" target="_blank" rel="noopener">深圳房地产信息网，2025 年小区成交回顾</a></li><li id="src-35"><a href="https://www.haofangdp.com/fjdpbj/newslist/reviewconsultation?itemId=7493116105461527953" target="_blank" rel="noopener">克而瑞 2026 年 7 月报告，第 2.3、2.6 节</a></li><li id="src-36"><a href="https://www.szns.gov.cn/xxgk/qzfxxgkml/tjxx/tjfx/content/post_12909481.html" target="_blank" rel="noopener">南山区 2026 年上半年经济运行情况</a></li><li id="src-37"><a href="https://www.szns.gov.cn/szsnsqrmzfbgswzgkml/szsnsqrmzfbgswzgkml/sjfb/tjnb/content/post_12764785.html" target="_blank" rel="noopener">南山统计年鉴 2025，表 8-4</a></li><li id="src-38"><a href="https://www.stats.gov.cn/sj/sjjd/202609/t20260915_1965303.html" target="_blank" rel="noopener">国家统计局 8 月房价解读</a></li><li id="src-39"><a href="https://r.slax.com/b/d720c914-de82-4b93-8093-e5ae42a21b75" target="_blank" rel="noopener">8 月 70 城二手住宅价格指数表，公众号“坏消息真多”2026 年 9 月 15 日转载，Slax Reader 存档</a></li><li id="src-40"><a href="https://www.stats.gov.cn/sj/sjjd/202604/t20260416_1963319.html" target="_blank" rel="noopener">国家统计局 3 月房价解读</a></li><li id="src-41"><a href="https://www.stats.gov.cn/sj/sjjd/202605/t20260518_1963721.html" target="_blank" rel="noopener">国家统计局 4 月房价解读</a></li><li id="src-42"><a href="https://www.stats.gov.cn/sj/zxfbhjd/202606/t20260616_1963945.html" target="_blank" rel="noopener">国家统计局 5 月房价解读</a></li><li id="src-43"><a href="https://www.21jingji.com/article/20260915/herald/3598ab5271acc372f89b42aaac45a9d6.html" target="_blank" rel="noopener">21 经济网 8 月 70 城报道</a></li></ol>
+<footer>2026-09-16 修订：新增第 26—29 节，补入国家统计局 8 月 70 城二手住宅价格指数及 3—8 月序列，更新深圳指数表、走势判断、情景判断和证据状态；来源 38—43。<br>2026-09-15 修订：恢复深圳全市分析，保留南山历史与片区详析；观察规则和购房决策已删除，正文、目录及来源同步更新。<br><a href="/reading/">返回整理</a></footer>
+</main></div><script>
+(() => {
+ const root=document.documentElement;
+ const select=document.querySelector('#theme');
+ try {const saved=localStorage.getItem('shenzhen-report-theme');if(saved==='light'||saved==='dark'){root.dataset.theme=saved;select.value=saved;}}catch(e){}
+ select.addEventListener('change',()=>{if(select.value==='system')delete root.dataset.theme;else root.dataset.theme=select.value;try{localStorage.setItem('shenzhen-report-theme',select.value);}catch(e){}});
+ document.querySelector('#print').addEventListener('click',()=>window.print());
+ const details=document.querySelector('.outline details');
+ const mq=matchMedia('(max-width:900px)');const fold=()=>details.open=!mq.matches;fold();mq.addEventListener('change',fold);
+ document.querySelectorAll('.outline a').forEach(a=>a.addEventListener('click',()=>{if(mq.matches)details.open=false;}));
+ if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){document.querySelectorAll('.outline a').forEach(a=>{const on=a.getAttribute('href')==='#'+entry.target.id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'0px 0px -70% 0px'});document.querySelectorAll('h2[id],h3[id]').forEach(h=>observer.observe(h));}
+})();
+</script></body></html>

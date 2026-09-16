@@ -2,6 +2,7 @@
 
 ## 2026-09-16
 
+- 新增资料页《深圳房价走势与南山详析》，`static/reading/shenzhen-housing-outlook/index.html`。深圳全市宏观背景、人口、房价交易、住房供应与两年情景，附南山近年价格、片区及小区详析。
 - 新增资料页《托比·吕特克：多数公司把 AI 用错了》，`static/reading/tobi-lutke-ai-judgment-2026-09/index.html`。The Knowledge Project 访谈中文问答整理；加入 Reading 索引、canonical、分享元信息与返回整理链接。
 - 顶部导航顺序改为 日志、整理、笔记、创业笔记、精选、归档、标签、关于。
 - 栏目页的大标题和导航重名，页面顶部会看到两个同名的词。日志、整理、笔记、创业笔记、精选、归档、标签七个页面的 `<h1>` 改为视觉隐藏（标题仍在 DOM 里，留给搜索引擎和读屏软件），导航到第一行内容的间距统一为 30px，和文章页相同。当前所在栏目在导航里加下划线。新增 `layouts/partials/menu.html`、`layouts/partials/mobile-menu.html`、`layouts/_default/terms.html` 覆盖主题模板，样式写在 `static/style.css`。2026-09-11 那条单独收紧 `/reading/` 标题间距的改动，被这次的统一规则取代。
