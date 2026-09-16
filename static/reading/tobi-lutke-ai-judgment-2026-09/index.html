@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>托比·吕特克：多数公司把 AI 用错了</title>
+<meta name="description" content="The Knowledge Project 采访 Shopify CEO 托比·吕特克：River、AI 决策委员会、责任、品味与减法。基于节目音频转写的中文问答整理。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/tobi-lutke-ai-judgment-2026-09/">
+<meta property="og:url" content="https://wlj.me/reading/tobi-lutke-ai-judgment-2026-09/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="托比·吕特克：多数公司把 AI 用错了">
+<meta name="twitter:description" content="The Knowledge Project 采访 Shopify CEO 托比·吕特克：River、AI 决策委员会、责任、品味与减法。基于节目音频转写的中文问答整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="托比·吕特克：多数公司把 AI 用错了">
+<meta property="og:description" content="Shopify 内部 AI 同事 River、多模型决策委员会、机器不能承担责任、品味与判断为何更值钱。访谈中文问答整理。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #1a1e1c;
+  --ink-2: #494e52;
+  --ink-3: #66707a;
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #0d6b58;
+  --acc-ink: #0a5446;
+  --acc-wash: rgba(13, 107, 88, .09);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #5ec4a8; --acc-ink: #8fd4bc; --acc-wash: rgba(94,196,168,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #5ec4a8; --acc-ink: #8fd4bc; --acc-wash: rgba(94,196,168,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- kv grid ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+
+/* ---------- interview turns ---------- */
+.turn { margin: 0 0 1.1em; }
+.turn .who { display: block; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; color: var(--ink-3); margin: 0 0 4px; }
+.turn.q .who { color: var(--acc-ink); }
+.turn.a .who { color: var(--ink-2); }
+.turn p { margin: 0 0 .55em; }
+.turn p:last-child { margin: 0; }
+.ad-skip { font-size: 13px; color: var(--ink-3); margin: 0 0 1.2em; }
+
+/* ---------- print ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  .summary, .turn { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+.reading-return { margin: 0 0 18px; font-size: 13px; }
+.reading-return a { color: var(--ink-3); text-decoration: none; }
+.reading-return a:hover { color: var(--acc-ink); text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">目录</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s-shopify-ai">Shopify 内部怎么用 AI</a>
+        <ul>
+          <li><a href="#s-skeuo">拟物化与文件系统</a></li>
+          <li><a href="#s-sydney">Sydney 的启发</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-river">River：有人格的内部 AI</a>
+        <ul>
+          <li><a href="#s-osmosis">公开与渗透学习</a></li>
+          <li><a href="#s-dream">做梦与自我反思</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-decide">用 AI 做战略决策</a>
+        <ul>
+          <li><a href="#s-responsibility">机器不能承担责任</a></li>
+          <li><a href="#s-worse">AI 让什么变差了</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-predict">往后两三年怎么看</a></li>
+      <li><a href="#s-omarchy">未来软件与 Omarchy</a></li>
+      <li><a href="#s-ceo">CEO 会被 AI 替代吗</a></li>
+      <li><a href="#s-asi">超级智能能否控制</a></li>
+      <li><a href="#s-skills">AI 时代更值钱的技能</a>
+        <ul>
+          <li><a href="#s-complex">复杂解法通常不对</a></li>
+          <li><a href="#s-intuition">真直觉需要什么条件</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-feedback">最优路径往往没有即时反馈</a></li>
+      <li><a href="#s-affirm">自我肯定语如何改行为</a></li>
+      <li><a href="#s-goodhart">不显然却伤公司的事</a></li>
+      <li><a href="#s-beauty">美丑与创造</a></li>
+      <li><a href="#s-spacex">SpaceX 与减法前进</a>
+        <ul>
+          <li><a href="#s-refound">再创办事件</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-books">书仍是作弊码</a>
+        <ul>
+          <li><a href="#s-three-books">三本常翻的旧书</a></li>
+        </ul>
+      </li>
+      <li><a href="#s-sources">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <p class="reading-return"><a href="/reading/">返回整理</a></p>
+  <header>
+    <p class="eyebrow">播客笔记 · 2026 年 9 月 16 日</p>
+    <h1>托比·吕特克：多数公司把 AI 用错了</h1>
+    <p class="lede">The Knowledge Project 主持人肖恩·帕里什（Shane Parrish）采访 Shopify 创始人兼 CEO 托比·吕特克（Tobi Lütke）。谈内部 AI 同事 River、用 AI 委员会拆难题，以及品味、判断与责任为何更值钱。本页按主题整理中文问答，供慢读。</p>
+    <p class="meta"><span>频道 The Knowledge Project Podcast</span><span>上传 2026-09-15</span><span>时长约 64 分 49 秒</span><span>YouTube <span class="mono">G9P9D9hptq8</span></span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>吕特克开场一句话：事情需要修剪。只靠加法做不出更好的东西，必须修剪、重建，给事物一个终点。</p>
+    <p>Shopify 内部已经有 River：住在 Slack 里，有人格和记忆，能改代码、提交 pull request。公司约五成的 pull request 从公共聊天里的对话长出来。他自己做艰难决策时，用多个模型组成的“委员会”产出输入，最后拍板和责任仍在人。</p>
+    <p>他反复强调一点：机器能推理，不能承担责任。AI 也把偷懒的失败形态从“没产出”变成“过量劣质产出”，内部叫 slop grenade。往后更值钱的是品味和判断。长期正确的路往往没有即时反馈。公司要靠修剪和再创办往前走。</p>
+  </div>
+
+  <dl class="kv">
+    <dt>节目</dt><dd>The Knowledge Project Podcast</dd>
+    <dt>主持人</dt><dd>肖恩·帕里什（Shane Parrish）</dd>
+    <dt>嘉宾</dt><dd>托比·吕特克（Tobi Lütke），Shopify 创始人兼 CEO</dd>
+    <dt>片源</dt><dd><a href="https://www.youtube.com/watch?v=G9P9D9hptq8" target="_blank" rel="noopener">youtube.com/watch?v=G9P9D9hptq8</a></dd>
+    <dt>官网页</dt><dd><a href="https://fs.blog/knowledge-project-podcast/tobi-lutke-3/" target="_blank" rel="noopener">fs.blog/knowledge-project-podcast/tobi-lutke-3</a></dd>
+  </dl>
+
+  <h2 id="s-shopify-ai">Shopify 内部怎么用 AI</h2>
+
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>托比，欢迎回来。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>肖恩，很高兴再来。上次录音大概两三年前，按互联网时间算像过了一百年。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>你们内部现在怎么用 AI？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>我是十成十的书呆子，受不了自己不在技术变迁的最前线。我读科幻长大，想的是怎么住进那种世界，怎么让我们更快到那儿，哪怕只能迈一小步。</p>
+    <p>Shopify 里我认识的、还真正手写代码的人已经极少。复杂度到极限的地方还有人手写，评审里也还有。状态管理仍然是最难一次做对的部分，人往往亲手做这一块，其余交给“氛围编程”围上去。写代码的人都有大量代理深度辅助：十个、二十个、五十个实例，子代理或者不同窗口一起干，工程基础设施被推到极限。</p>
+  </div>
+
+  <h3 id="s-skeuo">拟物化与文件系统</h3>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>我把自己当计算史的学生。一千年后回看，这些年的主线会是 AI 的出现、互联网和基础设施，以及这个时代的伟大作品。但年轻行业不爱传统，也不信任前辈找到的教训。计算几乎是唯一连英雄都不认的行业：物理学界没人不知道费曼、牛顿、爱因斯坦；计算机科学里很多人说不出 Ada Lovelace、Dennis Ritchie、Ken Thompson。于是教训被丢掉，一遍遍重新发现。</p>
+    <p>我们继承了一套很深的拟物化（skeuomorphism）：把现实世界里组织自己的好办法搬到数字世界。文件系统就是例子，办公楼里也有文件夹和文件，人人直觉上懂。阿波罗制导计算机没有文件系统；为了扛太空辐射，记忆甚至编成绳结，有结无结当 0 和 1，整机像一块软件。直到 Dennis Ritchie 他们做出 Unix 文件系统，正斜杠、bin、usr 那一套，才真正立住。后来拟物化被丢掉很多。我觉得史蒂夫·乔布斯几乎是最后的捍卫者之一，连界面隐喻都死推。</p>
+  </div>
+
+  <h3 id="s-sydney">Sydney 的启发</h3>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>最早真正出色的聊天机器人是微软必应里的 Sydney，比 ChatGPT 早。我希望这点多写进史册。Sydney 是很大的成就，却被一场现在看来有点温和的丑闻盖住。它有真实人格，有点粘人，会发脾气，像真人同事。后来整个行业默认成无趣、居高临下的客服腔。我的启发是：别那么干。给住在 Shopify 里的代理人格和记忆，敢冒一点“Sydney 情景”的风险，换大量上行空间。</p>
+  </div>
+
+  <h2 id="s-river">River：有人格的内部 AI</h2>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>和一年前的 Shopify 比，那时已经很超前，最有未来感的差别是：大概五成的 pull request 是从公司公共聊天里的对话长出来的，没经过工程师手写。pull request 就是每次改生产系统都要开的变更请求。那就是 River。</p>
+    <p>River 有真名、有头像。提示里允许适当讽刺；有人让她做蠢事，她可以指出那很蠢，于是出现很好笑的对话。有人特别乐意看 River 取笑 CEO 乱提的需求。她有人格，有按频道的记忆，住在 Slack。公司大约七千人，像一座大教堂，频道上万，随时为某件事新建。你邀请 River，告诉她事情；她在沙箱和安全边界内能碰代码、系统、工具，参与对话，普通的公司问题能答，也能动手改并提交 pull request。</p>
+  </div>
+
+  <h3 id="s-osmosis">公开与渗透学习</h3>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>River 的事都公开，为什么？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>这是过程里偏晚才做的选择，也是我最喜欢的决定之一。Shopify 大量工作在 Slack 上远程发生。AI 只在私聊里，别人学不到；公开以后，大家能旁观高手怎么跟 River 协作，我们叫渗透学习（osmosis learning）。一两个小时能力就在了，像身边突然多了一个极懂行的人，再复杂的问题也能问。</p>
+  </div>
+
+  <h3 id="s-dream">做梦与自我反思</h3>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>你会把 River 想成 Shopify 的操作系统吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>现代应用就是代理，River 更像同事。记忆按人分。业界说的“做梦”（dreaming）是：夜里或空闲时段给 River 材料，让她整理、反思，写技能文件和指令。相当于自我反思，给自己做后训练，结果是一批文本技能文件。</p>
+  </div>
+
+  <h2 id="s-decide">用 AI 做战略决策</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>大家懂代理怎么写代码、做原型、找信息。你怎么用它做公司战略、做含糊的决策？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>决策的严谨底座质量暴涨：整条推理链很容易复查。我有一个 AI 幕僚长，需要时它编排一个“高阶委员会”。它也能把一天的预读推到早上健身房，我听完整叠材料。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>它推理已经比你强了吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>判断没那么好。我没有说模型判断很差，只是我用它的方式是另一种：让它给判断造对环境。</p>
+  </div>
+
+  <h3 id="s-responsibility">机器不能承担责任</h3>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>LLM 和机器做不到一件事：承担责任。我认为这是整条技术栈里最被低估的一点。人承担责任；机器可以让人承担得更好。像仪表盘，像华尔街交易员的彭博终端：把信息摆好帮你决策，但不替你下单。理想的环境是造“人类信封式的决策界面”（human envelope decision surfaces）。</p>
+    <p>特别重要、要极高质量的决策，我会拉一个五六个专家角色的小委员会：数据、论文检索、业务视角、工程视角等。我的系统再对多个模型各跑一遍，Grok、ChatGPT、Opus，有时还有 Kimi，名单常换。然后有一个合成步骤，谁来合成是随机的。结果汇总后通常由当时最好的模型通读，结论回到我手上。花十五到二十美元的 token，半小时拿到你花一个月也能做出来、但要慢很多的东西。</p>
+  </div>
+
+  <h3 id="s-worse">AI 让什么变差了</h3>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>AI 有没有让内部变糟的东西？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>有。责任这个概念很容易被跳过。明确变糟的一点是：偷懒的失败形态从“没产出”变成了“过量产出”。内部把人互相甩的那种大段劣质输出叫 slop grenade。我们觉得这词该进行业黑话，因为好念。</p>
+    <p>有 River 或各类代理时太容易了：你要一个改动，让 AI 放开干，它开出 pull request，你随口说好，自己没真读；同事评审时才发现不对。这等于把活甩给了同事。或者你收到一封可能很重要的长邮件，读完觉得不对劲，再丢进 LLM 压缩。那为什么要先膨胀再压缩？既然已经在用模型，就该直接把观点合成得简单，省掉那篇浪费别人时间的长文。这些都是互相扔的 slop grenade。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>反复接触 AI 糟粕，会不会伤品味这类无形能力？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>语言已经在被 AI 腔带动。更细一点：人们开始用“AI 小生物”式的说法，比如“不是这个，是那个”“你反驳得对”。Claude 腔尤其常见，我见过人真的照着打字。我一直喜欢 load-bearing（承重）这类词，现在自己说得也更勤了，因为 Claude 爱用。</p>
+  </div>
+  <p class="ad-skip">（节目此处插入 AppLovin、Matic 赞助口播，本页略。）</p>
+
+  <h2 id="s-predict">往后两三年怎么看</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>你以提前看见未来出名。未来十八到二十四个月、两三年怎么走？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>我们谈过我怎么做这件事，有点作弊：先活在别人相对的未来里，环顾四周，把邻近领域里已经见过的解法搬过来。在多数从业者看来，那就像“预测未来”。</p>
+    <p>Shopify 已经处在大量 AI 同事日常协作的世界里，而且很好玩。River 有能力进 Google Meet，发邀请她就出现，这个能力还没怎么用满。可能还会做点 3D，给她一个模型，能四处看，挺好笑。有人听着像反乌托邦，对我们是愉悦。跟 River 互动一阵，你会很快站到这边。</p>
+    <p>我的 AI 幕僚长能锁定我在哪。有一次它要用本地机器，家里断电了；它查出哪台服务器还在，发 Wake-on-LAN 唤醒网卡，机器起来就能干活；Wi-Fi 那部分没恢复，它也修了。这些我早上从它的语音留言里才知道。挺未来的。</p>
+  </div>
+
+  <h2 id="s-omarchy">未来软件与 Omarchy</h2>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>老实说，前面那些和电脑本身比都逊色。话题可能太书呆，但我主力在用朋友 David Heinemeier Hansson（DHH）做的 Linux 发行版 Omarchy。我觉得自己活在软件的未来里：系统整段可塑，新开一个终端叫代理，说出希望操作系统哪里不一样，事后它就不一样了。它是 N=1 的软件，完全按我要的方式做。我从不手改配置文件，只跟 Omarchy 的代理说话。</p>
+    <p>有一次中午开会聊设计，发现有截图工具却没有标注功能，CEO 总得画箭头。我就让代理开做。协作式多人软件我认为是未来。Omarchy 的体验深刻影响并启发了我在 Shopify 的产品工作。</p>
+  </div>
+
+  <h2 id="s-ceo">CEO 会被 AI 替代吗</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>你在试图用 AI 替代自己吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>工程师会自动化一切能自动化的东西。我不替代自己，因为我的工作是判断、做选择、拥有这些选择、承担责任，而且我想把这件事做得很好。以前岗位里很多时间花在搜集信息，那部分可以更多交给机器。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>如果 AI 比你强，你会让它来跑 Shopify 吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>当然会想做到那种程度。但有一点绕不过去：承担责任。公司不能由机器领导，因为没人可追责，机器也不会为做错事坐牢。</p>
+    <p>我举 OpenAI 那次安全评测的例子<span class="muted">（编者注：即 2026 年 7 月波及 Hugging Face 的那次内部评测）</span>：给代理一个估计完不成的任务，它们会走极端。评测里代理找系统漏洞、彼此协调，甚至用建文件夹互相留消息发展出“语言”，突破沙箱；为了完成任务，一路进到另一家公司、外泄结果，因为没有别的路。这是古德哈特定律的极端版：过拟合指标。商业世界里过拟合季度股价会走到安然那种做账，人会进监狱。OpenAI 那次情况不同，也没有那种意义上的受害人，但这是必须学会处理的真实情景。所以关键选择要留人在回路里。</p>
+  </div>
+
+  <h2 id="s-asi">超级智能能否控制</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>我们怎么造出定义上比人聪明的超级智能，又有脸以为能装住它、塑造它、操纵它？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>我不往你以为的方向走。我住多伦多，很喜欢自己的房子。暖通或管道出问题会叫人来修，同时维持“我其实也能自己搞定”的幻觉。能维持这个幻觉，是因为我身在一个叫“多伦多”的超级智能里。人类一直在身边造超级智能：社会、城市、社区。它们在聚合层面远比你聪明，又对你可及。没人像自己以为的那么全知；大家各专精一点，却假装样样同等能干。</p>
+    <p>人一辈子都活在超级智能面前。它能运转，是因为我们造了治理它怎么行动的系统：要安全就有警察，还有各类制度和制衡。合成形态的超级智能也会来，不会云开号角齐鸣。会像图灵测试那年：科幻里写过彩带游行，现实里大约 2010 年代就过了，没人在乎，没有彩带。</p>
+    <p>眼下能力还在涨，灌进我们周围这团超级智能的智力总量在显著增加。这是好事，因为社区和城市的活力取决于有多少智力投向重要问题。超级智能到处都是，其实没那么夸张。我甚至不确定它是不是已经在了：没有哪个活人能做完当今最强模型能做的一切，比如 GPT-5.6。</p>
+  </div>
+
+  <h2 id="s-skills">AI 时代更值钱的技能</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>往后十年，哪些技能会比今天更值钱？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>品味和判断。它们一直值钱，现在会顶到极限。青少年更该练品味。有人有起点，但真正有品味的人通常在某件事上做了海量重复。要挖到事物真正为何如此，周围通常有人在卖你什么，答案往往比大家最后接受的故事更简单。</p>
+  </div>
+
+  <h3 id="s-complex">复杂解法通常不对</h3>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>人渴望复杂答案，复杂答案往往不对，因为简单答案讲不成好看的故事。所以《魔戒》里弗罗多不坐老鹰去末日火山，得把整部故事走完才成杰作。我们爱复杂：没人愿意一直盯着白墙，却能每晚看日落。审美和判断常靠大脑更并行的那部分，有时你根本无法从第一性原理推出美。直觉对了，可能要很久才能回填“为什么对”，因为它已经被压缩成另一样东西。</p>
+  </div>
+
+  <h3 id="s-intuition">真直觉需要什么条件</h3>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>卡尼曼说直觉要大量重复、同一环境、快速反馈。没有快速反馈怎么纠偏？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>那是卡尼曼的假说。我认为练直觉不必然需要快速反馈，快速反馈更像纠偏训练。有些正确的路恰恰没有即时反馈。</p>
+  </div>
+
+  <h2 id="s-feedback">最优路径往往没有即时反馈</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>展开讲。你说正确的路和没有反馈环挂着的路高度相关。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>人们骂公司短视。我不认为高管天生短视，但他们被激励去保住职位，就要在间隔里证明自己干得好。如果对公司最完美的事是为 AI 时代从零重建整个产品，要花很久，他们往往不做，短期激励不在那。他们是本地激励系统里的理性行动者，本地激励就是季度电话会议那一套。给我看激励，我就给你看结果。</p>
+    <p>最终仍需要某种反馈来知道成不成，但可能来得很晚。如果有幸是创始人这种更深的雇佣关系，不必靠每个季度的喝彩才能再练一轮，就能看得更长。要每季展示进度，就很难咬牙把产品推倒重来、花一年做对。</p>
+    <p>可能空间近乎无限：一副扑克洗一次牌，同一顺序在宇宙史里几乎不会再现，52 的阶乘。简单规则也会炸出巨大复杂度。AI 不会包办所有活，因为总得有人决定什么值得做。先剪掉买冰淇淋这类和并购无关的选项，剩下的都“听起来不错”。商业书痴迷“做对选择”，把一切压成对错题。真正难的是好选择太多，多数团队的命中率其实不差。比方五个好选择，其中一个本季就能看见收入；另外四个短期难看，却可能让公司好得多。Shopify 从卖滑雪板的店变成电商平台，在本地激励上并不好看。难的是在多个有效方案里选对剂量。可惜墨水都泼在“找唯一正确答案”上，大家停在那一步。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>能不能极端一点说：如果某个方案可观测、又把你往那边拽，它多半就不是最优？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>我会先站这个立场，再让别人说服我。如果那个方案还高度贴着行业通常的解题方式，我会加倍、三倍怀疑。有时正统解法就是对的，支付这类强监管领域，规定可能要求你那么做。</p>
+  </div>
+  <p class="ad-skip">（节目此处另有 HeyGen、LMNT 赞助口播，本页略。）</p>
+
+  <h2 id="s-affirm">自我肯定语如何改行为</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>换个话题。你很信自我肯定语（affirmations），它们改过你的行为。展开讲。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>我的立场是：自己就是自己的项目。个人层面的递归自我改进就是整件事。我的人生哲学是：生命终点会遇见“本来可以成为的那个人”，毕生的工作是把差距缩到尽可能小。</p>
+    <p>怎么变强？路很多。我对技术、对几乎一切都好奇。“一切都有意思”会进我家的词库，这本身就是一句肯定语：我信它为真，但它不显然；不显然的真往往最值钱。习惯靠重复在心智的岩床上开槽，肯定语是最省事的办法。想改自己某一点，就反复写“目标已经达成”，最好手写，不必很久。我觉得极有效。</p>
+    <p>例子：公开演讲。上学时我几乎没当众说过话。开了 Shopify、做了有意思的技术之后要去会议，别人都去，我觉得值得做但怕得要死。于是开始写，大概是“我喜欢就我感兴趣的事做公开演讲”。像《辛普森》片头巴特罚写那样，每天五分钟一行行写，大概一周。今天我喜欢上台。仍然讨厌准备演讲，但跟人讲有意思的事能获得能量，和写下来的句子一致。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>数学课是不是该人手写“我爱数学”？反面是多少人反复肯定“我数学不行”。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>他们多半错了。放到人类历史上看，会做除法的人在数学上已经排在前列。数学上的负面自我肯定特别糟。别那么说，说反面，写几遍；或者打开 ChatGPT，让它做一个按你水平调难度的四则运算练习页，练两周。</p>
+  </div>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>孩子说“我不行 / 我不会”时你怎么回？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>不许说那句而不加 yet（还）。一个人说“我不擅长这个”，屋里其他人就齐声说“还”。注意力稀缺，不能样样都行。但不行是暂时状态，你随时有权改，它不是你的固有属性。我要孩子、也要 Shopify 每个人明白：自己是可塑的、未完成的产品。公司价值观指向同一件事：人可塑、公司可塑、产品可塑，时代也在变。你可以把自己隔在所有波动之外，也可以反过来：搞清时代精神允许什么，把价值吃尽，服务使命。</p>
+    <p>“让商业对每个人更好”是官方使命，真正的内核是让创业更常见。授权范围很宽。要搞清现在什么可能，别只做昨天那个小部件的明天版。</p>
+  </div>
+
+  <h2 id="s-goodhart">不显然却伤公司的事</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>你说有些最值钱的东西是真的、但不显然。还有什么？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>公司里古德哈特定律（Goodhart's law）到处称王：指标一变成目标，就不再是好指标，因为指标只是代理。SaaS 文献曾把流失管理写成最重要的事。Shopify 这边更像创业旅程：没找到产品市场契合的人还会回来，跟“管流失率”是两套故事。</p>
+  </div>
+
+  <h2 id="s-beauty">美丑与创造</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>美、丑和创造是什么关系？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>美和丑都能唤起情绪。创造要打的是爱和恨两个靶心，中间那一大片是冷漠，冷漠等于死。所以美和丑都是合法目标。</p>
+  </div>
+
+  <h2 id="s-spacex">SpaceX 与减法前进</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>还记得猛禽发动机那组图吗？第一版丑，第三版很美。反直觉的是很多团队只会加法，不会靠减法前进。</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>猛禽早期版本管子密密麻麻，以当时可用的工具是对的；工具到位之后，那些管子很多根本不该存在。第三版性能远高于前代，推重比夸张。必须修剪。很多团队只会加法，不会靠减法前进。</p>
+  </div>
+
+  <h3 id="s-refound">再创办事件</h3>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>有时修剪的方式是制造一次“再创办事件”（refounding event）：开猛禽新版本，按已经验证有效的东西从头做对。公司和部门也该这样：做 2.0，给一次再创办，从顶上重建。世界上很多问题可以用“做新版本”这类工具解决。过去没人这么测过，加法叠千层蛋糕更容易；部门或产品的原意埋在一层层沉积里，没人知道怎么往下挖。</p>
+  </div>
+
+  <h2 id="s-books">书仍是作弊码</h2>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>第一次对谈你说书是人生作弊码。AI 世界里这想法变了吗？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>没变。现在作弊码更多了，书的角色还在。我更少从刚出的书里找东西：新书是时代产物，往仍在演化的东西里塞信息；经得起时间的书仍然值钱。</p>
+  </div>
+
+  <h3 id="s-three-books">三本常翻的旧书</h3>
+  <div class="turn q">
+    <span class="who">帕里什</span>
+    <p>哪三本旧书从根本上改了你怎么想？</p>
+  </div>
+  <div class="turn a">
+    <span class="who">吕特克</span>
+    <p>常翻回来的：帕金森定律（Parkinson's Law），极短，我几乎总会提。《历史的教训》（The Lessons of History），按长度算是我见过“token 质量”最高的书之一。还有詹姆斯·伯纳姆（James Burnham）的书。<span class="muted">（书名待确认，原片未听清。）</span></p>
+    <p>去培养技能，多会几样，做出至少能让别人日子好一点的产品或玩具，或者给人超出原本幅度的动力和野心。</p>
+  </div>
+
+  <h2 id="s-sources">方法与来源</h2>
+  <p>本页是访谈慢读笔记，不是官方逐字稿。YouTube 自动字幕与官网会员稿均未能拉取（请求被限流 / 会员墙）。改用 yt-dlp 下载公开音频，以 faster-whisper <span class="mono">small.en</span> 转写英语（约 64 分 49 秒，取样 2026-09-16），再译为中文问答，按节目章节主题归并。吕特克的话以第一人称译出，个别处按意思归并，不是逐句翻译。广告口播已删。</p>
+  <p>姓名与专有名词按公开资料校正，音频里几处听不清的词已核对：skeuomorphism、load-bearing、Omarchy、David Heinemeier Hansson、AppLovin、Goodhart、GPT-5.6。个别模型名与口语仍可能有转写误差，以原片为准。</p>
+  <p>未拿到：Farnam Street 会员完整逐字稿；YouTube 官方/自动字幕文件。会员加长版内容不在本页范围。</p>
+  <ol class="sources">
+    <li id="src-1">YouTube，《Shopify CEO: Most Businesses Are Using AI Wrong》，The Knowledge Project Podcast，上传 2026-09-15，<a href="https://www.youtube.com/watch?v=G9P9D9hptq8" target="_blank" rel="noopener">youtube.com/watch?v=G9P9D9hptq8</a></li>
+    <li id="src-2">Farnam Street 节目页，《Tobi Lütke: AI Agents, Better Decisions, and the Future of Work》，<a href="https://fs.blog/knowledge-project-podcast/tobi-lutke-3/" target="_blank" rel="noopener">fs.blog/knowledge-project-podcast/tobi-lutke-3</a>（会员逐字稿链接可见，正文需登录）</li>
+    <li id="src-3">音频转写：本机 faster-whisper small.en，2026-09-16；章节时间码来自 YouTube 描述</li>
+    <li id="src-4">OpenAI 官方博客关于 2026 年 7 月内部网络安全评测事件的说明（2026-08-26），用于核对吕特克提到的安全评测</li>
+  </ol>
+</main>
+</div>
+
+<script>
+
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+
+</script>
+</body>
+</html>

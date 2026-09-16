@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-16
+
+- 新增资料页《托比·吕特克：多数公司把 AI 用错了》，`static/reading/tobi-lutke-ai-judgment-2026-09/index.html`。The Knowledge Project 访谈中文问答整理；加入 Reading 索引、canonical、分享元信息与返回整理链接。
+
 ## 2026-09-15
 
 - 新增资料主题《OpenAI–Hugging Face 事件主题》，`static/reading/openai-huggingface-incident-2026-09/`。主题首页串联六份材料：OpenAI 技术报告中译、METR 调查中译、Black Hat USA 2026 演讲整理、JFrog Artifactory 零日笔记、HF Agent 回放收集、「像人与失控」解读；均含 canonical 与返回链接。
