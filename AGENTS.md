@@ -6,6 +6,8 @@
 
 - 用中文回复 Luca。
 - 不要直接在 `content/posts/` 或 `content/notes/` 手写新内容；发布文章必须走 `publish.sh`，notes 由 social-poster bot 负责。
+- 整理页（`static/reading/<slug>/`）必须走 `./publish.sh reading`，不要手动复制目录、手改 `data/reading-materials.toml` 或手写 CHANGELOG 条目。用法见 `CLAUDE.md`。
+- `publish.sh` 发布前会跑检查器：文章过 luca-writing（`lint_ai_flavor.py`），整理页过 luca-html（`check_html.py`）。没过就改稿，不要绕过脚本。
 - 代码注释和 commit message 用英文；文档、changelog、站点规范用中文。
 - 任何影响站点行为的改动，都要更新 `CHANGELOG.md`。
 

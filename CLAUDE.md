@@ -30,11 +30,32 @@ Hugo 博客，GitHub Pages 托管，Terminal 主题。
 2. 文件内容：第一行 `# 标题`，空一行，正文。不写 frontmatter
 3. 运行 `./publish.sh /tmp/slug-name.md tag1,tag2`
 
-publish.sh 自动处理：date（取当前时间）、slug（取文件名）、frontmatter、git commit、git push。
+publish.sh 自动处理：先跑 luca-writing 的检查器（`~/Github/luca-writing/scripts/lint_ai_flavor.py`），有 warning 就不发；再生成 date（取当前时间）、slug（取文件名）、frontmatter、git commit、git push。
 
 规则：
 - slug 必须是英文 kebab-case，中文 slug 经 URL encode 后会 404
 - tags 必须用英文，优先复用现有标签
+- 检查器没过就改稿，不要绕过脚本手动发布。确认是误报的行，在行尾加 `<!-- lint-disable-line -->`，发布时脚本会把这个标记删掉
+
+## 发布整理页（reading）
+
+整理页是 `static/reading/<slug>/index.html` 下的自包含 HTML，不是 Hugo 页面。必须通过 publish.sh 发布，不要手动复制目录、手动改 `data/reading-materials.toml` 或手写 CHANGELOG 条目：
+
+1. 在 /tmp/ 下建目录，目录名为英文 kebab-case（这就是 slug），里面放 `index.html`（图片、EPUB 等附件一起放在目录里）
+2. HTML 的 head 必须有：`<title>`、手写的 `<meta name="description">`、`<meta name="robots" content="index,follow">`、`<link rel="canonical" href="https://wlj.me/reading/<slug>/">`；正文要有返回整理的链接 `href="/reading/"`；图片不能空 alt
+3. 运行：
+
+```bash
+./publish.sh reading /tmp/slug-name --category misc --author "作者" [--year 2026] [--subtitle "副标题"] [--original-url URL] [--post-slug 相关文章slug] [--changelog "自定义日志行"]
+```
+
+publish.sh 自动处理：校验上面的 head 要求、跑 luca-html 的检查器（`~/Github/luca-html/scripts/check_html.py`，它同时会对页面正文跑 luca-writing 的检查，0 error 0 warning 才放行）、把目录复制到 `static/reading/<slug>/`、在 `data/reading-materials.toml` 追加条目（date 取当前时间，title / description 从 HTML 读）、在 CHANGELOG.md 当天标题下加一行、本机有 hugo 时构建并检查 sitemap、git commit、git push。
+
+规则：
+- category 只能是 book / report / documentary / misc
+- 不索引的页面加 `--noindex`，HTML 里 robots 要写 `noindex,follow`，脚本会把它排除出 sitemap
+- 先跑 `--dry-run` 看校验结果和将写入的条目，再正式发布
+- 页面按 luca-html skill 从模板起稿，正文按 luca-writing 写。检查器没过就改页面，不要手动复制目录绕过脚本
 
 ## 笔记（notes）
 
@@ -56,7 +77,7 @@ notes 通过 social-poster bot 的 wlj 平台发布，不在 Claude Code 的职�
 
 - 可索引：首页、`/posts/`、文章页、`/startupnotes/` 及其文章页、`/about/`、`/archives/`、`/reading/` 索引页、整理页（`static/reading/<slug>/`，页面内硬编码 `index,follow` + canonical）
 - 默认 noindex：`/notes/`、note 单页、tags、categories、分页页
-- sitemap 只放可索引页面，不放 notes、tags、categories、分页页；整理页是 static 文件不是 Hugo 页面，由 `layouts/sitemap.xml` 从 `data/reading-materials.toml` 读取补进 sitemap
+- sitemap 只放可索引页面，不放 notes、tags、categories、分页页；整理页是 static 文件不是 Hugo 页面，由 `layouts/sitemap.xml` 从 `data/reading-materials.toml` 读取补进 sitemap（条目 `noindex = true` 的不放）
 
 GEO 规则：
 
