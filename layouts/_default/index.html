@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h1 class="page-title">{{ .Site.Title }}</h1>
+  <h1 class="page-title page-title--hidden">{{ .Site.Title }}</h1>
   {{ if .Content }}
     <div class="index-content {{ if .Params.framed -}}framed{{- end -}}">
       {{ .Content }}
