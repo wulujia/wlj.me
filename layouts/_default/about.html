@@ -1,0 +1,4 @@
+{{ define "main" }}
+  <h1 class="page-title page-title--hidden">{{ .Title | markdownify }}</h1>
+  {{ with .Content }}<div class="post-content index-content">{{ . }}</div>{{ end }}
+{{ end }}

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-17
+
+- 关于页顶部还留着「关于」大标题和「by Luca」一行，和其它栏目页不一致。新增 `layouts/_default/about.html`，`content/about/index.md` 指定 `layout: "about"`，`<h1>` 改为和日志、整理、归档等页面相同的视觉隐藏写法（标题仍在 DOM 里），不再显示作者行。页面仍在 sitemap 里，索引策略不变。
+
 ## 2026-09-16
 
 - 新增资料页《深圳房价走势与南山详析》，`static/reading/shenzhen-housing-outlook/index.html`。深圳全市宏观背景、人口、房价交易、住房供应与两年情景，附南山近年价格、片区及小区详析。
