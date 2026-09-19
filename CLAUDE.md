@@ -30,7 +30,9 @@ Hugo 博客，GitHub Pages 托管，Terminal 主题。
 2. 文件内容：第一行 `# 标题`，空一行，正文。不写 frontmatter
 3. 运行 `./publish.sh /tmp/slug-name.md tag1,tag2`
 
-publish.sh 自动处理：先跑 luca-writing 的检查器（`~/Github/luca-writing/scripts/lint_ai_flavor.py`），有 warning 就不发；再生成 date（取当前时间）、slug（取文件名）、frontmatter、git commit、git push。
+更新已发布文章时，用同一份临时 Markdown 和 `./publish.sh update /tmp/slug-name.md tag1,tag2`。脚本会保留文章日期并更新 `lastmod`。
+
+publish.sh 自动处理：先跑 luca-writing 的检查器（`~/Github/luca-writing/scripts/lint_ai_flavor.py`），有 warning 就不发；创建文章时生成日期和 frontmatter，更新文章时刷新 `lastmod`；最后 git commit、git push。
 
 规则：
 - slug 必须是英文 kebab-case，中文 slug 经 URL encode 后会 404

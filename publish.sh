@@ -4,6 +4,7 @@
 # Posts:
 #   ./publish.sh input.md [tag1,tag2,...]
 #   ./publish.sh post input.md [tag1,tag2,...]
+#   ./publish.sh update input.md [tag1,tag2,...]
 #   First-line "# Title" becomes the title, the rest is the body.
 #   slug = input file name without .md
 #
@@ -80,7 +81,7 @@ changelog_add() {
 # ---------------------------------------------------------------- posts
 
 publish_post() {
-  local input="${1:-}" tags="${2:-}"
+  local input="${1:-}" tags="${2:-}" mode="${3:-create}"
   [ -n "$input" ] || die "用法: ./publish.sh input.md [tag1,tag2,...]"
   [ -f "$input" ] || die "文件不存在: $input"
 
@@ -92,7 +93,15 @@ publish_post() {
   date=$(now_iso)
   lastmod="$date"
   target="$REPO_DIR/content/posts/${slug}.md"
-  [ ! -f "$target" ] || die "文件已存在: $target"
+  case "$mode" in
+    create) [ ! -f "$target" ] || die "文件已存在: $target" ;;
+    update)
+      [ -f "$target" ] || die "要更新的文章不存在: $target"
+      date=$(sed -n 's/^date: //p' "$target" | head -1)
+      [ -n "$date" ] || die "要更新的文章没有 date: $target"
+      ;;
+    *) die "未知文章发布模式: $mode" ;;
+  esac
 
   run_gate "luca-writing" "$WRITING_LINT" "$input" "确认是误报的行，在行尾加 $LINT_MARKER"
 
@@ -124,7 +133,11 @@ publish_post() {
 
   cd "$REPO_DIR"
   git add "$target"
-  git commit -m "Add post: $title"
+  if [ "$mode" = "update" ]; then
+    git commit -m "Update post: $title"
+  else
+    git commit -m "Add post: $title"
+  fi
   git_push_default
   echo "已发布: $slug"
 }
@@ -300,6 +313,7 @@ publish_reading() {
 case "${1:-}" in
   reading) shift; publish_reading "$@" ;;
   post) shift; publish_post "$@" ;;
+  update) shift; publish_post "${1:-}" "${2:-}" update ;;
   -h|--help|"") awk 'NR == 1 { next } /^#/ { sub(/^# ?/, ""); print; next } { exit }' "$0"; exit 0 ;;
   *) publish_post "$@" ;;
 esac

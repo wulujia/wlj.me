@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-19
+
+- `publish.sh` 支持在同一套检查、提交和推送流程中更新已有文章，并保留原发布日期。
+
 ## 2026-09-17
 
 - 首页顶部的「Luca's Blog」大标题去掉。`layouts/_default/index.html` 的 `<h1>` 加上 `page-title--hidden`，和栏目页、关于页一致：标题仍在 DOM 里留给搜索引擎和读屏软件，导航到第一行内容的间距变成统一的 30px。`hugo.toml` 的站点标题不动，`<title>`、OG、JSON-LD 都不受影响。
