@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSH 的插件理念：架构、开发经验与应用场景</title>
+<meta name="robots" content="index,follow">
+<meta name="description" content="基于 DeepSeek 官方文档、Cordis 论文、插件作者与企业工程经验，理解 dsh「一切都是插件」的价值与边界：Cordis 怎么把插件组合起来，Plugin / Tool / Skill / MCP 各管什么，OpenViking 等五个已有插件的做法，优势成立的条件与代价，可以应用到什么场景，以及怎样把这个理念学到手。">
+<link rel="canonical" href="https://wlj.me/reading/dsh-plugin-philosophy/">
+<meta property="og:title" content="DSH 的插件理念：架构、开发经验与应用场景">
+<meta property="og:description" content="基于 DeepSeek 官方文档、Cordis 论文、插件作者与企业工程经验，理解 dsh「一切都是插件」的价值与边界，以及优势成立的条件与代价。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wlj.me/reading/dsh-plugin-philosophy/">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  --bg: #f5f8f8;
+  --surface: #ffffff;
+  --ink: #182b32;
+  --ink-2: #494e52;
+  --ink-3: #66707a;
+  --rule: #dcdfe2;
+  --rule-2: #b9cdcf;
+  --mid: #eceef0;
+  --acc: #126d73;
+  --acc-ink: #0e5a60;
+  --acc-wash: rgba(15, 94, 120, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+#reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+#reading-return a { color: var(--ink-2); text-decoration: none; }
+
+/* ---------- layout ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+
+/* ---------- kv ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- figure ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+
+/* ---------- print ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip, #reading-return { display: none !important; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+.toolbar {display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 26px;font-size:13px;color:var(--ink-2)}
+select,button {font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule-2);padding:6px 10px;border-radius:3px}
+.architecture-map {margin:24px 0;border:1px solid var(--rule-2);padding:18px;background:var(--surface)}
+.map-top,.map-core {text-align:center;border-bottom:1px solid var(--rule);padding:12px;font-weight:600}
+.map-core {background:var(--acc-wash);color:var(--acc-ink)}
+.architecture-map small {display:block;font-size:13px;font-weight:400;color:var(--ink-2)}
+.map-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.map-grid>div {padding:14px;border-bottom:1px solid var(--rule);font-size:15px}
+.architecture-map>p {font-size:12px;margin:14px 0 0}
+.sources p {margin-bottom:16px;scroll-margin-top:24px}
+h2,h3 {scroll-margin-top:24px} h1 {font-size:36px;letter-spacing:normal}
+.outline ul li {margin-bottom:5px} .outline ul ul {font-size:12px}
+th {letter-spacing:normal} .eyebrow {letter-spacing:normal}
+@media(min-width:901px){.outline details:not([open])>ul{display:block}}
+@media(max-width:600px){h1{font-size:30px}.map-grid{grid-template-columns:1fr}.map-grid>div{padding:10px} .meta{margin-bottom:24px}}
+@media print {.toolbar{display:none}.architecture-map{break-inside:avoid}table{break-inside:auto}.sources p{break-inside:avoid}pre{white-space:pre-wrap;overflow-wrap:anywhere}.tbl{overflow:visible}.meta{margin-bottom:20px}}
+</style></head><body>
+<a class="skip" href="#main">跳到正文</a>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回</a></div>
+<div class="layout">
+<nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>目录</summary><ul>
+<li><a href="#section-1">“一切都是插件”具体指什么</a><ul><li><a href="#section-2">Harness 管的是模型如何工作</a></li><li><a href="#section-3">开放到了默认运行循环</a></li><li><a href="#section-4">Plugin、Tool、Skill、MCP 各管什么</a></li></ul></li>
+<li><a href="#section-5">Cordis 为什么能把插件组合起来</a><ul><li><a href="#section-6">依赖有明确名字</a></li><li><a href="#section-7">注册和清理放在一起</a></li><li><a href="#section-8">空间组合与时间组合</a></li><li><a href="#section-9">配置本身表达产品组合</a></li></ul></li>
+<li><a href="#section-10">这个理念好在哪里</a><ul><li><a href="#section-11">把变化限制在较小的范围</a></li><li><a href="#section-12">官方默认能力也能成为试验对象</a></li><li><a href="#section-13">小团队可以只负责自己的那部分</a></li><li><a href="#section-14">系统可以同时容纳不同工作方式</a></li></ul></li>
+<li><a href="#section-15">开发者已经怎样使用它</a><ul><li><a href="#section-16">OpenViking：把记忆接入请求过程</a></li><li><a href="#section-17">Relay Codex：接入另一套会话后端</a></li><li><a href="#section-18">dshline：终端界面共享运行能力</a></li><li><a href="#section-19">Conversation Exporter：独立交付小功能</a></li><li><a href="#section-20">dsh-market：热更新暴露了宿主边界</a></li></ul></li>
+<li><a href="#section-21">有经验的构建者怎样看这些取舍</a><ul><li><a href="#section-22">DeepSeek 研究人员：组合需要有边界</a></li><li><a href="#section-23">Mario Zechner：保持模型输入可理解</a></li><li><a href="#section-24">Harrison Chase：公司要掌握工作规则和改进资料</a></li><li><a href="#section-25">Anthropic 工程团队：分离后才能独立恢复</a></li><li><a href="#section-26">Anthropic Labs：组件的价值需要任务验证</a></li></ul></li>
+<li><a href="#section-27">优势成立的条件与代价</a><ul><li><a href="#section-28">可卸载，不代表业务动作可撤回</a></li><li><a href="#section-29">可隔离服务，不代表隔离任意代码</a></li><li><a href="#section-30">能装载，不代表组合正确</a></li><li><a href="#section-31">可替换，不代表迁移没有成本</a></li></ul></li>
+<li><a href="#section-32">可以应用到什么场景</a><ul><li><a href="#section-33">社群内容：有范围的研究助手</a></li><li><a href="#section-34">阅读与笔记产品：从阅读到写作</a></li><li><a href="#section-35">公司内部：按岗位配置助手</a></li><li><a href="#section-36">Harness 研发：比较上下文与循环策略</a></li><li><a href="#section-37">垂直产品：交付一套经过验证的组合</a></li><li><a href="#section-38">不值得优先采用的情况</a></li></ul></li>
+<li><a href="#section-39">怎样把这个理念学到手</a><ul><li><a href="#section-40">从一个受管理的资源开始</a></li><li><a href="#section-41">用研究任务做一次替换实验</a></li><li><a href="#section-42">从产品角度检查边界</a></li></ul></li>
+<li><a href="#section-43">方法与来源</a><ul><li><a href="#section-44">证据范围与未解决的问题</a></li><li><a href="#section-45">官方与标准</a></li><li><a href="#section-46">开发者与经营经验</a></li></ul></li>
+</ul></details></nav>
+<main id="main"><header><p class="eyebrow">技术研究 · 2026 年 9 月</p><h1>DSH 的插件理念</h1><p class="lede">从 Cordis 的依赖与生命周期，理解 agent 为什么能被重新组合。结合开发者的实际问题，判断产品与团队可以怎样使用。</p><p class="meta"><span>面向产品与工程负责人</span><span>资料截至 2026-09-08</span><span>含来源与阅读路径</span></p></header>
+<div class="toolbar"><label for="theme">阅读主题</label><select id="theme"><option value="auto">跟随系统</option><option value="light">亮色</option><option value="dark">暗色</option></select><button type="button" id="print">打印 / 存为 PDF</button></div>
+
+<div class="summary">
+<p class="label">研究结论</p>
+<p>DSH 把模型、工具、会话、执行环境、运行循环和界面都做成可组合的插件，Cordis 负责装载、依赖和卸载。它把修改 agent 行为的入口开放到了系统内部。<a href="#src-official">DeepSeek 官方说明</a></p>
+<p>这套设计适合需要持续试验、定制工作方式的团队，优势在于减少修改上游源码的需要。收益取决于接口质量、插件选择和评估能力，不能仅凭插件化推导出更高准确率或更低成本。</p>
+<p>截至 2026 年 9 月 8 日，官方仍将 DSH 定位为开发者预览版；安全说明明确写出未经安全审计，不能视为生产就绪。已有可核对的插件开发案例，长期企业经营效果仍缺证据。<a href="#src-readme">官方 README</a>、<a href="#src-safety">安全说明</a></p>
+</div>
+
+<h2 id="section-1">“一切都是插件”具体指什么</h2>
+<h3 id="section-2">Harness 管的是模型如何工作</h3>
+<p>模型生成下一步内容，harness 把这一步接到真实环境：准备输入，提供工具，执行调用，保存结果，再决定是否继续。相同模型配上不同的工具、上下文和停止规则，会形成不同的工作方式。DSH 官网用 “Agent = Model + Harness” 表达这组关系，并提供 Standard、Code、Minimal、Creator 等模式。它们分别用于完整编码、代码编排工具、最小环境和创建新预设。<a href="#src-official">官方模式说明</a></p>
+<p>可以把一次资料研究想成一个具体过程：模型要判断该查什么；搜索工具去取网页；记忆组件补充已有资料；记录组件保留引用；审核规则决定哪些结果可交付。读者看到一篇报告，背后有多种职责。插件化让这些职责有独立的替换位置。</p>
+<h3 id="section-3">开放到了默认运行循环</h3>
+<p>常见扩展需求是增加一个工具或按钮。DSH 进一步开放了运行循环、工具注册表、会话记录等内部能力。架构文档说明，产品能力通过插件挂入共享上下文，注册动作随插件卸载而撤销。这里仍然存在负责组合的 Cordis 内核，以及插件必须遵守的接口。<a href="#src-architecture">架构：Cordis 与 Core packages</a></p>
+<div aria-label="DSH 组合示意：配置选择插件，Cordis 管理依赖和生命周期，插件提供模型、上下文、工具、执行、记录和界面。" class="architecture-map" role="img">
+<div class="map-top">Profile / Bundle / Patch<br/><small>选择运行哪些组件，以及它们的配置</small></div>
+<div class="map-core">Cordis<br/><small>上下文 · 服务依赖 · 生命周期 · 受管理资源的清理</small></div>
+<div class="map-grid"><div>模型适配<br/><small>向哪个模型发请求</small></div><div>上下文与循环<br/><small>看什么，何时继续</small></div><div>工具与执行环境<br/><small>做什么，在哪里做</small></div><div>会话与存储<br/><small>保留什么，怎样恢复</small></div><div>策略与观测<br/><small>拦截调用，记录结果</small></div><div>交互界面<br/><small>Web、终端或其他入口</small></div></div>
+<p class="muted">概念分组，非完整包目录。具体服务关系见 <a href="#src-seams">官方能力关系图</a>。</p>
+</div>
+<p>“同一套接口”也不意味着“所有插件功能相同”。提供文件访问的插件，和消费文件服务的工具插件，职责不同。官方把可替换能力分成接口定义、实现提供者和使用者。替换提供者时，使用者应继续按原来的接口工作。<a href="#src-seams">能力关系图</a></p>
+<h3 id="section-4">Plugin、Tool、Skill、MCP 各管什么</h3>
+<div class="tbl"><table><caption>扩展机制的职责对照</caption>
+<thead><tr><th scope="col">概念</th><th scope="col">主要职责</th><th scope="col">在研究助手中的例子</th></tr></thead>
+<tbody>
+<tr><td>Plugin</td><td>向运行时注册能力、服务或事件处理</td><td>在每次模型请求前自动取相关记忆</td></tr>
+<tr><td>Tool</td><td>给模型调用的具体动作</td><td>搜索网页、读文件、查询数据库</td></tr>
+<tr><td>Skill</td><td>按需加载的任务说明及配套资源</td><td>研究方法、引用规范、报告模板</td></tr>
+<tr><td>MCP</td><td>AI 应用连接外部工具和数据的标准协议</td><td>连接公司的知识库服务</td></tr>
+<tr><td>Preset / Profile / Bundle</td><td>组织特定范围的插件及配置</td><td>研究模式、Web 应用、可分发的记忆组件组合</td></tr>
+</tbody></table></div>
+<p>Skill 可以带脚本，MCP 也能承载丰富的交互；表格只区分主要职责。一个 DSH 插件可以加载 Skill，连接 MCP，再注册工具和界面。OpenViking 的 DSH 集成就把这些能力装在同一个 bundle 中。<a href="#src-skills">Agent Skills 标准</a>、<a href="#src-mcp">MCP 标准</a>、<a href="#src-openviking">OpenViking</a></p>
+
+<h2 id="section-5">Cordis 为什么能把插件组合起来</h2>
+<h3 id="section-6">依赖有明确名字</h3>
+<p>插件通过 <code>ctx.tools</code>、<code>ctx.llm</code> 等服务名取得能力，用 <code>inject</code> 声明依赖。所需服务出现后，插件才开始装载；所需服务缺失时，可以处于等待状态。这样开发者可以围绕能力写代码，减少对某个具体实现和人工启动顺序的依赖。<a href="#src-primer">Cordis Primer</a></p>
+<p>例如，“报告工具”依赖一个搜索服务。公司后来把公网搜索换成内部搜索，只要保持约定的返回格式与行为，报告工具可以继续使用同一个服务名。这里的兼容条件需要开发者设计和验证，名字相同本身不能证明兼容。</p>
+<h3 id="section-7">注册和清理放在一起</h3>
+<p>插件装载时会留下监听器、定时器、连接等资源。DSH 教程要求：框架未自动管理的资源，通过 <code>ctx.effect()</code> 注册，并返回清理函数。卸载时执行清理；子插件也归属父插件的生命周期。<a href="#src-lifecycle">生命周期教程</a></p>
+<p>下面是根据官方接口写的教学示例，展示资源所有权；它没有在本次调研中执行。</p>
+<pre><code class="language-typescript">import type { Context } from '@deepseek-ai/cordis'
+
+export const name = 'research-heartbeat'
+
+export function apply(ctx: Context) {
+  ctx.effect(() =&gt; {
+    const timer = setInterval(() =&gt; {
+      console.log('research session is alive')
+    }, 5000)
+
+    // Release the resource when this plugin unloads.
+    return () =&gt; clearInterval(timer)
+  })
+}
+</code></pre>
+<p>其中 <code>5000</code> 是示例自定的毫秒间隔。要点是：申请资源的地方同时交代如何释放资源。作者若绕开框架创建资源，又没有提供清理函数，框架无法替作者补出完整的撤销逻辑。</p>
+<h3 id="section-8">空间组合与时间组合</h3>
+<p>Yifan Shi、Wei Zhang、Tianyi Cui 的论文把问题拆成两个方向。空间组合处理组件之间的依赖；时间组合处理组件移除时的影响撤销。论文作者署名中，Shi 和 Cui 有 DeepSeek-AI 归属，Zhang 的归属是北京大学。这是可确认的官方人员研究材料，不能扩展为公司管理层的商业承诺。<a href="#src-paper">Cordis 论文，2026-08-26</a></p>
+<p>把两者放进一个例子：搜索服务下线，依赖它的报告插件应停止工作；报告插件卸载，自己添加的监听器也应移除。前者关乎依赖关系，后者关乎资源生命周期。两者都处理好，插件才能反复加入、退出和更换。</p>
+<h3 id="section-9">配置本身表达产品组合</h3>
+<p>当前 DSH 使用 profile、bundle 和 patch 组织启动配置。Profile 选择 bundle，后续 patch 可以调整其中的条目。官方启动文档还区分会动态重载的配置与启动时读取的配置；不能把所有应用都理解为可随时无损替换。<a href="#src-boot">启动与组合文档</a></p>
+<p>学习配置时，可以先查看实际启动树：</p>
+<pre><code class="language-sh">dsh --profile web --dump-config
+</code></pre>
+<p>这条命令来自官方架构文档。它要求已有可运行的 DSH 环境。本页提供的是阅读与实验路径。<a href="#src-architecture">架构：Profiles and bundles</a></p>
+
+<h2 id="section-10">这个理念好在哪里</h2>
+<p>下列判断是根据官方机制和开发案例做的工程分析，尚无证据证明它适合所有产品。</p>
+<h3 id="section-11">把变化限制在较小的范围</h3>
+<p>假设一个团队需要让助手在公司内部机器上执行代码。如果文件访问、进程执行与上层工具直接绑在一起，改动会一路传到工具和界面。明确服务边界之后，可以把变化集中在执行环境提供者，再用测试检查上层行为是否保留。DSH 的架构文档给出了远程执行环境同时服务 Bash、PTY 和 LSP 的设计。<a href="#src-architecture">架构：Capability seams</a></p>
+<p>这类价值在需求变化频繁时更明显。替换模型、搜索服务或存储实现，可以变成各自边界上的工程任务。成本仍在，只是更容易定位由谁承担。</p>
+<h3 id="section-12">官方默认能力也能成为试验对象</h3>
+<p>工具清单、记忆注入、上下文压缩、任务停止条件，都会影响 agent 的表现。把它们做成独立组件，便于保持其他条件不变，只替换一个机制，检查效果。</p>
+<p>例如，研究助手经常漏掉早先找到的反例。可以试验新的记忆检索规则；也可以试验减少压缩。要比较的是来源覆盖率、事实错误和完成成本。插件化提供实验入口，评估负责判断哪个方案值得保留。</p>
+<h3 id="section-13">小团队可以只负责自己的那部分</h3>
+<p>dshline 的终端界面复用 Harness 的模型、设置、凭据和授权服务，无须维护独立的模型提供商列表。于是作者可以集中处理终端输出、选择与滚动。<a href="#src-dshline">dshline：Generic capability integration</a></p>
+<p>创业上的对应关系是：团队可以复用通用运行时，把开发时间花在用户真正需要的工作规则和交付体验上。成立的前提是上游接口足够稳定，而且适配维护成本低于重复开发成本。</p>
+<h3 id="section-14">系统可以同时容纳不同工作方式</h3>
+<p>完整编码助手、只有少量工具的测试环境、专门制作新预设的工作台，各有用途。DSH 官网的模式展示说明，这些组合可以共享基础设施。<a href="#src-official">官方模式说明</a></p>
+<p>对产品团队的启发是：把稳定的共享能力留在公共层，把受众差异放进经过验证的组合。给普通用户提供少数明确入口；插件树可以留给开发和运维人员使用。</p>
+
+<h2 id="section-15">开发者已经怎样使用它</h2>
+<p>以下材料来自项目作者的仓库和上游讨论。调研核对了原文与公开结构，没有安装这些插件，也没有复跑作者的测试。仓库存在、文档描述功能，与已经通过企业生产验证，是不同的证据强度。</p>
+<h3 id="section-16">OpenViking：把记忆接入请求过程</h3>
+<p>Volcengine 的 OpenViking 仓库提供 DSH 记忆 bundle，包含自动召回、会话捕获、MCP 工具和 Skill。作者遇到一个实际问题：某些预设会覆盖其他系统提示词贡献，导致记忆消失。因此集成在 <code>agent/pre-step</code> 注入带来源的持久消息，让记忆进入会话记录。<a href="#src-openviking">OpenViking：Design notes</a></p>
+<p>这个插件让团队可以修改“每次工作前给模型什么资料”。对知识产品而言，这比只增加一个等待模型主动调用的搜索按钮更接近持续工作中的记忆需求。是否提高答案质量，仍要用真实问题比较。</p>
+<h3 id="section-17">Relay Codex：接入另一套会话后端</h3>
+<p><code>yangbobo2021/relay-dsh-plugin-codex</code> 把 DSH 会话与 Codex App Server Thread 绑定，接入回答流、工具与审批。作者明确保留 Codex 对模型上下文和压缩的管理；DSH 保存展示记录与持久绑定。文档也说明，历史导入没有持续后台同步，部分输出仍有限制。<a href="#src-relay">Relay Codex：What Works 与会话导入</a></p>
+<p>这展示了后端替换能走多深，也说明可组合系统需要明确状态归属。两个产品各自维护会话时，必须决定哪个记录是权威数据，以及中断、重复输入和审批回传如何处理。</p>
+<h3 id="section-18">dshline：终端界面共享运行能力</h3>
+<p><code>riesbri/dshline</code> 通过 Harness 服务读会话、任务和设置。它的连接页面展示已装载适配器提供的模型与登录流程。新增提供者有机会同时出现在不同界面，减少为每个前端重复接入的工作。<a href="#src-dshline">dshline 仓库</a></p>
+<p>作者明确声明与 DeepSeek 无隶属或背书关系。这里能确认的是第三方实现及其设计，不能据此保证所有 DSH 版本都兼容。</p>
+<h3 id="section-19">Conversation Exporter：独立交付小功能</h3>
+<p><code>liuyuelintop/dsh-conversation-exporter</code> 让用户导出完整对话或选定轮次的 Markdown。作者处理了未闭合代码块、未完成回答等细节，并有意省略工具过程、注入上下文和附件。文档注明 V0.3 面向 DSH <code>0.1.0-rc.6</code>，后续版本可能需要适配。<a href="#src-exporter">Exporter：Limitations 与 Compatibility</a></p>
+<p>这类插件适合验证很窄的需求：用户要把对话交给另一套工具继续工作。可读导出有明确用途，完整审计仍应使用保留过程信息的会话记录。</p>
+<h3 id="section-20">dsh-market：热更新暴露了宿主边界</h3>
+<p>2026 年 8 月 18 日，维护者 <code>fkysly</code> 在 DSH 讨论区报告：在 <code>0.1.0-rc.7</code> 上，新装插件可以挂载，已加载的插件更新后却仍使用旧的服务端代码。作者追到 HMR 排除 <code>node_modules</code> 的行为，并指出浏览器与服务端版本可能因此不一致。这是指定旧版本上的作者实测报告，本次没有确认当前版本是否仍有该问题。<a href="#src-market">讨论 #3056</a></p>
+<p>当前官方客户端 HMR 文档另有清楚限制：重载会丢失该插件内的 React 状态；会话、工作区与连接状态保留；导入或装载失败不自动回滚。这项限制只指该客户端重载机制。<a href="#src-hmr">客户端 HMR</a></p>
+
+<h2 id="section-21">有经验的构建者怎样看这些取舍</h2>
+<h3 id="section-22">DeepSeek 研究人员：组合需要有边界</h3>
+<p>Cordis 论文 §6.1 区分可管理资源与对外发送的影响，§6.3 明确把不可信代码的隔离交给外部沙箱，§6.6 讨论依赖名称与接口版本兼容的缺口。作者给出了组合的形式基础，同时保留这些限制。<a href="#src-paper">论文第 70、72、75 页</a></p>
+<p>工程上的对应要求：每个组件都要说明依赖、拥有的资源和退出行为；外部动作另行设计授权、事务与补偿。架构完整性必须在这些具体位置检验。</p>
+<h3 id="section-23">Mario Zechner：保持模型输入可理解</h3>
+<p>Pi 作者 Mario Zechner 在 2025 年 11 月 30 日记录了自己构建极简编码 agent 的经历。当时默认工具为 read、write、edit、bash；他尤其重视控制模型看到的上下文、检查会话记录和构建其他界面。他也记录了不同模型 API 在工具调用、取消和用量统计上的兼容工作。<a href="#src-mario">Mario 的构建记录</a></p>
+<p>这提供了一个有用的选择标准：只启用能够解释用途的组件，并检查它实际给模型增加了什么。该文章是当时的 Pi 设计记录，早于 DSH，不能当成作者对 DSH 的评价，也不代表今天 Pi 的功能清单。</p>
+<h3 id="section-24">Harrison Chase：公司要掌握工作规则和改进资料</h3>
+<p>LangChain 创始人 Harrison Chase 在 2026 年 7 月 25 日主张，公司应掌握决定 AI 行为的模型选择、harness、上下文与记忆，以及成本、质量和风险。他把运行记录、用户反馈和评估视为持续改进的基础，同时支持购买通用基础设施。<a href="#src-harrison">Harrison Chase 原文</a></p>
+<p>由此可以推演：企业最值得自行控制的插件，往往承载自己的业务规则、数据检索和质量判断。Harrison 的文章没有推荐 DSH；LangChain 本身也销售 agent 基础设施，其观点有明确商业背景。</p>
+<h3 id="section-25">Anthropic 工程团队：分离后才能独立恢复</h3>
+<p>Lance Martin、Gabe Cemaj、Michael Cohen 在 2026 年 4 月 8 日介绍 Managed Agents 的经验：早期把会话、harness 和执行环境放在同一容器，会带来故障恢复、调试和客户私有网络接入问题。团队随后把持久会话、运行逻辑和沙箱分离，使各部分能独立恢复或替换。<a href="#src-managed">Managed Agents 工程记录</a></p>
+<p>这支持“边界影响恢复能力”的判断。它来自 Anthropic 自己的系统，不能作为 DSH 的可靠性或性能实测。DSH 的插件边界还需要落实为实际的进程、存储与凭据边界，才能获得对应收益。</p>
+<h3 id="section-26">Anthropic Labs：组件的价值需要任务验证</h3>
+<p>Prithvi Rajasekaran 在 2026 年 3 月 24 日记录了规划、生成与评估 agent 的实验。他用具体评价标准和阶段验收来检查产出，并通过结构化资料在会话间传递进度。<a href="#src-longrunning">长期应用开发的 Harness 设计</a></p>
+<p>这给插件化补上了使用方法：拆出评估器并不足够，还要定义评估标准。对一个只需简短回答的任务，增加规划和评审可能只增加等待；对复杂应用构建，它们可以承担必要的检查。选择应由任务结果决定。</p>
+
+<h2 id="section-27">优势成立的条件与代价</h2>
+<h3 id="section-28">可卸载，不代表业务动作可撤回</h3>
+<p>卸载邮件插件可以移除它的工具和监听器。已经发出的邮件仍在收件人那里。停止数据库连接，也不会自动撤销已提交的数据。这是系统边界在业务中的直接含义；设计者需要单独安排确认、幂等键和补偿操作。<a href="#src-paper">论文 §6.1</a></p>
+<h3 id="section-29">可隔离服务，不代表隔离任意代码</h3>
+<p>Cordis 的 <code>isolate</code> 可以让不同组件组看到不同的同名服务实例，适合给不同会话配置不同提供者。<a href="#src-composition">组合教程</a></p>
+<p>对恶意或有缺陷的插件，还需要操作系统、进程或远程环境层面的边界。官方明确提醒，DSH 能执行代码并访问获准的文件、凭据与网络，沙箱和审批不能保证免受损害。<a href="#src-safety">官方安全说明</a></p>
+<h3 id="section-30">能装载，不代表组合正确</h3>
+<p>一个服务依赖缺失，插件可以停留在 <code>PENDING</code> 而不报错。稳定的条目 <code>id</code> 也很重要：官方教程说明，没有显式标识的条目在配置重读时可能被当作删除后新增。生命周期让动态组合有规则，调试仍需查看实际运行树和依赖状态。<a href="#src-composition">组合与 HMR 教程</a></p>
+<p>插件间也存在行为耦合。例如一个组件裁剪历史，另一个评估器依赖被裁掉的证据，两者单独工作都正常，组合后却得出错误结果。这里需要组合测试、清楚的数据约定和失败样例。</p>
+<h3 id="section-31">可替换，不代表迁移没有成本</h3>
+<p>接口之外还有历史数据、配置、Skill、审批状态和用户习惯。更换模型也会遇到消息和工具行为差异，Mario 的 API 适配经历已有直接记录。<a href="#src-mario">Mario：Context handoff 与 API 适配</a></p>
+<p>因此，采购或自建时应检查能否导出业务知识与运行记录，能否重跑真实任务，以及替换某个组件后谁负责验收。只看到“支持插件”四个字，无法回答这些问题。</p>
+<div class="tbl"><table><caption>收益与成立条件</caption>
+<thead><tr><th scope="col">想获得的收益</th><th scope="col">必须同时具备的条件</th><th scope="col">缺少条件时的结果</th></tr></thead>
+<tbody>
+<tr><td>独立替换</td><td>稳定接口、兼容范围、契约测试</td><td>名字相同，行为不同</td></tr>
+<tr><td>安全卸载</td><td>资源所有权、清理函数、进行中任务处理</td><td>残留监听器或中断工作</td></tr>
+<tr><td>快速实验</td><td>固定任务集、对照配置、完整记录</td><td>只凭一次顺利输出判断</td></tr>
+<tr><td>团队复用</td><td>有负责人、有支持范围的插件组合</td><td>每个团队形成另一套配置</td></tr>
+<tr><td>商业积累</td><td>业务数据、反馈与评估可带走</td><td>换平台时重新学习业务</td></tr>
+</tbody></table></div>
+<p>表格是本文的工程判断。插件边界、操作系统安全边界、业务责任边界需要分别设计。</p>
+
+<h2 id="section-32">可以应用到什么场景</h2>
+<p>以下是设计推演，均未实施，也不表示任何公司正在采用 DSH。</p>
+<h3 id="section-33">社群内容：有范围的研究助手</h3>
+<p>付费社群或论坛类产品可以组合“授权内容检索、来源记录、主题聚合、报告模板、人工审核”等能力。用户问某个社群最近在讨论什么，助手检索允许访问的内容，按问题聚合观点，再保留原帖出处与不同意见。</p>
+<p>优先做只读研究：交付一份有来源的周报草稿。业务检索服务应在服务端限制成员身份、可见范围与删除内容，界面负责呈现来源和审核意见。公开发布可以成为独立动作，由操作者控制。</p>
+<p>插件化的价值是让检索、总结规则与审核界面独立调整。验收关注漏掉了哪些重要讨论、引用是否可回查、是否越过访问范围，以及编辑完成一份周报需要多久。</p>
+<h3 id="section-34">阅读与笔记产品：从阅读到写作</h3>
+<p>稍后读或笔记类产品可以组合文章抓取、原文定位、知识检索、写作 Skill 与导出界面。读者读一篇文章后，助手找到相关旧笔记，提出关联，并生成保留原文位置的写作草稿。</p>
+<p>最小实验可以限定在一个主题的一组文章。分别运行“仅当前资料”和“加入记忆检索”的配置，检查有没有找回有用的旧观点、有没有引用错误。记忆插件要遵守删除与更新规则，避免反复取出用户已放弃的判断。</p>
+<p>这里可以借鉴 OpenViking 的介入方式和 Exporter 的小功能范围。用户得到的产品入口应是“找相关笔记”或“生成草稿”，插件组合留在产品内部。</p>
+<h3 id="section-35">公司内部：按岗位配置助手</h3>
+<p>客服需要产品知识与工单操作，工程团队需要代码与执行环境，经营分析需要只读数据和指标定义。可以共享会话、观测和身份基础设施，各自维护少数经过测试的能力组合。</p>
+<p>平台负责人维护接口、升级和故障处置；业务负责人维护知识、动作范围与验收样例。换模型时，在这些样例上检查结果再切换。DSH 当前阶段适合把这当作隔离的技术验证，生产路线应另行完成可靠性与安全评估。</p>
+<h3 id="section-36">Harness 研发：比较上下文与循环策略</h3>
+<p>这是与 DSH 官方定位最接近的用途。用相同模型和任务输入，分别替换记忆召回、工具结果裁剪或继续执行策略，保留日志与配置，观察失败怎样变化。</p>
+<p>例如，工程任务经常在测试失败后提前结束，可以评估一个新的继续规则：在明确预算内，根据测试结果决定是否继续。验收既看成功完成，也看多花的成本、无效重复和需要人接手的比例。</p>
+<h3 id="section-37">垂直产品：交付一套经过验证的组合</h3>
+<p>招聘研究、客户支持、行业资料整理等场景，都可以把专属知识、工具、流程和结果界面打包。插件是实现与分发方式，商业价值要落在任务结果上。</p>
+<p>对小团队更有意义的起点是一个可重复的问题：谁会用、多久用一次、现在怎样解决、产出怎样验收。先用真实任务验证，再决定是否需要开放插件生态。公共插件市场还要承担发现、兼容、恶意包处理和客服，不能用“生态”代替这些具体工作。</p>
+<h3 id="section-38">不值得优先采用的情况</h3>
+<p>如果应用只有一个稳定的摘要流程，没有替换运行机制的需求，直接调用模型和少量工具通常更容易管理。若团队需要的是立刻可用的个人编码助手，也应先用现成产品；配置一个底层平台会增加学习负担。</p>
+<p>当数据敏感、错误代价高、服务必须稳定运行时，不能把开发者预览状态忽略掉。可以研究其设计，是否采用其当前实现，应由独立验证决定。<a href="#src-safety">当前产品阶段与安全限制</a></p>
+
+<h2 id="section-39">怎样把这个理念学到手</h2>
+<h3 id="section-40">从一个受管理的资源开始</h3>
+<p>建议按官方教程做本地练习：写一个插件、注册监听器或定时器、查看装载状态、卸载后确认资源消失。再添加一个依赖服务，移除提供者，观察消费者的状态变化。官方 Cordis 教程说明，基础例子不需要模型 API Key。<a href="#src-tutorial">Cordis 教程入口</a></p>
+<p>完成后应能回答：插件什么时候运行？它依赖谁？它留下的资源归谁？需要顺序清理的工作应该放在哪里？当前教程指出，异步清理函数可能并发执行，需要严格顺序的清理应放进同一个函数并逐项等待。<a href="#src-lifecycle">生命周期教程</a></p>
+<h3 id="section-41">用研究任务做一次替换实验</h3>
+<p>选择一个已经人工完成过的研究问题，保留原材料和可接受答案。固定模型与工具配置，只替换一个记忆或上下文组件。保存任务输入、插件版本、最终配置和完整运行记录。</p>
+<div class="tbl"><table><caption>研究助手的实验记录</caption>
+<thead><tr><th scope="col">要记录的结果</th><th scope="col">怎样判断</th></tr></thead>
+<tbody>
+<tr><td>事实与来源</td><td>重要结论是否有原文支持；链接是否指到正确内容</td></tr>
+<tr><td>检索覆盖</td><td>是否找回关键旧资料；是否保留反例</td></tr>
+<tr><td>交付质量</td><td>能否直接使用；人工改动主要是什么</td></tr>
+<tr><td>完成代价</td><td>实际用时、模型用量与人工接手情况</td></tr>
+<tr><td>升级风险</td><td>替换或移除后能否继续工作；历史记录是否仍能读取</td></tr>
+</tbody></table></div>
+<p>这些是建议的实验指标，没有预设通过率或节省比例。跑过任务后再决定保留哪种组合。</p>
+<h3 id="section-42">从产品角度检查边界</h3>
+<p>当一个客户提出新要求时，先定位变化：只是写作规则变了，还是工具变了？要调整每一步的输入，还是执行地点？需要新的界面，还是新的审批责任？变化发生在哪里，就检查那里是否有独立且稳定的接口。</p>
+<p>如果一次小需求必须改动大量互不相关的组件，值得重新检查职责划分。如果每个小函数都成为独立插件，理解依赖的成本又可能超过复用收益。合适的粒度是能够独立配置、验证和承担维护责任的一项能力。</p>
+
+<h2 id="section-43">方法与来源</h2>
+<h3 id="section-44">证据范围与未解决的问题</h3>
+<p>资料访问日为 2026 年 9 月 8 日。由 DeepSeek 官网定位官方仓库与论文，阅读架构、生命周期、组合、执行与重载文档，再核对开发者仓库和创始人原文。</p>
+<p>证据按用途处理：官方文档用于说明接口与产品状态；署名论文用于解释设计与边界；作者仓库和讨论用于说明开发经历；商业文章用于理解决策观点。本文提出的应用、优劣判断和实验方法均属于综合推演。</p>
+<p>没有使用搜索聚合站的插件数、星标数或“已验证”标签证明生态成熟。没有找到可核验的 DSH 企业长期部署收益；没有采访作者，也没有执行社区插件。个人社交帖子存在访问限制，因此正文采用可读取的官方研究人员署名论文，未把无法直接读取的转述当成官方结论。</p>
+<p>GitHub 链接多指向滚动分支，按访问日内容阅读；本文未取得可固定的统一提交快照。旧版问题保留报告日期和版本，不推定为最新版现状。论文已读摘要、引言和与边界相关的章节，未独立审计全部形式证明。</p>
+<h3 id="section-45">官方与标准</h3>
+<div class="sources">
+<p id="src-official"><a href="https://www.deepseek.com/harness/en/">DeepSeek：DeepSeek Harness developer preview</a>。官方产品页；发布日期未标；访问 2026-09-08。定位：Capabilities as plugins、Cordis kernel、Multiple runtime modes。</p>
+<p id="src-readme"><a href="https://github.com/deepseek-ai/deepseek-harness">DeepSeek：仓库 README</a>。滚动文档；访问 2026-09-08。定位：Developer preview，明确兼容性可能发生破坏性变化。</p>
+<p id="src-architecture"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md">DeepSeek：Architecture</a>。滚动文档；访问 2026-09-08。定位：Cordis、Profiles and bundles、Capability seams。</p>
+<p id="src-seams"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/capability-seams.md">DeepSeek：Capability Seams And Core Services</a>。滚动文档；访问 2026-09-08。各服务定义、实现和消费者的关系。</p>
+<p id="src-primer"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/cordis-primer.md">DeepSeek：Cordis Primer</a>。滚动文档；访问 2026-09-08。定位：Cordis In Five Ideas、Practical Rules。</p>
+<p id="src-lifecycle"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/cordis-tutorial/02-lifecycle-and-effects.md">DeepSeek：Lifecycle and effects</a>。滚动文档；访问 2026-09-08。定位：Effects、What is already an effect、异步清理顺序。</p>
+<p id="src-composition"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/cordis-tutorial/06-composition-and-hmr.md">DeepSeek：Composition and HMR</a>。滚动文档；访问 2026-09-08。定位：Entries are more than a name、Diagnosing a plugin that never loads。</p>
+<p id="src-boot"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/boot/app-boot/README.md">DeepSeek：app-boot</a>。滚动文档；访问 2026-09-08。Profile、bundle、patch 的组合与启动规则。</p>
+<p id="src-paper"><a href="https://arxiv.org/abs/2608.25512">Yifan Shi、Wei Zhang、Tianyi Cui：A Programming Paradigm for Spatiotemporal Composability</a>。2026-08-26，arXiv v1 预印本。<a href="https://arxiv.org/pdf/2608.25512#page=70">PDF §6.1，第 70 页</a>；§6.3，第 72 页；§6.6，第 75 页。作者归属按论文登记信息。</p>
+<p id="src-safety"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md">DeepSeek：Safety</a>。滚动文档；访问 2026-09-08。定位：Experimental status、Sandbox limitations。</p>
+<p id="src-hmr"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/client/hmr/README.md">DeepSeek：客户端 HMR</a>。滚动文档；访问 2026-09-08。定位：Observing success、Failure policy。</p>
+<p id="src-tutorial"><a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/cordis-tutorial/index.md">DeepSeek：Cordis tutorial</a>。滚动文档；访问 2026-09-08。基础练习不需 API Key。</p>
+<p id="src-skills"><a href="https://agentskills.io/home">Agent Skills：Overview</a>。标准官方站；访问 2026-09-08。定位：What are Agent Skills、How do Agent Skills work。</p>
+<p id="src-mcp"><a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Model Context Protocol：Introduction</a>。官方文档，2026-07-28 版本路径；访问 2026-09-08。</p>
+</div>
+<h3 id="section-46">开发者与经营经验</h3>
+<div class="sources">
+<p id="src-openviking"><a href="https://github.com/volcengine/OpenViking/tree/main/examples/dsh-memory-plugin">Volcengine / OpenViking：DSH Memory Plugin</a>。作者维护文档；发布日期未标；访问 2026-09-08。定位：Design notes，记忆注入、MCP 代理与 Skill 提供者。未实测。</p>
+<p id="src-relay"><a href="https://github.com/yangbobo2021/relay-dsh-plugin-codex">yangbobo2021：Relay DSH Plugin Codex</a>。作者维护文档；访问 2026-09-08。定位：会话导入、What Works、兼容性限制。未实测。</p>
+<p id="src-dshline"><a href="https://github.com/riesbri/dshline">riesbri：dshline</a>。作者维护文档；发布日期未标；访问 2026-09-08。定位：Generic capability integration。未实测。</p>
+<p id="src-exporter"><a href="https://github.com/liuyuelintop/dsh-conversation-exporter">liuyuelintop：DSH Conversation Exporter</a>。作者维护文档；发布日期未标；访问 2026-09-08。定位：Limitations、Compatibility。未实测。</p>
+<p id="src-market"><a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3056">fkysly：更新后的插件无法无重启重载，讨论 #3056</a>。2026-08-18。DSH 0.1.0-rc.7 的作者实测报告；当前修复状态未确认。</p>
+<p id="src-mario"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Mario Zechner：What I learned building an opinionated and minimal coding agent</a>。2025-11-30。Pi 作者的构建记录；历史设计快照，无 DSH 背书。</p>
+<p id="src-harrison"><a href="https://www.langchain.com/blog/own-your-intelligence">Harrison Chase：What does it mean to “own your intelligence”?</a>。正文日期 2026-07-25。LangChain 创始人的经营观点，含自身商业背景，无 DSH 推荐。</p>
+<p id="src-managed"><a href="https://www.anthropic.com/engineering/managed-agents">Lance Martin、Gabe Cemaj、Michael Cohen：Scaling Managed Agents</a>。Anthropic，2026-04-08。定位：单容器问题、会话／运行时／沙箱分离。企业工程案例，未用于推导 DSH 性能。</p>
+<p id="src-longrunning"><a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Prithvi Rajasekaran：Harness design for long-running application development</a>。Anthropic Labs，2026-03-24。规划、生成、评估与任务验收的实验记录。</p>
+</div></main></div>
+<script>
+const theme=document.getElementById('theme');
+function setTheme(value){if(value==='auto')delete document.documentElement.dataset.theme;else document.documentElement.dataset.theme=value;}
+theme.addEventListener('change',()=>{setTheme(theme.value);try{localStorage.setItem('dsh-study-theme',theme.value)}catch(e){}});
+try{const value=localStorage.getItem('dsh-study-theme');if(['auto','light','dark'].includes(value)&&!document.documentElement.dataset.theme){theme.value=value;setTheme(value)}}catch(e){}
+document.getElementById('print').addEventListener('click',()=>window.print());
+const mobileLayout=window.matchMedia('(max-width:900px)');
+function syncOutline(){document.querySelector('.outline details').open=!mobileLayout.matches;}
+syncOutline();mobileLayout.addEventListener('change',syncOutline);
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){document.querySelectorAll('.outline a').forEach(a=>a.classList.toggle('active',a.hash==='#'+entry.target.id));}}},{rootMargin:'-5% 0px -75% 0px'});document.querySelectorAll('main h2,main h3').forEach(h=>observer.observe(h));}
+</script></body></html>
