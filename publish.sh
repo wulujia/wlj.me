@@ -18,6 +18,7 @@
 #     --post-slug <slug>       related post under /posts/<slug>/
 #     --changelog "<text>"     custom CHANGELOG line (default is built from title + description)
 #     --noindex                page is noindex; also excluded from sitemap
+#     --update                 replace an existing page; keep its list metadata
 #     --dry-run                validate and show the plan, write nothing
 #   title and description are read from <title> and <meta name="description"> in the HTML.
 #   The HTML must carry robots + canonical for https://wlj.me/reading/<slug>/ and a link back to /reading/.
@@ -161,7 +162,7 @@ html_meta() {
 }
 
 publish_reading() {
-  local input="" slug="" category="" author="" year="" subtitle="" original_url="" post_slug="" changelog_line="" noindex=0 dry_run=0
+  local input="" slug="" category="" author="" year="" subtitle="" original_url="" post_slug="" changelog_line="" noindex=0 update=0 dry_run=0
 
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -174,6 +175,7 @@ publish_reading() {
       --post-slug) post_slug="$2"; shift 2 ;;
       --changelog) changelog_line="$2"; shift 2 ;;
       --noindex) noindex=1; shift ;;
+      --update) update=1; shift ;;
       --dry-run) dry_run=1; shift ;;
       --*) die "未知参数: $1" ;;
       *) [ -z "$input" ] || die "多余的参数: $1"; input="$1"; shift ;;
@@ -212,14 +214,19 @@ publish_reading() {
     die "post_slug 对应的文章不存在: content/posts/$post_slug.md"
   fi
 
-  # Target locations must be free.
+  # New targets must be free. Updates must already exist in both locations.
   local target_dir toml reading_url canonical
   target_dir="$REPO_DIR/static/reading/$slug"
   toml="$REPO_DIR/data/reading-materials.toml"
   reading_url="/reading/$slug/"
   canonical="$SITE_URL$reading_url"
-  [ ! -e "$target_dir" ] || die "目录已存在: $target_dir"
-  ! grep -q "^slug = \"$slug\"\$" "$toml" || die "reading-materials.toml 里已有 slug: $slug"
+  if [ "$update" = 1 ]; then
+    [ -d "$target_dir" ] || die "要更新的目录不存在: $target_dir"
+    grep -q "^slug = \"$slug\"\$" "$toml" || die "reading-materials.toml 里没有 slug: $slug"
+  else
+    [ ! -e "$target_dir" ] || die "目录已存在: $target_dir"
+    ! grep -q "^slug = \"$slug\"\$" "$toml" || die "reading-materials.toml 里已有 slug: $slug"
+  fi
 
   # Title and description come from the HTML head.
   local title description
@@ -244,7 +251,13 @@ publish_reading() {
   local date
   date=$(now_iso)
 
-  [ -n "$changelog_line" ] || changelog_line="- 新增资料页《$title》，\`static/reading/$slug/index.html\`。$description"
+  if [ -z "$changelog_line" ]; then
+    if [ "$update" = 1 ]; then
+      changelog_line="- 更新资料页《$title》，\`static/reading/$slug/index.html\`。"
+    else
+      changelog_line="- 新增资料页《$title》，\`static/reading/$slug/index.html\`。$description"
+    fi
+  fi
 
   local entry
   entry=$(
@@ -275,16 +288,25 @@ publish_reading() {
 
   if [ "$dry_run" = 1 ]; then
     echo ""
-    echo "[dry-run] 将追加到 data/reading-materials.toml:"
-    echo "$entry"
+    if [ "$update" = 1 ]; then
+      echo "[dry-run] 将替换现有整理页，保留 data/reading-materials.toml 条目"
+    else
+      echo "[dry-run] 将追加到 data/reading-materials.toml:"
+      echo "$entry"
+    fi
     echo ""
     echo "[dry-run] 未写入任何文件"
     return 0
   fi
 
   mkdir -p "$REPO_DIR/static/reading"
-  cp -R "$src_dir" "$target_dir"
-  printf '%s\n' "$entry" >> "$toml"
+  if [ "$update" = 1 ]; then
+    find "$target_dir" -mindepth 1 -maxdepth 1 -delete
+    cp -R "$src_dir"/. "$target_dir"/
+  else
+    cp -R "$src_dir" "$target_dir"
+    printf '%s\n' "$entry" >> "$toml"
+  fi
   changelog_add "$changelog_line"
 
   # Local build check when hugo is available: the sitemap must list the new page.
@@ -303,7 +325,11 @@ publish_reading() {
 
   cd "$REPO_DIR"
   git add "static/reading/$slug" data/reading-materials.toml CHANGELOG.md
-  git commit -m "Publish $title in Reading" -m "Add /reading/$slug/ and list it in reading-materials.toml."
+  if [ "$update" = 1 ]; then
+    git commit -m "Update $title in Reading" -m "Replace /reading/$slug/ after the reading-page checks pass."
+  else
+    git commit -m "Publish $title in Reading" -m "Add /reading/$slug/ and list it in reading-materials.toml."
+  fi
   git_push_default
   echo "已发布: $canonical"
 }
