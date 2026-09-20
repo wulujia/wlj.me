@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>怎么给 dsh 写插件</title>
+<meta name="robots" content="index,follow">
+<meta name="description" content="研究 dsh（DeepSeek Harness）的插件机制：一个插件就是四个导出加 package.json 里的一个字段，profile 是一摞补丁，一次工具调用有四个可以挂进去的口子。附一个 427 行、零依赖、真机跑通的示例插件——agent 每写一个 .md，插件在同一步跑写作检查并把结果塞回工具结果，以及四个坑、装调卸命令和方法与来源。">
+<link rel="canonical" href="https://wlj.me/reading/dsh-plugin-guide/">
+<meta property="og:title" content="怎么给 dsh 写插件">
+<meta property="og:description" content="研究 dsh（DeepSeek Harness）的插件机制：一个插件就是四个导出加 package.json 里的一个字段，profile 是一摞补丁，一次工具调用有四个可以挂进去的口子。附一个 427 行、零依赖、真机跑通的示例插件。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wlj.me/reading/dsh-plugin-guide/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #1a1c21;
+  --ink-2: #474b54;
+  --ink-3: #666d79;
+  --rule: #dcdee5;
+  --rule-2: #b7bcc7;
+  --mid: #eceef2;
+  --acc: #3a4fa0;
+  --acc-ink: #31428a;
+  --acc-wash: rgba(58, 79, 160, .08);
+  --good: #2c7a3a; --warn: #8f6300; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(143,99,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181c; --surface: #1e2027; --ink: #eceef2; --ink-2: #c0c4cd; --ink-3: #949aa6;
+    --rule: #2d3038; --rule-2: #464b56; --mid: #23262c;
+    --acc: #98a8ee; --acc-ink: #b3bef4; --acc-wash: rgba(152,168,238,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181c; --surface: #1e2027; --ink: #eceef2; --ink-2: #c0c4cd; --ink-3: #949aa6;
+  --rule: #2d3038; --rule-2: #464b56; --mid: #23262c;
+  --acc: #98a8ee; --acc-ink: #b3bef4; --acc-wash: rgba(152,168,238,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+#reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+#reading-return a { color: var(--ink-2); text-decoration: none; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #3a4fa0; --acc-ink: #31428a; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip, #reading-return { display: none !important; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回</a></div>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、插件在 dsh 里是什么</a>
+        <ul>
+          <li><a href="#s1-1">1.1 一个插件就是四个导出</a></li>
+          <li><a href="#s1-2">1.2 profile 是一摞补丁</a></li>
+          <li><a href="#s1-3">1.3 第三方插件靠一个字段进入这摞补丁</a></li>
+        </ul>
+      </li>
+      <li><a href="#s2">二、能挂在哪里</a>
+        <ul>
+          <li><a href="#s2-1">2.1 一次工具调用的四个口子</a></li>
+          <li><a href="#s2-2">2.2 其他常用挂点</a></li>
+          <li><a href="#s2-3">2.3 三件不用写插件的事</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、从零写一个：写完即检查</a>
+        <ul>
+          <li><a href="#s3-1">3.1 要解决的问题</a></li>
+          <li><a href="#s3-2">3.2 插件的三个面</a></li>
+          <li><a href="#s3-3">3.3 写入钩子的全部逻辑</a></li>
+          <li><a href="#s3-4">3.4 怎么验证</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、四个坑</a></li>
+      <li><a href="#s5">五、装、调、卸</a></li>
+      <li><a href="#s6">六、还能拿插件做什么</a></li>
+      <li><a href="#s7">七、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Technical notes · 2026 年 9 月</p>
+    <h1>怎么给 dsh 写插件</h1>
+    <p class="lede">DeepSeek Harness 的插件长什么样，装到哪里，能挂在哪些位置，以及一个从零写到跑通的示例插件。</p>
+    <p class="meta"><span>基于 dsh 0.1.2-rc.1</span><span>取样日 2026-09-08</span><span>示例代码已在本机跑通</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>dsh 的插件是一个导出 <code>name</code>、<code>inject</code>、<code>apply</code> 的 ES 模块，加一个 <code>package.json</code> 里的 <code>dsh.bundle.patch</code> 字段。装的时候一条命令，<code>dsh plugin add</code> 会自己把它追加进 profile 的层列表。</p>
+    <p>它比 MCP 深一层：MCP 只能加工具，插件能改系统提示、能截住每一次工具调用的结果、能加斜杠命令。本文的示例插件用的就是这个差别：agent 每写一个 <code>.md</code>，插件在同一步里跑一个写作检查脚本，把结果塞回工具结果，模型当场看到。</p>
+    <p>示例插件 427 行，零运行时依赖，15 项自测全过，在独立 profile 里真机跑通：模型写下一句触发规则的句子，同一步就收到了检查告警。</p>
+  </div>
+
+  <h2 id="s1">一、插件在 dsh 里是什么</h2>
+
+  <p>dsh 0.1.2-rc.1 的包依赖树里，<code>@deepseek-ai/dsh-*</code> 有 214 个包。模型适配器、工具、会话存储、沙箱、压缩策略、斜杠命令、Web 前端的每一块面板，各自是一个包，各自是一个 Cordis 插件。启动时按一份 YAML 清单装配成一棵树。</p>
+
+  <p>这个结构的实际后果是：想改的东西基本都已经是一行配置，或者一个可以被自己的插件替换掉的行。不用 fork。</p>
+
+  <h3 id="s1-1">1.1 一个插件就是四个导出</h3>
+
+  <p>Cordis 插件的最小形态是一个 ES 模块，导出四个东西。官方的 <code>dsh-time-context</code>（给模型注入当前时间的那个插件）就是这个形状：</p>
+
+<pre lang="en"><code>const name = 'time-context'        // 诊断信息里显示的名字
+const inject = ['agents']          // 依赖哪些服务，服务到齐才激活
+const Config = z.object({ ... })   // 配置格式，可选
+function apply(ctx, config) {      // 挂钩子、注册东西，全部随 ctx 一起销毁
+  ctx.on('agent/pre-step', async (payload, next) => { ... }, { prepend: true })
+}</code></pre>
+
+  <p><code>ctx</code> 上挂着 69 个服务，<code>ctx.tools</code>、<code>ctx.systemPrompt</code>、<code>ctx.commands</code>、<code>ctx.skills</code>、<code>ctx.subagents</code>、<code>ctx.llm</code> 都在里面。<code>apply</code> 里注册的每一样东西都绑在 <code>ctx</code> 上，插件卸载时自动回收，热重载不用自己清理。</p>
+
+  <h3 id="s1-2">1.2 profile 是一摞补丁</h3>
+
+  <p>profile 在 <code>~/.dsh/profiles/&lt;名字&gt;/</code>，里面一个 <code>package.json</code>（装外部插件的地方，加一份有序的 <code>dsh.profile.bundles</code> 层列表）和一个 <code>cordis.patch.yml</code>（用户自己的补丁层）。</p>
+
+  <p>装配从一个空数组开始，每一层往上打补丁：<code>insert</code> 加行，按 <code>id</code> 定位的补丁改行。一个典型的 web profile 是这样：</p>
+
+  <figure>
+    <svg viewBox="0 0 660 330" role="img" aria-label="web profile 的补丁层叠图：空根，加 dsh-base 85 行，加 dsh-web-app 87 行，加 subagent-claude-code 1 行，加一个第三方插件，再加两层用户 patch，最终装配成 146 行">
+      <g font-family="ui-monospace, Menlo, monospace" font-size="12.5">
+        <g fill="currentColor" fill-opacity=".55">
+          <text x="0" y="20">空的 profile 根</text>
+          <text x="640" y="20" text-anchor="end">[]</text>
+        </g>
+        <line x1="0" y1="30" x2="640" y2="30" stroke="currentColor" stroke-opacity=".2"/>
+
+        <rect x="0" y="42" width="640" height="34" fill="currentColor" fill-opacity=".06"/>
+        <rect x="0" y="42" width="4" height="34" fill="currentColor" fill-opacity=".4"/>
+        <text x="16" y="64" fill="currentColor">+ @deepseek-ai/dsh-base</text>
+        <text x="624" y="64" fill="currentColor" fill-opacity=".7" text-anchor="end">85 行</text>
+
+        <rect x="0" y="82" width="640" height="34" fill="currentColor" fill-opacity=".06"/>
+        <rect x="0" y="82" width="4" height="34" fill="currentColor" fill-opacity=".4"/>
+        <text x="16" y="104" fill="currentColor">+ @deepseek-ai/dsh-web-app</text>
+        <text x="624" y="104" fill="currentColor" fill-opacity=".7" text-anchor="end">87 行</text>
+
+        <rect x="0" y="122" width="640" height="34" fill="currentColor" fill-opacity=".06"/>
+        <rect x="0" y="122" width="4" height="34" fill="currentColor" fill-opacity=".4"/>
+        <text x="16" y="144" fill="currentColor">+ @deepseek-ai/dsh-subagent-claude-code</text>
+        <text x="624" y="144" fill="currentColor" fill-opacity=".7" text-anchor="end">1 行</text>
+
+        <rect x="0" y="162" width="640" height="34" fill="var(--acc)" fill-opacity=".13"/>
+        <rect x="0" y="162" width="4" height="34" fill="var(--acc)"/>
+        <text x="16" y="184" fill="currentColor">+ 第三方插件（如 dsh-prose-guard）</text>
+        <text x="624" y="184" fill="currentColor" fill-opacity=".7" text-anchor="end">1 行</text>
+
+        <rect x="0" y="202" width="640" height="34" fill="var(--acc)" fill-opacity=".13"/>
+        <rect x="0" y="202" width="4" height="34" fill="var(--acc)"/>
+        <text x="16" y="224" fill="currentColor">+ profiles/web/cordis.patch.yml</text>
+        <text x="624" y="224" fill="currentColor" fill-opacity=".7" text-anchor="end">热加载</text>
+
+        <rect x="0" y="242" width="640" height="34" fill="var(--acc)" fill-opacity=".13"/>
+        <rect x="0" y="242" width="4" height="34" fill="var(--acc)"/>
+        <text x="16" y="264" fill="currentColor">+ ~/.dsh/cordis.patch.yml</text>
+        <text x="624" y="264" fill="currentColor" fill-opacity=".7" text-anchor="end">优先级最高</text>
+
+        <line x1="0" y1="290" x2="640" y2="290" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/>
+        <text x="0" y="312" fill="currentColor" font-weight="600">= 装配好的插件树</text>
+        <text x="640" y="312" fill="currentColor" font-weight="600" text-anchor="end">146 行</text>
+      </g>
+    </svg>
+    <figcaption>靛蓝的三层是用户能改的。行数用 <code>dsh --profile web --dump-config</code> 数出来，取样日 2026-09-08。最后两层是纯 YAML，不用装包。</figcaption>
+    <details><summary>数据表</summary>
+      <div class="tbl"><table>
+        <caption>web profile 各层的行数</caption>
+        <thead><tr><th scope="col">层</th><th scope="col" class="num">行数</th><th scope="col">来源</th></tr></thead>
+        <tbody>
+          <tr><td>dsh-base</td><td class="num">85</td><td>包内 cordis.patch.yml</td></tr>
+          <tr><td>dsh-web-app</td><td class="num">87</td><td>包内 cordis.patch.yml</td></tr>
+          <tr><td>dsh-subagent-claude-code</td><td class="num">1</td><td>包内 cordis.patch.yml</td></tr>
+          <tr><td>装配结果</td><td class="num">146</td><td>dump-config 输出</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </figure>
+
+  <p>两条会咬人的规则。按 <code>id</code> 定位的补丁是整块替换 <code>config</code>，要保留的字段得一起重写。用户那两层是热加载的，改完不用重启服务；包那几层要重启。</p>
+
+  <p>YAML 里可以写 <code>!!js</code> 表达式，在装配时求值，还能用 <code>dshHomePath()</code>。base 层里就有：</p>
+
+<pre lang="en"><code>- id: session-persistence-jsonl
+  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  config:
+    root: !!js dshHomePath('sessions')</code></pre>
+
+  <h3 id="s1-3">1.3 第三方插件靠一个字段进入这摞补丁</h3>
+
+  <p>一个 npm 包想成为 profile 的一层，只要在 <code>package.json</code> 里声明：</p>
+
+<pre lang="en"><code>"dsh": { "bundle": { "patch": "./cordis.patch.yml" } }</code></pre>
+
+  <p>然后 <code>dsh plugin --profile web add &lt;包&gt;</code>。这条命令把参数原样转给 pnpm，装完之后回头读一遍已装的依赖：凡是声明了 <code>dsh.bundle.patch</code> 的，自动追加进 <code>dsh.profile.bundles</code>；移除或者升级后丢了这个声明的，自动摘掉。不用手改 <code>package.json</code>。</p>
+
+  <p>包的来源 pnpm 支持什么就支持什么：npm、<code>github:owner/repo#ref</code>、本地路径、<code>file:</code>、<code>link:</code>。开发中的插件用 <code>link:</code> 指向工作目录，改完重启服务即可，不用发版。</p>
+
+  <div class="note"><b>说明</b>这里有个 pnpm 的坑：profile 目录是 <code>packages: ['.']</code> 的单包 workspace，<code>add</code> 不带 <code>-w</code> 会报 <code>ERR_PNPM_ADDING_TO_ROOT</code>。</div>
+
+  <h2 id="s2">二、能挂在哪里</h2>
+
+  <p>核心的 15 个包一共声明了 47 个 Cordis 事件。写插件多数时候只用到其中一小把。</p>
+
+  <h3 id="s2-1">2.1 一次工具调用的四个口子</h3>
+
+  <p>每一次工具调用都走同一条路：<code>tools/pre-execute</code> 决定放不放行，注册的守卫再过一遍，<code>tools/execute</code> 包在真正执行的外面，<code>tools/post-execute</code> 拿到结果，最后 <code>tools/result</code> 只读通知。</p>
+
+  <div class="tbl">
+    <table>
+      <caption>一次工具调用上的四个扩展点</caption>
+      <thead><tr><th scope="col">事件</th><th scope="col">模式</th><th scope="col">能做什么</th><th scope="col">典型用途</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">tools/pre-execute</th><td>瀑布</td><td>返回 allow / deny / ask</td><td>权限、审批、危险命令拦截</td></tr>
+        <tr><th scope="row">tools/execute</th><td>瀑布</td><td>包住真正执行，可换 signal</td><td>超时、重试、埋点</td></tr>
+        <tr><th scope="row">tools/post-execute</th><td>瀑布</td><td>accept 原样过 / 换掉内容 / block 判错 / 附加上下文</td><td>结果检查、敏感信息遮掉、超长结果存成文件</td></tr>
+        <tr><th scope="row">tools/result</th><td>只读</td><td>看最终结果，改不了</td><td>统计、日志、外部通知</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><code>tools/post-execute</code> 是示例插件用到的那个。它的返回值有三种形态，其中 <code>additionalContexts</code> 是关键：附上去的消息会进这一步的结果批次，模型下一次请求就看得到，不用等一轮对话。</p>
+
+<pre lang="en"><code>type PostToolDecision =
+  | { kind: 'accept'; content?: ContentBlock[]; additionalContexts?: UserMessage[] }
+  | { kind: 'accept'; value: JsonValue;         additionalContexts?: UserMessage[] }
+  | { kind: 'block';  feedback: ContentBlock[]; additionalContexts?: UserMessage[] }</code></pre>
+
+  <h3 id="s2-2">2.2 其他常用挂点</h3>
+
+  <div class="tbl">
+    <table>
+      <caption>写插件时最常用的挂点</caption>
+      <thead><tr><th scope="col">挂点</th><th scope="col">干什么</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">ctx.tools.register</th><td>注册一个模型可见的工具。<code>restrict</code> 按 agent 做黑白名单，<code>guard</code> 加一道只能否决的闸</td></tr>
+        <tr><th scope="row">ctx.systemPrompt.section</th><td>往系统提示里加一段，带排序号。persona 是 0，plan policy 是 500</td></tr>
+        <tr><th scope="row">ctx.systemPrompt.context</th><td>加动态上下文，每次装配重新求值</td></tr>
+        <tr><th scope="row">ctx.commands.register</th><td>注册斜杠命令。结果直接渲染给人看，不进模型历史</td></tr>
+        <tr><th scope="row">agent/pre-step</th><td>每一步请求组装前追加消息。<code>dsh-time-context</code> 用它注入当前时间</td></tr>
+        <tr><th scope="row">ctx.sessionProjections.register</th><td>注册会话投影，Web 界面从这里读状态。todo 列表就是一个投影</td></tr>
+        <tr><th scope="row">ctx.subagents</th><td>注册子 agent 后端。Claude Code 那个包就是一个 provider</td></tr>
+        <tr><th scope="row">fs/write-intent、fs/edit-intent</th><td>文件系统层，比工具层更底，绕过工具的写入也拦得住</td></tr>
+        <tr><th scope="row">system-prompt/assemble</th><td>整份提示装配完之后再改一手</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s2-3">2.3 三件不用写插件的事</h3>
+
+  <p>动手前先确认要做的事需不需要写代码。这三件都只要放文件。</p>
+
+  <h4>全局指令</h4>
+
+  <p><code>dsh-agent-instructions</code> 已经在 base 层里，默认预算 65536 字节。它先读 <code>~/.dsh/AGENTS.md</code>，再从项目根往下读每一层的 <code>AGENTS.md</code> 和 <code>CLAUDE.md</code>，广到窄拼成第一条基线消息。已经在用 Claude Code 或 Codex 的人，把自己的全局指令文件复制一份到 <code>~/.dsh/AGENTS.md</code>，dsh 就认得同一套规则。</p>
+
+  <h4>技能</h4>
+
+  <p><code>dsh-skill-filesystem</code> 也在 base 层，默认扫五个根目录，其中一个是 <code>~/.agents/skills</code>。这个目录是多个 agent 工具共用的约定位置，放进去的技能 dsh 直接能看到。目录带监听，加删技能不用重启。</p>
+
+  <p>技能和插件的分工是：技能要模型自己决定加载，插件是无条件触发。一条写作规则两边都可以有，技能负责“怎么写”，插件负责“写完了必须查一遍”。</p>
+
+  <h4>一段部署人格</h4>
+
+  <p><code>system-prompt</code> 的 <code>persona</code> 字段接受一段字符串模板，支持 <code>{{model}}</code>、<code>{{cwd}}</code>。在 <code>cordis.patch.yml</code> 里写一行就行，不用建包。</p>
+
+  <div class="warn"><b>差别</b>MCP 服务器只能加工具。上面这些挂点里，改系统提示、截工具结果、加斜杠命令、换模型适配器，MCP 都做不到。要这几样才需要写插件。另外默认的 web 树里没有 <code>dsh-mcp-client</code>，MCP 要用得先加一行。</div>
+
+  <h2 id="s3">三、从零写一个：写完即检查</h2>
+
+  <h3 id="s3-1">3.1 要解决的问题</h3>
+
+  <p>很多团队有一份写作规范，还有一个配套的检查脚本：跑一遍 Markdown 文件，输出逐行的 <code>文件:行:列 [严重度/类型] 说明</code>。规则可能是禁用某些套话、要求中英文之间留空格、限制感叹号。</p>
+
+  <p>问题在触发时机。检查器要人记得跑。agent 写完一篇稿，人得先看到、先想起来、再让它查一遍，往返两三轮。规则写在技能里也只是“模型愿意的时候读一读”。</p>
+
+  <p><code>tools/post-execute</code> 正好补上这一段：文件刚写完，插件立刻跑检查器，把结果作为一条 notice 附在这次调用结果上。模型下一步就看到了，中间没有人。这是插件相对技能和 MCP 的实际增量。</p>
+
+  <p>下面的示例插件叫 dsh-prose-guard。检查器本身不在插件里，通过配置项 <code>linter</code> 指向任何一个接受文件路径、按上面格式输出的脚本。</p>
+
+  <h3 id="s3-2">3.2 插件的三个面</h3>
+
+  <dl class="kv">
+    <dt>规模</dt><dd>index.js 427 行，测试 262 行</dd>
+    <dt>依赖</dt><dd>零。只用 Node 内置模块</dd>
+    <dt>状态</dt><dd><span class="pill good">自测 15 项全过</span> <span class="pill good">独立 profile 真机跑通</span></dd>
+  </dl>
+
+  <p><strong>写入即检查。</strong>挂在 <code>tools/post-execute</code>。<code>write</code>、<code>edit</code>、<code>str_replace_editor</code> 成功写完一个 <code>.md</code>，拿到写入路径，跑检查器，有 warning 就附结果。<code>mode: block</code> 时改成把这次写入判成错误，逼模型重写。</p>
+
+  <p><strong><code>prose_lint</code> 工具。</strong>模型主动查。传路径查磁盘上的文件，传文本查还没写进文件的草稿。</p>
+
+  <p><strong><code>/prose</code> 命令。</strong>Web 界面里手动查。不给路径就查本会话最近写过的 Markdown。</p>
+
+  <p>另外往系统提示里加一段，告诉模型这个检查器存在、结果会当场回来、以及什么时候可以不改。最后一句是有用的：检查器是正则，会误报，模型需要一个不硬改的出口。</p>
+
+  <h3 id="s3-3">3.3 写入钩子的全部逻辑</h3>
+
+<pre lang="en"><code>ctx.on('tools/post-execute', async (exec, result, next) =&gt; {
+  const decision = await next()
+  if (decision.kind !== 'accept') return decision
+  if (!config.watchTools.has(exec.name) || result.isError) return decision
+
+  const reported = writtenPath(exec, result)
+  if (reported === undefined) return decision
+  const path = absolute(reported)
+  if (!watched(path, config)) return decision
+
+  const report = await runLinter(config, [path], exec.signal)
+  if (!report.ok) return decision
+  if (exec.agent) lastWritten.set(exec.agent, path)
+
+  const findings = actionable(report, config)
+  if (findings.length === 0) return decision
+
+  const text = renderWriteReport(path, findings, config)
+  if (config.mode === 'block') return { kind: 'block', feedback: [{ type: 'text', text }] }
+  return { ...decision, additionalContexts: [...(decision.additionalContexts ?? []), noticeMessage(text, summary)] }
+})</code></pre>
+
+  <p>先 <code>await next()</code> 把下游的决定拿回来，再决定改不改，这是瀑布事件的规矩。写入路径优先从结果的 <code>value.path</code> 取（文件系统后端解析过的），取不到再退回参数里的 <code>file_path</code>。</p>
+
+  <p>附上去的消息是一条 <code>form: 'notice'</code> 的 plugin 来源消息。按 dsh 的定义，notice 是“刚刚发生的一件事的一次性说明，不覆盖任何东西”，正好对应一次检查结果。<code>snapshot</code> 那种会被后来的同类覆盖，不合适。</p>
+
+  <h3 id="s3-4">3.4 怎么验证</h3>
+
+  <p>自测不需要 dsh 运行时：测试自己搭了个假的 Cordis 上下文，接住插件注册的钩子、工具和命令，然后拿真的检查器扫真的临时文件。15 项包括干净文件放行、非 Markdown 不查、失败的写入不查、block 模式、检查器崩溃时不影响写入。</p>
+
+  <p>真机验证用一个独立 profile，不碰正在跑的服务：</p>
+
+<pre lang="en"><code>dsh plugin --profile pgtest add -w link:/path/to/dsh-prose-guard
+dsh --profile pgtest --dump-config | grep prose-guard
+cd /tmp/pgtest-ws &amp;&amp; dsh --profile pgtest "用 write 工具创建 draft.md，内容就是下面这一行，
+  一字不改：这不是效率问题，而是结构问题。然后告诉我写入后你收到了什么反馈。"</code></pre>
+
+  <p>装完之后 <code>dsh.profile.bundles</code> 自动多了一行 <code>dsh-prose-guard</code>，dump 出来的树里有 <code>prose-guard</code> 这一行。模型的回答：</p>
+
+  <blockquote>
+    <p>文件已写入成功，写入操作本身没有报错。随后收到的反馈来自 prose-guard，它检查了 draft.md 并报出 1 处问题：L1:2 [contrast]，判定该句是“对比抬杠句式”，建议“删掉对比直接写后半句”。</p>
+    <p>这条检查结果对当前文本不成立，因为内容是明确要求一字不改写入的，不能按建议改写，所以我保留原行未动。</p>
+    <cite>deepseek-v4-flash 的实际输出，2026-09-08</cite>
+  </blockquote>
+
+  <p>钩子在同一步里触发了，模型看到了结果，并且用上了提示里那个出口。</p>
+
+  <h2 id="s4">四、四个坑</h2>
+
+  <p><strong>外部插件不要 import 任何 <code>@deepseek-ai/*</code> 包。</strong>插件通常靠 pnpm 的 <code>link:</code> 或 <code>file:</code> 装进 profile，Node 顺着符号链接找到真实路径，再从插件自己那个目录往上找依赖，找不到 profile 里那套包。零依赖的代价是工具的 JSON Schema 得手写，<code>defineTool</code> 的参数校验用不上。换来的是不管怎么装都能跑。</p>
+
+  <p><strong>常驻服务里的插件不能因为一个文件缺失就崩。</strong>dsh 默认姿态是启动失败就大声报错，插件树装不起来直接 exit 1。如果 dsh web 是作为常驻服务跑的，检查脚本搬个位置不该让整个服务起不来。所以示例插件在检查器路径不存在时照常 mount，什么都不注册，往 stderr 写一行。</p>
+
+  <p><strong>验证不必付出模型调用的代价。</strong><code>--dump-config</code> 是离线组装的，只验 YAML 层叠，不 import 模块。要验模块能不能真的加载，用 <code>dsh --profile &lt;名字&gt; --help</code>：它会把整棵树挂起来、跑完 <code>assertEntriesLoaded</code> 和 <code>assertEntriesActivated</code>，然后打印 app 自己的 help 就退出，不发一次模型请求。</p>
+
+  <p><strong>按 <code>id</code> 的补丁是整块替换。</strong>在 <code>cordis.patch.yml</code> 里改一个已有行的 <code>config</code>，没写的字段会丢。要留的字段得重写一遍。</p>
+
+  <h2 id="s5">五、装、调、卸</h2>
+
+  <p>装到一个正在跑的 profile 上，两条命令。第二条按自己的服务管理方式换，macOS 上 launchd 常驻的例子如下：</p>
+
+<pre lang="en"><code>dsh plugin --profile web add -w link:/path/to/dsh-prose-guard
+launchctl kickstart -k "gui/$(id -u)/com.deepseek.dsh-web"</code></pre>
+
+  <p>回退同样两条，把 <code>add -w link:...</code> 换成 <code>remove dsh-prose-guard</code>。移除时同一段代码会把它从 <code>bundles</code> 里摘掉。</p>
+
+  <p>装完想调行为，改 <code>~/.dsh/profiles/web/cordis.patch.yml</code>，热加载，不用重启：</p>
+
+<pre lang="en"><code>- id: prose-guard
+  config:
+    linter: /path/to/lint.py   # 检查脚本
+    mode: notify               # notify 附结果 / block 判错逼重写 / off 关掉写入钩子
+    strict: false              # style 级别也算问题
+    maxFindings: 12</code></pre>
+
+  <div class="warn"><b>顺带</b>0.1.2-rc.1 之后 Web 界面加了一次性 token 鉴权，裸访问 127.0.0.1:3080 返回 401。重启服务会换一个新 token，从 <code>~/.dsh/web.log</code> 最后一行取带 token 的链接。</div>
+
+  <h2 id="s6">六、还能拿插件做什么</h2>
+
+  <p>同样的挂点，换一个场景就是另一个插件。三个例子，都用到了 MCP 给不了的能力。</p>
+
+  <p><strong>知识库召回。</strong>如果已有一个能 search 和 capture 的笔记 CLI，包成插件之后能做三件事：会话开始时按当前工作目录自动召回相关笔记（<code>agent/pre-step</code>），一个 <code>/recall</code> 命令，以及会话结束时把值得留的结论写回去。工具那部分和 MCP 重叠，另外两件不重叠。</p>
+
+  <p><strong>发布把关。</strong><code>tools/pre-execute</code> 拦住往社群、社交平台发内容的调用，返回 <code>ask</code> 走审批，把要发的原文完整显示出来。dsh 的审批服务已经在 base 层里，插件只要接上。</p>
+
+  <p><strong>结果瘦身。</strong><code>tools/post-execute</code> 把超长的命令输出存成文件，只把前几十行和文件路径给模型。省 token，也省上下文。</p>
+
+  <h2 id="s7">七、方法与来源</h2>
+
+  <p>结论来自三处：本机 <code>~/.local/dsh/</code> 里 214 个包自带的 README 和 <code>.d.ts</code> 类型声明；官方仓库和文档站；以及在本机实际写代码、装插件、跑起来的结果。</p>
+
+  <p>行数和数量都是当场数出来的，取样日 2026-09-08：<code>dsh --version</code> 得到 0.1.2-rc.1；<code>dsh --profile web --dump-config</code> 数出 146 行；<code>ctx</code> 上的 69 个服务和 47 个事件来自各包 <code>lib/types/index.d.ts</code> 里的类型合并声明，事件数只统计了 15 个核心包，全量会更多。</p>
+
+  <p>示例插件的 15 项自测在本机跑通，用的是真的检查器和真的临时文件。真机那次是一次真实的模型调用，模型 <code>deepseek-v4-flash</code>，profile 为 <code>pgtest</code>，工作目录 <code>/tmp/pgtest-ws</code>。</p>
+
+  <p>没验证的：没在 web profile 上装过，所以和 <code>dsh-web-app</code> 那 87 行的共存只是推断；没测过 Windows；没测过 <code>str_replace_editor</code> 的真实返回值形状，那条路径走的是参数回退分支。</p>
+
+  <ol class="sources">
+    <li id="src-1">DeepSeek，《DeepSeek Harness》仓库，<a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a></li>
+    <li id="src-2">DeepSeek，《DeepSeek Harness developer preview》，<a href="https://deepseek.com/harness/en/" target="_blank" rel="noopener">deepseek.com/harness/en</a></li>
+    <li id="src-3">DeepSeek Harness 文档站，<a href="https://deepseek-harness.github.io/deepseek-harness/" target="_blank" rel="noopener">deepseek-harness.github.io/deepseek-harness</a></li>
+    <li id="src-4">0xsline，《awesome-deepseek-harness》，社区插件目录与打包约定，<a href="https://github.com/0xsline/awesome-deepseek-harness" target="_blank" rel="noopener">github.com/0xsline/awesome-deepseek-harness</a></li>
+    <li id="src-5">本机包内文档：<code>dsh-app-boot</code> README 的 Profiles 一节（层叠顺序、热加载、整块替换规则）、<code>dsh-tools</code> README 与 <code>lib/types/index.d.ts</code>（四个扩展点、PostToolDecision）、<code>dsh-agent-instructions</code> README（AGENTS.md 读取与字节预算）、<code>dsh-skill-filesystem</code> README（五个技能根目录与排序）、<code>dsh-time-context</code> 的 <code>lib/index.js</code>（最小插件形态）</li>
+  </ol>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) det.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
