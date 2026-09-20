@@ -4,6 +4,7 @@
 
 - 列表页每页条数从 5 改为 10（`hugo.toml` 的 `pagination.pagerSize`）。日志、首页、创业笔记、标签页都受影响；笔记列表本来就是每页 20，不变。
 - 分页改为带页码的导航：`layouts/partials/pagination.html` 覆盖主题只有上一页 / 下一页的版本。始终显示第 1 页和最后一页，当前页前后各两页，中间的用省略号折叠（只差一页时直接显示页码，不出现“1 … 3”）；当前页不是链接，带 `aria-current="page"`；上一页 / 下一页带 `rel="prev|next"`；底部加“第 N / M 页”；只有一页时整块不渲染。样式放在 `assets/css/pagination.css`（覆盖主题同名文件，Hugo 按 `resources.Match "css/*.css"` 取项目版本）。
+- 整理页 `/reading/` 也分页，每页 10 条，页码样式和其他列表一致。整理页的条目来自 `data/reading-materials.toml` 而不是 Hugo 页面，又带分类筛选，Hugo 的 `/page/N/` 分页和筛选合不到一起，所以在浏览器里做：`layouts/reading/list.html` 的脚本先按分类筛选再切页，页码写进 hash（`#report/2`），换分类回到第 1 页。全部条目仍在 HTML 里，没有 JS 时显示全部，索引不受影响。
 
 - 创业笔记列表改按笔记编号倒序：`layouts/startupnotes/list.html` 用 `sort .Pages "Params.note_number" "desc"` 排序后再分页。原先走 Hugo 默认的 date 倒序，但大量笔记的 date 是从同一次 git 提交回填的，同一时间戳内的先后由文件名决定，列表顺序因此是乱的（963、964、965、962、960）。
 - `scripts/import-startupnotes.py`：frontmatter 新增 `note_number` 字段（列表排序依据，新增笔记必须有）；编号超出已知日期范围时，date 改用源文件 mtime，不再让新笔记全部塌到最后一个已知时间戳上；`SOURCE_DIR` 默认值改为 `~/Github/Luca/startupnotes`，不再写死 macOS 路径。

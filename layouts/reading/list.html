@@ -76,45 +76,98 @@
   {{ end }}
   <p class="reading-empty" id="reading-empty" hidden>这个分类下还没有整理。</p>
 </div>
+<nav class="pagination" id="reading-pager" aria-label="分页" hidden></nav>
 
 <script>
 (function () {
+  // Filter and paginate in the browser: the list comes from a data file,
+  // not Hugo pages, so server-side pagination and the category filter
+  // would not compose. Hash carries both: "#report/2".
+  var PER_PAGE = 10;
   var valid = {{ $order | jsonify | safeJS }};
   var links = document.querySelectorAll('.reading-filter a');
-  var items = document.querySelectorAll('.reading-item');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.reading-item'));
   var empty = document.getElementById('reading-empty');
+  var pager = document.getElementById('reading-pager');
+  var state = { cat: 'all', page: 1 };
 
-  function apply(cat) {
-    if (valid.indexOf(cat) === -1) cat = 'all';
-    var shown = 0;
-    items.forEach(function (el) {
-      var hit = cat === 'all' || el.dataset.category === cat;
-      el.hidden = !hit;
-      if (hit) shown++;
+  function hashFor(cat, page) {
+    if (cat === 'all' && page === 1) return location.pathname;
+    return '#' + cat + (page > 1 ? '/' + page : '');
+  }
+
+  // Same window rule as partials/pagination.html: first, last, two on each
+  // side of current, and a single-page gap shown as the page itself.
+  function pageList(cur, total) {
+    var out = [], gap = false;
+    for (var n = 1; n <= total; n++) {
+      var near = Math.abs(n - cur) <= 2;
+      var edge = n === 1 || n === total;
+      var fill = (n === 2 && cur <= 5) || (n === total - 1 && cur >= total - 4);
+      if (near || edge || fill) { out.push(n); gap = false; }
+      else if (!gap) { out.push('…'); gap = true; }
+    }
+    return out;
+  }
+
+  function renderPager(cur, total) {
+    if (total <= 1) { pager.hidden = true; pager.innerHTML = ''; return; }
+    var h = '<div class="pagination__buttons">';
+    h += cur > 1
+      ? '<a href="' + hashFor(state.cat, cur - 1) + '" class="button inline prev" data-page="' + (cur - 1) + '">&lt; 上一页</a>'
+      : '<span class="pagination__disabled">&lt; 上一页</span>';
+    h += '<ol class="pagination__pages">';
+    pageList(cur, total).forEach(function (n) {
+      if (n === '…') h += '<li><span class="pagination__gap" aria-hidden="true">…</span></li>';
+      else if (n === cur) h += '<li><span class="pagination__page is-current" aria-current="page">' + n + '</span></li>';
+      else h += '<li><a class="pagination__page" href="' + hashFor(state.cat, n) + '" data-page="' + n + '">' + n + '</a></li>';
     });
+    h += '</ol>';
+    h += cur < total
+      ? '<a href="' + hashFor(state.cat, cur + 1) + '" class="button inline next" data-page="' + (cur + 1) + '">下一页 &gt;</a>'
+      : '<span class="pagination__disabled">下一页 &gt;</span>';
+    h += '</div><p class="pagination__status">第 ' + cur + ' / ' + total + ' 页</p>';
+    pager.innerHTML = h;
+    pager.hidden = false;
+  }
+
+  function apply(cat, page) {
+    if (valid.indexOf(cat) === -1) cat = 'all';
+    var hits = items.filter(function (el) { return cat === 'all' || el.dataset.category === cat; });
+    var total = Math.max(1, Math.ceil(hits.length / PER_PAGE));
+    page = Math.min(Math.max(1, page || 1), total);
+    state.cat = cat; state.page = page;
+    var from = (page - 1) * PER_PAGE;
+    items.forEach(function (el) { el.hidden = true; });
+    hits.slice(from, from + PER_PAGE).forEach(function (el) { el.hidden = false; });
     links.forEach(function (a) {
       a.classList.toggle('active', a.dataset.cat === cat);
     });
-    empty.hidden = shown > 0;
+    empty.hidden = hits.length > 0;
+    renderPager(page, total);
   }
 
   function fromHash() {
-    apply((location.hash || '#all').slice(1));
+    var parts = (location.hash || '#all').slice(1).split('/');
+    apply(parts[0], parseInt(parts[1], 10) || 1);
+  }
+
+  function go(cat, page, scroll) {
+    history.replaceState(null, '', hashFor(cat, page));
+    apply(cat, page);
+    if (scroll) {
+      document.getElementById('reading-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   document.addEventListener('click', function (e) {
-    var a = e.target.closest('a[data-cat]');
+    var a = e.target.closest('a[data-cat], #reading-pager a[data-page]');
     if (!a) return;
     e.preventDefault();
-    var cat = a.dataset.cat;
-    if (cat === 'all') {
-      history.replaceState(null, '', location.pathname);
+    if (a.dataset.page) {
+      go(state.cat, parseInt(a.dataset.page, 10), true);
     } else {
-      history.replaceState(null, '', '#' + cat);
-    }
-    apply(cat);
-    if (a.closest('.post-tags')) {
-      document.getElementById('reading-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      go(a.dataset.cat, 1, !!a.closest('.post-tags'));
     }
   });
 
