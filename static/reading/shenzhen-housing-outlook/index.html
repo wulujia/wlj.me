@@ -57,6 +57,8 @@ a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
+#reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+#reading-return a { color: var(--ink-2); text-decoration: none; }
 
 /* ---------- layout: outline + reading column ---------- */
 .layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
@@ -134,7 +136,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
   html { font-size: 11pt; }
   body { background: #fff; color: #000; line-height: 1.6; }
   .layout { display: block; max-width: none; padding: 0; }
-  .outline, .skip { display: none; }
+  .outline, .skip, #reading-return { display: none !important; }
   h1, h2, h3, h4 { break-after: avoid; }
   figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
   p, li { orphans: 3; widows: 3; }
@@ -166,7 +168,9 @@ footer {margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-s
 @media(max-width:900px){h1{font-size:30px;}.meta{margin-bottom:24px;}.summary{padding:16px;}}
 @media print{.toolbar{display:none;}table,.forecast-table{min-width:0;table-layout:auto;} .tbl{overflow:visible;}table{break-inside:auto;font-size:10pt;}th{font-size:9pt;} .sources a{overflow-wrap:anywhere;} .sources li{break-inside:avoid;} .meta{margin-bottom:18pt;}}
 </style></head>
-<body><a class="skip" href="#main">跳到正文</a><div class="layout">
+<body><a class="skip" href="#main">跳到正文</a>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回</a></div>
+<div class="layout">
 <nav class="outline" aria-label="目录"><p class="label">阅读目录</p><details open><summary>目录</summary><ul><li><a href="#section-1">中国经济与居民信贷</a></li><li><a href="#section-2">美国与全球经济</a></li><li><a href="#section-3">深圳经济、人口与购买力</a><ul><li><a href="#section-4">潜在买家的家庭财务</a></li><li><a href="#section-5">卖方压力与置换资金</a></li></ul></li><li><a href="#section-6">深圳房价与成交</a><ul><li><a href="#section-7">可比价格与修复覆盖面</a></li></ul></li><li><a href="#section-26">二手住宅价格指数：全国与深圳</a><ul><li><a href="#section-27">全国：跌幅收窄，尚未止跌</a></li><li><a href="#section-28">深圳：连涨六个月，涨幅逐月缩小</a></li><li><a href="#section-29">指数对两年判断的修正</a></li></ul></li><li><a href="#section-8">深圳住房供应与库存</a><ul><li><a href="#section-9">片区供应与交付时间</a></li></ul></li><li><a href="#section-10">住房政策与月供</a><ul><li><a href="#section-11">政策执行与资金约束</a></li></ul></li><li><a href="#section-12">深圳租金与估值</a><ul><li><a href="#section-13">净持有回报与替代选择</a></li><li><a href="#section-14">新旧产品与区域替代</a></li></ul></li><li><a href="#section-15">证据状态与判断边界</a></li><li><a href="#section-16">南山详看：近年价格与片区差异</a><ul><li><a href="#section-17">南山房价的阶段变化</a></li><li><a href="#section-18">2025 年的小区成交变化</a></li><li><a href="#section-19">南山新房价格与二手房的差异</a></li><li><a href="#section-20">南山内部的片区差异</a></li><li><a href="#section-21">南山的经济与住房需求背景</a></li><li><a href="#section-22">南山未来两年的判断</a></li></ul></li><li><a href="#section-23">深圳未来两年的情景判断</a><ul><li><a href="#section-24">恢复节奏</a></li><li><a href="#section-25">不同房源的表现</a></li></ul></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
 <main id="main"><header><p class="eyebrow">住房市场研究 · 2026 年 9 月</p><h1>深圳房价走势与南山详析</h1>
 <p class="lede">深圳全市的宏观背景与两年展望，南山近年房价、片区及小区的详细变化。</p>

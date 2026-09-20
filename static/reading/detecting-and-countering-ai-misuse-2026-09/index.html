@@ -483,8 +483,12 @@
   .download-actions a:hover { text-decoration: underline; text-underline-offset: 4px; }
   @media (max-width: 480px) { .download-actions { gap: 6px 16px; } }
   @media print { .download-actions { display: none; } }
+  #reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--ivory); border-bottom: 1px solid var(--border); }
+  #reading-return a { color: var(--olive); text-decoration: none; }
+  @media print { #reading-return { display: none !important; } }
 </style></head>
 <body>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回</a></div>
 <div class="screen-shell">
 <aside aria-label="文章大纲" class="outline">
 <a aria-label="返回封面" class="outline-brand" href="#top">ANTHROPIC</a>

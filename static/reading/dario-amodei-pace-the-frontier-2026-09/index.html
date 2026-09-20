@@ -72,6 +72,8 @@ a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
+#reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+#reading-return a { color: var(--ink-2); text-decoration: none; }
 
 /* ---------- layout: outline + reading column ---------- */
 .layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
@@ -193,7 +195,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
   html { font-size: 11pt; }
   body { background: #fff; color: #000; line-height: 1.6; }
   .layout { display: block; max-width: none; padding: 0; }
-  .outline, .skip { display: none; }
+  .outline, .skip, #reading-return { display: none !important; }
   h1, h2, h3, h4 { break-after: avoid; }
   figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
   p, li { orphans: 3; widows: 3; }
@@ -225,6 +227,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
+<div id="reading-return"><a href="https://wlj.me/reading/">← 返回</a></div>
 <div class="layout">
 
 <nav class="outline" aria-label="目录">
