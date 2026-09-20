@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-302"
+note_number: 302
 summary: "今天就是学习，记录一下学到的。 下午沈乐平@玄机科技给大家做了公司、产品、商业模式的介绍，记录一下我听到的点： 前十年只做一部作品《秦时明月》 国漫崛起，两个天花板不断被突破，《哪吒》电影票房榜第二，《斗罗大陆》在视频网站点播排名第四 武庚"
 paywall: true
 ---

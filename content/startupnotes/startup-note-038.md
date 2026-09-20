@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-038"
+note_number: 38
 summary: "我是来说一件很小很小的小事的，前几天，我给大辉的微信公众号《小道消息》投稿（见创业笔记 35）。我一般写超过 1000 字的文章，流程是： 写完； 放一晚上，第二天「默读」一遍，改掉里面不适合朗读的部分。 那天也是这样（所以发在圈子里的，其"
 paywall: true
 ---

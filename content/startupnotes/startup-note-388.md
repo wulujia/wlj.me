@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-388"
+note_number: 388
 summary: "大概两年前，就有伙伴跟我说，公司没有足够多足够强的中层。我表面上认可了，实际上没有足够的行动来改变这个问题。 看了《领导梯队》之后，我的行动是： 一、大致判断在人力资源管理、组织建设方面的目标 我希望公司能做到的是： 平时，不需要太多人，团"
 paywall: true
 ---

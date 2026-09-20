@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-287"
+note_number: 287
 summary: "最近遇到过几次“会员制”的讨论： 某位投资人对我说，他们大 BOSS 认为：知识产品要扩大收入，必须把会员做起来。所以他问我：知识星球有没有会员计划？如果做了会是什么样？能有多少会员？ 刘润老师在写得到的时候写，得到砍掉了会员制，因为会员会"
 paywall: true
 ---

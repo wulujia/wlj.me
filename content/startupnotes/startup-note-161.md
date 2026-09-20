@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-161"
+note_number: 161
 summary: "在创业笔记 155 里（https://t.zsxq.com/ZZfUjaI），我还在纠结怎样能更快，刚好在纯银的产品犬舍里看到 never 提问：如何让团队的整体进度更快？纯银提到他的方法："
 paywall: true
 ---

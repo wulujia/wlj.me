@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-042"
+note_number: 42
 summary: "前段时间向一些媒体推荐小密圈，我认为小密圈是个小工具，用于连接一千位铁杆粉丝的社区工具。但他们都不是很接受，认为小密圈在做社交。 这篇文章（https://boagworld.com/marketing/users-will-always-"
 paywall: true
 ---

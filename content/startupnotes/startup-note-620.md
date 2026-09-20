@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-620"
+note_number: 620
 summary: "前几天发了个和小鹅通相关的朋友圈，内容是： 扫了一眼微信指数和百度指数里的知识星球与小鹅通。似乎 50 人的，不怎么加班的，认真解决好一个小问题的知识星球，也不比 1500 人的小鹅通差太多。当然也惭愧，知识星球上一轮融资还是 2014 年"
 paywall: true
 ---

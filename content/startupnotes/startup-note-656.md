@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-656"
+note_number: 656
 summary: "推荐书籍《小池大鱼》，前些天看，觉得非常好，我一直很想把事情做简单些，甚至强调“简单”为价值观，但看起来，简单这件事，知易行难。 分享一些书摘： 我们的商业模式就是，首先诞生一个挖掘产品潜在需求的创意，再创造出一个锁定利基市场的产品概念，并"
 paywall: true
 ---

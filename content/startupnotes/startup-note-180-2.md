@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-180-2"
+note_number: 180
 summary: "《终身幼儿园》这本书的作者是 MIT 的 Mitchel 教授，他和他的实验室创造了 Scratch，Slogan 是 Imagine, Program, Share（想象，编程，分享）。 作者在书里提到了「4P」的学习方法： 项目 Pro"
 paywall: true
 ---

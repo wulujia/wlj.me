@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-102"
+note_number: 102
 summary: "知识付费这件事，从 2016 年兴起，到 2017 年略为平静，对此我的一些想法是： 目前的平静是用户理性的表现，初期用户被媒体撩拨着买了很多内容，现在大家其实也了解到了，光买是没有用的，还得转化成自己的认知。何况很多人还积累了很多内容没看"
 paywall: true
 ---

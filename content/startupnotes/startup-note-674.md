@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-674"
+note_number: 674
 summary: "知识星球里，不少用户有“从头到尾看一遍”的需求，但是他们往往很苦恼，因为在手机上，要完整地看完一个内容丰富的星球里的所有信息，显然不是“一鼓作气”就能搞定的。 我们此前的解决办法是：自动记录用户的阅读位置。 但这个方式存在着不少问题，比如："
 paywall: true
 ---

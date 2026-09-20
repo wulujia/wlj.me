@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-739"
+note_number: 739
 summary: "最近看到知识星球里的一些小改动，还蛮好的——此前我经常拒绝改动，尤其是没想清楚的改动。现在更多地由同事们操刀，好像新的主意、新的实验多了起来，还是挺让人开心的。 我自己用起来喜欢的（我的口味比较奇怪，我喜欢，可能也未必对）有俩： 笔记 笔记"
 paywall: true
 ---

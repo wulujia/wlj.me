@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-183"
+note_number: 183
 summary: "昨天和 @萧德纲 在办公室讨论，他拿着笔涂涂画画，画了个运营循环图： 流量池方面： 用户通过流量池（微信公众号、微博、知乎、搜索 SEO 等）进入知识星球； 知识星球里的星主、嘉宾和用户创作内容，并分享到社交媒体； 分享越多，可以为流量池带"
 paywall: true
 ---

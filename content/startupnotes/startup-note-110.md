@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-110"
+note_number: 110
 summary: "在圈子里有几位国内非常出色的 NGO 组织者，所以这几天我一直在想，NGO 究竟有没有必要建设「知识社区」？ 结论我不敢妄下，毕竟是门外汉，但似乎可以问几个问题来「追溯」一下： 目前组织内部成员（包括雇员、固定志愿者、临时志愿者等）通过什么"
 paywall: true
 ---

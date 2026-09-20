@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-192"
+note_number: 192
 summary: "今年中，接触了 OKR，想在公司里做个尝试，于是先拿运营团队做测试，我自己匆匆看了两本书之后，就开始制定目标，分解关键任务，给大家开会布置了。 第一阶段执行下来，很不理想。 苦恼地回去翻书，突然发现，我图省事，连内部培训都没做——大家根本还"
 paywall: true
 ---

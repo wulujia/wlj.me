@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-687"
+note_number: 687
 summary: "几年前看过美篇文章后，对其中印象最深的是他们的会员和礼物机制。 但自己琢磨来琢磨去，都没动手——觉得美篇和知识星球有很大的区别，没想明白。近期正好有机会向美篇的朋友请教，我就着重问了这两个功能。 我问：差不多四年过去了，在你眼里，这两个特性"
 paywall: true
 ---

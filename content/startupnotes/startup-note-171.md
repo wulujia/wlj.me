@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-171"
+note_number: 171
 summary: "多年前，我就因为对数据无感，被 caoz 批评过很多次。有段时间觉得自己有了点长进，毕竟每天也在百度指数、微信指数、应用市场数据、自家产品数据里翻看并且顺藤摸瓜地观察一些周边关键词。 但是，做产品过程中，资源紧缺情况下，我还是优先选择做功能"
 paywall: true
 ---

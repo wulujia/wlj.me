@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-884"
+note_number: 884
 summary: "之前说想从企业微信切换到飞书，导火索是同事多次被企业微信封号，如果不通过私交，似乎每次都要花几天时间解封。而无论是否请朋友协助，都得不到被封的原因（这也让我反思我们自己的风控透明度和服务改进，当然这是另一个话题）。 趁着这个导火索，我提出来"
 paywall: true
 ---

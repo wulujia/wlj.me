@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-070"
+note_number: 70
 summary: "小密圈里，有个「大开眼戒」的圈子，讲摄影的。 圈主说： 「大开眼戒」这个项目是我想了很久的一个新尝试。三年前要写一本关于摄影的书，可是迟迟写不出来，中间几易其稿，总是赶不上自己思维的变化。当时我就想，难道不能有一本『活』的书吗？记录下一个摄"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-611"
+note_number: 611
 summary: "看到一位开发者在 Twitter 上说： 不想追热点了。现在优先考虑能\"穿越周期\"的产品，能做二三十年的产品。 上一辈和我们是不一样的。 当我们这批人老了以后，除了健康养老之外，还有大把时间需要\"有意义的\"打发； 还有大量的经验知识需要沉淀"
 paywall: true
 ---

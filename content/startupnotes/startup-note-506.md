@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-506"
+note_number: 506
 summary: "昨天在朋友圈看到，极客时间发布了“超级会员”，此前，最普通的购买方式是购买单课。类似会员的模式至少有： 年卡（其实和会员已经很接近了）。 大厂案例年卡。 每日一课年卡。 299 元选 6 门课。 以及还有 B 端的销售，企业采买，员工观看。"
 paywall: true
 ---

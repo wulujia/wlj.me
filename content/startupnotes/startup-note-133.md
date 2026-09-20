@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-133"
+note_number: 133
 summary: "相比早期的 Press.one，新版本简介更「冷静」，也将路线图描述出来了，目标也更加务实，我反而看好多了。 对 Press.one 目标的一些疑问 中心化的内容分发模式到了该被颠覆掉的时候 今日头条、微信公众号、得到等产品分别用不同的方式"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-603"
+note_number: 603
 summary: "这位老师，很有缘，我在创业做数据安全软件（名为铁卷）时，他的公司就买了我们的产品。到我们做知识星球时，又有幸与他合作上了。不过，春节前，他微信联系我。 他说： 过去两年我们通过知识星球，能够和很多读者用户连接，支持做社群的尝试。经过两年的探"
 paywall: true
 ---

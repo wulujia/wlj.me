@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-498"
+note_number: 498
 summary: "前些天，知识星球里出现了一些奇怪的“攻击”——纯粹以消耗我们的资源为目的。比如，创建一个星球，然后大量（数以万计）上传文件。 这种情况，对我们的带宽、存储、内容审核都会带来不必要的消耗。 因为临近春节，来不及仔细规划，我考虑的快速处置方式是"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-398"
+note_number: 398
 summary: "看完网飞的这本凡尔赛体的书，我一边羡慕着，一边想：我们是不是可以循序渐进，采用书里提到的网飞的一些方法。 书里的内容，其实就是我们耳熟能详的： 第一步 打造高绩效的员工团队，提高人才密度 鼓励互相反馈，引入坦诚文化 通过取消休假、差旅及报销"
 paywall: true
 ---

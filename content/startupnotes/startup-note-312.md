@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-312"
+note_number: 312
 summary: "我们在做内容安全的时候，一直头疼的一个问题是——怎么提高作恶成本： 一个人来开知识星球，验证了手机、身份证后，创建了星球； 在星球里先不发不和谐（比如色情）内容，但是引流过程中用擦边内容吸引“同好”付费进来； 过了“三天退款期”后，提现； "
 paywall: true
 ---

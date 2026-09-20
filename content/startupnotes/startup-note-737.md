@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-737"
+note_number: 737
 summary: "又想做一个满足自己需求的小工具。不过这个方向我毫不专业，似乎应该发出来向大家请教。目前的想法是： 解决谁的什么问题 人物：对公司、业务、产品、商业感兴趣的研究员 问题：目前通过文字资料（主要是公开的招股说明书、财务报表）研究公司的时候： 收"
 paywall: true
 ---

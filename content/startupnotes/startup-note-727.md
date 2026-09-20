@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-727"
+note_number: 727
 summary: "多年以前，有投资人问我：社区内容多了怎么办？ 几年前，亦仁反复跟我讨论：社区里的内容实在太多，怎样帮助想消费内容的人，准确地找到适合他们的信息？ 或许 AI 带来了一点机会。 如果能通过 RAG，提供一个搜索/对话入口，让用户除了我们 Ap"
 paywall: true
 ---

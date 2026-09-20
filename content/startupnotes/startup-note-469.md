@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-469"
+note_number: 469
 summary: "最近这些年，越来越觉得“塞翁失马，焉知祸福”中，包含着深刻的智慧。随手举例，比如创业公司缺资源，反过来可能可以促进团队用更简约的方式，专注于核心功能优化，反而带来突破。比如一家内容产品因为被下架过，战战兢兢很苦逼地做内容安全，但是当同类产品"
 paywall: true
 ---

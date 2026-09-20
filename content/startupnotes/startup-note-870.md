@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-870"
+note_number: 870
 summary: "学了学 Apple Ads，后续 Slax Note 和 Slax Reader 新版本上来后，可以跑一跑试试看。"
 paywall: true
 ---

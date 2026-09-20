@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-004"
+note_number: 4
 summary: "维基百科里是这么说破窗效应的： 以一幢有少许破窗的建筑为例，如果那些窗不被修理好，可能将会有破坏者破坏更多的窗户。最终他们甚至会闯入建筑内，如果发现无人居住，也许就在那里占领、定居或者纵火。 又或想像一条人行道有些许纸屑，如果无人清理，不久"
 paywall: true
 ---

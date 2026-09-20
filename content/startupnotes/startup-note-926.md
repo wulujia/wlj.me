@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-926"
+note_number: 926
 summary: "之前笔记里认真读过小鹅通的招股说明书。虽然和他们已经基本不能算是同行——小鹅通的发展很快，迅速从早期的知识付费拓展到跟有赞、微盟一样的赛道，GMV 和收入也比我们高了一个数量级，是很厉害的。 知识星球还是持着\"夹缝生存\"的想法，做小，做深，"
 paywall: true
 ---

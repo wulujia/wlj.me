@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-402"
+note_number: 402
 summary: "这些问题是一位投资人朋友来访之前，梳理的清单，我们都希望通过这样“预习”，可以更高效地沟通。我也借他的问题，说一下我的想法。 你心目中的怎么知识星球是什么样子？ 有本书叫《大教堂与集市》，里提到：有两种建筑，一是集市，开放在那里，从无到有，"
 paywall: true
 ---

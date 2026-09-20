@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-535"
+note_number: 535
 summary: "最近社交媒体上突然有一本书特别热门，叫《纳瓦尔宝典》，年初时我翻看过英文版，这些天又拿出中文版快速翻了一遍。书不厚，讲的道理普遍很“浅显易懂”，可以理解为常识，但大多数人却往往忽视了。 举个例子，我印象比较深的一句话是： 对初出茅庐的年轻人"
 paywall: true
 ---

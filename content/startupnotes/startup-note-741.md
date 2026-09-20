@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-741"
+note_number: 741
 summary: "最近和伙伴们在做另一个小工具——稍后阅读工具。 我对稍后阅读工具的需求，一直没有被很好解决，但其实想来，并不算复杂（趁着在飞机上，没网络，看不到之前写的文档，我再回忆一下，回头做个对比）。 我最在意的功能： 可以快速收藏链接。我常用的场景有"
 paywall: true
 ---

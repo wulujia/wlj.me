@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-014"
+note_number: 14
 summary: "今年我的运气不太好，做了一次手术，之后右脚因为跟腱炎瘸了半年，好不容易右脚快好了，这几天左脚又莫名其妙的疼了起来，看症状有点像痛风。 所以今天我就不说那么多了，简单一句话：创业很可能是个持久战，需要有好的身体。 吃好喝好，保证休息，坚持锻炼"
 paywall: true
 ---

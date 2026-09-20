@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-318"
+note_number: 318
 summary: "年底了，回顾 2019，这一年走得跌跌撞撞，基本都是在出问题——解决问题的过程中挣扎，总算诸多贵人相助，还能继续前行。 先粗粗列一下 2020 年我的计划吧，不知道能完成多少，想想要做的事，总比不想好。 工作：公司和产品上一个台阶（日活、收"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-413"
+note_number: 413
 summary: "壁纸内容如下： 使命愿景价值观 使命：分享知识，连接用户。 愿景：互联网社群服务引领者。 价值观 用户价值优先：以用户为中心，解决用户问题，做对用户有价值的事； 简单：沟通简单——语言朴素，坦率直接；产品简单——清晰自然，符合常识； 合作："
 paywall: true
 ---

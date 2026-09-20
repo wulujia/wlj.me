@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-551"
+note_number: 551
 summary: "案例一：大概 2015 年，我们用某云的服务器、数据库。那时项目测试性上线，代码写得糙。有一天凌晨，业务突然断了，检查之后大为诧异——数据库被删了，回溯后发现，是一个内部管理链接被异常访问。再回溯，发现攻击来自某云。仔细分析后才明白，该云的"
 paywall: true
 ---

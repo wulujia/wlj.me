@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-319"
+note_number: 319
 summary: "11 月在上海上课，还没来得及总结自己的收获，眼看这个月的课又要开始了。抓紧时间汇总一下上次课的收获——只记印象最深的点，多了，自己也消化不了…… 虎扑 程杭：对创新的理解是小狗式创新——闻着你喜欢的味道去找吃的，从朴素的，自我代入用户的方"
 paywall: true
 ---

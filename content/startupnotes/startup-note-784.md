@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-784"
+note_number: 784
 summary: "前段时间同事提起，有同类产品在用微信小微商户进行支付，当时记了个 todo：微信的小微商户，能不能把支付、分账的成本节约下来。 上午抽出点空来扫了一眼，发现结论是：不行。 主要原因是： 类目限制。微信支付说了：目前仅限于餐饮、线下零售、居民"
 paywall: true
 ---

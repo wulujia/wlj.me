@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-366"
+note_number: 366
 summary: "昨天下午，在自己的免费星球里遇到 spamer，那人在多个主题下不管不顾地发推广——就是他星球的优惠券。提醒之后仍然持续，于是就做了处理：账号限制发布、星球限制新人加入。 事情很小，我也没在意。傍晚时突然收到同事信息，给了截图，原来对方上来"
 paywall: true
 ---

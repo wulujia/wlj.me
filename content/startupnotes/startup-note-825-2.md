@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-825-2"
+note_number: 825
 summary: "先列 OKR： 2025 年度 OKR O1：推动公司达成利润目标 提升 CURR 到 85%（目前 76% 左右） 全部同事各自其职 + 透明 + 向前一步，共同达成业务目标 O2：推动创新业务找到 PMF 新业务到 12 月达到每月 3"
 paywall: true
 ---

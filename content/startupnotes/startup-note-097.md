@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-097"
+note_number: 97
 summary: "昨天大辉找我，问：你最近忙什么呢？小密圈产品节奏慢了。 我挺惭愧，确实这段时间放在产品上的心思少了。 于是正好就拉着他问，这几个需求里，他最需要什么： 直播功能，类似知乎 Live，这样创作者和嘉宾可以向用户提供更多有价值的信息（同时用户也"
 paywall: true
 ---

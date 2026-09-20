@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-957"
+note_number: 957
 summary: "笔记 955 下，国杰评论： 除了将 Agent 的能力融入产品，另一个可能还需要将知识星球按 Agent 产品重新设计。 我说的重新设计，不是简单给知识星球增加一个 Agent 功能，也不是把首页换成聊天框、换一套 Agent 的皮肤，而"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-477"
+note_number: 477
 summary: "之前看过《重来 3：跳出疯狂的忙碌》，前些日子 Tony 推荐，我又认真重读。Basecamp 这两位特立独行的创业者的书，曾有一本《Getting Real》，我学产品时，很多思想来自其中。 又看了一遍之后，我的总体想法有： 不追求做大公"
 paywall: true
 ---

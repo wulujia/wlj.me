@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-850"
+note_number: 850
 summary: "有星主抱怨，他的星球在他自己没有意识到的情况下，开启了续期，且续期有折扣，星主对此很不满，并且因为是过了一段时间才发现，认为产生了些损失，也给他星球的运营带来了困难。 同事们回溯，有下面一些事实： 那个星球是“固定时长”的星球，每位用户加入"
 paywall: true
 ---

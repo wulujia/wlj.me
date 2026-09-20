@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-933"
+note_number: 933
 summary: "今天看到同事拟的一段文案里有： 恭喜~你的星球已获得 XXXX 内测资格 我跟同事说：我不喜欢获得内测资格这样的说法，好像是什么恩赐一样。就邀请内测就好，我们自己站得低一点。 晚上闲了，多说几句建议："
 paywall: true
 ---

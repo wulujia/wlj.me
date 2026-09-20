@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-657"
+note_number: 657
 summary: "创业笔记 657.简单的事情长期做 傍晚在播客里听到一个观点，认为现在谈“长期”是站着说话不腰疼，或者甚至根本是只懂得讲大道理但毫无实践的人的漂亮话。 我还蛮希望能从事简单但需要长期做，才看得到复利的事的。 在生活中，我目前坚持在做，收获很"
 paywall: true
 ---

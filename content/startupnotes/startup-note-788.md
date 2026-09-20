@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-788"
+note_number: 788
 summary: "笔记 772 提到一个年终总结的脑洞，在同事的催促下，做一轮更新。 Problem 往年春节，有大规模的人口流动——大家回去过年，往往假期后，知识星球的数据能在前一年底的基础上直接跳高一段。但这个增长，我们做过一些尝试，总是无力推动。 所以"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-913"
+note_number: 913
 summary: "2026 年，或许知识星球可以改进我们的 notes 功能。我在琢磨这事儿的时候，先了解了 substack 的 notes。 其中一些我们可以参考的至少可能有： notes 默认可见一些最新信息，例如：https://substack.c"
 paywall: true
 ---

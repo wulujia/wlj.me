@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-211"
+note_number: 211
 summary: "前几天潘乱写了一篇：https://mp.weixin.qq.com/s?__biz=MjM5MDczODM3Mw==&mid=2653028363&idx=1&sn=0209c00b2306d451e97ef4a745419e65 里面一"
 paywall: true
 ---

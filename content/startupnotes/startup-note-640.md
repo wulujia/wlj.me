@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-640"
+note_number: 640
 summary: "读《小而美：持续盈利的经营法则》时，看到一段： 整个软件是一份包含了 2700 行大部分是复制粘贴的代码的 Python 文件，存储在 Google 云端。（之后我已经将代码开源，链接见本章结尾。）但是它成功了！它解决了问题，所以我就推出了"
 paywall: true
 ---

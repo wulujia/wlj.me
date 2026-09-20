@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-794"
+note_number: 794
 summary: "这两天，知识星球里的年终总结上线了。 不过，估计绝大多数同事不知道，我脑海里很认真地想过：虽然做好了，但是，是不是今年就索性砍掉它？ 原因是：今年的年终总结，消耗的成本，比我预期大了很多。 我此前的想法，年终总结这件事，我们： 往年不出彩。"
 paywall: true
 ---

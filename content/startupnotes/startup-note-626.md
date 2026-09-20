@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-626"
+note_number: 626
 summary: "Tony 提议后，昨天开始尝试了第一次内部简单的午餐会，点了简单易于取用的午餐，大家边吃边聊。 我的感受是：很轻松。可以在这个不正式的时间聊正经事，也可以放松地聊些有的没有的。 此前一次饭桌上，Tony 聊到线下见面开会不可取代，其中的两个"
 paywall: true
 ---

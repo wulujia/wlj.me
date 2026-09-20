@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-595"
+note_number: 595
 summary: "有星主想要一个功能：续费 N 次后星友不用再续费。他主要是想回馈老用户，目前没太多别的好办法。 这个案例正好可以说明两件事： 道德绑架 如果我们提供了这个功能，那么该功能应该是可选项——有些星主，甚至可能大多数星主并不会这么做。但——如果不"
 paywall: true
 ---

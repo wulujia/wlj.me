@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-480"
+note_number: 480
 summary: "上午看到群里有朋友转一份评价，据说是某高价社群的内部分析。 摘抄部分文字（微信从图片中提取文字的功能真好用）： 最好的文字一定是用来拉新拉流量的，不可能是用来转化的。因为人的精力有限，好的文字必须用来拉新。那么变现就必须寻找另一种产品形态。"
 paywall: true
 ---

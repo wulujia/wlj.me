@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-464"
+note_number: 464
 summary: "之前在思考怎么让团队更能打、让团队之间配合更好一些、让不同团队之间相互了解彼此在做什么、让团队配合效率更高一点……跟同事讨论过多次，有过一些思路，比如：轮岗促进大家相互了解、项目制让大家多打小仗、对关键事务组建 task force 集体决"
 paywall: true
 ---

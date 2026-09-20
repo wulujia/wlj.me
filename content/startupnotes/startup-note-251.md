@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-251"
+note_number: 251
 summary: "今天看到一段话： 在阿里巴巴的 2018Q2 财报中，曾首次披露一个数据，支付宝当时国内7亿活跃用户中，有超过 70% 使用了 3 项以上的功能。 这个数据并未引发业内太多关注。但事实上，这一指标在 2017 年后，是支付宝运营团队的一个核"
 paywall: true
 ---

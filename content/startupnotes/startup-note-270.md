@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-270"
+note_number: 270
 summary: "前段时间，我们和微信读书合作，上了个功能：用户发布的内容中，如果有书名号，我们匹配书名号里的内容，匹配到书籍后，自动将内容变为蓝色可点击状态。用户点击后，可以看到书籍封面、简介、用户评价等，如果需要，也可以点击阅读按钮，跳转到微信读书直接购"
 paywall: true
 ---

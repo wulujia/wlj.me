@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-631"
+note_number: 631
 summary: "创业笔记 631：再想想会员这件事 有了会员能力，顺理成章地，就会有充值，有了充值，能解决： iOS 下用户续费难问题。 会员可以解决掉： 高价值用户希望能够更好地被看见的问题。 部分用户在 iOS 下充了值却无法消费的问题。 考虑会员提供"
 paywall: true
 ---

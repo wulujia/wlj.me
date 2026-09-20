@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-063"
+note_number: 63
 summary: "在小密圈《付款及退款规则》中，有这么一条： 1.3 若您存在下述情形之一的，圈主有权不予退还您所支付的全部入圈费用： a)在加入圈子后短时间内集中下载或以其他形式复制圈内内容并主动或被动退出圈子的； b)严重违反圈子规则并造成圈主、嘉宾或其"
 paywall: true
 ---

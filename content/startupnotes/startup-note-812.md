@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-812"
+note_number: 812
 summary: "我已经基本接纳 AGI 将至了——AI 很快会比我厉害得多。但我很兴奋。赶上这么个时代，运气很不错。作为一个创业者和产品人，我觉得现在能做的，至少有这么些事。 浸泡到 AI 生态里。每天用。学会向 AI 提问。天天提问。认真看 AI 的回答"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-763"
+note_number: 763
 summary: "有个非常基本的 First principle，我把它当作咒语： 首先质疑需求，使需求变得不那么愚蠢。需求在某种程度上总是愚蠢的。所以，你要从减少需求的数量开始，不管给你这些需求的人有多聪明，需求本身在某种程度上仍然是愚蠢的。你必须从那里开"
 paywall: true
 ---

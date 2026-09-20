@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-078"
+note_number: 78
 summary: "最近很是刷了一阵 Instagram，觉得它的发现很有价值： 简单，不用思考，无脑下翻就可以； 反馈，看到好的内容就点赞，这个动作对用户（无论赞或被赞者）和厂商都很有价值（更精准地推荐，对内容及内容提供者的价值有更好的判断），赞也能够给用户"
 paywall: true
 ---

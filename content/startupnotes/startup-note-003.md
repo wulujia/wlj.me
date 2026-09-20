@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-003"
+note_number: 3
 summary: "前几天看了一篇文章，讲小偷如何解锁偷盗的iPhone。 http://mp.weixin.qq.com/s?__biz=MzI4MjA1MzkyNA==&mid=2655294511&idx=1&sn=3896f0a023820bb3b22"
 paywall: true
 ---

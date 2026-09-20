@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-177"
+note_number: 177
 summary: "Caoz 推知识星球的文章有： 2017-02-18，《caoz的小密圈》：http://t.cn/ReMF5y8，文章里提到： 小密圈，不是我另一个分享平台，不存在我会优先发在那里的文章。（但有可能我会在那里优先做素材和内容的调研，毕竟微"
 paywall: true
 ---

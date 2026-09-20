@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-622"
+note_number: 622
 summary: "有不少用户发现，知识星球的新版本中，有一个新功能——你关注的用户加入的星球，会在动态中出现，并推送消息。 这个功能，其实是我从即刻里“抄”来的——在即刻中，关注一个用户后，在信息流中会留下一条动态，这是我觉得即刻里很精妙的一个设计。我想试试"
 paywall: true
 ---

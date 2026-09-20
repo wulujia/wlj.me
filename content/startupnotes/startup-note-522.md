@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-522"
+note_number: 522
 summary: "在《详谈：杜国楹》里看到几段话，最有感触的是关于基础价值和核心价值的这段： 用户价值肯定是两个，一个是基础价值，比如说喝个茶，得安全，得干净，这是基本面的东西；一个是核心价值，比如茶能不能喝得有特色，喝完之后能记住，口感、香气有特点，有高辨"
 paywall: true
 ---

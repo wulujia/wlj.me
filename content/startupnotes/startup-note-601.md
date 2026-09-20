@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-601"
+note_number: 601
 summary: "前些天，我在朋友圈里发了条消息，说：我想上一个功能，也是被一再驳回呀。容我再想想。 结果有些评论，摘录几条： 做产品不应该是产品独断吗？ 产品经理会做产品不会做经理。 是无形的手驳回的吗？ 因为不提前放假生气了吧？ 创意择优很赞。 朋友圈里"
 paywall: true
 ---

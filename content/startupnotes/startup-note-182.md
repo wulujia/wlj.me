@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-182"
+note_number: 182
 summary: "此前有几篇文章提到系统循环图，比如：145、152、153、157。 从学习到系统循环图到现在，我发现： 主要元素几乎不变（比如社区产品这个定位，比如我们最在意的是创作者的成功，比如内容消费者的数量（用户数、GMV）、比如尽可能深入地理解社"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-093"
+note_number: 93
 summary: "关于续费，有些人陆续问了问题： 进入圈子一年到期后，用户会被清退出圈子吗？ 小密圈为什么不加按月计费？ 其实，一开始只是因为续费功能还没做（汗吧），续费的细节也都还没有完全敲定。当时考虑的部分细节： 续费之前，需要圈主需要先确认他愿意继续下"
 paywall: true
 ---

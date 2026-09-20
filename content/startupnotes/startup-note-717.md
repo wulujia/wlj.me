@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-717"
+note_number: 717
 summary: "建议： 把 NPS 作为产品里的一个模块，长期采集、分析。 把 NPS 作为一个关注指标，定期从中找到应该改进的问题。 下面是我做的一个小测试。 周末发了一篇公众号，邀请一些朋友来填个 NPS（净推荐值）的表单。差不多 24 小时后，表单里"
 paywall: true
 ---

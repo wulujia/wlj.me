@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-007"
+note_number: 7
 summary: "我是个刚入门的摄影爱好者、产品控。一直很喜欢徕卡相机的感觉，又想试试胶片，所以前些天下单在闲鱼买了一台已经几十岁的徕卡 M3。 要用一台比我年纪还大甚至不带测光的胶片相机拍照，我做好了充分的准备——比如我很认真地学习了测光，比如说我在 yo"
 paywall: true
 ---

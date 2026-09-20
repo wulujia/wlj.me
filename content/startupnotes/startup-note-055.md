@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-055"
+note_number: 55
 summary: "昨晚发生的一件小事： 22:39，同事发现一个可能是微信安全方面的问题，我拉群，拉了一位微信安全的朋友 23:05，7 位微信相关研发进群（其实是逐步缩小范围，找到相关的人） 23:35，9 位相关研发、安全人员进群，讨论细节 00:32，"
 paywall: true
 ---

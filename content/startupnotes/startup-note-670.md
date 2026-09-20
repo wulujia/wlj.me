@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-670"
+note_number: 670
 summary: "Todo list first, not inbox first.Don't let anyone control your time. 如果工作上，总是觉得时间不够用，或许可以想想，是不是你的工作和生活是“收件箱优先”——也就是，人们给你"
 paywall: true
 ---

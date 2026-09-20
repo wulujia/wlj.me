@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-508"
+note_number: 508
 summary: "说来惭愧，知识星球到现在都没有一个像样的，针对星主的 CRM 系统。或许应该做一个给运营同学使用的系统，能够："
 paywall: true
 ---

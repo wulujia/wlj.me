@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-779"
+note_number: 779
 summary: "2015 年，我们开始从零开始，学做移动互联网。我看 App Store 上第一个版本的知识星球，是 2015 年 11 月 10 日发布的。 回顾笔记 777，我们虽然还是很小的团队，但已经开始对客户遇到的困扰有些“轻视”了。 我昨天在跟"
 paywall: true
 ---

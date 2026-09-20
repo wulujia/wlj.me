@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-120"
+note_number: 120
 summary: "还是 2017 腾讯投资年会（发出来延迟比较多:），Tony 演讲中，我印象比较深刻的一些点： TED 18 分钟的时长限制，约束带来了更多价值。碎片化，我的理解就是时间约束让受众观看方便了； 平等化，或许TED大会创始人克里斯·安德森的这"
 paywall: true
 ---

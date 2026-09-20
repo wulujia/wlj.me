@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-435"
+note_number: 435
 summary: "之前想了解“悟空问答”为什么最终没做起来，搜了一些分析、访谈。 我的判断是：悟空问答在启动时做的“签约”动作，或许破坏了社区的生态——整个社区陷入了为钱而来，为钱答题的氛围，钱少了，就走了。 附上一些文章内容摘抄，出处没记录： 相比知乎的重"
 paywall: true
 ---

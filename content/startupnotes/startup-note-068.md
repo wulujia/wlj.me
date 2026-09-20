@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-068"
+note_number: 68
 summary: "先贴出一位在微信的朋友 Eva Fu 的建议（聊得有些凌乱，但是大意还是清晰的）： 我最近分析觉得你们不应该离开微信生态，而是应该在微信里玩。你们这个产品特别适合微信内天然流量传播，只要你懂得如何营销获取粉丝（这块有很多方法）。你们现在应该"
 paywall: true
 ---

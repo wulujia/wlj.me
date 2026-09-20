@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-300"
+note_number: 300
 summary: "这趟来乌镇上课，看课程安排，还是满满当当的，我这里就简单记个流水账。 10-29 晚，看戏剧《麦克白脱》 本来是想提前一天到乌镇戏剧节好好看看戏的，行程排不开，就只看了学院安排的片子，我选的是《麦克白脱》。作为纯外行的简评是：舞台声光效果抓"
 paywall: true
 ---

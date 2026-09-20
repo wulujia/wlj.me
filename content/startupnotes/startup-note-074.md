@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-074"
+note_number: 74
 summary: "在新闻里看到「首起共享单车儿童骑行伤亡案受害者起诉 OFO 小黄车，家属索赔 878 万元」，新闻里提到： 本案原告认为，该案中，机动车一方的责任固然存在，但更重要的是ofo共享单车的所有人，其以在公共场所向不特定的对象投放ofo共享单车作"
 paywall: true
 ---

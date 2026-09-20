@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-715"
+note_number: 715
 summary: "Gumroad 在 2023年收入是 2700 万美元，890万美元净利润，没有全职员工，全都是 Part time jobs。这家公司的机制，很值得我们学习。 创始人 Sahil Lavingia 的主页：https://sahillav"
 paywall: true
 ---

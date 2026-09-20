@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-088"
+note_number: 88
 summary: "前几天腾讯官方小程序「与你见字如面」刷了屏，把玩一番，想想刷屏的原因（多积累一些这方面的思考，万一知识星球也要做几个小程序呢）。 产品细节： 渐进式引导。进入时先是名人读信给你听； 尽可能只有一个按钮，进入时是「打开」，然后是「寄一封」（虽"
 paywall: true
 ---

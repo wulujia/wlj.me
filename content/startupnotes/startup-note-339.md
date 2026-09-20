@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-339"
+note_number: 339
 summary: "以下信息来自《快手是什么》，宿华的序： 快手的独特之处 非常在乎所有人的感受，包括那些被忽视的大多数人。约有 87% 的人没有受过高等教育，快手选择让那 87% 的人能更好地表达和被关注； 注意力的分配。注意力作为一种资源和能量，能够像阳关"
 paywall: true
 ---

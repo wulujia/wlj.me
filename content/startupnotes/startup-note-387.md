@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-387"
+note_number: 387
 summary: "在创业笔记 No. 318 里列的 2020 计划，现在一年将尽，回顾一下，有点郁闷。 工作：公司和产品上一个台阶（日活、收入） 推进公司内部信息更加透明：部分完成，尝试推行 OKR，但是 Review 部分我没有执行好； 让同事做更多决策"
 paywall: true
 ---

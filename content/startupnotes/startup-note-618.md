@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-618"
+note_number: 618
 summary: "这几天又遇到让人不愉快的 Spam 了，特点是： 深夜。 程序化操作，发一波广告（可能是主题，可能是评论）。 发完就跑——利用我们三天无条件退款的机制，发完直接退款走人。 其实会让人很不愉快： 星主不高兴。而且被骚扰的，多是大星主（有越多付"
 paywall: true
 ---

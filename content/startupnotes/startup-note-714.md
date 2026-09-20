@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-714"
+note_number: 714
 summary: "之前请同事们分头梳理他在实践中使用到的方法论，我的想法是： 大家分头梳理各自团队里使用到的。 汇总、简化。 作为团队共同语言，可以发布出来，如果都认可，大家就能用同样的框架和语言沟通。 前段时间和 ppchen 聊起这事，他的观点是："
 paywall: true
 ---

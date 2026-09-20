@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-659"
+note_number: 659
 summary: "下午看了篇文章，讲怎么写 Prompt 的，链接是： https://mp.weixin.qq.com/s/N9BrkDqvkIHQD7TTnhNk6Q 于是我就试了试，想看看能不能让 GTP 写 PRD。下面是用 markdown 格式的"
 paywall: true
 ---

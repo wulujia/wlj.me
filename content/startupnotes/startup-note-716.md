@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-716"
+note_number: 716
 summary: "在新加坡这段时间里，我抱着学习的心态，参与 build 了一个小日历产品，产品的第一个版本已经在春节前上架了，后续也有不少计划。 我回忆了一下，记录一些过程中观察到的。 快速发布。在 2023.08.22 有粗糙的讨论，和粗糙手绘的 UI，"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-237"
+note_number: 237
 summary: "前几天，我向闫璐老师提问： 问题 1：在一些没被拍习惯的人（比如同事，比如一些见面聊天的朋友）面前，拿出个相机，很多人会有压力。哪怕是被拍习惯的人（比如家人），掏相机的时候，会不会多多少少也有些不自然，这种情况下，是不是其实便携机、手机是更"
 paywall: true
 ---

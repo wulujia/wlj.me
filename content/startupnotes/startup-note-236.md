@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-236"
+note_number: 236
 summary: "我们一直很在意支付转化率——用户来到预览页之后，为什么会点击支付按钮，又为什么支付或者离开了。 从开始做更精细化的数据运营之后，就有同事开始对转化漏斗中的每个环节做分析，一点一点地根据数据做微调。 在有数据以前，犯过一些错误，一些产品上的调"
 paywall: true
 ---

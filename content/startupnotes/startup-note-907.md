@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-907"
+note_number: 907
 summary: "上午重看了晚点写即刻下架的文章《即刻消失的那一夜》：https://r.slax.com/s/FLjb280428。 很喜欢这种“海盗精神”。不过脑子里有些疑惑：海盗精神究竟是什么？ 一个说法是来自 Steve Jobs。1983 年，他带"
 paywall: true
 ---

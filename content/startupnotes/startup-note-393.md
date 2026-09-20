@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-393"
+note_number: 393
 summary: "上午向一位朋友请教昨天提到的“迟到”这件事，我的问题是： 我希望团队氛围尽可能宽松、有活力——以此带来大家更好的工作感受和创造力，但昨天有点“难过”，现在反而有点担心，这种宽松会不会造成“骄兵”，大家都成了温室里的花朵？应该怎么做更好？ 朋"
 paywall: true
 ---

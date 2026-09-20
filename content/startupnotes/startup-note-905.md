@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-905"
+note_number: 905
 summary: "我现在想讨论的产品是知识星球 我目前面临的问题有这么几个： 知识星球的新用户获取现在越来越困难。这个新用户包括两方面： 新的星主（也就是新的社群创建者）获取越来越困难，这些人大量地被短视频创作、甚至被 AI 吸引 新的星主少了，新的用户自然"
 paywall: true
 ---

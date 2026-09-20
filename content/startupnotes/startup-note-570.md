@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-570"
+note_number: 570
 summary: "<Shape Up> 里把产品决策会成为赌桌（The Betting Table），确定了做什么，称为下注（Place Your Bets），这个感觉还是很到位的。 每一次请同事们做一期项目，从产品、设计师到研发、测试 30+ 人，完整一套"
 paywall: true
 ---

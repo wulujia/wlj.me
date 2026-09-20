@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-749"
+note_number: 749
 summary: "昨天的笔记里，记录了黄仁勋说的： 我倾向于接受任何人提供的信息。如果你发送电子邮件，并将其命名为“最重要的五件事”，无论你的最重要的五件事是什么，是你观察到了什么，做了什么，学到了什么或都只是事情，这都是重要的信息，将其发给我，我都会阅读。"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-315"
+note_number: 315
 summary: "都说做产品要以用户为中心，什么是以用户为中心？在我看来，至少： 确认谁是用户（产品不可能满足所有人，也不见得用你产品的就一定是目标用户）； 通过各种手段（比如即时通讯、电话、面对面、问卷等方式）跟用户交流； 对真用户，有同理心，切换角色代入"
 paywall: true
 ---

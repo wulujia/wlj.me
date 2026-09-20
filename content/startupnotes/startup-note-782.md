@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-782"
+note_number: 782
 summary: "记录一个小小的，可能的成本。不算抱怨，应该也不能不付，只是稍稍有些心塞。既然平时记笔记，就记下来，以后看吧。 有上级管理部门的工程师联系我们，需要我们配合做些对接。问了细节，说是之前项目的延续，没有工作函，没有文件。我们通过其他渠道，确认确"
 paywall: true
 ---

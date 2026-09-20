@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-021"
+note_number: 21
 summary: "经历了 7 个月的跟腱炎 + 痛风，总算可以直立行走了，昨天测试了摩拜单车、OFO、小鸣单车——是的，因为一直行动不便，我现在才玩。 之前和媳妇开车时总是很难理解那些骑着自行车、电动车跑到机动车道的人，觉得很奇怪：明明有自行车道/人行道，你"
 paywall: true
 ---

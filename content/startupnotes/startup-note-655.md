@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-655"
+note_number: 655
 summary: "前两天跟同事聊天，他提起有点想做个 1password。我原本买过一段时间 1password，后来嫌贵，换了其他替代产品。脑子里也琢磨过，是否可以做一个同类产品。 找曾经做过同类产品“洋葱”的朋友吴洪声请教了，目前的初步判断是，不适合我们"
 paywall: true
 ---

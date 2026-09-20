@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-409"
+note_number: 409
 summary: "之前老听说“二清风险”，翻了一些二清相关的文章，算是有了一些理解： 有要求：217 号文； 有矛盾：平台因为开展资金“二清”业务会衍生挪用客户资金、隐藏非法交易资金往来以及无证从事支付结算业务等合规风险；另一方面，平台向在线经营者提供资金分"
 paywall: true
 ---

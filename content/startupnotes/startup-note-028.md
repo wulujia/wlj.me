@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-028"
+note_number: 28
 summary: "喜欢拍照之后，越发对视觉相关的内容感兴趣。新兴趣中，有一项是纪录片。我找了不少，休息时看，既学技法，又开眼界。 其中一部被称为神剧的英国纪录片，7up、14up……一直到 56up。七岁起，每隔七年跟拍几天，记录一群人的变化。最新一集，这群"
 paywall: true
 ---

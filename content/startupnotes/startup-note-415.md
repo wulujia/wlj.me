@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-415"
+note_number: 415
 summary: "18 是生财有术的续费日，也是知识星球的一次性能考试——这次我们遇到一些问题，大篓子没出，但小问题不少，让生财有术团队多花了很多时间服务，惭愧。 今天稍有些空闲，看生财有术社群里但一个作业：如果你是第四期的老圈友，你有哪些话想对马上到来的新"
 paywall: true
 ---

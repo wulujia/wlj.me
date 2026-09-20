@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-308"
+note_number: 308
 summary: "前段时间，有朋友聊起小鹅通和知识星球的付费模式： 小鹅通是 SaaS 模式，提供云端工具集给用户，用户付费才能使用，起点是 5000 元 知识星球是佣金模式，同样是提供云端工具集给用户，用户免费使用，挣到钱后，知识星球后收佣金（5%） 一些"
 paywall: true
 ---

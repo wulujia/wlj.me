@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-619"
+note_number: 619
 summary: "创业笔记 619：ChatGPT 即刻上，哥飞问我： @wulujia 不知道吴老板对于搬运别处内容到知识星球怎么看？ 我记得当初有人搬运付费知识星球里的文章去淘宝卖钱，有些星主可是去起诉过别人的。 以及微信都下架了很多ChatGPT相关小"
 paywall: true
 ---

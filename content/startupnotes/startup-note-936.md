@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-936"
+note_number: 936
 summary: "前几天，老朋友孟岩在一个小群里说：最近沉迷编程，做了一个我自己用的 Agent 客户端哈哈，昨天推荐给了池老师，大辉和吴老有空可以试试。 然后发了个链接：https://github.com/dreamwords/hammer-releas"
 paywall: true
 ---

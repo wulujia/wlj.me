@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-426"
+note_number: 426
 summary: "之前遇到了字体公司找苹果投诉，称知识星球侵犯其知识产权，要求苹果下架知识星球的事件。目前事情已经初步告一段落（尚未完全结束），我简单梳理来龙去脉： 我们一直对知识产权比较重视，尽可能不主动违规； 近期有出版社请我们协助推广书籍，该出版社的设"
 paywall: true
 ---

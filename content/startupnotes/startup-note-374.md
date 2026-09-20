@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-374"
+note_number: 374
 summary: "朋友推荐看 Netflix 的片子：The Social Dilemma（智能陷阱/社交困境），主要表述的是各种社交产品、App 无所不用其极地吸引用户关注，抢夺用户时间。所谓的“无所不用其极”，包括但不限于用户行为的分析，并基于分析结果，"
 paywall: true
 ---

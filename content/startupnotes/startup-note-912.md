@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-912"
+note_number: 912
 summary: "前两天跟一些 NUS EMBA 的同学们做了个交流，交流之后，我找 zee 请教可以改进的地方，他的建议有： -- 环节设计：建议每 30 分钟左右组织一个小活动或小互动。这样大家更容易 involve 进来，保持参与感。比如让小白直接上手"
 paywall: true
 ---

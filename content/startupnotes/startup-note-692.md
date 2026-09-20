@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-692"
+note_number: 692
 summary: "前几天看到这篇文章：https://mp.weixin.qq.com/s/KJ1F6vc1p04RwFK0wEjYpQ，顺手做了些记录。让我有感触的内容是： - Personalization 支持商家在独立站中，配置多触点进行交叉销售，包"
 paywall: true
 ---

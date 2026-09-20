@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-306"
+note_number: 306
 summary: "内容来自 @Quinn & @OWen 一个考虑做的小功能，发出来大伙可以看看。 为了赶走极少数恶意用户，在产品上做加法，使产品更复杂，反而伤害普通用户体验。这是目前蛮常见的状态，挺烦的，但却想不到完美的方法，大家有没有更好的主意？ 现状 "
 paywall: true
 ---

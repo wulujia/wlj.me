@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-604-2"
+note_number: 604
 summary: "之前看到一篇美篇的文章（https://new.qq.com/rain/a/20211029A02SUL00）写到： 2019年下半年，柳骏用两个月策划出虚拟礼物方案，让用户可以为美篇文章美者送花。特别的是，这的礼物定价非常低，三种礼品，1"
 paywall: true
 ---

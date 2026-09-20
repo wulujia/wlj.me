@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-673"
+note_number: 673
 summary: "最近一段时间，我在公司内部的星球里新建了个“产品”标签，想偶尔聊些产品话题，但又不希望星球里满是我丢出来的内容，所以把产品标签设成了“不显示在主题流”。 结果发现，不少内容，发出去俩星期了，只有 3 个阅读——也就是说，只要一个内容不显示在"
 paywall: true
 ---

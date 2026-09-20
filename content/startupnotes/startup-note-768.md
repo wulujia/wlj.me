@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-768"
+note_number: 768
 summary: "在 Slax Reader 的设计讨论里，有个“URL 转发能力”的讨论。 daguang 最初的实现是： 这个 url 被拿到后，用户无法访问其内容——如果非“收藏者”，会提示登录，登录后跳到登录用户自己的首页。 我最初的想法是： 用户在"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-648"
+note_number: 648
 summary: "即刻上看到的一个高赞评论： 永远要有意识的把劳动价值沉淀到自己身上，而不是沉淀到公司的文档里，是时候学习技术写无法交接出去的诡异代码了，一会我去创建一个写摸不着头脑的产品文档 github，大家群策群力，让产品交接难度翻倍。 这个评论的赞数"
 paywall: true
 ---

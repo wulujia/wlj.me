@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-746"
+note_number: 746
 summary: "我喜欢拍照，希望能记录点自己觉得值得记的。我也喜欢做产品，希望解决一些自己能解决的问题。这两者，有些相似的地方，比如： 拍照，一得能看见。二得能取舍。三得能拍到。要做到，一种脑力锻炼方法是读图。 关于看见：看见别人看不见的。 有人会说，只要"
 paywall: true
 ---

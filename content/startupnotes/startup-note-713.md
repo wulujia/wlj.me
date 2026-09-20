@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-713"
+note_number: 713
 summary: "同事们提的一些建议，容我们想想，讨论讨论。 希望保持的 有爱、人性化的规章制度（如补打卡、弹性打卡、季度团建活动、鼓励运动）。 「星主对谈会」继续办下去，期待知识星球产品经理和星主可保持稳定真实的沟通。 TGIF、小红花，敏捷开发实践。 定"
 paywall: true
 ---

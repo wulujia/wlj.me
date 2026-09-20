@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-235"
+note_number: 235
 summary: "今天写个鸡汤。 朋友推荐了一部片子叫《间谍之桥》，昨天找来看了。里面给我印象最深的一句话，是那位一开始就被逮捕的苏联上校冷静又似乎带点儿天真的问句：Would it help？ 第一次，被捕后，律师去见他。 律师：坦白说，其他人都想送你上电"
 paywall: true
 ---

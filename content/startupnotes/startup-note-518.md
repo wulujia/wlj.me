@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-518"
+note_number: 518
 summary: "上午边跑步边琢磨，想了还至少有几件事应该是可以在知识星球做改进的： 标签的管理、修改。flomo 里，可以很简便地对标签进行调整，比如我一整批笔记标记了标签为“PM”，想改成“产品管理”，很方便。知识星球里特别麻烦。这个值得改的原因是：毕竟"
 paywall: true
 ---

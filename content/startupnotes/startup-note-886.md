@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-886"
+note_number: 886
 summary: "前些天跟国内的同事吐槽：有很多文档在企业微信里，但是发挥不了“知识库”的价值。结果转头又跟海外的同事吐槽：Notion 的搜索和 AI 都巨弱无比，明明写过整理过的材料，进了 Notion 后，却怎么都找不到。 以及，无论我想把企业微信还是"
 paywall: true
 ---

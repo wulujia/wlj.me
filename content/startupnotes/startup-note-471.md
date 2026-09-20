@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-471"
+note_number: 471
 summary: "笔记 465 提到考虑用 Scrum 的方法在运营做基本尝试，做了短期试验（只拿星空问答做实验），效果还行。用于运营，我的目标： 促进同事间的合作。 让运营可以成为更加“自组织”型的团队。 动作快。 其实，貌似只用了“站会”这个形式。"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-690"
+note_number: 690
 summary: "此前知识星球同事在公司内部做了个“小红花”（见笔记 616）。我脑子里一直在想，小红花是不是有机会产品化？ 比如： 用户可以购买小红花，苹果内购或者知识星球公众号购买都行。小红花其实就是礼物，收到小红花的用户可以用它换会员（对，这就得先有会"
 paywall: true
 ---

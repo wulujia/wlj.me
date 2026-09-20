@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-483"
+note_number: 483
 summary: "周六下午，跑去参加了 AfterShip 组织的国际化 SaaS 最佳实践经验分享会，总体感觉是：主办方诚意满满（几位讲者都是 AfterShip 里实践经验很丰富的高管）。小军顺便还带我参观了他们的办公室——哪怕是走马观花，也能感受到不少"
 paywall: true
 ---

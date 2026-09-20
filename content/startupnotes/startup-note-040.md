@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-040"
+note_number: 40
 summary: "要遵守法律法规，同时也为了良好氛围，社区还是需要一定的审核机制。 知乎在他们的帮助文档（https://www.zhihu.com/question/20133162）里面写到了： 知乎的社区基本原则是社区规范的核心原则，一共有两条： 创造"
 paywall: true
 ---

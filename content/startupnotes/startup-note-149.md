@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-149"
+note_number: 149
 summary: "能否用一些数据简要概述目前知识星球的发展情况与影响力。 知识星球的发展情况，一句话表述是：春节后的日活，比春节前翻了一番。我们还在努力看看能不能持续增长。 给两个星球的数据： 这是两个比较活跃的星球。但在知识星球里，我们观察到，活跃度并完全"
 paywall: true
 ---

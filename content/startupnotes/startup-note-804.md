@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-804"
+note_number: 804
 summary: "原本规划中做了个“辣评”功能，考虑春节期间放出，看看是不是有机会能带来一点传播，但因为我提晚了，同事们虽然给力，但还是只做了小规模测试，考虑最好不出乱子，节前没发。 结果春节期间，DeepSeek 大火。甚至这两天，都有些 DeepSeek"
 paywall: true
 ---

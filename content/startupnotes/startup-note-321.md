@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-321"
+note_number: 321
 summary: "2020 年 1 月 4 日深圳星主交流会，刘容提取收集了大家关于星球创建、运营、推广，提前的问题，我用文字做一下简单回复。 星佳 作为腾讯技术的定位，想吸引更多技术开发者通过知识星球交流，看看有没有类似的案例。我们 2020 年想把知乎和"
 paywall: true
 ---

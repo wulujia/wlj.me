@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-264"
+note_number: 264
 summary: "前两天跟一位在创业（电商方向）的朋友聊天，我隐约觉得他最近一年做了不少「无用功」，比如： 一年前他判断业务的核心之一是选品——找到好商品、靠谱供应商、供应链。但至今这方面仍然没有看到大幅改进； 系统经历了两次重构。但是业务的流量、转化率始终"
 paywall: true
 ---

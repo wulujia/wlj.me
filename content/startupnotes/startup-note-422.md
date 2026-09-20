@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-422"
+note_number: 422
 summary: "昨天看了一篇演讲记录，演讲人是条形马@好成绩教育，引起了一些思考，做些记录。 社群 = 社区 常有人问：社区和社群的区别是什么？传统定义对社区/社群的定义，比如： 具备互动关系的和共同文化维系力，相互关联的人群，形成的共同体及其活动区域； "
 paywall: true
 ---

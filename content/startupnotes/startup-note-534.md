@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-534"
+note_number: 534
 summary: "前些天，在请教一个可能的新方向问题时，Tony 提到： 建议你头半年，先不用急于开展业务，先近距离观察一批科技创业公司，熟悉生态，用一段时间来热身和酝酿。 我当时其实是是有些心急的。 然后 Tony 说了句：不着急，天地本宽，岁月本长。 这"
 paywall: true
 ---

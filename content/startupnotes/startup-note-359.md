@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-359"
+note_number: 359
 summary: "昨天跟冰河聊天，扯到一个问题：什么方法，能带出一个产品经理，能从 0 到 1 做出一个不错的产品？ 有几个观点： 更多靠\"野生\"、\"放养\"，而不是\"培养\"，公司能提供的可能只是\"失败的机会\"； 需要视野宽。从 0 到 1，代表了可以有\"无数"
 paywall: true
 ---

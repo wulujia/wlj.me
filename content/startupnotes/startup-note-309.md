@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-309"
+note_number: 309
 summary: "前些天，同事们做需求讨论，这里记录一下过程（其实是为了测试一下富文本编辑器的效果，临时凑一篇）： 明确目标：这批需求是春节前考虑做的部分内容，希望对日活有帮助，希望对春节期间的传播有帮助； 大家分别列出自己最想要的功能，写在白板上； 各人对"
 paywall: true
 ---

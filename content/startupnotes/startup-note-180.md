@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-180"
+note_number: 180
 summary: "Scalers 玩社群算是比较早的，此前也从他社群文章中学到不少关于社群的思想。中午见了他，取了点经。"
 paywall: true
 ---

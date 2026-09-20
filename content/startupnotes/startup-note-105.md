@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-105"
+note_number: 105
 summary: "知识星球里，现在任何人都能创建星球而且直接可以「试运营」，只是试运营星球有些功能限制，比如人数上限 50 人。 前几天手不稳了一回，给产品里加了个功能：「没有通过审核的星球，不允许提现」。 本来想的是： 只要有些内容和用户，我们的运营同事就"
 paywall: true
 ---

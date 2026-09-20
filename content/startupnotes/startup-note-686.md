@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-686"
+note_number: 686
 summary: "瞎琢磨了一些规则，不知道是不是合理，比如： 内部告知同事们：内部的微信、企业微信消息，都是异步的，无需马上回复。如果你希望马上得到同事的支持，建议到座位上找他。 会议不超过 1 小时。实在需要超过 1 小时的会议，提前说明原因。 每周留出两"
 paywall: true
 ---

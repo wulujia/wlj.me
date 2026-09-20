@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-945"
+note_number: 945
 summary: "这次去牛津上课前，我脑子里盘旋着一个问题：AI 这么厉害了，我怎样才能找到下一件自己喜欢，并且愿意持续做三十年的事？ -- 这次 NUS 组织到赛德商学院（Saïd Business School）上的课，组织得蛮好，课程里有科学前沿和 A"
 paywall: true
 ---

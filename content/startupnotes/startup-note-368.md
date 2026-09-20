@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-368"
+note_number: 368
 summary: "有超出10万家企业使用Basecamp 并按月付费，能有数千万美元的年度利润。而这一切的背后，是一些“反常态”的思想，比如： 只做一个产品（没有多条产品线分散风险）； 做小公司（不是大公司，不需要巨额融资）； 尽可能做减法，创新而不是堆叠功"
 paywall: true
 ---

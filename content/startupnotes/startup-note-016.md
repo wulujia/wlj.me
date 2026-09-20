@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-016"
+note_number: 16
 summary: "这又是一个没有答案的问题。 之前小密圈被认为是「知识变现」工具，因为知识性大 V 可以建圈子，输出 & 激发大家共同输出，变现且进步。最近有些朋友在小密圈里做这样的尝试： 提供酒店升级、航班升舱限次包年服务； 提供企业法律、知识产权、商标事"
 paywall: true
 ---

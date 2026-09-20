@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-276"
+note_number: 276
 summary: "前段时间，有营销出身的朋友找我，说他希望组建研发团队，做个产品——此前几次外包给第三方，都失败了。我给他的建议是： 不要低估自研的难度，通常看上去很简单的一个商业服务，做好做稳，都需要不少资源； 软件产品外包不靠谱（这里特指整个产品外包，如"
 paywall: true
 ---

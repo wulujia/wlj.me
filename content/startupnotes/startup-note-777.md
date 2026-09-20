@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-777"
+note_number: 777
 summary: "最近连续发生了几件事： 笔记 767 提到的同事跟星主的小冲突：https://t.zsxq.com/0Dckk 笔记 771 提到的企业微信群超过 999 条都无人处理：https://t.zsxq.com/VNJ0d 今天又有一件事，让"
 paywall: true
 ---

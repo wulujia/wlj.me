@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-204"
+note_number: 204
 summary: "最早设计作业，我们期待： 星主可以布置和催交作业，把单纯的星主输出，变成互动性更强的输出和讨论； 用户认真提交的作业，应该鼓励，应该尽可能给一定程度的曝光； 一旦有人提交作业，能刺激、带动更多人提交作业。 在使用过程中，我们发现了几种不同的"
 paywall: true
 ---

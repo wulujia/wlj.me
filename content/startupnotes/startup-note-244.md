@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-244"
+note_number: 244
 summary: "我平时并没有太认真看我们的同类产品，往往是隔几个月或者半年下载了看看，春节前，就发现有个叫「XX 圈」的产品，iOS 排行榜的数据似乎突然起了一点，跟知识星球排名上差得不太远了。 但是比较奇怪的是，我在微信、微博里都找不到多少他们的传播数据"
 paywall: true
 ---

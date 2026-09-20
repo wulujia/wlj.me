@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-378"
+note_number: 378
 summary: "例子 前些天，Tuber 浏览器火了一把，跟朋友聊，他提到了一些观点： 三步走：一找到高速增长的赛道，二选对最后一公里刚需，三做好监管保障； 对 Tuber 来说，这三步是：找到视频赛道、与同类浏览器相比打通最后一公里——内置油管内容、搞定"
 paywall: true
 ---

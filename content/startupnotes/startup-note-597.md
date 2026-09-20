@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-597"
+note_number: 597
 summary: "前些天，合伙人夸我心大。他觉得，他不太愿意主导一家创业公司，主要原因就是觉得，作为一家公司最终的责任承担者，有许多可见或隐形的压力。而我的抗压能力，他觉得很好。我谦虚了一句：其实只是反射弧比较长，等反应过来该害怕的时候，事情都已经过去了。 "
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-164"
+note_number: 164
 summary: "知识星球里的作业功能即将上线——虽然这是个极小的功能，但我却非常期待，这毕竟是我们往「深度连接」这个方向迈出的一小步——而且，这个功能对我自己都很有用啊。 「作业」和「问答」一样，都是双向创作。布置作业的人，如果作业布置得很没水平，读者显然"
 paywall: true
 ---

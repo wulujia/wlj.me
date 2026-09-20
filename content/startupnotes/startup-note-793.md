@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-793"
+note_number: 793
 summary: "看同事记录的增长实验工作，其中有一段，记录了轻读的小规模分销尝试： 我们在轻读上线后，希望通过分销来带来部分用户作为分销方，从而带动轻读整体销量的增长。但引入以来，即便加上对星主的 push，也并没有使分销在轻读这件事上走的太远，销量未见显"
 paywall: true
 ---

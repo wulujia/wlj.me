@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-761"
+note_number: 761
 summary: "一 换个视角 前几天，发了笔记 759 后，有同事给我私信提醒。 从他的视角看，同事们的的话，其实跟我想的不一定一样，比如： 晚点我们讨论一下：并不是不做决策，也不是会拖拉。而是稍后上班，面对面提出方案，可能处理起来更快。 这样的终稿是否可"
 paywall: true
 ---

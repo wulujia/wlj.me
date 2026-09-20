@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-205"
+note_number: 205
 summary: "前两天又看到「利器」发了文章：https://mp.weixin.qq.com/s/p2zCfaKhl9KB63NcS2fOWQ，虽然时间间隔并不算长，但里面提到的软件，我其实都用得少了。 我现在不怎么移动办公了。 移动办公其实是虚假的忙碌"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-259"
+note_number: 259
 summary: "昨天有用户反馈： 有人盗版了好些星主的星球内容，做了个名为共享星球的 APP——居然有 iOS 和安卓版（iOS 使用企业证书），然后开启收费。盗版蛮常见的，我们也一直在跟其他平台合作打击，只是这次看起来有点像企业行为，所以请法务同事帮着判"
 paywall: true
 ---

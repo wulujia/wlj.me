@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-430"
+note_number: 430
 summary: "最近考虑做点新的尝试，从小程序开始。在设计之初，我想着： 用户扫码，进入小程序。第一页是个“破烂不堪”的门。 有个书童请他推门，进入后，跟他说，在这里可以做的事情（类似游戏中 NPC 对话，书童告诉他可以在哪几种场景下使用等等），然后书童引"
 paywall: true
 ---

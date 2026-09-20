@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-604"
+note_number: 604
 summary: "把笔记描述为：作为创作者，我希望有一个类似「朋友圈」的功能，以便于减轻我发布内容的心理压力。 这种极度简化的描述，会把整件事情的信息传递损失掉大半。"
 paywall: true
 ---

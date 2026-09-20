@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-307"
+note_number: 307
 summary: "之前同事 Quinn 对“专栏”功能做了个 SWOT，初步分析了知识星球如果做专栏功能，可能的情况。 优势 知识星球已有数百万付费用户，特性与专栏很匹配，可能成为专栏的成熟用户 知识星球已有的上万活跃 KOL，可能直接成为专栏的作者 与当下"
 paywall: true
 ---

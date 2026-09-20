@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-695"
+note_number: 695
 summary: "2023 年初开始，我看到了不少 AI 项目，当时脑子里的想法是： 做大模型很难。大模型就这么几家大厂在拼大力出奇迹，最后能留下两三家就不错了。 做垂直模型很难。绝大多数自以为“垂直”的模型，都未必有足够的壁垒，基本会被大模型吃掉。 做应用"
 paywall: true
 ---

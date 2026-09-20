@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-721"
+note_number: 721
 summary: "上午早餐会，Tony 提到了一个小目标：在产品迭代过程中，希望产研的同事可以找到好的节奏，磨练出相互 Shape Up、切磋小厂的文化。 其中 Shape Up 这个词来自 37Signal 的书，链接：https://basecamp.c"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-454"
+note_number: 454
 summary: "前两天，在小群里找亦仁和光合请教了三个问题： 站在生财有术团队视角，最希望知识星球做好哪些事？ 站在咨询顾问视角，觉得知识星球做什么事，最有高效率成长机会？ 接上一个问题，知识星球的长项在产品，希望用产品四两拨千斤，从这个角度看，怎么做最合"
 paywall: true
 ---

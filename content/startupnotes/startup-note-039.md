@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-039"
+note_number: 39
 summary: "很感动，刘未鹏（参见 https://www.zhihu.com/question/19616722 和 http://mindhacks.cn/）给了我他对小密圈非常细致的建议。我记录了，会仔细思考并判断是否加入产品。 「动态」部分不能筛"
 paywall: true
 ---

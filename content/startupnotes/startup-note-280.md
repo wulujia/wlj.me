@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-280"
+note_number: 280
 summary: "最近突然好奇 Tumblr，翻阅了一些资料，做些笔记： Tumblr 里的内容有文字、图片、引用、链接、对话、音频、视频七种类型，但引用、对话似乎数据不好； 早期 Tumblr 汇聚的博主们，内容创作者较多，例如设计师、建筑师、手工艺者和有"
 paywall: true
 ---

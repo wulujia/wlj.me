@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-443"
+note_number: 443
 summary: "以下内容来自 @shotgun 的内部培训，仅作记录。 DAU 拆解之后，有几类： 当日新注册成为知识星球用户的新增用户，4%。 七天内有至少三天登录过知识星球的重度用户，20%。 七天内只登录了 1-2 次的轻度用户，54%。 已经至少七"
 paywall: true
 ---

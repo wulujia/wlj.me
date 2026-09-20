@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-684"
+note_number: 684
 summary: "开始记录、整理公司里一些常用的“方法论”，让大伙儿有更多的共同语言。上一篇是： 创业笔记 682：方法论之 ICE 这篇复习一下 AARRR，这篇内容，是跟 ChatGPT 聊 AARRR 整理的，版权只能归它了。 概述 AARRR 是增长"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-815"
+note_number: 815
 summary: "我又看了看笔记 813，里面有蛮多“不知道”、“不清楚”、“没公开”、“不了解”的，这和我期望中的“透明”似乎相去甚远。 有没有可能，每个团队在做什么，团队之外，公司里的其他同事是不够清楚的？ 有没有可能，可以对每个团队提出透明化的要求？比"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-682"
+note_number: 682
 summary: "开始记录、整理公司里一些常用的“方法论”，让大伙儿有更多的共同语言。 ICE 评分模型来自于 Sean Ellis 的书籍 <Hacking Growth>，其中的三个维度分别是影响范围（Impact）、信心（Confidence）、容易程"
 paywall: true
 ---

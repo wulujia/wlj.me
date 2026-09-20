@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-080"
+note_number: 80
 summary: "关于前些天给赞刷屏的小程序，可以先看看这几篇文章： http://mp.weixin.qq.com/s/KwPaGg2az7h_3_rMVOuLFw http://mp.weixin.qq.com/s/5oucOA5KmjyUTRtb-N8"
 paywall: true
 ---

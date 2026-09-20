@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-579"
+note_number: 579
 summary: "有朋友截图给我，问：小报童专栏现在在做买断制，你怎么看？ 他提到了他的感受，是： 之前的长期专栏跟星球还是有一些像的（缺少了社区互动的部分），现在如果大部分作者都选择买断制的话，两个产品就完全不同了，跟读者之间相互陪伴的感觉确实会少很多。 "
 paywall: true
 ---

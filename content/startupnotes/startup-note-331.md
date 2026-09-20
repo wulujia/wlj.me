@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-331"
+note_number: 331
 summary: "有朋友认为微博对谣言的纠错优于朋友圈，我想了一下为什么会这样（并没有仔细分析收集，只是拍脑袋）。 产品形态上： 微博里的转发，会带上作者与原文； 微信里只能截图或者拷贝了发； 微博里对谣言等信息，会有不同的处理机制，比如：保留内容但标识为谣"
 paywall: true
 ---

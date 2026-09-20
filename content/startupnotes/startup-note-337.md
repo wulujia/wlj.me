@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-337"
+note_number: 337
 summary: "最近很巧，有两位 KOL 来咨询：打算从小鹅通迁移过来，但是小鹅通里，每年也就 2 万元的 SaaS 服务费，知识星球能不能采用类似小鹅通这种收费方式？ 仔细想了想，知识星球和小鹅通的收费模式完全不同。 小鹅通 预付费之后使用 SaaS 功"
 paywall: true
 ---

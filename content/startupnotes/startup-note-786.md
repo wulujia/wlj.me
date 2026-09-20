@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-786"
+note_number: 786
 summary: "2024 年 11 月 26 日，华为 Mate70 系列可即刻升级原生鸿蒙操作系统，标志着 HarmonyOS NEXT 正式商用，有超过 15,000 个鸿蒙原生应用和元服务上架。 最近有不少用户咨询，知识星球是不是会做鸿蒙版本。 目前"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-330"
+note_number: 330
 summary: "朋友建议知识星球试试做海外，我向白鲸出海的魏方丹请教了，目前初步的想法是做小范围、可闭环、可复制、低成本的实验，考虑到的一些点有： 产品、研发相关 多语言版本：第一个版本只做英文版，抽取出语言配置文件； 单 APP 或多 APP：考虑与现有"
 paywall: true
 ---

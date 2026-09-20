@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-291"
+note_number: 291
 summary: "最近池建强老师的极客时间上了个“部落”功能，类似朋友圈，算是程序员社交的尝试。我提醒他，但凡 UGC，风控一定要严。 边聊着，他就边在知识星球里他自己的星球拿一个关键词测了一下——我也没当回事，这显然会被审核拦下的，但是……但是……竟然发出"
 paywall: true
 ---

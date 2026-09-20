@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-914"
+note_number: 914
 summary: "这几天反复在想的黄仁勋三句话： AI 的本质是让智能变得便宜几个数量级，最终会无限便宜 企业尝试 AI 要从最核心最重要的部分开始 让 1000 朵花先开——鼓励野蛮生长和创新 第一句话：智能会变得无限便宜。这个的影响太大了，我一时不知道该"
 paywall: true
 ---

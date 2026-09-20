@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-390"
+note_number: 390
 summary: "前段时间，我问了一些同事、朋友、伙伴： 我在考虑“提炼”公司的价值观，如果让你考虑： 你觉得公司有什么是你觉得珍贵、希望突出、提倡或者保留的？ 你觉得公司能生存这些年，以及后续如果还要继续发展壮大，需要什么？ 给我你脑海里浮现出来的几个关键"
 paywall: true
 ---

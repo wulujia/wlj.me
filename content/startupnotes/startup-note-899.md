@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-899"
+note_number: 899
 summary: "知识星球 10 岁了。一个小工具 10 岁，在这个宏大的时代下，微不足道。自家的孩子，出生在移动互联网的尾巴，当下赶上 AI 凶猛地冲撞过来，还是幸运的。 试图回忆过去的时候，我发现，能被记住的，往往是一些问题、低谷。 跟大家分享几个低谷。"
 paywall: true
 ---

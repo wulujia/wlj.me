@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-491"
+note_number: 491
 summary: "趁着元旦假期，简单想了想今年想做的事（好像有点多，估计最终得砍一些）。 工作 努力让公司更加健康，商业模式，业务、产品和组织都更加能够抵御风险。 专心提升产品的竞争力，努力做到至少在某一个方面无可替代。 更少的事情需要我决策。 推动产品同事"
 paywall: true
 ---

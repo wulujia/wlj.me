@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-497"
+note_number: 497
 summary: "怎样算是体外收费？ 我们在用户协议里写了： 为保障知识星球用户的交易安全，维护星主与成员各方的合法权益，星主理解并同意，星主应严格遵从知识星球的商务安排，仅通过知识星球事先许可的第三方合作机构在知识星球内开展付费服务，且星主应严格按照承诺的"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-550"
+note_number: 550
 summary: "前两天想注销一个游戏账号时，该游戏提示：近 15 天内在多台设备使用过该游戏，无法注销。然后在知识星球里，这几天有几位用户询问，注销了知识星球的账号后，多久能继续注册、登录。 我们的设计是：注销之后 90 天，才可以重新注册登录。 刚刚和同"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-877"
+note_number: 877
 summary: "昨天跟同事聊天，他提到对目前在做的产品的“不一样”有点没把握。 我说，有时候，产品理念也是一种不一样，甚至可能是同行不太好模仿的不一样，例如我经常说的简单、长期。 我举例 https://posthaven.com/ 官网上对自己的描述： "
 paywall: true
 ---

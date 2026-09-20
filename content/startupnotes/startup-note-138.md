@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-138"
+note_number: 138
 summary: "以下内容来自白鸦和 Angela 在做 UCDChina 的 Design IT 培训课件，有些我自己的臆测和篡改。 产品人的四个关键能力： 看得到：很多时候，你接触不到信息（比如你不是小镇青年，你的视野里就不会第一时间出现快手），有些时候"
 paywall: true
 ---

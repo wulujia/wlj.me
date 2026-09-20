@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-324"
+note_number: 324
 summary: "既然北极星是要指导产品发展方向的，那么至少需要满足这几个条件： 真实可靠。真实是可以代表产品的核心价值，可靠是不容易被污染。举个例子：在我理解中，日活是个比较容易被“污染”的指标——撒钱可以轻易拉动； 能够指导产品和运营的下一步动作，能看到"
 paywall: true
 ---

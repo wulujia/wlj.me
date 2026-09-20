@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-047"
+note_number: 47
 summary: "看到一则 Twitter 要做付费订阅的新闻（http://36kr.com/p/5068173.html），有点好奇。 我之前在思考竞争问题的时候，观点是：微博、Twitter 之类的产品，是不应该做类似小密圈的「又小又私密」的产品的，做"
 paywall: true
 ---

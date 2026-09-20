@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-099"
+note_number: 99
 summary: "与白鲸魏方丹聊天，向他请教了「出海」相关的问题后，又一起讨论了白鲸是否可能使用知识星球运营社群的问题（结论当然是可以 ^&^）。 讨论的一些点包括： 作为企业，不少特点和个人 KOL 不同，比如：有较强的付费能力、可能缺乏运营经验、需要突出"
 paywall: true
 ---

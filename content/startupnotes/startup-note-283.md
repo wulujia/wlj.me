@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-283"
+note_number: 283
 summary: "cicada 11:10 AM 上次和 ego 喝咖啡，聊起微博 V+和小密圈。 先说 V+ 吧。V+也就是打包销售付费内容，方便用户购买，同时也通过打包销售的方式，给作者带来更稳定的收益预期，并 push 作者输出内容。 但 V+ 这件事"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-329"
+note_number: 329
 summary: "因为安全的缘故，我打开了 Github 的双因素认证，每次在新设备登录时，需要 Google 的“身份验证器”验证一次性口令。但前段时间我犯了个错误： 切换主力手机时，在新手机上启用了“身份验证器”——这相当于重新配置了 Github 的双"
 paywall: true
 ---

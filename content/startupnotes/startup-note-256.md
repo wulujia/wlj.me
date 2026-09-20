@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-256"
+note_number: 256
 summary: "前段时间，喜马拉雅的「私密圈」公测，我发了一句：「隐约觉得对知识星球还是好事。」有朋友觉得我心大。 在 TGO 鲲鹏会采访喜马拉雅 CTO 陆栋栋的一篇文章里，有这样一段描述： 我们在社区上不断失败不断尝试，今年我们开始做付费的圈子，其实去"
 paywall: true
 ---

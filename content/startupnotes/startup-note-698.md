@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-698"
+note_number: 698
 summary: "我期待“组织”发挥作用，团队有创新和打胜仗的能力，而且可以自我迭代。下午聊起这事的时候，Shotgun 说了一句“金句”，很好地表达了我希望往后退一步，让同事的创意可以发挥的想法，他说：我们不在流程上，在资源上。流程里没有我们，就不会阻碍大"
 paywall: true
 ---

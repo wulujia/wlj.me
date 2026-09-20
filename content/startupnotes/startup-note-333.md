@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-333"
+note_number: 333
 summary: "今年我的一个工作目标是“推进公司内部信息更透明”，OKR 可能是个比较好的管理工具，目前打算采用飞书 OKR（还有个备选是 gtmhub.com，不过初步测试，飞书 OKR 的体验更舒服）。 之前看过几本 OKR 的书，稍微感觉冗长拖沓了些"
 paywall: true
 ---

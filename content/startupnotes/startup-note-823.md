@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-823"
+note_number: 823
 summary: "刚刚“敲敲打卡”故障了，原因是：阿里云欠费 10 元，云服务被暂停。 整个过程中，可能值得改进的地方至少有： 需要有更宽裕的余量。比如：后付费业务，我们在云服务里的余额低于五千，或许就应该补到两万？这个数字最好根据我们的日常用量计算，在云服"
 paywall: true
 ---

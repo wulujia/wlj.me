@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-406"
+note_number: 406
 summary: "Pinboard（https://pinboard.in/）是我多年前很喜欢过的一款产品，喜欢的原因有： 极其简单（可能很多人会觉得简陋），但哪怕是现在，还是够用甚至值得付费的； 可以算是 Maciej 的“个人作品”，但从 2010 年开"
 paywall: true
 ---

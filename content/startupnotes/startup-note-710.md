@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-710"
+note_number: 710
 summary: "前几天和好朋友聊起他们公司这两年的产品迭代时，我有个不负责任的批评： 你们公司的产品缺乏灵魂。 摄影大师安塞尔亚当斯说过一句话：我们不只是用相机去拍照，我们带到摄影中的，是所有我们读过的书，看过的电影，听过的音乐和爱过的人。 摄影如此，产品"
 paywall: true
 ---

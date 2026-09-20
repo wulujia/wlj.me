@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-702"
+note_number: 702
 summary: "ICE 参见笔记 682，我这里想说的是 E——容易程度（Ease） 这是评估实现特定需求或特性的难易程度。 考虑因素可能包括所需资源、时间、技术复杂性等。 高容易程度意味着实现这个需求或特性相对简单，需要的资源和时间较少。 帕金森参见笔记"
 paywall: true
 ---

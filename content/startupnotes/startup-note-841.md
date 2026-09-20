@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-841"
+note_number: 841
 summary: "前几天和同事们在产品牌桌上讨论问题 + 解法时，有一个“知识库”相关的问题，有同事认为我们的技术还没准备好，不该这期做，而我的想法是： 这是我特别想试试的。 虽然研究/技术实现还需要一些时间，但在 App 里的入口、呈现效果也需要时间打磨。"
 paywall: true
 ---

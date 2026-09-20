@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-693"
+note_number: 693
 summary: "在 Twitter 上看到 DHH（37Signals 的 CTO） 发了一条： Crazy to think that we were spending $150,000/month on cloud rentals just eight"
 paywall: true
 ---

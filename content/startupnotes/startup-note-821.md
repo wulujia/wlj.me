@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-821"
+note_number: 821
 summary: "我不喜欢迟到。我组织的活动，一般都会准时开始。例如我组织徒步，假设 08:30 开始，我最迟会在 08:31:00 出发，不等人。 但是我注意到，不少团队还挺迁就迟到者，比如约好了 10:10 开始的会，往往要 10:12-10:15 才会"
 paywall: true
 ---

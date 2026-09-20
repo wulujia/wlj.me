@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-353"
+note_number: 353
 summary: "曾经有一段时间，大量使用纸笔。那时喜欢用铅笔，阅读时在书上涂画，想事情、设计产品或者功能的时候，在大白纸上一点点写下想到的细碎部分，最后再录入到电脑。但因为是铅笔，写的时候就没有“保存”、“回溯”的念想，因此随写随丢。有时候翻过头想找原始素"
 paywall: true
 ---

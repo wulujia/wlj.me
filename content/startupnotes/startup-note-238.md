@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-238"
+note_number: 238
 summary: "睡前看邮件，看到 Fenng 的小道通讯里有段话： 一个新建成的园区，不管原来的路径怎么规划，过一段时间，行人总会自己踩出一些更为便捷的小径。 对于产品也是如此，设计出来的功能，用户未必都能很好的用起来，但产品提供的能力倒是有的时候会被用户"
 paywall: true
 ---

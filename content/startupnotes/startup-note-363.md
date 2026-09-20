@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-363"
+note_number: 363
 summary: "拖更了许久——毕竟上半年已经过去了，虽然这个 2020 过得有点仓皇，但半年还是要回顾过去和展望未来的，所以忙碌了点，拖的时间有点长。尝试先更几个短想法，慢慢恢复。 前些天，Shotgun 突然跟我提了一嘴，他觉得似乎知识星球应该用 Saa"
 paywall: true
 ---

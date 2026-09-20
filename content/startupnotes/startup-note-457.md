@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-457"
+note_number: 457
 summary: "Onlyfans 不给苹果和安卓缴纳平台税（也有可能因为成人内容，上不了架？）索性不做 iOS 和安卓版（https://onlyfans.com/help/1/101/7）： There is no OnlyFans app. The O"
 paywall: true
 ---

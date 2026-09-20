@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-625"
+note_number: 625
 summary: "条形马在生财有术的社群里，做了个《社群运营实战手册》的分享，也发给了我。我草草看了一遍，觉得挺有收获，于是决定再看一遍，记录一些观点。"
 paywall: true
 ---

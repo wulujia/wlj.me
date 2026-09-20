@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-489"
+note_number: 489
 summary: "前段时间，薇娅补税的事件，在互联网圈子里引起了不小的震动。不少人对此颇有微词，认为这是共同富裕指导思想下，出现的不太好的趋势。 上周六跟朋友爬山，期间有位做直播 MCN 的朋友提到了另一个视角的观点：一鲸落，万物生。薇娅公司的调整让淘宝释放"
 paywall: true
 ---

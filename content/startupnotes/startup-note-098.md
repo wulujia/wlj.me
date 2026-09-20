@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-098"
+note_number: 98
 summary: "前些天和一位朋友聊到做产品，我建议： 找一个自己喜欢的产品，仔细摸每一个功能点； 思考每个功能点背后的原因、作用、效果（也可能是负面效果）； 思考每个功能点背后可能用到的技术、成本； 思考如果是你，如果从零开始，你会怎么安排这些功能的上线时"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-842"
+note_number: 842
 summary: "我们在知识星球里做了个“连胜”的功能（也是我很想试试的），但是掉了个坑：我们从 2025 年初开始统计，有超过五位数的用户每天连续登录。 所以问题来了：设计的“连胜排行榜”——展现 Top200，在这种情况下完全失效了。我们应该怎样让“连胜"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-119"
+note_number: 119
 summary: "参加 2017 腾讯投资年会，快手宿华讲产品的故事，其中一页 PPT 里，有： 服务大众，不捧明星 强调分享，弱化私信 坚持原创，不设转发 这种「慢」，不是一般公司和产品做得到的。 服务大众，不捧明星 宿华的说法是，快手上都是普通网友，都是"
 paywall: true
 ---

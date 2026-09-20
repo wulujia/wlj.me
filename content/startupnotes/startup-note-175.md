@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-175"
+note_number: 175
 summary: "这张系统循环图，可以大致解释知识星球是什么，知识星球将会如何发展的问题。图中循环着的四个部分分别是： 社区产品 首先，知识星球是一款简简单单的社区产品，我们的一切工作，都源自于此。 知识星球的 Slogan 是「连接一千位铁杆粉丝」，用这个"
 paywall: true
 ---

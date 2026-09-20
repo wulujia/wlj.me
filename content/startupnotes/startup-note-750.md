@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-750"
+note_number: 750
 summary: "考虑把 OKR 的内容同步到知识星球里，这样大家都能看见。并且，我之前比较在意“面面俱到”——希望大多数同事都能从我的 OKR 里拆解出他自己的。其实应该我自己每个时期有每个时期的重心，以及同事们不用光从我的 OKR 往下拆，鼓励大家自己找"
 paywall: true
 ---

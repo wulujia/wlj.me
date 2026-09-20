@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-465"
+note_number: 465
 summary: "这些天一边看 Scrum 相关的书籍，一边考虑在运营团队也尝试一下 Scrum 框架的理念。我想解决的问题有： 目前多单打独斗，少协作。 对彼此的工作内容不太了解。 但毕竟运营跟研发不太一样，目前我考虑的做法是先在“星空问答”的推广中尝试，"
 paywall: true
 ---

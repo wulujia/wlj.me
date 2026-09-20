@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-228"
+note_number: 228
 summary: "觉得有些同事的效率应该可以进一步提高，这就涉及时间管理了——我自己的时间管理是土办法： 把要做的事写在本子上； 做完。 要给同事传递的话，似乎不应该那么野路子，所以今天在微信读书里快速翻看了七八本涉及时间管理的书（主要看目录——这类书确实看"
 paywall: true
 ---

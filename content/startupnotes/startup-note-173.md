@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-173"
+note_number: 173
 summary: "最近看 APP Store 里，同类产品中一款名为「圈子」的产品好像在缓缓上升。此前关注过他们的产品「字里行间」，做得很好，一直以为是独立开发者，刚刚查了一下，居然是新三板上的公司（难怪买得起 zi.com 这个域名）。 在我看来，目前「圈"
 paywall: true
 ---

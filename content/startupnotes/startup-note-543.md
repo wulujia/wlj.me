@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-543"
+note_number: 543
 summary: "试了几天早上到公司后，找本纸质书阅读，效率还不错。刚刚翻看小马宋的《营销笔记》，看到一句：低价并不是一种优势，低成本带来的低价才是一种优势。 这让我想起我们遇到的一些情况：有部分跟风知识星球的产品，在产品上，挑出了他们认为的核心点，做到至少"
 paywall: true
 ---

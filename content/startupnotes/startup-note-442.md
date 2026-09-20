@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-442"
+note_number: 442
 summary: "今天用户安夏咨询： 请问知识星球后续会打通企业微信吗？ 我们用企微经营会员群，希望可以把星球 ID 身份和企业微信用户身份关联。 一方面 ID 互通，方便会员身份鉴别，我们能知道他是星球里的哪个人，以及加入时间和有效期。现在只能让用户自己查"
 paywall: true
 ---

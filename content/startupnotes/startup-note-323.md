@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-323"
+note_number: 323
 summary: "这两天阅读，看到华为的“红蓝军对抗”相关文字： 华为“蓝军”部的职责就是去对抗“红军”的执行战略和方案，考虑在内部如何“打倒”华为。“蓝军”部门要从不同的角度观察“红军”部门制定的战略和技术发展路线，并采取逆向思维分析“红军”的产品、战略和"
 paywall: true
 ---

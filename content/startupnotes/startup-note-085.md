@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-085"
+note_number: 85
 summary: "经常有朋友向我推荐「竞品」，我收藏之后会时不时看看。但从我内心的真实想法，还是别关注所谓对手，有时间，不如放在用户身上，多和用户聊聊天，或许收获更多。 但，有空的时候还是可以翻翻，了解一下别人的优点，以及别人是怎么「打」知识星球的。也是学习"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-091"
+note_number: 91
 summary: "一 绝大多数人要在一个领域做到出色，根本不需要天赋。勇气加努力加方法足够了。 拿我自己来说，在一所职业大学读文科，当时期望当记者。这并不妨碍我自学并成为信息安全从业者。干了十几年面向企业的安全工作，同样不影响我学习移动互联网并成为这个方向的"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-030"
+note_number: 30
 summary: "不知多少人和我一样，有收藏癖。 我曾为印象笔记、Pocket、Pinboard 等产品付费，最大原因是，希望把有价值的信息收藏起来，方便随时回顾。 看到优秀的内容，先收藏，心里想的是：这篇好，存起来仔细看。现在上班、路上、blabla 原因"
 paywall: true
 ---

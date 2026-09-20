@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-210"
+note_number: 210
 summary: "推荐这个演讲视频，值得看看： https://mp.weixin.qq.com/s?__biz=MzA3NzgxMjkxNg==&mid=2649999081&idx=1&sn=636040c1ea2524163eb97342e06c7e4"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-275"
+note_number: 275
 summary: "可以先看看下面俩链接： 腾讯公益的“问问 NGO 负责人”：https://t.zsxq.com/33vrfAe 知识星球里的“评价”为什么下线了：https://t.zsxq.com/Byr7aQ3 对“问问 NGO 负责人”对一些想法："
 paywall: true
 ---

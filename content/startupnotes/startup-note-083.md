@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-083"
+note_number: 83
 summary: "学习一下「小朋友画廊」这个产品： 页面元素里顶部就是「腾讯公益」和「一起爱」，算是背书； 画风应该有经过选择、引导。36 幅画里绝大多数是色彩斑斓的「印象派」（仅有四幅黑白，两幅彩色但色调偏阴郁），更符合大众审美； 关键流程中，「一元购画」"
 paywall: true
 ---

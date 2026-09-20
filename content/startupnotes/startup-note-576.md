@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-576"
+note_number: 576
 summary: "前些天，Twitter 上看到 avatarAI.me 的作者发推，一天收入一万美金——而他甚至连 Stripe 都还没认证身份。好奇心起，去看了看。目前 avatarai 是上传一批真人照片后，给生成一批头像返回。 第一感觉是，好像不难呀"
 paywall: true
 ---

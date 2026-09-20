@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-317"
+note_number: 317
 summary: "考虑做个”星球圆桌“，目前的想法是： 单篇文字经过知识星球官方设置后，允许全文阅读（全文页面有显著的加入星球引导）； 将目前发现页的 Banner 调整为这样的文章全文； 允许星主、合伙人、管理员、嘉宾每周投稿一次； 投稿可以在 Banne"
 paywall: true
 ---

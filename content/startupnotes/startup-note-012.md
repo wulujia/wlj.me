@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-012"
+note_number: 12
 summary: "前些天，在某微信群里收到了这样的消息： 请教各位专家，我一个朋友公司服务器托管在三线城市的 IDC，昨晚DB被黑进去删了 200G 数据，留了个 QQ 号说备份在云上，给几千块就恢复，但 IDC 没看到有那么大流量。请问怎么处理较为合适？ "
 paywall: true
 ---

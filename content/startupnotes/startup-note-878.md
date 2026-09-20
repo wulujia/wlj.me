@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-878"
+note_number: 878
 summary: "笔记 861、868、871 都是小鹅通——难得像知乎、得到、喜马拉雅、小鹅通这些公司因为要上市，有招股说明书和财报可以学习，我还是很开心的——所以一旦有份内容行业公司的招股说明书/财报，我都会仔仔细细多看几遍（虽然小鹅通的规模、业务覆盖已"
 paywall: true
 ---

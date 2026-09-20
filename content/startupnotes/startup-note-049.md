@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-049"
+note_number: 49
 summary: "之前的积分考虑 之前小密圈积分初步考虑的项目有： 登录 发主题 回复 点赞 被加精 被赞赏 赞赏他人 提问 回复提问 但实现的很粗糙，目前考虑做些完善。 目前的考虑 用户在小密圈里的贡献，应该不仅取决于自己做什么，更多地取决于别人对他做什么"
 paywall: true
 ---

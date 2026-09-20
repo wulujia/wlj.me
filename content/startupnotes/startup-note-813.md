@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-813"
+note_number: 813
 summary: "上周五，杜辉组织了一场午餐会。主题是：如果下一个新产品或新项目的发起，来自于一线，而不是创始团队，你觉得，从现在开始，公司可以做点什么？或者不该做什么？ 提前约定了： 大家提想法、讨论为主，CEO 听和回应为主。 交流会不是要找一个答案，事"
 paywall: true
 ---

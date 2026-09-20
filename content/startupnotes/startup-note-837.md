@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-837"
+note_number: 837
 summary: "想了想，工作中的很多判断，都可以用常识和同理心来做决定。 规矩制定的时候，往往有当时的环境约束，大概率跟当下不一样。定下规则，本意是让事情好办，如果一条规矩到头来与常识相违背，那就值得再思考。 举两个例子，或许后续，同事们更有信心做决策。接"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-267"
+note_number: 267
 summary: "下午听课，内容是未成年人保护。老师提到访谈大孩子时，他们会反馈：专业防防沉迷十几年。 对现在的比如宵禁、身份认证限制未成年人登录、限制使用时长等功能，很多孩子做过对抗，对抗方式比如： 直接使用家中老人的身份信息注册游戏账号； 学校周边可能就"
 paywall: true
 ---

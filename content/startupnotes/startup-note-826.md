@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-826"
+note_number: 826
 summary: "有位好朋友问我：我的星球的“免费体验”功能，还有可能申诉恢复吗？ 因为我越来越“不靠谱”，被一点一点剥离了业务权限——比如多年前我在生产服务器误操作，后来保险起见，把我的 Key 移除了。后来在风控管理时误把合规用户的内容给一键清空了——于"
 paywall: true
 ---

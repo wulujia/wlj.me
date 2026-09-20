@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-298"
+note_number: 298
 summary: "隔段时间，我都会纠结这几问题。 做不做新产品？ 做什么？ 对“做不做”，就我的天性而言，我是喜欢做新东西的，这两年压住了一些想法，原因是觉得需要打磨好知识星球，这有可能是个好产品，甚至有可能是个大产品。但不打磨，这个时候做新东西，就有可能是"
 paywall: true
 ---

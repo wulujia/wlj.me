@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-614"
+note_number: 614
 summary: "很多时候，有想法不够，还需要有快速验证能力。这就是这里要提到的“快速 Build”，和大家耳熟能详的 MVP 也类似——只是可能还要更粗糙些，只是用于验证思路，上手摸一下，用于判断想法是不是靠谱。 早期的微信红包设计，是通过关注公众号”新年"
 paywall: true
 ---

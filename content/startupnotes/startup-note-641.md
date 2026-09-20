@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-641"
+note_number: 641
 summary: "前些日子，有些遗憾地认识到，星空问答失败了——如果是几个人的初创团队，投入了这些时间、才智，但收获寥寥，应该能更早地决定放手。 现在看，问答的问题出在： 好问题太少。最初的设想中，好的问答是个“智力相互激荡”的过程。优秀的人提出好问题，另一"
 paywall: true
 ---

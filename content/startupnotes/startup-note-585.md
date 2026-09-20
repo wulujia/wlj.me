@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-585"
+note_number: 585
 summary: "下午跟产品、研发一起开会讨论新一期的需求，并且评估用户故事点数，会有点长，我围观得有些累，走个神，顺手记一个需求的讨论过程。 用户故事是：作为风控，我希望能优先处理付费人数更多的星主的内容，以便于提升大星主被风控后的时效性。 产品考虑的方案"
 paywall: true
 ---

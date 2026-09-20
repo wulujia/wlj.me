@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-910"
+note_number: 910
 summary: "这几天考虑，应该让知识星球支持语音输入，写一个最粗糙的 pitch。 问题 星主的创作并不容易——很多人并没有非常趁手的写作工具，只是就简单地打开知识星球 App 就开始写作。而知识星球 App 并没有非常好地为他们优化写作功能。 解法 支"
 paywall: true
 ---

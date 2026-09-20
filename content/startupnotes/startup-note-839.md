@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-839"
+note_number: 839
 summary: "前几天，在 Slax Reader 的 Discord 里，看到同事有一个改动条目： 导入任务的时候，界面弹窗提示： 由于最近导入量巨大，故只会自动处理前 200 条 XXX （需要给个文案） 我跑出来询问：这个指的是，我们限制了导入的上限"
 paywall: true
 ---

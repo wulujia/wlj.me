@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-109"
+note_number: 109
 summary: "产品特点 相比千聊、荔枝微课这些产品，后来者易灵微课设计的独到之处是：无条件退款。执行细则是： 听课一小时内，可以无条件退款； 七天内未听，自动退款。 设想是类似团购的无条件退款机制一样，通过无条件退款，降低学员报名门槛，提升报名总人数。 "
 paywall: true
 ---

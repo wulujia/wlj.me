@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-314"
+note_number: 314
 summary: "此前了解过腾讯的“乐问”，是腾讯内部一个很好的内部沟通和透明化工具。 前些天在看梁宁《增长思维 30 讲》时，看她提到一句： 字节跳动有个类似内部论坛的头条圈，员工可以匿名发言。 我琢磨着，知识星球是不是能够适合大多数企业，对内作为落实透明"
 paywall: true
 ---

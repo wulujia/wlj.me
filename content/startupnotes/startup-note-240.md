@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-240"
+note_number: 240
 summary: "有位朋友发来了知识星球同类产品「圈子」最近的升级，他们做了个「圈主高度自定义的货币激励体系和经验等级体系」，大致内容包括： 圈子货币体系：乌托贝（充值、流通）和乌托币（可以提现）； 圈主可以制定关键行为的奖励规则，包括自定义奖励项目和奖励额"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-425"
+note_number: 425
 summary: "前些天蛮认真地学习了得到 2021 年四月底更新的两份文件，一是上市申请文件的审核问询函回复，另一份是创业板招股说明书。作为内容行业认真且有影响力的头部企业，得到的经验很有价值。 一边看，一边在 PDF 文件上涂抹，这样日后回溯方便。现在则"
 paywall: true
 ---

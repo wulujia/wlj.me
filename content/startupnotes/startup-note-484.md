@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-484"
+note_number: 484
 summary: "近期遇到了两类不太好的竞争。一类是相对规模较大，收获了大笔投资的公司，因为业务发展需要，做了类似的产品，并且采用相对狼性的方法来进攻。另一类是较小的创业，公司看上了知识星球的这一亩三分地，觉得这个方向似乎有利可图，快速用比较少的人力模仿，打"
 paywall: true
 ---

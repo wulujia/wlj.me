@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-375"
+note_number: 375
 summary: "记得《三体》里面写了，文献保存时间最长的方法是：把字刻到石头上。对我而言，似乎工作效率最高的方法是：把字写到纸上。 之前使用过许多 Todolist 的 App，现在回头看，最长一个使用时间也就两年左右，累积到最后，往往会有无数事情积压，然"
 paywall: true
 ---

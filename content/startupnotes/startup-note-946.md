@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-946"
+note_number: 946
 summary: "近期到甲方沟通汇报的时候，意识到在风控上有个问题值得改进： 我们的产品有在风控处置上有比较复杂的权限，针对人、星球，针对内容的读、写等有做得比较细致。 在与管理部门沟通汇报时，我们往往会简化描述。 这里面就有个微妙的矛盾：简化了的描述，容易"
 paywall: true
 ---

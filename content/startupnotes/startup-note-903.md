@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-903"
+note_number: 903
 summary: "上周刘容在公司内做了个 Claude Code 的交流，让我觉得，我也应该多跟同事们交流交流。草草整了个我用 ai 的内容，下周可以约个时间和大伙儿聊聊。 我用 AI 干什么 -- 几个重要的能力 清晰完整的上下文 多产品交叉验证 思考 追"
 paywall: true
 ---

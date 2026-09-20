@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-391"
+note_number: 391
 summary: "听了李旻的分享（https://t.zsxq.com/yj23vR7），一些印象比较深的碎片，以及我的感想： 游戏本质是：学习模式，同时解决问题，或者更简单地说就是“解决问题”（从设计者的角度，是启动很多很多的“模式”，有个“游戏库”。从玩"
 paywall: true
 ---

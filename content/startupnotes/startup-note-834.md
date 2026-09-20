@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-834"
+note_number: 834
 summary: "笔记 828 有了个后续，星主发了篇标题是《还在创业阶段的知识星球公司，就让人大失所望了》的公众号：https://r.slax.com/s/sP6b92e882 抛开情绪，星主最不满的问题是： 知识星球没有提供足够方便的评论管理工具，能够"
 paywall: true
 ---

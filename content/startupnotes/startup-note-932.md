@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-932"
+note_number: 932
 summary: "Slax Reader 作为个人稍后阅读和 URL 收藏工具已经做得不错了。下一步的关键是网络效应。一个纯工具产品天花板有限，但如果能让用户之间产生连接，价值会指数级增长。 把分享做好。分享是最自然的增长引擎。用户读到好文章，分享到社交媒体"
 paywall: true
 ---

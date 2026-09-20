@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-617"
+note_number: 617
 summary: "这篇文章很短，只是记录一个我稍有些震惊的点——星球编号的作用。 在知识星球里，提供了一个“编号”功能，加入星球的人，都会获得一个编号。这个功能不大，是几年前一位星主强烈建议做的——当时我并不理解这个功能，只是考虑到，他做了多年社群，本身积累"
 paywall: true
 ---

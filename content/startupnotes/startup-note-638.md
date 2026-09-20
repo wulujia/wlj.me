@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-638"
+note_number: 638
 summary: "几年前动过写本书的念头，但内心有个小愿望是，如果要写，这本书最好五年十年后看，还是有用的。有了这么个执念，每次花几天时间写下个目录后，就泄气了。 这次换换思路： 通过书的方式，给自己做个阶段性总结。 把它当成一个产品，先开始，快速 Buil"
 paywall: true
 ---

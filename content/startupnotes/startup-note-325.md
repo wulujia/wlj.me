@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-325"
+note_number: 325
 summary: "这个春节，街上并不热闹，我也不走亲访友了，考虑着写一篇简短的文字，说说我们做产品、做社区、做知识星球的一些想法。希望能把朋友们经常问起的问题说清楚，希望你能觉得咱们理念一致，更愿意陪伴、帮助我们，和我们共同成长。 2016 年 8 月，知识"
 paywall: true
 ---

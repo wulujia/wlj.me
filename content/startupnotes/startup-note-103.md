@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-103"
+note_number: 103
 summary: "前些天和包你拼黄大发聊起，可以试试用包你拼发红包，领完红包后可以跳转到知识星球里对应的星球，试试这种方式是否有比较好的导流效果。整个过程是： 我创建「拼字红包」，内容为「吴鲁加的知识星球创业笔记」，并填入我的知识星球小程序链接地址； 我将红"
 paywall: true
 ---

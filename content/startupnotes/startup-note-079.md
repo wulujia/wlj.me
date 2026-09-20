@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-079"
+note_number: 79
 summary: "创业公司，尤其涉及 UGC，这种能力非常重要，请一定仔细看看想想。 Growth Hacker之防御术 作者：Stoned 来源：纯银的「pmdogs」Slack 社区 一 在犬校里见了不少被攻击的例子，有些我经历过，有些我也对其他人用过。"
 paywall: true
 ---

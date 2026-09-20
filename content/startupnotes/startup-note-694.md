@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-694"
+note_number: 694
 summary: "最近有一定程度的困惑。困惑来自冲突。 比如：我一直希望做减法——做少而精的事情，不折腾，谋定后动。但我自己的 2023 年极其忙碌，认识了很多人，接触了很多新领域（很开心，但还都没有扎实的“产出”）。 比如：我觉得知识星球的小团队应该尽全力"
 paywall: true
 ---

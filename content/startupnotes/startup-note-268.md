@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-268"
+note_number: 268
 summary: "看到一篇文章对知识付费的「套路」、「智商税」做了些总结。我的观点是： 用户购买，说明需求客观存在。用户购买后抱怨这是「智商税」，一部分原因是内容质量不如人意，另外也有部分原因可能是有些用户的拖延症导致不学习（先不说知识付费，看看买过的书有多"
 paywall: true
 ---

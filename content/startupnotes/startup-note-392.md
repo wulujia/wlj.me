@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-392"
+note_number: 392
 summary: "简单 工作简单。做好事情就行，不用考虑关系，同事间彼此信任； 沟通简单。大家都尽可能坦率、直说。而且提倡用朴素易懂的语言，少用术语； 产品简单。符合直觉与常识、尽量自然。 热爱 做的是自己喜欢、热爱、觉得有价值的事； 更高效。尽可能突破自己"
 paywall: true
 ---

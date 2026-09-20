@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-573"
+note_number: 573
 summary: "公司内部开始尝试分为几个业务敏捷小组——也包括了一个增长小组，这段内容是 Shotgun 在跟同事们描述“什么是增长黑客”的时候的提纲。 什么是增长？ 产品明显可见的数据变化：日活、流水、续费率等 什么是黑客？ 用精巧的手段获得超出预期的收"
 paywall: true
 ---

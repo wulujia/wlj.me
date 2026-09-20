@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-269"
+note_number: 269
 summary: "姜超聊起知识星球 SaaS 化的话题（参见：https://t.zsxq.com/yRRvFEi）。 大概去年的这个时候，我们曾经很想尝试做面向 SaaS 服务，也做了一些探索： 极客时间里内嵌了一个社区，是基于知识星球的服务简化的版本，支"
 paywall: true
 ---

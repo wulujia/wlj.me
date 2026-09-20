@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-880"
+note_number: 880
 summary: "先说个案例。 公司同事的企业微信账户时不时被封号——印象中我自己也被封过，都说是骚扰他人、过度营销。 这次是客户支持的同事被封。我有好些朋友在微信/企业微信工作，只是我习惯走常规申诉流程——尤其是企业微信也有给我们配了支持群。只是又一次超过"
 paywall: true
 ---

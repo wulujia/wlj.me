@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-725"
+note_number: 725
 summary: "一位星主反馈： 知识星球里有个“不看他”的功能。在他的星球里，看到一些用户发帖不是很有价值，他就会设置为不看。这很合理，做适当的过滤，能保持看见的内容的清爽。 但近期的更新中，这个“不看他”突然变得“强烈”且用户可感知了——你不看的人，如果"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-516"
+note_number: 516
 summary: "昨天一时兴起，在即刻里扯了几句，其中聊到小报童的是： 知识星球里，一定程度上是用户间的互动，放大了粘性。小报童就太依赖输出者自身能量了，似乎更容易被掏空（所以有 flomo 做后盾到确实是不错的闭环）。 我还挺好奇小报童的付费读者活跃情况，"
 paywall: true
 ---

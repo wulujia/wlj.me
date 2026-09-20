@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-044"
+note_number: 44
 summary: "来一碗鸡汤：一位我关系很好的高中同学，家境普通，大专会计专业，成长过程却颇值得记一笔。 毕业后到一家颇大的企业应聘会计电算化岗位，他不懂电脑——连开机都不懂的那种……于是白天正常工作，下班后，天天在单位呆到深夜。两年多后，他们单位使用的简易"
 paywall: true
 ---

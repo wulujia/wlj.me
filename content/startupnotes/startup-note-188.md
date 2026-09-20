@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-188"
+note_number: 188
 summary: "介绍一下你自己和所做的工作 我是个创业者，目前的创业产品是“知识星球”。 知识星球是内容创作者连接铁杆粉丝，运营高品质社群，实现知识变现的工具。在知识星球里，创作者可以亲密连接自己无限多的粉丝，每个人都可以与气味相投的意见领袖分享见解。 知"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-277"
+note_number: 277
 summary: "这两天听了三位老师的课，分别是： 《全球大变局与中国新时代》，讲者长江商学院创办院长项兵教授 《文化的力量——让文化遗产资源活起来》，讲者故宫学院院长单霁翔博士 《腾讯视频想对内容创业者说的真话》，讲者腾讯视频总编辑王娟女士 我是做产品的，"
 paywall: true
 ---

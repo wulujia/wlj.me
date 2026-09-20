@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-006"
+note_number: 6
 summary: "说出来大家可能会笑——其实，小密圈被 @Fenng 推荐的前几次，都给搞死了。 第一次死的原因是，每个用户登录的时候，都会一次性把圈子里的用户列表拉回来，几千个用户通讯录信息、头像，几千个人同时拉——嗯，在我们还是单服务器的时候，瞬间就雪崩"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-563"
+note_number: 563
 summary: "书接上回（562），有同事提到：看到两位星主使用小报童，仔细看过去，像是付费专栏功能。另一位同事说：帮你补充一下，还具备分销能力，能设置特定付费文章可以免费被完整预览。 我说： 我倒是觉得产品需要能“简单的策略长期做”的特性。有些特性不适合"
 paywall: true
 ---

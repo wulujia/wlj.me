@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-770"
+note_number: 770
 summary: "创业笔记 770：更努力还是要平衡 这一年多，我一直在“更努力”和“工作与生活平衡”两者之间摇摆。 一 内心里，我很喜欢 37signals 提倡的工作方式。我觉得他们： 小而美。百人以内的团队，几个优雅的产品，健康的业务和财务数据。 追求"
 paywall: true
 ---

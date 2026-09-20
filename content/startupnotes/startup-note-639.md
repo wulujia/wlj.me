@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-639"
+note_number: 639
 summary: "今天有同事跟我提出：我一直在说简单，希望沟通简单直接，但究竟什么样的沟通才是简单直接的，什么样的沟通是简单粗暴的，这之间有什么差别？ 我一时脑海里竟没有准确的语言可以回答这个问题——实际上我一直有个错误，就是：我没有跟大家同步，究竟什么样是"
 paywall: true
 ---

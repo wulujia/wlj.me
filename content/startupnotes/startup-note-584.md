@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-584"
+note_number: 584
 summary: "多年前，就内部讨论过是否应该砍掉免费星球了，主要原因有这么几个： 多了个免费的选项，用户在创建星球的时候，选择多了，心思反而乱了。砍掉后，其实知识星球可能更专注、精准、简洁。 目前看，免费星球有长期价值的很少，多数都不能持续。 增加了服务成"
 paywall: true
 ---

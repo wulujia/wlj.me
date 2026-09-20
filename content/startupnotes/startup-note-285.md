@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-285"
+note_number: 285
 summary: "前些天在青腾大学上课，同学“宋兵乙”对短视频提了一些观点，我做了些记录，他“抓本质”的能力还是超厉害，服。"
 paywall: true
 ---

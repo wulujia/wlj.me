@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-117"
+note_number: 117
 summary: "前几天到 @cindy 办公室，和几位同事们就一个产品的设计、运营讨论了半个下午，期间聊到了闭环。 大多数产品在上线时，都认为自己是做好了完美闭环的——尤其是对目标用户的关键场景，肯定有闭环。 就如同我们在纸上画圆——不能一笔画，而是用多段"
 paywall: true
 ---

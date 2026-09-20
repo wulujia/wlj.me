@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-179"
+note_number: 179
 summary: "前些时候我们邀请亦仁、关健明、齐俊杰、邵云蛟四位老师一起，做了场「如何打造百万爆款付费社群」的课程，几位老师备课都很认真，PPT 和文字稿都数易其稿，我们运营同事、合作伙伴也花了很多心力，并且不少大咖朋友们也协助做了推荐。因此： 课程有一定"
 paywall: true
 ---

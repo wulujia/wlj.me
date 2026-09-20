@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-089"
+note_number: 89
 summary: "知识星球开始「邀请码」制度之后，闭环被打破了。原来是很完美的传播闭环，缺了个口子。我们可以看到，传播的速度一下慢下来了。 慢有慢的好处。 在慢下来的时候，我们用心打磨一些外人看不到的细节。"
 paywall: true
 ---

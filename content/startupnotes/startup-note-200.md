@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-200"
+note_number: 200
 summary: "各种无孔不入的 spam 在互联网上封也封不住，在知识星球里也是如此，付费星球还好，免费星球里总有各种黑灰产、卖货的冲将进来，不管三七二十一发一堆广告，然后飘然离去…… 对社区管理者来说，删，很耗精力。不删，破窗效应。对产品运营者来说，各种"
 paywall: true
 ---

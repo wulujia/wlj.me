@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-036"
+note_number: 36
 summary: "纯银在他的「pmdogs」社区里说了一段他对社区和社交的理解： 什么是社区？按我的理解，标准的社区概念具备两方面的特质。一是存在大量的双向关注关系(不一定指关注功能，互相脸熟也算)，单向关注那是媒体，不是社区。二是对产品品牌有高度的归属感，"
 paywall: true
 ---

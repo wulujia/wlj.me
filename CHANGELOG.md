@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-20
+
+- 创业笔记列表改按笔记编号倒序：`layouts/startupnotes/list.html` 用 `sort .Pages "Params.note_number" "desc"` 排序后再分页。原先走 Hugo 默认的 date 倒序，但大量笔记的 date 是从同一次 git 提交回填的，同一时间戳内的先后由文件名决定，列表顺序因此是乱的（963、964、965、962、960）。
+- `scripts/import-startupnotes.py`：frontmatter 新增 `note_number` 字段（列表排序依据，新增笔记必须有）；编号超出已知日期范围时，date 改用源文件 mtime，不再让新笔记全部塌到最后一个已知时间戳上；`SOURCE_DIR` 默认值改为 `~/Github/Luca/startupnotes`，不再写死 macOS 路径。
+- 导入创业笔记 966、967，现有 963 篇回填 `note_number`，正文无改动。
+- 新增资料页《怎么给 dsh 写插件》`static/reading/dsh-plugin-guide/index.html` 和《DSH 的插件理念》`static/reading/dsh-plugin-philosophy/index.html`，自包含 HTML，`index,follow` + canonical，顶部返回链接；`data/reading-materials.toml` 各新增 report 条目。
+- 补齐五个整理页缺失的顶部返回链接（dario-amodei-pace-the-frontier-2026-09、detecting-and-countering-ai-misuse-2026-09、sam-altman-fortune-titans-2026-09、shenzhen-housing-outlook、slax-reader-project-guide），打印时隐藏。
+
 ## 2026-09-19
 
 - `publish.sh` 支持在同一套检查、提交和推送流程中更新已有文章，并保留原发布日期。

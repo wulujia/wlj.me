@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-624"
+note_number: 624
 summary: "公司内部星球里，有同事问：作为CEO，你期望公司的小伙伴如何“向前一步”？回想你创业前的职场经历，你曾做过哪些“向前一步”的事？ 我举几个我认为是“向前一步”，而且大家感觉都挺愉快的例子： 一、 在我职业生涯中，最喜欢的公司之一就是绿盟科技"
 paywall: true
 ---

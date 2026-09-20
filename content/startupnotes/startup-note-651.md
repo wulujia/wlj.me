@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-651"
+note_number: 651
 summary: "最近在公司内部讨论、阅读过程中，记录了几个或许可以作为产品呈现的东西。 赞赞邮件（小红花） 想法： 是不是可以把“小红花”或者“赞赞邮件”用在知识星球里，设计出尽量简单但是又具备足够激励力量的交互？ 如果做一个这样的“小红花”或者“赞赞”的"
 paywall: true
 ---

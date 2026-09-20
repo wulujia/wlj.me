@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-810"
+note_number: 810
 summary: "前段时间，顾小北问我： 有没有想过，知识付费的出路在哪里？ 或者都直接AI了，大部分的自媒体是会更多还是更少了？ 或者说，付费的人群是更多更少？ 这个话题应该也和星球有关系吧？ 要怎么升级？ 能报名星球的，大部分都是因为个人IP，所以关系是"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-101"
+note_number: 101
 summary: "前些日子，马格南的几位摄影师到深圳讲座，去膜拜了一把。总体最大的感触竟然是：虽然在自己领域里做得非常出色了，可是都一样有着平凡人的平常心，朴素天真。 确实，每个领域都有着神一般的人物，在自己领域里，因为见的多了，就以为平常（比如我之前在信息"
 paywall: true
 ---

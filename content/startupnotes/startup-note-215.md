@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-215"
+note_number: 215
 summary: "前几天，我在朋友圈发了一条吐槽： 实在忍不住想骂小米。买了小米的电话卡给孩子的电话手表用。 今天上午突然收到一条短信说「系统显示您的号码使用异常」然后就二话不说停机了，没有提前短信或者电话告知（我在小米是实名账户，也留了电话的）； 所谓「二"
 paywall: true
 ---

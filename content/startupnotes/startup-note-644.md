@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-644"
+note_number: 644
 summary: "今天小郭在内部做了个交流，将我们第一个海外小工具向同事们做了推介，大致内容包括了此前的尝试，经过的几个阶段： 考虑将知识星球彻底改造成海外版。这就包括账户体系的改造、支付系统的改造，并且得有 App、Web 和 Mobile Web 版本，"
 paywall: true
 ---

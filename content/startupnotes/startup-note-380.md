@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-380"
+note_number: 380
 summary: "最近不知道为什么，有一段时间什么都不想写——多数是写了个开头，突然觉得，这好像也没啥意思嘛，就删了。感觉再这么持续半个月，我的写字技能就报废了，还是花几天时间，强迫自己日拱一卒吧，哪怕是转载为主，哪怕是没什么自己的观点，也先凑凑数，恢复几天"
 paywall: true
 ---

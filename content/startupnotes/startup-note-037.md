@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-037"
+note_number: 37
 summary: "还是继续从纯银那里的来的干货，他通过 Slack 搭建付费社区，尝试的过程也是不断在帮小密圈踩坑，所以——虽然他没来小密圈，但对小密圈的贡献相当大 :D 他给我的两个建议： 用户分级，在产品规则上把发言权限区分开，这个分级可以对整个圈子，也"
 paywall: true
 ---

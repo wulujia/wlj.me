@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-805"
+note_number: 805
 summary: "最近在用 Reddit，使用过程中，产生了不少启发，做个记录。从 reddit 产品里可以找到一些知识星球或许能够改进的细节，比如： 可以有社区机器人辅助管理。我在不少社区发帖，一发就被删，因为管理员可以根据一定的规则配置机器人进行管理，这"
 paywall: true
 ---

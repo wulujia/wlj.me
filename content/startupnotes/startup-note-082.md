@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-082"
+note_number: 82
 summary: "一段时间以来，我们在憋一个「大招」：知识星球的小程序第三方平台。 我们希望做到：知识星球的每一位星主，都可以有自己的专属小程序。比如 Fenng 的「小道消息和他的朋友们」，可以有一个专属小程序，没有星球列表，没有「知识星球」，就是纯粹的小"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-336"
+note_number: 336
 summary: "昨天用 APP “快影”做了个视频，发到视频号——其中用了快影里预置的字体。上午有同事提醒：确认一下，视频里的字体是不是免费商用，看起来不太像思源黑体呀。 我愣了一下，想起当时我跟同事们说的：字体就用思源黑体，免得掉进版权的坑里。于是赶紧咨"
 paywall: true
 ---

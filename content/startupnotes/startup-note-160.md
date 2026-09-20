@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-160"
+note_number: 160
 summary: "前几周上课的时候，花点时间的贾兰提到合伙人/合作伙伴的互补以及共同点。白鸦补充了他的观点，他看过一些这方面的分析，大多数神神叨叨的，有一个觉得还可以参考，主要从几方面考虑： 坚持 好奇心 探索能力 想象力 整合执行力 寻找合伙人/合作伙伴时"
 paywall: true
 ---

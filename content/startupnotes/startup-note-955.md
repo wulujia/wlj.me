@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-955"
+note_number: 955
 summary: "早上试了试飞书 aily（https://aily.feishu.cn/）——主要是在飞书里看到了未读消息点开了。 激活的时候直接给了个显性的数字，引导用户点击，点击后引导用户给 Agent 取名——就聊起来了 可以把这个 Agent 拉进"
 paywall: true
 ---

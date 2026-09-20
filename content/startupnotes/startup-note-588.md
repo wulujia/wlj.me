@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-588"
+note_number: 588
 summary: "前几天有朋友来访，聊了几个小时。他们做的是会议产品（类似腾讯会议），但只针对财经人群，而不是面向普通的办公市场。早期，他们的会议系统纯免费，烧的投资。产品虽然不错，但是没有正向现金流，一直烧到资金困难时，才意识到这样不对，因此做了个艰难的决"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-246"
+note_number: 246
 summary: "前些天闹得沸沸扬扬的视觉中国事件，现在网上基本消停了。我就来扯中小企业面临的知识产权、广告法的几个坑吧——此前一直觉得自己还是努力遵守知识产权的，现在看来，还是不够。 图片版权：无论是公众号，还是海报、网站等地方使用的图片，要么取得版权，要"
 paywall: true
 ---

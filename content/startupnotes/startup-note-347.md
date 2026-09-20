@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-347"
+note_number: 347
 summary: "之前我曾经做过一段时间信息安全工作，也因此更加清楚，信息安全，瞬息万变，绝不能自以为曾经了解安全，反而忽视了。 趁着 Coolc 有点时间，跟他请教了，针对我们这样的创业团队，应该怎么做安全（多谢 Coolc 啦）。我们的基本情况是： 小团"
 paywall: true
 ---

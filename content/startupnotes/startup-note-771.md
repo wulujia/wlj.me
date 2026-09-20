@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-771"
+note_number: 771
 summary: "创业笔记 771：work long, hard, or smart 继续昨天的话题：更努力还是更平衡。 一 昨天的笔记下，“卡叔叔”评论： 不喜欢 life work balance 这句话，本质上是把两者对立起来了，因此才需要放在天平两"
 paywall: true
 ---

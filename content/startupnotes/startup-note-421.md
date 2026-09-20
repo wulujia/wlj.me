@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-421"
+note_number: 421
 summary: "我注意到了前些天小某书的微博没了，唏嘘之余，琢磨这事是怎么发生的，想来大概有这么两类人、四种情况： 两类人是： 攻击者； 内部运营者。 四种情况是： 微博账号被攻击者黑掉，完全外部攻击导致； 内部运营者有意为之（实际等同于攻击者）； 内部运"
 paywall: true
 ---

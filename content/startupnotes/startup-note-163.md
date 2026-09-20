@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-163"
+note_number: 163
 summary: "周六，唯品会举办了第三届互联网电商安全峰会，老朋友邀请，很开心地去学习。除了听会上的分享，还和朋友们私下聊了不少信息，可以记一记。 黑产、羊毛党很猖獗而且分工精细。有个朋友处理的案例中，黑产可以做到手机卡的废卡再利用——也就是一张已经停机的"
 paywall: true
 ---

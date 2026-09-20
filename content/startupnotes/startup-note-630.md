@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-630"
+note_number: 630
 summary: "今日午餐会，Tony 提到了 Slack 的自动退款机制： https://slack.com/help/articles/218915077-Slacks-Fair-Billing-Policy 大多数企业软件定价都是按用户收费，无论您的"
 paywall: true
 ---

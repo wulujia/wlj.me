@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-883"
+note_number: 883
 summary: "上周看一个机器人项目，可以理解为是毛绒玩具 + 视觉 + AI 对话。 目前玩具 + 对话已经比较成熟且成本很低，但如果要加上视觉，难度就上来了。 讨论这个项目时，Jack 提到了一些观点，做记录： 针对创业者提到的阶段性目标，他认为：说目"
 paywall: true
 ---

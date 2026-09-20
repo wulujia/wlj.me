@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-229"
+note_number: 229
 summary: "之前我有提到过： 获得灵感的方式是洗个长长的很舒服的热水澡，这时容易无主题地冒出些主意； 用好自己的脑子。很多人现在都不动脑了——我自己都有很长时间这样，日常机械地完成工作，按部就班地过日子。不动脑其实也可以过得挺自在。 仔细想来，跟上班的"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-720"
+note_number: 720
 summary: "阮一峰的观点是： 网络社区的致命伤是\"专家社区\"（社区依赖于少数核心用户。所以，一旦这些人离开或者不愿发言，社区人气就直线下降，走向衰落。），凡是这种模式的社区，必死无疑。 最好不要做社区，包括论坛、粉丝群、问答网站等等。它们的模式有先天不"
 paywall: true
 ---

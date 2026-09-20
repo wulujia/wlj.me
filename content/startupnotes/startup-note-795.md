@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-795"
+note_number: 795
 summary: "这两天在看 Fall in Love with the Problem, Not the Solution 这本书。 我发现，无论我多小心，我都还是会拿着方案找问题。比如： 我深度使用 Slack 里的态度表情，觉得很好，就想用到知识星球里"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-284"
+note_number: 284
 summary: "昨天，知识星球发布了信息，2019-08-20 开始，针对个人星主将代扣税，含税扣除比例 20%，针对企业星主保持 5% 不变。昨天收到了一些用户反馈，大致有这么几种： 很支持：很良心了，可以再高点，知识星球做好了，我们才会更好； 支持：合"
 paywall: true
 ---

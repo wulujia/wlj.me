@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-616"
+note_number: 616
 summary: "杜辉在公司内部星球里推了个“小红花”活动，大体规则是： 目的 通过公开鼓励小伙伴们的优秀成果或行为，营造互相欣赏、互相学习、互表感谢的氛围，让美好被看见、被赞赏、被感激、被追随； 规则 公司给每位伙伴每月发放10朵小红花（200元），1朵="
 paywall: true
 ---

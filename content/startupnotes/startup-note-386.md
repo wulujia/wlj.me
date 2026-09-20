@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-386"
+note_number: 386
 summary: "前段时间，考虑找专业团队帮忙，对知识星球业务系统做渗透测试，主要目的是尽可能发现知识星球产品中存在的服务端风险，免得我们自以为安全，实际上漏洞百出。 我们的网络安全防护主要是团队自己规划与实现的，肯定存在不少缺漏。2019、2020 每年都"
 paywall: true
 ---

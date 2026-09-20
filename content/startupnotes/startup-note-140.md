@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-140"
+note_number: 140
 summary: "场景里的七个要素是： 是谁：人物，可以是相对主观的直觉性描述，行为属性（比如性格特征、生活习惯等）的重要性会大于人口属性（年龄、性别、学历等「统计学」意义上的描述； 在什么样环境里：考虑空间、设备等物理环境，物质、工具、金钱等约束条件，必要"
 paywall: true
 ---

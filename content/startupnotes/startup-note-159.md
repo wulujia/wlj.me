@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-159"
+note_number: 159
 summary: "我此前的精力分配，差不多有一半在产品上，最近一段时间，打算调整为管理:运营:产品为 4:4:2，将运营与增长放到比较重要的地位，同时站在运营的角度，对产品的「增长特性」提出建议。 考虑到团队目前缺中层管理，大家能力都不错但比较缺乏统一的目标"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-169"
+note_number: 169
 summary: "前段时间在北京拜访了一位出版行业的老师，之后又和她通了一轮电话，请教「怎样才能出版一本书」，记录一下。"
 paywall: true
 ---

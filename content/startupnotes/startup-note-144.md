@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-144"
+note_number: 144
 summary: "在创业笔记 No. 121 里，我记录了：百度指数里，千聊和知识星球总体相当，微信指数里，千聊远远超过了知识星球（大概是知识星球、小密圈、小密圈这三个词的 2-3 倍）。 当时没有结论，最近一段时间的思考是： 千聊是「课程」居多，每次开一堂"
 paywall: true
 ---

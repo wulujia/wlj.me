@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-490"
+note_number: 490
 summary: "工作相关： 《体验引擎：游戏设计全景探秘》 《详谈：左晖》 《详谈：杨浩涌》 《不拘一格：网飞的自由与责任工作法》 《这就是 OKR》 《微信背后的产品观》 《重来 3：跳出疯狂的忙碌》 《Scrum 精髓：敏捷转型指南》 《品牌翻转》"
 paywall: true
 ---

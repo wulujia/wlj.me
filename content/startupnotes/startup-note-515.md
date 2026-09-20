@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-515"
+note_number: 515
 summary: "星空问答的网页版，做之前，考虑的目标之一就是可以做搜索引擎优化，以便从搜索引擎获得自然流量。网页版上线后，我一直没有认真做“验收”，只是偶尔看看搜索引擎——Google 和百度里的收录情况。当时一直有些纳闷：Google 很快收录了一千多个"
 paywall: true
 ---

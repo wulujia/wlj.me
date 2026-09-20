@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-666"
+note_number: 666
 summary: "今天的产品牌桌，有三个需求上桌讨论： 第一个是：目前星球里有积分，但积分却没什么用处。因此希望设计出一些消耗积分的方式。比如可以用积分兑换跟星主的提问数量、文件下载数量、1 对 1 沟通机会等。 讨论过程中，有几个要点： 积分是否已经充分被"
 paywall: true
 ---

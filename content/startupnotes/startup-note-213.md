@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-213"
+note_number: 213
 summary: "要过等保，需要做安全测评的朋友，可以先看看这篇文章：https://www.freebuf.com/articles/security-management/186403.html，写得很实在。 我们在做的过程中有些收获： https://"
 paywall: true
 ---

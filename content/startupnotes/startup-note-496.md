@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-496"
+note_number: 496
 summary: "翻看晚点发的知乎文章：https://mp.weixin.qq.com/s/bDREDpSOlOdJqx-YX22LLQ，觉得里面提到的一些问题，值得思考。文章前半段只是在叙事，后半截有些思考与观点。这个笔记就做点摘抄吧。 知乎的老用户，愿"
 paywall: true
 ---

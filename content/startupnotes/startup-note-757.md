@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-757"
+note_number: 757
 summary: "多数人没能力写出简单清晰的作品。 不要以为有了 AI，就能帮人类想清楚并且清晰地写下来。要做到也不难，多思考，多练习。就我来说，仅知识星球的创业笔记，就写了 700 多篇，即便如此，还不够好。 有两篇短文说得很好，推荐阅读。 第一篇是 Pa"
 paywall: true
 ---

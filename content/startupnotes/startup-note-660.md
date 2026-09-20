@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-660"
+note_number: 660
 summary: "今天听了个小故事。 早年间，QQ 资金非常捉襟见肘时，需要用最少的服务器，支撑尽可能多的在线用户。那时遇到一个问题：每周六晚上八点，会遇到一轮流量高峰，眼见周末将至，Tony 看到后台开发 Kenny 还在打游戏，询问该问题是否已经解决。 "
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-539"
+note_number: 539
 summary: "小报童最近提供一个新功能：小册。 如果拿一份报纸来比喻专栏——模糊主题、无限内容、按时订阅；那么小册就类似于一本书——明确主题、有限内容、一次买断。 小册更像一本更轻量级的电子书，是为了帮助在某一领域有明确创作主题的人，方便的进行写作和发布"
 paywall: true
 ---

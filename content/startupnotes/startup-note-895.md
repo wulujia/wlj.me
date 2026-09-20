@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-895"
+note_number: 895
 summary: "上周跟 goodnotes 的 founder Steven 及 coo Minh Tran 午餐，他们团队约 400 人，分布在伦敦、香港、新加坡等地——成本都很高，投资/收购了几家公司，但始终只运营着一款产品：Goodnotes。 我对"
 paywall: true
 ---

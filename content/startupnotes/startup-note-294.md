@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-294"
+note_number: 294
 summary: "国庆放假。我一向厌恶人挤人的地方，所以每逢长假，都是窝在家里。翻看这近 300 篇创业笔记，觉得——写得太长了……其实，很多时候，一些关键的思考并不需要长篇大论。 忘了在哪里看到《总体战》这本书里的一句话：“战争以一方失去战斗意志为结束。”"
 paywall: true
 ---

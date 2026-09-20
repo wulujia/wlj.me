@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-524"
+note_number: 524
 summary: "前些天，有一次开会，我表现得有些急躁。想起这事时，就企业微信里直接找召集会议的同事聊了。 我：近期我有些事情牵扯精力，回复信息不一定那么及时，有时候可能也会略显急躁（上午可能就有些这种情况），多包涵。 他：收到，没问题。早上感觉到了一点点你"
 paywall: true
 ---

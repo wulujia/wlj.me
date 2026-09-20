@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-790"
+note_number: 790
 summary: "周日参加了大观资本组织的一场 AI 讨论。坦率地说，人挺多，但沟通效率和效果有比较大改进空间。但有几个触动的点。 韦海军的好奇。会后蹭饭，饭桌上，海军简直就是个好奇宝宝，问题非常多，对每个人都能问一堆问题。这让我意识到自己不爱社交的的坏处了"
 paywall: true
 ---

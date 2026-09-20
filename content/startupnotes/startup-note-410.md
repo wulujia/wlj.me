@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-410"
+note_number: 410
 summary: "2020 年底开始尝试跑步。此前从来没有超过一个月的长跑经历（尤其是跟腱曾经有伤——瘸过大半年），从开始尝试，到有点上瘾，也有些进步（现在能以 135 平均心率和六分左右的配速跑 12 公里），感觉还是很有收获。推荐朋友们试试动起来。 我总"
 paywall: true
 ---

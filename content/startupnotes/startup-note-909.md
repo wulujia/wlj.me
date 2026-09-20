@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-909"
+note_number: 909
 summary: "看到一篇文章（substack-2025-stats-cn.pdf）写 substack 2025 年的趋势，AI 翻译了放到附件。顺便启动让 AI 做了一轮思考研究（come-for-tool-stay-for-network-resea"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-450"
+note_number: 450
 summary: "邱岳给我讲了个事儿： 他当年在做医疗社区时，社区很活跃，各种数据都很好。但是当时“看着害怕”的，却是一个并不那么大的社区，叫医联。早期，医联的目标是打造国内最大实名认证医生平台，汇聚了超过 80 万实名认证医生——都是真实的医生。 怕的原因"
 paywall: true
 ---

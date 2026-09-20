@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-760"
+note_number: 760
 summary: "不知道是不是最近工作上的事情多，最近我有好几次插手同事们的工作，并且流露出了些烦躁，记录一下。 事件一：问题的界定与解决 我在群里，看到一位星主，就她遇到的问题反复抱怨——在我记忆中，抱怨了足有两个月（最后 review，是两个半月）。星主"
 paywall: true
 ---

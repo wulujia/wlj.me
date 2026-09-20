@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-227"
+note_number: 227
 summary: "春节在公司群里说要健身，被同事「讥笑」为「他宛如戏台上的老将军，背上插满了 flag」——嗯，配图也很精彩。 其实已经一再精简了，还是觉得想做的事情多，就列几个被砍掉的： 练好英文口语。至少达到能「结结巴巴、手舞足蹈」地用英语沟通； 学画画"
 paywall: true
 ---

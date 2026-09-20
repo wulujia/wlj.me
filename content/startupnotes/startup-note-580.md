@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-580"
+note_number: 580
 summary: "最近有点想，将动态页慢慢调整、改进，改完之后，直接删掉“发现” tab。这个过程或许不会太快，至少有这么些细节调整，比如： 页面布局调整，只留一个信息流。 “与我相关”的通知规则微调。 支持在动态里点赞、评论。 支持在动态里取关某人或不看某"
 paywall: true
 ---

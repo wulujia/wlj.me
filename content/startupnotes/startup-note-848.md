@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-848"
+note_number: 848
 summary: "前些天我请同事提些建议——建议我改掉哪些问题，能让公司、业务、团队更好些。有同事认真地提出了一个观察：产品牌桌上，同事们会提出不同的问题，以及这些问题的解法。如果问题我不在意，或者解法我不满意，那个思路就无法往下推进。 解释一下从我的视角看"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-181"
+note_number: 181
 summary: "亦仁是蛮典型的早期无流量池（微信公众号、群、微博都不算非常大流量），但运营节奏把握得特别好，因此快速在知识星球做起来的朋友。 最早知道他，是因为 Caoz 在公众号上推荐了他的文章《通过Google挖掘细分市场的一个案例》：https://"
 paywall: true
 ---

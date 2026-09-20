@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-759"
+note_number: 759
 summary: "事件一： 刚刚有个小问题，我在企业微信群里请同事看看，想想该怎么解决。同事回复：好，晚点我们讨论一下。 我回复： 别讨论了，你是这件事里的 Owner，拍脑袋快速判断，拿出来，大家觉得也 OK 就可以做。小事情咱们别搞复杂了。 事件二： 前"
 paywall: true
 ---

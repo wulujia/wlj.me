@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-947"
+note_number: 947
 summary: "今天跟 shotgun & glacier 聊天，聊到很多中小企业想在工作中使用 AI，但不知道如何入手，脑子里冒了个瞎琢磨的点子。随手记录着先。 问题 面向中国的中小企业，购买者是企业主。这些企业存在的问题是： 不知道如何在工作中接入 A"
 paywall: true
 ---

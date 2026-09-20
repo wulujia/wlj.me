@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-537"
+note_number: 537
 summary: "同事今天对我在开会时的表现提了些建议，我做下记录——记录下来，公开发出来，以后还这样，大家要批评也有靶子，哈哈。 少发表或者不发表观点。 多提问——比如在文档上 at 责任人，询问他的观点。或者在会上判断问题应该谁牵头解决，向他提出问题。 "
 paywall: true
 ---

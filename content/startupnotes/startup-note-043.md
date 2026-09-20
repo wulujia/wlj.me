@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-043"
+note_number: 43
 summary: "小密圈和得到同在「知识付费」领域。得到已经很出色了，小密圈刚起步。得到输出精品内容，小密圈是社区。得到音频为主，小密圈还是文字为主。 得到的 app 是这几年比较难得的 app 精品，列几个细节： iPhone 和 iPad 使用不同的界面"
 paywall: true
 ---

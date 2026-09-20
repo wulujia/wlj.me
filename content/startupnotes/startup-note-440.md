@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-440"
+note_number: 440
 summary: "创业笔记 440：了解点消费互联网与产业互联网 今天，一位好友很认真地提起：过去很长一段时间，我们都在消费互联网领域打拼，从趋势上看，需要关注、投身产业互联网了。 老实说，对产业互联网，我只知道个名词，只能搜了搜，找了几篇文章来学习。 ht"
 paywall: true
 ---

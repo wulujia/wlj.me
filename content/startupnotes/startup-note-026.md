@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-026"
+note_number: 26
 summary: "2017 年对 KOL 变现来说可能是个风口，我前些天给自己定的目标是： 20w 日活； 3000w+ 流水； 2000 个活跃圈主。 其实，可能保守了。 如果是风口，ALL IN 才有机会抢到位置。那怎么样也得把日活冲到 50w 以上。就"
 paywall: true
 ---

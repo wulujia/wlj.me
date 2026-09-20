@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-301"
+note_number: 301
 summary: "今天的课程是张晓萌教授@长江商学院讲的，这里就记个流水账----主要是方便自己后续回顾老师讲到了什么。 黑暗中对话（两小时） 上午一开始，暖场之后进入\"黑暗\"环节，流程大致如下： 收电子设备（眼镜、手表等）、分组、蒙眼、组长拿盲杖组员牵绳鱼"
 paywall: true
 ---

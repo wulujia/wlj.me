@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-940"
+note_number: 940
 summary: "这两年觉得，很多领域知识已经被 AI 全面覆盖了，类似 SEO、ASO 这样的事，被无数人说过无数遍，只要执行力足够，我们是可以做好的。 但是我又有些遗憾地发现，我（可能也包括了部分同事）的执行力不够。在 SEO 这件偏长期有确定性的事情上"
 paywall: true
 ---

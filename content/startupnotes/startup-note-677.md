@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-677"
+note_number: 677
 summary: "Boxcounter 开会不看手机或者电脑/iPad，只用纸笔（问题：我有时候会看电脑，给他的感受很不好）。 如果觉得会议节奏慢，可以在进程中温和地提出（问题：我最近对超过 1 小时的会议，打断同事时，有时不是很礼貌）。 对把我拉进会议（主"
 paywall: true
 ---

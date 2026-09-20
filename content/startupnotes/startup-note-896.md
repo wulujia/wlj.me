@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-896"
+note_number: 896
 summary: "有没有遵守和完成年初的计划？ 年初的计划可以参见：https://mp.weixin.qq.com/s/tbL4GMkja5uLaoxS7qmZmg 知识星球的基础工作（提升 NPS、内容安全、产品持续改进）完成得还不错，团队成长也还不错，"
 paywall: true
 ---

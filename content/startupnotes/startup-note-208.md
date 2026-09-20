@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-208"
+note_number: 208
 summary: "提醒一下创业的朋友看看 http://www.cac.gov.cn/2018-11/20/c_1123740989.htm。 内容安全问题，是互联网信息服务产品的最大风险。此前做网络安全技术工作的时候，经常会感叹安全人员工作难做——安全做好"
 paywall: true
 ---

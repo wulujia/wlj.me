@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-609"
+note_number: 609
 summary: "和朋友讨论，想在城市里搞一些线下交流。目前草草考虑了一些组织形式（参考了一位深圳朋友组织的“盒饭会”的部分思路）。 原则 开放，互助，用思考交换思考。 人员 召集人：一个小群，有做过分享的人可以加入，召集人可以轮值，可以推荐新人。 参与者："
 paywall: true
 ---

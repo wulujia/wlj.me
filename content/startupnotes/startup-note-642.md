@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-642"
+note_number: 642
 summary: "我一直有个保持得还不错的习惯，是“准时”。我觉得，既然约定了，准时就是对他人时间的尊重。 今天上午，几位同事约好了开会，我因为个人原因，走在路上参会，但出乎意料地，遇到不同场景： 网络信号不稳定。 有时相对安静，有时噪音极大。 光线忽明忽暗"
 paywall: true
 ---

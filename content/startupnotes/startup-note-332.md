@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-332"
+note_number: 332
 summary: "做 UGC，还是不断地有人在试探最能吸引眼球（或者吸金）同时还在产品容忍度内的边缘。从这个角度看，明确尺度和规则比较重要。 如果是新星主违规，好处理。此前比较犯愁的是一部分腰部和头部的星主，依仗往往是：我的星球里有大量付费用户，你需要负责到"
 paywall: true
 ---

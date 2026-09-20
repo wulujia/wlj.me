@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-064"
+note_number: 64
 summary: "关于实名，小密圈之前是这样想的： 多数微信号都通过了实名认证。 在微信没通过实名认证者，小密圈提现会提示失败。 通过这种方式迂回地实现了实名，但这光顾了用户体验，可能是错的。"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-520"
+note_number: 520
 summary: "在 Youtube 上收集了张小龙在微信公开课上的演讲，从 2016 年到 2021 年。 08.23"
 paywall: true
 ---

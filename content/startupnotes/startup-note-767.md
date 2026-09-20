@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-767"
+note_number: 767
 summary: "附件里有几张截图，图一是用户发在知识星球里的吐槽。 看到之后，我了解到，问题是： 星主认为知识星球“偷”他的流量，具体情况见图二、图三，用户搜索时，知识星球默认是全局搜索，会展现在知识星球里搜到的内容。 运营同事认为星主的反馈言辞比较激烈，"
 paywall: true
 ---

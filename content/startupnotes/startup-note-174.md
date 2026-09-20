@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-174"
+note_number: 174
 summary: "最近有不少朋友咨询：企业能不能使用知识星球（他们有的想建立客服社区，有的想将此前管理着的几十上百个微信群迁移方便管理），并且询问了一些问题，我做些汇总： 企业开设的知识星球和个人开设的有什么不同 个人开设的知识星球，登记的是个人的身份信息和"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-024"
+note_number: 24
 summary: "总体 减少使用电脑和手机的时间，回到纸和笔； 让自己闲下来，多思考，而不是全部时间占满。 小密圈 20w 日活； 3000w+ 流水； 2000 个活跃圈主。 自己 小密圈里每周两篇创业笔记； 一篇小说（姑且不论短篇还是中篇，至少先写一篇）"
 paywall: true
 ---

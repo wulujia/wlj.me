@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-871"
+note_number: 871
 summary: "上周在新国立上 EMBA 课，左罗老师讲会计及信息管理。我做公司有些日子了，看自家的财报，看同行的财报，本来以为会计也不复杂，这一上课，老师提了好些问题，我都瞠目结舌答不上来，这才知道自己就是一知半解。 课上完了，好像理解深了一点，但应该还"
 paywall: true
 ---

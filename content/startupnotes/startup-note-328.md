@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-328"
+note_number: 328
 summary: "两年多前，安卓机我用的是小米，但因为广告总是猝不及防地出现，而且虽然号称有关闭按钮，但总有些关不掉的，于是弃用了。 昨天看 mi 10 发布会，有点心动，下了一单。今天上午不冲动了，想起广告的事儿，就发了个朋友圈问，结果绝大多数评论者表示，"
 paywall: true
 ---

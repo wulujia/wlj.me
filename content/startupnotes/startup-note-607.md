@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-607"
+note_number: 607
 summary: "创业十八年，最近我才在想，到底什么是创业精神。我一开始想，创业时，让我很喜欢的有什么，可能至少有这么些： 会为做一件有意思的事情兴奋不已，废寝忘食。 会在做一个大决定之前辗转反侧，最后咬咬牙决定干了再说，试试看。 速度快，每天都会做一些调整"
 paywall: true
 ---

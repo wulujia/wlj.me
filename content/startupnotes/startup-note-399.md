@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-399"
+note_number: 399
 summary: "春节前，邱岳推荐我看一篇文章：https://www.eugenewei.com/blog/2019/2/19/status-as-a-service，他觉得我看了会有收获，我这个英语渣看了 1/3 之后有点扛不住，找了中文译本： http"
 paywall: true
 ---

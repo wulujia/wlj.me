@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-340"
+note_number: 340
 summary: "在公司、小区边上，各有些线下社群，看着还蛮有意思的，记录一下。这波疫情下，提前做了准备的，或许更有可能活下来，活得好。 快餐店 公司边上的快餐店，经营方式还蛮有意思的：菜品鱼虾菜肉，从便宜到贵的都有，食客自己夹，最后按重量算钱。因为每次去可"
 paywall: true
 ---

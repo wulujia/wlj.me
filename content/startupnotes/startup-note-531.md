@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-531"
+note_number: 531
 summary: "人力资源同事推荐了《优势：组织健康胜于一切》给我，我这几天抽空看过，确实是挺好的书，记录一些内容。 原则一：建立有凝聚力的领导团队 相互信任。技巧：向大家介绍自己的生活、童年、年少时的挑战等等、MBTI 测试并同步、领导带头袒露弱点。 掌控"
 paywall: true
 ---

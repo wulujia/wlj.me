@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-129"
+note_number: 129
 summary: "在看 Steem 文档前，我脑子里曾经想象 Steem 应该是： 所有内容在链上； 创作者创造「有价值的内容」，近似于比特币挖矿，就能收获代币； 「有价值的内容」中，界定价值是难点。 最近看 Telegram、Steem，是在想知识星球里的"
 paywall: true
 ---

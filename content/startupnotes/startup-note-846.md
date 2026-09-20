@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-846"
+note_number: 846
 summary: "前段时间跟朋友交流，听来了一些朋友亲历的故事： 远洋捕捞 还在疫情前，某地来人在朋友家蹲守，在他订外卖后，以送餐员名义叫开门后，将人带回当地。给他电话让他跟公司联系，配合缴纳罚款。他打给了负责 GR 的同事，通过合适的渠道沟通后，当地表示“"
 paywall: true
 ---

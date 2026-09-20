@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-701"
+note_number: 701
 summary: "2024 年，在工作上，我目前想到最想做好的几件事： 一、知识星球团队有更棒的创造力 业务数据平稳提升。在逆水行舟的大环境下，“守成”是守不住的，必须创新，才能稳住。 组织能力提升。希望团队更能打，依赖每位同事尤其是关键岗位同事们的能力提升"
 paywall: true
 ---

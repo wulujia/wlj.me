@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-404"
+note_number: 404
 summary: "此前曾纠结“笔记写得太短，价值不够”，现在想想，有没有价值，跟文字长短没关系。 今天简单记录一个虚拟支付的问题——微信小程序、小商店里，目前是无法通过微信支付付款加入知识星球的，因为知识星球是“虚拟商品”，提供的是服务。 而虚拟商品不被微信"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-001"
+note_number: 1
 summary: "7 月建收费圈「WLJ 的小圈子」，运营三个月，觉得这件事能坚持做下去，也很有价值。最近一段时间仔细考虑后，对我的输出做重新定位： 内容围绕创业、管理； 每周三、周六更新（其余时候可能会有些「片段」输出）； 我会邀请一些大咖坐堂，欢迎向我或"
 paywall: true
 ---

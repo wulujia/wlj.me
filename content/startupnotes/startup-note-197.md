@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-197"
+note_number: 197
 summary: "前几天晚上约了饭。 我习惯地铁，APP 里查了路线，早早出门。35 分钟后反应过来，那 APP 指引的线路有问题，明明有直达的，偏偏给绕了一大圈，多转了一次，略不爽，但也只能老老实实转车。 又 25 分钟后反应过来，我坐反方向了。 于是出门"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-184"
+note_number: 184
 summary: "有位朋友问子弹短信的问题，上周的行程一直很满，没有仔细思考，现在走飞机上，没网络，正好可以好好想想： Q：怎么看子弹短信突然火了？ 老罗的带货能力一直很强——近似于乔布斯的虚拟引力场，用户确实很容易被感染去购买，更不用说是下载一个免费软件了"
 paywall: true
 ---

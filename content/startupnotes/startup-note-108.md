@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-108"
+note_number: 108
 summary: "有几位朋友平安夜在深圳，一桌子四个人，三位做推广运营非常厉害。我向一位大哥请教：如果他操盘知识星球，会怎么做。 他认为： 知识星球的产品架子不错，如果做小，有点可惜，应该尝试快速再上一个台阶； 应该考虑自己做内容，既然是自己的工具平台，应该"
 paywall: true
 ---

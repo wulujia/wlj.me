@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-843"
+note_number: 843
 summary: "星主要创建星球时，需要同意一份星主规则（https://support.zsxq.com/ownerRules.html）。里面的内容，我们尽量公平。 契约精神是创造者经济能够长期繁荣的土壤。绝大多数星主都和我们一样，珍视契约和用户的信任。"
 paywall: true
 ---

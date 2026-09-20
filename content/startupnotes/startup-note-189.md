@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-189"
+note_number: 189
 summary: "前些日子向 Shotgun 请教运营问题时，他认为知识星球的“自循环”做得还不够完善，很多地方都在“漏水”，说小了，是浪费流量，说大点，每漏一点，都是在伤用户。 举几个例子： 知识星球的二维码，能不能让用户扫码付费之后，就一定能进入星球，并"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-921"
+note_number: 921
 summary: "刚刚想了想，小团队里对 AI 安全，或许也还是需要有些基本认识的，比如： 别把敏感信息喂给 AI 跟 AI 聊天就像跟外部顾问聊天——提问前想一想，这些内容被第三方看到你会不会紧张？会的话，就别发。 能远程操控电脑的 Agent，必须隔离运"
 paywall: true
 ---

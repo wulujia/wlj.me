@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-689"
+note_number: 689
 summary: "开始记录、整理公司里一些常用的“方法论”，让大伙儿有更多的共同语言。上几篇是： 创业笔记 682：方法论之 ICE 创业笔记 684：方法论之 AARRR 所谓 PMF 三角，估计听过的人没那么多，指的是 Product-Market Fi"
 paywall: true
 ---

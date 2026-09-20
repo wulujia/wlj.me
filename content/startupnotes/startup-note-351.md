@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-351"
+note_number: 351
 summary: "2019 年加了个“99 次运动打卡群”，一年里 99 次超过 45 分钟的运动——那时是自己做点有氧，加上深蹲俯卧撑引体向上这些自重的练习，有一搭没一搭的，没太大感受。 2019 年 11 月，为了减下自己的肚腩，开始到健身房买私教课，尝"
 paywall: true
 ---

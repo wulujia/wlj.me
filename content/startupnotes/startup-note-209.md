@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-209"
+note_number: 209
 summary: "我们注意到，知识星球里有极少数用户会用知识星球提供的产品功能，但是通过微信、支付宝收费（是的，我们不是不知道，而是暂时还在观察，思考该如何处理）。这种做法对我们的坏处是： 收入减少； 一旦用户与星主有争议时，我们无法介入； 担心「破窗效应」"
 paywall: true
 ---

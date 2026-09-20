@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-116"
+note_number: 116
 summary: "知识星球里，目前我加入的星球，主要有这么几种运作类型： 社区型：星主们提供的是连接的机会，加入社区的人们自己在里面折腾，这种需要星主有一定的运营能力，能够调动大家一起玩，一旦做起来了，就会比较热闹； 输出型：就像我这里，主要是星主自己像写博"
 paywall: true
 ---

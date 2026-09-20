@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-751"
+note_number: 751
 summary: "知识星球最关注的数据指标——也就是常说的“北极星指标”，曾经用过七日三活（因为知识星球是社区，一个用户，如果一周不来三天，其实不能算是真正的社区用户）、周活跃星主（星主，也就是创作者，是我们一切数据的源泉，他们的活跃、创作和互动——我们定义"
 paywall: true
 ---

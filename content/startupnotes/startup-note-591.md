@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-591"
+note_number: 591
 summary: "我还是想要知识库的功能，找了企业微信的朋友问，他们是否有计划，他们表示确实有计划，并且问了几个问题。下面是他们的问题和我的回复。 为什么想要使用知识库？企业主要的知识库使用场景有哪些？哪些角色会使用？ 希望公司内的知识能够沉淀。目前通过文档"
 paywall: true
 ---

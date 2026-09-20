@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-458"
+note_number: 458
 summary: "caoz 前些天到深圳，聊天的时候，曹老师提了些建议，其中一个是：可以和知识星球里的部分星主签约。 仔细想了想，可以考虑比如： 签约星主赠送推荐文章（服务号、订阅号、个人号）。 签约星主赠送推荐位（banner、推荐区等）。 提供专属服务群"
 paywall: true
 ---

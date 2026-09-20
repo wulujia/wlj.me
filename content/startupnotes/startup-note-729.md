@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-729"
+note_number: 729
 summary: "考虑用 Task force 的方式做一些产品迭代实验，比如： 网页版改进 语音笔记的迭代发布 收藏夹项目的迭代发布 SEO 项目 此前读 Shape Up 觉得好，但没有用于实践，因为我们是采取 Scrum 方式在迭代。近期看： GumR"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-583"
+note_number: 583
 summary: "前几天约了黄海（疯投圈主理人）聊天，疫情之下，两年没见了，小坐小聊还是很愉快的。记录一些聊到的点： 对新入行的“创业型投资人”的建议：寻找创业和投资的交集点。首先是聚焦 2-3 个行业——投资人实际上接触的面广，但比较浮光掠影，因此建议深挖"
 paywall: true
 ---

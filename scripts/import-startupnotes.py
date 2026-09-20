@@ -23,9 +23,7 @@ from datetime import datetime
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SOURCE_DIR = Path(
-    "/Users/lucawu/Github/Luca/startupnotes"
-)
+SOURCE_DIR = Path.home() / "Github" / "Luca" / "startupnotes"
 OUT_DIR = REPO / "content" / "startupnotes"
 DATES_JSON = REPO / "scripts" / "zsxq-dates.json"
 MANIFEST = REPO / "scripts" / "startupnotes-manifest.csv"
@@ -152,6 +150,11 @@ def interpolate_dates(rows: list[dict]) -> None:
             frac = (n - lo[0]) / (hi[0] - lo[0])
             ts = lo[1].timestamp() + frac * (hi[1].timestamp() - lo[1].timestamp())
             r["date"] = datetime.fromtimestamp(ts, tz=lo[1].tzinfo).replace(microsecond=0).isoformat()
+        elif hi is None and lo and r["mtime"] and r["mtime"] > lo[1]:
+            # Past the newest known date: no upper anchor to interpolate against,
+            # so fall back to the source file's mtime instead of collapsing every
+            # new note onto the last known timestamp.
+            r["date"] = r["mtime"].replace(microsecond=0).isoformat()
         else:
             r["date"] = (lo or hi)[1].replace(microsecond=0).isoformat()
 
@@ -220,6 +223,7 @@ def main():
             "free_chars": len(free),
             "teaser": make_teaser(free),
             "digested": (date_lookup.get(str(num), {}) or {}).get("digested"),
+            "mtime": datetime.fromtimestamp(path.stat().st_mtime).astimezone(),
         })
 
     interpolate_dates(rows)
@@ -239,6 +243,7 @@ def main():
             'tags: ["Startup"]\n'
             "draft: false\n"
             f'slug: "{r["slug"]}"\n'
+            f"note_number: {r['num']}\n"
             f"summary: {yaml_str(r['teaser'])}\n"
             "paywall: true\n"
             "---\n\n"

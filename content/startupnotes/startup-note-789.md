@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-789"
+note_number: 789
 summary: "通知很难做好。知识星球里，星主给用户的通知，就一直很难平衡。 举例来说，对已经过期超过一定时长的用户： 星主希望能给用户推送消息，提醒续费。 但一直有用户抱怨：别老烦我，这种通知得能关，否则我就被迫关掉整个知识星球的通知了。 同事设计了一个"
 paywall: true
 ---

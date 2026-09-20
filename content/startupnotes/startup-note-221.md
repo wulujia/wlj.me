@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-221"
+note_number: 221
 summary: "前段时间，阳志平老师在微信群里很直接地告诉我： 其实，我自己理解知识星球的门槛与里程碑，特别简单： 第一个门槛：1000个有1000个付费粉丝的知识IP，且这批付费用户的续费率不低于百分之三十。 第二个门槛：1000家有1000个付费粉丝 "
 paywall: true
 ---

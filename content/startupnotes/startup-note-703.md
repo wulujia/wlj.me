@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-703"
+note_number: 703
 summary: "Shotgun 提到，可以考虑海外： 先做 twitter，拿知识星球公众号 & 星球内的内容，做英文内容的尝试。 如果 1 能成，做个网页版，将部分星球内容翻译成英文，尝试吸引海外付费。 如果 2 能成，再考虑 App。 似乎值得先拿一两"
 paywall: true
 ---

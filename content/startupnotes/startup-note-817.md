@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-817"
+note_number: 817
 summary: "看到有些人的 AI 用法，有同事戏称，这是拿着手雷当砖头使。 昨天，邀请 Shotgun 基于产品同事们的用法，给些建议，Shotgun 的做法挺不错的：直接给个问题，请大家解决。在解决问题的过程中，观察、询问、追问大家是怎么想的，用了什么"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-672"
+note_number: 672
 summary: "在看同事们整理的文档《春节头脑风暴想法》。 每年春节后，知识星球的用户数据都会有一波小小的增量。我们猜测，是因为春节时，人们从一个城市迁移到另外一个城市。用户会和家人、朋友们一起聊天、分享工作生活经历。在这个过程中，大家有可能会聊起知识星球"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-730"
+note_number: 730
 summary: "晚上搜了开源的 Read it later 产品，找到了几个口碑还不错的。 这两个，看起来比较清爽，一共是 react 一个是 go 做的，或许有一定的参考价值。 https://github.com/MohamedBassem/hoard"
 paywall: true
 ---

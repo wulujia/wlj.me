@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-928"
+note_number: 928
 summary: "此前想要了解一个开源项目，需要下载代码，阅读文档，运行测试，如果确实有兴趣，再尝试理解每个文件是干嘛的，找出自己最感兴趣的部分…… 最近仍然保持了看新东西的兴趣，流程也基本不变，只是效率变高了——因为有了 AI。我现在通常是 clone 代"
 paywall: true
 ---

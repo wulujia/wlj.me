@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-712"
+note_number: 712
 summary: "大年三十了，今天到公司没什么事，就顺手写点东西。 回忆起了之前产品讨论中的一个小事：同事做了个设计，在主题发布后，蹦出个弹窗，有查看主题、关闭、一个月内再提醒三个选项。 这个设计的前因是：打卡这类操作，因为频率高，大家不希望显示在主题流，于"
 paywall: true
 ---

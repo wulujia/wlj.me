@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-833"
+note_number: 833
 summary: "前几天，脑子里冒了个想法：知识星球是不是有必要做一个 Blog，并且定期、长期更新。曾经知识星球是有个 Blog 的，但是很少更新，当时感觉价值不大。在一次安全评估审核中，做了个“减法”，砍掉了。 用“牌桌”的方法，如果写个提案，做 Blo"
 paywall: true
 ---

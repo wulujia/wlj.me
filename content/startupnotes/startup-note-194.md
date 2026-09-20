@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-194"
+note_number: 194
 summary: "亦仁提的需求： 给星球成员发红包、发福利、抽奖的功能 之前在生财有术发过多次红包，作为感谢社群成员的一种形式，后来回头看，每次都有不小比例的红包被非社群成员抢走，挺伤星主积极性。如果能在社群内部实现发红包、抽奖等功能，对提升社群内部的信任值"
 paywall: true
 ---

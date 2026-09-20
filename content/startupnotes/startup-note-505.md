@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-505"
+note_number: 505
 summary: "https://www.ixiqin.com/2022/01/31/opportunity/ 白宦成 提到： 我在「生财有术」的星球呆了差不多三年了，在里面看到了不少有意思的赚钱的方法和机会。不过，过去的很多时间里，我其实都无法理解，为什么"
 paywall: true
 ---

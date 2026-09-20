@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-882"
+note_number: 882
 summary: "之前 Tony 讲过两个故事。 他去滑雪时，租用了某个品牌的 GPS 设备，除了设备月租外，每个月还有几十美金的订阅费用。本该在还设备的时候退订的，但一时大意忘了。于是该设备每月扣费——倒也也有邮件通知，但退订还颇繁琐，不容易在邮件里直接快"
 paywall: true
 ---

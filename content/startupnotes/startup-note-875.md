@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-875"
+note_number: 875
 summary: "一早赶到动车站，记忆中的星巴克被瑞幸替代了——此前喝过几次瑞幸，懒得下载 App，都是请 Erin 帮我下单，当时的感受是：能齁死人的甜，因此后续一直没有再试。 今天直接在微信小程序里授权（应该同时也授权了手机号码）登录，马上就给我推了几张"
 paywall: true
 ---

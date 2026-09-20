@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-507"
+note_number: 507
 summary: "春节期间，大家在云智服上轮值客服，我值了两个上午。在大年初二时，有位用户来索取发票，希望能查询、开出在知识星球支付过的所有费用发票，但是无法提供微信支付订单信息。我一边服务，内心一边感叹客服不太容易——需要有很好的耐心。 但是，因为我心里其"
 paywall: true
 ---

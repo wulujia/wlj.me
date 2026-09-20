@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-530"
+note_number: 530
 summary: "闲鱼、淘宝上不时会见到“不法商家”卖知识星球里某些高价星球的“共享登录资格”。 之所以能这么做，是我们此前故意留下的一个口子：网页版扫码登录后，可以支持多台设备同时登录——这样能够满足部分星主的需求——他们希望能有助理协助管理星球。 结果印"
 paywall: true
 ---

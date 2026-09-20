@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-740"
+note_number: 740
 summary: "在笔记 717 里提到了 NPS，后来同事们做到产品中了，我记录一些过程信息，很有价值。 2024-04-16 Owen 发表 知识星球的 NPS 达到了 77.6 v5.0 版本上线一周后，我们收集到了 3461 份反馈。从结果看，整体的"
 paywall: true
 ---

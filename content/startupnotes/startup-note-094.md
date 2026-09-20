@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-094"
+note_number: 94
 summary: "又是半个多月的断更，我算了算，按照一周两篇的承诺，我欠账 16 篇。这次断更的原因有二： 产品上在考虑 3.0，有些想法似乎不太合适现在就发； 又一次觉得自己「枯竭」，所以大量的时间花在阅读上，虽然阅读必然伴随思考，但往往需要沉淀一阵子。 "
 paywall: true
 ---

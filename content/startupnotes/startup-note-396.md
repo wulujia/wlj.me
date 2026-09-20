@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-396"
+note_number: 396
 summary: "现场听了微信公开课上，张小龙的演讲，本来想趁着记忆热乎写一篇，结果一偷懒，好多天过去了。现在回忆一下，记录一些我觉得有触动的碎片。 关于视频号 最早的视频号思考：2017 年考虑在朋友圈下面加一个“非朋友圈”，只能发短文或者照片视频； 视频"
 paywall: true
 ---

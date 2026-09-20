@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-482"
+note_number: 482
 summary: "运营、客服同事时不时会观察到一些功能的滥用。 免费邀请功能：最初免费邀请功能设计出来，是因为 KOL 可能有些付费群，希望能导入到知识星球。需求很合理，我们当然愿意满足。 后来有聪明人，通过第三方渠道付费，然后在知识星球运营。给我们带来的问"
 paywall: true
 ---

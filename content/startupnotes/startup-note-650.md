@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-650"
+note_number: 650
 summary: "在即刻看到这么一段话： 一个创始人开不开放，可以看他周围的人是不是愿意持续跟他说真话，真话通常还很刺耳。说真话是有风险和代价的，每个人每次说完真话后，都会观察创始人的语言和行为反馈。 一种老板是语言上就很强势，那就没人愿意说真话了。犯不着。"
 paywall: true
 ---

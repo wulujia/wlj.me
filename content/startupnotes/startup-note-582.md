@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-582"
+note_number: 582
 summary: "一直有星主遇到问题： 虽然三天无条件退款，但是总有用户，在用了三个月、半年甚至快一年了，跑过来闹着要退款。本着息事宁人的态度，想部分退给他，但是发现，知识星球的规则很“粗暴”，要么不退，要么全退。 于是星主们希望，在移除成员页增加部分退款选"
 paywall: true
 ---

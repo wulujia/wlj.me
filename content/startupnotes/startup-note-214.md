@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-214"
+note_number: 214
 summary: "和同事聊天，我提到：除了微信之外，现在对我来说粘性最大的 APP 居然是知识星球了（请原谅我用了「居然」——真的不是自己做的产品，就能自己爱的。我被自己团队的产品吸引了，非常开心）。 被粘住的最大原因是加入了闫璐老师的「一对一摄影课堂」——"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-893"
+note_number: 893
 summary: "很多年前喜欢 Linux 的时候，我就读过《大教堂与集市》。有一段时间，我在跟朋友聊起知识星球的时候，或者有朋友问起知识星球跟得到的差异时，我也喜欢用教堂和集市做比喻： 得到要头部，知识星球聚长尾。 2016 年 4 月，有人提问罗振宇，「"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-162"
+note_number: 162
 summary: "早在去年四季度，我们就想过做「打卡」功能，甚至都排进需求里准备开发了。在做交互设计的时候，总觉得磕磕绊绊，做得很复杂不顺手，于是咬咬牙又砍掉了。 在知识星球 V3.5 里（目前正在内测，预计 5-15 前后发布），我们加进了作业功能。主要目"
 paywall: true
 ---

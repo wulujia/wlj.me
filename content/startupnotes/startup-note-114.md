@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-114"
+note_number: 114
 summary: "被不少朋友吐槽知识星球产品做得不好，想想还是有点心虚，所以决定从自己做起，补补产品能力，所以报了白鸦的产品课，这个周末是第一节：场景。 课程的描述是：训练场景感，从场景中提炼用户、环境、目标、动机等要素，并思考其关系和相互作用的方法。 来之"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-121"
+note_number: 121
 summary: "快放假了，闲来无事，拿千聊和知识星球分别在百度指数和微信指数搜了一下，结果见图。 百度指数里，千聊和知识星球总体相当，微信指数里，千聊远远超过了知识星球。百度指数统计数据来自网民使用电脑端和移动端访问百度的每次检索，微信指数统计的数据全部来"
 paywall: true
 ---

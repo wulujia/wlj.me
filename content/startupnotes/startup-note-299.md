@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-299"
+note_number: 299
 summary: "一直就有星主希望知识星球提供专栏能力——星主可以上传自己的长图文专栏文章、音频、视频课程。我此前担心，这虽然是个被证明过的市场，但越是如此，便越成熟。要做出特点，很难。 在积累“产品池”的过程中，多做些思考和推演，总是好的。那么，如果我们真"
 paywall: true
 ---

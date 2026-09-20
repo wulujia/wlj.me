@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-908"
+note_number: 908
 summary: "即刻上收到两位用户的反馈。 一位反馈：我们的续费通知可以做得再优雅一些。另一位反馈：用户在支付和续费时，如果遇到微信的风控，会很难受，对星主们的信誉有很大影响。 这俩或许春节后都值得做些改进。比如微信风控，或许有机会和微信： 考虑跟温和的风"
 paywall: true
 ---

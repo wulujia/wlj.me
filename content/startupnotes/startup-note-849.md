@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-849"
+note_number: 849
 summary: "前两天看同事的一个 SEO 实验总结。 当时的思考是： 知识星球里有大量优质内容，但因为是封闭的付费社区，搜索引擎检索不到内容，少了一个天然的引流能力 是否有机会通过 AI 对精华文章做摘要，将摘要内容提交给搜索引擎，以此引流？ 我对此没把"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-358"
+note_number: 358
 summary: "昨天注意到，我们内容安全审核的成本挺高的。简单描述一下目前内容审核能力的构成： 相对简单的基于词库的过滤机制（自研，除了文本处理之外，也将包括图片、文件等内容处理）； 机器审核（第三方）； 人工审核，包括主题与评论中的文字、图片、音频、视频"
 paywall: true
 ---

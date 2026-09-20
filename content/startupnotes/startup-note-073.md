@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-073"
+note_number: 73
 summary: "我曾经很有整理癖——在网上搜过看过觉得有价值的内容，都希望尽可能存下来，今后再找的时候容易点——其实这种想法可能笨了，有搜索甚至未来有人工智能的年代，应该可以更简单。 不过我有时候还是喜欢笨和慢点办法——或许这种过程能帮助我的记忆（所以上次"
 paywall: true
 ---

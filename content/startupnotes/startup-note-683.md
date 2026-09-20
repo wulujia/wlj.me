@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-683"
+note_number: 683
 summary: "这周都没空写创业笔记，一来是家里小朋友生病，二来确实是各种细碎的事情不少——今年要学习，就要拜访很多人，参观很多地方。以前做的减法，现在一股脑地加回来了。 这篇笔记的主题就是“试用可能反而降低销售”。 和一位做招聘平台的朋友聊天，他提到曾经"
 paywall: true
 ---

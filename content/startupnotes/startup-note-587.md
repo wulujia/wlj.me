@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-587"
+note_number: 587
 summary: "听了黄海跟 Rio 在疯投圈里聊的山姆模式，觉得很有收获（推荐一下播客“疯投圈”，干货很多）。 山姆的盈利来自于会员费 + 产品利润。 与其他企业（盒马、永辉等）相比，山姆做得更慢，花了更多精力做产品——比如他们会研发一款玉米汁，是山姆会员"
 paywall: true
 ---

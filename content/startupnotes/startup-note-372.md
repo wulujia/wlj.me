@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-372"
+note_number: 372
 summary: "Dash 转发啦这篇公众号，说：当大洋那边Epic还在为3:7痛苦的和苹果打反垄断官司的时候，实际不具备任何垄断能力的安卓渠道，是谁给了你们勇气拿5:5的分成？？？ XD 转发时的评论是：同事还以为是我们安排的……其实我们的RO、巨人的球球"
 paywall: true
 ---

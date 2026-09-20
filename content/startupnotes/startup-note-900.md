@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-900"
+note_number: 900
 summary: "今天（1 月 2 日，元旦假期），用户在微信群里反馈问题，我 at 了 几位同事，无人回复，其中两位的 ID 上写着：工作日 10:00 - 18:30 在线。我试图通过飞书语音、微信语音也联系不上，最后拨电话才打通。 当时我是有情绪的，跟"
 paywall: true
 ---

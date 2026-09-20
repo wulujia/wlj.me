@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-245"
+note_number: 245
 summary: "前些天读书，看到原研哉说的：画鬼魅易，画犬马难。 确实如此。做厨师，山珍海味好整，豆腐白菜难做。做摄影师，名山大川凶杀苦难易拍，身边平淡的日常难记。 多说一句：这里的「易」，也并不是一蹴而就。比如战地摄影师，又何尝容易，只是，进入了战地，那"
 paywall: true
 ---

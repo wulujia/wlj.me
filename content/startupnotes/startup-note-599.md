@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-599"
+note_number: 599
 summary: "上午和同事讨论需求，同事提了一个小功能：“提醒星主，可以复制链接，去网页版数据后台，打开积分排行榜”（如附图）。我的直觉是，应该把这个功能做到 App 里，一个开关打开就行，否则实现路径是：知识星球 -> 微信 -> 微信桌面版 -> 浏览"
 paywall: true
 ---

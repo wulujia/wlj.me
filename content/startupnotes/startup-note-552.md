@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-552"
+note_number: 552
 summary: "上周末培训，有些感受，先记录下“干货”——很难读下去的纯道理。 自己较为独特的工作方式、喜欢的配合方式、在意的交流方式等等，需要提前声明，否则没人知道，活该被误解。 工作中也应该有 20% 关系型沟通。 沟通时常见的六种误区 预设立场 - "
 paywall: true
 ---

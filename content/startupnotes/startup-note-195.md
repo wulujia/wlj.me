@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-195"
+note_number: 195
 summary: "微博的超级话题，参见：https://www.weibo.com/ttarticle/p/show?id=2309403983765583070869 超级话题是什么？如何成功的发布超级话题的微博呢？超级话题是微博里的兴趣内容社区，是一款将"
 paywall: true
 ---

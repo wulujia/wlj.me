@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-216"
+note_number: 216
 summary: "微信官方放出来的内容可以参见： 视频版：http://t.cn/Eqw23O5 文字版：http://t.cn/Eqw2aEs 我自己更适应看文字版，速度快得多而且记忆深刻（说来奇怪，我似乎真的适合阅读文字、图片，不适合听音频、看视频——从"
 paywall: true
 ---

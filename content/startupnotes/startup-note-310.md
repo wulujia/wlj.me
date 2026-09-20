@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-310"
+note_number: 310
 summary: "数据运营的同事出了个题： 在一个健康的社群中，普通用户的活跃是非常重要的。他们的每一次点赞、评论、赞赏，都能鼓励并激发更多的用户在社群中进行高质量的分享和创作。 更活跃的星球也会有更浓厚的共同目标感，大家共同学习、互相比较，每个人都会成长得"
 paywall: true
 ---

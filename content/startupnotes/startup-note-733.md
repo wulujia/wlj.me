@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-733"
+note_number: 733
 summary: "十几年前，有微信群之后，我就成了用微信工作的重度用户，而且有些“工作狂”倾向——想起什么，就往群里发。 现在想来，用微信群工作的好处有： 相比邮件，随时在线，很方便找到人，很难用“我没打开”来推诿。 相比论坛，1 on 1 地发消息，或者发"
 paywall: true
 ---

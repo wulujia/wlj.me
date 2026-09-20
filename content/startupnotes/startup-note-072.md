@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-072"
+note_number: 72
 summary: "前几天失眠了。 一直以来我睡眠很好，心理素质也自诩很好，上周有两天连续失眠（第一天是喝咖啡，第二天确实是脑子里有事琢磨了半宿）之后，进入白天昏沉，晚上失眠的几天。 夜里努力想睡，却怎么也睡不着，用来催眠的 Podcast 不管定时半小时或一"
 paywall: true
 ---

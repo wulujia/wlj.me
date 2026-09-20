@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-851"
+note_number: 851
 summary: "前些天，我问同事一个问题： 不知道我们北极星指标盯 CURR，是不是导致了新增的下滑？（更在意留存，而不是更在意新增了）。Duolingo 在盯 CURR 的时候，是不是并非单一指标，而是也非常在意新增（他们的口碑传播、用户介绍都很强——产"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-313"
+note_number: 313
 summary: "在笔记 307 里提过，考虑做个专栏功能，这里是一个评估下来被否掉的方案，否的原因是："
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-511"
+note_number: 511
 summary: "前些日子，shotgun 提出： 观察到星球内有部分星主采取如下的方式进行营销：建立一个免费星球，通过在其他星球打广告拉入大量用户，用户加入免费星球的时候会自动关注星主，然后星主大量发帖，刷屏用户的动态页，可以看看有没有办法尽可能降低这种骚"
 paywall: true
 ---

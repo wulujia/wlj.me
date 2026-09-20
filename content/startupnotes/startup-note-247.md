@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-247"
+note_number: 247
 summary: "这两天发布的 4.0 版本里，团队为知识星球增加了「关注」和「足迹」的功能，希望用户可以将知识星球作为「知识输出」工具。 这一步如果能达成，或许我们有机会在朋友圈、微博之间尝试找个夹缝生存下来。 考虑增加了「关注」和「足迹」的版本，有如下不"
 paywall: true
 ---

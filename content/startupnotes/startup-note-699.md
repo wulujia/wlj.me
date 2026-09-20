@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-699"
+note_number: 699
 summary: "这个账号此前销号，后来重建了，有看到的好朋友，求帮我转一转。好歹多加回些朋友，未来做海外项目，有个说话的地方。 趁着年底，辞旧迎新，在 Twitter/X 上发个自我介绍 & 2023 总结。 介绍 wulujia，创业中，项目知识星球。曾"
 paywall: true
 ---

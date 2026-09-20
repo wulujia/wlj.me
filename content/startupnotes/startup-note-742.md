@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-742"
+note_number: 742
 summary: "观察我自己的创业思考，会发现，前些年，我很强调“简单的事情长期做”、“攻其一点，不及其余”、“专注做好一件事情”。我的想法很简单：50 人的团队，花十年时间，专注做好知识星球这一个产品，其实在单一产品上的投入，可能超过大厂投机式的快速砸资源"
 paywall: true
 ---

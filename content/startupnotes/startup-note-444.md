@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-444"
+note_number: 444
 summary: "社群管理也是管理，管理者总是希望能梳理出谁对社群贡献大，价值大，才能够赏优罚劣。这时有计算贡献得需求。 社群里又时不时会有活动，比如这个月鼓励大家创作内容，下个月鼓励大家评论，再下个月鼓励大家对外分享邀请新人，这时对贡献的计算方法又是不一致"
 paywall: true
 ---

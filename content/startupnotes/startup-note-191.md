@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-191"
+note_number: 191
 summary: "我在知识星球里，向闫璐老师学拍照片（她说：「我更喜欢去教我那些看起来不太可能学会摄影的学生，去看他们的作业，努力寻找其中的闪光点。」，恩，虽然看起来不太可能学得会，但还是要试试）。 今晚她推送的公众号文章（https://mp.weixin"
 paywall: true
 ---

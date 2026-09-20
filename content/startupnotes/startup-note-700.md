@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-700"
+note_number: 700
 summary: "1 月阅读清单 中文书籍 定西孤儿院纪事 by 杨显惠 01.19 甘南记事 by 杨显惠 01.21 绝对权力 by 周梅森 01.21 提问 by 杨澜 01.24 英文书籍 Lee Kuan Yew: Hard Truths To K"
 paywall: true
 ---

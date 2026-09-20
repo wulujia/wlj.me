@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-608"
+note_number: 608
 summary: "前些天跟一位在新加坡创业的朋友聊起，他们目前新加坡招聘的情况，他表达的，和我此前听到的传言比较一致： 创业公司在新加坡不太容易招到优秀人才。新加坡本地人，普遍学校、学历都不差，会更倾向到政府、金融去，这些地方的收入高且稳定。 新加坡人口基数"
 paywall: true
 ---

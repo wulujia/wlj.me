@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-943"
+note_number: 943
 summary: "小鹅通重启上市，我看到的一些信息： IFRS 口径继续亏损，但经调整净利润 1.07 亿，还是挺不错的。不过 2023 转正，2024 高点，2025 不错但质量变差。 他们拆了 VIE，效率很高。也感慨一下，创业者不容易，环境变，就得花成"
 paywall: true
 ---

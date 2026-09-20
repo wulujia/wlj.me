@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-629"
+note_number: 629
 summary: "创业笔记 629：卷土重来的盗版 前些天，星主投诉了一个比较嚣张的盗版网站，我把信息转进产品群里讨论，得到了同事们的一些想法："
 paywall: true
 ---

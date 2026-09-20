@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-419"
+note_number: 419
 summary: "得到 App 里有个得到锦囊，是用户提问（可匿名）、专家回答、会员可读的产品，年费 199，目前有 3700+ 问答； 得到锦囊的一个比较大的特点是，回答强制用1、2、3、4 这样的方式区隔——我能看到有些回答其实并没有并列、递进关系，但也"
 paywall: true
 ---

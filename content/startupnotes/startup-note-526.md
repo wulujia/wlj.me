@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-526"
+note_number: 526
 summary: "有朋友问，4 月 18 日，生财有术星球续费前，知识星球做了哪些工作，让整个活动更加顺滑。恰好，这个问题我找志强请教过，他跟我简要说明的，大致有下面这些部分： 后端、运维工作 压力测试，通过压力测试，找出木桶的最短板，从而不断做性能调优 数"
 paywall: true
 ---

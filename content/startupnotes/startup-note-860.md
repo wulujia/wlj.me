@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-860"
+note_number: 860
 summary: "接手 Slax Note 之后，先解决问题，我之前比较不舒服，难以持续用 Slax Note 的有两个地方： 我习惯在走路的时候思考和记录，这时手机很好。但我在处理的时候，会尽量避开手机的干扰——所以我需要电脑上可以同步访问。 出于测试需要"
 paywall: true
 ---

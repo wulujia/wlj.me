@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-513"
+note_number: 513
 summary: "在琢磨知识星球运营工作时，我先问自己：知识星球这个业务中，目标是什么？为了完成这个目标，哪些关键问题需要运营解决？得是关键问题——不关键的，不做算了。得需要运营出手——毕竟分工不同。 2022 年度，我们将数字定在了“活跃星主”身上——星主"
 paywall: true
 ---

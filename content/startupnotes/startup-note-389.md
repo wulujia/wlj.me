@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-389"
+note_number: 389
 summary: "明后天的培训里，有半天梁宁的课，以及半天的产品工作坊，内容包括： 业务与战略的区别 产品战略的 5 个核心问题：定义赛道、用户价值主张、如何破局、增长回路、产业护城河 为了尽量学好，我再复习一下她在得到里的课。 同理心：理解用户（愉悦、不爽"
 paywall: true
 ---

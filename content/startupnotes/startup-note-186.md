@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-186"
+note_number: 186
 summary: "这其实是在闫璐老师的知识星球《瞳仁堂》里交的一期作业 - 思考摄影技巧的本义。写了这么久，而且自己觉得对产品、生活有些意义，也发过来吧。 作业题目 思考摄影技巧的本义，什么是关键技术？ 有没有技巧能够将日常生活也拍得足够有吸引力？ 什么是摄"
 paywall: true
 ---

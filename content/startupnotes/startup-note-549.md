@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-549"
+note_number: 549
 summary: "简要记录一下喜马拉雅招股说明书里的风险因素，这是当前内容创业者的真实写照。从招股说明书的第 54 页到 115 页，是风险因素。 最重要的部分是喜马拉雅“与我们的业务及行业有关的风险”，这是所有内容从业者都应该看看的（从 54 到 98 页"
 paywall: true
 ---

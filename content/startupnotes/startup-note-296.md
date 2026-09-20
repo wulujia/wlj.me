@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-296"
+note_number: 296
 summary: "大概在半年前吧，有个朋友下载了知识星球看了看，然后找我提了好些可以改进的细节——主要是运营、用户召回、用户活跃方面的。当时我挺惭愧地说：没顾上做。他当时安慰我：这些都没做就能这样，很不错了。 但真该做好细节了。 这几天翻邮件，看到大辉的“小"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-776"
+note_number: 776
 summary: "之前一直推荐这篇文章： Duolingo 如何重新点燃用户增长 https://reader.slax.com/s/mbU482b5d2 这几天才开始考虑四季度的 OKR，Shotgun 提了一嘴，或许可以考虑 CURR，确实有道理，似乎可"
 paywall: true
 ---

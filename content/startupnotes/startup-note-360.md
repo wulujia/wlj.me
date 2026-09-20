@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-360"
+note_number: 360
 summary: "6-25 23:08，收到“公众平台安全助手”下发的“关于公众号违规限制服务能力的处理通知”，表示公众号存在含有虚拟支付功能，属于平台不支持开放的服务范围行为，已屏蔽iOS 用户访问自定义菜单功能至永久。 众所周知——如果你还不知道这“虚拟"
 paywall: true
 ---

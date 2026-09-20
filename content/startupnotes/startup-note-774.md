@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-774"
+note_number: 774
 summary: "前几天，产品业务的 Betting table 上，有几个需求被砍了，记录一下。 给“星友在看”功能更多流量 业务组同事做了个“星友在看”的功能，希望在动态页里展现星友看得多、赞得多、评论得多的内容——这样的内容往往是好内容，以此推荐星球，"
 paywall: true
 ---

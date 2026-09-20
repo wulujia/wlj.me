@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-822"
+note_number: 822
 summary: "问：创业路上充满了挑战和压力，是否有过一个特别困难的时刻，让你几乎想要放弃？你是如何调整自己的心态，从迷茫中走出来，重新找回信心的？ 岁月本长，天地本宽 2022 年 6 月，我记录了这一条创业笔记： 前些天，在请教一个可能的新方向问题时，"
 paywall: true
 ---

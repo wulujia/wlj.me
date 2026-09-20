@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-447"
+note_number: 447
 summary: "同事 @思南 思考并提供了几个数据（具体数据我隐藏了）： 每日日活中，轻度用户（7 日 1 活和 7 日 2 活）占比最高（我们的北极星指标是 7 日 3 活）。 日活用户的分享比例是个位数。 下载了 APP 的用户在第半年留存可以达到 4"
 paywall: true
 ---

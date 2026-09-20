@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-711"
+note_number: 711
 summary: "前段时间跟 ppchen 聊天，提到了加法和减法。 我对加法，一直是有些排斥，总觉得： 可以多想一点，少做一点，这些思考的时间并不白费。这体现在产品上，就是我不想加太多功能，不想这也做那也做。而是认为，简洁有一个额外的好处，就是让用户更容易"
 paywall: true
 ---

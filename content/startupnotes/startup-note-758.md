@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-758"
+note_number: 758
 summary: "语音对话模型——尤其是类似电影 Her 那样真实、有情绪的语音对话模型已经日趋成熟。我们可以考虑在产品中让用户通过语音的方式，与自己收藏的内容进行互动沟通。 看 Lenny 的 Newsletter，其中一部分内容是他们收藏链接，发布出来成"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-148"
+note_number: 148
 summary: "第一个感叹是：看到那些风险因素，真是创业公司的一百种死法啊……这还是这么挣钱的明星公司。 一些数据： 2015 - 2017 的收入流水：人民 幣28.7百萬元、人民幣4,334.9百萬元及人民幣3,941.6百萬元； 2015 - 201"
 paywall: true
 ---

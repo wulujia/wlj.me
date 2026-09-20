@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-493"
+note_number: 493
 summary: "昨天亦仁来深圳（疫情期间，仍然坚持过来，结果回去的时候，等核酸结果，生生多耗了一夜），一起吃饭时，提出了几个需求： 需求一：降低用户获取有效内容的成本 经过持续的约稿、社群用户内容分享的热情高涨，几年积累下来，星球内产生的精华内容非常多。 "
 paywall: true
 ---

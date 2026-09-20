@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-927"
+note_number: 927
 summary: "我看到这个第一感受是：这个项目可能对知识星球、Slax Reader 和 Slax Note 都会有思路启发。 原文发布于 2026 年 4 月 2 日（X/Twitter 推文），随后于 4 月 4 日发布了配套的 GitHub Gist"
 paywall: true
 ---

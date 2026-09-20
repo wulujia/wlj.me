@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-816"
+note_number: 816
 summary: "上一篇考虑透明，或许可以想象落地的细节。此前的想法是通过 OKR，不过 OKR 比较简略，有管理职能的同事们也没有全用，似乎透明度不够。 如果我们改成\"工作月报\"的形式："
 paywall: true
 ---

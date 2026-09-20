@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-612"
+note_number: 612
 summary: "想解决的问题是： 星主反复回答简单问题，很烦，成本很高。 沉淀的大量优质内容无法被有效发现。 可能可以带来的额外好处有： 用户有了个放松、调戏星主的地方。 最终能沉淀出一个适合星主、可以卖给星主的高度贴身定制的模型。 用户付费给星主，星主付"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-934"
+note_number: 934
 summary: "腾讯 IMA 上线付费知识库，自媒体发文说”知识星球危”。朋友转给我问怎么看。 一、付费这活，长期看 IMA 团队未必愿意碰。钱一进来，一边是内容方收钱，一边是付费用户花钱，交付质量、退款争议、工商投诉、违规擦边，全都要有人处理。免费时平台"
 paywall: true
 ---

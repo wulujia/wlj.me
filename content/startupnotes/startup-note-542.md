@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-542"
+note_number: 542
 summary: "这些天，网传的消息，十亿公民身份信息泄露，小范围地引起了震惊。我有个朋友做了评论（括号内容是我补充说明得更清晰些）： 卖家不是在卖数据，是在说事（可能不是黑客卖数据，而是故意把事情搞大）。 今年大活动的动向就是这方面，这个时间点出现这个（指"
 paywall: true
 ---

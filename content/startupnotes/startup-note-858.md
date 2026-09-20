@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-858"
+note_number: 858
 summary: "今年四月的时候，我说到 Slax Note，提到了在选要做的产品时，除了常规的分析，我自己往往还会琢磨两件事。 一是产品能做出什么不一样——我不想只是抄，也不想仅仅做了“又一个某某”。 二是我愿不愿意长期做，以及它能不能有长期的迭代进化空间"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-002"
+note_number: 2
 summary: "有些人做产品时会烦恼：需求很多，不知该先做哪个。 https://baremetrics.com/blog/feature-framework 这篇博客给出了一种「数据化」的方法，你可以看看是否适用于你的环境（使用了 Google 表格，需"
 paywall: true
 ---

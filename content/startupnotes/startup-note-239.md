@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-239"
+note_number: 239
 summary: "有朋友跟我说，极光单词用户单日充值金额很高，此前在我认知里，这个领域薄荷阅读做得最好，没想到还有新产品异军突起。 大概看了看模式： 采用「笃局」（谐音赌局？或者是督局？）模式，默认推荐的是 180 天版本（你只需要出 98 元的笃定学习金，"
 paywall: true
 ---

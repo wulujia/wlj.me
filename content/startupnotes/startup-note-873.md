@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-873"
+note_number: 873
 summary: "这两天在想知识星球下一步该做什么的时候，突然觉得有些迷茫——一时竟然不知道哪些问题是最急需解决的，哪些问题是我自己闭门造车。 反思一下，可能是我没有经常跟用户在一起了？ 或许可以先从公司内部的讨论开始，比如，邀请一位同事主持，发起“从我的角"
 paywall: true
 ---

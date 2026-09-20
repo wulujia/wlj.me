@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-668"
+note_number: 668
 summary: "上周的 TGIF 上，有同事提问：是否考虑增加\"按小时请假的制度\"？ 他写得很详细： 在我们的工作中，有时我们会面临一些突发情况或紧急事件，这可能需要我们在规定的工作时间之外暂时离开工作岗位。目前，我们的请假制度是基于半天的标准，即使我们只"
 paywall: true
 ---

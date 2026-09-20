@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-487"
+note_number: 487
 summary: "前两天刷星球，看到 Caoz 在星球里说： 如果从商业变现效率提升来说，知识星球有太多可以做的事情，值得深挖的细节。 比如，免费星球的广告系统。 比如，发现页的算法优化。 比如，官方vip会员系统。 比如，官方的星主互推系统，以及分销榜单的"
 paywall: true
 ---

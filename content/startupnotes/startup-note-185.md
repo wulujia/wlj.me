@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-185"
+note_number: 185
 summary: "在火人节，每天只断断续续地睡三四个小时，但似乎完全不累。 神庙边递给我橡皮泥的妇人 Burning man 里最重要的建筑物之一，是座神庙。人们在里面纪念自己想纪念的人、事、物。 在神庙外，只是普通的木制开放式建筑。走进去，看到了很多人，或"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-096"
+note_number: 96
 summary: "知乎 Live 运行一年多，在知识付费领域趟出了一条前人未走过的路。昨晚认真听了一堂「来跟知乎团队聊聊知识付费的新可能」（https://www.zhihu.com/lives/838470120962666496），做了些笔记。 什么是知"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-118"
+note_number: 118
 summary: "2018 计划 总体 慢下来：慢下来思考，慢下来观察，慢下来体验，做产品可以慢一点，拍照可以慢一点。 知识星球 DAU 50w 流水 5 亿 其实，每一个 DAU 的坎，都不那么容易迈过，看过很多产品，在 10w、20w……的时候增长就冻结"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-864"
+note_number: 864
 summary: "《卓有成效的管理者》里的部分书摘： 大多数人即使专心致志地做一件事，也难以做得很好，更不用说一心二用了。 希望自己有效，也希望所在组织有效的管理者，会对所有计划、所有活动、所有任务都加以监督，会不停地问：“这还值得做吗？”如果答案是否定的，"
 paywall: true
 ---

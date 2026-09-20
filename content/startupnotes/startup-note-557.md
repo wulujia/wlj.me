@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-557"
+note_number: 557
 summary: "任正非的“寒气论”（https://mp.weixin.qq.com/s/aI_ROfrqAeyLr-NO6QynBA）前段时间沸沸扬扬，我看了，还是挺紧张的。 摘录其中一些文字： ---------- 我们‍‍要看到公司面临的困难以及未来"
 paywall: true
 ---

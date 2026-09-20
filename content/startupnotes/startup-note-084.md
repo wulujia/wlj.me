@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-084"
+note_number: 84
 summary: "上次知识星球 iOS 版，从提交给苹果审核（8 月 11 日）到开始审核（8 月 18 日）到审核通过（8 月 28 日），历时 18 天，等得非常心急，一些收获："
 paywall: true
 ---

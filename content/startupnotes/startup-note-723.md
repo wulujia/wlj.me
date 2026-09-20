@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-723"
+note_number: 723
 summary: "Problem 当前知识星球里有很多优质内容，但因为是私域付费内容，搜索引擎被挡在外，知识星球也得不到来自搜索引擎的流量。 希望能够通过合适的方式生成公开内容，并提交给搜索引擎 提高来自搜索引擎的访问 提高来自搜索引擎的付费 希望避免的问题"
 paywall: true
 ---

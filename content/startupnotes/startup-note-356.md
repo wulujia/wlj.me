@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-356"
+note_number: 356
 summary: "最近公司开始试运行 OKR，边做边学，所以我重看了下面几本 OKR 的书： 《OKR 使用手册》 《这就是 OKR》 《OKR 工作法：谷歌、领英等顶级公司的高绩效秘籍》 《OKR：英特尔和谷歌的管理利器》 《重新定义公司：谷歌是如何运营的"
 paywall: true
 ---

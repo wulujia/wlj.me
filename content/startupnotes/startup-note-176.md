@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-176"
+note_number: 176
 summary: "去年底到现在，一直想写篇知识星球的介绍文章。不要太长，在向老师们推荐知识星球的时候，可以拿出来，清晰地说明白知识星球是什么，对老师们有什么价值。 但一直写不出来，这里是个初稿，不知道是不是说清楚了，星球里的朋友们也可以帮着提提建议。"
 paywall: true
 ---

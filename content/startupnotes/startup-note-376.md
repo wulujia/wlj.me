@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-376"
+note_number: 376
 summary: "作为一个重度手机用户，以下是我理解的智能手机使用过程中，关于安全的一些信息： 手机如果遗失，第一时间电话挂失并且迅速补卡，才能让旧卡作废； iPhone 还是要比安卓安全； 在网上访问、输入的任何内容，可以基本认为能精确追溯到个人（哪怕使用"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-593"
+note_number: 593
 summary: "今天在家，随手翻看一本小漫画书，书名就是《一个故事的 99 种讲法》。我摘录一段书的引言： 本书中的每篇漫画说的都是同一个故事——事件内容是完全相同的——但用了不同的说法。你会看到变化的视角、不同的画风、各种致敬和戏仿以及有可能颠覆叙事观念"
 paywall: true
 ---

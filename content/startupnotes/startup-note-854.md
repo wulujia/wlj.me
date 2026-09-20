@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-854"
+note_number: 854
 summary: "我在公司里鼓励同事作为项目的 Owner。项目的 Owner，在我看来，就是这个项目的“最后一堵墙”，需要对事情有判断、做决策。 Owner 这个词虽然容易理解，同事们接过 Owner 这个责任的时候，也都是慎重、负责、敬业的，但我好像没怎"
 paywall: true
 ---

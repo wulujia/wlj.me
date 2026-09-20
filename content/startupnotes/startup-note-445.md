@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-445"
+note_number: 445
 summary: "不那么精确的定义： 工具：能够方便人们完成工作的器具。 平台：商业平台（推动经济和社会活动的业务系统，如淘宝、亚马逊），还有技术平台（提供通用技术框架，可以在此基础上构建应用）、。 生态：在一个特定环境内，相互作用的所有生物和此环境的统称。"
 paywall: true
 ---

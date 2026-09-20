@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-050"
+note_number: 50
 summary: "其实这次聊天很久了，但一直没记下来，今天补。 与小鹅通老鲍聊天 小鹅通（可以认为小鹅通是卖虚拟物品的有赞）做得很好，很多小密圈可以学习的细节，约了老鲍一起聊聊现在的「知识经济」。 老鲍说了一句吴晓波老师的建议：做离钱近，离人远的事情——KO"
 paywall: true
 ---

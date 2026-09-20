@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-769"
+note_number: 769
 summary: "这几天在看亚马逊的 Invent & Wonder，前言里，Walter Isaacson 写了： Focus relentlessly and passionately on the customer. As he put it in h"
 paywall: true
 ---

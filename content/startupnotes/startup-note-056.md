@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-056"
+note_number: 56
 summary: "发生在一位朋友公司的真实案例： 被举报到微信，说有虚假红包，产品一级域名被封禁，所有内容包括官网都无法在微信上打开，需清除后才能恢复； 因为是 UGC，虚假红包的代码是由「用户」在社区里发的——半夜 12 点发完，分享到微信，举报，一气呵成"
 paywall: true
 ---

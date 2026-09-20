@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-956"
+note_number: 956
 summary: "昨天在 Eatventure 的 Claude Tag 群里，跟 Claude 提了个需求：从我的 Eatventure 帖子里，挑出一些有故事，有情感的内容，从不同角度写几段？记得文字洗炼但有趣。试试看能不能打动人。 几分钟后，Claud"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-838"
+note_number: 838
 summary: "最后一个有关“MVP”的问题是我问的，PPT中的【关于MVP】解释，我非常认同，我仅对项目时间上有疑问： 我想问，“3 个月”是自然月吗，如果隔天加班，算下来：3 个月实际花在项目的时间上大概 30 天。slaxnote第一版上线，全职的产"
 paywall: true
 ---

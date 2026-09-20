@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-499"
+note_number: 499
 summary: "微信的视频号直播此前已经有了限定范围的直播能力，直播者可以上传一个 excel 文件（观众名单模板），按要求填写允许收看直播用户的微信号即可。 如果视频号直播能够提供开放接口，最简单粗暴的方式是——这个 excel 文件可以支持填写企业 I"
 paywall: true
 ---

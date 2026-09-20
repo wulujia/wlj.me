@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-202"
+note_number: 202
 summary: "拖欠了半年的白鸦产品课——Design IT 的内容继续。半年的课程，这是第四个月。前三节课分别是： 第一课：场景 https://t.zsxq.com/aaQRFEy 第二课：价值 https://t.zsxq.com/vB6mAme 第"
 paywall: true
 ---

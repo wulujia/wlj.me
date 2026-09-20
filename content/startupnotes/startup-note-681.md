@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-681"
+note_number: 681
 summary: "此前我对“咨询顾问”有偏见，认为各种模型框架方法论，不通业务，不接地气。这次抛开成见，参加了“首席组织官”的培训，认真学习了两天半，确实有收获。 简单拿着笔记、教案回顾一下，争取在脑子里留下点东西。 开场先做了个测试，有 60 道题，我跟同"
 paywall: true
 ---

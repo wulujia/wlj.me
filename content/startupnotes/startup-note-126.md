@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-126"
+note_number: 126
 summary: "前几年做图片社交 APP，惨败。但倒是让我喜欢上了拍照。因此在知识星球里，也加了几个摄影学习类的星球，其中闫璐老师（很多人也称她八老师）的玩法比较有趣。 她一共创建了五个星球，分四类： 大开眼戒：老师带一个学生，其他学生围观 一年 只有老师"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-510"
+note_number: 510
 summary: "创业笔记 510：用户名里的敏感词 用户名，其实是个安全问题的重灾区，但却被很多产品忽略了。我近期听到的信息，有企业因为产品/游戏中的用户名不当，分别被罚了 50 和 20 万。而我前些天顺手在一位好朋友的产品里测试时，也发现他们仅仅做了最"
 paywall: true
 ---

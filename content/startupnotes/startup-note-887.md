@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-887"
+note_number: 887
 summary: "上周五参加产品的牌桌会，对同事提出来的“年终总结“需求，就工作量来看： 沿用去年，增加“知识星球十周年“相关设计： UI：3-4天 前端：3-4天 后端：3-4天 沿用去年，仅改必要部分 UI：0.5-1天 前端：1.5-2天 后端：3-4"
 paywall: true
 ---

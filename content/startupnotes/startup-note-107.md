@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-107"
+note_number: 107
 summary: "前段时间，连续被两位好友 Fenng 和 Caoz 吐槽产品设计，认为我们应该加强产品能力，仔细想想，几位产品同事应该都还有蛮大的成长空间，所以我们从自身挖掘起先。 我自己就咬咬牙报了白鸦前段时间开的「UCDChina 特训营」，他们要求："
 paywall: true
 ---

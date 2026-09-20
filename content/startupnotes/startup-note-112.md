@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-112"
+note_number: 112
 summary: "有位朋友下午组织了一个关于知识付费和社群的会议，提出了几个问题，趁着还有点时间思考，我列一下对这些问题我的想法。其实我脑子比较钝，人多的场合，往往躲着不爱说话，非得说点什么的时候，压力山大呀。 我们称 16 年是知识付费的大元年，而 17 "
 paywall: true
 ---

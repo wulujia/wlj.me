@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-293"
+note_number: 293
 summary: "cicada @wulujia 老师，我们认真探讨一下，这里互相叫老师当然是开玩笑。 我对知识星球的生态的确不了解，换个角度看，产品价值观的输出也是好事，如果能梳理观点与表述，让我这样的潜在用户更准确地了解知识星球的价值观，也许能影响到更多"
 paywall: true
 ---

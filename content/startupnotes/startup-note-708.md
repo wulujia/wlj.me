@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-708"
+note_number: 708
 summary: "此前公司里提倡的价值观有客户第一、简单、负责。并且做了简要说明。最近有点想再迭代一下，考虑是： 很多同事提到的“追求卓越”，希望我们不停在一个地方，希望我们不满足于现状，希望我们看到不好的地方时会不舒服，想改进。 跟朋友聊天，他提到一点我很"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-807"
+note_number: 807
 summary: "刚刚听到到摩根大通 CEO Jamie Dimon 的一段录音，在录音里，他对员工签署请愿书，要求保留混合工作模式——可以到公司，也可以远程办公，做了非常强烈的表达，比如： I've been working seven days a go"
 paywall: true
 ---

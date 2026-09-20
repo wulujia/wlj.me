@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-115"
+note_number: 115
 summary: "不记得这哪里看到过一句话：人出生起，就向着死亡一路狂奔。 前段时间，大伯去世，我回去奔丧。 大伯身材高大，当过兵打过仗。在我印象中帅气爽朗有担当（毕竟是老大）。 去年春节回家乡，是我最后一次见到大伯。那时他行动不便，已经很少出门，平时还能坐"
 paywall: true
 ---

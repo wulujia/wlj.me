@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-142"
+note_number: 142
 summary: "在创业笔记 No.84 提到过，知识星球因为 IAP 过审有问题，此前考虑到 IAP 有如下问题，很难解决好： 32% 的手续费； 长达两个月的结算周期； 完全不可控的「损耗」——比如用户退款、黑卡等造成的坏账； 在国内偏低的支付成功率。 "
 paywall: true
 ---

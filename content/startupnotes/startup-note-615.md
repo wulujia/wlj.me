@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-615"
+note_number: 615
 summary: "接上笔记 614 所说，继续讲上次听过的几个故事。 两个半人做游戏 在腾讯还没开始做游戏那会儿，最初是 Pony 觉得游戏是个非常好的方向，希望公司能往这个方向投入些研发资源。但当时腾讯正处于流量大幅上涨阶段，Tony 带着研发团队费劲地应"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-831"
+note_number: 831
 summary: "前几天和一位硅基流动的朋友吃饭，听他讲了 2025 春节，硅基流动的注册用户在 8 周时间里，从 12 万一跃到 550 万的故事。 我问他，硅基流动做对了哪些事，能接住这些流量，他的答案是： 很早就和 DeepSeek 有深度合作。不管是"
 paywall: true
 ---

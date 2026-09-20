@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-052"
+note_number: 52
 summary: "前段时间内部做了 SWOT 分析，觉得紧迫感蛮强的。把面临的一些风险列出来给大家看看，想做类似社区、UGC 产品的，可以琢磨琢磨，这些坑，能不能趟过去。 内容管控风险（网信、网监等） 税务风险 政策风险（诸如 ICP 证 B21/B25、网"
 paywall: true
 ---

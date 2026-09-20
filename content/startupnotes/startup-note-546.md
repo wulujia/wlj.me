@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-546"
+note_number: 546
 summary: "枪叔在公司群里讨论，提到： 如果新增没办法覆盖因为续费率不高带来的流失，那么不够大星球的星主，最终迟早会发展到月收入“不值得”。 例如我们的模型假设一个业余星主至少需要 50 元一千人，也就是五万元每年才能维持下去，如果续费率 50%，第二"
 paywall: true
 ---

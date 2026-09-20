@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-263"
+note_number: 263
 summary: "我曾经关注了一段时间「想法」这个功能，觉得做得很好，有不少可以参考学习的点。这几天知乎改版，想法 tab 融进首页的信息流，引起了不少争议。 我还看到了两篇关于知乎的文章： http://t.cn/AiNzvfsE http://t.cn/"
 paywall: true
 ---

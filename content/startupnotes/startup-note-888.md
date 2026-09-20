@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-888"
+note_number: 888
 summary: "公司这些年的经营还算顺利。每年都会有些新的风险—如果处理不当，当然也会导致重大损失甚至无法经营，但可能是运气好，可能是我们足够踏实认真，加上优秀的同事们的努力，还是跌跌撞撞地走下来了。 运气能好多久？产品的生命周期会有多长？怎样才能让我们这"
 paywall: true
 ---

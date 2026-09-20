@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-367"
+note_number: 367
 summary: "2007 年乔布斯在发布会上拿出 iPhone 这个神奇的设备时，我还没有意识到它会改变世界，到了 2010 年，我就迷上了手机上的各种软件，很想在移动端做点事情。但是因为在经营着一家小公司，业务是 ToB 的企业安全软件，分身乏术，一直没"
 paywall: true
 ---

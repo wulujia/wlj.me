@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-540"
+note_number: 540
 summary: "上周末到朋友公司学习，听忠林介绍创业历程——从手机壳小风扇，到应急电源录音耳机，到头戴耳机扫地机器人宠物理毛器。包括整个过程中掉的坑，以及对产品设计的理解，受益良多。 记录一些当天有印象的点： 集海的规则里有：说实话、不做 PPT。 发展过"
 paywall: true
 ---

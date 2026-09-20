@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-460"
+note_number: 460
 summary: "Dieter Rams（https://zh.wikipedia.org/wiki/%E8%BF%AA%E7%89%B9%C2%B7%E6%8B%89%E5%A7%86%E6%96%AF）的设计原则： 在上世纪七十年代后期，迪特·拉姆斯日益"
 paywall: true
 ---

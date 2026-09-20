@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-365"
+note_number: 365
 summary: "在创业笔记 311：与闲鱼盗版的对抗（https://t.zsxq.com/JyFuVrR）里，提到了盗版者在闲鱼发布盗版知识星球的内容，我们的对抗方法，这其中相当重要的是淘宝的重视。 最近接连遇到盗版者使用腾讯提供的服务，但我们处理和沟通"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-066"
+note_number: 66
 summary: "距离上次被南七道/虎嗅一篇《付费社交、付费内容，还是付费情色？》接近一个月了，我是这么想的： 小密圈自己还是没做好，才会有部分低俗内容存在和被揪辫子； 问题早暴露比晚暴露好，不会尾大不掉，现在做改进，包袱没那么重； PR 很重要，需要有自己"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-338"
+note_number: 338
 summary: "同事准备折腾视频号，我也凑热闹想做几个视频，看了一堆视频后，感觉制作成本最低的其实就是写好文案，然后直接对着大头拍摄了——但是，我又不是太喜欢露脸，于是想了想办法，目前的方案是： 在 iPhone 的“信息”里创建好自己的动画形象； 使用 "
 paywall: true
 ---

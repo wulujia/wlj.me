@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-633"
+note_number: 633
 summary: "之前孟岩说，潇雨跑去跟他聊了一下午，让他可以开知识星球，很好玩。 以及，2023 年有很多让他激动的内容设想，能比过去有更多好内容。但此前的问题是，内容太分散了——微博、公众号、小宇宙、有知有行……最好能有一个比较统一的触点，做深做透。 两"
 paywall: true
 ---

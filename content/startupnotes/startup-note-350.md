@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-350"
+note_number: 350
 summary: "拿一个知识星球目前遇到的具体问题来向大家请教，因为知识星球也运行了一段时间了，目前有不少用户提出了“更有效的内容阅读方式”的需求。一些基本信息是： 目前完全是根据时间排序，提供搜索（基于内容、用户、文件），还有如选择特定时间范围、特定发表人"
 paywall: true
 ---

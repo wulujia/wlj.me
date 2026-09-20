@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-533"
+note_number: 533
 summary: "最近一段时间，有些小“冲突”，我觉得还挺好的，在一定程度上，体现了同事的“负责”。 例一： 一位运营同事觉得目前的公众号流量下滑，视频号正在大行其道，但知识星球却不能很好地支持在视频号里支付，很多星主觉得别扭。 反馈回来后，有同事觉得：视频"
 paywall: true
 ---

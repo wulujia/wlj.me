@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-492"
+note_number: 492
 summary: "从链接：https://backlinko.com/patreon-users 可以看到 Patreon 的创作者和订阅者数据（最近更新时间是 2022-01-06）。 记录一些信息： 拥有 600w 个月活的付费用户（称为 patrons"
 paywall: true
 ---

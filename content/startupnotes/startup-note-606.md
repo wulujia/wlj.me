@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-606"
+note_number: 606
 summary: "上午拜访一位创业者，聊天过程中，他提到了一件小事：开董事会，他介绍完公司今年的发展情况，克服的困难，最终的收获后，一位董事很认真地提议，请董事会成员为创业团队鼓个掌，感谢他们的付出，庆祝他们的收获。 这位创业者说：那时我真的鼻子有点酸，差点"
 paywall: true
 ---

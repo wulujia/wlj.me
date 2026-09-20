@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-311"
+note_number: 311
 summary: "之前推荐过淘宝的 https://ipp.alibabagroup.com/，可以到这里来申明知识产权，遇到盗版商在闲鱼或者淘宝售卖盗版，就可以直接投诉，处理速度挺快。但是最近出了点新状况——那批因为用了知识星球、小密圈关键词的盗版商家，发"
 paywall: true
 ---

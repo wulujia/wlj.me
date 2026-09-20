@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-357"
+note_number: 357
 summary: "史特金定律，是由科幻作家西奥多·史特金提出的，内容很简单粗暴： 任何事物，90% 是垃圾（ninety percent of everything is crap）。 既然说的是是\"任何事物\"，就可以引申到日常工作、生活、阅读、社交等各方面"
 paywall: true
 ---

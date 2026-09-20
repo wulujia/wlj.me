@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-146"
+note_number: 146
 summary: "最近这些天，有几位星主就「三天无条件退款」这个产品逻辑起了不小的争执。 支持者说：这方式挺好，一方面节约了我的时间，我不用费心思跟对我的内容和沟通方式不满意的人做过多解释，能接受留下，接受不了，反正三天无条件退。 反对者说：这种方式会逼走我"
 paywall: true
 ---

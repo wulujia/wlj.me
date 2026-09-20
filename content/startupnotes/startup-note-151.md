@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-151"
+note_number: 151
 summary: "前几天晚上，向一位了解今日头条内容安全审核的朋友学习，做了些笔记。可以结合 https://36kr.com/p/5114077.html 阅读。 通常的审核流程是： 用户发布（此时仅用户自见）； 进入安全模型矩阵（做风险识别） 高风险（进"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-453"
+note_number: 453
 summary: "创业笔记 453：得到锦囊 觉得得到锦囊做得蛮有特点的，买了个会员体验一下： 主要分类（呈现在首页）：人际关系、团队管理、沟通表达、职场技能、生活品质、医学健康。 分类之外“夹带”得内容：进站必刷、品控手册、提问。 全部分类：自我提升、心理"
 paywall: true
 ---

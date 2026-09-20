@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-474"
+note_number: 474
 summary: "我的需求是： 国内访问顺畅（不能是会被墙的、特别慢的） 符合国内用户使用习惯（符合国人使用习惯，比如 wiki、Confluence 感觉有点“难用”） 能自定义域名（比如语雀、wolai 似乎都不支持自定义域名） 最好是 SaaS 服务（"
 paywall: true
 ---

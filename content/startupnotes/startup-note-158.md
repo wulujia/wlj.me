@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-158"
+note_number: 158
 summary: "多看看优秀的产品，总是没错的。这几天打算把此前记录在 todolist 里面那几十个要看的产品细节点过一遍。 没有什么功利的「抄一把」的想法，只是简单想着，看得越多，未来遇到问题的时候，能够发散关联的元素就越多，越有可能脑洞大开想到简单自然"
 paywall: true
 ---

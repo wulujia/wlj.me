@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-434"
+note_number: 434
 summary: "创业笔记 434：一点点学习心得 昨天跟 T 一起开会，又学到了一些： 对每位参会者都很尊重，问每个人的名字、角色。 耐心。有些问题，哪怕是我的水平，都觉得能一眼看出来，但他能耐心地听完介绍——除非时间紧张，才会打断以控制会议进度。 会议上"
 paywall: true
 ---

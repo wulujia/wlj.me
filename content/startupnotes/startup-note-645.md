@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-645"
+note_number: 645
 summary: "前几天跟几位朋友交流时，有做 IM 的朋友提到，他们公司的 AI 实验中，有个项目还挺有意思，大致是： 用户有“扩列”需求。例如一个初三女生，希望在线上找一位高中男孩在线上一起自习、聊天。这时机器人可以给出合适的人选、拉群、破冰——因为是机"
 paywall: true
 ---

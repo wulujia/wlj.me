@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-961"
+note_number: 961
 summary: "此前讨论过，在目标没那么看得准的时候，应该先打子弹，再发炮弹。前两天跟 glacier 和 boxcounter 讨论的时候提到，其实应该可以有霰弹。 比如 Slax Reader，我们已经花了不少精力，将它做得颇为优雅、稳定了，但是仍然不"
 paywall: true
 ---

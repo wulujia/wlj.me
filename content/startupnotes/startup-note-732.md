@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-732"
+note_number: 732
 summary: "前些天，在和 EasyDay 的同事们聊产品时，Tony 对打卡提出了他的感受： 我有“早睡”的愿望，也努力想要达成早睡这个目标，但经常回过神时，已经超过了预定应该休息的时间了——也就错过了打卡。在我们的习惯养成产品里的打卡，能不能让我打一"
 paywall: true
 ---

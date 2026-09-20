@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-248"
+note_number: 248
 summary: "有朋友给我看了一位产品经理评价知识星球：不知道他们在瞎忙什么，几年了，产品看起来就一点都没有变化。 我回复：好产品就是这样的啊，哈哈。 其实这不是开玩笑，我还真是这么认为的。 举个桌面操作系统的例子，苹果的 MacOS 和微软的 Windo"
 paywall: true
 ---

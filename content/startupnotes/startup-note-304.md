@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-304"
+note_number: 304
 summary: "虽然我之前做过一段时间的网络与信息安全工作，现在公司要做安全——这是考虑做起来的一些点——每个点看起来就几个字，背后需要的工作量还不小，有些甚至还是发生过事故——痛过才舍得花钱花精力做的。 安全架构 组建安全团队 通过安全培训提升全员安全能"
 paywall: true
 ---

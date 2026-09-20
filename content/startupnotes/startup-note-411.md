@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-411"
+note_number: 411
 summary: "创业笔记 411：NFT 学习 最近时不时在新闻里看到 NFT 和创作者扯上了关系，似乎 NFT 即将是创作者、艺术家销售作品的工具，所以好奇心起，学习了一下。 NFT 全称 Non-FungibleToken （ 非同质化代币），NFTs"
 paywall: true
 ---

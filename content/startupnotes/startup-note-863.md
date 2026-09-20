@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-863"
+note_number: 863
 summary: "这周开始想试试做小红书，得到了第一个知识星球和 Slax Note 可以改进的细节：生成多张图片，而非生成长图。这样图片转发也不会包浆难看。 Slax Note 的官网，应该加一个 apk 下载——国内用户好歹可以下。 Slax Reade"
 paywall: true
 ---

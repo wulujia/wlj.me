@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-652"
+note_number: 652
 summary: "ChatGPT 爆火之后，不少人兴奋了一阵子，但很快就觉得，AI 和自己的工作生活没什么关系，然后回归到原来的轨道里。 前段时间，我去朋友公司学习他们对 AI 的应用，印象比较深的点有： 一千多人的公司，说 All in AI，就迅速动起来"
 paywall: true
 ---

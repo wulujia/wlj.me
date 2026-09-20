@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-060"
+note_number: 60
 summary: "价格考虑 通常圈子有两种模式，一种高价人少，一种价低人多。 需要先想清楚做用户深度运营的目标是什么，并作出判断。 50 元/年，可能能找到 5w 甚至更多人进来，社区运营的工作会复杂一些，但管理得当，可能能从一些用户比较「初阶」就培育起； "
 paywall: true
 ---

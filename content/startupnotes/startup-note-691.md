@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-691"
+note_number: 691
 summary: "星主宋世泊老师提了个建议： - 公众号推送采取算法筛选机制后，等于大幅度降低了公众号的效果。当时我在想，或许应该把公众号用户导流到知识星球，以实现百分百的推送到达率（仅限转移成功的用户）。后来总觉得知识星球的推送效果也不理想，就放弃了。 知"
 paywall: true
 ---

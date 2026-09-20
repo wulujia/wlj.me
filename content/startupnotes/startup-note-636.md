@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-636"
+note_number: 636
 summary: "杜辉让我讲讲星空问答的失败。我说好。可我没想到，他还给同事们订了些吃的，“庆祝”失败，挺好的。 我把 PPT 去掉两页数据放出来——其实也没剩几页了，我跟同事们聊的内容有： 最初我们是为什么考虑做星空问答的 一年之后回顾：数据如何？我们自己"
 paywall: true
 ---

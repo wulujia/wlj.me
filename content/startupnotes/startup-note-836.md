@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-836"
+note_number: 836
 summary: "前些天收到知识产权代理律师的邮件，告诉我们 Slax 商标有问题——此前 Starry 商标也是如此：先花一笔钱注册下来，小小开心了一下。一段时间以后，有人提异议，应数成本不低。比如这次： 外所律师认为针对目前对方所提无效材料及主张，建议贵"
 paywall: true
 ---

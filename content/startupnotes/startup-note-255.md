@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-255"
+note_number: 255
 summary: "今天设计同事拉着产品一起讨论他们对新版本的想法，特别好。其中有一个点我想稍微记录一下，就是：怎样降低用户的决策、付费、使用、服务成本。 比如我们做了知识号，其实有个小想法——之前邀约创作者们试用知识星球，感觉非常艰难，因为动辄要一年时间。有"
 paywall: true
 ---

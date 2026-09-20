@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-637"
+note_number: 637
 summary: "今天午餐会，邀请到了海底捞的 CEO 杨利娟女士，对这位个子不高，但颇有传奇色彩的女士，我还是很敬佩的。她的故事，可以从《海底捞你学不会》里看到一些，以及近期的一些报导，比如： https://www.sohu.com/a/61883244"
 paywall: true
 ---

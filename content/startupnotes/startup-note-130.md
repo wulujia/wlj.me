@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-130"
+note_number: 130
 summary: "看到有人说 YOYOW 是 Steem 的国内版（其实还有币乎），就都看了看，就白皮书而言，YOYOW 写得更清晰些。 其实我没看出 YOYOW 和 Steem 的本质区别。 在我看来，YOYOW 和币乎的最大风险是：一出手就做平台。 任何"
 paywall: true
 ---

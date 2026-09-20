@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-529"
+note_number: 529
 summary: "问题描述 部分用户发大量内容，例如： 在加入的星球内发广告。 写了一篇原创文章，自以为很优秀，于是发了很多星球。 在自己管理的星球一次性发大量内容（可以考虑暂不处理）。 这有可能导致： 被发广告的星球管理者不愉快。 导致动态充斥同样内容的问"
 paywall: true
 ---

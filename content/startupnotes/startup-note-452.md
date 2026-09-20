@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-452"
+note_number: 452
 summary: "做网站、App，有内容的朋友，建议阅读最近发布的一篇文章： https://mp.weixin.qq.com/s/uPkmoQR3U7QhKJHiP7xA8A 我仔细学了几遍，从落地、落实角度，第三部分“重点任务”，其实就是内容安全的风控指"
 paywall: true
 ---

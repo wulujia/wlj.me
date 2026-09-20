@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-433"
+note_number: 433
 summary: "创业笔记 433：关于投放 三季度我的 OKR 里有个 KR 是：尝试做投放 / 尝试做社群训练营与星球玩法 / 尝试用多种方法推星空问答，以找出有效的新运营方法。 因此昨天找了腾讯广告的两位朋友请教（其中一位还是知识星球付费用户）。 去之"
 paywall: true
 ---

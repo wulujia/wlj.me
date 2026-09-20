@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-297"
+note_number: 297
 summary: "看到 tombkeeper 在微博上说： 搞研究要保持产出，要有个 Idea 池。 比如 BadBarcode 这个研究是我们 2015 年做的，但我 2010 年 5 月就想到并做了预研，并判断是可行的，然后放进了我的 Idea 池。今年"
 paywall: true
 ---

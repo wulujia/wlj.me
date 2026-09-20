@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-891"
+note_number: 891
 summary: "前两天挺播客，张小珺访谈朱啸虎：https://www.youtube.com/watch?v=-sowOoOeQz4 里面朱啸虎提到的几句话，听起来很有意思。 从周活到日活 他提这个的出发点是说 ChatGPT 在产品上大大发力，希望成为"
 paywall: true
 ---

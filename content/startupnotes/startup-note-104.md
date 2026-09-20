@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-104"
+note_number: 104
 summary: "前段时间在朋友圈看到不少 BeeChat 这个产品的信息： https://mp.weixin.qq.com/s/MSb6uKW043cB-XA3GNQrbg https://mp.weixin.qq.com/s/I-h-R5pWDql4P"
 paywall: true
 ---

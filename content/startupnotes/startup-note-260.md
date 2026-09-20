@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-260"
+note_number: 260
 summary: "昨天说到风控，举几个例子： 羊毛党 早期知识星球对付费提问、赞赏不收手续费（包括微信支付的千分之六手续费，都是我们直接代付），初衷很简单：鼓励大家提问，鼓励星主给出高质量的回答。 但是后来出现了信用卡套现羊毛党——一批用户进来创建星球，相互"
 paywall: true
 ---

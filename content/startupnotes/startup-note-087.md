@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-087"
+note_number: 87
 summary: "你多久没有连续几个小时沉浸在一件事（无论是工作、学习、兴趣、娱乐——哪怕是游戏）里了？ 昨天我回想，最近两个月一直都在「浑浑噩噩」中度过，倒不是说没有工作和学习，而是这一切都是兵来将挡水来土掩见招拆招式的本能反应。在这种状态下，其实倒是多线"
 paywall: true
 ---

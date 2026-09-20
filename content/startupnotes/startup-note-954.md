@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-954"
+note_number: 954
 summary: "前些天在 Slack 里配置了 Claude Tag——此前我对 Claude Tag 的想法是：和 OpenClaw 那样的 Agent 放进群聊里一样，并不太新鲜。 测试了几天——Yuanda 给 Claude Tag 接上了 Figm"
 paywall: true
 ---

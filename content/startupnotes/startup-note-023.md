@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-023"
+note_number: 23
 summary: "有人问了些关于小密圈的小程序版的问题，简单记录。 小密圈的小程序版上线没有一次审核通过，被打回来的原因是什么呢？ 小程序上线类似苹果的 APP Store，需要平台审核。小密圈的审核被拒绝了几次。 一开始的原因是类目选择错误——之前的类目确"
 paywall: true
 ---

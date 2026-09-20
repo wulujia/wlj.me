@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-953"
+note_number: 953
 summary: "如果你还在看网页，那大概率咱们一样，在读书之余，还愿意看些互联网上的文字信息（而不仅仅是短视频），那你可能会遇到我曾经遇到过的几个问题： 收藏的链接，一段时间后无法访问了——不知道它曾经是什么，也不知道为什么之前收藏。 在不同网站看到的好内"
 paywall: true
 ---

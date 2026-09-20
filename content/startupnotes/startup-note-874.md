@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-874"
+note_number: 874
 summary: "关于邮件的几个信息： 前些天在 ppchen 组织的《组织行为学》共读讨论中，Zhuoran 提到一个经验是，他们会提供一个“沟通邮箱”，让同事们如果有可能问题需要讨论，甚至是涉及隐私/不希望被其他人看见的内容/举报时，可以放心地发送。 之"
 paywall: true
 ---

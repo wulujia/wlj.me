@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-113"
+note_number: 113
 summary: "对币圈用户有蛮多在知识星球扎根这事儿，说起来，亦喜亦忧。喜的是产品的收费、社区、沉淀等特性能够让这批人爱用。忧的是这波疯狂过后，是否会留下一地鸡毛？ 这两天看到国内对「利用所谓的区块链概念搞代币、虚拟币的传销平台已经超过 3000 多家」，"
 paywall: true
 ---

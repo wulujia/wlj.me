@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-059"
+note_number: 59
 summary: "最初做产品党这个圈子，想法很简单：自己喜欢观察产品分析产品把玩产品，很多人也喜欢这么干，搞一个免费圈子，吸引更多人来这里讨论。 起初还有些味道，但免费圈子，人数增加并不带来质量的提升（这就是另一个话题了，以后再写一篇），反而是广告横飞，讨论"
 paywall: true
 ---

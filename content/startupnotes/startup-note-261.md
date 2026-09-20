@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-261"
+note_number: 261
 summary: "最近这些天，脑子里一直在想，该不该做个新产品。 支持做的心思是： 知识星球已经基本稳定，后续只需要稳定中求突破就行； 一条业务立住了，再上一条业务线，双引擎才能跑得快； 网络社区、知识社区、社交产品、UGC 内容产品，在内容安全方面存在很大"
 paywall: true
 ---

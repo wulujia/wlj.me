@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-165"
+note_number: 165
 summary: "上一个版本的知识星球里，我们希望能够放出更多信息，帮助用户了解某个星球的价值（同时也让一些有待改进的星主感受到一点压力），我们做了个极其简单的评价功能： 用户在付费加入星球 7 天后，会提示他对星球进行评价。选择只有两个：满意、后悔，二选一"
 paywall: true
 ---

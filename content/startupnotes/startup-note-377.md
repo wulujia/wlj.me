@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-377"
+note_number: 377
 summary: "定位 有信息质量追求的人的信息流产品； 用思考交换思考； 满足的核心用户群是\"有信息质量追求\"的人群，满足的核心需求是\"思考、输出、讨论\"。 需求来源 微博在泛化、娱乐化，越来越多的人在逃离微博； 得到、即刻、知乎想法、豆瓣乃至饭否，都还有"
 paywall: true
 ---

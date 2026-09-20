@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-671"
+note_number: 671
 summary: "我们之前处于安全考虑，对星主已经长期不来，因此星主不发帖且不做管理的星球，做了用户体验很不好的“强限制”，即： 禁止新用户付费加入。 在加入位置提示“星球违规，被限制”。 星主如果想要重新激活该星球，需要联系我们，做解除限制操作。这种限制的"
 paywall: true
 ---

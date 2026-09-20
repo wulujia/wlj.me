@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-718"
+note_number: 718
 summary: "这几天跟同事聊天，继续提到了粗糙，我隐约觉得，我们可能有 1/4 到 1/3 的时间和精力，消耗在了过早地“进入细节”，甚至实现了细节。 之所以再提这事，是前段时间跟同事聊起知识星球的网页版改进，其中有个需求，是我提出的。我的需求点是： 我"
 paywall: true
 ---

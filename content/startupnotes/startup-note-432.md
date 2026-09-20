@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-432"
+note_number: 432
 summary: "昨天想，既然是“创业笔记”，就不考虑完整、正确、系统，而是简单地记录下日常工作、思考，也不用拘泥长短，当作一个内容可以小范围公开的日记好了。 会员功能，是之前的一个考虑，可以尝试："
 paywall: true
 ---

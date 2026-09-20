@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-156"
+note_number: 156
 summary: "老实说，梁宁的产品课我第一时间买了，但听过后评价不高，原因是： 遣词造句有点「高深」（随便举个例子，比如：如何建立一种系统能力，以此去向用户交付一种确定性），不是我喜欢的大白话说事； 过多讲所谓「道」，其实大多数人用不上（所以在面试产品助理"
 paywall: true
 ---

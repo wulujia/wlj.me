@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-937"
+note_number: 937
 summary: "前些天买了个 zsxq.md 域名，我当时的脑洞是可以做： 开知识星球能赚多少钱的评估工具 用那个 SaaS 产品更划算的计算工具（https://meltflake.com/creatorcut/) 快速获取知识星球分销链接的工具 获得知"
 paywall: true
 ---

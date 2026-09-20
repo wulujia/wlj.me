@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-131"
+note_number: 131
 summary: "春节假期是充电的好时机。之前对信息流产品几乎不了解，认真在知乎上听了个 Live，也算有点初步认识。 做了点笔记，有兴趣的朋友可以快速过一过。"
 paywall: true
 ---

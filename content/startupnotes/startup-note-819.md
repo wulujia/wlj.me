@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-819"
+note_number: 819
 summary: "在知识星球的产品设计稿里，经常会有弹框提示，内容大意是：有个 xx 特性，你可以选 A、B 或者 C，如果选 A，结果是这样，如果选 B，结果是那样……你选吧。 我希望： 不要让用户选，而是我们帮用户判断选什么最好——做好合适的默认选项（这"
 paywall: true
 ---

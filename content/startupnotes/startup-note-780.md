@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-780"
+note_number: 780
 summary: "上周在日本，Linkloud 安排的活动，走访了很多厂商，记一些流水账。 Day1 Ashisuto https://www.ashisuto.co.jp/english/ 日本著名软件代理分销商，创立于 1972 年，曾协助 Oracle"
 paywall: true
 ---

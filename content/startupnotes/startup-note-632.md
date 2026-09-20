@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-632"
+note_number: 632
 summary: "五一期间很巧，在办公室约到了几位产品技术方面很厉害的专业人士。一位是 ppchen 说的，在 2015 年加入一家当年两千万 dau 的公司时，目标是做成 10 亿 dau（虽然很可惜，没达成……但仍然到了很厉害的高度）。另一位则是最近带队"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-586"
+note_number: 586
 summary: "前些天，我提出“是否可以尽可能低成本做一个“课程”产品，直接对标小鹅通”之后，同事反馈有： 希望我补充描述背景、目标，否则判断依据不足。 希望明确对标小鹅通的具体功能点。 我补充： 单独的课程产品，对标小鹅通。 功能单一，低成本（比如他们的"
 paywall: true
 ---

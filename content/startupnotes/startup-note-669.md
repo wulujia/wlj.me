@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-669"
+note_number: 669
 summary: "今天徒步时，跟一位朋友聊天。他们正在做一个针对学校老师、学生甚至是家长的小工具。他问我建议，其实我啥也提不出来——因为我并不是真正的目标用户，他们谈到的场景，我可以想象，但没有体感，自己也不痛。 所以我给他的建议是：找真正的用户聊，这些客户"
 paywall: true
 ---

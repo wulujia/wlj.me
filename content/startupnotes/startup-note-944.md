@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-944"
+note_number: 944
 summary: "上个月听了第一节 SEO 的培训，将怎么做关键词研究。我试着对 Slax Reader 做思考，目前初步的结论（不一定对，因为我花的时间太少太零碎）是： Read Later 产品在 SEO 上并没有做太多事情，反而每个产品都是品牌词最强，"
 paywall: true
 ---

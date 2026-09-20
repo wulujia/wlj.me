@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-938"
+note_number: 938
 summary: "此前我一直说，我们做一个项目，在上线之前，要明确要观察哪些数据，它的北极星指标是什么，我们应该如何根据这些数据来调整下一步的动作。 但实际上，这件事我也没做好。我错误地把时间和精力放在“做功能”上，没有要求一个简单清晰的，包含几个重要北极星"
 paywall: true
 ---

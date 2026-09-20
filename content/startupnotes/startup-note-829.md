@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-829"
+note_number: 829
 summary: "20250508 学习收获 海外运营里最重要的三件事：红人营销（低门槛）+ 广告投放（高门槛）+ SEO（高门槛） 红人营销的本质是买他的粉丝 & 与粉丝之间的信任 红人营销的整体思路：圈人（找什么渠道如 TK、ins、YT，找与产品匹配的"
 paywall: true
 ---

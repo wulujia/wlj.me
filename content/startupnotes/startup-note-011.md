@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-011"
+note_number: 11
 summary: "昨天，有位朋友在小密圈里提了个速配交友类型的产品「如故」，先手机注册，然后做十道选择题判断你的类型，然后索取你的地理位置——然后给你速配一些可能的对象。 手机注册，会拦下一堆已经下载的人； 做题，再拦下一大半； 地理位置，再拦下一部分。 最"
 paywall: true
 ---

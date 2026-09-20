@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-881"
+note_number: 881
 summary: "前段时间测试在 Apple Ads 投放广告，广告投放后，在企业微信看到的订阅数有所增加，我当时的内心感受是：效果还挺好。计划等产品发布后再追加金额试试。 但始终没腾出手来分析数据，今天把数据下回来看了看，有点懵。 关键数据 广告总花费: "
 paywall: true
 ---

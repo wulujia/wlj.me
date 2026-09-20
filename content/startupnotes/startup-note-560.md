@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-560"
+note_number: 560
 summary: "看一篇讲 Reddit 的文章（https://research.contrary.com/reports/reddit），提到了： Reddit Premium: Reddit has a paid subscription which "
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-473"
+note_number: 473
 summary: "前些天收到的读库里，照惯例，有张立宪的信，里面写道：今年年初，我对自己的人生做出了些许规划。当时《读库》已经连续出版十五年，贯穿了我三十六岁到五十一岁的光景。我想的是，能否再奋斗十五年，干到六十六岁？这样的话，就意味着我的生命中有三十年在编"
 paywall: true
 ---

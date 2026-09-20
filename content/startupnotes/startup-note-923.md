@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-923"
+note_number: 923
 summary: "我们曾经对外说过一个\"总用户数\"的指标——高达五千多万，这是个典型的虚荣指标。 之所以这么说，是因为：知识星球的账号体系基于微信授权，用户无需单独注册账号、设置密码或填写邮箱手机号。过去，只要用户在朋友圈或微信群点击链接并授权访问——其实就"
 paywall: true
 ---

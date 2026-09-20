@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-876"
+note_number: 876
 summary: "考虑 2005 Q4 的 OKR 简单一些： O1：解决当前的主要问题 财税调整的后续：用户服务如安抚情绪、产品调整如是否需要调整价格/去掉星钻/合伙人收款等 新增用户下滑问题 海外运营启动的方向：Apple Ads + Google（Ad"
 paywall: true
 ---

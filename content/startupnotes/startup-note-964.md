@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-964"
+note_number: 964
 summary: "AI 来了，岗位之间的界限越来越模糊。产品、运营、研发、设计之间，似乎绝对不可逾越的门槛消失了。这种情况下，此前我很强调，请大家做到的“向前一步”，往往就没那么难了。 但这里有必要提醒一句：向前一步的前提，是做好自己本职工作。 我在不同组织"
 paywall: true
 ---

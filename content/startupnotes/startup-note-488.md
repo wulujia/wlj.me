@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-488"
+note_number: 488
 summary: "每年到十二月底，总是要回顾、总结、计划。恰好看到李想的一个演讲，觉得思路简单清晰，对创业者——至少对我很有帮助，分享一下。 李想的演讲视频链接：https://mp.weixin.qq.com/s/MS2F1LVCZiYMsbl-VJPl8"
 paywall: true
 ---

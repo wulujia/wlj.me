@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-623"
+note_number: 623
 summary: "ChatGPT 的火热，带起了不少行业和公司。股票市场上，aigc 相关概念股，一概涨的不错。对我们这样小小的，做社群工具的公司，也是有影响的——此前没几个 AI 相关的星球，现在挺多。 很长时间以来，我对流量一直是喜忧参半的。没有用户时，"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-778"
+note_number: 778
 summary: "前两天看到 Slax Note 的交互时，吓了一跳：和我看过的一款同类产品“闪念贝壳”特别像。 索性简单记录几句，我对“抄”的感受。 我不反感抄思路，而且认为，应该抄思路。我甚至认为，这个世界就是相互借鉴，站在巨人的肩膀上，多解决一点问题，"
 paywall: true
 ---

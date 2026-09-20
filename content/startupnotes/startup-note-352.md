@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-352"
+note_number: 352
 summary: "微信今晚发布了“关于规范公众号内虚拟支付行为的公告”，明确微信公众号内暂不支持iOS端虚拟支付业务。虚拟支付业务是指购买非实物商品，比如：VIP会员、充值、录制课程、录制音频视频等虚拟产品。在公众号中，虚拟支付违规问题包括但不限于以下几类："
 paywall: true
 ---

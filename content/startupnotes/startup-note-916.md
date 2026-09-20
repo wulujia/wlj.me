@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-916"
+note_number: 916
 summary: "最近重度使用 AI，在用 AI 的过程中，我能明显感受到一点一点在突破自己的能力边界，不少原来做不到的事情，有了 AI，能做了。虽然我还不知道这终将对我、对公司带来什么改变，但我也还是希望所有同事都能接触、体验 AI，至少要先有清晰的体感。"
 paywall: true
 ---

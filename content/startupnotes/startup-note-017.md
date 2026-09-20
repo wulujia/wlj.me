@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-017"
+note_number: 17
 summary: "小密圈里面已经出现少量政治、色情、盗版等内容了，对违反国家法律法规的，只能一律对圈子做封禁处理。但其实还有些细节问题没有处理好： 一、 「度」怎么把握？ 举例来说，就「裸露身体」而言，怎样算艺术，怎样算色情？其实在一定程度上，我认为露点并不"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-830"
+note_number: 830
 summary: "刚刚打开微信公众号，看到了自己账号下几个被冻结的公众号——因为太久没登录，而且微信提醒过几次，我觉得意义不大，就没有登录、更新信息，放任其过期了。 回忆起我们遇到过的几个问题： 有些星主创建过星球后废弃了，但用户一直在，一直能访问、发帖、评"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-806"
+note_number: 806
 summary: "前几天，我在群里发了一条： 讨论：如果 Reader 索性开源发布，大家会喜欢，还是担忧？为什么？ 同事们的回复普遍比较积极。 Zhiqiang： 两者都有。 喜欢是没试过开源一整个项目，有机会尝试了。 担忧是光开源代码不够、还需要支撑，比"
 paywall: true
 ---

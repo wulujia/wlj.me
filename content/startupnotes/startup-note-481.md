@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-481"
+note_number: 481
 summary: "之前在这里记录过小鹅通一些不是太体面的竞争，在笔记 468 里，我约老鲍敞开地聊了聊，我觉得蛮好。但是才没过几天，又有类似的行为。 认真回顾起来，我一直没把小鹅通当成竞争对手——尤其是需要不体面竞争的对手，不止一次，朋友试过知识星球，但又想"
 paywall: true
 ---

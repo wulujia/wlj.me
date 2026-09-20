@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-920"
+note_number: 920
 summary: "前段时间，Shotgun 在群里问了一句： 今天真知拙见的一个合伙人自己开了星球。我在想一件事，如果我们有相当一部分星主，最初是先加入某个星球，或者成为嘉宾、合伙人，之后才开设了自己的星球，我们有没有办法加速这个过程？ 我的一个想法是:我们"
 paywall: true
 ---

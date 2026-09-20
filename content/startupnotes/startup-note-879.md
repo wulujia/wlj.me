@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-879"
+note_number: 879
 summary: "公司内部鼓励向前一步，但这个理念没有明确定义，我自己脑子里也只能模糊地认为：任何让组织变得更好的主动行为都算。 我的认知里，向前一步，更多发生在边界——所谓的三不管地带，也就是不在任何人的岗位职责里，跟所有人的 OKR/KPI 无关的，但是"
 paywall: true
 ---

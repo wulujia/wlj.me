@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-901"
+note_number: 901
 summary: "周末听完了张小珺采访季逸超的播客，觉得很精彩，于是找了逐字稿又看了一遍，摘抄部分觉得有意思的内容记下来。 还是很喜欢 Manus 这款产品。"
 paywall: true
 ---

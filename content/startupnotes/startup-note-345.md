@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-345"
+note_number: 345
 summary: "星球“腾讯安平密友圈”在做一个“大神”的活动，回忆自己入行时的大神。我仔细想了想，老实说，之所以会进入信息安全行业，并不是因为正义感爆棚，而是觉得“能通过电话线就看到别人电脑里面的照片、文件，真的太酷了”。只是，接触得越多，越生起敬畏之心罢"
 paywall: true
 ---

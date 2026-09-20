@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-844"
+note_number: 844
 summary: "这几天向朋友请教，他在团队里做了残酷的淘汰，其中很重要的一个工具是 AI，他的方法还是颇有些值得学习的地方——这里主要是他的观点和方法，不代表我们要精简人员。 他说： 你搭建一个 higress 或其他 ai router，后端配公司选定的"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-226"
+note_number: 226
 summary: "假期里看的书里有一本《我在故宫修文物》，算是同名纪录片的采访手记，里面反复提到了「磨性子」这个词，比如单嘉玖口述的「磨刀刮纸就是磨你的性子」： 头三个月，师父给我一沓纸，一把马蹄刀，剔掉纸上的草棍、煤渣，不能弄破纸。实际上是练你刀的力度，因"
 paywall: true
 ---

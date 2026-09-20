@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-808"
+note_number: 808
 summary: "Obsidian 的创始人有个每年的 40 问（https://forum.obsidian.md/t/40-questions-to-ask-yourself-every-year/8976），我本来想试试，结果——嫌太多，而且有不少不相"
 paywall: true
 ---

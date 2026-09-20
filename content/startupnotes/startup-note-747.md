@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-747"
+note_number: 747
 summary: "是一个稍后阅读工具。类似 readwise、raindrop、pocket。解决我的问题有：收藏的 url 经常 404、收藏链接以便后续阅读或查询。 是一个督促学习工具。类似 duolingo，变着法子催促用户学习。解决我的问题是：收藏链"
 paywall: true
 ---

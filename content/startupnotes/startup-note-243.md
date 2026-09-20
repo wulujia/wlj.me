@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-243"
+note_number: 243
 summary: "前几天，高晓虎问我，知识星球的发展经历了哪几个阶段，我答不上来——感觉似乎没有什么阶段，一直没变过。 昨晚到今天，在想后续发展的时候，倒是考虑了几个点："
 paywall: true
 ---

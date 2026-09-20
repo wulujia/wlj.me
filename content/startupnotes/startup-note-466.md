@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-466"
+note_number: 466
 summary: "刚刚看到大辉分享了一篇文章：https://mp.weixin.qq.com/s/wDPrx5_gM5CCCpqhXqENWg。 文章中提到了埃里克·罗斯 (Eric Roth)的创作工具：Dos 环境下的字处理软件 Movie Maste"
 paywall: true
 ---

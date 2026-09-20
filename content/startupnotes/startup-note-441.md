@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-441"
+note_number: 441
 summary: "Shotgun 提了个问题：征集能提高目前星球周报打开率的优化方案，以及从星球周报导流去新版数据后台的方案。 我凑凑热闹，提几个改进点："
 paywall: true
 ---

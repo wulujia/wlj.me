@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-696"
+note_number: 696
 summary: "下午跟冰河、志强闲谈间，提到了一些或许可以做的项目，暂且胡扯一气。 比如海外，可以尝试 做当前知识星球的英文版内容 seo & 付费通道，如果有效，可以跟星主分成（这个其实是前段时间跟欧阳聊到的）。 提供给国内企业体验 ai 的 SaaS "
 paywall: true
 ---

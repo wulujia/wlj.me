@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-745"
+note_number: 745
 summary: "先看几家公司的手册： https://basecamp.com/handbook https://handbook.gitlab.com/ https://resend.com/handbook 我的问题是： 作为一家接近二十年的公司，在知"
 paywall: true
 ---

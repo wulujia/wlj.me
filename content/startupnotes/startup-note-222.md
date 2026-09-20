@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-222"
+note_number: 222
 summary: "有「缩短付费周期」的想法挺久了，今天有机会到滨海大厦请教，就提了这个问题：知识星球的付费周期一直是一年，如果将这个付费周期缩短到半年、季度甚至月，是不是合适？ 得到的几个需要思考的点： 粘性是否足够，一般情况下，时间越短，越难让用户养成习惯"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-532"
+note_number: 532
 summary: "前些天，拉了几位同事面聊，讲了一些近期的大环境、我们的境况。今天组织了语言，发到公司同事们的星球里了。删减了几句话，发到创业笔记里，做个记录——希望国家安好，老百姓安居乐业，企业才有更多机会成长。 近期，市场上流传着各种裁员、降薪信息。大如"
 paywall: true
 ---

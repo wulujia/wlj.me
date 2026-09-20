@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-866"
+note_number: 866
 summary: "之前用过一段时间 Obsidian，还挺喜欢的，直接买了一年的 sync，方便在多设备之间同步，但因为我自己的奇怪用法（完全是我自己的问题），我希望内容通过 Dropbox 同步备份，还希望通过 GitHub 再备一份。 Obsidian "
 paywall: true
 ---

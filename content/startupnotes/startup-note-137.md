@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-137"
+note_number: 137
 summary: "在纯银的「产品犬舍」社区里，他说了这么一段话： 最近发现两个 30+ 的熟人都进入了思维固化状态，心里黯然。 但什么叫思维固化呢？想了几项选择题作为判断标准，以最近 2 年为准。1、在你擅长的方面，获得了多少成长，以及成长对应的成就值？ 如"
 paywall: true
 ---

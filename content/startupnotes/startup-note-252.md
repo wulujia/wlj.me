@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-252"
+note_number: 252
 summary: "星主、合伙人、管理员如果超过 60 天不更新内容、回答问题、进入与管理自己的星球，星球会被限制使用，具体限制项为： 不允许新用户加入； 星球里的内容不允许转发到微信、微博等其他社交媒体。 不少用户不太理解，其实原因很简单： 如果有违规内容，"
 paywall: true
 ---

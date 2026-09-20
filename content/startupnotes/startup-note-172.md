@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-172"
+note_number: 172
 summary: "今天动车上，学习了得到产品里的知识城邦。下线学习小组，上线知识城邦，产品上这个变化不小。得到在推出知识城邦功能的时候，文案里有： 爱记笔记的人会脱颖而出 上线了用户间可以互相关注的知识城邦 在知识城邦： 每一个人都可以公开自己的学习笔记 你"
 paywall: true
 ---

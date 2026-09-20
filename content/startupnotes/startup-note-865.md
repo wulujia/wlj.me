@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-865"
+note_number: 865
 summary: "最近参加 ppchen 组织的《组织行为学共读》，第六章谈到了决策分为系统科学的决策，有限信息下的决策，以及凭借直觉做出的决策。 我的想法一直是：因为信息不可能穷尽，因此我们普遍需要在有限信息下做出决策。因此我很多时候会倾向于直觉 + 有限"
 paywall: true
 ---

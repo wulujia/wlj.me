@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-446"
+note_number: 446
 summary: "此前跟 @明小篱 聊天，她问了两个问题： 你的目标，benchmark 是什么？比如说现在全球所有的社区/社交产品里，你觉得哪个最接近你想要的下一步的形态？ 你觉得比起这个目标，它能做到当前的阶段，有哪些因素是你没具备的？比如，竞争环境？特"
 paywall: true
 ---

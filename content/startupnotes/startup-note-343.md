@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-343"
+note_number: 343
 summary: "最近产品团队有点挠头，苹果在《App Store 审核指南》（中文版可以访问：https://developer.apple.com/cn/app-store/review/guidelines/）里明确提出了： 通过 Apple 登录 如"
 paywall: true
 ---

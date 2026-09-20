@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-305"
+note_number: 305
 summary: "前段时间，看到有个公司比较恶劣地在百度投放“知识星球”关键词，当时觉得有点不爽，在朋友圈吐了个槽。让我觉得意外的是，很快就有位百度知道的朋友找我： 了解细节； 联系具体业务部门下线该公司的搜索广告； 给了我可以更好地保护自己的方式——可以以"
 paywall: true
 ---

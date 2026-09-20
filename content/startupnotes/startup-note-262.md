@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-262"
+note_number: 262
 summary: "群聊里看到一位朋友发了段：赚钱的秘密我就认两个点：关注同行、复制同行。复制的过程就是学习消化吸纳的过程。再把对手的运营团队挖过来，任何项目都能做起来。 我对此是持否定态度的（当然，我在很大程度上还是相信「钱能通神」的——核心问题还是：复制的"
 paywall: true
 ---

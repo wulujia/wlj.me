@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-661"
+note_number: 661
 summary: "今晚打算抄一下三季度 OKR——虽然我把它做成了桌面，显示桌面和锁屏时都能看到，但，再抄一遍，加深印象——说起来，三季度都快过去了——当然，好在 8 月数据出来了，看起来，稍稍可以放下悬着的心，但还不能松懈。 O1：知识星球增活跃、增利润、"
 paywall: true
 ---

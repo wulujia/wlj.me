@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-019"
+note_number: 19
 summary: "绝对不止我一个人有拖延症。 我的手还算比较快，所以经常拖到最后一刻，还可以不太降低质量地完成承诺的事情，但自己其实清楚，还可以做得更好。 我现在给自己的治疗方案是：找一个 Todolist 工具，把计划要做的事情都输进去。看着长长的列表，给"
 paywall: true
 ---

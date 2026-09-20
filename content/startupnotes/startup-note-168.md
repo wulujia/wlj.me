@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-168"
+note_number: 168
 summary: "读失控时突然想起微信的一个案例，事情的发展时间线是这样的： 2016-06-10，微信公开课做的一个活动 H5 被意外泄露，该 H5 可以回溯自己的第一个好友、发了多少个红包，用于转发朋友圈。原计划在次日活动现场使用； 该 H5 传播效果很"
 paywall: true
 ---

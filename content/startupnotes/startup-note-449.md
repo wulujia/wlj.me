@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-449"
+note_number: 449
 summary: "昨晚跟好友晚餐。 我跟他聊起，我们的研发现状是： 围绕“产品”进行研发工作。 同时有三期产品在进行：版本 1 在研发中（设计已冻结，进入开发、测试），版本 2 在设计中（需求已冻结，进入交互、UI 设计），版本 3 在需求讨论中（产品、设计"
 paywall: true
 ---

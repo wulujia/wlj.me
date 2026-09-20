@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-472"
+note_number: 472
 summary: "多年以来，一直很认可“工欲善其事，必先利其器”，要干好一件事，先得有个趁手的工具。但笔记 466 提了“不折腾生产力工具”，今天又翻看了那篇文章，对这句话有感触： Movie Master 是一个 DOS 软件，所以受到系统内存容量的限制，"
 paywall: true
 ---

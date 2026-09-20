@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-334"
+note_number: 334
 summary: "前些天在学习短视频相关的东西（没错，现在才开始学，相当迟钝），正好有一个哥们前两年做了短视频公司，机会好的时候挣了些钱，但是没能放大战果，形势不好的时候，关公司止盈了。 他很认真地帮我做了回复，征得了他的同意，发出来——也是他的创业笔记 :"
 paywall: true
 ---

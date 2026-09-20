@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-018"
+note_number: 18
 summary: "10 月份，小密圈有了一小波增长之后，又「平静」下来了。虽然我们完善了网页版、微信版，努力试图向更多人推荐小密圈，目前每天的用户增长保持平稳，但并不快。 所以最近有些焦虑——究竟应该做些什么，才能最有效地促进小密圈的用户增长？ 是改进产品吗"
 paywall: true
 ---

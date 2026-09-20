@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-467"
+note_number: 467
 summary: "如果不看解读，我对 Day 1 的字面理解是一直保持创业精神——始终保持创业第一天时的态度，热情、积极。 然后，我查了些资料，这个 Day 1 最早出自贝佐斯在 1997 年的第一封股东信： Amazon.com passed many m"
 paywall: true
 ---

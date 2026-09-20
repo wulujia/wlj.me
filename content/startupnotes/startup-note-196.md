@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-196"
+note_number: 196
 summary: "前几天在朋友圈看到一位朋友说：「大多数规则都是为了防范极少数人的不规矩惩罚大多数人，为了防范极低概率的事情大大降低平时的生活质量。」 我还是想到了产品。 在产品里，总有些「坏用户」，他们的用法匪夷所思，我举一些听过、实践过的例子： 某 K "
 paywall: true
 ---

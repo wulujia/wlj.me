@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-566"
+note_number: 566
 summary: "前些天，我在翻阅知识星球和星空问答的管理后台，顺便处理了一些 spam——我的处理方式是，将那些 spam 用户封号，并且删除他们曾经发过的所有主题、评论、点赞。 昨天，邱岳找我，问为啥他星球里的主题、评论所剩无几——早期的都没了。 我没把"
 paywall: true
 ---

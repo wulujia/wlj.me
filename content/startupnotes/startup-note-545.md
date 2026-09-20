@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-545"
+note_number: 545
 summary: "2021 年，同事积极地张罗了知识星球的数据总结。当时我建议，是不是可以根据付费情况，给用户们不同的称号，比如付费多的，可以是“巴菲特”。但付费少或者没付费的，应该叫什么呢？ 我脑子里第一个浮现出来的人物是“葛朗台”（其实巴菲特才更适合——"
 paywall: true
 ---

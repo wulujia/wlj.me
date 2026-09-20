@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-225"
+note_number: 225
 summary: "今天在划船机上锻炼的时候，一边刷着「一席」里的演讲。听了两个设计相关的，分别是： 王受之的《我们的设计出了什么问题》 高在峰的《反人类设计背后的心理学》 学到了几句话： 设计是发现问题，解决问题 就我们的「知识星球」来说，用户使用过程中遇到"
 paywall: true
 ---

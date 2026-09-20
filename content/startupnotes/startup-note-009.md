@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-009"
+note_number: 9
 summary: "一、Mix 透明照 手机能拍「透明照」，就这个细节，让很多大咖拿到手机之后，就在微博晒一张透明照，很有面子很酷炫。Tony 评价是「天才的营销」。 做营销，还真不一定花钱就能做好，脑子还是最关键的啊。 二、双十一时腾讯给在职员工发股票和红包"
 paywall: true
 ---

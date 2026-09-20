@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-509"
+note_number: 509
 summary: "笔记 508 里提到了星主 CRM，Shotgun 和思南都提出了，是否直接用 Excel 来做这样的管理就行？ 我最初的想法是不太够，主要原因有以下几点： 有强烈的保密、隐私保护需求，比如不适合一整张表格被所有人拥有。 希望这是客户服务同"
 paywall: true
 ---

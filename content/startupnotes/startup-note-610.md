@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-610"
+note_number: 610
 summary: "前两天拜访了一位已经退休的前美团高管，在向他请教的过程中，至少记住了这么几点： 他说他和王兴、王慧文聊到过，过去十五年，王兴他们在思考的是，有这么多行业，这么多选择，什么行业能做，该冲进去。而他则是接到了指令，冲进去，于是思考这个行业该怎么"
 paywall: true
 ---

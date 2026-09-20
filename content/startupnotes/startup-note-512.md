@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-512"
+note_number: 512
 summary: "最近精力分得有些散，加上居家办公，整体有些松懈（看书、学英语占去了很多时间），工作时间长了，效率却往下降了些。今天一看，创业笔记也更新得有些寒碜，今天补上。 我最近想的，跟公司有关的问题有："
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-029"
+note_number: 29
 summary: "喜欢上拍照后，有段时间，我买了不少镜头，自诩：体验不同视角； 计划初四回老家——十几年在外，这次家族聚会，想回去看看，怀个旧，拍拍照； 出发前晚，收拾行李，考虑带哪几个镜头：要是去老房子，屋里窄，25 的带上好些？给几位长辈拍人像，85 的"
 paywall: true
 ---

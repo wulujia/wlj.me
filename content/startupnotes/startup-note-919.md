@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-919"
+note_number: 919
 summary: "2026 年度的 OKR 初步是这样定义的。 O1: 利润 xx 万 KR1: 提高星主的使用体验 KR2: 推进费率调改三期 KR3: 深挖增值服务 O2: 寻求知识星球增长突破，提高「真」新增用户指标 KR1: 成功开拓 xx 个新星球"
 paywall: true
 ---

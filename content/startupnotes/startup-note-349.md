@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-349"
+note_number: 349
 summary: "几天前小马宋来公司，我们向他请教营销该怎么做——在我原本的预想中，应该涉及的是各种运营、推广、流量、私域……实际上他却说了有点老掉牙的“4P 营销理论”。 4P 分别是：产品（Product）、价格（Price）、渠道（Place）、宣传（"
 paywall: true
 ---

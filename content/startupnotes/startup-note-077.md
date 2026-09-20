@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-077"
+note_number: 77
 summary: "最早「小密圈」这个名字的产品是面向 team leader 的，那时 tony 评价是「有点戏谑自嘲的味道」，大家也觉得还行，就用了。后来也遇到了不小的阻力，一个典型是大辉说他没法给让助理用——「小蜜圈」，怎么说啊，尴尬…… 转型成为社区/"
 paywall: true
 ---

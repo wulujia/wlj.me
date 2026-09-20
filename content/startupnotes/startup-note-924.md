@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-924"
+note_number: 924
 summary: "笔记 920 里提了 Shotgun 的想法：如果我们有相当一部分星主，最初是先加入某个星球，或者成为嘉宾、合伙人，之后才开设了自己的星球，我们有没有办法加速这个过程？ 前几天一位好友给我发消息，他星球里的嘉宾收到了私信，内容是： 注意到您"
 paywall: true
 ---

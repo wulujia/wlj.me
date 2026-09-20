@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-448"
+note_number: 448
 summary: "看书时，看到常见增长团队有几种组织方式： 独立增长团队，团队里有数据分析师、研发、设计师等，可以独立进行实验、复盘。 放在产品团队里，有面向迭代的产品经理，和专门的增长产品经理。共享研发和设计资源。 以增长顾问角色存在。 我最初的考虑是，采"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-272"
+note_number: 272
 summary: "先提两个我对微信的产品观点： 一是：因为做得少，所以人人都可以用，任何场景都可以用，人人都离不开。 很多产品，在迭代的时候单纯地加功能，大多数时候反而把产品“做小了”； 一个微信对话框，在里面能做的事情很多，有不少做得挺别扭，但微信也不为其"
 paywall: true
 ---

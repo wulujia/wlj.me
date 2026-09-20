@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-541"
+note_number: 541
 summary: "538 里提到了个人主页，前几天内部讨论，我抛出来问问大家的感受，结果五个人里，两人反对，三人无感。虽然觉得这个功能如果能做好，是可以提高用户粘度，他们使用工具的同时可以提高知识星球的曝光，能为我们带来些新增流量。 不过同事们提到的意见有："
 paywall: true
 ---

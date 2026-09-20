@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-292"
+note_number: 292
 summary: "前几天提到，因为池老师的测试，我们发生了一次事故（当然也是发现了一个漏洞），之后上了个新的安全功能：消息推送需要经过更高等级的安全检查后才可以执行。 这里的“安全检查”，是某家合作伙伴提供的服务，判断内容是否存在安全风险。我们基于这个判断做"
 paywall: true
 ---

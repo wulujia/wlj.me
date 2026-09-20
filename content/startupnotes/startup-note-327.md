@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-327"
+note_number: 327
 summary: "一直以来，不愿意接入苹果的 IAP，不仅仅是对 32% 的苹果税不满，也对整个 IAP 的体验不满。但是最近迫不得已，接入三天后，就遇到了无数抱怨，比如： 收费高，账期长； 支付失败（不知道怎么支付）； 支付失败（支付页面长期加载不出来）；"
 paywall: true
 ---

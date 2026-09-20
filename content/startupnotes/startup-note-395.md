@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-395"
+note_number: 395
 summary: "1 月 22 日，朋友发了个链接给我，内容是这个：https://finance.sina.com.cn/tech/2021-01-23/doc-ikftssap0037507.shtml——工信部通报今年首批 157 款侵害用户权益行为 "
 paywall: true
 ---

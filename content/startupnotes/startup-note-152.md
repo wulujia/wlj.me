@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-152"
+note_number: 152
 summary: "笔记 145 里提到了系统循环图。我理解的系统循环图，其实是一项思考工具，有助于从纷繁复杂的、动态的诸多事实中提炼出关键点。短时间内，这个工具没啥用，好像就是说出了人尽皆知的大实话。但是长期看，这种思考方法会对管理者做判断有帮助。 因为想做"
 paywall: true
 ---

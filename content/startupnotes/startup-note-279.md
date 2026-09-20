@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-279"
+note_number: 279
 summary: "前几天做拓展，有个叫“同心杆”的小游戏还蛮出乎我意料的，游戏的预备如下： 10-15 人侧身成一行； 全员手臂侧伸，并伸出食指； 将一根很轻的长杆（PVC、教鞭、竹竿都可以）放置在大家的食指上。 目标： 大家配合，在所有人食指不离开长杆的情"
 paywall: true
 ---

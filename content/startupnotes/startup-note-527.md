@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-527"
+note_number: 527
 summary: "VIE 架构（可变利益实体，Variable Interest Entities），也叫协议控制，是： 不通过股权控制实际运营公司。 通过签订各种协议的方式实现对实际运营公司的控制及财务的合并。 国内实体采用 VIE 结构，要解决的主要问题"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-697"
+note_number: 697
 summary: "年底了，总得务个虚。加上我很期待团队能更透明，有管理职能的同事更能打，所以这次的务虚，是部分同事一起做“战略共谋”。 Boxcounter 规划的是： 会前准备（大约两周时间，大家对现状、预期做提问和澄清对齐，并从各自的视角做 SWOT 分"
 paywall: true
 ---

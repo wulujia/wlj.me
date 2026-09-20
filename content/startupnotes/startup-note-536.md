@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-536"
+note_number: 536
 summary: "有那么几年，我脑子里的想法一直是“以产品为中心”。也就是公司的各种工作，是围绕着产品转的。 每一轮迭代中，产品定义了近期最重要的事情是什么，思考、设计出方案，然后围绕这个方案，设计师、研发、运营、数据、客服开始工作。 前几天，忘了是看到还是"
 paywall: true
 ---

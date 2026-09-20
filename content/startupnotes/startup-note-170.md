@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-170"
+note_number: 170
 summary: "在「产品党」社区里，我尝试布置了一期作业，说了将给本次作业点赞最多的三位朋友提供我觉得最值得阅读的三本产品书籍作为礼物。 结果出来了，我确为找书犯了愁——因为实际上我之前没做过总结和思考…… 后来我挑出来的三本书是： 简约至上：做简单产品的"
 paywall: true
 ---

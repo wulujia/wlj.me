@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-212"
+note_number: 212
 summary: "有些忙，自己星球里内容输出欠了不少（看了看，从星球里第一篇到现在，如果按两周一篇的承诺，已经欠了 18 篇），近期陆续补上。 前几天有朋友发了个「有趣圈」的网站截图，一看之下，又好气又好笑。从网站上的元素到 Slogan 都是照搬知识星球。"
 paywall: true
 ---

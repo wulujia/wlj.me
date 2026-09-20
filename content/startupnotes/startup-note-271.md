@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-271"
+note_number: 271
 summary: "因为 Fenng 向 Livid 介绍了知识星球，Livid 也来了，我加上他微信的第一反应就是告诉他：v2ex 的经济体系设计特别有意思。所以昨晚重听了内核恐慌里吴涛和 rio 对 Livid 的采访，链接参见：https://pca.s"
 paywall: true
 ---

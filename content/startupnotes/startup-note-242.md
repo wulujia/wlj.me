@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-242"
+note_number: 242
 summary: "今天拜访了阳志平老师，跟他聊天，带来了不少思考，我将一些零散的点简单记录一下。 以下大多数是阳老师的观点，有些我不一定认同，有些我还在琢磨，有些包括了我考虑后的补充，就懒得一一标注了。"
 paywall: true
 ---

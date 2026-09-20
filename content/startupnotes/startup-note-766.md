@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-766"
+note_number: 766
 summary: "前几天，@钟文 重提了远程办公的事，建议公司可以再做些考虑。我补充一些参考信息。 一、朋友公司的经验 最近，同事去了几家优秀的公司交流，互通有无，了解到他们公司对远程办公的一些信息： 目的是扩大招聘范围，招到更合适的人； 目前差不多占了全员"
 paywall: true
 ---

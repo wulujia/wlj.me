@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-051"
+note_number: 51
 summary: "最近遇到了一些事： 一位「较真」同时也是「垃圾信息发送者」圈主，对我们封号、将他圈内用户款项原路返回给用户的执行不满意，到处发帖，认为小密圈侵占个人财产； 一个疑似盗版圈子，我们发现后，进行了屏蔽，对方表示不满； 一个盗版圈子，版权方投诉（"
 paywall: true
 ---

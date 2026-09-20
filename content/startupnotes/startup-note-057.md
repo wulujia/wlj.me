@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-057"
+note_number: 57
 summary: "虽然我自己对安全攻防、技术、产品、架构这些还算熟悉，但毕竟术业有专攻，今天请了一位安全行业的老炮到公司，拉着团队向他请教一些问题，希望能找到性价比最高的解决办法。 提前整理了我目前想到的问题，我估计对很多小团队是有共性的，列出来："
 paywall: true
 ---

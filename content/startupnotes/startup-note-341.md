@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-341"
+note_number: 341
 summary: "分享有赏是不是一个好的增长策略？ 本质上是将钱分给渠道，是 KOL 自己的触达能力，以及用户分享后带来的新渠道增长。。所以要判断的是： 渠道是不是有足够的效率和能力拉新； 渠道拉来的新付费，是不是原来星主没办法触达的。 还要注意： 分享出去"
 paywall: true
 ---

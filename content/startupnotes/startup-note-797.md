@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-797"
+note_number: 797
 summary: "startupnotes 新一年了，今天公司年会，全程很欢乐。公司很快就成立 20 年，51 人的公司里，共事超过 10 年的同事有 13 位，挺感慨。杜辉设计的流程里，要我上台讲几句。 我想到的第一个问题是：我们做对了什么，让公司活了二十"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-206"
+note_number: 206
 summary: "Design IT 的内容，前四课： 第一课：场景 https://t.zsxq.com/aaQRFEy 第二课：价值 https://t.zsxq.com/vB6mAme 第三课：全局 https://t.zsxq.com/AUrrBmU"
 paywall: true
 ---

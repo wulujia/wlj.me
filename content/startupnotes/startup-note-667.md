@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-667"
+note_number: 667
 summary: "上周在增长实验牌桌会后，小兰企业微信里找我： Xiaolan：想问一问，上午的会议您的感受。有什么不舒服的地方，您可以说出来，我们好改正。 Lujia：挺好呀，是有什么地方你感受到不对劲吗？ Xiaolan：可能是我们过于敏感了，我们好像留"
 paywall: true
 ---

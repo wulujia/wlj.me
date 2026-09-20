@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-461"
+note_number: 461
 summary: "内部沟通不顺畅，导致还在内部测试时，就提前泄漏了。 泄漏之后，有些心急，因此又急匆匆地索性决定直接公测——公测时实际上还存在不少细节问题。 没有部署运营计划，公测时仅仅是发了一篇公众号 & 1v1 私信给少数朋友。 发公众号时，小程序的地址"
 paywall: true
 ---

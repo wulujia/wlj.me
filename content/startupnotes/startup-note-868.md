@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-868"
+note_number: 868
 summary: "目前的招股说明书内容里对业务描述很简略，期待他们的更新。 小鹅通瞄准的同行，是微盟和有赞，问题是微盟和有赞的 SaaS 故事似乎没太得到资本市场的认可。 作为曾经的同行，看到小鹅通抓住了机会大干快上，得到大额投资，人员和业务快速扩张——通过"
 paywall: true
 ---

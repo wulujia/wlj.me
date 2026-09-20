@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-680"
+note_number: 680
 summary: "内容来自以下链接： https://twitter.com/awilkinson/status/1673099604345389056 https://twitter.com/cb_doge/status/17176685340780340"
 paywall: true
 ---

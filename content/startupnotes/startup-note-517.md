@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-517"
+note_number: 517
 summary: "我是微信读书的重度用户，除了手机、App 上装了微信读书之外，所有的墨水屏设备上也都有微信读书。以及家里小朋友也用着微信读书的墨水屏。 前两天才意外地发现，小朋友因为喜欢看柯南的动画片，搜了柯南，找到了阅文的一些网文。因为同学喜欢斗罗大陆，"
 paywall: true
 ---

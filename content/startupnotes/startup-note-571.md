@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-571"
+note_number: 571
 summary: "昨天，小军邀请，去参加了 AfterShip 十周年的年会，此前跟小军、Teddy 在 Sg 巧遇了两回，非常喜欢他们的工程师风格。因此这趟跑去听一听 Teddy 的演讲——他演讲中讲了些故事，我脑子里记得的有： 早期自己做电商，用户总是问"
 paywall: true
 ---

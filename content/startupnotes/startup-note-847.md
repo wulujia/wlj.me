@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-847"
+note_number: 847
 summary: "同事找到我直接反馈（非常感谢这样简单坦率地告知和讨论）： 我觉得这个发出来不太妥。 这算是破坏现有规则，开天窗的案例，发出来，有心人看到，可能会导致灰产来袭。我能理解你的心情，我在处理用户的问题时也会这样。如果以后都要一个一个核实，会花费客"
 paywall: true
 ---

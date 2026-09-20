@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-485"
+note_number: 485
 summary: "下午视频电话，请教了一些问题，趁热做些整理记录。 相比知乎，似乎目前还看不到星空问答的核心价值、创新点，难道就是“简洁版知乎”的定位？ 还没到提这个问题的时候——现阶段的星空问答做得还太粗糙，上线仓促，迭代节奏慢，只有一条腿（如果读者不想问"
 paywall: true
 ---

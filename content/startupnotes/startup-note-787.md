@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-787"
+note_number: 787
 summary: "Build in public 在独立开发者群体里一度很流行。后来好像又不太受待见了，原因是：内卷厉害，一旦做起来了，很容易有竞品跟随。还不如闷声发财自在。 不过，我还是认为，值得试试。显然好处会大于风险。最有价值的几个好处是： 反馈互动。"
 paywall: true
 ---

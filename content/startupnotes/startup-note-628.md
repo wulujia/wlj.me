@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-628"
+note_number: 628
 summary: "同事对积分系统有着执念，觉得虽然渗透率高，但真正用好的星主还不多，因此很想持续优化。在最初 Shotgun 提出要做积分的时候，我当时有着比较强烈的反对意见——从论坛时代走来，搭过很多论坛，精细地运营过里面的积分、头衔、勋章之后，我对做好积"
 paywall: true
 ---

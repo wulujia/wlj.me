@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-394"
+note_number: 394
 summary: "一直在想着，微信是怎么从工具到平台，再到生态的。我粗略地翻了翻微信更新记录，找到一些做成了的，“大”功能的发布版本/时间。 短消息工具，互发文字、图片（1.0，2011-01-21）； 多人消息（1.1，2011-03-10）； 呈现与扫描"
 paywall: true
 ---

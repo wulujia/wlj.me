@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-503"
+note_number: 503
 summary: "这个春节，用着微信，我感叹：微信的运营和产品的结合，真的挺神，服气。 我也看到大辉在朋友圈说：我就说龙哥有按钮吧。大辉的意思是：别看这些公司一家家的都准备在春节发大招抢用户，而微信有个“超级按钮”——这当然是开玩笑的说法。 我理解，大辉说的"
 paywall: true
 ---

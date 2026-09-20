@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-800"
+note_number: 800
 summary: "上周的董事会上，作为公司的 CEO，我报了一个“稳健”的目标——跟 2024 年计划的目标保持一致（虽然 2024 年度超额完成了）。我的理由是： 当下的大环境仍然不明朗，知识星球这样的内容工具、社区产品，稳健比激进更重要。 制订稳健的目标"
 paywall: true
 ---

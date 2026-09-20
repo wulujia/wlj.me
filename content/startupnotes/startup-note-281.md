@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-281"
+note_number: 281
 summary: "纯银发布了五篇连载《BYE BYE 一罐》，推荐阅读：https://www.notion.so/BYE-BYE-eeec764624d3432bb300b662d9d9bd2b，记录一些我有感触的内容： 一罐内测，运营组事先通过微博收集了"
 paywall: true
 ---

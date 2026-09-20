@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-067"
+note_number: 67
 summary: "之前我们的风控就限制了： 普通用户每日取款限额； 用户收款设置 T+3 结算周期。 就这样，都挡不住钻赞赏和付费提问「规则上收费，但实际还没收」的空子。我们只好对赞赏与付费提问一视同仁都收取手续费了。并且在昨晚整理了一批羊毛党的清单，因为风"
 paywall: true
 ---

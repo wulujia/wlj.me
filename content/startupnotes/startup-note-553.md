@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-553"
+note_number: 553
 summary: "上周四、五，公司里十几位同事参加了个团建，目的是提高团队的互信协作。参加培训的是承担管理职能，或者有较多跨部门协作职责的同事。 但今天听说有未参加的同事对此有疑问（这很正常），有些未经求证的说法（说大家出去玩了）。我听到的时候，不太舒服。因"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-762"
+note_number: 762
 summary: "和冰河聊起： 应该让团队来做新产品和业务创新，让他们成为新的点子、新思路和新方向的提出者，而不能总是公司里的几个老家伙（创始人、合伙人们）提新产品思路。 冰河的反馈是： 目前研发团队手头的工比较繁重，没有太多空余时间。而这些繁重的工作，从另"
 paywall: true
 ---

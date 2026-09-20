@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-840"
+note_number: 840
 summary: "前段时间，Shotgun 问： 我一个朋友的公司，做了一个思想实验，他们假设当前公司还不存在，要最大化依赖人工智能的能力，最小化使用人员，来搭建公司现在的业务。应该如何设计公司架构和人力资源的配额？极端情况下，假设建立一个“单人公司”，那么"
 paywall: true
 ---

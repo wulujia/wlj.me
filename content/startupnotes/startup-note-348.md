@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-348"
+note_number: 348
 summary: "最近我们想解决自己客服遇到的一些问题，目前我们的方式是： 客服微信 zsxq1000：用户直接加客服同事的微信沟通，用户很方便。问题是： 大量重复性问题； 无法多人处理，基本上那个微信谁登录就是谁处理，依赖个人； 内容对保存、导出、分析成问"
 paywall: true
 ---

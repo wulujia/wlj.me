@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-033"
+note_number: 33
 summary: "小密圈里，贴一个 URL，过一会儿，服务端会自动将 URL 转换成 Title 显示出来（其实服务端还做了 URL 缓存，点前面的链接时，会显示缓存下来的内容。复制全文的时候，还会继续保持复制 URL）。 看起来蛮好，但最大的问题是：异步缓"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-706"
+note_number: 706
 summary: "最近琢磨着，有什么办法可以进一步提升产品团队的产品能力。前些时候鼓励大家试试搞个读书会，每周共读好书。 这几天想，似乎可以试着派活，比如，把我个人关心的事情列一列，然后产品团队里的几位同事，每人可以领 1-2 个的工作，比如几个改进型的工作"
 paywall: true
 ---

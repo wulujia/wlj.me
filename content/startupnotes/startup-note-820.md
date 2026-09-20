@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-820"
+note_number: 820
 summary: "最近一段时间，跟好几位二十多岁的朋友聊工作，问起 Ta 们的热情所在，有什么事情是真的热爱，不给钱也愿意干，不工作的时候很愿意做。答案五花八门，比如：旅行、跳舞。也有朋友坦率地说：刷短视频。 而 Ta 们的工作并非旅行、舞蹈、短视频。 这在"
 paywall: true
 ---

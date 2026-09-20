@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-407"
+note_number: 407
 summary: "朋友给我建议，对价值观这种事，要用案例、故事来说明，而不是干瘪地讲那句大道理。 价值观是可以指引产品方向，决定某个特性做或不做的，比如我们的价值观里，有一条“客户价值优先”，即：以客户为中心，解决客户问题，做对客户有价值的事。 拿印象笔记给"
 paywall: true
 ---

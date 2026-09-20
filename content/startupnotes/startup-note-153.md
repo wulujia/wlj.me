@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-153"
+note_number: 153
 summary: "笔记 145、152 提到的系统循环图，这里试着拿美团来画一画，尝试学会用这种思考模式来观察商业、产品的发展。 美团先是从百团大战里杀出重围，然后是电影票、外卖、酒店、旅行、民宿、生鲜、出租车、自行车……看起来，似乎美团什么都做。 翻了一些"
 paywall: true
 ---

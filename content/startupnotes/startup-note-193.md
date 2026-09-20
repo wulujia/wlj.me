@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-193"
+note_number: 193
 summary: "任何社区都会遇到各种人身攻击、骚扰、低质量内容。微博和知乎遇到的问题不太一样，采用的产品策略也有不同，记录一下。 微博说： 为了进一步控制人身攻击内容的蔓延、提升博主对于评论内容的管理体验，促进微博生态良性发展，我们计划在9月27日对「博主"
 paywall: true
 ---

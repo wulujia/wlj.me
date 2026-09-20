@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-785"
+note_number: 785
 summary: "毕竟 Slax Note（https://note.slax.com/）想长久地做下去，还是应该看看市场上别人在做些什么。 Audio Pen https://audiopen.ai/ 有个 Rewrite Level，高中低三档 可以选择"
 paywall: true
 ---

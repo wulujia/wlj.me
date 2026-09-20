@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-132"
+note_number: 132
 summary: "回顾 此前的课程 场景拆解 某一个人 在某一个特定的环境下 出现某一个特定的时机 带着某一个目标 采取了一系列动作 和某些界面交互 完成某一个特定的任务 从场景到问题 从场景里发现问题，提出问题 HMW（How Might We） How "
 paywall: true
 ---

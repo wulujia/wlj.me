@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-859"
+note_number: 859
 summary: "在群里看到一位老朋友希望我们把他近十年前的星球“锁定”掉，因为星球里还经常有人提问、评论（知识星球里，星主其实是可以设置不让用户提问、评论、发布内容的——可以完完全全的一言堂）。 但这激发了我看一眼锁定（通常是因为各种原因需要关闭某个群组—"
 paywall: true
 ---

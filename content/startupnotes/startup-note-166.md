@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-166"
+note_number: 166
 summary: "在剽悍一只猫社群里做了个分享，解答了些问题，把分享的文字稿也发出来。"
 paywall: true
 ---

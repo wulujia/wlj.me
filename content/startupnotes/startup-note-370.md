@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-370"
+note_number: 370
 summary: "前些天，腾讯微博宣布关站。 对此我倒也没什么心理波澜----本来就用得不多。反而是激起了一点思考：这种产品形态，是不是还有可能有点机会？ 对知识星球来说，目前有一波相对高质量的用户，活跃度高、付费能力强、有好奇心热情欲望。那么如果针对这批用"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-801"
+note_number: 801
 summary: "前几天重看《创新者的窘境》，摘录一些内容。 如果企业的客户需要某种创新，领先企业会利用各种资源和手段来开发和实施这一创新；反过来说，如果企业的客户不想要或不需要某种创新，这些企业会发现它们根本不可能将——哪怕是在技术上很简单的——创新转化为"
 paywall: true
 ---

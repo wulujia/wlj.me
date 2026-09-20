@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-646"
+note_number: 646
 summary: "我理解中的舒适是： 公司尊重员工。尊重员工的时间，提供尽可能让人心情愉悦的工作设备、环境，提供力所能及的体面薪酬与福利。重视同事的意见。珍惜同事们的工作和创新。 这里面隐含着对等的期望：期望员工将心比心，愿意为公司或者其他同事多做一些。 在"
 paywall: true
 ---

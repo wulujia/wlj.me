@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-544"
+note_number: 544
 summary: "思考使命愿景的时候，我觉得我们是：分享知识，连接用户，帮助创作者成功。 但是，最近有几个“本质问题”，一直在脑子里转。 内容创作者群体是在扩大，还是缩小？ 内容创作的空间是在扩大，还是缩小？ 内容创作者遇到的主要问题是什么？ 知识星球如果要"
 paywall: true
 ---

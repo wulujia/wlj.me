@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-853"
+note_number: 853
 summary: "考虑 Q3 OKR 的时候想法比较简单：这个季度面临的需要解决的问题不少，解决好了，公司就有机会上一个台阶。解决不好，或许还是个需要过的小坎。 主要问题其实是几个： 笔记 852 提到的税务工作需要配合，有可能会涉及费率调整甚至业务模式调整"
 paywall: true
 ---

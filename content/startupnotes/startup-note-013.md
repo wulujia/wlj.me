@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-013"
+note_number: 13
 summary: "一个产品上线以前都要定义一些关键指标，做一些dashboard展示出来，才能知道产品上线后表现如何进而持续改进。 三个必须的dashboard：用户通过什么渠道进来的、用户与产品如何互动的（如点了哪些按钮）、盈利相关的（广告展示次数、转化率"
 paywall: true
 ---

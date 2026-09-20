@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-951"
+note_number: 951
 summary: "第一个视角：AI 的社会化实验。 斯坦福小镇：https://github.com/x-glacier/GenerativeAgentsCN AI 治理一座城市，会发生什么：https://r.slax.com/b/828309eb-11a"
 paywall: true
 ---

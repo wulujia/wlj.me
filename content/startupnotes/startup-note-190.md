@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-190"
+note_number: 190
 summary: "我的知识星球《WLJ 的创业笔记》，基本情况如下： 第一篇内容从 2016-10-20 开始； 截止现在，正式写了 190 篇，虽然文字有长有短，内容有些很无聊无趣，但好歹坚持下来了。 我的感受是： 给自己一点动力，坐下来写点东西。时间看电"
 paywall: true
 ---

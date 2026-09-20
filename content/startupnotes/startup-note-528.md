@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-528"
+note_number: 528
 summary: "最近脑子里一直在盘旋着“问题”，究其原因，一方面是在做星空问答，在琢磨，好问题究竟该从哪里来。另一方面是，在考虑产品需求的时候，我更在意的是：谁，遇到了什么问题，这个问题影响面多大，我们采用什么样的方法，可以在多大程度解决这个问题，成本多大"
 paywall: true
 ---

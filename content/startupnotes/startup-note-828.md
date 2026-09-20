@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-828"
+note_number: 828
 summary: "昨晚一位星主，因为“评论区存在大量违规内容，相关用户已做封号处理，星球关闭评论功能 15 天”，在反馈群里抱怨： 我有个建议，我星球里有几千个人，能不能是谁发布的评论，就处理哪个用户，别处罚整个星球吗？ 那用户留言，假如管理员看不出来违规之"
 paywall: true
 ---

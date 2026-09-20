@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-136"
+note_number: 136
 summary: "分布式拒绝服务攻击（英语：Distributed Denial of Service attack，缩写：DDoS），是用网络上多台设备，向目标发送大量请求，使目标主机或网络瘫痪的攻击方式。 今天下午，知识星球遭遇了一次 DDoS，造成了几"
 paywall: true
 ---

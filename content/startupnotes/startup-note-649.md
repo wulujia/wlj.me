@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-649"
+note_number: 649
 summary: "19 上午约了朋友在南头古城里的一家小咖啡馆，聊了一上午，相谈甚欢。记录几个期间他聊到的观点： 早期的石墨，两兄弟一起带着三十来人做在线文档，成本低，人效高。拿到大笔投资后，要扩大用户基数，这时很自然地选择兼容 Office——于是团队迅速"
 paywall: true
 ---

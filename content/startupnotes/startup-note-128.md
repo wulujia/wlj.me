@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-128"
+note_number: 128
 summary: "重读 Don’t make me think 之后，我没能找到作者提到的「Brundleyfly」摄像机（附图一）——虽然这只是作者简单自制的，但架不住我懒，还是想买现成的…… AirPlay 不够用的原因是：很多时候，用户体验测试不但要看"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-134"
+note_number: 134
 summary: "专注很重要，知识星球此前一直专心做社区/社群。 满足核心用户的需求也很重要，这半年来，一直有朋友建议我们内置课程销售。 需求是：在知识星球的社区里，可以标价出售图文、音频、视频内容。 提出这个需求的人们认为，这个功能的价值是： 对已经在知识"
 paywall: true
 ---

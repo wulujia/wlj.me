@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-890"
+note_number: 890
 summary: "先看官方文档： https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills https://platform.cla"
 paywall: true
 ---

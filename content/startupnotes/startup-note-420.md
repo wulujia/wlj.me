@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-420"
+note_number: 420
 summary: "创业笔记 420：方正字库 上午起床，收到一封来自苹果的邮件，主要内容是： On 5/25/2021, we received a notice from 北京北大方正电子有限公司 (Founder Electronics Co., Ltd"
 paywall: true
 ---

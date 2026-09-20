@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-207"
+note_number: 207
 summary: "在子柳校长的星球里看到他发了俞永福的几张照片，觉得非常有道理，摘抄一下。 两百人以前的三要素：产品！产品！产品！ 产品是 1，市场和管理是 0 不设市场部、PR 部门，把市场和口碑功能塞回到产品团队或产品运营团队；避免总想吃药，避免明星梦 "
 paywall: true
 ---

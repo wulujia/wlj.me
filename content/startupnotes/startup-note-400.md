@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-400"
+note_number: 400
 summary: "“用内容连接人”这件事具有长期、巨大的商业价值。知识星球在这个领域里，目前占据了比较独特的位置。 知识星球应该长期致力的工作是： 降低难度：比如降低星主创建、运营星球的难度 提高效率：比如提高星主连接粉丝、触达粉丝、变现、增加收入渠道的效率"
 paywall: true
 ---

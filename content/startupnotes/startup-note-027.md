@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-027"
+note_number: 27
 summary: "前几天在小密圈里发了一条： 最近小密圈封掉了好些违反国家法律法规的圈子（主要以色情为主），我重申一下，我们的信息内容规范里有明确说明，您在使用本服务时不得利用本服务从事以下行为，包括但不限于： 发布、传送、传播、储存违反国家法律、危害国家安"
 paywall: true
 ---

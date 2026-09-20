@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-627"
+note_number: 627
 summary: "我在之前的笔记里立过一个 Flag，说要整理我的“个人使用手册”，Flag 果然不能乱立，这不，被杜辉发现了，所以我来写啦。 自我介绍 吴鲁加，创业中，项目知识星球，担任 CEO，主要精力放在组织管理、产品与业务迭代、财务管理、海外试验。曾"
 paywall: true
 ---

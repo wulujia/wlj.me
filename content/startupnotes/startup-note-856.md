@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-856"
+note_number: 856
 summary: "这是有感而发，来自两个场景。 一 昨天，团队内部讨论，我把 Slax Note 的 Owner 从小郭手里又给“抢”了回来——我自己想用，但迭代的方向跟我想要的方向不一样。 当了 Owner，团队又很小，我请同事们对看着不舒服、不合适的地方"
 paywall: true
 ---

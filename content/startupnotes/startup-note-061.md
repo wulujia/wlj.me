@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-061"
+note_number: 61
 summary: "前些天向方军老师提问：最近看到新榜开始大规模做知识付费的分销，您怎么看这种行为可能带来的后果？是新人崛起？还是市场混乱口碑下滑？为什么？ 方老师的回答是： 新榜徐达内兄和负责内容分销的贾志勇等都在群里，可以请他们回答：）关于新榜的内容分销平"
 paywall: true
 ---

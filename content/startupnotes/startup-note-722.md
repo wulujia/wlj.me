@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-722"
+note_number: 722
 summary: "周五找 Jack 请教了他们团队内容营销的做法，做了些笔记。 效果 每天 1.5 万，也就是每周大约十万访问量。 每周一万注册用户（在网站上做了注册、激活操作）。 其中 30% 来自搜索引擎，25% 来自社交媒体。 来自搜索引擎的部分，源于"
 paywall: true
 ---

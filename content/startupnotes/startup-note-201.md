@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-201"
+note_number: 201
 summary: "写着写着，居然也有 200 篇了，回顾一下，我能持续做，有这么几个因素： 做之前想清楚，给自己有一点压力，又不至于过载的任务。比如我，收了钱（收钱真的很重要，不完成就有了负罪感——所以，知识星球这么用，还真的挺合适），给自己定了个「每周两篇"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-217"
+note_number: 217
 summary: "以前在 QCon 上做过一次交流时说过：与其更好，不如不同。 当时这样想的原因是： 我们想做个比 Instagram 更好的图片社交产品，或者我们想做个比微信「更好」的聊天工具（恩，所谓子弹短信那样改进了某些点）——没有好个几倍，用户根本无"
 paywall: true
 ---

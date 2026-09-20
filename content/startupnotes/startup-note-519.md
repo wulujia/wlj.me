@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-519"
+note_number: 519
 summary: "今天听了三五环的 Podcast：跟苏青阳聊聊小红书和社区产品，有不少收获。"
 paywall: true
 ---

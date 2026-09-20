@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-076"
+note_number: 76
 summary: "前些天小密圈停服后，有很多负面声音、负面影响，在这种情况下，怎样更聚焦？我反复思考了关于「专注」的问题。正好看到池老师推了一条： 一定要让团队保持专注。创业团队刚开始总会觉得无所不可为，往往会产生很多错觉，员工以为创业了终于可以搞搞人工智能"
 paywall: true
 ---

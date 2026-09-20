@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-554"
+note_number: 554
 summary: "笔记 552 里简单写了几句上周末的培训，杜辉建议明天可以搞个小分享会，我于是也报名想分享些我的收获。 蒙眼拼图项目 大家都蒙上眼后，教练宣布开始，但没有说要做什么。而后场地中间一声巨响（以为是气球爆了，猜测是不是要找出并扎破气球），有同事"
 paywall: true
 ---

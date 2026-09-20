@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-558"
+note_number: 558
 summary: "此前的想法是：如果没办法证明星空问答能活下来，最好就不要“侵入”知识星球。因此，在知识星球里，只给了星空问答一个小小的位置，说难听点，随时可以摘掉。 但是，这合理吗？ 到什么时候，才可以结合得更深一点——如果不深入结合，星空问答只是另一个问"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-547"
+note_number: 547
 summary: "这几天居家办公，干脆看点书，想点事。翻出微信公开课来复习一下。 与跳一跳外挂对抗的方法中，有一部分是：需要练习才能达到很好的水平，因此需要符合成长曲线，不符合的大概率是外挂。 对产品的思考 好产品自己会说话，启动页就是微信的发布会 微信是一"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-423"
+note_number: 423
 summary: "今天我错过了公司的产品会，会上同事们讨论了对知识星球的主题流和发表的修改想法。 主题流修改的原因是：塞进了太多元素，置顶、打卡、提问、作业……但凡星球里重要的信息，都希望放在主题流，突出显示，那么问题来了——都重要，等于都不重要。 发表修改"
 paywall: true
 ---

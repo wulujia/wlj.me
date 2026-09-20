@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-931"
+note_number: 931
 summary: "目前对停更星球的风控机制太生硬了，不少星主反馈过这个问题。 现状是：无论星主因为什么原因停更，一段时间不更新，我们就把星球标记为高风险。等星主想回来继续更新，要走一套很复杂的重新激活流程。这个流程的初衷是保护付费用户，但一刀切的代价是——把"
 paywall: true
 ---

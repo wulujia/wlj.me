@@ -5,8 +5,12 @@
       {{ . }}
     </div>
   {{ end }}
+  {{/* Sort by note number, newest first. Many notes share a date (backfilled from
+       one git commit), so Hugo's default date sort scrambles them within ties. */}}
+  {{- $sorted := sort .Pages "Params.note_number" "desc" -}}
+  {{- $paginator := .Paginate $sorted -}}
   <div class="posts startupnotes-list">
-    {{ range .Paginator.Pages }}
+    {{ range $paginator.Pages }}
       <article class="post on-list">
         <h2 class="post-title">
           <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-412"
+note_number: 412
 summary: "突出展示的内容 7600 万 MAU 4310 万创作者 67570 万次月互动 72% 的盐选会员续费率 31530 万问答内容 2019 vs 2020 收入 广告：577 vs 843 付费会员：88 vs 320 内容/商务解决方案"
 paywall: true
 ---

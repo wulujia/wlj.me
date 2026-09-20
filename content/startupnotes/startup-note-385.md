@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-385"
+note_number: 385
 summary: "前段时间跟几位老朋友在武夷山聊了两天，其中谈到知识星球部分，朋友们给了一些建议，记录其中的几个： 一、将知识星球交给团队运行 如果知识星球已经是“准成熟业务”，从让团队更好地成长角度和为公司寻找更好的增长点角度看，都应该让团队承担更多，我则"
 paywall: true
 ---

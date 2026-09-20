@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-568"
+note_number: 568
 summary: "体验 OF，记录了一些特性，比如： 要发表内容，需要认证为创作者，需要护照、身份证或驾照。 首页展示 OF 官方账号，想关注官方账号，需要先录入信用卡。 官方账号主要用于推荐创作者——可以为创作者带来流量。 要取关某个创作者，会提示输入原因"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-035"
+note_number: 35
 summary: "老师 春节，她给我发了个红包，写了「新年快乐，谢谢你！」。我并不认识她——微信上加了几千位小密圈用户，没敢领。 我回：「不用客气，新年快乐」。 她打了长长一段话：「我教英语。以前想开培训班，一想到场地、招生、竞争就头疼。看到小密圈，建了圈子"
 paywall: true
 ---

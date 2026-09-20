@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-379"
+note_number: 379
 summary: "昨晚和几位朋友吃饭，他们创业做的是小说站： 作者在平台写作，平台指导让作品更好； 平台自己发行 + 通过不同渠道分发、售卖作品，收入与作者分成； 对新作者、作品，平台签约购买版权，前期需要垫资，可能会亏； 长期投入之后，平台累积了大量版权内"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-867"
+note_number: 867
 summary: "9.8 茑屋书店上田元治老师授课 “规模化生产”是否还可行？ 大家根据价值观选产品。 A place to choose your lifestyle. 全生命周期：租、还、买、卖。 最初在线下，选择最方便的地方。 2003 年的六本木店，"
 paywall: true
 ---

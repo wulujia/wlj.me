@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-832"
+note_number: 832
 summary: "关于如何开好一个产品牌桌会，我有几个建议： 首先，需要有“套路”，有“观点” 套路指的是，上牌桌的重要提案，要有基本格式规范，至少包括以下内容： 问题：我们想解决什么问题。 解法：我们采用什么样的解决方案。 胃口：这是一个短期任务还是一个长"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-414"
+note_number: 414
 summary: "前些天，有一篇文章被朋友们多次发给我：http://www.geekpark.net/news/276464。 我摘抄一部分内容： Pornhub 是存放着大量厂牌制作和 UGC 内容的色情网站，而 OnlyFans 是一个粉丝订阅平台，类"
 paywall: true
 ---

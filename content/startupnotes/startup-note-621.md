@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-621"
+note_number: 621
 summary: "前些天，跟一位创业出海印度的朋友约了喝咖啡，聊了聊他这些年出海的经历。我最想听的，显然还是遇到了什么坑。 他遇到的第一个问题是：人均购买力不足。 朋友之前做短视频和直播，但是认为国内已经没有办法指数级增长了，因此跑到了当时他认知里的下一个中"
 paywall: true
 ---

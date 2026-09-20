@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-034"
+note_number: 34
 summary: "在企业办公领域，我之前一直认为邮件的地位无可取代——它协议开放，任何域的邮箱之间都可以互联，多年来无数初创公司试图「重新发明邮件」都失败了。 昨天和大辉邱岳聊天的时候才突然意识到："
 paywall: true
 ---

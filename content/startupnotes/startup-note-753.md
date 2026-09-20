@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-753"
+note_number: 753
 summary: "最早看到 Remix，是在 Scratch 里，孩子们可视化编程，做出一个小作品，上传到 Scratch 社区后，所有人都可以基于这个作品，做一轮 remix，或者 See inside，查看这个作品是怎么构成的。 后来意识到，Github"
 paywall: true
 ---

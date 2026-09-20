@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-288"
+note_number: 288
 summary: "我们对网络安全和信息安全很重视，因此今年以来，按照几个标准、检查方法做了几次安全评估，包括： 安全防护评测 2 级 具有舆论属性和社会动员能力的互联网信息服务安全评估（http://www.cac.gov.cn/2018-11/15/c_1"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-959"
+note_number: 959
 summary: "对 Slax Reader 的数据，我每天关注的主要有这么几个： 用户的活跃情况：DAU（每日的登录用户数）、PV（页面的浏览数）、UV（这些浏览是多少用户带来的），这是我们“占到的地盘”的信息。 新增用户：这部分是个漏斗，分别是 UV（访"
 paywall: true
 ---

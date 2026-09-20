@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-731"
+note_number: 731
 summary: "37Signals 创始人 Jason Fired 这两天写了几句话： Some of the most rewarding features to add to products are ones that don’t increase "
 paywall: true
 ---

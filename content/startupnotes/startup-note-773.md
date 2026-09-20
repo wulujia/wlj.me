@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-773"
+note_number: 773
 summary: "创业笔记 773：护城河 前些日子跟申申、邱岳吃饭，在聊起某个计划中的创业项目时，我半开玩笑地说：其实长期不怎么能挣到钱，也是“护城河”。 这确实只是“半”开玩笑。 战略要地、皇冠上的明珠等，贵重珍稀，自然需要重兵把守。 Bezos 在 1"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-095"
+note_number: 95
 summary: "QQ 先讲一个互联网上公开的 QQ 的例子： 98 年 QQ 开始规划，99 年 2 月发布 Beta1，资源有限的情况下，只能实现 3 个特性，你会选择什么： 卡通头像 不可窃听安全通讯 聊天室 很小的 exe 文件 皮肤 skin 速度"
 paywall: true
 ---

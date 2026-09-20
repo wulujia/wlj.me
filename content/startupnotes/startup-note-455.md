@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-455"
+note_number: 455
 summary: "三天前在生财有术广州的线下会上，听了陈柏龄分享他在知乎做 IP 的经验，中间有一段我很感兴趣——围绕 100 个问题创作内容。 100 个问题的方法，大致含义是：梳理出不同行业的 100 个问题，回答好，就基本能在某个细分行业里站住脚。这 "
 paywall: true
 ---

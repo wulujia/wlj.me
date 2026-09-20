@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-835"
+note_number: 835
 summary: "此前没投过广告，对各种需要花钱获取用户的方式理解都很粗浅。后续考虑对 Apple Ads、Meta、Google、YouTube 等渠道都做些尝试。这里是对 Apple Ads 的初步尝试和记录。 Apple Ads 采用按点击付费（CPT"
 paywall: true
 ---

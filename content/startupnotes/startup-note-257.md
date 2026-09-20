@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-257"
+note_number: 257
 summary: "今天没有外出任务，呆在办公室快速翻看 Xdite 的《Growth Hack 这样做》、范冰的《增长黑客实战》、《增长黑客：创业公司的用户与收入增长秘籍》、肖恩.埃利斯的《增长黑客》，记录一些书里的内容和我想法的碎片："
 paywall: true
 ---

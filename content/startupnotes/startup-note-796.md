@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-796"
+note_number: 796
 summary: "startupnotes 研究小组的讨论里，欧阳讲解了一篇论文，原文：https://arxiv.org/abs/2411.10109 他做了翻译（放在附件里），其中人工智能面试官的部分从第 21 页开始。作者认为： 人工智能面试官的访谈，"
 paywall: true
 ---

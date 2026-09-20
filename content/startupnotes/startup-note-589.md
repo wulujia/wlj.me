@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-589"
+note_number: 589
 summary: "防疫放开后，我们在上班时，就稍稍有些犹豫，考虑到： 我们是为数不多可以弹性办公的企业。 弹性办公能一定程度上降低同事们通勤、就餐、工作过程中导致的感染。 但是又觉得： 一直弹性办公，没有现场感，同事们不够亲近，容易闷——尤其是独居的年轻同事"
 paywall: true
 ---

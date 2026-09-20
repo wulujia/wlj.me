@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-735"
+note_number: 735
 summary: "看到喜马拉雅 2024.04 最新的招股说明书，通常这是个学习的好机会，边看边记录一些信息： 2023 年月活 3 亿，其中移动端 133 百万，物联网（手表、音箱、车、冰箱） 170 百万。 2023 年活跃内容创作者 2.9 百万人（适"
 paywall: true
 ---

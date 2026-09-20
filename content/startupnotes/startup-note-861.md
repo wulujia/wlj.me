@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-861"
+note_number: 861
 summary: "前些天，我向 AI 的 DeepResearch 问了个问题。 我看到一则新闻说： 小鹅通起初以在线教育起家，后来受监管政策影响，公司业务一度受阻。生死危机之际，疫情导致线上需求爆发，该公司抓住机会，依托微信生态做起了私域直播，这时候八马茶"
 paywall: true
 ---

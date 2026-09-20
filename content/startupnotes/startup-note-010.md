@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-010"
+note_number: 10
 summary: "11 月 17 日，有小密圈的用户加我微信（我的微信作为小密圈公开的产品反馈渠道了）报告一个安全漏洞——小密圈某个版本的 API 接口未做认证，恶意用户可以通过该版本 API 获得未加入的圈子文件。 时间线如下："
 paywall: true
 ---

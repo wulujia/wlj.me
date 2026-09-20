@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-289"
+note_number: 289
 summary: "两件小事有感： 有位知识星球的用户在微博上比较激烈地吐槽知识星球删帖。 他的表述是“最火大的是，被删的帖，没有通知，没有解释，发布的内容也再找不到任何记录。认真思考的结晶，反复斟酌措辞，辛辛苦苦手打，“莫名”被删之后想复制粘贴去别的地方发也"
 paywall: true
 ---

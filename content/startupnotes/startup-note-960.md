@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-960"
+note_number: 960
 summary: "昨天跟 glacier 聊起，看起来现在同事们在探索、玩儿的事情，重叠有点高——虽然在探索的时候，有一定的重叠很正常甚至是鼓励的。但我隐约觉得，现在的重叠来自于信息不对称。 例如：公司里至少有 4 个“自己的 Agent”。例如：在做知识星"
 paywall: true
 ---

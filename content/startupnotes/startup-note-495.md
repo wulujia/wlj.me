@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-495"
+note_number: 495
 summary: "上午看到一则新闻，标题很强烈，叫：豆瓣被罚20次后，再给“雷锋”打“政治谎言”标签：非死不可！ 了解了情况，是在豆瓣里，有部分正能量的影片，被打赏了非常负能量的标签（例如：谎言），且对外展示了。 我猜测，最大的可能性是产品机制上存在漏洞，导"
 paywall: true
 ---

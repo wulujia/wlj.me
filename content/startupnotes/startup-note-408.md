@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-408"
+note_number: 408
 summary: "知乎团队的初心是什么？ 2010 年 10 月 15 日的一封全体信，记录了我们最初的想法： 我们相信一点，在垃圾泛滥的互联网信息海洋中，真正有价值的信息是绝对的稀缺品，知识──被系统化，组织化的高质量信息──都还存在于个体大脑中，远未得到"
 paywall: true
 ---

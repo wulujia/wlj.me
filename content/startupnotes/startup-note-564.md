@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-564"
+note_number: 564
 summary: "前段时间看过一篇讲写作的短文，很实用。今天翻出来推荐给大家，后续自己也可以练习这些方法。 原文地址：https://dilbertblog.typepad.com/the_dilbert_blog/2007/06/the_day_you_b"
 paywall: true
 ---

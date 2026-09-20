@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-781"
+note_number: 781
 summary: "我想上“态度表情”这个特性，来源有： 希望用户可以有很轻量地表达态度的方法。无需打字，选一个表情即可。 看到并且较为深度地体验了 Telegram、Slack、WhatsApp 在文章、评论后可以直接用表情表态的功能，认为应该是不错的方案。"
 paywall: true
 ---

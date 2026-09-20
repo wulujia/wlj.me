@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-355"
+note_number: 355
 summary: "朋友找我，说他想用知识星球做个社群，但是一开始就付费，担心人太少。人少就没有足够的 UGC 内容。于是问：我能不能先做个免费星球，先导一批用户进来，做 UGC，他们产生内容之后，我再改成收费的。 我告诉他："
 paywall: true
 ---

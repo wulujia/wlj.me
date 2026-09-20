@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-479"
+note_number: 479
 summary: "上午孟岩推荐了文章：https://mp.weixin.qq.com/s/LpBa5mimKpcJH_XMubobRw，里面提到了王慧文对知识星球的评价：知识星球不是单纯功能优化就能改善产品数据，从供需层面讲，中国可以长期保持输出的 KOL"
 paywall: true
 ---

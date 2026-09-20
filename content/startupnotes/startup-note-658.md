@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-658"
+note_number: 658
 summary: "今年初开始，ChatGPT 一火，很多人觉得，大量行业要被颠覆了。我体验 ChatGPT 还算早，直接买了 Pro 版本感受 4.0 的力量，以及用上 Notion AI 了，在我比较轻度的使用过程中，觉得至少有几个用途： 帮助学习。我阅读"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-592"
+note_number: 592
 summary: "最近几天，反反复复地听乔布斯在斯坦福的演讲。最初只是为了练听力，几十遍重复，越来越觉得有所得，简单记录分享。 演讲中，乔布斯讲了三个故事。 第一个故事是“万事冥冥中自有连接”。 他大学辍学，闲暇学书法与排版，那时，只是喜欢。完全没想过，能在"
 paywall: true
 ---

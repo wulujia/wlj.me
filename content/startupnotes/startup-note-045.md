@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-045"
+note_number: 45
 summary: "从 TK 微博看到的一段话： 前阵子听某公司技术负责人讲他们的工程师文化，我总结了一下：1、不养闲人，选择能“在一起”的人。 进人慢，出人快，该淘汰就淘汰。 追求技术巅峰，鼓励内部分享。 技术上任何人可以挑战任何人，你行你就上。 不做技术/"
 paywall: true
 ---

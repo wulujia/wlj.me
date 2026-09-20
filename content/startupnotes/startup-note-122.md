@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-122"
+note_number: 122
 summary: "仍然是 2017 腾讯投资年会，蔚来汽车李斌的演讲。 李斌演讲里提到了一个思考的模型，蛮值得分享的：纵轴是体验（底部功能体验，顶部情感体验，从实现功能到满足情感），横轴是技术进步（左边是弱关联，右边是强关联）。 举个例子： 在手机行业里，索"
 paywall: true
 ---

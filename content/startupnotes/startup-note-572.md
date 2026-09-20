@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-572"
+note_number: 572
 summary: "前些天，刘容跑来找我聊事儿，说起一个她有点困扰的点。 起因是： 负责公众号的同事，平时都在推荐星主——与星主沟通、采访，最终形成文章发布在公众号上。但有些时候，会遇到部分星主不配合。内容同事会有点郁闷：星主不配合，效果就不会好。为什么我们像"
 paywall: true
 ---

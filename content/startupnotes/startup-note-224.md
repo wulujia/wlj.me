@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-224"
+note_number: 224
 summary: "一个人跑去刷了韩寒导的贺岁片《飞驰人生》夜场，刚刚回家，觉得好看，觉得意犹未尽，写几句。 作为贺岁片，整部片子的情绪基调蛮轻松，影院里很多笑声。不过有两个地方我看得挺难过。 一是张弛和孙宇强去找「大哥」拉赞助，张弛演唱宇强钢管秀伴舞一曲《大"
 paywall: true
 ---

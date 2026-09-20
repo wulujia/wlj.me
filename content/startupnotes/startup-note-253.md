@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-253"
+note_number: 253
 summary: "Q：对 KOL 在星球里发的内容质量有管控或者监测么，鼓励什么样的内容？ A：我们更喜欢简单地做一个好用的工具，交到用户手里，用户使用，我们观察和学习，然后改进这个工具。 所以从这个角度来说，我们会向做得好的星主、活跃的付费用户学习他们能做"
 paywall: true
 ---

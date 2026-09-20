@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-502"
+note_number: 502
 summary: "产品同事总结了 2021 年做的一些较为重要的功能，其中有些事情从年初到年底，贯穿始终，有些则是上线后就没有做什么调整，到年底了，回顾一下，或许对 2022 年更好地做减法会有些帮助。 新版星主数据后台 成员积分榜 标签权限与菜单 发表功能"
 paywall: true
 ---

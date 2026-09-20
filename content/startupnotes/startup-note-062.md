@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-062"
+note_number: 62
 summary: "小密圈的《付款及退款规则》中有三天无条件退款的设计，带来了一些争议，有的圈主说： 凭啥退？不能退？加之前想清楚，加之后不许退，规则如此！ 进来把该下载的东西，该看的内容看完了，然后说退，我的权益谁保证？ 有的用户说： 为什么才三天？为什么不"
 paywall: true
 ---

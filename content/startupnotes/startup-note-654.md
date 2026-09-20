@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-654"
+note_number: 654
 summary: "创业笔记 654.简单直接 vs. 公开赞扬私下批评 想做到简单沟通，没有想象中那么容易。 举一个例子，前两天，我在笔记里写： 看到一个小程序里的 Bug，我认知里，会影响到所有“接受免费邀请，加入星球的星主的朋友”，大概两周还未修复，我有"
 paywall: true
 ---

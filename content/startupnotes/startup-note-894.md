@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-894"
+note_number: 894
 summary: "我在翻看 Temp 目录下记录的临时文件——一些碎片，如果合适，就直接发出来了。这几句话，咀嚼起来还颇有些味道。 听多数人的意见，和少数人讨论，自己做决定。 做了有什么好处？重要吗？怎么知道它重要？达到这个好处有更好的做法吗？ 功能存在于无"
 paywall: true
 ---

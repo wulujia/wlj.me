@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-123"
+note_number: 123
 summary: "最近在淘宝 APP 里（甚至在电梯广告里）都看到淘宝在推「亲情账号」，主打亲情牌，甚至还有个暖心视频打动用户。 细细想来，春节时推这个产品，真的很棒，产品和时机都蛮精妙的——虽然还不知道最终数据会是怎样。 年轻人都回家了，见到了久别的父母、"
 paywall: true
 ---

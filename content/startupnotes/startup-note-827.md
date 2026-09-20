@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-827"
+note_number: 827
 summary: "在敲敲里，做了个连胜排行榜，目前的吸引力还不够，但隐约能感受到一些魅力。我有点想在知识星球里也做尝试。 但是，第一个问题还是：Duolingo 的标准是学一节课，敲敲里是完成任意一个打卡，知识星球里应该选择什么作为连胜的标准？ 用户和星主有"
 paywall: true
 ---

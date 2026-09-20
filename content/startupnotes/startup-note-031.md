@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-031"
+note_number: 31
 summary: "背景：小密圈早先支持微信登录与邮箱登录，因此有一批邮箱登录用户。接入微信支付后，在确认邮箱用户极少后，禁用邮箱注册并允许邮箱用户绑定微信。但确实存在「微信账号之前使用过导致绑定失败」的问题。 昨天接到一位用户的需求： 我的小密圈账号是使用原"
 paywall: true
 ---

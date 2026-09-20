@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-962"
+note_number: 962
 summary: "写这篇的导火索有二： 今天 Shotgun 分享了一些他在硅谷的见闻感受，正好我昨晚回顾，前几天在公司里推动一些工作时，好像有些着急。 在推上看到有人说：Anthropic has a ~20-person internal team th"
 paywall: true
 ---

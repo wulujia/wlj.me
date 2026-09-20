@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-361"
+note_number: 361
 summary: "昨晚有位朋友给我打电话，说公司电脑中了勒索病毒，想看看能不能解密。初步判断是 GlobeImposter 家族第三代，没法解密，如果想要恢复数据，只能交钱。估计至少一台机器 2-4 个比特币。 圈子里应该有不少创业的朋友，我就再多提醒一嘴，"
 paywall: true
 ---

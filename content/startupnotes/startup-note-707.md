@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-707"
+note_number: 707
 summary: "这里只是举一些例子，比如： 没办法很舒服地只用键盘录入，举例：写完内容必须动一下鼠标点发表按钮。 脱离微信环境后，没办法丝滑地运行、加入（同时也浪费了不少流量）。 应该可以参考 substack 的发现（https://substack.c"
 paywall: true
 ---

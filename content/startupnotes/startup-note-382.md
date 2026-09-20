@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-382"
+note_number: 382
 summary: "有些人会通过微信或者支付宝收款，然后使用知识星球提供的“免费邀请”功能拉他们加入星球，这样可以使用知识星球的大多数功能，而且无需付费，也不受我们退款管理约束。 同事观察到这类用户数量虽然不大，但是声量不小——主要是运营圈为主。为了避免破窗效"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-303"
+note_number: 303
 summary: "前几天，有位老朋友吐槽知识星球最近做的“优惠券”功能，他的槽点是：“别只做新增，一定要做好留存。” 先说说对“做留存”的看法，我还是比较在意留存的——目前最在意的是“星主留存”，也就是我们怎么留住星主，因此今年有几件事： 优化付款预览页面漏"
 paywall: true
 ---

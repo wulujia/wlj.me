@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-567"
+note_number: 567
 summary: "这段时间一直在考虑做个试水的最小化产品。 最初的想法是：做个 PWA 版本，兼容电脑与手机。 经过一段时间的讨论，认为“我们如果在现有的 App 基础上做少量增减，有机会低成本一次到位”。 又经过一段时间的拆解分析，判断必须新增的功能、必须"
 paywall: true
 ---

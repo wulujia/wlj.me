@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-468"
+note_number: 468
 summary: "昨天，跟老鲍和樊晓星（小鹅通的创始人 & COO）聊天，我记录一些应该不涉密的： 小鹅通目前有 1300+ 人，研发团队有 700+ 人。 从几十人，到 1300 人，中间其实有很多坎——100、300、500、1000……都会有很多新问题"
 paywall: true
 ---

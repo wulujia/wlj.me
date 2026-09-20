@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-904"
+note_number: 904
 summary: "讲者是新加坡 EDB 的官员，摘一些内容： \"新加坡是自然港口，占有战略性地理位置\"——这句话是英国殖民时期的宣传，新加坡只是继承了这个品牌效应。 事实上，新加坡最早出现在公元200年的古罗马地图上，被人类认知至少1800年，但作为有地位的"
 paywall: true
 ---

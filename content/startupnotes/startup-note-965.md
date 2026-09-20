@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-965"
+note_number: 965
 summary: "昨天基于 Claude 官方的文档，整理了一篇：AI 写代码快了，产品迭代还慢，怎么办？ https://wlj.me/posts/20260909-ai-native-sdlc/ 今天和朋友探讨，也提到了："
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-265"
+note_number: 265
 summary: "最近一直听到「私域流量」这个词，顾名思义，大概了解它的意思，但没有仔细想过。趁周末，翻看了一些文章，记录一些想法："
 paywall: true
 ---

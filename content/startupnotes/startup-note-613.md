@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-613"
+note_number: 613
 summary: "有知识星球以来，我们在产品里就一直是：只要加入星球，就可以看星球里的全部内容。这个设计背后的逻辑是：每个星球都是个社区，那自然应该，加入社区后，就能享用社区里的全部资源。 但最近几年，一直有星主跟我们提出，想要将他们的星球按期卖。 例如："
 paywall: true
 ---

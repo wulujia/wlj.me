@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-574"
+note_number: 574
 summary: "早期设计嘉宾这个角色，是星主提到一个场景：有些问题，我并不擅长，但是我有朋友很专业。我想请他进来，为我的读者答疑，应该怎么办？ 前些时候，同事反馈了星主遇到的新问题： 陆续邀请了一些嘉宾到星球答疑，起初也都挺好，但一段时间后，嘉宾们就慢慢不"
 paywall: true
 ---

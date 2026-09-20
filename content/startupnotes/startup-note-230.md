@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-230"
+note_number: 230
 summary: "一席里看到魏勇老师的演讲《历史课如何开脑洞》，我感兴趣的倒不是魏老师在历史课上的脑洞，而是： 我发现我们中国的改革，尤其是教育的改革——当然其他方面的改革我不太清楚——很多时候就卡在双方都不敢动这样一个情况当中，双方都怕主动会带来风险。我们"
 paywall: true
 ---

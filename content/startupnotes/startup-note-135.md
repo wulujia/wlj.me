@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-135"
+note_number: 135
 summary: "第一堂课的内容参见笔记 114，第一堂课的作业参见笔记 132。 我觉得这一整套产品课，如果自己不反复练习，上了也白上（毕竟产品技能不仅仅是「知识」）。 这几页 PPT 算是完整整套课程的总纲： 产品人的四个管家能力 产品人的一个中心和三个"
 paywall: true
 ---

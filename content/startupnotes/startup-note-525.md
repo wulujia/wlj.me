@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-525"
+note_number: 525
 summary: "好朋友问：我要是依然保持免费高质量输出，同时做星球，吴老师有什么建议？ 因为我知道他对内容的质量要求比较“苛刻”，因此第一反应是：挺难的，要不算了？ 跑步时想到这事，觉得当时的直觉不太对，应该还是有些方法能做到保持高质量的免费输出，同时做星"
 paywall: true
 ---

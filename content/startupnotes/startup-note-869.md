@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-869"
+note_number: 869
 summary: "前些天和几位朋友午餐，沟通中肖弘提到的几个我印象比较深刻的点记录："
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-803"
+note_number: 803
 summary: "记录一段我昨天处理的客服问题。 昨天（20250203）上午 11:27，用户在微信群里留言： 上次跟你们提过我个人手机外泄的问题，你们也答应解决，为什么最近这二十几天，还是天天一堆粉丝来电话？而且问他们，他们都说从星球看到的，这事你们是不"
 paywall: true
 ---

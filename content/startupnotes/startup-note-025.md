@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-025"
+note_number: 25
 summary: "今晚，提交审核的一个小程序版本被打回来了，理由是「该小程序未做用户发布内容的关键词过滤，可以随笔发布国家法律法规禁止的内容」，这方面我们之前做得的确不够。 目前小密圈后台有「敏感词报警」，过滤出敏感内容，我们可以在后台进行删除、封号、拉黑等"
 paywall: true
 ---

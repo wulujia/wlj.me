@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-596"
+note_number: 596
 summary: "前几天和同事聊天，有运营侧的同事提到，希望新一年能学习更多产品相关知识：我有些好奇，为什么？ 同事的想法是： 可以更好地了解用户需求，感受他们遇到的问题、痛苦。 希望能理解产品如何决策——有些问题/需求，明明在他看来，是合理、需要解决的，但"
 paywall: true
 ---

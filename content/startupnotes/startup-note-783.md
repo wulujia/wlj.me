@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-783"
+note_number: 783
 summary: "上周在日本，跟阿彪阿彬请教，类似 Slax Note、Slax Reader 这样的小工具，在海外应该如何推广。 他们的建议是，先别管 SEO，而是做红人营销。建议很简单粗暴，比如 YouTube： 写脚本，爬 YouTube 特定标签的用"
 paywall: true
 ---

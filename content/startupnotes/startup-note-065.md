@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-065"
+note_number: 65
 summary: "羊毛党已经来小密圈了。之前我们赞赏、付费提问都免收 5%（其实还垫付了微信支付收取的手续费），并且支持信用卡付款，之前考虑到有风险，所以做了资金监控。 最近发现，已经有人尝试用小密圈做信用卡套现了，虽然有每日限额 2000，但积少成多，也很"
 paywall: true
 ---

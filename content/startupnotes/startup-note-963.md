@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-963"
+note_number: 963
 summary: "前些天 Eatventure 做运营活动，给用户发线下实体优惠券，比如星巴克的优惠券之类的。通常也就是一串字符，输入商家的 APP 就可以兑换为现金。 最开始，同事的实现是：将这个优惠券发放到用户的 inbox，给一个消息通知，用户打开通知"
 paywall: true
 ---

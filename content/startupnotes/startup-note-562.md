@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-562"
+note_number: 562
 summary: "讨论的对象是小报童。 Xiaolan 说： 感觉小报童切入的是我们主动或被动放弃的市场。那些输出能力没那么强的创作者、希望交付更轻量的产品（交付压力不要那么大、运营不要太重）、季度订阅星球、阶段性星球（更新完就不运营的那种）、课程类星球。 "
 paywall: true
 ---

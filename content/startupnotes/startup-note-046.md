@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-046"
+note_number: 46
 summary: "有一段时间，我对 Slack 的崛起很兴奋（可能有几个原因，一来我经历过 IRC 聊天的时代，对类似 IRC 的沟通体验很怀念，二来是我当时想做对企业有价值的 SaaS 产品，任务管理太多也太容易复制了，Slack 的成长空间更具想象力）。"
 paywall: true
 ---

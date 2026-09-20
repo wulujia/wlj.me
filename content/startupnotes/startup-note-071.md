@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-071"
+note_number: 71
 summary: "很抱歉断更了一段时间，我回来了 :) 有人说过，你只有真正思考过死亡，才懂得真正需要什么。这里指的「思考过死亡」，不仅仅是亲人朋友的离去，可能需要更深入一些。 举个「思考过」的例子，有朋友：查出肿瘤，可能是恶性，不知道早期还是晚期。在一段时"
 paywall: true
 ---

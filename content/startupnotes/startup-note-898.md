@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-898"
+note_number: 898
 summary: "今天拉了 slax note 的同事讨论开发节奏，我的想法是：不同阶段，节奏不同。 起步期：暴风骤雨。快，高压强。产品从零到一，需要密集投入，快速试错，把核心功能打磨出来。 探索期：有两种状态。1. 找到方向后的快，全力冲刺。2. 方向不明"
 paywall: true
 ---

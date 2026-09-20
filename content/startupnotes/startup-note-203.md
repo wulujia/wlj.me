@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-203"
+note_number: 203
 summary: "昨晚做了个很不爽的梦——我一向对梦的记忆非常弱，这次估计是因为有感受，所以勉强记住了一些，大概内容是： 我去医院看病，打了一针，后来感觉不对劲（也不知道为啥），就跑去问另一个医生情况。结果却是晴天霹雳： 医生：不好意思，他用错药了。 我：那"
 paywall: true
 ---

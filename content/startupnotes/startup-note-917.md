@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-917"
+note_number: 917
 summary: "昨天同事给我发了条消息： 之前因为合规没通过、被我们拒绝的一个知乎大 V，去了竞品小红圈，一天时间，五百多万流水。 说完全不在意，那是假的。五百万的数字闪过脑子的时候，有一瞬间不平静。 但也就一瞬间。 我们拒绝那位大 V，是因为内容合规没过"
 paywall: true
 ---

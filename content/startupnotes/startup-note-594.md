@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-594"
+note_number: 594
 summary: "公司十八年了。今天下午，在公司内部有个小分享，我跟 Shotgun、Glacier 跟同事们做了些分享、答疑和讨论。我整理了一下我说的内容。 — 很高兴，到 2023 年，公司 18 岁了。能活 18 年的公司，没有那么多。应杜辉之约，我挑"
 paywall: true
 ---

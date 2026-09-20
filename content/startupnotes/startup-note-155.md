@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-155"
+note_number: 155
 summary: "这里的迭代只看 iOS 版本，比如知乎、即刻、知识星球、简书第三位都是 bugfix 小版本，就不统计了。 知乎、即刻都基本保持两周一个版本迭代的节奏； 千聊和简书基本上是一个月一次迭代； 饭团在节后的节奏变慢了（在行一点，也就是原来的分答"
 paywall: true
 ---

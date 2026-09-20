@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-728"
+note_number: 728
 summary: "事件：4 月 5 日，清明假期，微信模板被封。 很快我就收到了几位用户给我们发来的反馈。我赶紧： 在公司内部星球发了信息，at 了相关同事。 找微信安全的朋友咨询情况。 在知识星球、朋友圈发了消息，表示我们在处理。 一段时间后，得到微信安全"
 paywall: true
 ---

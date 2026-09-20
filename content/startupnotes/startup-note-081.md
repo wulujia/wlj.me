@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-081"
+note_number: 81
 summary: "2017-07-28，caoz 在他的网课产品「易灵微课」里，做了一堂《产品经理入门 - 如何有效沟通》讲座，作为 caoz 的朋友兼三脚猫产品经理，自然去学习了。但最近「知识星球」自己遇到一堆事（直到现在 iOS 版都还没恢复上架），心境"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-373"
+note_number: 373
 summary: "得到即将上创业板，招股说明书出来了，蛮好的，可以学习。记录一下速读之后看到的一些点： 战略思考：公司是一家从事\"终身教育\"服务的企业。需要突破三个困难：找到优质的教育资源、激发持续的学习动力、保证知识转化的结果； 建设\"人人可学，处处能学，"
 paywall: true
 ---

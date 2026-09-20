@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-005"
+note_number: 5
 summary: "还是不要每次都写严肃的内容了，创业者也得有生活嘛。看，现在都 00:20 了，我还在为「周三、周六各一篇」在电脑前面枯坐着 :) 推荐 Google 的艺术与文化产品： 网站：https://www.google.com/culturali"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-845"
+note_number: 845
 summary: "昨天群里看到一个希望退款的用户案例： 用户于 6 月 10 日 14:22 加入星球，6 月 13 日 14:39 退出了星球。因付款已超过 72 小时，退出不会退款。 同事的考虑是： 我们产品的用户协议、用户付款页面均有详细的说明和提醒，"
 paywall: true
 ---

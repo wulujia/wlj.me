@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-678"
+note_number: 678
 summary: "今天和 LingoACE 的创始人姚辉讨论，过程中我印象最深的有两点： 他们 2022 年到 2023 年利润率的变化——这个过程中做的“降本增效”，以及执行后 NPS 数据更好。 他很关心一个业务的 LTV，LTV 不够高的产品尽量不做—"
 paywall: true
 ---

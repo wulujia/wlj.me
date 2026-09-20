@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-494"
+note_number: 494
 summary: "我常去的泳池，有 4 条泳道。中间两条更宽敞，边上两条，本身拦得特别狭窄，而且一面是墙，游起来不太施展得开——尤其是人多交错时。因此到得早的人，往往会抢占中间泳道。 我选了边上看起来最差的泳道。 因为，来游泳的人往往不止 4 个，当 4 条"
 paywall: true
 ---

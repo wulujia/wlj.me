@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-752"
+note_number: 752
 summary: "上周见亦仁，他提到了 SaaS 版本的需求。他遇到的问题是： 用户在知识星球里消费生财里的垂直内容，用户成长了，希望更垂直，更专业，而目前知识星球的标签、分类阅读起来还是不够方便。 因此有不少用户会“分裂”出去，自建新的星球，但又没能持久，"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-354"
+note_number: 354
 summary: "我经常向一位很敬佩的\"老师\"请教产品、业务问题，前段时间向他报告了近期公司和产品的情况，讨教下一步应该做什么，才能稳扎稳打地再上一个台阶。 他给我的建议是：用足招人的\"带宽\"。很少的人，做很棒的事，人效比很高，这固然好，但如果想上一个台阶，"
 paywall: true
 ---

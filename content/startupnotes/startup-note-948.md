@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-948"
+note_number: 948
 summary: "前些天，有一位星主抱怨，说我们风控把他的“免费邀请”权限关了。风控的判断是，该星球已经极少有人付费加入，用户都是被“免费邀请”加的——而免费邀请这个功能，本意是给用户一定的灵活度，方便他邀约好友、老师、领导、同事等。 那位星主并不满意，他认"
 paywall: true
 ---

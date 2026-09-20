@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-219"
+note_number: 219
 summary: "看到「聊天宝」做了微信聊天、微信朋友圈、微信公众号、趣头条、今日头条、拼多多的功能合集，我想起了 Unix 哲学。 Wikipedia 上 Unix 哲学（https://zh.wikipedia.org/wiki/Unix%E5%93%B"
 paywall: true
 ---

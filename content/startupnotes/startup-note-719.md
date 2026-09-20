@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-719"
+note_number: 719
 summary: "去年底，我们提出了“打胜仗”的目标，希望通过一次全员的、胜利的战役，提升团队士气、拓展知识星球业务、提高公司盈利能力。 打胜仗的具体目标定为：2024年上半年，通过增值服务的方式，给公司带来不少于100万人民币的额外收入。 其中增值服务的定"
 paywall: true
 ---

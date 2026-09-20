@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-322"
+note_number: 322
 summary: "大局 是微信为创作者生态做的一件有价值的事； 付费阅读对比开放阅读，在传播能力上天然冲突，长期看可能是左右互搏； 整体用户花在公众号的时间，究竟会变长还是变短，我倾向认为会变短； 长期看，不会对内容质量有明显促进，也不会对长尾创作者收入带来"
 paywall: true
 ---

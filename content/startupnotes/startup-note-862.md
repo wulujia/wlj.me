@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-862"
+note_number: 862
 summary: "前些天有次和同事讨论，话题里涉及到时间管理。或许这是个值得每个人都想想的话题。我对时间管理想得并不多，能想到的两本书，一是卓有成效的管理者，二是高效能人士的七个习惯，里面都提到了要事第一。 我目前手头的工作还颇多，而且也有明确的汇报对象——"
 paywall: true
 ---

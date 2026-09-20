@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-405"
+note_number: 405
 summary: "其实去年脑海里一直在盘旋着“是不是该将知识星球的使命愿景价值观梳理出来”的想法，但一直觉得没想清楚。这期间看了不少组织、企业文化相关但书，也结合着公司但实际情况、产品但发展做了些思考，昨天静静地坐下来，将当下的想法写下来。 使命 促进分享。"
 paywall: true
 ---

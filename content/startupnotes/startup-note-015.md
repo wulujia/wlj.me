@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-015"
+note_number: 15
 summary: "好多人提起希望在小密圈里添加语音和直播功能。 语音的场景有： 类似千聊、知乎 Live 这样做微课堂； 微信群里，群主每天语音和群友们说一段。 直播的场景主要是微课堂。 这几天脑子里转的一直是这个，到底做不做？如果做，怎样的形态最简单？"
 paywall: true
 ---

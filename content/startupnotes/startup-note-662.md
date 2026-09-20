@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-662"
+note_number: 662
 summary: "2023 年 5 月 24 日，微信发布《微信公众平台关于进一步规范营销内容的公告》（https://mp.weixin.qq.com/s/BZckQtkx2js-Yr6jYQx-IQ），其中提到： 公众号运营者与第三方商业合作形式推销商品"
 paywall: true
 ---

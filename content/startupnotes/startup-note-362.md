@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-362"
+note_number: 362
 summary: "二季度，初步试用了 OKR（使用飞书 OKR 作为工具，简单好用，值得推荐），我想用 OKR 的目的其实很简单： 聚焦目标； 透明。 三季度打算更严肃地执行——虽然没有聘请外部顾问协助，不过我们自己看了几本书，赶鸭子上架，试着一点一点逼近目"
 paywall: true
 ---

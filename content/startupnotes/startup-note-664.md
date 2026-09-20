@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-664"
+note_number: 664
 summary: "聊天时，说起一位好朋友有个下属，被当成“利器”，优势是能力不错，劣势是情绪不太稳定。交办的工作，往往推进有进度，有数据，有结果。但平级之间、跨部门协调却往往风波不断。 提起能力 & 脾气，我会想起两句话： 传说中杜月笙说过：头等人，有本事没"
 paywall: true
 ---

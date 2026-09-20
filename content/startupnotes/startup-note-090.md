@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-090"
+note_number: 90
 summary: "今天看看腾讯的「话题圈」，一些优点： 微信 H5 版本 在微信 H5 里面不选择圈子，直接发表内容，会发进一个「美文圈」（可惜似乎是仪式感不够，发进去了自己也不太知道，而且用户没有加进那个圈子，还是颇冷清）； 话题圈有微信的加持，微信聊天内"
 paywall: true
 ---

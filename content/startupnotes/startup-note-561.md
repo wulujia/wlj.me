@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-561"
+note_number: 561
 summary: "转一个同事发在公司内部星球的信息： ---- 吴鲁加是CEO，但并不是绝对权威 昨天运营同学在会上反馈了一个星主的需求，刚好这个需求之前鲁加在他的星球上曾回复过，产品同学就把回复内容贴上去，作为给运营同学的回复了，并在会上提出，“这个问题，"
 paywall: true
 ---

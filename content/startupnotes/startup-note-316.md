@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-316"
+note_number: 316
 summary: "在一次演讲中，amazon 的贝索斯说过： 人们经常问我：未来10年什么会被改变？这个问题很有意思——从来没有人问我：未来10年，什么不会变？在零售业，我们知道客户想要低价，这一点未来10年不会变。他们想要更快捷的配送，他们想要更多的选择。"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-250"
+note_number: 250
 summary: "4 月 24 日，得到开发布会，比较郑重地推出了升级版的电子书功能。总结一下，包括了下面这些改进： 特别设计的字体：得到今楷； 电子书体验更好（排版速度、多端统一体验、复杂样式、竖向滚屏、横屏快速预览）； 只上精品书（荐书人 & 好合作出版"
 paywall: true
 ---

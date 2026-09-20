@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-756"
+note_number: 756
 summary: "2023 年 9 月，我们发过一个通知： https://doc.zsxq.com/announcement/feilvtiaozhengtongzhi.html 一句话说明就是：当年 10 万以内的收入，按照 10% 收取手续费；当年超出"
 paywall: true
 ---

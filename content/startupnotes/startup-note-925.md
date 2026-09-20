@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-925"
+note_number: 925
 summary: "推荐 Lenny 的一个对谈播客，讲产品增长停滞时的 5 个诊断问题 — Jason Cohen on Lenny's Podcast 来源: Lenny's Podcast, 2026-01-25 嘉宾: Jason Cohen, WP "
 paywall: true
 ---

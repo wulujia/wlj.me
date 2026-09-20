@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-755"
+note_number: 755
 summary: "起因： 大辉他们做过一个泥石流海报：https://nocode.com/tools/graph/custom。 今天在 X 上看到一个 dify 海报：https://x.com/lyson_ober/status/18164953414"
 paywall: true
 ---

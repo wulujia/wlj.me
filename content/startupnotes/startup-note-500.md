@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-500"
+note_number: 500
 summary: "先回顾一下 2021 年的 OKR： O1：保障企业/产品全年安全稳定运行，不出现影响业务的 GR 风险 KR1：通过优化后台风控能力，加强自身的风险发现、处置能力，降低风险 KR2：通过与深圳本地的监管部门进一步汇报沟通，建立信任 KR3"
 paywall: true
 ---

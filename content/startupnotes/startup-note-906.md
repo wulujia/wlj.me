@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-906"
+note_number: 906
 summary: "今天是我们公司成立 21 周年的日子，我想了想，公司存在这些问题： 组织 创始人的“后退”和对团队的“培养”、“锻炼”可能不够，希望更多创新来自团队 中层管理的能力还需要提升 整体团队的好奇心、对新事物（比如 AI）的接受度还需要提升 运营"
 paywall: true
 ---

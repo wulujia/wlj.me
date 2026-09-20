@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-600"
+note_number: 600
 summary: "往年每到元旦前后，我就陷入总结、计划中。2023 年的这段时间，受疫情感染影响，尤其匆忙，感觉时间被病魔吞噬了许多。到了春节，才有些恍惚地意识到，是的，又一年过去了。今晚孩子们准备守岁，耗到新年钟声敲响，我索性陪一会，顺便写点关于 2022"
 paywall: true
 ---

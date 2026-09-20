@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-147"
+note_number: 147
 summary: "体验 托朋友帮忙，带孩子到他们创业的诊所就医，约了周六晚上七点。我和老婆孩子到诊所的时候是 6:20，考虑到诊所附近有巨多餐厅，可以在就医之后美美地吃顿好的，所以先去诊所等待。 6:30，接到短信提醒我们不要迟到； 7:05，询问护士，护士"
 paywall: true
 ---

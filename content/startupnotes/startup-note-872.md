@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-872"
+note_number: 872
 summary: "上午起来，继续学习会计知识： 什么是自由现金流？ 自由现金流是一个衡量公司财务健康状况的核心指标。简单来说，它指公司通过其主营业务真正赚到手、并且可以自由支配的现金。 自由现金流 = 经营活动产生的现金流量净额 - 资本性支出 怎么从财务报"
 paywall: true
 ---

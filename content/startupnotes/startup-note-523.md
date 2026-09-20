@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-523"
+note_number: 523
 summary: "前段时间居家办公。人力资源同事做了个调查表，其中有个问题是，对居家办公是否有什么不满，我当时的不满有两个： 很久没线下见到同事，有点想念。 开会太容易，导致会太多。 后来跟志强讨论，我提到我对“会太多”的感受中，有几个问题是需要解决的： 部"
 paywall: true
 ---

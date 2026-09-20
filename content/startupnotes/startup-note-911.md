@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-911"
+note_number: 911
 summary: "今天在看 substack 的时候，意识到他们用邮件列表，是一件“难而正确的事”，邮件可以导出，因此对创作者来说可以放心地使用，不满意就迁移。且用户订阅时明确知道他把邮箱给了这个创作者。 知识星球是不是也可以做邮箱登录？ 最主要的难点是：邮"
 paywall: true
 ---

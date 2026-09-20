@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-634"
+note_number: 634
 summary: "我问 ChatGPT：想要探索一项新技术能否用于企业，最适合的方法应该是什么？比如说：现在的 AI 技术。 它的回答是： 探索一项新技术是否适用于企业有多种方法，以下是一些具体步骤，以人工智能（AI）技术为例： 了解AI技术： 首先，你需要"
 paywall: true
 ---

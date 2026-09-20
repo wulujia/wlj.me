@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-100"
+note_number: 100
 summary: "上午看了个《推特已死》的短视频：https://m.weibo.cn/status/4173704944269733 里面提到 Twitter 早期的规则是：Our goal is to provide a service that all"
 paywall: true
 ---

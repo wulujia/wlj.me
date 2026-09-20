@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-456"
+note_number: 456
 summary: "昨天和朋友吃饭，他强烈建议做出海。今天找同事请教，草率地列了几个可能的需求： 独立服务器，放在海外数据中心。 独立 app、网站，与知识星球业务完全隔离。 支付方式不同，可能会接入银行卡、stripe 等。 前期只需要英文版。 请同事粗糙地"
 paywall: true
 ---

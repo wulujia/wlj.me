@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-054"
+note_number: 54
 summary: "看到一个朋友血淋淋的案例（出于隐私，抹去具体公司）： 创业做产品，想了一个不错的名字，查了域名可以买下、AppStore 无同名应用、9 类商标被注册但多年未用可以申请撤销，就定了这个名字； 半年后发现，其实是 9 类(计算机)和 35 类"
 paywall: true
 ---

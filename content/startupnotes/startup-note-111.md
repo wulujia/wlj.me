@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-111"
+note_number: 111
 summary: "早上起来，意外地看到知识星球在 iOS 榜单排名突然上窜到商业榜第 2，总榜最高到 94，有点意外，第一时间做了几件事： 请运营同事分析是否有很牛的 KOL 在这个时段入驻； 请后端同事观察服务器的负载是否压力上升，必要时做相应处理； 然后"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-249"
+note_number: 249
 summary: "目前市场上有心书、微印、时光书、时光流影等产品——主要将微博、朋友圈的内容排版打印为纸质书籍。 最近有好些用户建议我们做「星球书」，我却一直有点犹豫： 优势： 有原生的内容 确实有一部分用户有真实的「纸质书」需求 用户普遍付费能力强 劣势："
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-258"
+note_number: 258
 summary: "切换到 Mac 十年，最近有越来越强烈的冲动，想试试能不能脱离苹果系统的生态——反正手机已经是安卓了。 考虑了一下我在 Mac 生态下的日常使用软件： 浏览器：Chrome Markdown 编辑：Bear 记事：Simplenote TO"
 paywall: true
 ---

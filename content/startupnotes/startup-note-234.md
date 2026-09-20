@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-234"
+note_number: 234
 summary: "在「产品学徒」星球里，有一位朋友提问： 王小涛提问：知识星球是模仿 band 的模式吗？但感觉不一定仅限于知识社区吧，是否可能做成兴趣组织等？ 我的回答是： 在做知识星球之前，我们确实蛮仔细地看过 Band，觉得有不少可以借鉴的地方。 但是"
 paywall: true
 ---

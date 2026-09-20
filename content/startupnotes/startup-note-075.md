@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-075"
+note_number: 75
 summary: "之前讨论过，不要让一颗老鼠屎坏了一锅粥。 最近的小密圈里，这类坏用户开始出现，虽然我们的运营人员并不手软，但却有点疲于奔命。 最初，做法是强力控制封号、冻结金额。无果，总还屡禁不止——毕竟他们的成本只是换个微信号——而这方面，灰黑产还是有不"
 paywall: true
 ---

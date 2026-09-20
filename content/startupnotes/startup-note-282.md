@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-282"
+note_number: 282
 summary: "大概在 2006 年，老杨推荐了 37signal 的 Getting Real 给我，说写得很好。虽然内容很短，但是对我的影响还是很大的。Getting Real，或许可以翻译为“实事求是”。在我理解中，这是将事情做小、做少、做精、做快的"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-949"
+note_number: 949
 summary: "跟一位做广告投放的朋友交流，她给我提了个建议：内容和科技这两个东西都可以积累，是个长坡，有积累空间。可以试试用 AI 做知识类短视频。 她这么提的背景是： 她做广告投放，能看到短剧行业起得非常快。比如 EMBA 同学里有家公司，短时间内从几"
 paywall: true
 ---

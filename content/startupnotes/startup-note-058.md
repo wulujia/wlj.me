@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-058"
+note_number: 58
 summary: "纯银开始建设产品社区，我看到后，第一时间就报名参与了——虽然没能将他拉到小密圈开圈子，是一大损失，不过认真观察他的社区实践，尤其是在 slack 这样一个强大灵活的平台上的实践，真的非常棒，算是纯银在用他的实践帮小密圈探路。 我的碎片观察记"
 paywall: true
 ---

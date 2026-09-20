@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-538"
+note_number: 538
 summary: "此前，陈柏龄建议过，可以考虑做一个易于分享的小卡片（他给了一个 Spenser 的卡片做参考）。 这里的用户需求是： 希望方便地宣传自己（可以简洁地填写简介）。 能方便地填入主流媒体信息，比如微信公众号、视频号、微博等，访问后可以直接跳转。"
 paywall: true
 ---

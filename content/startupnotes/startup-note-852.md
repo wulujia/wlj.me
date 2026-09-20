@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-852"
+note_number: 852
 summary: "今年六月的税务公告 15、16 号文，对互联网上的内容创作者还挺重要的。 国家税务总局公告2025年第15号：国家税务总局关于互联网平台企业报送涉税信息有关事项的公告 https://www.gov.cn/zhengce/zhengceku"
 paywall: true
 ---

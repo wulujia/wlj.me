@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-939"
+note_number: 939
 summary: "我目前语音笔记产品的想法是：降低预期，把时间拉长，干脆做一个长时间低成本的小工具。 在这个前提下，我觉得我们优先做几件事情。 先梳理当下的服务，让我们的服务低成本且相对稳定。 希望梳理试用机制，看能不能让用户更多地试用，从而比较有效地提升我"
 paywall: true
 ---

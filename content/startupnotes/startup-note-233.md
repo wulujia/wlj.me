@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-233"
+note_number: 233
 summary: "去年有个比较有意思的旅程是参加火人节（Burning Man），去之前，在网络上搜索到各种传闻、图片，那时我注意到的有： 地点选择在条件非常艰苦的沙漠，没有手机信号。需要自备水和食物，白天炎热夜晚酷寒，不时有沙尘暴； 艺术、嬉皮范一些的人更"
 paywall: true
 ---

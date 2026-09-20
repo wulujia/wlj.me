@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-556"
+note_number: 556
 summary: "知识星球里，有些用户违规后，会有些处罚，但他们并没有申诉入口，往往需要通过微信找到我们。于是产品同事做了个设计，希望这些用户可以方便地提交申诉（最初的设计见附图）。 我看到后的感受挺不好的。直觉是：可能会有 90% 以上的用户会在这里跳出，"
 paywall: true
 ---

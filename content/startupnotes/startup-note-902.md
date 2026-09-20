@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-902"
+note_number: 902
 summary: "笔记 900 里记录的事情，今天再补一点信息——创业笔记，记录的是真实发生的事情、误解、急躁，应该补齐一些。 我在打通同事电话的时候，急躁、带着情绪的话，是不对的。首先同事当时在开车，其次从星主反馈开始看，刚过 10 分钟——同事跟星主其实"
 paywall: true
 ---

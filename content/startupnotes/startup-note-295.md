@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-295"
+note_number: 295
 summary: "To B 还是 To C，这是个问题。 最早在做知识星球的时候，我觉得我们是 To B，或者换个说法，叫 B2B2C，我们面向 KOL 提供工具，KOL 面向 C 端用户提供服务。因此一段时间里，我们的服务目标很清晰，一切面向我们的客户，也"
 paywall: true
 ---

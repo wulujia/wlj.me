@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-950"
+note_number: 950
 summary: "继续说一些我现在的瞎琢磨。我听播客已有约二十年了。 多年以前，听播客主要是打发时间，比如在睡前、散步、跑步或开车这样的空闲时间里，当时对通过播客获取知识并不那么上心。 最近这几年，播客里有了越来越多的高质量内容，往往包含着其他内容形式里不存"
 paywall: true
 ---

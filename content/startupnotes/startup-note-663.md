@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-663"
+note_number: 663
 summary: "之前我跟同事们聊到，看 Netflix 的书时，对他们“只招成年人”印象深刻——一听很有道理，但是仔细一想，成年人怎么定义，似乎非常不清晰。 我之前脑子里模糊的概念就大致是，将心比心，我希望的“成年人”，其实就是我希望合作的伙伴，他有专业技"
 paywall: true
 ---

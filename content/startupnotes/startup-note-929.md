@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-929"
+note_number: 929
 summary: "还是转 Lenny 的邮件列表——时不时这么转一下，看起来他的订阅不能退——要不然不厚道了，文章是： https://r.slax.com/s/dBX213420d 这个访谈的原文在 YouTube 上也有，可以参考： https://ww"
 paywall: true
 ---

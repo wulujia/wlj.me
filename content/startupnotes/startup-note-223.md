@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-223"
+note_number: 223
 summary: "新年到了，祝朋友们新年快乐！ 先说句题外话，做知识产品，每逢佳节数据跌，虽然习惯了，可是看着大辉他们团队这会儿在讨论加服务器，心底还是泛出点儿羡慕。 前段时间，有赞「高调宣布全员 996」引起了不小的讨论，联想到同行里还有不少公司也 996"
 paywall: true
 ---

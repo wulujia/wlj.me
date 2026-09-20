@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-143"
+note_number: 143
 summary: "前天晚上，一位朋友建议我给产品加上「按月收费」的能力，他的判断是： 加入成本更低，其实可以刺激消费。我想加入一些圈子，但都收费不低，动辄成百上千，我不能判断我是否真的完全合适是否适合该圈子。虽然有3天无理由退款，但我更希望通过更长一段时间的"
 paywall: true
 ---

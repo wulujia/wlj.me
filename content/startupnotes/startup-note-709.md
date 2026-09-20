@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-709"
+note_number: 709
 summary: "最近在看一些开源产品，cal.com 是其中一个，做些记录。 在 https://github.com/calcom/ 提供了源代码，也分发社区提供的 docker 版本：https://github.com/calcom/docker。 "
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-326"
+note_number: 326
 summary: "我认为远程办公，核心在于： 个人高效完成预定目标； 团队配合达成阶段目标。 因为很多年来，我都只有小公司/团队经验，所以我的这些建议不一定适合大公司。我的建议分成几部分： 对个人在家的习惯建议 作息规律。像平时上班一样，订好起床和休息的闹钟"
 paywall: true
 ---

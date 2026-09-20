@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-792"
+note_number: 792
 summary: "今天一位用户，通过我的微信公众号私信，提供了他的手机号和星主信息（知识号），表示他被移出了星球，但他认为，在他付费期间的内容，他应该能长期看。 我通过后台查询，最初的情况： 没查到他这个手机号的付费信息（所以有概率是他是被“免费邀请“的，实"
 paywall: true
 ---

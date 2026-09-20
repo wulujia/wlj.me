@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-578"
+note_number: 578
 summary: "前些天，我拿了个功能上“牌桌”（参见笔记 570），是： 考虑星空问答新增笔记功能。希望解决星空问答需要问题 + 答案配合，需要两个账户发一篇内容，邀约和使用成本高的问题。通过增加“笔记”（想法？）功能，可以直接发布文章，发布成本更低，以此"
 paywall: true
 ---

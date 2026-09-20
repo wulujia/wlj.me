@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-254"
+note_number: 254
 summary: "前些天速读了《洞察：精确观察和有效沟通的艺术》，觉得颇有所得。今天再快速读一遍，顺便摘抄一些内容。 学习观察重要的东西也会改变你的世界。我要请你来睁开眼睛，看看这是怎么办到的。我敢保证，你会发现，你甚至不知道你的眼睛原来是闭着的。 一旦你学"
 paywall: true
 ---

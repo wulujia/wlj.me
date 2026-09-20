@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-459"
+note_number: 459
 summary: "这篇笔记写于 2021-07-18，因为星空问答还没有确定发布，所以没发。 想在知识星球里做个问答模块，想做的根本原因是：知乎的广告和故事有点多，我用着没那么愉快了。 昨天向宋健咨询，他给了些反馈，我记得的有： 得找到根本的用户需求。很多时"
 paywall: true
 ---

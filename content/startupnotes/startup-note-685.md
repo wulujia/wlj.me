@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-685"
+note_number: 685
 summary: "一 之前我在一篇文字里写了这么段话： - Start -- 第一次看到 PostHaven，是看 Sam Altman 博客时，发现他用的是这套系统。顺着链接点过去，看主页上看到了一些我很认可的理念，比如： Just Write. Post"
 paywall: true
 ---

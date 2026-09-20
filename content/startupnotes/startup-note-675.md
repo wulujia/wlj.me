@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-675"
+note_number: 675
 summary: "我们的运营、产品、设计、风控、客服同事们，有一段时间学习研发的 Scrum，每天早上花个 10-15 分钟开个站会，大家快速碰一下昨天有什么需要同步的事情。 后来觉得，每天频率太高，这个短会上经常没什么事。 有挺长一段时间，又改回了周例会："
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-679"
+note_number: 679
 summary: "Andrew Wilkinson（@awilkinson） 2023.06.26 在 Twitter 上发过一篇关于 Musk 在 Twitter 裁员的信息，链接在： https://twitter.com/awilkinson/stat"
 paywall: true
 ---

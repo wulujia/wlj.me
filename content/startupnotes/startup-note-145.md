@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-145"
+note_number: 145
 summary: "开始前，白鸦说，2010 年，他第一次听了这门课，之后思考了支付宝、苹果的全局、路径。时至今日回顾，发现，都对。 结束时，白鸦说，这种思维方式的刻意训练，可以找其他公司来练习：美团、滴滴、今日头条、联想……都可以，不一定要急着套用到自己的公"
 paywall: true
 ---

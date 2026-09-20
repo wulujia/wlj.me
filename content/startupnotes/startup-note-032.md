@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-032"
+note_number: 32
 summary: "纯银认为知识变现市场的共性： 和 KOL 强相关，KOL 的名声是付费的决定性因素。用户购买的不仅仅是知识，而是 XXX 告诉你的可信赖的知识，哪怕信息在网上都能搜到，那也经过了 KOL 的筛选与认证，区别于搜索的千头万绪。 最难做到的是两"
 paywall: true
 ---

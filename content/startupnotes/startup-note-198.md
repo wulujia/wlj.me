@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-198"
+note_number: 198
 summary: "记得小时候读过励志书籍里有一句：「无志之人常立志」，与之对应的是「有志之人立长志」，大白话但是还挺有道理的。 我算是个「常立志」的人——比如说跑步，跑了一个月——瘸了。比如说早睡，早了一个月，一个放肆的长假又给打破了。比如少看手机，消停了两"
 paywall: true
 ---

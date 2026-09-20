@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-476"
+note_number: 476
 summary: "我们的客服目前存在几个问题： 入口多：用户可以通过知识星球里的帮助与反馈、星球学院、云智服客服通道、邮件、客服微信、客服企业微信、客服邮箱等多种方式（其实还有微信公众号、视频号等入口的联系、投诉）联系我们，这也就意味着我们需要关注很多个入口"
 paywall: true
 ---

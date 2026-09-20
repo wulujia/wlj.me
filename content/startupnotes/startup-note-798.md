@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-798"
+note_number: 798
 summary: "startupnotes 这篇笔记，其实就想说一件事：社区最重要的是人味。 很多人担心，AI 正在杀死内容。在我看来，确实也是如此。在各个内容平台上，AI 创作的内容已经很难被分辨，甚至也可以千人千面地适应我的口味。 对知识星球来说，或许未"
 paywall: true
 ---

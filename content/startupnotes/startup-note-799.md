@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-799"
+note_number: 799
 summary: "startupnotes 在去新加坡的飞机上，想到玉珍跟我提的一个要求：写一下我对海外用户使用应用的一些观察。我想了想，这方面好像没啥好写的，问问 AI 就都有了，但反而是目前的几个尝试，是有趣和值得一记的。 slax.com 团队 bas"
 paywall: true
 ---

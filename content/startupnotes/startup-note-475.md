@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-475"
+note_number: 475
 summary: "前两天发生过一起星球里的精华内容，被人搬运到公众号，不署名地作为原创发布的事儿。因此条行马问： 知识星球的内容原创，和公众号内容原创保护之间，是存在单向或双向做校验的可能性吗？知识星球的精华帖，被搬运在公众号做原创发布的话，好像是行的通的。"
 paywall: true
 ---

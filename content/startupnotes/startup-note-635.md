@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-635"
+note_number: 635
 summary: "一个问题是：人工智能问答的出现, 对问答社区的影响是什么? 问答社区会消失吗? 还是说这是一个我们弯道超车的机会？ 我的想法是：语言模型可能会“吃掉问题”，就像朋友圈“吃掉图片”一样，真正的好问题如果大部分被吃掉了，就不存在问答社区的新机会"
 paywall: true
 ---

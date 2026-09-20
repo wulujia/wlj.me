@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-139"
+note_number: 139
 summary: "再回顾一下「场景」这件事（之所以说回顾，是笔记 114 里其实已经把此前听课的心得写了一些）。 考虑着让同事们都有点产品意识，所以准备内部做个培训，做课件的过程中，重新学习和思考了一遍，顺便再写下来，权当备课。 描述一个场景时，有哪些关键要"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-092"
+note_number: 92
 summary: "做知识星球之初就参考了 Band 很多，而且不定期重新翻看，随着当时的环境、心境不同，想法也会不同。 这次看 Band，观察了几点或许值得学习的："
 paywall: true
 ---

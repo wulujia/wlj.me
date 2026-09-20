@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-559"
+note_number: 559
 summary: "看了 Adam Ryan 的一则推文：https://twitter.com/AdamRy_n/status/1571588552013783040，有一定的参考价值。作者的观点："
 paywall: true
 ---

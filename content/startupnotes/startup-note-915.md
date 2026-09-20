@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-915"
+note_number: 915
 summary: "在看到 Ben Thompson 的那篇《Shopify 财报与 Shopify 的 AI 优势》时，我脑海里的想法是：如果 Shopify 在 AI 时代还能保持优势，那知识星球是不是也行？ 会有这样的想法，是因为我一直认为： 知识星球是"
 paywall: true
 ---

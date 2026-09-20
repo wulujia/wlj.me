@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-665"
+note_number: 665
 summary: "昨天跑步的时候，一边听 YC 的一系列创业视频。听到在讲想要达到 PMF，产品应该贴近用户。听到要做用户体验测试，很重要的一点是“不要试图教用户怎么用，而是观察他们怎么使用，然后从中找到改进的点”。 似乎应该给产品同学布置一个作业，每位产品"
 paywall: true
 ---

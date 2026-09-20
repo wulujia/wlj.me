@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-436"
+note_number: 436
 summary: "找柳言语@职人社请教了他们之前做问答社区的经验，得到了这些有价值的信息。 小程序其实不适合做问答社区，手机输入长文太难了。 提出好问题的能力不是每个人都具备的，早期提问的水平很重要。 垂直于职场人群的选择，目前看，输出是比较困难的，“大佬”"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-676"
+note_number: 676
 summary: "前两天，杜辉给了我一个命题作文：跟团队 Leader 作一下交流，谈谈你对中层管理的期望，扮演好怎样的角色以及承担起哪些职责。 我简单列了几点我的粗浅想法： 做事 自己有动手打仗的能力 带人（能带着同事一起完成工作） 有管理职能（人员任免）"
 paywall: true
 ---

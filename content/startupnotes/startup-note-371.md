@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-371"
+note_number: 371
 summary: "每周一都有团队例会，我们此前的习惯是大家先填写周报内容，例会的时候挨个说一下自己上周做的工作、需要讨论的问题以及下周的计划。 最近有几位同事认为，这太花时间，考虑简化一下： 周一中午之前将周报填写完毕； 例会之前，阅读其他同事的周报内容，记"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-199"
+note_number: 199
 summary: "如果你的内容产品在淘宝、闲鱼被人「售卖」，可以尝试一下阿里巴巴的知识产权保护平台，链接是 https://ipp.alibabagroup.com/。 平台的功能和 UI 做得还略微粗糙，但对我们算是刚需，目前看来，在这里提交的侵权行为，都"
 paywall: true
 ---

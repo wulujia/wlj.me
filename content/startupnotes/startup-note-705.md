@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-705"
+note_number: 705
 summary: "沉浸式体验了一段时间海外产品的生态，我用得最多的是 Slack 和 Notion，这两个产品加上 Zoom，基本上成为小企业的标配（当然也有用 Teams、Lark、Google 这样全家桶的公司）。 早年间，我曾经动过念头，用小密圈解决企"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-653"
+note_number: 653
 summary: "回过头想，为什么要做笔记？ 我觉得有这么几个原因： 我自己需要。我有些内容是发在“星球创业笔记”里的——每周两篇，创业、知识星球相关。但除此之外，其实还有不少碎片内容、想法想发。朋友圈、微博、即刻、Twitter、Facebook 等地方，"
 paywall: true
 ---

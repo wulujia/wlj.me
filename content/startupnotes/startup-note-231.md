@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-231"
+note_number: 231
 summary: "看摄影师严明老师的随笔，翻到这一段： 如果只讲器材，只按教科书的准则去扫，容易扫得很浅，很表面。缺少时间且无多少人生历练，容易搞成前一年扫过，第二年再扫一遍，第三年还一如既往地在那儿扫。街头偶然的趣味巧合，很容易勾起观众的兴奋，大家会觉得你"
 paywall: true
 ---

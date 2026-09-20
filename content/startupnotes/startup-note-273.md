@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-273"
+note_number: 273
 summary: "目前一元看没有实现“拓展用户”的目标： 一元看的灵感来源是早期分答、值乎的“一元偷听”，功能目标是拓展付费用户； 因为我们的一元看没有分销，而且缺乏娱乐性，即使加上分销，传播量也不足以带来高收入。 反而带来了一些困扰："
 paywall: true
 ---

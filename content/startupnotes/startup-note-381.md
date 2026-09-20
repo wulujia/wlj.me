@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-381"
+note_number: 381
 summary: "昨天我转了纯银的文章后，caoz 批评我： 纯银来taptap之后的前几天，一直在看数据，你说纯银抓底层逻辑，人家也是先通过数据感知产品的。知识星球，给星主的数据一团烂，自己的数据也是一团烂。而且显然运营平时不看数据。 taptap也有很多"
 paywall: true
 ---

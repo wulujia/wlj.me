@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-577"
+note_number: 577
 summary: "海外的创作者经济也颇是盛行，目前看到了几种不同的产品： Substack：邮件列表 + 网站。近期也有了 App。 Onlyfans：类似 Twitter 的网站，内容以付费、色情为主，鼓励 1 on 1 对话。 Ghost：付费 CMS "
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-814"
+note_number: 814
 summary: "几个零碎的想法，就不展开了，先记录一下——产品同事在考虑做些功能内测，真的要上线，据说审核流程得要半年。 聊天在 onlyfans 是个大功能，很大程度上促进了付费和内容消费 有 AI 以后，似乎是个好机会，可以促进内容消费，哪怕是沉寂多年"
 paywall: true
 ---

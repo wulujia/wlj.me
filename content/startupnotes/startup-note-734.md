@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-734"
+note_number: 734
 summary: "之前收集大家对 https://www.volunteer.gov.sg/ 的评价，得到了比较负面的反馈，除了界面看上去还挺漂亮之外，缺点有： 相对“静态”。类似传统报纸广告那样的内容呈现——志愿者只能看到很简单的机构信息，以及要求，缺乏互"
 paywall: true
 ---

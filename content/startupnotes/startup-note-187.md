@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-187"
+note_number: 187
 summary: "最近亦仁在他的星球《生财有术》里对知识星球提了一些需求，我觉得需要认真思考。非常感动有这样好的用户和朋友在使用知识星球，不能让他们失望。 这些需求，无论做或者不做，隔一段时间翻一翻，或许会有些不同的灵感。 最近在产品上不容易感受到知识星球产"
 paywall: true
 ---

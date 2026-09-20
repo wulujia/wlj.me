@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-704"
+note_number: 704
 summary: "如果你是知识星球的产品经理，2024 年里，你会做什么？ 我打个样——跟大家写的一样，我列出来的，同事们未必认同，还需要进一步针对 ICE——影响范围（Impact）、信心（Confidence）、容易程度（Ease）做讨论和评估。 我在团"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-775"
+note_number: 775
 summary: "之前想了解 Prompt engineering，请同事推荐资源，他们给了俩： https://www.promptingguide.ai/（部分中文翻译可以看 https://www.promptingguide.ai/zh） 一个关键词"
 paywall: true
 ---

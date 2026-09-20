@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-736"
+note_number: 736
 summary: "昨天在百度里用 site:zsxq.com 搜索，找到相关结果数约 58,500 个，但我看到了一些问题，顺手写几个： 知识星球有那么多内容，为什么只收录了 58500？ 为什么从第一页开始，就有那么多奇奇怪怪的，都是“知识星球” Titl"
 paywall: true
 ---

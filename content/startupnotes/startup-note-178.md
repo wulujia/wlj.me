@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-178"
+note_number: 178
 summary: "在《创业笔记 155：对比几家 APP 的迭代速度》里，我提到了最近一段时间，我们的产品迭代从两周变成三周。我一直隐隐觉得里面存在问题，但没细想解决方案。 同事反馈了一个困惑：感觉目前的迭代是在「削足适履」——每次凑三周的工作量出来，保障三"
 paywall: true
 ---

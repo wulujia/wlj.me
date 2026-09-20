@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-501"
+note_number: 501
 summary: "春节前，我们遇到了一件让人有些膈应的事儿，来龙去脉如下： 我们平时一直在持续对盗版的商家、用户、网站进行打击。近期提交给阿里巴巴的盗版反馈，突然有几个案例，对方进行反诉，一看反诉材料，愣了——盗版者抢注了正版的商标，并以此商标来试图证明，自"
 paywall: true
 ---

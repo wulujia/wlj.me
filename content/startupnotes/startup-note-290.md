@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-290"
+note_number: 290
 summary: "看邮件时，发现 Fenng 在小道通讯里说了一段话： 打磨(Polish Up) 是市场上非常欠缺的一种能力。在中大型公司里，这个现象很明显。技术产品团队把精力在前期上花费太多，设计、评审、开会，扯来扯去，产品一上线，过一段时间就没人管了。"
 paywall: true
 ---

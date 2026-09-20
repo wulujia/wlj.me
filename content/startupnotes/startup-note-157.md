@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-157"
+note_number: 157
 summary: "笔记 145、152、153 提到的系统循环图，继续试着画头条的循环图。从 153 评论里章可的回复，让我看到对同一件事情完全不同的理解——看来，哪怕是知识星球自己的系统循环图，也需要和同事们多讨论。 说回头条。 我理解的头条，这里面有几个"
 paywall: true
 ---

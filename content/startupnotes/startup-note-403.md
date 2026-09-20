@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-403"
+note_number: 403
 summary: "还是有投资人提的几个问题，简单回复了，顺手记录一下。 知识星球首先是服务于星球主的工具，如何平衡他们的需求多样和我们产品化的方向？ 做产品本身就是找到有共性的需求，找到最好的方式解决掉，一般没有共性或者没有好方案的，会先忽略； 很有价值的星"
 paywall: true
 ---

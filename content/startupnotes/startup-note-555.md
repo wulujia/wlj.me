@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-555"
+note_number: 555
 summary: "听 Tony 提了一嘴早期 QQ 的数据统计方式： 关注的最核心的数据就是在线人数。 一位后端同事大概几个小时的时间，实现了每分钟打点记录在线人数，连成曲线。 发展的最初几年，基本上主要盯这个数据——数据掉为 0，可能是服务器当机了。数据下"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-266"
+note_number: 266
 summary: "易灵微课推了个付费文章和专栏功能（http://t.cn/AipyX8F7），前天晚上体验了一下，觉得总体完成度不高。我曾经想过做同类功能，但是一直畏难——觉得没能想清楚怎样做简单，怎样有价值，怎样规避风险，所以怂了先没做。 现在信马由缰，"
 paywall: true
 ---

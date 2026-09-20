@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-364"
+note_number: 364
 summary: "最近有个需求： 部分星主希望精细化运营社群，但又苦于没有工具支撑——比如：他们希望能够得到用户的微信、手机、发表过的内容、最近登录时间、最近评论过的内容、职业、住址等等…… 基于这个需求出发，我们考虑设计一个针对付费星球的“CRM”，在这里"
 paywall: true
 ---

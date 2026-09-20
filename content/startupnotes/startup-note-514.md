@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-514"
+note_number: 514
 summary: "同事们从去年底开始尝试 Scrum，星空问答这个小产品，就是一支 Scrum 团队的实践成果。我尽可能地参加了 Scrum Team 的一些活动（作为“客户”角色参与了），如果让我评价 Scrum 的效果，我觉得基本达到预期。 我认为的几个"
 paywall: true
 ---

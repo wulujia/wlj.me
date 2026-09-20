@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-470"
+note_number: 470
 summary: "前几天看到一篇美篇的文章：https://mp.weixin.qq.com/s/Lxtr-QvOZAJAuHwAVNIT_g，记录一些点。 2015年，4G刚刚普及。在这之前，用户们使用3G网络，上传图片的网速很慢，手机里有巨大的照片存量。"
 paywall: true
 ---

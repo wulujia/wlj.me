@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-748"
+note_number: 748
 summary: "最近在一些视频和文章里看到了 NVIDIA 黄仁勋很不一样的管理方法，也激发了一些思考。 以下是原始内容： 访谈 1：https://youtu.be/8Pfa8kPjUio?si=NZGEA_uxABYiebzI 文字稿 1：https:"
 paywall: true
 ---

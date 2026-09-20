@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-897"
+note_number: 897
 summary: "上午 erin 给我看一个小物件——她买一款国产化妆品时，那家公司附赠的小物件，看上去是冲洗出来的胶卷。 举起来对着光仔细看，内容是：产品经理的胶卷——里面是一张张照片，还注明了内容，比如“产品经理正在收集大家对于皮肤老化的感知“。 因为我"
 paywall: true
 ---

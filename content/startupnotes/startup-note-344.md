@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-344"
+note_number: 344
 summary: "先贴两个链接： http://www.bjnews.com.cn/feature/2019/12/06/658488.html http://www.cac.gov.cn/2019-12/27/c_1578986455686625.htm "
 paywall: true
 ---

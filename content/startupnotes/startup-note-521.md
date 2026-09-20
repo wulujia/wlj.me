@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-521"
+note_number: 521
 summary: "一般都是做好了再发布，给用户一个惊喜。 找到了一张一年前的照片，应用号，2016.01.09，启动日。 讨论订阅号和服务号的关系。一个小伙子拿了个 demo，可以实现基本应用程序的元素、接口。可以跳出公众号，做一个新的应用形态，这就是小程序"
 paywall: true
 ---

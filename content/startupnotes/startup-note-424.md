@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-424"
+note_number: 424
 summary: "客观说，我并不算太懒，工作上，做的是自己喜欢的事，所以投入。家务事，不主动但也不拒绝，还算个能用的帮手。不过我却喜欢自诩懒。 我有个没那么积极的观点，对产品、公司、业务，一年里只要做 1-2 个正确的决策就够了。其他都是（瞎）折腾。 第一次"
 paywall: true
 ---

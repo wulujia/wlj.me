@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-885"
+note_number: 885
 summary: "这几天有个感受：会认真做记录的人，很容易超过 99% 的人。原因是他手里有一整套可反复利用的素材库。 这个想法，是我用 Codex（Claude Code / Gemini Cli）工作时体会出来的。我电脑里有近 900 篇创业笔记，加上公"
 paywall: true
 ---

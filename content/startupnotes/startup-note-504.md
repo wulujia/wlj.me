@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-504"
+note_number: 504
 summary: "https://web.okjike.com/originalPost/61e68912104ed20010a1db5a AfterHanabi 写的： 今天收获了一个洞察候选人真实想法的问题： “如果不存在我们这个机会，你最想去的可能会是"
 paywall: true
 ---

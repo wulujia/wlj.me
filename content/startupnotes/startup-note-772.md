@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-772"
+note_number: 772
 summary: "创业笔记 772：一个年终总结的脑洞 一 可以先看看两个链接： https://36kr.com/p/2899651963083652 https://twitter.wordware.ai/ 第一个是报导，第二个是产品。 二 知识星球每年"
 paywall: true
 ---

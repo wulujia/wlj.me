@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-590"
+note_number: 590
 summary: "批量购买邀请链接，是为了解决视频号、抖音直播中卖星球问题而设计的。因为视频号、抖音里不方便直接挂虚拟商品，更不能直接贴个二维码让用户扫码支付，因此只能： 星主先买一批链接。 用户在视频号或抖音里购买商品，星主发货（发链接）。 这种方式操作稍"
 paywall: true
 ---

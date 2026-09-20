@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-041"
+note_number: 41
 summary: "Medium 上看到一篇文章，写的是得到你的前 500 个种子用户（https://medium.com/swlh/your-first-500-users-dd61e4e5c9a2），比起各种增长黑客们动辄百万千万地刷用户来，这里说的很不"
 paywall: true
 ---

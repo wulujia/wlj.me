@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-418"
+note_number: 418
 summary: "在一个运动打卡群里，早先的打卡形态是接龙，类似这样： 跑团5月目标设置 user 100/21 KM user 20/2 KM user 90/53 KM …… …… 为了更规范，组织者找了个运动小程序，请大家注册、登录小程序，在里面打卡。"
 paywall: true
 ---

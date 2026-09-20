@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-824"
+note_number: 824
 summary: "这是一份回复同事的内容，或许可以分享： “应该爱客户多一些，还是爱公司多一些”，这是个好问题。 你这个例子：生财有术希望给五年以上客户一年免单，知识星球会付出运维成本。生财有术希望我们能减免（有两千多人，如果按 5% 算，有三十多万收入受影"
 paywall: true
 ---

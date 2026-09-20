@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-598"
+note_number: 598
 summary: "昨天跟亦仁开了个视频会，会上亦仁提到了，在生财有术里，有个“资源对接”的标签，用户在这个标签下提供自己的信息、资源，需要资源的人可以相互交流。并且还提到了小程序里，有些资源对接类的小产品。提供自己的信息，加入后，可以得到感兴趣的人的信息。 "
 paywall: true
 ---

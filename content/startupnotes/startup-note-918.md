@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-918"
+note_number: 918
 summary: "Claude Code 让我工作舒服的核心原因：它和我的本地文件、文件夹一起工作。不是在一个独立的聊天窗口里空谈，而是直接操作我真实的工作环境。上下文是活的，不需要我复制粘贴来回搬运。 类比到知识星球：如果星主能和他的星球内容、和他的用户、"
 paywall: true
 ---

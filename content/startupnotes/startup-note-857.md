@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-857"
+note_number: 857
 summary: "因为把三季度 OKR 里最重要的工作的 Owner 委托给了 aqiu，本来就忙的他，肉眼可见地更加忙碌了。 上周四，在对称信息时，aqiu 针对这个工作的五个大变量，梳理出了 16 条可能的路径——确实很复杂。 讨论过程中，我对两个尚未有"
 paywall: true
 ---

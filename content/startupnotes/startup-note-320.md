@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-320"
+note_number: 320
 summary: "两年前粗略看过 Patreon，最近又认真做了些了解。Patreon 创始人 Jack Conte 是一位音乐家和视频创作者，曾经在 Kickstarter 上发起过众筹项目，但没有办法让他持续获得稳定的收入，于是在 2013 年创建了 P"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-369"
+note_number: 369
 summary: "设备简单了，光圈、快门、对焦都要手动调，不能忘了摘镜头盖（所以我干脆不盖镜头盖了）……数一数用这台相机拍了四个胶卷，已经犯过的错误： 胶卷装反了，完全没感光； 忘了过片，因此在同一张底片上重曝了； 忘了拔“豆腐刀”（可能有朋友不知道是啥，摘"
 paywall: true
 ---

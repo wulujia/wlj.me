@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-569"
+note_number: 569
 summary: "设定边界，对项目时间有个粗略预判 fixed time, variable scope. 时间固定，范围可变。 Instead of asking how much time it will take to do some work, we"
 paywall: true
 ---

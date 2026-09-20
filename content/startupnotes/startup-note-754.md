@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-754"
+note_number: 754
 summary: "一 团队里，伙伴们讨论过挺久的语音朗读功能。比如前两天，志强贴的： 我的使用场景是：听一段不短时间（15～40分钟）、中间不操作（比如增加语音、调整顺序）。 我的习惯已经被播客训练好了：听前排好节目顺序，这需要大概 2～3 个点选操作。然后"
 paywall: true
 ---

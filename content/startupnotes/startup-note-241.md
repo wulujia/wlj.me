@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-241"
+note_number: 241
 summary: "boyzcl 发了一篇文章：https://mp.weixin.qq.com/s/cdkyZHRtDxRLd2ADp_gU6g 他的文章又是被《如何设计价值激励体系》https://mp.weixin.qq.com/s?__biz=MzI2"
 paywall: true
 ---

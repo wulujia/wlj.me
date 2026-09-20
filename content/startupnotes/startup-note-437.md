@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-437"
+note_number: 437
 summary: "杨涛问：知识星球的金句卡片是不是没什么人用？为什么即刻、微博、微信读书的卡片会更多地在朋友圈看到，是不是金句卡片有可优化的余地。 杨涛的建议：类似探探、Tinder，有卡片，可以左右滑动，好内容直接可以保存、转发。而且还可以快速连接到作者的"
 paywall: true
 ---

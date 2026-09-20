@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-438"
+note_number: 438
 summary: "很长时间以来，我管事都有点细，也因此有好些朋友建议我抓大放小，才能让团队成长和有成就感。 因此最近一段时间，我尝试着尽量多读书，少管事。多讨论，少决策。多鼓励，少插手。 刚开始还挺不习惯，有时看群里讨论，忍不住要插嘴。 不过两周下来，感觉还"
 paywall: true
 ---

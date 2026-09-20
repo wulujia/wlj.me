@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-688"
+note_number: 688
 summary: "昨天和同事进行了一场小小的头脑风暴会。这次头脑风暴，效果挺好，究其原因，或许是 Shotgun 在会前的声明，以及恰当的会议主持。 会前他做的提示是： - 头脑风暴原则一：禁止批评，为了确保想象力和风暴结果足够多样性，禁止批评和自我批评，请"
 paywall: true
 ---

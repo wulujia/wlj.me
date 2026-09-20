@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-811"
+note_number: 811
 summary: "上午坐地铁到公司的路上，脑子里浮出了一个问题：什么限制了我们？ 会想到这个问题，可能有几个“导火索”： 最近我一直在想“创新”的问题，公司怎样才能有创新的机制、精神、氛围。知识星球里怎样才能有突破，知识星球之外的产品，怎样才能不一样，怎样才"
 paywall: true
 ---

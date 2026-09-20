@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-791"
+note_number: 791
 summary: "Pinboard 是 2010 年发布的书签管理服务，专为注重隐私和简单功能的用户设计。它允许用户存储、组织和搜索网络链接，方便稍后阅读或长期保存。 Pinboard 的特点是： 简洁高效：界面和功能非常简单，没有多余的广告或复杂的设计。 "
 paywall: true
 ---

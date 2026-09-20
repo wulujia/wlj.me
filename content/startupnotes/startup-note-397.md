@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-397"
+note_number: 397
 summary: "群很厉害。很多年前，有各种类型的聊天室、论坛，是上网的闲人们社交的去处。QQ 群出现之后，聊天室和论坛就逐渐衰落； QQ 群功能丰富，PC 时代，很多年间，QQ 群基本是流量担当，一群人想要网上沟通，就会有个 QQ 群； 移动互联网年代，微"
 paywall: true
 ---

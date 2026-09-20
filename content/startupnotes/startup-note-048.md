@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-048"
+note_number: 48
 summary: "目前我们观察到一些圈主的引流办法，做了初步总结，你可以看看哪些适合你。 线上引流： 在微信公众号和微博撰写文章（请注意，文章一定要尽量有传播力，让人愿意转发）； 发微博介绍圈子，并附上圈子二维码； 把用户引到微信后（通过各种文章、资源、你预"
 paywall: true
 ---

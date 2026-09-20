@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-427"
+note_number: 427
 summary: "近期回形针事件（参考：https://www.zhihu.com/question/465827983）在社交媒体上引发很多讨论。是非曲直姑且不论，但从企业角度看，需要相应的风控措施。 之前笔记 421 提到的社交媒体安全，和这事也有一点像"
 paywall: true
 ---

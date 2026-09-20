@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-738"
+note_number: 738
 summary: "Amazon PR/FAQ： 就像真正的新闻稿一样，PR/FAQ 模拟了“产品发布当天开发布会”时，希望向世界呈现的信息。 目标是为客户提供所有必要的背景和详细信息，以了解产品/功能并就是否想要尝试做出明智的决定。常见问题解答应回答客户可能"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-486"
+note_number: 486
 summary: "前段时间，阳志平老师反馈： 作为一个星主，我觉得当前最需要做的功能是：隐私可见以及分组可见等等。这才是知识星球的根本。 我将它当作朋友圈用，并不需要所有信息在所有时间呈现给所有人，但缺了设为自己可见，很不方便。很多吐槽其实事后都不得不删掉，"
 paywall: true
 ---

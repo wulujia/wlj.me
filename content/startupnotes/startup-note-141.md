@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-141"
+note_number: 141
 summary: "3 月 9 日，在微博上有用户愤怒地抱怨知识星球产品 Bug，以及出 Bug 之后处理极不给力。用户发微博十分钟后，朋友将信息转给我，我和研发产品同事确认过情况。 Bug 现象： 星主被提醒续期 2 次，成员会收到 2 次续费提醒。 续费后"
 paywall: true
 ---

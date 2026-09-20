@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-463"
+note_number: 463
 summary: "近期和朋友讨论到出海事宜，App 要出海，除了目的地、注册公司、注册账户、产品的国际化、数据存储国际化之外，还必须考虑一件很重要的事：合规。 国内法规：网络安全法、网络安全审查办法、数据安全法、个人信息保护法等等。 法规：GDPR（欧盟）、"
 paywall: true
 ---

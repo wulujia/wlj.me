@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-726"
+note_number: 726
 summary: "之前跟 Shotgun 聊天时，他提起过一个点子。 目前知识星球里有很多优质的内容，且应该还是有非中文用户希望了解中国，那么，我们是不是可以考虑做： 内容翻译：将当前的中文版内容，通过 AI 翻译成英文版 英文版 SEO 提交给 Googl"
 paywall: true
 ---

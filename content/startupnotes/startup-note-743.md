@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-743"
+note_number: 743
 summary: "被 Fenng 不止一次批评，我们的笔记功能，从第一天开始就应该有拉黑功能的设计。昨晚又出现了一次，大辉给我发了个截图，有用户在他的笔记下面发了非常下流的辱骂言语。 如果写作者经常被这种闹心的人和言语骚扰，是不可能，也不愿意长期输出的。 “"
 paywall: true
 ---

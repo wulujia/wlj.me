@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-602"
+note_number: 602
 summary: "放假前，跟邱岳视频聊了个天，他给知识星球的“续费”提了些建议。 从用户的角度看，知识星球有两种时长模式，在熟悉的领域都有可以对标的服务。 比如保险/会员，是固定时长，任何时候都能买，固定一年。服务类型的更多是这种。 固定期限——有固定的开始"
 paywall: true
 ---

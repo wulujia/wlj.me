@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-417"
+note_number: 417
 summary: "翻看最近存下的几个监管相关的链接，对部分创业者，可能更需要注意。比如： 跟税相关的事，不要大意，不要违规，金税四期了，很多你以为税务机构不知道的事情，他们都了如指掌。只是先抓大放小，逐步解决罢了； 开网店或者类似事情，该注册个体工商户就去注"
 paywall: true
 ---

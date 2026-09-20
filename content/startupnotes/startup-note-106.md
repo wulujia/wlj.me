@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-106"
+note_number: 106
 summary: "周末报名参加了《秋叶私房课》——和很多朋友想象中不一样，我虽然社交技能不差，但并不太适应人多的场合，可能有轻微社交恐惧，所以尤其不爱热闹场面。 去之前，我预期的收获是： 希望线下结识秋叶老师和他的团队，他们在社群运营、培训教育、内容创作方面"
 paywall: true
 ---

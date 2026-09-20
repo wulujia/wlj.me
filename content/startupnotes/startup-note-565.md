@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-565"
+note_number: 565
 summary: "国庆放假前，同事推荐我读一读 basecamp 团队在 2019 年的书 <Shape Up>，这本书实际上我早就放到收藏夹里了，但一直没提起阅读的劲头。同事说超过之前读 Rework 的感受。我就趁着假期开始了阅读进程，读到一半，也顺手推"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-764"
+note_number: 764
 summary: "上周的 TGIF，有几位同事建议讲讲我们搞砸的事——结果我起手差点就搞砸了，记错时间，幸亏同事提醒，仓促地拿了小本，写下几件事。 多年前，在喇叭厂当销售。我们去拜访客户之后，客户请晚餐。餐前，厂长将装着报价、成本核算、合同信息的文件夹递给我"
 paywall: true
 ---

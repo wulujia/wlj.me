@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-022"
+note_number: 22
 summary: "前几天，我们把微信里的 HTML5 邀请页面做了个升级。升级前，露出了部分用户头像及圈内用户数量。升级后，露出了 5 条圈内最新消息（片段）。我们考虑，这样升级后，能够带来的好处是： 露出部分圈子里的内容，可以吸引用户加入圈子； 对部分「观"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-154"
+note_number: 154
 summary: "这几个问题，大家会怎么判断？早上拜见大佬，收获满满（今天充的电可以支撑我们再多探索好一阵子）——结论就不说了，记录问题，以后还可以回顾。 如果社区/社群是我们的核心目标，那么收费或者说知识付费的地位和作用是什么，是必须的？还是有益的补充？或"
 paywall: true
 ---

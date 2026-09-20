@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-278"
+note_number: 278
 summary: "今天边听单霁翔院长的课，边发了条朋友圈：“单霁翔院长真是大产品经理啊，被圈粉了”。 举几个例子： 问题 1：女性在卫生间经常要排长队。 解决方案：男女卫生间比例调整为 1:2.6。 问题 2：用户想从正门进故宫（体验一把皇帝的感觉），但是正"
 paywall: true
 ---

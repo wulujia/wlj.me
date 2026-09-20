@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-818"
+note_number: 818
 summary: "本周五来自 TGIF 的匿名提问，居然都跟 AI 有关： 公司对现在 AI 发展的判断是什么？ 对知识星球这个产品使用 LLM 到什么程度有什么限制吗？ 从 12 年到现在深度学习发展了 13 年了，从 ChatGPT 这种生成式 AI 技"
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-478"
+note_number: 478
 summary: "考虑在知识星球里增加一个笔记能力，需求来源是用户反馈：星球里每天新增的好内容很多，但看完之后，感受最深的那些内容，却没办法很方便、快速地记录与回顾。 虽然知识星球里多为短内容，但还是有价值的，应该考虑类似电子书那样的笔记系统，考虑的功能有："
 paywall: true
 ---

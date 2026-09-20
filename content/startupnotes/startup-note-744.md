@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-744"
+note_number: 744
 summary: "和 glacier & boxcounter 聊天，glacier 提到他对 slax note目前没什么需求——因为没有语音笔记的习惯。但站在公司角度，他会琢磨，如果加上什么能力，他有可能会用。 他的看法是：如果把 slax note 变"
 paywall: true
 ---

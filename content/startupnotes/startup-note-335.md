@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-335"
+note_number: 335
 summary: "你应该也看到了，这两天有个新闻，至少在互联网圈子里有点影响，我截取一段内容： 2019年7月，嫌疑人李某发现有一款名为“Uki”的APP与公司产品“Soul”功能类似。为了打击竞争对手，李某授意下属、公司员工范某收集Uki上的有害违规信息，"
 paywall: true
 ---

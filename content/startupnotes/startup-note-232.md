@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-232"
+note_number: 232
 summary: "去年，在向 Tony 请教时，我拿知识星球的数据（嗯，是的，比较平稳，并没有大幅增长）请他过目，并且提了一些我们设想的突破方法——我是有点着急的。Tony 的第一反应是：挺好的啊，没有急剧下跌，说明这一关站住了。 去年经历了全部星球都跨越「"
 paywall: true
 ---

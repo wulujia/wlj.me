@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-401"
+note_number: 401
 summary: "笔记 209、382 里提到了“体外收费”的问题：部分用户通过其他平台（微信、支付宝、小鹅通等等）收款后，使用知识星球的社群功能提供服务（或者是部分服务）。为了避免破窗效应，我们的措施是： 给免费邀请功能加数量限制（每季度 100 人）； "
 paywall: true
 ---

@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-429"
+note_number: 429
 summary: "笔记 425 记录了看得到问询函回复、招股说明书，但上一篇光摘录，这篇回忆记录几个有印象的点： 听书的利润率很高（虽然收入总盘子不大）。 课程分为低价课和高价课，低价课整体比高价课挣钱得多。 iOS 的付费率居然低于安卓。 收入渠道前四是："
 paywall: true
 ---

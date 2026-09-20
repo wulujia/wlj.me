@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-220"
+note_number: 220
 summary: "2019-01-19 不知道大家用什么方式做数据备份，我把我的方法分享一下（需要国内国外的网站访问均无障碍）。 我自己的工作环境及特点是： 设备多且异构：电脑都是 Mac，多台电脑分布在公司、家里的不同房间。手机安卓和 iOS 都是重度使用"
 paywall: true
 ---

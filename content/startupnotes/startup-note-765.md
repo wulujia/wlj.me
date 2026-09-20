@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-765"
+note_number: 765
 summary: "记录刚刚的一个关于“粗糙实现”的例子——我还蛮喜欢的。 小伙伴在做一个工具，发现有个 Bug——文本中偶尔会有问号形状的乱码——很扎眼，看起来很难受，而且出现频率颇高——我们近期要做对外做 MVP 测试，这显然需要解决。 刚刚小伙伴的反馈是"
 paywall: true
 ---

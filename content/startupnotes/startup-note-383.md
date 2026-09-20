@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-383"
+note_number: 383
 summary: "上个月找朋友请教，他有家上市公司，但是最近两年公司产品、财务数据都不那么出色，聊天过程中，他提到了： 此前曾经做过几个出色的产品，数据好利润高，因此迅速将团队扩张近千号人，用成功经验同时开了多条产品线。可是但是环境变化了，有巨头进入行业，拉"
 paywall: true
 ---

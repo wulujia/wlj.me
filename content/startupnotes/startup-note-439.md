@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-439"
+note_number: 439
 summary: "知识星球想提供的是很简单的社群能力。因为我们认为，任何品牌、团队、产品……都有社群的需求。 有免费社群，有付费社群。免费社群产品中，QQ、微信都做得特别好，看不到任何机会。因此我们做付费社群。 当下有一类社群运营者会跟我们沟通：我的用户在其"
 paywall: true
 ---

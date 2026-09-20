@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-802"
+note_number: 802
 summary: "这几天假期在家，想着回顾、记录一下知识星球里做过的一些产品、运营上比较有价值的判断。 想到哪里写到哪里："
 paywall: true
 ---

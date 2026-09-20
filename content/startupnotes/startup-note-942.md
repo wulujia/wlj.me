@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-942"
+note_number: 942
 summary: "闭环这个词人人都懂，但放到产品里，很多时候，我自己也做不好，做不到。 举几个例子。 一、Slax Reader 的分享 Slax Reader 的网页版里，分享设计是： 用户打开缓存页，点击分享按钮，弹出分享面板，复制分享面板的链接，将这个"
 paywall: true
 ---

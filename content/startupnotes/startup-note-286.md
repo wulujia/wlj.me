@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-286"
+note_number: 286
 summary: "昨天微博上看到一篇讲 Craigslist 的文章（https://media.weibo.cn/article?id=2309404403409653465156），很长时间没有看这个古董级别的互联网公司了，于是又搜了一下它的信息： ht"
 paywall: true
 ---

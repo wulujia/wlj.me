@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-086"
+note_number: 86
 summary: "最早听说这个产品，是他们的人在知识星球的「产品党」里面发帖推广，我给了些建议。不过后来却有点不痛快——因为在前段「小密圈停服」期间，他们在他们力所能及的渠道里落井下石和引流。 不择手段或许有时候有用，但是过早暴露出不择手段的本性，可能就没啥"
 paywall: true
 ---

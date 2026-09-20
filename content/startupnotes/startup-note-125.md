@@ -6,6 +6,7 @@ author: "Luca"
 tags: ["Startup"]
 draft: false
 slug: "startup-note-125"
+note_number: 125
 summary: "从「通知」这个细节，说一说为什么淘宝、支付宝的社交做不起来。 支付宝/淘宝——甚至闲鱼产品里，各种通知层出不穷，可以看出他们是「运营主导」的，运营希望做某个活动拉动活跃、成交、新功能……于是一个通知乃至一个红点，都能带来巨大的流量。 所以支"
 paywall: true
 ---
