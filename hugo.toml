@@ -19,7 +19,7 @@ enableRobotsTXT = true
     notAlternative = true
 
 [pagination]
-  pagerSize = 5
+  pagerSize = 10
 
 [markup.highlight]
   noClasses = false
