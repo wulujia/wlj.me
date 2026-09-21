@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>老小区加装电梯：常见装法与适装条件</title>
+<meta name="description" content="说明老小区加装电梯的常见位置、入户方式、适装条件、难点和现场判断方法。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/old-neighborhood-elevator-guide/">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f5f2;
+  --surface: #ffffff;
+  --ink: #18201d;
+  --ink-2: #46514d;
+  --ink-3: #65716c;
+  --rule: #d8ded9;
+  --rule-2: #aeb9b3;
+  --mid: #e9ede9;
+  --acc: #1f6b55;
+  --acc-ink: #185440;
+  --acc-wash: rgba(31, 107, 85, .09);
+  --good: #287446;
+  --warn: #986115;
+  --bad: #a6452e;
+  --good-wash: rgba(40, 116, 70, .10);
+  --warn-wash: rgba(184, 92, 56, .11);
+  --bad-wash: rgba(166, 69, 46, .10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-display: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #151b18;
+    --surface: #1d2521;
+    --ink: #edf1ee;
+    --ink-2: #bec8c2;
+    --ink-3: #98a39d;
+    --rule: #303a35;
+    --rule-2: #4c5a53;
+    --mid: #242e29;
+    --acc: #70c2a4;
+    --acc-ink: #92d6bd;
+    --acc-wash: rgba(112, 194, 164, .13);
+    --good: #79c890;
+    --warn: #e0ae64;
+    --bad: #ed927c;
+    --good-wash: rgba(121, 200, 144, .13);
+    --warn-wash: rgba(224, 174, 100, .13);
+    --bad-wash: rgba(237, 146, 124, .13);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #151b18;
+  --surface: #1d2521;
+  --ink: #edf1ee;
+  --ink-2: #bec8c2;
+  --ink-3: #98a39d;
+  --rule: #303a35;
+  --rule-2: #4c5a53;
+  --mid: #242e29;
+  --acc: #70c2a4;
+  --acc-ink: #92d6bd;
+  --acc-wash: rgba(112, 194, 164, .13);
+  --good: #79c890;
+  --warn: #e0ae64;
+  --bad: #ed927c;
+  --good-wash: rgba(121, 200, 144, .13);
+  --warn-wash: rgba(224, 174, 100, .13);
+  --bad-wash: rgba(237, 146, 124, .13);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  text-autospace: normal;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 720px);
+  gap: 56px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+main { min-width: 0; }
+.outline {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 650; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 650; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 750; font-size: 34px; line-height: 1.25; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 700; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 700; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+.note, .warn { border-left: 3px solid var(--acc); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.note b:first-child, .warn b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 700; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 600; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 700; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.2em 0 1.6em; }
+.check-grid section { background: var(--surface); padding: 16px 18px; }
+.check-title { margin: 0 0 8px; font-size: 17px; font-weight: 700; }
+.check-grid ul { margin-bottom: 0; }
+@media (max-width: 640px) { .check-grid { grid-template-columns: 1fr; } }
+
+figure { margin: 1.6em 0; overflow-x: auto; }
+figure svg { width: 100%; min-width: 620px; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+.diagram-label { font-family: var(--font-body); font-size: 14px; fill: currentColor; }
+.diagram-small { font-family: var(--font-body); font-size: 12px; fill: currentColor; opacity: .72; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); counter-reset: steps; }
+.timeline li { display: grid; grid-template-columns: 4ch 1fr; gap: 14px; padding: 0 0 16px 18px; position: relative; margin: 0; counter-increment: steps; }
+.timeline li::before { content: counter(steps); position: absolute; left: -12px; top: .16em; width: 22px; height: 22px; border-radius: 50%; background: var(--acc); color: var(--surface); font: 600 12px/22px var(--font-mono); text-align: center; }
+.timeline .stage { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); padding-top: .25em; }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 650; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .7em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] {
+    color-scheme: light;
+    --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555;
+    --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #245b49; --acc-ink: #163e31;
+    --acc-wash: #f2f2f2; --good-wash: #f2f2f2; --warn-wash: #f2f2f2; --bad-wash: #f2f2f2;
+  }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  figure, table, .note, .warn, .summary, .check-grid { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<div id="reading-return" style="text-align:center;padding:6px 10px;font-size:13px;border-bottom:1px solid rgba(127,127,127,.3)"><a href="/reading/">← 返回整理</a></div>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">目录</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#how">通常怎么装</a>
+        <ul>
+          <li><a href="#position">井道通常放在哪里</a></li>
+          <li><a href="#connection">新电梯怎样接入旧楼</a></li>
+        </ul>
+      </li>
+      <li><a href="#entry">两种常见入户方式</a>
+        <ul>
+          <li><a href="#half-floor">半层入户</a></li>
+          <li><a href="#same-floor">平层入户</a></li>
+        </ul>
+      </li>
+      <li><a href="#easy">什么样的房子好装</a></li>
+      <li><a href="#hard">什么样的房子不好装</a>
+        <ul>
+          <li><a href="#technical">现场和结构问题</a></li>
+          <li><a href="#neighbour">居住影响和协商问题</a></li>
+        </ul>
+      </li>
+      <li><a href="#assess">怎样快速判断一个单元</a>
+        <ul>
+          <li><a href="#steps">从看现场到出方案</a></li>
+          <li><a href="#checklist">现场检查表</a></li>
+        </ul>
+      </li>
+      <li><a href="#sources">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">住宅改造指南 · 2026 年 9 月 20 日</p>
+    <h1>老小区加装电梯</h1>
+    <p class="lede">常见装法、适装条件、难点，以及看现场时最该检查的地方。</p>
+    <p class="meta"><span>范围：中国城市既有多层住宅</span><span>用途：初步判断</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>最常见的做法是在楼梯间或阳台外新建电梯井道，再用候梯平台或连廊接回旧楼。规则整齐、外侧有空地、结构安全、地下管线少的 <span class="mono">5—7</span> 层步梯房通常较容易。真正决定项目能否落地的，还有消防通道、采光噪声、低楼层影响和住户协商。</p>
+  </div>
+
+  <h2 id="how">通常怎么装</h2>
+
+  <h3 id="position">井道通常放在哪里</h3>
+  <p>加装电梯通常采用外挂方案：在旧楼外新做基础和井道，安装电梯设备，再通过平台或连廊接入原建筑。井道可能是钢结构，也可能采用其他经设计单位确认的结构体系。</p>
+  <p>常见位置有两类：</p>
+  <ul>
+    <li><strong>楼梯间外侧：</strong>电梯靠近楼梯休息平台，连接短，对室内改动较少，常用于半层入户。</li>
+    <li><strong>阳台或房间外侧：</strong>电梯停在住宅楼层高度，经连廊、阳台或适合改造的房间进入，常用于平层入户。</li>
+  </ul>
+  <p>设计前要同时检查结构、地基、消防通道、救援通道、建筑间距、采光、通风、道路、绿化、停车位和地下管线。北京的技术导则要求在前期可行性评估中处理这些问题。<sup><a href="#src-1">1</a></sup></p>
+
+  <h3 id="connection">新电梯怎样接入旧楼</h3>
+  <p>电梯井道一般不承担旧楼原有荷载。新旧结构之间的基础、连接节点、沉降差和防水做法，要由有资质的设计单位根据现场勘察确定。开洞、改窗、改阳台或改房间入口，也要经过结构复核。</p>
+  <div class="warn"><b>不能只看电梯尺寸</b>轿厢能放下，不等于项目可行。还要留出候梯空间、出入口、救援路线、检修位置和施工面。</div>
+
+  <h2 id="entry">两种常见入户方式</h2>
+  <figure>
+    <svg viewBox="0 0 700 330" role="img" aria-label="半层入户和平层入户示意图。半层入户连接楼梯休息平台，平层入户连接住宅楼层。">
+      <g transform="translate(15 25)">
+        <text class="diagram-label" x="0" y="0" font-weight="700">半层入户</text>
+        <rect x="0" y="35" width="110" height="230" rx="2" fill="var(--acc-wash)" stroke="var(--acc)" stroke-width="2"/>
+        <text class="diagram-label" x="55" y="154" text-anchor="middle">电梯</text>
+        <line x1="110" y1="148" x2="185" y2="148" stroke="var(--acc)" stroke-width="8"/>
+        <rect x="185" y="65" width="130" height="200" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="2"/>
+        <path d="M185 230h38v-27h38v-27h54 M185 121h38V94h38V67h54" fill="none" stroke="currentColor" stroke-width="3"/>
+        <circle cx="185" cy="148" r="5" fill="var(--acc)"/>
+        <text class="diagram-small" x="195" y="142">休息平台</text>
+        <text class="diagram-small" x="250" y="250">还要走半层楼梯</text>
+      </g>
+      <g transform="translate(375 25)">
+        <text class="diagram-label" x="0" y="0" font-weight="700">平层入户</text>
+        <rect x="0" y="35" width="110" height="230" rx="2" fill="var(--acc-wash)" stroke="var(--acc)" stroke-width="2"/>
+        <text class="diagram-label" x="55" y="154" text-anchor="middle">电梯</text>
+        <line x1="110" y1="105" x2="185" y2="105" stroke="var(--acc)" stroke-width="8"/>
+        <line x1="110" y1="210" x2="185" y2="210" stroke="var(--acc)" stroke-width="8"/>
+        <rect x="185" y="35" width="130" height="230" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="2"/>
+        <line x1="185" y1="105" x2="315" y2="105" stroke="currentColor" stroke-width="3"/>
+        <line x1="185" y1="210" x2="315" y2="210" stroke="currentColor" stroke-width="3"/>
+        <text class="diagram-small" x="195" y="95">住宅楼层</text>
+        <text class="diagram-small" x="198" y="250">可做到无台阶通行</text>
+      </g>
+    </svg>
+    <figcaption>示意图只表示高差关系，不代表具体结构方案。实际开口、连廊和楼梯做法以设计图为准。</figcaption>
+  </figure>
+
+  <h3 id="half-floor">半层入户</h3>
+  <p>电梯停在楼梯休息平台。住户出电梯后，还要向上或向下走半层楼梯才能到家门口。</p>
+  <ul>
+    <li>连接位置通常清楚，对住户室内影响较小。</li>
+    <li>连廊较短，方案一般更简单。</li>
+    <li>轮椅、担架和腿脚不便者仍会遇到半层楼梯。</li>
+  </ul>
+
+  <h3 id="same-floor">平层入户</h3>
+  <p>电梯停靠面与住宅楼层地面齐平，通过连廊、阳台或新入口进入住宅。北京等地的技术文件在条件具备时优先建议平层停靠，因为它可以实现无障碍通行。<sup><a href="#src-2">2</a></sup></p>
+  <ul>
+    <li>老人、轮椅和婴儿车使用方便。</li>
+    <li>对户型、外立面和连接位置要求更高。</li>
+    <li>可能需要改造阳台、厨房或其他房间，并复核原有构件。</li>
+    <li>连廊更长时，对邻居的采光、隐私和防盗影响更明显。</li>
+  </ul>
+
+  <div class="tbl">
+    <table class="compare">
+      <caption>两种入户方式的实际差别</caption>
+      <thead>
+        <tr><th scope="col">比较项</th><th scope="col">半层入户</th><th scope="col" class="pick">平层入户</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">到家门口</th><td>仍要走半层楼梯</td><td class="pick">可做无台阶通行</td></tr>
+        <tr><th scope="row">连接位置</th><td>楼梯休息平台</td><td class="pick">住宅楼层、阳台或房间</td></tr>
+        <tr><th scope="row">户型要求</th><td>相对较低</td><td class="pick">较高</td></tr>
+        <tr><th scope="row">室内改动</th><td>通常较少</td><td class="pick">可能较多</td></tr>
+        <tr><th scope="row">适老化效果</th><td><span class="pill warn">有限</span></td><td class="pick"><span class="pill good">较完整</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="easy">什么样的房子好装</h2>
+  <div class="check-grid">
+    <section>
+      <p class="check-title">场地</p>
+      <ul>
+        <li>楼梯间或阳台外有连续空地。</li>
+        <li>不占消防车道和主要人行通道。</li>
+        <li>施工机械和材料可以进入。</li>
+      </ul>
+    </section>
+    <section>
+      <p class="check-title">建筑</p>
+      <ul>
+        <li>楼层和户型规则。</li>
+        <li>楼梯平台有外墙或窗洞。</li>
+        <li>原结构安全，沉降已经稳定。</li>
+      </ul>
+    </section>
+    <section>
+      <p class="check-title">地下条件</p>
+      <ul>
+        <li>拟建位置没有密集管线。</li>
+        <li>地基施工不会影响旧楼。</li>
+        <li>排水和防水容易处理。</li>
+      </ul>
+    </section>
+    <section>
+      <p class="check-title">住户条件</p>
+      <ul>
+        <li>多数住户认可入户方式。</li>
+        <li>费用分摊和后续维保说清楚。</li>
+        <li>低楼层影响有明确处理方案。</li>
+      </ul>
+    </section>
+  </div>
+  <p>典型的好装对象，是布局规整的多层步梯住宅：每个单元有独立楼梯间，外侧有足够空间，连接距离短，地下管线容易迁改，楼体本身没有明显安全问题。</p>
+
+  <h2 id="hard">什么样的房子不好装</h2>
+
+  <h3 id="technical">现场和结构问题</h3>
+  <ul>
+    <li><strong>楼间距很窄：</strong>井道会压缩消防、通行、采光或通风空间。</li>
+    <li><strong>地下管线密集：</strong>燃气、给排水、电力或通信管线迁改困难。</li>
+    <li><strong>结构状况差：</strong>有明显裂缝、不均匀沉降、严重拆改，或安全鉴定不满足要求。</li>
+    <li><strong>楼梯和户型不规则：</strong>休息平台过小、错层复杂，或没有合适的外墙开口。</li>
+    <li><strong>平层入口难找：</strong>只能穿过卧室、卫生间或承重墙才能入户。</li>
+    <li><strong>没有救援条件：</strong>候梯厅不能连到公共楼梯或独立救援通道。</li>
+  </ul>
+  <p>部分地方技术文件明确把严重结构缺陷、沉降未稳定、主要抗震措施不足等情况列为不宜或不得加装的情形。<sup><a href="#src-3">3</a></sup></p>
+
+  <h3 id="neighbour">居住影响和协商问题</h3>
+  <ul>
+    <li>井道紧贴卧室，运行噪声和振动难处理。</li>
+    <li>井道或连廊正对低楼层主要窗户，影响采光、通风和隐私。</li>
+    <li>首层入口变窄，原有通道或停车方式受到影响。</li>
+    <li>高楼层受益明显，低楼层承担的影响更大，费用与补偿谈不拢。</li>
+    <li>平层方案涉及住户专有空间，无法取得相关业主同意。</li>
+  </ul>
+  <div class="note"><b>两个独立门槛</b>技术上能装，只代表可以继续做方案。住户对位置、费用、补偿和维保无法达成一致，项目仍然可能停下。各城市的表决、公示和审批要求不同，要按项目所在地的现行政策核对。</div>
+
+  <h2 id="assess">怎样快速判断一个单元</h2>
+
+  <h3 id="steps">从看现场到出方案</h3>
+  <ol class="timeline">
+    <li><span class="stage">现场</span><div><strong>找位置。</strong>看楼梯间、阳台外侧和山墙，判断井道、候梯区、连廊及施工面是否放得下。</div></li>
+    <li><span class="stage">资料</span><div><strong>找图纸。</strong>确认结构类型、基础、承重构件、地下管线和产权边界。</div></li>
+    <li><span class="stage">安全</span><div><strong>做鉴定和勘察。</strong>检查旧楼结构、地基、抗震状况，并核实消防和救援路线。</div></li>
+    <li><span class="stage">方案</span><div><strong>比较半层和平层。</strong>把开洞位置、连廊长度、室内改动、采光噪声和造价放在同一张图上比较。</div></li>
+    <li><span class="stage">协商</span><div><strong>把长期责任写清楚。</strong>包括出资、补偿、产权或使用权、电费、维保、检验、维修和更新。</div></li>
+  </ol>
+
+  <h3 id="checklist">现场检查表</h3>
+  <div class="tbl">
+    <table>
+      <caption>第一次看房时可记录的项目</caption>
+      <thead><tr><th scope="col">检查项</th><th scope="col">看什么</th><th scope="col">危险信号</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">井道位置</th><td>楼梯间、阳台或山墙外是否有连续空地</td><td>只能占消防车道或主要通道</td></tr>
+        <tr><th scope="row">连接位置</th><td>楼梯平台是否有窗，住宅层是否有合适入口</td><td>必须破坏关键承重构件</td></tr>
+        <tr><th scope="row">楼体状态</th><td>裂缝、倾斜、沉降、私自拆墙</td><td>裂缝明显或沉降仍在发展</td></tr>
+        <tr><th scope="row">地下条件</th><td>管线井、燃气标识、雨污水井、地下室</td><td>多类主管线集中穿过</td></tr>
+        <tr><th scope="row">消防救援</th><td>消防车道、疏散通道、候梯厅到楼梯的路线</td><td>加装后形成堵点或无救援出口</td></tr>
+        <tr><th scope="row">邻居影响</th><td>卧室窗、客厅窗、采光、噪声和隐私</td><td>井道紧贴主要房间或遮住主要采光面</td></tr>
+        <tr><th scope="row">住户意愿</th><td>低、中、高楼层各自的核心诉求</td><td>位置、费用和补偿没有讨论基础</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>现场判断的边界</b>这张表只能筛选明显问题，不能代替结构鉴定、地质勘察、管线探测、消防审查和正式设计。</div>
+
+  <h2 id="sources">方法与来源</h2>
+  <p>本文按中国城市既有多层住宅的常见做法整理，参考北京、山东、广州等地政府发布的技术导则和办事文件。地方政策、表决比例、补贴、尺寸和审批流程会变化；具体项目应查询所在城市在申报时有效的文件。资料检索日期为 2026 年 9 月 20 日。</p>
+  <ol class="sources">
+    <li id="src-1">北京市住房和城乡建设委员会，《北京市既有多层住宅加装电梯工程技术导则（试行）》，<a href="https://zjw.beijing.gov.cn/eportal/fileDir/bjjs/resource/cms/article/436168410/436168485/2023072620435456134.pdf" target="_blank" rel="noopener">北京市住房和城乡建设委员会</a>。</li>
+    <li id="src-2">北京市人民政府，《老楼加装电梯方案需因地制宜，优先平层停靠》，<a href="https://www.beijing.gov.cn/zhengce/zcjd/202007/t20200715_1948455.html" target="_blank" rel="noopener">首都之窗</a>。</li>
+    <li id="src-3">泰安市住房和城乡建设局，《泰安市既有住宅增设电梯有关手续办理导则》，<a href="https://tajs.taian.gov.cn/art/2024/5/31/art_166067_10305541.html" target="_blank" rel="noopener">泰安市住房和城乡建设局</a>。</li>
+    <li id="src-4">烟台市住房和城乡建设局等，《烟台市既有住宅加装电梯管理办法》，<a href="https://www.yantai.gov.cn/art/2024/5/31/art_99956_74084.html" target="_blank" rel="noopener">烟台市人民政府</a>。</li>
+    <li id="src-5">广州市规划和自然资源局，《政策问答之方案设计及规划审批相关》，<a href="https://ghzyj.gz.gov.cn/sjb/zw/jzdt/zcfg/content/post_10600167.html" target="_blank" rel="noopener">广州市规划和自然资源局</a>。</li>
+  </ol>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens and highlight the section in view.
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) det.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+  }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) {
+      a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id);
+    });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) { if (entry.isIntersecting) set(entry.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (target) { io.observe(target); });
+})();
+</script>
+</body>
+</html>
