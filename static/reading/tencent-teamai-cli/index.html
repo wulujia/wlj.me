@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tencent TeamAI CLI 调研：团队如何共享 AI 工作方式</title>
+<meta name="description" content="截至 2026 年 9 月 21 日的 Tencent TeamAI CLI 调研：定位、三层能力、Git 协作流程、安装方法、Agent 支持、版本状态、安全边界与适用场景。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/tencent-teamai-cli/">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f7f8f6;
+  --surface: #ffffff;
+  --ink: #17212b;
+  --ink-2: #46535d;
+  --ink-3: #66737b;
+  --rule: #dfe4e4;
+  --rule-2: #c8d0d4;
+  --mid: #eef2f1;
+  --acc: #177e75;
+  --acc-ink: #0d6059;
+  --acc-wash: #e8f4f1;
+  --warn: #a84f16;
+  --warn-wash: #fff1e6;
+  --good: #1d7452;
+  --good-wash: #e7f3ed;
+  --bad: #a63b3b;
+  --bad-wash: #faeaea;
+  --code-bg: #eef2f1;
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-title: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #11181e;
+    --surface: #172129;
+    --ink: #edf2f3;
+    --ink-2: #c1cbcf;
+    --ink-3: #9eabb1;
+    --rule: #2c3940;
+    --rule-2: #42525a;
+    --mid: #1d2930;
+    --acc: #4eb5a9;
+    --acc-ink: #7ad0c6;
+    --acc-wash: #16332f;
+    --warn: #e09157;
+    --warn-wash: #39271c;
+    --good: #66bf91;
+    --good-wash: #173326;
+    --bad: #e08080;
+    --bad-wash: #3b2222;
+    --code-bg: #0d1419;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11181e;
+  --surface: #172129;
+  --ink: #edf2f3;
+  --ink-2: #c1cbcf;
+  --ink-3: #9eabb1;
+  --rule: #2c3940;
+  --rule-2: #42525a;
+  --mid: #1d2930;
+  --acc: #4eb5a9;
+  --acc-ink: #7ad0c6;
+  --acc-wash: #16332f;
+  --warn: #e09157;
+  --warn-wash: #39271c;
+  --good: #66bf91;
+  --good-wash: #173326;
+  --bad: #e08080;
+  --bad-wash: #3b2222;
+  --code-bg: #0d1419;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; text-autospace: normal; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+}
+a { color: var(--acc-ink); text-decoration-thickness: 1px; text-underline-offset: .16em; }
+a:hover { text-decoration-thickness: 2px; }
+.skip {
+  position: fixed;
+  left: 12px;
+  top: -60px;
+  z-index: 20;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: var(--bg);
+}
+.skip:focus { top: 12px; }
+.layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 720px);
+  gap: 72px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 52px 24px 88px;
+}
+.outline {
+  position: sticky;
+  top: 28px;
+  align-self: start;
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.outline .back { display: inline-block; margin-bottom: 28px; }
+.outline .label,
+.eyebrow,
+.summary .label {
+  margin: 0 0 8px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.outline details > summary { display: none; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline ul ul { margin: 5px 0 8px 13px; }
+.outline li { margin: 5px 0; }
+.outline a { color: var(--ink-3); text-decoration: none; }
+.outline a:hover,
+.outline a.active { color: var(--acc); }
+main { min-width: 0; }
+header { margin: 0 0 34px; }
+h1, h2, h3 {
+  font-family: var(--font-title);
+  line-height: 1.3;
+  text-wrap: balance;
+  scroll-margin-top: 24px;
+}
+h1 { margin: 8px 0 12px; font-size: clamp(30px, 5vw, 38px); letter-spacing: -.025em; }
+h2 { margin: 48px 0 16px; padding-top: 2px; font-size: 24px; border-top: 1px solid var(--rule); }
+h3 { margin: 30px 0 10px; font-size: 17px; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+ul, ol { margin: 0 0 1.3em; padding-left: 1.35em; }
+li { margin: .35em 0; }
+.lede { max-width: 660px; color: var(--ink-2); font-size: 18px; line-height: 1.7; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--ink-3); font-size: 13px; }
+.summary {
+  margin: 0 0 40px;
+  padding: 18px 20px;
+  border: 1px solid var(--rule-2);
+  background: var(--surface);
+}
+.summary p:last-child { margin: 0; }
+.note, .warn, .decision {
+  margin: 1.3em 0;
+  padding: 11px 16px;
+  border-left: 3px solid var(--acc);
+  background: var(--acc-wash);
+}
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.note p:last-child, .warn p:last-child, .decision p:last-child { margin: 0; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin: 0 0 1.6em;
+  border: 1px solid var(--rule-2);
+  background: var(--rule-2);
+}
+.stats > div { min-width: 0; padding: 12px 14px; background: var(--surface); }
+.stats b {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 520;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+.stats span { display: block; margin-top: 4px; color: var(--ink-3); font-size: 12.5px; }
+.flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 1.2em 0 1.5em;
+  padding: 0;
+  list-style: none;
+}
+.flow li { position: relative; min-height: 118px; margin: 0; padding: 12px; border-top: 3px solid var(--acc); background: var(--surface); }
+.flow li:not(:last-child)::after { content: "›"; position: absolute; right: -8px; top: 34px; z-index: 2; color: var(--acc); font-size: 22px; }
+.flow b { display: block; margin-bottom: 5px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .05em; }
+.flow span { color: var(--ink-2); font-size: 13px; line-height: 1.5; }
+.tbl { overflow-x: auto; margin: 0 0 1.5em; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.55; }
+caption { padding: 0 0 8px; text-align: left; font-weight: 650; }
+th, td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+th { border-bottom: 2px solid var(--ink); color: var(--ink-3); font-size: 12.5px; font-weight: 600; letter-spacing: .035em; }
+th[scope="row"] { border-bottom: 1px solid var(--rule); color: var(--ink); font-size: inherit; font-weight: 650; letter-spacing: 0; }
+.mono, code, pre { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+code { padding: .08em .3em; border: 1px solid var(--rule); border-radius: 3px; background: var(--code-bg); font-size: .88em; }
+pre { overflow-x: auto; margin: 1em 0 1.5em; padding: 14px 16px; border: 1px solid var(--rule-2); background: var(--code-bg); font-size: 13.5px; line-height: 1.6; }
+pre code { padding: 0; border: 0; background: transparent; font-size: inherit; }
+.pill { display: inline-block; padding: 0 7px; border: 1px solid var(--acc); border-radius: 3px; color: var(--acc-ink); background: var(--acc-wash); font-size: 12px; font-weight: 650; line-height: 1.6; white-space: nowrap; }
+.pill.good { border-color: var(--good); color: var(--good); background: var(--good-wash); }
+.pill.warn { border-color: var(--warn); color: var(--warn); background: var(--warn-wash); }
+.sources { color: var(--ink-2); font-size: 14px; }
+.sources li { margin-bottom: .65em; word-break: break-word; }
+sup a { font-family: var(--font-mono); font-size: 11px; text-decoration: none; }
+hr { margin: 40px 0; border: 0; border-top: 1px solid var(--rule); }
+@media (max-width: 900px) {
+  .layout { display: block; max-width: 760px; padding: 24px 20px 64px; }
+  .outline { position: static; max-height: none; margin-bottom: 32px; overflow: visible; }
+  .outline .back { margin-bottom: 16px; }
+  .outline > .label { display: none; }
+  .outline details { border: 1px solid var(--rule-2); background: var(--surface); }
+  .outline details > summary { display: block; padding: 10px 13px; cursor: pointer; color: var(--ink-2); font-weight: 650; }
+  .outline details > ul { padding: 2px 13px 12px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .flow { grid-template-columns: 1fr 1fr; }
+  .flow li:not(:last-child)::after { display: none; }
+  h2 { margin-top: 40px; }
+}
+@media (max-width: 420px) {
+  .stats, .flow { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] {
+    color-scheme: light;
+    --bg: #fff;
+    --surface: #fff;
+    --ink: #000;
+    --ink-2: #222;
+    --ink-3: #555;
+    --rule: #bbb;
+    --rule-2: #888;
+    --acc: #177e75;
+    --acc-ink: #000;
+    --acc-wash: #f2f2f2;
+    --warn-wash: #f5f5f5;
+    --good-wash: #f5f5f5;
+    --code-bg: #f2f2f2;
+  }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, pre, .note, .warn, .decision, .stats, .summary, .flow { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; color: #555; font-size: 85%; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <a class="back" href="/reading/">← 返回整理</a>
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#position">一、TeamAI 是什么</a></li>
+      <li><a href="#changes">二、9 月 8 日以后变了什么</a></li>
+      <li><a href="#layers">三、三层能力</a>
+        <ul>
+          <li><a href="#execution">3.1 Team Execution</a></li>
+          <li><a href="#context">3.2 Team Context</a></li>
+          <li><a href="#improvement">3.3 Team Improvement</a></li>
+        </ul>
+      </li>
+      <li><a href="#workflow">四、工作方式</a></li>
+      <li><a href="#install">五、安装与开始使用</a>
+        <ul>
+          <li><a href="#ai-install">5.1 官方推荐入口</a></li>
+          <li><a href="#cli-install">5.2 命令行安装</a></li>
+          <li><a href="#scope">5.3 Project 与 User scope</a></li>
+        </ul>
+      </li>
+      <li><a href="#agents">六、Agent 支持</a></li>
+      <li><a href="#fit">七、适合什么团队</a></li>
+      <li><a href="#risks">八、安全与运维边界</a></li>
+      <li><a href="#maturity">九、成熟度判断</a></li>
+      <li><a href="#sources">十、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Research brief · 2026 年 9 月 21 日</p>
+    <h1>Tencent TeamAI CLI 调研</h1>
+    <p class="lede">TeamAI 给 Claude Code、Codex、Cursor 等 AI 编程工具加一层团队协作：用 Git 仓库分发 skills、rules、hooks、MCP 和团队知识，再把会话里的经验送回仓库评审。</p>
+    <p class="meta"><span>数据截至 2026-09-21</span><span>稳定版 0.24.0</span><span>来源：腾讯官方仓库与 npm</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>TeamAI 适合已经让多人使用多种 AI 编程工具、又不想靠手工复制配置的团队。它把团队工作方式放进 Git，沿用分支、评审和合并；模型能力仍由 Claude Code、Codex、Cursor 等工具提供。Team Context 和 Team Improvement 在官方文档中仍标为 beta，先从 skills 与 rules 的分发开始更稳妥。<sup><a href="#src-1">1</a></sup></p>
+  </div>
+
+  <div class="stats" aria-label="TeamAI 项目状态，取样于 2026 年 9 月 21 日">
+    <div><b>0.24.0</b><span>npm 稳定版</span></div>
+    <div><b>0.25.0-beta.3</b><span>最新预发布版</span></div>
+    <div><b>4,846</b><span>GitHub stars</span></div>
+    <div><b>351</b><span>GitHub forks</span></div>
+  </div>
+
+  <h2 id="position">一、TeamAI 是什么</h2>
+  <p>团队把 skills、rules、docs、agents、hooks、MCP、环境配置和包声明放在一个共享 Git 仓库。成员执行 <code>teamai pull</code> 后，这些资源会按各 AI 工具的原生目录和格式写到本机。成员用 <code>teamai push</code> 分享改动时，TeamAI 创建分支和 MR，由 reviewer 合并后再分发。<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup></p>
+  <p>它不提供新的模型推理，也不替代现有 AI 工具。可以把它理解为“AI 工作方式的团队配置仓库 + 分发器 + 经验库”。官方口号是 “Make Every Team AI Native”。</p>
+
+  <div class="tbl">
+    <table>
+      <caption>TeamAI 管理的主要资源</caption>
+      <thead><tr><th scope="col">资源</th><th scope="col">仓库中的位置</th><th scope="col">用途</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Skills</th><td><code>skills/&lt;name&gt;/SKILL.md</code></td><td>让 Agent 执行团队约定的任务流程</td></tr>
+        <tr><th scope="row">Rules</th><td><code>rules/*.md</code></td><td>编码、评审和协作规则</td></tr>
+        <tr><th scope="row">Docs</th><td><code>docs/</code></td><td>供 Agent 按需读取的项目资料</td></tr>
+        <tr><th scope="row">Agents</th><td><code>agents/</code></td><td>团队自定义子 Agent</td></tr>
+        <tr><th scope="row">Hooks / MCP</th><td><code>hooks/hooks.yaml</code>、<code>mcp/mcp.yaml</code></td><td>生命周期动作与外部工具连接</td></tr>
+        <tr><th scope="row">Packages</th><td><code>teamai.yaml</code></td><td>声明 npm 包和 Claude Code 插件</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="changes">二、9 月 8 日以后变了什么</h2>
+  <p>这次更新以 2026 年 9 月 8 日的旧稿为基线。13 天内，稳定版从 0.22.0 升到 0.24.0，0.25.0 已进入 beta。0.24.0 的发布说明列出多项目管理、项目机器数据迁移、团队包声明、更多 Agent 适配、用量上报开关和 Windows 兼容修复。<sup><a href="#src-4">4</a></sup></p>
+  <div class="tbl">
+    <table>
+      <caption>本次改稿需要改正或补充的项目</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">9 月 21 日状态</th><th scope="col">影响</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">运行环境</th><td>Node.js ≥ 20</td><td>旧稿写 ≥ 18，安装前要先升级 Node.js</td></tr>
+        <tr><th scope="row">稳定版</th><td>0.24.0，2026-09-14 发布</td><td>npm 的 <code>latest</code> 与 GitHub 最新稳定 release 一致</td></tr>
+        <tr><th scope="row">预发布版</th><td>0.25.0-beta.3，2026-09-18 发布</td><td>beta 中的功能和修复不应写成稳定版现状</td></tr>
+        <tr><th scope="row">默认入口</th><td>先装 <code>/teamai</code> skill，再让 AI 帮忙搭建</td><td>CLI 手动安装仍保留</td></tr>
+        <tr><th scope="row">项目数据</th><td><code>~/.teamai/projects/&lt;slug&gt;/</code></td><td>机器数据移出业务仓库，并按项目分区</td></tr>
+        <tr><th scope="row">团队分流</th><td>Project、Role、Tag、Source</td><td>一个团队仓库可以按项目与角色分发不同资源</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><p><b>版本判断</b> 仓库 <code>main</code> 分支的 <code>package.json</code> 仍写着 0.22.0。查询可安装稳定版时，应看 npm 的 <code>latest</code> 和 GitHub 最新稳定 release；截至 2026-09-21，两边都是 0.24.0。<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup><sup><a href="#src-6">6</a></sup></p></div>
+
+  <h2 id="layers">三、三层能力</h2>
+  <h3 id="execution">3.1 Team Execution</h3>
+  <p>这一层负责把团队的 AI 工作方式送到每位成员的工具里。除了 skills、rules、docs、agents、hooks、MCP 和 env，0.24.0 还加入了团队包声明。<code>teamai packages</code> 调用本机的 npm 与 Claude Code 插件命令，安装前可用 <code>--dry-run</code> 预览；普通 <code>pull</code> 只提示，不会自动执行第三方安装命令。<sup><a href="#src-2">2</a></sup></p>
+
+  <h3 id="context">3.2 Team Context</h3>
+  <p><code>teamai recall</code> 搜索 learnings、docs 和代码知识图谱。该功能默认关闭，团队可以在 <code>teamai.yaml</code> 打开，成员也能在本机覆盖。<code>teamai import</code> 与 <code>teamai codebase</code> 用 tree-sitter WASM 和启发式规则提取代码结构；TypeScript、JavaScript、Python、Go 有 AST 轨道，其他语言走启发式提取。<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup></p>
+
+  <h3 id="improvement">3.3 Team Improvement</h3>
+  <p>会话结束时，Stop hook 会根据打断、纠正、拒绝工具调用、工具重试等摩擦信号判断本次会话是否值得记录。达到门槛后，它提示成员运行 <code>/teamai-share-learnings</code>。<code>teamai digest</code> 生成近 7 天团队周报，<code>teamai dashboard</code> 展示本机会话、趋势、估算费用和知识库健康。官方仍把 Team Context 与 Team Improvement 标为 beta。<sup><a href="#src-1">1</a></sup></p>
+
+  <h2 id="workflow">四、工作方式</h2>
+  <ol class="flow" aria-label="TeamAI 从初始化到同步的四步流程">
+    <li><b>01 · INIT</b><span>关联团队仓库，选择 project 或 user scope，注入对应工具的资源与 hooks。</span></li>
+    <li><b>02 · PUSH</b><span>成员把新 skill、rule 或 learning 推到单独分支并创建 MR。</span></li>
+    <li><b>03 · REVIEW</b><span>Reviewer 评审并合并，把团队工作方式当作代码管理。</span></li>
+    <li><b>04 · PULL</b><span>新会话通过 SessionStart hook 拉取更新；不支持 hook 的工具手动 pull。</span></li>
+  </ol>
+  <pre><code>teamai push → branch + MR → review + merge
+                                      ↓
+SessionStart hook → teamai pull → local AI tools</code></pre>
+  <p>Project、Role、Tag、Source 是四种分发维度。Project 回答当前目录属于哪个项目，Role 回答成员做什么工作，Tag 让成员订阅一组资源，Source 让团队订阅其他仓库的公开 skills。Project 与 Role 可以同时使用。<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup></p>
+
+  <h2 id="install">五、安装与开始使用</h2>
+  <h3 id="ai-install">5.1 官方推荐入口</h3>
+  <p>README 现在把 skill 作为第一入口：把下面这句话交给支持安装 skill 的 AI 工具，让它加载 TeamAI 的内置 skill，再按对话完成团队初始化。<sup><a href="#src-1">1</a></sup></p>
+  <pre><code>帮我装好 teamai skill：
+https://github.com/Tencent/teamai-cli/tree/main/skills/teamai
+加载 teamai skill，然后从零搭建团队的 TeamAI。</code></pre>
+  <p>安装后，可以用 <code>/teamai</code> 让 AI 帮忙建团队、加入仓库、分享 skill 或打开团队看板。</p>
+
+  <h3 id="cli-install">5.2 命令行安装</h3>
+  <p>手动安装需要 Node.js 20 或更高版本与 Git。公开 npm 包名是 <code>teamai-cli</code>。<sup><a href="#src-2">2</a></sup><sup><a href="#src-3">3</a></sup></p>
+  <pre><code>npm install -g teamai-cli
+teamai --version
+
+# 项目级，默认
+cd /path/to/my-project
+teamai init https://github.com/yourorg/your-teamai-repo
+
+# 检查与同步
+teamai doctor
+teamai status
+teamai pull</code></pre>
+  <div class="warn"><p><b>包名</b> npm 上还有一个无关的 <code>@teamai/cli</code>，用途是同步 TeamAI sandbox 文件。腾讯这个项目的公开包名是 <code>teamai-cli</code>，仓库地址是 <code>Tencent/teamai-cli</code>。<sup><a href="#src-3">3</a></sup></p></div>
+
+  <h3 id="scope">5.3 Project 与 User scope</h3>
+  <div class="tbl">
+    <table>
+      <caption>两种安装范围</caption>
+      <thead><tr><th scope="col">范围</th><th scope="col">资源位置</th><th scope="col">适用情况</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Project（默认）</th><td>资源写到当前项目；机器数据放在 <code>~/.teamai/projects/&lt;slug&gt;/</code></td><td>项目专用 rules、skills 和 MCP</td></tr>
+        <tr><th scope="row">User</th><td>资源写到用户目录；用 <code>--scope user</code> 初始化</td><td>跨项目共用的个人或公司级工作方式</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>两个 scope 可以共存，但 project scope 默认与 user scope 隔离。项目需要读取安全的 user 资源时，用 <code>--inherit-user-scope</code>；env、MCP、外部 sources、用量上报和远端写入不会继承。<sup><a href="#src-2">2</a></sup></p>
+
+  <h2 id="agents">六、Agent 支持</h2>
+  <p>官方功能矩阵在 2026 年 9 月 21 日列出 14 种 Agent。Claude Code、Codex、Cursor、CodeBuddy、Qoder 与 Kiro 覆盖表中的 13 项能力；其他工具按各自文件格式和生命周期接口提供部分能力。<sup><a href="#src-1">1</a></sup></p>
+  <div class="tbl">
+    <table>
+      <caption>按官方矩阵归纳的支持状态</caption>
+      <thead><tr><th scope="col">状态</th><th scope="col">Agent</th><th scope="col">边界</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><span class="pill good">完整</span></th><td>Claude Code、Codex、Cursor、CodeBuddy、Qoder、Kiro</td><td>矩阵中的 Execution、Context、Improvement 项均为 ✓</td></tr>
+        <tr><th scope="row"><span class="pill">大部分</span></th><td>WorkBuddy、ZCode、Oh My Pi</td><td>缺少少数资源类型或团队用量能力</td></tr>
+        <tr><th scope="row"><span class="pill warn">部分</span></th><td>GitHub Copilot CLI、OpenCode、OpenClaw、Hermes、DeepSeek Harness</td><td>主要差异在 hooks、agents、MCP 或 Improvement</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>自动同步取决于 Agent 是否开放生命周期 hook。JoyCode、Gemini CLI 等当前需要手动执行 <code>teamai pull</code>；Kiro 只有交互式 CLI 中激活 TeamAI 渲染的自定义 Agent 时才会触发对应 hook。<sup><a href="#src-2">2</a></sup></p>
+
+  <h2 id="fit">七、适合什么团队</h2>
+  <div class="tbl">
+    <table>
+      <caption>采用 TeamAI 前的判断</caption>
+      <thead><tr><th scope="col">情况</th><th scope="col">判断</th><th scope="col">原因</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">多人使用多种 AI 编程工具</th><td><span class="pill good">适合</span></td><td>同一套资源会被转换到不同工具的原生目录</td></tr>
+        <tr><th scope="row">团队已经用 Git 与 MR 评审</th><td><span class="pill good">适合</span></td><td>可以沿用现有权限、分支与 review 流程</td></tr>
+        <tr><th scope="row">多个项目共用一个团队仓库</th><td><span class="pill good">适合</span></td><td>0.24.0 已提供 Project 与 Role 两个分流维度</td></tr>
+        <tr><th scope="row">一个人只用一种工具</th><td><span class="pill warn">收益有限</span></td><td>直接管理工具自己的 rules 与 skills 更简单</td></tr>
+        <tr><th scope="row">期望安装后模型能力变强</th><td><span class="pill warn">不匹配</span></td><td>TeamAI 管理上下文和工作方式，不提供模型</td></tr>
+        <tr><th scope="row">不能接受本机配置与 hook 改动</th><td><span class="pill warn">不匹配</span></td><td>同步功能需要写入各工具的配置和资源目录</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="decision"><p><b>建议试法</b> 先建一个小型团队仓库，只放 2 到 3 个已经反复使用的 skills 和 rules。选一个项目、两位成员、两种 Agent 跑一周；确认 pull、MR、卸载和密钥边界后，再打开 recall、session 上报与 dashboard。</p></div>
+
+  <h2 id="risks">八、安全与运维边界</h2>
+  <ul>
+    <li>团队 hooks 可以分发并执行命令。Review 需要像看 CI 脚本一样看 <code>hooks/hooks.yaml</code>；可用角色限制控制分发范围。<sup><a href="#src-2">2</a></sup></li>
+    <li>MCP 配置中应用 <code>${VAR}</code> 引用密钥。解析后的 token 会以明文写进各 Agent 的本地配置，项目级 MCP 文件必须加入 <code>.gitignore</code>。<sup><a href="#src-2">2</a></sup></li>
+    <li>单仓模式下的 <code>.teamai/env/env.yaml</code> 会提交到 main，只能放非敏感配置。真实密钥留在未跟踪的本机环境。<sup><a href="#src-2">2</a></sup></li>
+    <li>团队包声明不会随着 pull 自动执行。成员运行 <code>teamai packages</code> 才会安装，执行前可以用 <code>--dry-run</code> 看具体命令。<sup><a href="#src-2">2</a></sup></li>
+    <li>用量上报可以在 <code>teamai.yaml</code> 设 <code>usageReport: false</code> 关闭。会话摘要、投票、成员与统计写进独立的 <code>teamai-reports</code> 分支。<sup><a href="#src-2">2</a></sup></li>
+    <li>自动更新由团队的 <code>autoUpdate</code> 与本机的 <code>updatePolicy</code> 控制，本机设置优先。生产环境可以改为提示或跳过。<sup><a href="#src-2">2</a></sup></li>
+    <li><code>teamai uninstall --dry-run</code> 会预览删除范围；正式卸载只清理 TeamAI 管理的资源，并保留用户自己创建的内容。<sup><a href="#src-2">2</a></sup></li>
+  </ul>
+
+  <h2 id="maturity">九、成熟度判断</h2>
+  <p>截至 2026 年 9 月 21 日 10:55（新加坡时间），GitHub API 返回 4,846 stars、351 forks、35 个 open issues，仓库当天仍有提交。npm 的稳定版是 0.24.0，发布于 9 月 14 日；GitHub 最新预发布版是 0.25.0-beta.3，发布于 9 月 18 日。项目使用 TypeScript、ESM、tsup 与 Vitest，公开包采用 MIT License。<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup><sup><a href="#src-5">5</a></sup><sup><a href="#src-7">7</a></sup></p>
+  <p>发布节奏很快，9 月 14 日到 18 日已经从稳定版进入三轮 beta。快速变化带来更多 Agent 和功能，也会让文档、<code>main</code> 分支版本号与已发布包短期不一致。团队应固定稳定版，升级前看 release notes，并在小范围验证 hooks、MCP 和数据迁移。</p>
+  <div class="note"><p><b>判断边界</b> 这份调研核对了公开文档、发布记录、npm 元数据和关键配置说明，没有安装 14 种 Agent 做端到端测试，也没有审计全部源码。Agent 兼容性采用官方功能矩阵。</p></div>
+
+  <h2 id="sources">十、方法与来源</h2>
+  <p>资料取样于 2026-09-21。版本以 npm <code>latest</code> 和 GitHub release 为准；仓库规模来自 GitHub API；功能与安全边界以中文 README、中文使用指南和 0.24.0 发布说明交叉核对。数字是当时快照，会继续变化。</p>
+  <ol class="sources">
+    <li id="src-1">Tencent，《TeamAI README 中文版》，访问于 2026-09-21，<a href="https://github.com/Tencent/teamai-cli/blob/main/README.zh-CN.md" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/blob/main/README.zh-CN.md</a></li>
+    <li id="src-2">Tencent，《TeamAI CLI 团队上手与使用指南》，访问于 2026-09-21，<a href="https://github.com/Tencent/teamai-cli/blob/main/docs/usage-guide.zh-CN.md" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/blob/main/docs/usage-guide.zh-CN.md</a></li>
+    <li id="src-3">npm，《teamai-cli》，稳定版 0.24.0，访问于 2026-09-21，<a href="https://www.npmjs.com/package/teamai-cli" target="_blank" rel="noopener">npmjs.com/package/teamai-cli</a></li>
+    <li id="src-4">Tencent，《teamai-cli v0.24.0 Release》，2026-09-14，<a href="https://github.com/Tencent/teamai-cli/releases/tag/v0.24.0" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/releases/tag/v0.24.0</a></li>
+    <li id="src-5">Tencent，《teamai-cli Releases》，访问于 2026-09-21，<a href="https://github.com/Tencent/teamai-cli/releases" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/releases</a></li>
+    <li id="src-6">Tencent，《teamai-cli package.json》，main 分支，访问于 2026-09-21，<a href="https://github.com/Tencent/teamai-cli/blob/main/package.json" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/blob/main/package.json</a></li>
+    <li id="src-7">GitHub REST API，《Tencent/teamai-cli repository metadata》，取样于 2026-09-21 10:55（Asia/Singapore），<a href="https://api.github.com/repos/Tencent/teamai-cli" target="_blank" rel="noopener">api.github.com/repos/Tencent/teamai-cli</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+// Keep the outline compact on small screens and mark the section currently in view.
+(function () {
+  var details = document.querySelector('.outline details');
+  if (details && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) details.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.getAttribute('href').slice(1)));
+  }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function setCurrent(id) {
+    if (id === current) return;
+    current = id;
+    links.forEach(function (link) {
+      link.classList.toggle('active', decodeURIComponent(link.getAttribute('href').slice(1)) === id);
+    });
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) { if (entry.isIntersecting) setCurrent(entry.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (target) { observer.observe(target); });
+})();
+</script>
+</body>
+</html>
