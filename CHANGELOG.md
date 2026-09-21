@@ -2,6 +2,7 @@
 
 ## 2026-09-21
 
+- 资料页《Tencent TeamAI CLI 调研》删除以 9 月 8 日旧稿为基线的变化记录，后续章节编号同步调整。
 - 新增资料页《Tencent TeamAI CLI 调研：团队如何共享 AI 工作方式》，`static/reading/tencent-teamai-cli/index.html`。更新至稳定版 0.24.0，补充多项目、团队包、Agent 支持矩阵、安全边界与 2026-09-21 项目快照。
 - 新增资料页《一张 HEIC 图片如何打到 OpenAI 的内部仓库》，`static/reading/hacking-openai/index.html`。拆解论坛图片上传、libheif 堆溢出、OpenAI 单点登录缺陷与防守动作。
 - 新增资料页《老小区加装电梯：常见装法与适装条件》，`static/reading/old-neighborhood-elevator-guide/index.html`。

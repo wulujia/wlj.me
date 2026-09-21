@@ -276,27 +276,26 @@ hr { margin: 40px 0; border: 0; border-top: 1px solid var(--rule); }
     <summary>目录</summary>
     <ul>
       <li><a href="#position">一、TeamAI 是什么</a></li>
-      <li><a href="#changes">二、9 月 8 日以后变了什么</a></li>
-      <li><a href="#layers">三、三层能力</a>
+      <li><a href="#layers">二、三层能力</a>
         <ul>
-          <li><a href="#execution">3.1 Team Execution</a></li>
-          <li><a href="#context">3.2 Team Context</a></li>
-          <li><a href="#improvement">3.3 Team Improvement</a></li>
+          <li><a href="#execution">2.1 Team Execution</a></li>
+          <li><a href="#context">2.2 Team Context</a></li>
+          <li><a href="#improvement">2.3 Team Improvement</a></li>
         </ul>
       </li>
-      <li><a href="#workflow">四、工作方式</a></li>
-      <li><a href="#install">五、安装与开始使用</a>
+      <li><a href="#workflow">三、工作方式</a></li>
+      <li><a href="#install">四、安装与开始使用</a>
         <ul>
-          <li><a href="#ai-install">5.1 官方推荐入口</a></li>
-          <li><a href="#cli-install">5.2 命令行安装</a></li>
-          <li><a href="#scope">5.3 Project 与 User scope</a></li>
+          <li><a href="#ai-install">4.1 官方推荐入口</a></li>
+          <li><a href="#cli-install">4.2 命令行安装</a></li>
+          <li><a href="#scope">4.3 Project 与 User scope</a></li>
         </ul>
       </li>
-      <li><a href="#agents">六、Agent 支持</a></li>
-      <li><a href="#fit">七、适合什么团队</a></li>
-      <li><a href="#risks">八、安全与运维边界</a></li>
-      <li><a href="#maturity">九、成熟度判断</a></li>
-      <li><a href="#sources">十、方法与来源</a></li>
+      <li><a href="#agents">五、Agent 支持</a></li>
+      <li><a href="#fit">六、适合什么团队</a></li>
+      <li><a href="#risks">七、安全与运维边界</a></li>
+      <li><a href="#maturity">八、成熟度判断</a></li>
+      <li><a href="#sources">九、方法与来源</a></li>
     </ul>
   </details>
 </nav>
@@ -340,35 +339,17 @@ hr { margin: 40px 0; border: 0; border-top: 1px solid var(--rule); }
     </table>
   </div>
 
-  <h2 id="changes">二、9 月 8 日以后变了什么</h2>
-  <p>这次更新以 2026 年 9 月 8 日的旧稿为基线。13 天内，稳定版从 0.22.0 升到 0.24.0，0.25.0 已进入 beta。0.24.0 的发布说明列出多项目管理、项目机器数据迁移、团队包声明、更多 Agent 适配、用量上报开关和 Windows 兼容修复。<sup><a href="#src-4">4</a></sup></p>
-  <div class="tbl">
-    <table>
-      <caption>本次改稿需要改正或补充的项目</caption>
-      <thead><tr><th scope="col">项目</th><th scope="col">9 月 21 日状态</th><th scope="col">影响</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">运行环境</th><td>Node.js ≥ 20</td><td>旧稿写 ≥ 18，安装前要先升级 Node.js</td></tr>
-        <tr><th scope="row">稳定版</th><td>0.24.0，2026-09-14 发布</td><td>npm 的 <code>latest</code> 与 GitHub 最新稳定 release 一致</td></tr>
-        <tr><th scope="row">预发布版</th><td>0.25.0-beta.3，2026-09-18 发布</td><td>beta 中的功能和修复不应写成稳定版现状</td></tr>
-        <tr><th scope="row">默认入口</th><td>先装 <code>/teamai</code> skill，再让 AI 帮忙搭建</td><td>CLI 手动安装仍保留</td></tr>
-        <tr><th scope="row">项目数据</th><td><code>~/.teamai/projects/&lt;slug&gt;/</code></td><td>机器数据移出业务仓库，并按项目分区</td></tr>
-        <tr><th scope="row">团队分流</th><td>Project、Role、Tag、Source</td><td>一个团队仓库可以按项目与角色分发不同资源</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="warn"><p><b>版本判断</b> 仓库 <code>main</code> 分支的 <code>package.json</code> 仍写着 0.22.0。查询可安装稳定版时，应看 npm 的 <code>latest</code> 和 GitHub 最新稳定 release；截至 2026-09-21，两边都是 0.24.0。<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup><sup><a href="#src-6">6</a></sup></p></div>
-
-  <h2 id="layers">三、三层能力</h2>
-  <h3 id="execution">3.1 Team Execution</h3>
+  <h2 id="layers">二、三层能力</h2>
+  <h3 id="execution">2.1 Team Execution</h3>
   <p>这一层负责把团队的 AI 工作方式送到每位成员的工具里。除了 skills、rules、docs、agents、hooks、MCP 和 env，0.24.0 还加入了团队包声明。<code>teamai packages</code> 调用本机的 npm 与 Claude Code 插件命令，安装前可用 <code>--dry-run</code> 预览；普通 <code>pull</code> 只提示，不会自动执行第三方安装命令。<sup><a href="#src-2">2</a></sup></p>
 
-  <h3 id="context">3.2 Team Context</h3>
+  <h3 id="context">2.2 Team Context</h3>
   <p><code>teamai recall</code> 搜索 learnings、docs 和代码知识图谱。该功能默认关闭，团队可以在 <code>teamai.yaml</code> 打开，成员也能在本机覆盖。<code>teamai import</code> 与 <code>teamai codebase</code> 用 tree-sitter WASM 和启发式规则提取代码结构；TypeScript、JavaScript、Python、Go 有 AST 轨道，其他语言走启发式提取。<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup></p>
 
-  <h3 id="improvement">3.3 Team Improvement</h3>
+  <h3 id="improvement">2.3 Team Improvement</h3>
   <p>会话结束时，Stop hook 会根据打断、纠正、拒绝工具调用、工具重试等摩擦信号判断本次会话是否值得记录。达到门槛后，它提示成员运行 <code>/teamai-share-learnings</code>。<code>teamai digest</code> 生成近 7 天团队周报，<code>teamai dashboard</code> 展示本机会话、趋势、估算费用和知识库健康。官方仍把 Team Context 与 Team Improvement 标为 beta。<sup><a href="#src-1">1</a></sup></p>
 
-  <h2 id="workflow">四、工作方式</h2>
+  <h2 id="workflow">三、工作方式</h2>
   <ol class="flow" aria-label="TeamAI 从初始化到同步的四步流程">
     <li><b>01 · INIT</b><span>关联团队仓库，选择 project 或 user scope，注入对应工具的资源与 hooks。</span></li>
     <li><b>02 · PUSH</b><span>成员把新 skill、rule 或 learning 推到单独分支并创建 MR。</span></li>
@@ -380,15 +361,15 @@ hr { margin: 40px 0; border: 0; border-top: 1px solid var(--rule); }
 SessionStart hook → teamai pull → local AI tools</code></pre>
   <p>Project、Role、Tag、Source 是四种分发维度。Project 回答当前目录属于哪个项目，Role 回答成员做什么工作，Tag 让成员订阅一组资源，Source 让团队订阅其他仓库的公开 skills。Project 与 Role 可以同时使用。<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup></p>
 
-  <h2 id="install">五、安装与开始使用</h2>
-  <h3 id="ai-install">5.1 官方推荐入口</h3>
+  <h2 id="install">四、安装与开始使用</h2>
+  <h3 id="ai-install">4.1 官方推荐入口</h3>
   <p>README 现在把 skill 作为第一入口：把下面这句话交给支持安装 skill 的 AI 工具，让它加载 TeamAI 的内置 skill，再按对话完成团队初始化。<sup><a href="#src-1">1</a></sup></p>
   <pre><code>帮我装好 teamai skill：
 https://github.com/Tencent/teamai-cli/tree/main/skills/teamai
 加载 teamai skill，然后从零搭建团队的 TeamAI。</code></pre>
   <p>安装后，可以用 <code>/teamai</code> 让 AI 帮忙建团队、加入仓库、分享 skill 或打开团队看板。</p>
 
-  <h3 id="cli-install">5.2 命令行安装</h3>
+  <h3 id="cli-install">4.2 命令行安装</h3>
   <p>手动安装需要 Node.js 20 或更高版本与 Git。公开 npm 包名是 <code>teamai-cli</code>。<sup><a href="#src-2">2</a></sup><sup><a href="#src-3">3</a></sup></p>
   <pre><code>npm install -g teamai-cli
 teamai --version
@@ -403,7 +384,7 @@ teamai status
 teamai pull</code></pre>
   <div class="warn"><p><b>包名</b> npm 上还有一个无关的 <code>@teamai/cli</code>，用途是同步 TeamAI sandbox 文件。腾讯这个项目的公开包名是 <code>teamai-cli</code>，仓库地址是 <code>Tencent/teamai-cli</code>。<sup><a href="#src-3">3</a></sup></p></div>
 
-  <h3 id="scope">5.3 Project 与 User scope</h3>
+  <h3 id="scope">4.3 Project 与 User scope</h3>
   <div class="tbl">
     <table>
       <caption>两种安装范围</caption>
@@ -416,7 +397,7 @@ teamai pull</code></pre>
   </div>
   <p>两个 scope 可以共存，但 project scope 默认与 user scope 隔离。项目需要读取安全的 user 资源时，用 <code>--inherit-user-scope</code>；env、MCP、外部 sources、用量上报和远端写入不会继承。<sup><a href="#src-2">2</a></sup></p>
 
-  <h2 id="agents">六、Agent 支持</h2>
+  <h2 id="agents">五、Agent 支持</h2>
   <p>官方功能矩阵在 2026 年 9 月 21 日列出 14 种 Agent。Claude Code、Codex、Cursor、CodeBuddy、Qoder 与 Kiro 覆盖表中的 13 项能力；其他工具按各自文件格式和生命周期接口提供部分能力。<sup><a href="#src-1">1</a></sup></p>
   <div class="tbl">
     <table>
@@ -431,7 +412,7 @@ teamai pull</code></pre>
   </div>
   <p>自动同步取决于 Agent 是否开放生命周期 hook。JoyCode、Gemini CLI 等当前需要手动执行 <code>teamai pull</code>；Kiro 只有交互式 CLI 中激活 TeamAI 渲染的自定义 Agent 时才会触发对应 hook。<sup><a href="#src-2">2</a></sup></p>
 
-  <h2 id="fit">七、适合什么团队</h2>
+  <h2 id="fit">六、适合什么团队</h2>
   <div class="tbl">
     <table>
       <caption>采用 TeamAI 前的判断</caption>
@@ -448,7 +429,7 @@ teamai pull</code></pre>
   </div>
   <div class="decision"><p><b>建议试法</b> 先建一个小型团队仓库，只放 2 到 3 个已经反复使用的 skills 和 rules。选一个项目、两位成员、两种 Agent 跑一周；确认 pull、MR、卸载和密钥边界后，再打开 recall、session 上报与 dashboard。</p></div>
 
-  <h2 id="risks">八、安全与运维边界</h2>
+  <h2 id="risks">七、安全与运维边界</h2>
   <ul>
     <li>团队 hooks 可以分发并执行命令。Review 需要像看 CI 脚本一样看 <code>hooks/hooks.yaml</code>；可用角色限制控制分发范围。<sup><a href="#src-2">2</a></sup></li>
     <li>MCP 配置中应用 <code>${VAR}</code> 引用密钥。解析后的 token 会以明文写进各 Agent 的本地配置，项目级 MCP 文件必须加入 <code>.gitignore</code>。<sup><a href="#src-2">2</a></sup></li>
@@ -459,12 +440,12 @@ teamai pull</code></pre>
     <li><code>teamai uninstall --dry-run</code> 会预览删除范围；正式卸载只清理 TeamAI 管理的资源，并保留用户自己创建的内容。<sup><a href="#src-2">2</a></sup></li>
   </ul>
 
-  <h2 id="maturity">九、成熟度判断</h2>
-  <p>截至 2026 年 9 月 21 日 10:55（新加坡时间），GitHub API 返回 4,846 stars、351 forks、35 个 open issues，仓库当天仍有提交。npm 的稳定版是 0.24.0，发布于 9 月 14 日；GitHub 最新预发布版是 0.25.0-beta.3，发布于 9 月 18 日。项目使用 TypeScript、ESM、tsup 与 Vitest，公开包采用 MIT License。<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup><sup><a href="#src-5">5</a></sup><sup><a href="#src-7">7</a></sup></p>
+  <h2 id="maturity">八、成熟度判断</h2>
+  <p>截至 2026 年 9 月 21 日 10:55（新加坡时间），GitHub API 返回 4,846 stars、351 forks、35 个 open issues，仓库当天仍有提交。npm 的稳定版是 0.24.0，发布于 9 月 14 日；GitHub 最新预发布版是 0.25.0-beta.3，发布于 9 月 18 日。项目使用 TypeScript、ESM、tsup 与 Vitest，公开包采用 MIT License。<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup><sup><a href="#src-5">5</a></sup><sup><a href="#src-6">6</a></sup></p>
   <p>发布节奏很快，9 月 14 日到 18 日已经从稳定版进入三轮 beta。快速变化带来更多 Agent 和功能，也会让文档、<code>main</code> 分支版本号与已发布包短期不一致。团队应固定稳定版，升级前看 release notes，并在小范围验证 hooks、MCP 和数据迁移。</p>
   <div class="note"><p><b>判断边界</b> 这份调研核对了公开文档、发布记录、npm 元数据和关键配置说明，没有安装 14 种 Agent 做端到端测试，也没有审计全部源码。Agent 兼容性采用官方功能矩阵。</p></div>
 
-  <h2 id="sources">十、方法与来源</h2>
+  <h2 id="sources">九、方法与来源</h2>
   <p>资料取样于 2026-09-21。版本以 npm <code>latest</code> 和 GitHub release 为准；仓库规模来自 GitHub API；功能与安全边界以中文 README、中文使用指南和 0.24.0 发布说明交叉核对。数字是当时快照，会继续变化。</p>
   <ol class="sources">
     <li id="src-1">Tencent，《TeamAI README 中文版》，访问于 2026-09-21，<a href="https://github.com/Tencent/teamai-cli/blob/main/README.zh-CN.md" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/blob/main/README.zh-CN.md</a></li>
@@ -472,8 +453,7 @@ teamai pull</code></pre>
     <li id="src-3">npm，《teamai-cli》，稳定版 0.24.0，访问于 2026-09-21，<a href="https://www.npmjs.com/package/teamai-cli" target="_blank" rel="noopener">npmjs.com/package/teamai-cli</a></li>
     <li id="src-4">Tencent，《teamai-cli v0.24.0 Release》，2026-09-14，<a href="https://github.com/Tencent/teamai-cli/releases/tag/v0.24.0" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/releases/tag/v0.24.0</a></li>
     <li id="src-5">Tencent，《teamai-cli Releases》，访问于 2026-09-21，<a href="https://github.com/Tencent/teamai-cli/releases" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/releases</a></li>
-    <li id="src-6">Tencent，《teamai-cli package.json》，main 分支，访问于 2026-09-21，<a href="https://github.com/Tencent/teamai-cli/blob/main/package.json" target="_blank" rel="noopener">github.com/Tencent/teamai-cli/blob/main/package.json</a></li>
-    <li id="src-7">GitHub REST API，《Tencent/teamai-cli repository metadata》，取样于 2026-09-21 10:55（Asia/Singapore），<a href="https://api.github.com/repos/Tencent/teamai-cli" target="_blank" rel="noopener">api.github.com/repos/Tencent/teamai-cli</a></li>
+    <li id="src-6">GitHub REST API，《Tencent/teamai-cli repository metadata》，取样于 2026-09-21 10:55（Asia/Singapore），<a href="https://api.github.com/repos/Tencent/teamai-cli" target="_blank" rel="noopener">api.github.com/repos/Tencent/teamai-cli</a></li>
   </ol>
 </main>
 </div>
