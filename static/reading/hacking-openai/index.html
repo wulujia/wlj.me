@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一张 HEIC 图片如何打到 OpenAI 的内部仓库</title>
+<meta name="description" content="拆解 2026 年 7 月那条从论坛图片上传打到内部代码仓库的攻击链：libheif 堆溢出加单点登录缺陷，72 小时，以及可以抄走的防守清单。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/hacking-openai/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens ---------- */
+:root {
+  color-scheme: light;
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #171a19;
+  --ink-2: #474d4b;
+  --ink-3: #656e6b;
+  --rule: #d9dedc;
+  --rule-2: #b5bcba;
+  --mid: #e9eeec;
+  --acc: #12695a;
+  --acc-ink: #0e5749;
+  --acc-wash: rgba(18, 105, 90, .09);
+  --good: #2c7a3a; --warn: #8f6200; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(143,98,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #15191a; --surface: #1d2222; --ink: #eceeed; --ink-2: #bfc5c3; --ink-3: #939b98;
+    --rule: #2c3231; --rule-2: #444c4a; --mid: #232827;
+    --acc: #4fbfa4; --acc-ink: #7fd4bf; --acc-wash: rgba(79,191,164,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #15191a; --surface: #1d2222; --ink: #eceeed; --ink-2: #bfc5c3; --ink-3: #939b98;
+  --rule: #2c3231; --rule-2: #444c4a; --mid: #232827;
+  --acc: #4fbfa4; --acc-ink: #7fd4bf; --acc-wash: rgba(79,191,164,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); font-family: var(--font-mono); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* ---------- stats ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+
+/* ---------- kv ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 11ch 1fr; gap: 14px; padding: 0 0 16px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+@media (max-width: 560px) { .timeline li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* ---------- thread ---------- */
+.thread { padding-left: 1.6em; }
+.thread > li { margin: 0 0 1.1em; }
+.thread details { font-size: 13.5px; margin-top: 4px; color: var(--ink-2); }
+.thread summary { cursor: pointer; color: var(--ink-3); font-size: 13px; }
+.thread details p { margin: 6px 0 0; }
+
+/* ---------- pills ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, pre, .note, .warn, .decision, .todo, .stats, .summary, .timeline li { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  details { display: block; }
+  details > summary { display: none; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、这件事是什么</a></li>
+      <li><a href="#s2">二、攻击链的八环</a>
+        <ul>
+          <li><a href="#s2-1">2.1 一张表看完整条链</a></li>
+          <li><a href="#s2-2">2.2 这条链的特点：每一环单看都不致命</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、第一个洞：libheif 堆溢出</a>
+        <ul>
+          <li><a href="#s3-1">3.1 一张 HEIC 为什么能碰到解码器</a></li>
+          <li><a href="#s3-2">3.2 补丁在上游，但没人知道它是安全补丁</a></li>
+          <li><a href="#s3-3">3.3 从越界读写到执行命令</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、第二个洞：OpenAI 的单点登录</a>
+        <ul>
+          <li><a href="#s4-1">4.1 论坛的控制权怎么换成别人的身份</a></li>
+          <li><a href="#s4-2">4.2 爆炸半径在连接器上</a></li>
+          <li><a href="#s4-3">4.3 公开信息里还缺什么</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">五、怎么证明的：一个无害的 PR</a></li>
+      <li><a href="#s6">六、AI 在这次里干了多少活</a>
+        <ul>
+          <li><a href="#s6-1">6.1 Opus 4.8 卡住，Opus 5 当天做出来</a></li>
+          <li><a href="#s6-2">6.2 把自己的靶机包装成 CTF</a></li>
+          <li><a href="#s6-3">6.3 花了多少钱</a></li>
+          <li><a href="#s6-4">6.4 几乎没人发现</a></li>
+        </ul>
+      </li>
+      <li><a href="#s7">七、完整时间线</a></li>
+      <li><a href="#s8">八、争议：6,500 美元</a></li>
+      <li><a href="#s9">九、可以抄走的防守清单</a>
+        <ul>
+          <li><a href="#s9-1">9.1 你自建了 Discourse</a></li>
+          <li><a href="#s9-2">9.2 你的产品收用户上传的图片</a></li>
+          <li><a href="#s9-3">9.3 你在做单点登录</a></li>
+          <li><a href="#s9-4">9.4 你接了 AI 连接器</a></li>
+          <li><a href="#s9-5">9.5 你负责监测</a></li>
+        </ul>
+      </li>
+      <li><a href="#s10">十、作者 X 串全文</a></li>
+      <li><a href="#s11">十一、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow"><a href="/reading/">Reading</a> · 安全事件拆解 · 2026 年 9 月 19 日</p>
+    <h1>一张 HEIC 图片如何打到 OpenAI 的内部仓库</h1>
+    <p class="lede">Hacktron 公布的这条攻击链从用户论坛的图片上传开始，结束在 OpenAI 内部代码仓库的一个 PR。这页把博客原文和作者 X 串里的事实整理成一份学习材料，附每一环的原理和防守动作。</p>
+    <p class="meta"><span>来源：hacktron.ai 博客 2026-09-13</span><span>X 串 2026-09-18</span><span>抓取日 2026-09-19</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>2026 年 7 月 25 日，Hacktron 的三人团队把两个漏洞串成一条链，在 72 小时内从 OpenAI 的用户论坛 <code>community.openai.com</code> 打到 OpenAI 的内部代码仓库。第一个洞在图片解码库 libheif：上游在前一年就改掉了那段代码，但那次提交没被标成安全修复，也没有 CVE，Debian 因此没有及时回补，Discourse 的 Docker 镜像里一直装着有问题的 1.19.7。第二个洞在 OpenAI 自己的单点登录，它把论坛上的一次代码执行变成了论坛用户（包括 OpenAI 员工）ChatGPT 和 Codex 账号的接管，而这些账号常常连着 GitHub、Slack、Outlook。OpenAI 在收到报告约 14 小时后修好，付了 6,500 美元赏金。</p>
+  </div>
+
+  <h2 id="s1">一、这件事是什么</h2>
+  <p>做这件事的是 Hacktron 的团队，博客署名 Harsh Jaiswal、Mohan Pedhapati、Rahul Maini 三人，研究由 Harsh Jaiswal 带头。博客发表于 2026 年 9 月 13 日，标题 <span lang="en">Hacking OpenAI</span>，副标题写的是“一个堆溢出加一个 SSO 配置错误，拿下 OpenAI 的内部仓库”。9 月 18 日，团队成员 s1r1us（<span lang="en">@S1r1u5_</span>）在 X 上发了一条十三段的串把这件事讲了一遍，截至 2026 年 9 月 19 日抓取时，首帖 230 万次浏览、1 万赞、331 条回复。</p>
+  <p>他们的起点是一个假设：OpenAI 的论坛用 Discourse 搭，登录走 <code>auth.openai.com</code> 的“<span lang="en">Sign in with OpenAI</span>”。如果论坛能被攻破，这条身份通道就有机会把权限带到 OpenAI 更核心的服务上。Discourse 本身他们过去看过，不好打，于是转向它的依赖。</p>
+  <dl class="kv">
+    <dt>目标</dt><dd><code>community.openai.com</code>（Discourse 托管的 OpenAI 官方论坛）</dd>
+    <dt>入口</dt><dd>一张构造过的 HEIC / HEIF 图片</dd>
+    <dt>终点</dt><dd><code>openai/openai</code> 内部 monorepo 的 PR <span class="mono">#1186742</span></dd>
+    <dt>耗时</dt><dd>从发现到拿到仓库访问权，不到 72 小时</dd>
+    <dt>赏金</dt><dd>6,500 美元（2026-09-01 支付并标记为已解决）</dd>
+  </dl>
+
+  <h2 id="s2">二、攻击链的八环</h2>
+
+  <h3 id="s2-1">2.1 一张表看完整条链</h3>
+  <p>这是作者在 X 串第二条里给出的链条，右边一列是这页加的判断：每一环出问题的是谁。</p>
+  <div class="tbl">
+    <table>
+      <caption>攻击链八环与责任归属</caption>
+      <thead><tr><th scope="col">环</th><th scope="col">发生了什么</th><th scope="col">问题出在谁那里</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1</th><td>上传一张 HEIC / HEIF 图片到论坛</td><td>没有人。论坛允许注册用户传图是正常功能</td></tr>
+        <tr><th scope="row">2</th><td>Discourse 把这个文件交给 ImageMagick 的 <code>magick</code> 命令转换</td><td>Discourse 的取舍（见 3.1）</td></tr>
+        <tr><th scope="row">3</th><td>ImageMagick 调用 libheif 解码，触发堆缓冲区溢出</td><td>libheif 上游没标记安全修复 + Debian 没回补</td></tr>
+        <tr><th scope="row">4</th><td>在 <code>community.openai.com</code> 上拿到远程代码执行和管理员权限</td><td>Discourse 镜像的依赖版本</td></tr>
+        <tr><th scope="row">5</th><td>利用 OpenAI 单点登录的缺陷</td><td>OpenAI</td></tr>
+        <tr><th scope="row">6</th><td>接管在论坛登录过的人的 ChatGPT / Codex 账号，无需对方任何操作</td><td>OpenAI</td></tr>
+        <tr><th scope="row">7</th><td>其中一个被接管账号的 Codex 连着 OpenAI 的 GitHub 组织</td><td>连接器的权限范围</td></tr>
+        <tr><th scope="row">8</th><td>让这个 Codex 在内部 monorepo 里开了一个 PR</td><td>——</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s2-2">2.2 这条链的特点：每一环单看都不致命</h3>
+  <p>前四环是一个已经被上游修掉的内存漏洞，没有 CVE，没人当回事。第五环是一个配置问题。把它们接起来，一个注册论坛账号的外部人员就能读到 OpenAI 员工的工作账号。</p>
+  <p>作者在博客里特别强调过一句：能把论坛失守升级成账号接管的那个漏洞，跟 Discourse 没关系，是 OpenAI 的 SSO 问题。任何使用 OpenAI SSO 的第一方或第三方服务被攻破，都会导致同样的结果，论坛只是他们用来证明这件事的一条路。</p>
+
+  <h2 id="s3">三、第一个洞：libheif 堆溢出</h2>
+
+  <h3 id="s3-1">3.1 一张 HEIC 为什么能碰到解码器</h3>
+  <p>7 月 23 日，他们开始看 Discourse 的图片上传流程，发现 HEIC 和 HEIF 文件走的路跟别的图片不一样。Discourse 平时用 FastImage 做图片检查，但 FastImage 不支持 HEIF，所以这类文件被直接交给 ImageMagick 的 <code>magick</code> 命令去转换。这一步把底层的 libheif 解析器直接暴露给了用户上传的文件。</p>
+  <p>HEIC 是 iPhone 默认的照片格式。一个论坛要支持用户从手机传图，几乎一定要处理它。这个功能本身是对的，代价是多引入了一整套解析 ISO 基础媒体文件格式的代码。</p>
+
+  <h3 id="s3-2">3.2 补丁在上游，但没人知道它是安全补丁</h3>
+  <p>他们开了一个 Opus 4.8 的会话，把 Discourse 的 Docker 镜像给它，让它检查里面装的 libheif 包有没有安全问题。跑了一段时间后，模型找到：上游的一些安全修复没有被回补到这个包里。缺的这块会导致 HEIC 解码过程中出现堆缓冲区溢出，进而拿到越界读写的能力。</p>
+  <p>漏洞代码在上游前一年就被改过，提交信息写的是 <span lang="en">simplify overlay overlap area computation</span>（简化覆盖层重叠区域的计算），没有标成安全修复，也没有申请 CVE。<sup><a href="#src-3">3</a></sup> 下游因此没有理由去回补它。Debian 12 和 13 都漏掉了，Discourse 的 Docker 镜像基于 Debian 12，装的是有问题的 libheif 1.19.7；当时 Debian 13 里也还是有问题的 1.19.8。Debian 直到 2026 年 8 月 8 日才发出针对 Debian 13 的安全更新。<sup><a href="#src-4">4</a></sup></p>
+  <div class="note"><b>可学的一条</b>“上游已修复”不等于“你已安全”。发行版的回补依赖提交被正确标记。一个被当成重构提交的安全修复，会在下游停留很久。</div>
+
+  <h3 id="s3-3">3.3 从越界读写到执行命令</h3>
+  <p>7 月 24 日，他们用 Opus 4.8 做出了一个可用的 ImageMagick / libheif 代码执行利用，条件是关掉 ASLR（地址随机化）。接着开了几个会话想让它在 Discourse 的默认配置下、也就是开着 ASLR 的情况下稳定工作，没成功。</p>
+  <p>当天傍晚 Anthropic 发布了 Claude Opus 5。他们新开一个会话，三小时内拿到了一个能在本地 Mac（ARM64）上工作的利用，然后让它移植到 Discourse 用的 x86-64 环境和 jemalloc 内存分配器配置上。7 月 25 日早上 6 点，通过图片上传的本地远程代码执行确认可用。</p>
+
+  <h2 id="s4">四、第二个洞：OpenAI 的单点登录</h2>
+
+  <h3 id="s4-1">4.1 论坛的控制权怎么换成别人的身份</h3>
+  <p>拿到论坛的代码执行和管理员权限之后，第二个漏洞才是真正值钱的那个。作者在 X 串里的原话是：“第二个 bug 更严重：一个 OpenAI SSO 漏洞。利用这个缺陷，我们把论坛的利用变成了对在该论坛登录过的人的 ChatGPT 和 Codex 账号的访问权，其中包括 OpenAI 员工。”</p>
+  <p>关键词是“无需交互”。博客里写的是 <span lang="en">no interaction account takeover</span>：论坛的活跃成员不需要点任何链接、不需要再次登录，账号就可以被接管。受影响的不只是 OpenAI 员工，还包括一些跟 OpenAI 无关的普通用户。</p>
+
+  <h3 id="s4-2">4.2 爆炸半径在连接器上</h3>
+  <p>ChatGPT 和 Codex 可以连接外部服务。作者列出的有 Outlook、Gmail、Google Drive、Slack、GitHub。一个被接管的账号，能触达的东西远超对话记录本身。</p>
+  <p>他们实际用到的那个 OpenAI 员工账号，Codex 连着 OpenAI 的 GitHub 组织。</p>
+
+  <h3 id="s4-3">4.3 公开信息里还缺什么</h3>
+  <div class="todo"><b>待确认</b>两个来源都没有公开 SSO 漏洞的技术细节：是 OAuth 回调地址校验不严、<code>state</code> 参数处理有问题、令牌作用域没隔离，还是别的什么，博客和 X 串都只写到“SSO 配置错误 / 身份基础设施的缺陷”这一层。OpenAI 已修复，细节大概率不会公开。这页不做猜测。</div>
+
+  <h2 id="s5">五、怎么证明的：一个无害的 PR</h2>
+  <p>确认了假设之后，他们先把报告发给 OpenAI，然后接管了一个 Codex 连着 OpenAI GitHub 组织的员工账号。为了证明权限是真的、同时不去读任何内部代码，他们给这个账号的 Codex 发了一条指令，让它在 OpenAI 的内部 monorepo <code>openai/openai</code> 里开了一个 PR，编号 <span class="mono">#1186742</span>。博客里贴了这个 PR 的截图，链接应 OpenAI 要求删去。做完这一步，他们停止了所有进一步测试，时间是 7 月 25 日 15:30 UTC 左右。</p>
+  <p>这个动作值得单独看一眼：他们让目标账号自己做了一件可审计、可撤销、不泄露内容的事，用它来证明访问权。开 PR 留下记录，读代码不留。</p>
+
+  <h2 id="s6">六、AI 在这次里干了多少活</h2>
+
+  <h3 id="s6-1">6.1 Opus 4.8 卡住，Opus 5 当天做出来</h3>
+  <p>这是整篇博客里最值得记住的一组对比。同一个问题，Opus 4.8 用好几个会话都没能在开启 ASLR 的情况下做出稳定利用；Opus 5 发布几小时后，他们把同一个问题交给它，成功了。</p>
+  <p>博客里还提到第二次落差：在后续针对其他公司的研究里，从 Opus 5 到 GPT-5.6 Sol 又有一次明显的跳跃，判断标准是“除了知道目标有漏洞之外，对目标系统一无所知”时能不能打下来。</p>
+  <p>每个目标的测试都从上传一张图片开始。之后要把内存破坏变成可靠的内存泄露或者一个 shell，通常不知道对方的 libheif 版本、libc 版本和部署环境。模型几乎是盲打，一到两天内为每家公司调整出可用的利用。作者的说法是，这不算完全自主的攻击，熟练的人工引导仍然重要，但一个小团队能完成的工作量提高了很多。代码执行落到沙箱或受限环境里时，模型还参与了提权、横向移动和绕过已有防护。</p>
+
+  <h3 id="s6-2">6.2 把自己的靶机包装成 CTF</h3>
+  <p>本地跑通之后，他们把 Claude 放进一个自主的 <code>/goal</code> 循环里，目标是自己的 Discourse Cloud 实例。因为 Opus 拒绝为远程实例编写利用代码，他们把目标通过 <code>rce.ee/ctf-forum</code> 做了代理，让它看起来像一个 CTF 靶场。</p>
+  <p>早上 10 点他们再看的时候，这个 agent 已经在 Discourse Cloud 上拿到了代码执行，并且读出 <code>/etc/hosts</code> 作为证明。用它生成的利用脚本，他们拿下了 OpenAI 的实例。</p>
+  <div class="warn"><b>注意</b>这一段是作者公开描述的绕过模型安全限制的做法。它同时说明两件事：模型确实有拒绝远程攻击的护栏，以及这层护栏靠的是对目标性质的判断，重新包装一下就能过。</div>
+
+  <h3 id="s6-3">6.3 花了多少钱</h3>
+  <p>OpenAI 这一次，agent 用了几天，人工只花了几个小时。后续那个扩展到 Slack、Meta 等公司的研究项目，规模是这样：</p>
+  <div class="stats">
+    <div><b>2 个月</b><span>研究周期</span></div>
+    <div><b>&lt; $3,000</b><span>模型 token 总花费</span></div>
+    <div><b>3 人</b><span>研究员</span></div>
+    <div><b>1–2 天</b><span>适配一家新公司</span></div>
+  </div>
+  <p>作者在结尾写的那段判断可以直接抄下来：软件长期以来受益于一种“靠复杂度获得的安全”。代码和漏洞本身可以是公开的，但把一个 bug 变成可靠的利用，仍然需要稀缺的专业能力、大量时间和对目标环境的了解。已知的内存破坏漏洞操作成本很高，0day 基本只留给最高价值的目标。这从来不是一道真正的安全边界，但它在实践中保护了普通公司。AI 正在把这层保护拿掉，方法是把稀缺的专业能力变成算力。过去需要一支资源充足的团队干几个月的活，现在可以压缩到几天。</p>
+
+  <h3 id="s6-4">6.4 几乎没人发现</h3>
+  <p>作者写道，在整个研究过程里，除了 Shopify，他们不知道有任何公司检测到了这些活动——即使已经发出去几千张图片、对方的图片处理程序反复崩溃。</p>
+
+  <h2 id="s7">七、完整时间线</h2>
+  <p>时间来自博客的披露时间线一节，UTC。</p>
+  <ol class="timeline">
+    <li><time>07-23</time><div>开始审查 Discourse 的图片上传流程，发现 HEIC / HEIF 走 ImageMagick。</div></li>
+    <li><time>07-24</time><div>用 Opus 4.8 做出关闭 ASLR 条件下的利用。当晚 Claude Opus 5 发布，新会话三小时内产出 ARM64 版本。</div></li>
+    <li><time>07-25 05:00</time><div><strong>确认拿到代码执行</strong>（05:00 到 06:00）。团队在 <code>community.openai.com</code> 的 Discourse 环境上获得远程代码执行和管理员权限。</div></li>
+    <li><time>07-25 08:00</time><div><strong>提交 Bugcrowd</strong>（08:00 到 10:00）。确认跨产品影响后，团队内部先商量好披露流程，再通过 OpenAI 的赏金计划提交报告。</div></li>
+    <li><time>07-25 13:30</time><div><strong>接管员工账号并做证明</strong>（13:30 到 15:30）。在内部 monorepo 创建无害 PR，更新 Bugcrowd 报告，同时在 X 上联系 OpenAI 的朋友直接通知，15:30 左右停止一切测试。</div></li>
+    <li><time>07-25 22:49</time><div><strong>OpenAI 侧确认已修复</strong>，距首次提交约 14 小时。</div></li>
+    <li><time>07-25</time><div>另行向 Discourse 的 HackerOne 项目提交报告（周六）。</div></li>
+    <li><time>07-26</time><div>Discourse 回复（周日）。</div></li>
+    <li><time>07-27</time><div>Discourse 修复就绪（周一），并加入图片处理沙箱作为纵深防御。</div></li>
+    <li><time>07-28</time><div>Discourse 发布公告 <span class="mono">GHSA-vhm9-85gw-x335</span>，附补丁和重建指引。<sup><a href="#src-5">5</a></sup></div></li>
+    <li><time>08-08</time><div>Debian 发布针对 Debian 13 的 libheif 安全更新 <span class="mono">DSA-6417-1</span>。<sup><a href="#src-4">4</a></sup></div></li>
+    <li><time>09-01</time><div><strong>OpenAI 支付 6,500 美元赏金</strong>并标记为已解决。</div></li>
+    <li><time>09-13</time><div>Hacktron 发表博客 <span lang="en">Hacking OpenAI</span>。</div></li>
+    <li><time>09-18</time><div>s1r1us 在 X 上发布十三段的说明串；同日 Harsh Jaiswal 公布更大范围的 libheif 研究。</div></li>
+  </ol>
+
+  <h2 id="s8">八、争议：6,500 美元</h2>
+  <p>赏金金额是 X 串下面讨论最多的一条。那条讲报告和修复的帖子有 68 条回复，是整串里回复最多的。Nik Cubrilovic（<span lang="en">@dir</span>）的回复只有一行：</p>
+  <blockquote lang="en"><p>&gt; to which OpenAI paid a $6,500 bounty</p><p>yikes ..</p><cite>来源：X 回复，2026-09-18</cite></blockquote>
+  <p>OpenAI 在博客的时间线里留了一条说明，解释这个金额的范围：</p>
+  <blockquote><p>为明确该奖励的范围：针对 Discourse 托管的 <code>community.openai.com</code> 的测试被明确排除在我们的赏金计划之外。该奖励认可的是 OpenAI 侧的发现，而不是针对 Discourse 的行为。</p><cite>来源：hacktron.ai 博客时间线，OpenAI 评论</cite></blockquote>
+  <p>这条说明本身是这次事件的一个教训：赏金范围按资产划线，而攻击者按身份链条走。论坛不在范围内，但 SSO 让论坛成了核心系统的入口。</p>
+
+  <h2 id="s9">九、可以抄走的防守清单</h2>
+
+  <h3 id="s9-1">9.1 你自建了 Discourse</h3>
+  <p>博客开头给了一个警告框，照抄如下：如果你自建 Discourse，现在就重建你的安装。旧的 Docker 镜像里可能带着有问题的 libheif 依赖，允许通过图片上传执行代码。在 <code>/var/discourse</code> 下执行：</p>
+  <pre lang="en"><code>cd /var/discourse
+git pull
+./launcher rebuild app</code></pre>
+  <p>只在网页后台点更新，可能不会替换底层镜像。Discourse 托管的客户已经打过补丁。</p>
+
+  <h3 id="s9-2">9.2 你的产品收用户上传的图片</h3>
+  <p>判断标准很简单：如果你的程序处理用户可控的图片，并且接受 <code>.heic</code> / <code>.heif</code> / <code>.avif</code>，那它很可能受影响。</p>
+  <ul>
+    <li><strong>升级上游。</strong>通过发行版的安全渠道或上游发布，装上最新的带安全补丁的 libheif 和 libde265。截至 2026 年 9 月 14 日，上游最新的 libheif 安全版本是 v1.23.4；v1.23.2 已被后续的安全修复取代。<sup><a href="#src-7">7</a></sup></li>
+    <li><strong>别只看版本号。</strong>发行版可能在一个较老的上游版本号下带了回补，要去看这个包的安全公告，而不是比较版本数字。</li>
+    <li><strong>这不是单一版本的问题。</strong>受影响的是一整个版本族系，1.19.x、1.20.x、1.22.x、1.23.x 都有；任何没打上最新上游安全补丁的部署都可能有问题。</li>
+    <li><strong>纵深防御。</strong>ISO 基础媒体文件格式本身复杂，解码器还在持续更新，以后还会出内存安全问题。用不到就在生产环境关掉对不可信 HEIF / AVIF 的解码；用得到就把图片处理放进加固过的一次性沙箱。ImageMagick 的安全策略支持限制允许的格式和资源占用。<sup><a href="#src-8">8</a></sup></li>
+  </ul>
+
+  <h3 id="s9-3">9.3 你在做单点登录</h3>
+  <p>把“某个用了我们 SSO 的站点被攻破”当成迟早会发生的事，然后问：它能换到多少身份？这次的区别不在论坛有多重要，而在论坛的控制权可以兑换成 ChatGPT 账号。</p>
+  <p>具体到可以检查的地方：第三方站点（论坛、状态页、社区、文档站）用不用同一套身份；这些站点拿到的令牌作用域有多大；一个站点被攻破后，有没有办法只吊销它而不影响其他。</p>
+
+  <h3 id="s9-4">9.4 你接了 AI 连接器</h3>
+  <p>一个 ChatGPT 或 Codex 账号连着 GitHub、Slack、邮箱、云盘，被接管一次就等于这几样一起丢。给连接器的权限按最小范围配，写操作留审计记录，定期看一遍哪些账号连了什么。</p>
+  <p>这一条对个人同样成立：你自己的 AI 账号连了几个服务，就是几个服务共用一把钥匙。</p>
+
+  <h3 id="s9-5">9.5 你负责监测</h3>
+  <p>几千张图片进来、图片处理程序反复崩溃，只有一家公司察觉。把解码进程的崩溃率做成告警，是这次事件里成本最低的一条防线。</p>
+
+  <h2 id="s10">十、作者 X 串全文</h2>
+  <p>s1r1us（<span lang="en">@S1r1u5_</span>）2026 年 9 月 18 日 10:43 发布，共十三条。下面是中文整理，每条附英文原文。</p>
+  <ol class="thread">
+    <li>7 月 25 日，我们黑掉了 OpenAI。两个漏洞让我们接管了 OpenAI 员工（以及一些无关用户）的 ChatGPT / Codex 账号，并触达了连接的服务：Outlook、Slack、GitHub 等。我们用 OpenAI 内部代码库里的一个 PR 证明了这一点。全程不到 72 小时。
+      <details><summary>英文原文</summary><p lang="en">On July 25, we hacked OpenAI. Two bugs let us take over ChatGPT/Codex accounts of OpenAI employees (+some unaffiliated users) and reach connected services: Outlook, Slack, GitHub, etc. We proved it with a PR in OpenAI's internal codebase. It took us &lt;72h.</p></details>
+    </li>
+    <li>整条利用链大致是：1. HEIC / HEIF 上传；2. ImageMagick 解码；3. libheif 堆溢出；4. <code>community.openai.com</code> 上的 RCE；5. 严重的 OpenAI SSO 缺陷；6. ChatGPT / Codex 接管；7. 连接的 GitHub 访问权；8. 内部仓库 PR <span class="mono">#1186742</span>。
+      <details><summary>英文原文</summary><p lang="en">At a high level, this was the full exploit chain. 1. HEIC/HEIF upload 2. ImageMagick decoding 3. Heap overflow on libheif 4. RCE on community.openai.com 5. Critical OpenAI SSO flaw 6. ChatGPT/Codex takeover 7. Connected GitHub access 8. Internal repo PR #1186742</p></details>
+    </li>
+    <li>图片处理包 libheif 有一个已知漏洞，上游已修复，但那次修复从未被标记为与安全相关，在 Discourse 里仍然存在。上传一个 HEIF 文件就让我们拿到了 OpenAI 论坛 <code>community.openai.com</code> 的代码执行。
+      <details><summary>英文原文</summary><p lang="en">The image package libheif had a known vulnerability, fixed upstream, but the fix never flagged as security-relevant and was still present in Discourse. Uploading a HEIF file gave us RCE on the OpenAI forum community.openai.com.</p></details>
+    </li>
+    <li>第二个 bug 更严重：一个 OpenAI SSO 漏洞。利用这个缺陷，我们把论坛的利用变成了对在该论坛登录过的人的 ChatGPT 和 Codex 账号的访问权，其中包括 OpenAI 员工。
+      <details><summary>英文原文</summary><p lang="en">The second bug is more serious: an OpenAI SSO vulnerability. Using this flaw, we turned our Discourse forum exploit into access to ChatGPT and Codex accounts belonging to people who had signed into it, including OpenAI employees.</p></details>
+    </li>
+    <li>这些账号可以（其中一些确实）通过 Codex 或 ChatGPT 连接到 Outlook、Gmail、Google Drive、Slack、GitHub 等服务。这让潜在影响远大于 ChatGPT 本身。
+      <details><summary>英文原文</summary><p lang="en">Those accounts could be (and some were) connected to Outlook, Gmail, Google Drive, Slack, GitHub, and other services via Codex or ChatGPT. This made the potential impact much larger than ChatGPT alone.</p></details>
+    </li>
+    <li>为了在展示影响的同时把暴露降到最低，我们使用了一个连着 OpenAI GitHub 组织的受影响员工账号。Codex 在他们的内部 monorepo 里创建了一个无害的 PR，我们没有读取任何敏感代码。这向我们证明了访问权是真实的。
+      <details><summary>英文原文</summary><p lang="en">To demonstrate impact while minimising exposure, we used one affected employee account connected to OpenAI's GitHub org. Codex created a harmless PR in their internal monorepo without us reading sensitive code. That proved to us that the access was real.</p></details>
+    </li>
+    <li>我们把这个 bug 报告给了 Discourse 和 OpenAI。OpenAI 在我们首次提交后约 14 小时修复了 SSO 问题。Discourse 周六收到我们另一份报告，周日回复，周一修复完成。OpenAI 给了我们 6,500 美元。
+      <details><summary>英文原文</summary><p lang="en">We reported the bug to Discourse and OpenAI. OpenAI fixed the SSO issue roughly 14 hours after our initial submission. Discourse received our separate report Saturday, replied Sunday, and had a fix Monday. OpenAI awarded us $6,500.</p></details>
+    </li>
+    <li>AI agent 完成了其中相当一部分利用开发工作。Opus 4.8 找到了 libheif 漏洞并构建了部分利用。Opus 5 发布几小时后，它把利用适配到了 Discourse，并在我们的测试实例上拿到了 RCE。
+      <details><summary>英文原文</summary><p lang="en">AI agents did a meaningful share of the exploit work. Opus 4.8 found the libheif vulnerability and built a partial exploit. Hours after Opus 5 launched, it adapted the exploit to Discourse and achieved RCE on our test instance.</p></details>
+    </li>
+    <li>我们从黑 OpenAI 中得到的主要结论：AI 正在降低开发利用所需的稀缺专业能力。过去要花几个月的工作，现在几天就能做完。即使是领先的 AI 实验室也可能存在漏洞。防守方需要修架构、更快地打补丁，并限制连接物件的影响范围。
+      <details><summary>英文原文</summary><p lang="en">Our main takeaway from hacking OpenAI: AI is reducing the amount of scarce expertise needed to develop exploits. Work that once took months can now take days. Even leading AI labs can be vulnerable. Defenders need to fix the architecture, patch faster, and limit the blast radius of connected things.</p></details>
+    </li>
+    <li>这项工作由我们的团队 <span lang="en">@HacktronAI</span> 完成，<span lang="en">@rootxharsh</span> 带队，还有我和 <span lang="en">@iamnoooob</span>。完整的利用链细节以及我们如何发现它，都发在博客上。
+      <details><summary>英文原文</summary><p lang="en">This work was done by our team @HacktronAI led by @rootxharsh along with me and @iamnoooob. We have published the full details of the exploit chain, as well as how we discovered it, on our blog here.</p></details>
+    </li>
+    <li>另外我们不是什么随便的人，可以看看我们以前的工作，我们跟 Perplexity、Vercel 这样的公司合作。
+      <details><summary>英文原文</summary><p lang="en">also we are not some random dudes, check our work before, we work with companies like perplexity and vercel.</p></details>
+    </li>
+    <li>可以看 <span lang="en">@LiveOverflow</span> 的视频《<span lang="en">How OpenAI got hacked with an image</span>》。
+      <details><summary>英文原文</summary><p lang="en">Check out @LiveOverflow video: How OpenAI got hacked with an image. Two guys hacked OpenAI with a malicious HEIF image.</p></details>
+    </li>
+    <li>黑掉 OpenAI 之后，我们开始看其他受同一个图片解析器影响的公司，这个 bug 影响了大量公司，包括 Slack、GitHub Enterprise、Meta 等。（引用了 <span lang="en">@rootxharsh</span> 同日发布的 <span lang="en">HEIF Heist</span> 串：一项持续数月的 libheif 调查，让他们得以攻破 OpenAI、Slack、Meta、GitHub Enterprise、Rails、Next.js、ImageMagick 等等。）
+      <details><summary>英文原文</summary><p lang="en">After we hacked openai, we started looking into other companies that was affected by same image parser, the bug affects numerous companies including slack, github ent, meta etc.</p></details>
+    </li>
+  </ol>
+  <p>博客里也提到了这项更大范围的研究：他们把调查扩展成 <span lang="en">HEIF Heist</span>，追踪 libheif 在 Slack、Meta、GitHub Enterprise、Ruby on Rails，以及 Next.js、Astro、Gatsby 这些 Node.js 框架里的踪迹。博客引用了 xkcd #2347<sup><a href="#src-1">1</a></sup>：一个数量惊人的常用软件，底下压着同一个不起眼的图片库。各家公司的技术细节会在接下来几周陆续公布。</p>
+
+  <h2 id="s11">十一、方法与来源</h2>
+  <p>这页的内容全部来自两个指定来源：hacktron.ai 的博客文章和 <span lang="en">@S1r1u5_</span> 的 X 串。博客正文用 curl 抓取后去标签取纯文本；X 串用浏览器打开原帖，展开两条被折叠的帖子后读取页面文本。抓取日 2026 年 9 月 19 日。</p>
+  <p>没有拿到的部分：博客里的两张配图（xkcd 2347 的插图、内部 PR 的打码截图）未内嵌；X 串的浏览量、点赞等数字是抓取当时的值，会继续变化；SSO 漏洞的技术细节两个来源都没写（见 4.3）；作者提到的 <span lang="en">HEIF Heist</span> 专题站和 LiveOverflow 的视频不在本次范围内，只在下面列出链接。</p>
+  <p>责任归属那一列（2.1 表格最右列）是根据两个来源的描述做的整理判断，不是原文的分类。</p>
+  <ol class="sources">
+    <li id="src-0">Hacktron AI（Harsh Jaiswal、Mohan Pedhapati、Rahul Maini），《<span lang="en">Hacking OpenAI</span>》，2026-09-13，<a href="https://www.hacktron.ai/blog/hacking-openai" target="_blank" rel="noopener">hacktron.ai/blog/hacking-openai</a></li>
+    <li id="src-x">s1r1us（<span lang="en">@S1r1u5_</span>），X 串，2026-09-18，<a href="https://x.com/S1r1u5_/status/2100777801335095383" target="_blank" rel="noopener">x.com/S1r1u5_/status/2100777801335095383</a></li>
+    <li id="src-1">xkcd #2347 <span lang="en">Dependency</span>，<a href="https://xkcd.com/2347/" target="_blank" rel="noopener">xkcd.com/2347</a></li>
+    <li id="src-2">Discourse Meta，《<span lang="en">Support for HEIC images</span>》，<a href="https://meta.discourse.org/t/support-for-heic-images/144326" target="_blank" rel="noopener">meta.discourse.org/t/support-for-heic-images/144326</a></li>
+    <li id="src-3">libheif 提交 <span lang="en">simplify overlay overlap area computation</span>，<a href="https://github.com/strukturag/libheif/commit/85e21ad44eba931314337300a2376b8d28f085ae" target="_blank" rel="noopener">github.com/strukturag/libheif</a></li>
+    <li id="src-4">Debian 安全公告 <span class="mono">DSA-6417-1</span>：libheif 安全更新，2026-08-08，<a href="https://lists.debian.org/debian-security-announce/2026/msg00328.html" target="_blank" rel="noopener">lists.debian.org</a></li>
+    <li id="src-5">Discourse 安全公告 <span class="mono">GHSA-vhm9-85gw-x335</span>，2026-07-28，<a href="https://github.com/discourse/discourse/security/advisories/GHSA-vhm9-85gw-x335" target="_blank" rel="noopener">github.com/discourse/discourse/security/advisories</a></li>
+    <li id="src-6">Anthropic，《<span lang="en">Introducing Claude Opus 5</span>》，<a href="https://www.anthropic.com/news/claude-opus-5" target="_blank" rel="noopener">anthropic.com/news/claude-opus-5</a></li>
+    <li id="src-7">libheif v1.23.4 安全维护版本，<a href="https://github.com/strukturag/libheif/releases/tag/v1.23.4" target="_blank" rel="noopener">github.com/strukturag/libheif/releases/tag/v1.23.4</a></li>
+    <li id="src-8">ImageMagick 安全策略，<a href="https://imagemagick.org/security-policy/" target="_blank" rel="noopener">imagemagick.org/security-policy</a></li>
+    <li id="src-9">RAND，《<span lang="en">A Playbook for Securing AI Model Weights</span>》，博客结尾引用，<a href="https://www.rand.org/pubs/research_briefs/RBA2849-1.html" target="_blank" rel="noopener">rand.org</a></li>
+    <li id="src-10">HEIF Heist 专题站（本次未抓取），<a href="https://heif-heist.com" target="_blank" rel="noopener">heif-heist.com</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) det.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

@@ -2,6 +2,7 @@
 
 ## 2026-09-21
 
+- 新增资料页《一张 HEIC 图片如何打到 OpenAI 的内部仓库》，`static/reading/hacking-openai/index.html`。拆解论坛图片上传、libheif 堆溢出、OpenAI 单点登录缺陷与防守动作。
 - 新增资料页《老小区加装电梯：常见装法与适装条件》，`static/reading/old-neighborhood-elevator-guide/index.html`。
 - 新增资料页《共享电梯与发改环资〔2025〕1745 号：国家、福建、泉州的推进状态》，`static/reading/shared-elevator-policy-quanzhou-2026/index.html`。
 
