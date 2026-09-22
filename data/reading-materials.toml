@@ -475,3 +475,15 @@ description = "截至 2026 年 9 月 21 日的 Tencent TeamAI CLI 调研：定�
 original_url = "https://github.com/Tencent/teamai-cli"
 reading_url = "/reading/tencent-teamai-cli/"
 post_slug = "20260908-teamai-cli"
+
+[[materials]]
+slug = "jev-zsxq"
+title = "Jev 在知识星球的应用"
+subtitle = "System One 判断模型的业务应用与验证"
+author = "Luca"
+category = "misc"
+date = "2026-09-22T14:38:45+08:00"
+year = "2026"
+description = "从星主待办、历史内容推荐到成员匹配，讨论 System One 判断模型的业务价值与验证方法。"
+original_url = ""
+reading_url = "/reading/jev-zsxq/"

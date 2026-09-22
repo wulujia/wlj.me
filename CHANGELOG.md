@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-22
+
+- 新增资料页《Jev 在知识星球的应用》，`static/reading/jev-zsxq/index.html`。从星主待办、历史内容推荐到成员匹配，讨论 System One 判断模型的业务价值与验证方法。
+
 ## 2026-09-21
 
 - 资料页《Tencent TeamAI CLI 调研》删除以 9 月 8 日旧稿为基线的变化记录，后续章节编号同步调整。

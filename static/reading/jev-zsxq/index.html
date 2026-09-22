@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jev 在知识星球的应用</title>
+<meta name="description" content="从星主待办、历史内容推荐到成员匹配，讨论 System One 判断模型的业务价值与验证方法。">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            /* 主题色：按题目换 */
+  --acc-ink: #1b5843;        /* accent dark enough for text */
+  --acc-wash: rgba(35, 107, 82, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.12);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.12);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+.eyebrow, .summary .label, th, h1 { letter-spacing: normal; }
+.theme-control { font: inherit; font-size: 13px; padding: 5px 8px; border: 1px solid var(--rule-2); color: var(--ink); background: var(--surface); margin-bottom: 20px; }
+.example { border: 1px solid var(--rule-2); padding: 18px 20px; background: var(--surface); margin: 20px 0; }
+.example p:last-child { margin-bottom: 0; }
+@media print { .theme-control, label[for="theme"] { display: none; } .tbl { overflow: visible; } }
+.reading-back { font-size: 13px; margin-bottom: 16px; }
+@media print { .reading-back { display: none; } }
+</style>
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/jev-zsxq/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jev 在知识星球的应用">
+<meta property="og:description" content="从星主待办、历史内容推荐到成员匹配，讨论 System One 判断模型的业务价值与验证方法。">
+<meta property="og:url" content="https://wlj.me/reading/jev-zsxq/">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录"><p class="label">阅读目录</p><details open><summary>目录</summary><ul><li><a href="#capability">模型能力与业务前提</a></li><li><a href="#opportunities">应用优先级</a></li><li><a href="#attention">星主关注清单</a></li><li><a href="#archive">历史内容的个性化推荐</a></li><li><a href="#standards">社区判断的标准</a></li><li><a href="#fit">入圈匹配与续费</a></li><li><a href="#pilot">首轮验证</a></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
+
+<main id="main"><p class="reading-back"><a href="/reading/">返回整理</a></p><label for="theme" class="muted">主题 </label><select id="theme" class="theme-control" aria-label="页面主题"><option value="auto">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select>
+<header>
+<p class="eyebrow">产品思考 / 2026-09-22</p>
+<h1>Jev 在知识星球的应用</h1>
+<p class="lede">让星主更快发现未被满足的需求，让成员更容易从已经付费的内容中获得价值。</p>
+<p class="meta">面向知识星球产品与业务讨论；应用方案尚未经过业务验证。</p>
+</header>
+<div class="summary"><p class="label">先说结论</p><p>建议先试“今天还有哪些成员需要你关注”，用判断模型筛出尚未解决的问题。历史内容的个性化推荐值得作为后续方向。是否采用 Jev，取决于它在中文社区真实样本上的效果、延迟和总成本。</p></div>
+<h2 id="capability">模型能力与业务前提</h2>
+<p>本页以持续会员价值和续费为目标。知识星球已有的内容、讨论和成员关系，可以为模型提供判断所需的上下文；具体可用的数据范围和产品接入方式，仍需团队确认。</p>
+<p>Jev 接收上下文和预先定义的问题，返回选项、评分或概率，不生成回复正文。官方建议把任务拆成具体的小判断。“这条回复是否回答了问题”比“这个社区是否健康”更适合作为一次判断。<sup><a href="#src-1">[1]</a></sup></p>
+<div class="tbl"><table><caption>官方能力与验证边界（资料查阅日：2026-09-22）</caption><thead><tr><th scope="col">项目</th><th scope="col">官方说明</th><th scope="col">业务验证边界</th></tr></thead><tbody>
+<tr><th scope="row">输出</th><td>Choice、Score、Noul：选择、评分、二元命题概率</td><td>输出格式正确，不等于判断正确</td></tr>
+<tr><th scope="row">响应时间</th><td>70–500 毫秒</td><td>官方测试主要在美国西海岸进行；国内实际延迟待确认</td></tr>
+<tr><th scope="row">输入价格</th><td>每百万输入 token 0.042 美元</td><td>不能代替含检索、重试与人工复核的总成本</td></tr>
+<tr><th scope="row">中文表现</th><td>本次未取得适用于知识星球的实测结果</td><td>需评估行业术语、隐含语义与真实讨论</td></tr>
+</tbody></table></div>
+<p class="muted">能力与价格来自官方文档及发布文章，均为厂商口径。<sup><a href="#src-1">[1]</a> <a href="#src-2">[2]</a></sup></p>
+<h2 id="opportunities">应用优先级</h2>
+<div class="tbl"><table><caption>建议的试验顺序；优先级为本页判断</caption><thead><tr><th scope="col">顺序与场景</th><th scope="col">让模型判断什么</th><th scope="col">验证什么结果</th></tr></thead><tbody>
+<tr><th scope="row">1 / 星主关注清单</th><td>成员是否仍需要帮助，是否需要星主亲自回应</td><td>减少检查时间，减少遗漏需求</td></tr>
+<tr><th scope="row">2 / 历史内容推荐</th><td>旧内容是否适合成员当前目标和知识水平</td><td>更快找到有用内容</td></tr>
+<tr><th scope="row">3 / 搜索与回答检查</th><td>检索片段是否支持回答，是否回应实际问题</td><td>提高问题解决率，减少无依据回答</td></tr>
+<tr><th scope="row">4 / 成员贡献发现</th><td>评论是否带来具体经验、证据或有用纠正</td><td>让有价值的贡献得到关注</td></tr>
+<tr><th scope="row">5 / 入圈匹配</th><td>星球承诺是否符合购买者的目标和经验</td><td>减少预期错配，观察长期留存</td></tr>
+</tbody></table></div>
+<h2 id="attention">星主关注清单</h2>
+<p>建议从星主每天检查讨论的工作开始。统计回复数量容易，判断成员是否得到帮助需要理解讨论内容。</p>
+<div class="example"><p><strong>假设场景：创业星球中的一次提问</strong></p><blockquote>“我按你的建议调整了定价，三个客户都拒绝了。接下来应该改什么？”</blockquote><p>有人回复：“加油，坚持下去！”</p><p>帖子已有回复，具体问题仍未解决。它应成为星主关注清单的候选项。</p></div>
+<p>输入提问、已有回复和星球定位，分别判断：问题是否解决，回复是否缺少关键内容，成员是否在反馈之前建议的执行结果，以及是否需要星主个人判断。</p>
+<p>星主看到一份短清单，每项链接回原始讨论，可以处理或忽略。第一版放进现有界面即可，不必要求星主养成新的聊天习惯。</p>
+<p>有些成员也在为与星主的关系付费。即使模型能生成合格答案，某些时刻仍值得由星主亲自回应。产品需要识别并保留这些时刻。</p>
+<h2 id="archive">历史内容的个性化推荐</h2>
+<p>新成员加入一个积累了多年内容的星球，可以先填写当前想解决的问题。系统检索候选内容，再根据目标、经验和限制条件判断适配程度，给出少量阅读起点。</p>
+<p>例如，一位第一次带团队的管理者，正准备与同事进行一次困难的反馈谈话。两年前一条点赞不多的具体案例，可能比热门领导力文章更适合他当下的处境。</p>
+<p>同样的判断可以用于个人周报，或在成员准备提问时推荐旧讨论。先检索候选，再逐条判断相关性；避免对每个成员与每篇内容都重复计算。</p>
+<div class="note"><p><strong>业务假设：</strong>把存量知识交到有具体需求的新成员手中，可以提高成熟星球的价值，减少对星主持续新增内容的依赖。需要用“对我有帮助”的反馈、问题解决率和后续留存验证。</p></div>
+<p>保留按时间浏览的入口。推荐系统帮助成员发现内容，也要让成员能看到社区更广泛的讨论。</p>
+<h2 id="standards">社区判断的标准</h2>
+<p>一句专家纠正、一个新手问题、一篇详细教程，各有用途。统一的“内容质量分”容易偏爱表达完整的文字，压低有价值的异议。</p>
+<p>适合拆开询问的标准包括：是否提供与讨论有关的具体经验，是否补充证据或未回应的反对意见，是否适合本星球的受众，以及是否重复已有信息。</p>
+<p>让星主用标准和例子表达偏好。先把可能有价值的贡献交给星主查看，再考虑自动分发。这样也有机会发现平时不显眼、但持续提供有用内容的成员。</p>
+<h2 id="fit">入圈匹配与续费</h2>
+<p>一个提供进阶案例分析的星球，未必适合寻找入门课程的人。根据购买者主动表达的目标和星球介绍，模型可以提示预期差异，并挑选合适的示例内容。</p>
+<p>匹配更准确可能改善长期会员收入，即使短期转化率下降。这是需要试验的假设；模型给出“续费概率”，并不能证明它能预测真实续费。</p>
+<p>留存分析可以结合行为数据和具体语义信号，例如成员反复提问却未得到回应。随后检验干预是否有效。不要把一个模型分数直接当作成员价值或流失结论。</p>
+<h2 id="pilot">首轮验证</h2>
+<p>建议从几位愿意参与的星主中，选取约 500 条讨论作为起步样本。这是试验规模建议，不是已采集的数据，也不保证足够验证稀有错误。</p>
+<ol>
+<li><strong>建立判断样本。</strong>请星主只根据当时已出现的信息，标注哪些讨论需要关注。避免用后来发生的结果替模型补充当时不知道的信息。</li>
+<li><strong>比较现有办法。</strong>用同一批样本比较 Jev、简单规则和团队已有的小模型，检查重要问题漏报、无关提醒、中文错误、延迟及总成本。</li>
+<li><strong>检查跨星球表现。</strong>保留未参与标准调整的星主样本，检验模型能否适应新的社区，避免只适合少数人的表达习惯。</li>
+<li><strong>小范围试用。</strong>给星主提供私有关注清单，观察是否使用、节省多少检查时间、成员的问题是否得到解决，以及星主是否愿意付费。</li>
+</ol>
+<p>阈值应根据实际误报和漏报代价设定。Jev 的 confidence 来自输出概率分布，不能直接当作知识星球业务上的正确率。<sup><a href="#src-3">[3]</a></sup>首轮不建议从自动封禁、退款、专家观点真伪裁决或流失预测开始。</p>
+<p><strong>第一项可交付的产品：</strong>“今天还有哪些成员需要你关注。”先证明它每天能帮星主做对几件事，再观察续费等更长周期的结果。</p>
+<h2 id="sources">方法与来源</h2>
+<p>本页整理自 2026-09-22 的业务讨论。模型能力、延迟与价格来自同日查阅的 TypeSafe 官方资料；应用优先级、案例与试验设计属于分析建议。未调用 Jev API，未读取知识星球真实讨论、转化或续费数据，因此不提供收入提升预测。</p>
+<p>业务前提是通过持续价值支持长期付费关系；该前提与既有战略讨论一致，不代表本页方案已经成为公司决策。示例对话为假设场景。</p>
+<ol class="sources">
+<li id="src-1"><a href="https://docs.typesafe.ai/introduction">TypeSafe 官方文档：Introduction</a>。输出类型与小判断的设计方法。</li>
+<li id="src-2"><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe 发布文章：Introducing System One Models &amp; Jev</a>，2026-09-15。价格、响应时间与测试范围。</li>
+<li id="src-3"><a href="https://docs.typesafe.ai/confidence">TypeSafe 官方文档：Confidence</a>。置信度的含义与阈值使用。</li>
+</ol>
+</main>
+</div>
+
+<script>
+document.getElementById('theme').addEventListener('change', function () {
+  if (this.value === 'auto') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', this.value);
+});
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
