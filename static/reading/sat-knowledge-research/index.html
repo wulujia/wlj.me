@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>塞特知识股份有限公司｜公司研究</title>
+<meta name="description" content="塞特知识（知識衛星）的公司研究：创始人与股权、课程收费与讲师分润、用户市场、上市状态、2025 年营收披露及竞争风险，附 46 个来源。">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f5f7f7;
+  --surface: #ffffff;
+  --ink: #1b2528;
+  --ink-2: #526168;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #176b62;            /* 主题色：按题目换 */
+  --acc-ink: #145d55;        /* accent dark enough for text */
+  --acc-wash: rgba(23,107,98,.08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #8ed0c5; --acc-ink: #a9e2d8; --acc-wash: rgba(95,179,208,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #8ed0c5; --acc-ink: #a9e2d8; --acc-wash: rgba(95,179,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Report-specific reading and ownership views. */
+.eyebrow, .summary .label, th, h1 { letter-spacing: normal; }
+.ownership { padding: 20px; border: 1px solid var(--rule-2); background: var(--surface); text-align: center; margin: 20px 0; }
+.ownership > div { padding: 12px; background: var(--acc-wash); }
+.ownership small, .branches small { display: block; color: var(--ink-2); font-size: 13px; }
+.ownership > p { margin: 4px; color: var(--acc-ink); }
+.branches { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.formula { border-left: 3px solid var(--acc); padding: 14px 18px; background: var(--acc-wash); margin: 24px 0; }
+.formula p { margin: 7px 0; }
+.formula small { color: var(--ink-2); }
+.tools { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 18px; }
+button { font: inherit; font-size: 13px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--rule-2); padding: 7px 12px; cursor: pointer; }
+.outline .sub { padding-left: 12px; border-left: 1px solid var(--rule); font-size: 12px; }
+.outline li { margin-bottom: 7px; }
+td:first-child, th:first-child { min-width: 90px; }
+table.wide { min-width: 610px; }
+small { line-height: 1.6; }
+@media(max-width:600px) { h1 { font-size: 29px; } h2 { font-size: 23px; } .summary { padding: 16px; } .branches { grid-template-columns: 1fr; gap: 14px; } th, td { padding-right: 14px; } .tbl table { min-width: 520px; } .tbl::before { content: "表格可左右滑动"; display: block; color: var(--ink-3); font-size: 12px; margin-bottom: 8px; } .meta span { display: block; } .meta span + span::before { content: none; } }
+@media print { .tools { display:none; } table { break-inside:auto; } .ownership, .formula { break-inside:avoid; } :root:not([data-theme="light"]) { --bg:#fff; --surface:#fff; --ink:#000; --ink-2:#222; --ink-3:#555; --rule:#bbb; --rule-2:#888; --acc:#145d55; --acc-ink:#145d55; --acc-wash:#f2f2f2; } }
+
+.reading-back { margin-right: auto; align-self: center; font-size: 13px; }
+</style>
+
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/sat-knowledge-research/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="塞特知识股份有限公司｜公司研究">
+<meta property="og:description" content="塞特知识（知識衛星）的公司研究：创始人与股权、课程收费与讲师分润、用户市场、上市状态、2025 年营收披露及竞争风险，附 46 个来源。">
+<meta property="og:url" content="https://wlj.me/reading/sat-knowledge-research/">
+<meta name="twitter:card" content="summary">
+</head>
+<body><a class="skip" href="#main">跳到正文</a><div class="layout"><nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>展开目录</summary><ul><li class="top"><a href="#identity">公司身份与沿革</a></li><li class="top"><a href="#people">创始人与合作伙伴</a></li><li class="sub"><a href="#stephen">游弘宇 Stephen Yu</a></li><li class="sub"><a href="#carmen">薛佳文 Carmen Hsueh</a></li><li class="sub"><a href="#partners">合伙人、股东与讲师的区别</a></li><li class="top"><a href="#capital">股权、资本与关联企业</a></li><li class="sub"><a href="#listing">上市状态与财务披露</a></li><li class="sub"><a href="#ownership">公开资料中的持股关系</a></li><li class="sub"><a href="#capital-history">实收资本与融资记录</a></li><li class="sub"><a href="#affiliates">新业务的法人布局</a></li><li class="top"><a href="#business">业务与赚钱方式</a></li><li class="sub"><a href="#products">产品结构</a></li><li class="sub"><a href="#creator-entry">创作者入驻与内容筛选</a></li><li class="sub"><a href="#creator-share">创作者分润与合同边界</a></li><li class="sub"><a href="#course-community">课程与社区的关系</a></li><li class="sub"><a href="#economics">课程的开发与销售流程</a></li><li class="sub"><a href="#pricing">价格与获客</a></li><li class="top"><a href="#audience">用户市场与内容语言</a></li><li class="sub"><a href="#geography">用户在哪里</a></li><li class="sub"><a href="#languages">中文定位与外语课程</a></li><li class="top"><a href="#performance">经营规模与财务证据</a></li><li class="sub"><a href="#revenue">收入数字的口径</a></li><li class="sub"><a href="#whitepaper">白皮书的累计经营数据</a></li><li class="sub"><a href="#quality">业务质量还缺哪些数据</a></li><li class="top"><a href="#competition">竞争格局</a></li><li class="sub"><a href="#rivals">直接竞争与替代方案</a></li><li class="sub"><a href="#advantages">竞争优势的强弱</a></li><li class="top"><a href="#risks">争议与经营风险</a></li><li class="sub"><a href="#dispute">2026 年瑜伽课程分润争议</a></li><li class="sub"><a href="#refund">退款和交付</a></li><li class="sub"><a href="#other-risks">需要持续观察的风险</a></li><li class="top"><a href="#assessment">商业判断与后续核验</a></li><li class="top"><a href="#sources">方法与来源</a></li></ul></details></nav><main id="main"><div class="tools"><a class="reading-back" href="/reading/">返回整理</a><button id="theme" type="button">主题：自动</button><button id="print" type="button">打印 / PDF</button></div>
+<header>
+<p class="eyebrow">公司研究 · 2026-09-24</p>
+<h1>塞特知识股份有限公司</h1>
+<p class="lede">知識衛星 SAT. KNOWLEDGE 的创始人、股权、课程与社区模式、创作者合作、用户市场、上市状态及经营规模。</p>
+<p class="meta"><span>研究截至 2026-09-24</span><span>金额默认新台币（NT$）</span><span>公开资料研究</span></p>
+</header>
+<div class="summary">
+<p class="label">研究结论</p>
+<p>塞特知识是台湾“知識衛星”的运营主体，核心业务是与专家共同开发、制作及销售付费课程，同时经营企业培训和线下活动。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-18" aria-label="来源 18">[18]</a></sup><sup><a href="#src-19" aria-label="来源 19">[19]</a></sup></p>
+<p>游弘宇与薛佳文是夫妻共同创始人；现有公开登记显示，塞特由展司数位科技持股，游弘宇担任董事长，不能把薛佳文的共同创始人身份直接换算成个人持股比例。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-4" aria-label="来源 4">[4]</a></sup><sup><a href="#src-9" aria-label="来源 9">[9]</a></sup><sup><a href="#src-34" aria-label="来源 34">[34]</a></sup></p>
+<p>截至研究日，塞特未见于台湾上市、上柜及兴柜公司名单。2026 年 7 月白皮书相关报道给出 2025 年营收 12 亿元、同比增长 54% 的公司披露口径；净利润、现金流和收入确认方式仍缺少审计证据。<sup><a href="#src-43" aria-label="来源 43">[43]</a></sup><sup><a href="#src-44" aria-label="来源 44">[44]</a></sup><sup><a href="#src-45" aria-label="来源 45">[45]</a></sup><sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></p>
+<p>本报告判断：它具备成熟的课程开发与营销能力；持续增长取决于讲师关系、单门课扣除获客成本后的利润，以及企业培训和新业务能否稳定复购。</p>
+</div>
+
+<h2 id="identity">公司身份与沿革</h2>
+<p>用户所指公司的正式登记名为“塞特知識股份有限公司”，统一编号为 69685506，经营品牌为“知識衛星”。官网交易条款明确把二者对应起来。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<div class="tbl"><table><caption>法律主体与品牌应分开看</caption><thead><tr><th scope="col">项目</th><th scope="col">查证结果</th></tr></thead><tbody>
+<tr><th scope="row">设立与品牌起点</th><td>法人于 2017-07-20 设立；前身是“蒙其迪整合行銷有限公司”。知識衛星品牌于 2019 年末创业，2020-03-30 更为现名。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></td></tr>
+<tr><th scope="row">负责人</th><td>游弘宇，登记职称为董事长。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></td></tr>
+<tr><th scope="row">最新已核对地址</th><td>新北市中和区桥和路 15 号 9 楼；官方 2026 年 3 月清册记录 2026-03-10 变更。旧资料仍列台北大安区地址。<sup><a href="#src-2" aria-label="来源 2">[2]</a></sup></td></tr>
+<tr><th scope="row">资本</th><td>公开资料所示资本总额、实收资本均为 3,000 万元；已发行 300 万股，每股面额 10 元。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></td></tr>
+<tr><th scope="row">团队</th><td>104 招聘页自报员工 100 人，属企业填报信息，不能视为当日实到人数。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></td></tr>
+</tbody></table></div>
+<p>应从官网产品判断主营业务。登记项目覆盖食品、服饰、软件、出版等广泛类别，不代表这些业务都有实际收入；公司早年的法人沿革也不能直接当成课程平台的发展史。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></p>
+
+<h2 id="people">创始人与合作伙伴</h2>
+<h3 id="stephen">游弘宇 Stephen Yu</h3>
+<p>共同创始人兼执行长、登记董事长。教育背景包括政大广电系及台大商学研究所；职业经历集中在传播、互联网产品与成人教育。他曾在文化大学推广教育体系工作，并主导 YOTTA 平台。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-6" aria-label="来源 6">[6]</a></sup><sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></p>
+<p>其创业路径包括以物易物应用、演员媒合平台，再到 YOTTA 的内部创业和知識衛星。母校采访及本人访谈共同支持这段经历。对他的能力判断，应重点看连续开发可付费课程、组织制作团队及选择讲师的经验；目前没有足够公开材料证明其拥有独立的基础技术优势。<sup><a href="#src-6" aria-label="来源 6">[6]</a></sup><sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></p>
+<p>2019 年离开 YOTTA 有股东与治理冲突背景，当年媒体也报道他与时任营运长刘家齐参与告发。该报道记录的是指控，本文未核实后续司法结果，不对任何当事人作违法认定。刘家齐在这条资料中是 YOTTA 的同事，未据此认定为塞特合伙人。<sup><a href="#src-33" aria-label="来源 33">[33]</a></sup></p>
+
+<h3 id="carmen">薛佳文 Carmen Hsueh</h3>
+<p>共同创始人、游弘宇的配偶。世新大学 2023 年校友报道确认其毕业于资讯传播学系，并称其为产品长；Vogue 采访及平台官方活动资料称其为营运长。职称随时间和来源有所不同。<sup><a href="#src-7" aria-label="来源 7">[7]</a></sup><sup><a href="#src-8" aria-label="来源 8">[8]</a></sup><sup><a href="#src-9" aria-label="来源 9">[9]</a></sup><sup><a href="#src-35" aria-label="来源 35">[35]</a></sup></p>
+<p>公开工作内容包括学习者研究、课程选题、讲师协作和课程设计。周慕姿的关系应用课提供了具体例子：薛佳文参与把“沟通”需求整理成可教学的课程，并设计情境和提问方式。她在公开记录中承担实质产品工作。<sup><a href="#src-7" aria-label="来源 7">[7]</a></sup><sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></p>
+<p>她还是知行知识的董事长，并与游弘宇一同代表塞特参与知书健康的治理；这比单纯的媒体头衔更能说明她在新业务中的职责。个人在塞特或展司的最终权益比例尚未确认。<sup><a href="#src-13" aria-label="来源 13">[13]</a></sup><sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+
+<h3 id="partners">合伙人、股东与讲师的区别</h3>
+<div class="tbl"><table><caption>可确认的关系类型</caption><thead><tr><th scope="col">对象</th><th scope="col">关系及证据边界</th></tr></thead><tbody>
+<tr><th scope="row">展司数位科技</th><td>塞特的登记法人股东，游弘宇同时为其负责人；属于股权关系。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-12" aria-label="来源 12">[12]</a></sup></td></tr>
+<tr><th scope="row">许书华、徐得恺／疯狂太阳有限公司</th><td>在知书健康与塞特形成共同出资关系；不能把他们写成塞特本身的股东。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></td></tr>
+<tr><th scope="row">林明樟、叶丙成、焦元溥、刘必荣等</th><td>公开可确认的是课程合作。讲师知名度及课程销售均不等于其拥有平台股权。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></td></tr>
+<tr><th scope="row">爱莉莎莎、Raj 等</th><td>内容及商业合作方，具体报酬由合同决定；已出现分润争议，见风险部分。<sup><a href="#src-31" aria-label="来源 31">[31]</a></sup><sup><a href="#src-32" aria-label="来源 32">[32]</a></sup></td></tr>
+<tr><th scope="row">其他共同创始人／员工持股</th><td>本次未找到可核验的更多共同创始人名单或员工股权表。访谈涉及分红激励，分红与持股应分别确认。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></td></tr>
+</tbody></table></div>
+
+<h2 id="capital">股权、资本与关联企业</h2>
+<h3 id="listing">上市状态与财务披露</h3>
+<p>截至 2026-09-24，塞特知识未见于台湾证券交易所的上市公司、柜买中心的上柜及兴柜公司名单。本次以正式公司名、品牌及统一编号 69685506 对照三个官方数据集，均无匹配记录。可据此确认，本次核查未发现其股票在台湾上述市场交易。<sup><a href="#src-43" aria-label="来源 43">[43]</a></sup><sup><a href="#src-44" aria-label="来源 44">[44]</a></sup><sup><a href="#src-45" aria-label="来源 45">[45]</a></sup></p>
+<p>“股份有限公司”是法律组织形式，指公司资本划分为股份、股东按认购股份承担责任。仅凭名称不能判断是否上市、上柜或公开发行；公开发行身份与交易所挂牌也应分别核查。<sup><a href="#src-42" aria-label="来源 42">[42]</a></sup></p>
+<p>本次未取得塞特公开的完整年度报告、审计损益表、资产负债表或现金流量表。下文的经营数字来自采访、公司宣传及白皮书相关报道，不能直接等同上市公司财报披露。资本登记可核对出资信息，但无法证明当期收入、账上现金或利润。</p>
+
+<h3 id="ownership">公开资料中的持股关系</h3>
+<div class="ownership" role="img" aria-label="展司持有塞特的公开登记股份；塞特投资知行知识与知书健康。自然人最终持股仍需核验。">
+<div><b>游弘宇／其他最终权益人</b><small>展司历史出资线索：游约占 95%；当前完整股东表未取得</small></div>
+<p aria-hidden="true">↓</p>
+<div><b>展司数位科技有限公司</b><small>塞特登记持股 300 万股／公开已发行 300 万股</small></div>
+<p aria-hidden="true">↓</p>
+<div><b>塞特知识股份有限公司</b><small>运营知識衛星 · 实收资本 3,000 万元</small></div>
+<p aria-hidden="true">↓</p>
+<div class="branches"><span><b>知行知识</b><small>塞特持有 30 万股<br>薛佳文任董事长</small></span><span><b>知书健康</b><small>塞特持有 100 万／200 万股<br>按公开股数计算约 50%</small></span></div>
+</div>
+<p class="muted">关系图据登记资料整理；比例为股数或出资额计算，不代表已取得完整股东名册。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-4" aria-label="来源 4">[4]</a></sup><sup><a href="#src-11" aria-label="来源 11">[11]</a></sup><sup><a href="#src-13" aria-label="来源 13">[13]</a></sup><sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<p>塞特的登记法人持股与已发行股数相等，据此可判断展司为公开资料中的全资股东。展司资本为 300 万元，聚合资料列游弘宇出资 285 万元，历史比例为 95%。但该页面正文与搜索缓存的更新日期不一致，不能把这一数字直接作为 2026 年最终受益所有权结论，也不能把剩余 5% 自动归给薛佳文。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-4" aria-label="来源 4">[4]</a></sup><sup><a href="#src-11" aria-label="来源 11">[11]</a></sup><sup><a href="#src-12" aria-label="来源 12">[12]</a></sup></p>
+
+<h3 id="capital-history">实收资本与融资记录</h3>
+<div class="tbl"><table><caption>资本变动，单位：新台币</caption><thead><tr><th scope="col">登记时间</th><th scope="col">金额</th><th scope="col">解释</th></tr></thead><tbody>
+<tr><th scope="row">2017-07</th><td class="num">10 万元</td><td>前身有限公司的资本额。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></td></tr>
+<tr><th scope="row">2017-09 至 2020 年</th><td class="num">55 万元</td><td>经历前身增资、改名与组织变化。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></td></tr>
+<tr><th scope="row">2021-05-28</th><td class="num">1,000 万元</td><td>股份公司实收资本增加。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></td></tr>
+<tr><th scope="row">2025-07-16</th><td class="num">3,000 万元</td><td>较前次增加 2,000 万元，资金来源未公开。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></td></tr>
+<tr><th scope="row">2026-03-10</th><td class="num">3,000 万元</td><td>官方变更清册仍列此资本额。<sup><a href="#src-2" aria-label="来源 2">[2]</a></sup></td></tr>
+</tbody></table></div>
+<p>2024 年《看杂志》采访明确称公司当时没有外部投资人，由创始人出资。本次没有找到可核验的后续创投轮次、外部投资金额或估值公告。这个结果只代表公开证据不足，不能排除未公开的投资或债务。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></p>
+<div class="note"><p>课程“募资”通常是消费者预购课程。它带来提前收款与交付义务，不能记成公司股权融资。登记资本也不能用来推算公司估值、账上现金或累计利润。</p></div>
+
+<h3 id="affiliates">新业务的法人布局</h3>
+<div class="tbl"><table><caption>已核对的关联企业</caption><thead><tr><th scope="col">企业</th><th scope="col">资本与关系</th><th scope="col">业务证据</th></tr></thead><tbody>
+<tr><th scope="row">知行知识<br><small>60528410</small></th><td>2025-10-23 设立，实收 300 万元；薛佳文代表塞特持 30 万股。<sup><a href="#src-13" aria-label="来源 13">[13]</a></sup></td><td>税籍包括书籍、期刊及其他出版。支持出版业务布局的判断，未取得具体书目、收入或发行规模。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></td></tr>
+<tr><th scope="row">知书健康<br><small>60352995</small></th><td>2025-12-31 设立，实收 2,000 万元、发行 200 万股。塞特与疯狂太阳各列 100 万股，按此约为各 50%。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup><sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></td><td>许书华任董事长，徐得恺任董事；游弘宇、薛佳文代表塞特任监察人。公开记录含食品等经营项目，具体商品及销售规模待确认。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></td></tr>
+</tbody></table></div>
+<p>知书健康为闭锁性公司，公开资料另列劳动出资 80 万股，因此不能把实收资本全部解读为现金投入。多个董事代表同一法人时，显示的法人持股也不能逐行相加。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<p>本报告推断：课程之外的出版和健康相关业务值得持续观察，但现有资料不足以认定它们已构成重要收入来源，也不能把所有课程合作都视为这类股权合资。</p>
+
+<h2 id="business">业务与赚钱方式</h2>
+<h3 id="products">产品结构</h3>
+<div class="tbl"><table><caption>从产品页面能确认的收入来源</caption><thead><tr><th scope="col">业务</th><th scope="col">交付与收费</th><th scope="col">可见证据</th></tr></thead><tbody>
+<tr><th scope="row">个人付费课程</th><td>按课程或组合销售；含预售、录播、直播及陪跑形式。</td><td>目录覆盖语言、财务、经营、健康、艺术、身心等类别；2026-09-24 页面显示 187 个课程条目，包含免费体验及准备中项目，不等于 187 门已完成收费课。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup></td></tr>
+<tr><th scope="row">企业培训</th><td>账号订阅、课程年度授权、学习后台。</td><td>官方页面列围棋人科技、大武山牧场等客户证言；可确认有企业产品，合同规模与续约率未披露。<sup><a href="#src-18" aria-label="来源 18">[18]</a></sup></td></tr>
+<tr><th scope="row">活动与线下学习</th><td>论坛门票、含回放的票种及其他实体课程。</td><td>2026 高峰会官网列 7 月 18 日于 TICC 举办，现已结束售票。页面所列 3,000 张是票数上限，不能当成实际出席人数。<sup><a href="#src-19" aria-label="来源 19">[19]</a></sup></td></tr>
+<tr><th scope="row">学习工具</th><td>附于课程的练习、检测及辅助服务。</td><td>王梓沅英语课含 AI 口说检测与课后练习设计；工具是否单独收费、毛利如何，尚未披露。<sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></td></tr>
+</tbody></table></div>
+
+<h3 id="creator-entry">创作者入驻与内容筛选</h3>
+<p>知識衛星的公开模式是筛选讲师并共同开发课程。游弘宇在 INSIDE 专访中明确表示会筛选讲师，重点看领域经验、扎实内容和需求是否匹配；已有粉丝有助销售，但并非合作的必要条件，平台也曾与开课后才开始经营社群的专家合作。<sup><a href="#src-36" aria-label="来源 36">[36]</a></sup></p>
+<p>本次未找到允许任何创作者注册后自行上传、定价并立即上架的公开通道。创作者即使主动联系或提案，也应理解为申请课程合作；具体受理流程、录取率和完整评分标准待确认。按用户提出的类比，塞特更接近得到式的编辑选题与合作制课，比较限于内容组织方式。</p>
+<p>平台承担前期调研、课纲调整、制作、营销和交付；讲师提供专业知识并参与打磨。因此，它的合作价值应通过销售增量、课程质量和结算条件评价。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></p>
+
+<h3 id="creator-share">创作者分润与合同边界</h3>
+<p>未找到可核验的统一讲师分成表，无法确认常态比例是五五分、三七分或其他比例。现有证据只支持存在分润合作，不足以给出全平台通行抽成率。<sup><a href="#src-31" aria-label="来源 31">[31]</a></sup><sup><a href="#src-37" aria-label="来源 37">[37]</a></sup></p>
+<p>2026 年瑜伽课争议报道中，爱莉莎莎称 Raj 与平台采用保底报酬加奖金分润，完整合同没有公开。Raj 所称只拿到约 1% 的说法存在争议，不能推定为平台对所有讲师的政策。双方金额分歧另见本报告争议部分。<sup><a href="#src-31" aria-label="来源 31">[31]</a></sup><sup><a href="#src-32" aria-label="来源 32">[32]</a></sup><sup><a href="#src-37" aria-label="来源 37">[37]</a></sup></p>
+<div class="tbl"><table><caption>比较创作者回报时，需要同时核对的合同条件</caption><thead><tr><th scope="col">项目</th><th scope="col">应确认内容</th></tr></thead><tbody>
+<tr><th scope="row">分成基数</th><td>按成交总额、扣退款后的实收，还是再扣成本后的余额计算。</td></tr>
+<tr><th scope="row">成本承担</th><td>制作、广告、推荐佣金、支付费和税费由谁承担；平台能否先扣再分。</td></tr>
+<tr><th scope="row">保底与奖金</th><td>保底是否抵扣后续分成；奖金门槛、上限及结算周期。</td></tr>
+<tr><th scope="row">课程权利</th><td>版权归属、独家期限、授权地域、停课及终止后的销售权。</td></tr>
+<tr><th scope="row">结算核验</th><td>讲师是否能查看销量、退款及费用明细，是否有查账权。</td></tr>
+</tbody></table></div>
+<p class="muted">上表是合作尽调项目，不代表已取得或确认塞特的合同条款。推广者佣金与主讲师报酬也应分别核对。</p>
+
+<h3 id="course-community">课程与社区的关系</h3>
+<p>课程是主要商品，社区围绕学习交付展开。官方应用说明列出课堂讨论区；课程有章节、问答和回放，当前产品还包含陪跑班。2026 年官方高峰会资料提出用作业、互动、观摩及长期问答推进学习。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-38" aria-label="来源 38">[38]</a></sup><sup><a href="#src-39" aria-label="来源 39">[39]</a></sup><sup><a href="#src-40" aria-label="来源 40">[40]</a></sup></p>
+<p>按产品形态判断，用户主要为具体课程和学习服务付费。与知识星球类创作者社区相比，塞特的经营重点更集中于选题、制课和销售；讨论与陪跑帮助学员练习及获得反馈。目前未取得社区活跃度、社群单独收费收入或持续订阅占比，不能量化它的社区业务规模。</p>
+
+<h3 id="economics">课程的开发与销售流程</h3>
+<p>可观察到的流程是：调研学习需求，和讲师共同整理课纲，测试或预售，制作课程，再持续推广老课。2024 年采访给出的单课准备及拍摄周期为 3—6 个月；2026 年访谈摘要称每门课至少进行 30 次用户访谈。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup><sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></p>
+<p>这使平台同时承担内容策划、制作和销售工作。讲师贡献专业知识与个人声望，平台需要证明自己能增加销售、改善学习体验，并承担相应成本。这一模式是否赚钱，要逐门看合同和成本，不能套用一个未经披露的统一抽成率。</p>
+<div class="formula"><b>单门课程贡献利润</b><p>消费者实付 − 退款及相关税费 − 讲师报酬 − 支付费用 − 获客费用 − 制作与服务成本</p><small>分析框架；不是公司已披露的会计报表。还需进一步扣除总部费用、研发和新业务投入。</small></div>
+<p>例如，林明樟的财务课程提供了专业内容长期售卖的案例；王梓沅课程则把诊断和练习工具加入交付。两者显示产品可以超出纯视频，但公开销售额仍不能证明对应课程的净利润。<sup><a href="#src-20" aria-label="来源 20">[20]</a></sup><sup><a href="#src-21" aria-label="来源 21">[21]</a></sup></p>
+
+<p>2026 年官方高峰会资料中，薛佳文提出从学员要完成的行为反推课程设计，并把社群、陪跑和其他内容形式纳入讲师业务。这与当前目录中出现的陪跑体验课相互印证，但尚无公开数据衡量这种调整的收入或学习效果。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-35" aria-label="来源 35">[35]</a></sup></p>
+<h3 id="pricing">价格与获客</h3>
+<p>个人端以单课或组合购买为主，常见募资预售、限时优惠和推荐码。观看期限依产品而定：罗 PD 课程页面列 9,800 元，观看期限为无限制，不能据此假定所有直播或陪跑服务都永久提供。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-40" aria-label="来源 40">[40]</a></sup></p>
+<div class="tbl"><table><caption>官网价格样本，查询日 2026-09-24；非历史成交均价</caption><thead><tr><th scope="col">课程</th><th scope="col">页面优惠价</th><th scope="col">页面对照标价</th></tr></thead><tbody>
+<tr><th scope="row">AI Vibe Coding 实战直播课</th><td class="num">1,550 元</td><td class="num">3,980 元</td></tr>
+<tr><th scope="row">OGSM 2.0 带队达标</th><td class="num">4,000 元</td><td class="num">12,900 元</td></tr>
+<tr><th scope="row">大人学的职涯升级系统</th><td class="num">4,080 元</td><td class="num">12,000 元</td></tr>
+</tbody></table></div>
+<p>以上均来自官网列表。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup> 价格、优惠期限与组合会变动；“精品课”定位并不意味着每门课实际成交都超过万元。对照标价也不能直接视为普遍成交价。</p>
+<p>企业端有账号订阅和年度内容授权。官网目前列内容授权每门课每年 15 万元，可放入企业自有学习平台；围棋人科技的客户证言提到每名员工每月训练预算不到 1,000 元，这是该客户方案的描述，不能当成统一订阅价。上述方案均于 2026-09-24 核对。<sup><a href="#src-18" aria-label="来源 18">[18]</a></sup></p>
+<p>目录中的体验课、限时优惠及募资进度，配合讲师传播和外部内容合作，构成可见的获客方式。远见报道提到英语课与瓦基、志祺七七、雷蒙等合作推广。公司未披露自然流量比例、广告预算或每位付费用户的获取成本。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></p>
+
+<h2 id="audience">用户市场与内容语言</h2>
+<h3 id="geography">用户在哪里</h3>
+<p>台湾是目前证据最充分的核心市场。这是基于繁体中文商品页面、新台币定价及官方所述“把海外讲者与知识带到台湾”的综合判断。本次未取得付费用户按国家或地区的分布，也没有香港、新加坡、马来西亚、中国大陆等市场的收入比例，不宜给出未经披露的地域百分比。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-38" aria-label="来源 38">[38]</a></sup></p>
+<p>2023 年创始人采访称用户更偏中年，部分学员会打客服电话或请子女协助购课；这是当时的画像，不能视为 2026 年年龄分布。当前课程覆盖职场、财务、健康及生活，尚缺各人群的实际付费占比。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-36" aria-label="来源 36">[36]</a></sup></p>
+<p>课程通过官网和应用交付，应用支持离线观看和讨论。获客证据包括讲师自有渠道、外部创作者合作推广、播客赞助及优惠码，渠道贡献比例未披露。<sup><a href="#src-20" aria-label="来源 20">[20]</a></sup><sup><a href="#src-39" aria-label="来源 39">[39]</a></sup><sup><a href="#src-41" aria-label="来源 41">[41]</a></sup></p>
+
+<h3 id="languages">中文定位与外语课程</h3>
+<p>平台商品页面以繁体中文为主，也引入海外讲师的课程。例如，罗 PD 的课程赞助说明明确写有中韩字幕；官方课程页面可核对讲师和产品。因此，“内容只有中文”过于绝对，但也不能把海外师资合作直接当作成熟的多语言市场业务。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-40" aria-label="来源 40">[40]</a></sup><sup><a href="#src-41" aria-label="来源 41">[41]</a></sup></p>
+<p>当前可验证的做法包括为中文受众引入国际内容。不同课程的授课语言、配音和字幕需逐项确认；本次未完成全目录语言统计，也未取得面向非中文用户的独立产品线及销售数据。应用商店的语言字段不用于推断课程内容语言。<sup><a href="#src-21" aria-label="来源 21">[21]</a></sup><sup><a href="#src-38" aria-label="来源 38">[38]</a></sup><sup><a href="#src-39" aria-label="来源 39">[39]</a></sup></p>
+
+<h2 id="performance">经营规模与财务证据</h2>
+<h3 id="revenue">收入数字的口径</h3>
+<div class="tbl"><table><caption>公开披露，不作为审计收入序列</caption><thead><tr><th scope="col">时间／对象</th><th scope="col">所称数据</th><th scope="col">可信边界</th></tr></thead><tbody>
+<tr><th scope="row">2020 全年</th><td>营收 7,306 万元</td><td>2026-07 白皮书相关报道回溯披露；非已核验财报。<sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></td></tr>
+<tr><th scope="row">2023 全年</th><td>营收超过 5 亿元</td><td>2024-02 经营采访；未见财务报表。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></td></tr>
+<tr><th scope="row">2024 全年</th><td>营业额超过 7 亿元</td><td>2025-01 公司提供的赞助文章；属于公司自述。<sup><a href="#src-21" aria-label="来源 21">[21]</a></sup></td></tr>
+<tr><th scope="row">2025 全年</th><td>营收 12 亿元；同比增长 54%</td><td>2026-07-22 报道转述平台白皮书，年份比“10 亿”访谈说法更明确；仍属公司披露。<sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></td></tr>
+<tr><th scope="row">第六年截至 8 月底</th><td>收入超过 8 亿元，目标全年 10 亿元</td><td>游弘宇公开动态。按创办年份推断指 2025 年，但动态绝对发布日期未核实；目标不能当实际全年结果。<sup><a href="#src-22" aria-label="来源 22">[22]</a></sup></td></tr>
+<tr><th scope="row">2026-09 访谈</th><td>节目称创业 7 年做到 10 亿元收入，7 门课程销售破亿元</td><td>节目标题与说明没有明确财务年度和合并范围；不能直接写成“2025 已审计营收 10 亿”。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></td></tr>
+<tr><th scope="row">超級數字力，至 2025-01 披露</th><td>累计销售超过 2 亿元、学员超过 2 万人</td><td>单课程累计口径，不能与某一年度公司收入直接比较。<sup><a href="#src-21" aria-label="来源 21">[21]</a></sup></td></tr>
+<tr><th scope="row">英语反射力课，至 2026-03 报道</th><td>报名者超过 7,700 人，销售超过 3,500 万元</td><td>2025 年底上线后的课程成绩，仍是报道数据。<sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></td></tr>
+</tbody></table></div>
+<p>白皮书相关报道已给出 2025 年增长率，但本次未取得会计口径和审计报表来独立复算。年度收入、单课累计销售和预售收款仍应分开；“10 亿”访谈说法也不能覆盖年份更明确的 2025 年 12 亿元披露。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup><sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></p>
+
+<h3 id="whitepaper">白皮书的累计经营数据</h3>
+<p>2026 年 7 月白皮书相关报道还披露：平台约六年累计交易额超过 33 亿元，其中募资期结束后的销售超过 8.3 亿元，约占四分之一；已有 7 门课程累计收入破亿元。研究样本涉及超过 150 门课程、70 万笔交易及 60 万名学员，交易笔数与用户数应分开理解。<sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></p>
+<p>33 亿元是该平台的多年累计交易规模，不代表某一年度收入或台湾整个行业规模。8.3 亿元支持老课仍能持续售卖的判断，但长尾销售与同一用户复购是不同指标，也无法据此算出净利润。<sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></p>
+
+<h3 id="quality">业务质量还缺哪些数据</h3>
+<p>2025 年初公司宣传稿称超过 30 万名学员、超过 50 门课程；2026 年白皮书相关报道采用 60 万名学员的数据。两次披露时点不同，用户定义、去重及免费用户范围未完全说明；当前目录又包含体验课，不能用这些数字直接计算客单价。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-21" aria-label="来源 21">[21]</a></sup><sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></p>
+<p>海外方面，公司宣传材料提及美国动画导师及韩国课程合作。引入海外师资与向海外消费者销售是不同指标；本次没有拿到海外收入占比、当地获客成本或独立盈利数据。<sup><a href="#src-21" aria-label="来源 21">[21]</a></sup></p>
+<div class="tbl"><table><caption>决定收入质量的未公开指标</caption><thead><tr><th scope="col">指标</th><th scope="col">为何影响判断</th></tr></thead><tbody>
+<tr><th scope="row">收入确认方式</th><td>按全部收款确认，还是仅计平台分成，结果差异很大；还需分清法人、品牌与集团范围。</td></tr>
+<tr><th scope="row">净利润与现金</th><td>预收款到账后，仍有未来交付、分润与退款义务。需要银行余额、负债和现金流表。</td></tr>
+<tr><th scope="row">老课收入与复购</th><td>已有募资结束后销售的累计披露；仍需按年度看老课贡献利润，并单独核验用户复购率。<sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></td></tr>
+<tr><th scope="row">讲师集中度</th><td>头部课程和讲师的收入占比，决定单一合作变化对平台的影响。</td></tr>
+<tr><th scope="row">学习成效</th><td>需要完课、练习完成、学习前后效果及退款数据；购买人数不能替代效果。</td></tr>
+<tr><th scope="row">企业与海外占比</th><td>需确认合同收入、续约和当地付费用户；海外讲师合作本身不能证明海外消费者收入。</td></tr>
+</tbody></table></div>
+
+<h2 id="competition">竞争格局</h2>
+<h3 id="rivals">直接竞争与替代方案</h3>
+<div class="tbl"><table class="wide"><caption>竞争判断基于各方产品与公开经营资料；没有可比市场份额</caption><thead><tr><th scope="col">对手／模式</th><th scope="col">已确认的布局</th><th scope="col">对塞特的压力（分析）</th></tr></thead><tbody>
+<tr><th scope="row">Hahow 好学校</th><td>消费、企业和校园渠道；2025-06 公布全通路会员 145 万、当年首季营收同比增 115%。<sup><a href="#src-23" aria-label="来源 23">[23]</a></sup><sup><a href="#src-24" aria-label="来源 24">[24]</a></sup></td><td>同争讲师、学习预算和企业客户；广课程库及机构渠道更便于组合销售。</td></tr>
+<tr><th scope="row">PressPlay Academy</th><td>订阅与单次付费内容；已与 KKCompany 整合，2026 年 5 月起体现在集团经营中。<sup><a href="#src-25" aria-label="来源 25">[25]</a></sup><sup><a href="#src-26" aria-label="来源 26">[26]</a></sup></td><td>创作者合作、分发及集团资源共同竞争，不能只把它当单一卖课网站。</td></tr>
+<tr><th scope="row">YOTTA</th><td>PressPlay 官方记载已整并；现官网有 PPA 账号合并，运营页脚为瑞奥股份有限公司。<sup><a href="#src-27" aria-label="来源 27">[27]</a></sup><sup><a href="#src-28" aria-label="来源 28">[28]</a></sup></td><td>仍可作为课程品牌比较，但竞争集团统计时应并入 PressPlay，避免重复计算。</td></tr>
+<tr><th scope="row">Teachify 等自建课程工具</th><td>让讲师自己运营网站、收款、会员和课程内容。<sup><a href="#src-29" aria-label="来源 29">[29]</a></sup></td><td>已有流量的讲师能自行开课；平台需要持续证明制作与营销服务足以抵偿分成。</td></tr>
+<tr><th scope="row">免费内容与通用 AI</th><td>知识获取方式的替代选择；本报告未测量替代率。</td><td>基础讲解更难维持溢价；练习反馈、可信师资、真实案例和学习约束更重要。</td></tr>
+</tbody></table></div>
+<p>KKCompany 公布的 2026 年前 8 个月 22.48 亿元收入是集团口径，包含其他业务，不能用作 PressPlay Academy 的课销收入，也不能直接拿来判断其超过知識衛星多少。<sup><a href="#src-26" aria-label="来源 26">[26]</a></sup></p>
+
+<h3 id="advantages">竞争优势的强弱</h3>
+<p>本报告认为，塞特较可信的优势在于把专家知识变成可售课程的团队能力：选题、教学设计、制作、营销和持续运营需要团队配合，难以只靠上线一个网站复制。讲师合作案例、现有产品及多期销售披露支持这个判断。<sup><a href="#src-8" aria-label="来源 8">[8]</a></sup><sup><a href="#src-9" aria-label="来源 9">[9]</a></sup><sup><a href="#src-17" aria-label="来源 17">[17]</a></sup><sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></p>
+<p>这种优势仍有边界。讲师能跨平台或自建渠道；用户可购买多家课程；拍摄质量和明星阵容也能被追赶。公开资料尚不足以证明公司拥有高转换成本、排他内容网络或可独立定价的软件产品。</p>
+<p>企业授权的续约、AI 辅助练习带来的产品价值，以及课程库复购，都值得跟踪。目前可以确认产品存在，尚不能确认这些业务已改变整体利润结构。<sup><a href="#src-18" aria-label="来源 18">[18]</a></sup><sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></p>
+
+<h2 id="risks">争议与经营风险</h2>
+<h3 id="dispute">2026 年瑜伽课程分润争议</h3>
+<p>2026 年 6 月，媒体报道尼泊尔讲师 Raj Karmayogi 对合作课程的收入分配提出异议。爱莉莎莎回应称，合同由知識衛星与讲师签订，包含基本报酬与分润奖金，并称平台支付超过 500 万元；另有报道转述 Raj 公布的 12.6 万美元款项记录，对金额提出反驳。<sup><a href="#src-31" aria-label="来源 31">[31]</a></sup><sup><a href="#src-32" aria-label="来源 32">[32]</a></sup></p>
+<p>本次未取得完整合同、汇款记录、币种结算说明或最终争议处理结果，无法判断谁的金额准确、是否涵盖不同支付项目，也不能认定任何一方违法。可确认的是双方对报酬的公开说法不一致。</p>
+<p>经营上的问题具体落在：跨国合同是否容易理解、销售数据是否透明、奖金与分润如何计算，以及讲师是否能核对结算。平台依赖专家信任，这类争议会增加签约与品牌维护成本。这里是风险分析，不是法律裁决。</p>
+
+<h3 id="refund">退款和交付</h3>
+<p>官网当前退费办法写明：对“立即上课”课程，在学习进度未超过 3% 等条件下，购买 7 天内可全退，第 8—14 天退结账金额的 30%；预售或即将开课的课程，在正式上架前可以提出退款申请。合购需整单符合条件，iOS 内购走 Apple 的处理渠道。具体资格以订单适用条款为准。<sup><a href="#src-30" aria-label="来源 30">[30]</a></sup></p>
+<p>同页注记对“已提供 3% 服务”的表述与前文“未超过 3%”存在边界差异，恰好达到该进度时应由平台确认。搜索引擎还收录了测试环境的不同退费文案，本报告采用正式域名页面。<sup><a href="#src-30" aria-label="来源 30">[30]</a></sup></p>
+<p>2026 年访谈目录列有“宁赔千万的退费教训”。这只能证明节目讨论过相关事件，本报告没有把摘要中的标题当作已确认损失额，也没有把它与瑜伽争议认定为同一事件。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></p>
+
+<h3 id="other-risks">需要持续观察的风险</h3>
+<div class="tbl"><table><caption>风险与应看的经营数据</caption><thead><tr><th scope="col">风险</th><th scope="col">对本公司的影响路径</th><th scope="col">验证方式</th></tr></thead><tbody>
+<tr><th scope="row">爆款与讲师依赖</th><td>单课规模较大时，少数产品变化就会影响全年成绩。</td><td>头部课程收入占比、独家期限、续约、退款与新课失败率。</td></tr>
+<tr><th scope="row">获客成本</th><td>折扣、合作推广和广告会减少平台保留的利润。</td><td>按课程拆出实收、广告、分润及贡献利润。</td></tr>
+<tr><th scope="row">扩课与质量</th><td>目录从精品单课延伸到多种形式，制作和客服的标准需跟上。</td><td>延期交付、投诉、作业反馈及学习效果。</td></tr>
+<tr><th scope="row">治理集中</th><td>创始人关系、法人持股和新增合资项目交织。</td><td>股东名册、关联交易、分红规则和关键岗位接班安排。</td></tr>
+<tr><th scope="row">新业务投入</th><td>出版与健康相关企业增加合同、库存或交付复杂度，实际投入规模未公开。</td><td>资本投入明细、关联企业报表及已销售商品。</td></tr>
+<tr><th scope="row">内容信誉</th><td>财务、医学养生、身心与命理课程并存，不同类别需要清晰表达证据与适用边界。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup></td><td>讲师资质审核、宣传承诺审查及争议处理记录。</td></tr>
+</tbody></table></div>
+<p>本次公开搜索未核实与塞特直接对应的重大行政裁罚或生效违法判决；没有完成全量司法及行政数据库查档。聚合网站显示“零案件”或自动信用评分，都不足以证明公司不存在纠纷。</p>
+
+<h2 id="assessment">商业判断与后续核验</h2>
+<p>作为合作对象，塞特值得进入实质洽谈：它已有可核对的课程产品、制作经验及企业学习方案。合作价值应通过一门课或一个企业项目的实际效果验证，重点看平台能否带来新增付费用户，以及讲师和学员是否愿意继续合作。</p>
+<p>作为投资对象，现有公开材料还不足以形成估值意见。收入规模值得关注，但业务增长、盈利能力和现金回收之间仍缺乏可核验的连接。应先获得能把课程销售、平台收入和利润对应起来的资料。</p>
+<div class="tbl"><table><caption>进入商业合作或财务尽调后，优先索取的材料</caption><thead><tr><th scope="col">材料</th><th scope="col">需要解决的问题</th></tr></thead><tbody>
+<tr><th scope="row">塞特及展司最新股东名册、章程</th><td>谁拥有最终权益，薛佳文与员工是否持股，有无未显示在董事登记中的特殊安排。</td></tr>
+<tr><th scope="row">近年财报与当年管理报表</th><td>5 亿、7 亿、10 亿、12 亿分别指什么，33 亿累计交易额如何与年度报表对应；是否包含关联企业、预售、税款及讲师分成。</td></tr>
+<tr><th scope="row">课程层面的收入与成本</th><td>老课利润、新课回本周期、广告依赖、头部集中度。</td></tr>
+<tr><th scope="row">讲师合同及结算样本</th><td>版权、独家、授权地域、分润计算、审计权、终止与退款责任。</td></tr>
+<tr><th scope="row">付费用户分期数据</th><td>按首次购买月份看复购、退款、练习完成和后续收入。</td></tr>
+<tr><th scope="row">企业及海外合同、关联企业报表</th><td>真实收入占比、续约、现金投入，以及新业务是否已有产品市场需求。</td></tr>
+</tbody></table></div>
+
+<h2 id="sources">方法与来源</h2>
+<p>研究日为 2026-09-24。以正式公司名、品牌、统一编号及创始人姓名检索，优先核对台湾官方登记、生产环境官网、大学资料、本人公开访谈，再用媒体报道补充。民国年份统一转换为公历；金额默认新台币，不做缺少汇率日期的币种换算。</p>
+<p>上市核查采用证交所及柜买中心的官方 JSON 名单，按公司名、品牌和统编匹配；未把一般搜索无结果当作唯一依据。财务补充采用 2026 年 7 月白皮书相关报道，未取得白皮书原始数据及审计报告。<sup><a href="#src-43" aria-label="来源 43">[43]</a></sup><sup><a href="#src-44" aria-label="来源 44">[44]</a></sup><sup><a href="#src-45" aria-label="来源 45">[45]</a></sup><sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></p>
+<p>登记资料与官网能证明身份和产品存在；公司招聘页、本人动态及赞助报道属于公司自述；采访中的经营数字未经本次独立审计。资料不一致时保留日期和来源差异，不把搜索缓存当成当日完整登记证明。</p>
+<p>本次没有访问内部账簿、签约讲师合同、完整股东名册或付费数据库，也没有采访当事人。未购买课程，未实测 AI 学习工具。对竞争优势、经营风险与合作价值的判断均为基于上述证据的分析。下列链接可直接核对来源；条目中的位置说明指向原页面相关段落或表格。</p>
+<ol class="sources"><li id="src-1"><a href="https://findbiz.nat.gov.tw/fts/company/69685506" target="_blank" rel="noopener">经济部商工登记：塞特知识</a>。官方登记索引；资本历史及董事代表法人。正文直取受限，使用搜索索引并交叉核对。</li>
+<li id="src-2"><a href="https://serv.gcis.nat.gov.tw/pub/cmpy/reportAction.do?fileName=11503ALC.pdf&amp;method=report&amp;reportClass=cmpy&amp;subPath=11503" target="_blank" rel="noopener">经济部：2026 年 3 月公司变更登记清册</a>。官方清册，第 3780 项；2026-03-10 地址及资本。</li>
+<li id="src-3"><a href="https://sat.cool/terms" target="_blank" rel="noopener">知識衛星：用户交易条款</a>。官方；“用户交易条款”开头及公司统编。</li>
+<li id="src-4"><a href="https://www.twincn.com/item.aspx?no=69685506" target="_blank" rel="noopener">台湾公司网：塞特知识</a>。登记聚合；基本资料、董事及公司历程。页面含旧地址，地址以来源 2 为准。</li>
+<li id="src-5"><a href="https://www.104.com.tw/company/1a2x6blb49" target="_blank" rel="noopener">104：塞特知识招聘页</a>。企业自填；公司介绍、员工人数和工作机会，2026-09-24 查询。</li>
+<li id="src-6"><a href="https://rtv.nccu.edu.tw/PageDoc/Detail?fid=4138&amp;id=23339" target="_blank" rel="noopener">政大广电系：游弘宇人物专访</a>。母校专访；创业经历与 YOTTA。部分正文通过搜索索引核对。</li>
+<li id="src-7"><a href="https://www.shu.edu.tw/Spotlight.aspx?from=06&amp;sID=30438" target="_blank" rel="noopener">世新大学：薛佳文校友报道</a>。2023-07-18；正文第 1、3、4 段，学历、产品长身份及课程开发。</li>
+<li id="src-8"><a href="https://www.vogue.com.tw/article/muer-chou-carmen-hsueh-interview" target="_blank" rel="noopener">Vogue Taiwan：周慕姿与薛佳文专访</a>。2023-09-27；“合作起源”及“谘商室里的对话”，营运长身份及产品工作。</li>
+<li id="src-9"><a href="https://www.watchinese.com/article/2024/26929" target="_blank" rel="noopener">看杂志：知識衛星经营专访</a>。2024-02-05；创始人出资、2023 年规模、开发周期及收入。采访口径，非审计。</li>
+<li id="src-10"><a href="https://www.managertoday.com.tw/podcast/view/1750" target="_blank" rel="noopener">经理人：游弘宇 EP681 访谈说明</a>。2026-09-15；标题与节目摘要；19:30 用户访谈、34:16 退费、42:04 分红。本报告未逐字转录音频。</li>
+<li id="src-11"><a href="https://www.findcompany.com.tw/展司數位科技有限公司" target="_blank" rel="noopener">Find Company：展司数位科技</a>。登记聚合；资本额与游弘宇出资字段。不同缓存日期不一致，仅作历史线索。</li>
+<li id="src-12"><a href="https://serv.gcis.nat.gov.tw/pub/cmpy/reportAction.do?fileName=11405TYC.pdf&amp;method=report&amp;reportClass=cmpy&amp;subPath=11405" target="_blank" rel="noopener">经济部：2025 年 5 月公司变更登记清册</a>。官方清册，第 911 项；展司统编、负责人及资本。</li>
+<li id="src-13"><a href="https://findbiz.nat.gov.tw/fts/company/60528410" target="_blank" rel="noopener">经济部商工登记：知行知识</a>。官方索引；2025-10-23 设立、资本及薛佳文代表塞特持股。</li>
+<li id="src-14"><a href="https://www.findcompany.com.tw/知行知識股份有限公司" target="_blank" rel="noopener">Find Company：知行知识</a>。登记聚合；出版类税籍、资本和董事代表法人。</li>
+<li id="src-15"><a href="https://www.twincn.com/item.aspx?no=60352995" target="_blank" rel="noopener">台湾公司网：知书健康</a>。登记聚合；基本资料和董监事，闭锁性公司、劳动出资、已发行股数。</li>
+<li id="src-16"><a href="https://serv.gcis.nat.gov.tw/pub/cmpy/reportAction.do?fileName=11412ALS.pdf&amp;method=report&amp;reportClass=cmpy&amp;subPath=11412" target="_blank" rel="noopener">经济部：2025 年 12 月公司设立登记清册</a>。官方清册，第 3632 项；知书健康设立、负责人及资本。</li>
+<li id="src-17"><a href="https://sat.cool/courses" target="_blank" rel="noopener">知識衛星：课程目录</a>。官方动态页面，2026-09-24 查询；总条目数、类别与所列优惠价。</li>
+<li id="src-18"><a href="https://business.sat.cool/" target="_blank" rel="noopener">知識衛星：企业学习方案</a>。官方；订阅、年度授权、学习后台及客户证言。客户和效果均为平台披露。</li>
+<li id="src-19"><a href="https://hi.sat.cool/RWR5e" target="_blank" rel="noopener">知識衛星：2026 高峰会</a>。官方活动页；2026-07-18、地点、售票结束及票数上限。</li>
+<li id="src-20"><a href="https://www.gvm.com.tw/article/128961" target="_blank" rel="noopener">远见：AI 辅助英语课</a>。2026-03-31；开头段落，王梓沅课程、7,700 多名报名者及超过 3,500 万元销售。</li>
+<li id="src-21"><a href="https://www.thenewslens.com/article/247363" target="_blank" rel="noopener">TNL 关键评论网：2024 年经营数据</a>。2025-01-10；明确标注 Sponsored、广编企划、内容由知識衛星提供。</li>
+<li id="src-22"><a href="https://tw.linkedin.com/in/stephen-yu-b54324a0/en" target="_blank" rel="noopener">游弘宇：LinkedIn 公开动态</a>。本人自述；“第六年、截至八月底超过 8 亿、挑战十亿”。动态绝对发布日期未独立取得。</li>
+<li id="src-23"><a href="https://udn.com/news/story/7240/8828346" target="_blank" rel="noopener">联合报：Hahow 多通路经营数据</a>。2025-06-24；145 万会员、首季收入增幅及企业渠道，企业对外公布口径。</li>
+<li id="src-24"><a href="https://www.business.hahow.in/" target="_blank" rel="noopener">Hahow for Business：企业服务</a>。官方；企业培训服务及媒体资料中的历史融资报道。</li>
+<li id="src-25"><a href="https://www.pressplay.cc/about" target="_blank" rel="noopener">PressPlay Academy：关于平台</a>。官方；订阅与一次付款内容模式。</li>
+<li id="src-26"><a href="https://www.kkcompany.com/newsroom/august_revenue_announcement/" target="_blank" rel="noopener">KKCompany：2026 年 8 月经营公告</a>。2026-09-10；自 2026 年 5 月整合 PressPlay，集团收入口径。</li>
+<li id="src-27"><a href="https://pressplay.one/about-us/" target="_blank" rel="noopener">PressPlay：公司沿革</a>。官方；整并 YOTTA。</li>
+<li id="src-28"><a href="https://www.yottau.com.tw/home" target="_blank" rel="noopener">YOTTA：官网</a>。官方；PPA 账号合并入口、PressPlay 合作链接、瑞奥股份有限公司页脚。</li>
+<li id="src-29"><a href="https://teachify.tw/" target="_blank" rel="noopener">Teachify：官网</a>。官方；讲师自建课程网站、会员和收款等服务。</li>
+<li id="src-30"><a href="https://sat.cool/terms/refund-policy" target="_blank" rel="noopener">知識衛星：退费办法</a>。官方生产环境，2026-09-24 查询；退款资格第 1—6 项。排除搜索引擎收录的测试环境旧条款。</li>
+<li id="src-31"><a href="https://www.nownews.com/news/6842668" target="_blank" rel="noopener">NOWnews：瑜伽课程分润争议</a>。2026 年 6 月报道；转述 Raj 与爱莉莎莎说法，未取得合同原件。</li>
+<li id="src-32"><a href="https://www.mirrormedia.mg/story/amp/20260603edi015" target="_blank" rel="noopener">镜周刊：瑜伽讲师公布款项记录</a>。2026-06-03；Raj 对金额的反驳，作为另一方说法。</li>
+<li id="src-33"><a href="https://www.inside.com.tw/article/17887-yotta" target="_blank" rel="noopener">INSIDE：YOTTA 员工告发报道</a>。2019 年报道；事件和指控背景，不能视为法院认定。</li>
+<li id="src-34"><a href="https://www.tatlerasia.com/people/stephen-yu-en-zh-hant" target="_blank" rel="noopener">Tatler Asia：游弘宇人物资料</a>。共同创办人身份及 2019 年与薛佳文创办平台的记录。</li>
+<li id="src-35"><a href="https://note.sat.cool/notes/1-10/" target="_blank" rel="noopener">知識衛星：薛佳文高峰会内容</a>。官方；共同创办人暨营运长身份。</li>
+<li id="src-36"><a href="https://www.inside.com.tw/feature/online-courses/30465-SAT-KNOWLEDGE" target="_blank" rel="noopener">INSIDE：游弘宇谈讲师筛选与用户画像</a>。2023-01-18；“怎么做课”及“现况与未来”，筛选标准、中年学员与前期研究；用户画像为历史采访。</li>
+<li id="src-37"><a href="https://cava.tw/topic/news/265380" target="_blank" rel="noopener">造咖：瑜伽讲师分润争议</a>。2026-06-03；转述爱莉莎莎所称保底报酬加奖金分润；完整合同及统一分成比例未公开。</li>
+<li id="src-38"><a href="https://note.sat.cool/notes/1-2/" target="_blank" rel="noopener">知識衛星：游弘宇 2026 高峰会内容</a>。官方；海外讲者到台湾、陪跑课程及长期问答。</li>
+<li id="src-39"><a href="https://apps.apple.com/tw/app/知識衛星/id6444010908" target="_blank" rel="noopener">App Store：知識衛星应用说明</a>。开发者提供；课程播放、离线观看及课堂讨论区。应用商店语言字段不能替代课程授课语言。</li>
+<li id="src-40"><a href="https://sat.cool/course/130" target="_blank" rel="noopener">知識衛星：罗 PD 的王牌创意企划力</a>。官方；课程信息列观看期限无限制，页面标价 9,800 元；2026-09-24 查询。</li>
+<li id="src-41"><a href="https://www.podcasts-online.org/it/man-ni-ri-bao-mannys-daily-digest-1517743652" target="_blank" rel="noopener">曼报：罗 PD 课程赞助说明</a>。播客目录转载；2025-06-16 EP102 的赞助说明明确写课程附中韩字幕，适用该课程。</li>
+<li id="src-42"><a href="https://startup.sme.gov.tw/home/modules/faq/detial.php?sId=12" target="_blank" rel="noopener">经济部中小及新创企业署：公司组织形式</a>。官方；股份有限公司的资本分为股份，上市柜是另行发展的状态。</li>
+<li id="src-43"><a href="https://openapi.twse.com.tw/v1/opendata/t187ap03_L" target="_blank" rel="noopener">台湾证券交易所：上市公司基本资料</a>。官方 JSON；2026-09-24 下载 1,095 条，检索塞特知识、知識衛星及统编 69685506 均无匹配。</li>
+<li id="src-44"><a href="https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O" target="_blank" rel="noopener">证券柜台买卖中心：上柜公司基本资料</a>。官方 JSON；2026-09-24 下载 893 条，以公司名称、品牌及统编检索均无匹配。</li>
+<li id="src-45"><a href="https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_R" target="_blank" rel="noopener">证券柜台买卖中心：兴柜公司基本资料</a>。官方 JSON；2026-09-24 下载 360 条，以公司名称、品牌及统编检索均无匹配。</li>
+<li id="src-46"><a href="https://news.tvbs.com.tw/life/3264858" target="_blank" rel="noopener">TVBS：知識衛星白皮书经营数据</a>。2026-07-22；转述平台《臺灣知識經濟白皮書》的年度收入、累计交易额及长尾销售，均为公司披露，非已核验审计财报。</li></ol>
+</main></div><script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+<script>
+// Keep theme controls optional; content remains visible without JavaScript.
+const themeButton = document.getElementById('theme');
+const themeModes = ['auto', 'light', 'dark'];
+let themeIndex = 0;
+themeButton.addEventListener('click', () => {
+  themeIndex = (themeIndex + 1) % themeModes.length;
+  const mode = themeModes[themeIndex];
+  if (mode === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = mode;
+  themeButton.textContent = '主题：' + ({auto:'自动',light:'浅色',dark:'深色'})[mode];
+});
+document.getElementById('print').addEventListener('click', () => window.print());
+</script></body></html>
