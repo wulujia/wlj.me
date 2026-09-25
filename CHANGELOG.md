@@ -2,6 +2,7 @@
 
 ## 2026-09-25
 
+- 新增资料页《旁遮普失踪案与《Satluj》封禁：事实、追责和资讯自由》，`static/reading/punjab-disappearances-satluj/index.html`。梳理旁遮普冲突死亡、强迫失踪、秘密火化、Jaswant Singh Khalra 案、《Satluj》的制作与封禁、导演和演员承受的压力，以及印度资讯自由的制度背景。
 - 修复 `publish.sh reading` 在标题变量后紧接中文标点时触发未绑定变量、导致整理页无法发布的问题。
 
 ## 2026-09-24

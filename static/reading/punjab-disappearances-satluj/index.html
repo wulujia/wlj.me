@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>旁遮普失踪案与《Satluj》封禁：事实、追责和资讯自由</title>
+<meta name="description" content="梳理旁遮普冲突死亡、强迫失踪、秘密火化、Jaswant Singh Khalra 案、《Satluj》的制作与封禁、导演和演员承受的压力，以及印度资讯自由的制度背景。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/punjab-disappearances-satluj/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --ink: #17222d;
+  --ink-2: #44515d;
+  --ink-3: #61707d;
+  --rule: #d7dfe5;
+  --rule-2: #aab7c1;
+  --mid: #e7edf1;
+  --acc: #1f4e68;
+  --acc-ink: #173f56;
+  --acc-wash: #e5edf2;
+  --good: #2f6c48;
+  --warn: #94610d;
+  --bad: #8f414b;
+  --good-wash: #e8f2ec;
+  --warn-wash: #f4eddf;
+  --bad-wash: #f4e9eb;
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #141a20; --surface: #1c252d; --ink: #edf1f4; --ink-2: #bdc7cf; --ink-3: #98a5af;
+    --rule: #2b3740; --rule-2: #4a5a67; --mid: #242f38;
+    --acc: #78aec9; --acc-ink: #9bc8dc; --acc-wash: #1f3440;
+    --good: #79bc8f; --warn: #dfb565; --bad: #dc929a;
+    --good-wash: #203429; --warn-wash: #3a3020; --bad-wash: #3a272b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141a20; --surface: #1c252d; --ink: #edf1f4; --ink-2: #bdc7cf; --ink-3: #98a5af;
+  --rule: #2b3740; --rule-2: #4a5a67; --mid: #242f38;
+  --acc: #78aec9; --acc-ink: #9bc8dc; --acc-wash: #1f3440;
+  --good: #79bc8f; --warn: #dfb565; --bad: #dc929a;
+  --good-wash: #203429; --warn-wash: #3a3020; --bad-wash: #3a272b;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+.back { display: inline-block; margin: 0 0 24px; font-size: 13px; color: var(--ink-3); text-decoration: none; }
+.back:hover { color: var(--ink); text-decoration: underline; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+@media (max-width: 560px) {
+  h1 { font-size: 30px; }
+  .lede { font-size: 17px; }
+  .meta { line-height: 1.65; }
+  .meta span { display: block; }
+  .meta span + span::before { content: none; }
+  .summary { padding: 16px 18px; }
+}
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+.note, .warn, .decision { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child { margin: 0; }
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 10ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+.pill { display: inline-block; white-space: nowrap; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 7px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .65em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; --good-wash: #f2f2f2; --warn-wash: #f2f2f2; --bad-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip, .back { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, .note, .warn, .decision, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、先把口径分开</a>
+        <ul>
+          <li><a href="#s1-1">1.1 报道中的冲突死亡</a></li>
+          <li><a href="#s1-2">1.2 这张表没有回答什么</a></li>
+        </ul>
+      </li>
+      <li><a href="#s2">二、秘密火化如何被发现</a>
+        <ul>
+          <li><a href="#s2-1">2.1 从柴火收据到法院</a></li>
+          <li><a href="#s2-2">2.2 CBI 查实的范围</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、三组数字不能相加</a>
+        <ul>
+          <li><a href="#s3-1">3.1 法院程序确认：2,097</a></li>
+          <li><a href="#s3-2">3.2 Ensaaf 与 PDAP 的个案库</a></li>
+          <li><a href="#s3-3">3.3 Khalra 的估算：25,000</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、Khalra 被绑架和杀害</a>
+        <ul>
+          <li><a href="#s4-1">4.1 从失踪到 CBI 调查</a></li>
+          <li><a href="#s4-2">4.2 没有尸体，仍能定罪</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">五、Khalra 案最后定罪五人</a>
+        <ul>
+          <li><a href="#s5-1">5.1 九名被告的结局</a></li>
+          <li><a href="#s5-2">5.2 三次判决</a></li>
+        </ul>
+      </li>
+      <li><a href="#s6">六、多少警察付出了代价</a>
+        <ul>
+          <li><a href="#s6-1">6.1 NHRC 只做赔偿</a></li>
+          <li><a href="#s6-2">6.2 两套公开追责统计</a></li>
+          <li><a href="#s6-3">6.3 高层责任没有落地</a></li>
+        </ul>
+      </li>
+      <li><a href="#s7">七、追责为何拖了三十年</a>
+        <ul>
+          <li><a href="#s7-1">7.1 调查范围一开始就很窄</a></li>
+          <li><a href="#s7-2">7.2 证据和程序一起耗损</a></li>
+        </ul>
+      </li>
+      <li><a href="#s8">八、电影与法院记录的边界</a>
+        <ul>
+          <li><a href="#s8-1">8.1 有判决支持的核心事实</a></li>
+          <li><a href="#s8-2">8.2 需要打折理解的数字</a></li>
+        </ul>
+      </li>
+      <li><a href="#s9">九、电影与导演</a>
+        <ul>
+          <li><a href="#s9-1">9.1 从三个片名到一次秘密上线</a></li>
+          <li><a href="#s9-2">9.2 Honey Trehan 的经历与现状</a></li>
+        </ul>
+      </li>
+      <li><a href="#s10">十、电影为何无法正常上映</a>
+        <ul>
+          <li><a href="#s10-1">10.1 从 21 项异议到约 127 处修改</a></li>
+          <li><a href="#s10-2">10.2 OTT 绕过院线审查后仍被下架</a></li>
+          <li><a href="#s10-3">10.3 官方给出的理由</a></li>
+        </ul>
+      </li>
+      <li><a href="#s11">十一、导演和演员承受了什么压力</a>
+        <ul>
+          <li><a href="#s11-1">11.1 可以确认的制度压力</a></li>
+          <li><a href="#s11-2">11.2 没有证据支持的部分</a></li>
+        </ul>
+      </li>
+      <li><a href="#s12">十二、民主制度为何仍会压缩资讯自由</a>
+        <ul>
+          <li><a href="#s12-1">12.1 选举民主与自由民主不是同一件事</a></li>
+          <li><a href="#s12-2">12.2 这次封禁用了哪些制度工具</a></li>
+          <li><a href="#s12-3">12.3 三项外部评估</a></li>
+        </ul>
+      </li>
+      <li><a href="#s13">十三、截至 2026 年仍未解决</a>
+        <ul>
+          <li><a href="#s13-1">13.1 6,733 宗案件申请</a></li>
+          <li><a href="#s13-2">13.2 电影仍未恢复合法播放</a></li>
+          <li><a href="#s13-3">13.3 可以确认的结论</a></li>
+        </ul>
+      </li>
+      <li><a href="#s14">十四、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <a class="back" href="/reading/">← 返回整理</a>
+    <p class="eyebrow">Research brief · 2026 年 9 月 24 日</p>
+    <h1>旁遮普失踪案与《Satluj》封禁</h1>
+    <p class="lede">这页把 Jaswant Singh Khalra 调查过的失踪与秘密火化、法院确认的警察责任、《Satluj》的制作和封禁，以及导演与演员承受的压力放进同一条证据链，也解释印度为何在举行竞争性选举的同时，仍能用行政手段限制一部有公开记录支撑的电影。</p>
+    <p class="meta"><span>资料截至 2026-09-24</span><span>范围：1984—2026</span><span>法院与官方记录优先</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p><span class="num">21,373</span> 是 SATP 表中 1984—1995 年旁遮普“恐怖主义相关暴力”的报道死亡数；CBI 在三个火葬场查出 <span class="num">2,097</span> 具由警方送去处理的“无人认领”遗体，两组数字都不是全邦强迫失踪总数。Khalra 案终审维持五名警察无期徒刑，截至 2026 年的公开汇总另有约 <span class="num">135</span> 名警察因相关假遭遇战被判刑。《Satluj》依据法院、警察和新闻记录拍成，院线审查从 <span class="num">21</span> 项异议增加到约 <span class="num">127</span> 处修改；未删减版于 2026 年 7 月 3 日上线 ZEE5，两天后被政府以国家安全为由下架。导演 Honey Trehan 仍以孟买为工作基地并公开发声，现有证据支持“职业和制度压迫”，没有证据证明他遭到拘捕、官方人身威胁或被迫流亡。</p>
+  </div>
+
+  <h2 id="s1">一、先把口径分开</h2>
+  <h3 id="s1-1">1.1 报道中的冲突死亡</h3>
+  <p>South Asia Terrorism Portal（SATP）的年度表把死者分为平民、安全部队和“恐怖分子”。1984—1995 年合计 <span class="num">21,373</span> 人：平民 <span class="num">11,595</span> 人，安全部队 <span class="num">1,722</span> 人，被标作“恐怖分子”的死者 <span class="num">8,056</span> 人。高峰在 1991 年，一年 <span class="num">5,265</span> 人。<sup><a href="#src-1">1</a></sup></p>
+
+  <div class="tbl">
+    <table>
+      <caption>SATP 记录的旁遮普恐怖主义相关死亡，1984—1995</caption>
+      <thead><tr><th scope="col">年份</th><th scope="col" class="num">平民</th><th scope="col" class="num">安全部队</th><th scope="col" class="num">“恐怖分子”</th><th scope="col" class="num">合计</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1984</th><td class="num">359</td><td class="num">20</td><td class="num">77</td><td class="num">456</td></tr>
+        <tr><th scope="row">1985</th><td class="num">63</td><td class="num">8</td><td class="num">2</td><td class="num">73</td></tr>
+        <tr><th scope="row">1986</th><td class="num">520</td><td class="num">38</td><td class="num">78</td><td class="num">636</td></tr>
+        <tr><th scope="row">1987</th><td class="num">910</td><td class="num">95</td><td class="num">328</td><td class="num">1,333</td></tr>
+        <tr><th scope="row">1988</th><td class="num">1,949</td><td class="num">110</td><td class="num">373</td><td class="num">2,432</td></tr>
+        <tr><th scope="row">1989</th><td class="num">1,168</td><td class="num">201</td><td class="num">703</td><td class="num">2,072</td></tr>
+        <tr><th scope="row">1990</th><td class="num">2,467</td><td class="num">476</td><td class="num">1,320</td><td class="num">4,263</td></tr>
+        <tr><th scope="row">1991</th><td class="num">2,591</td><td class="num">497</td><td class="num">2,177</td><td class="num">5,265</td></tr>
+        <tr><th scope="row">1992</th><td class="num">1,518</td><td class="num">252</td><td class="num">2,113</td><td class="num">3,883</td></tr>
+        <tr><th scope="row">1993</th><td class="num">48</td><td class="num">25</td><td class="num">798</td><td class="num">871</td></tr>
+        <tr><th scope="row">1994</th><td class="num">2</td><td class="num">0</td><td class="num">76</td><td class="num">78</td></tr>
+        <tr><th scope="row">1995</th><td class="num">0</td><td class="num">0</td><td class="num">11</td><td class="num">11</td></tr>
+      </tbody>
+      <tfoot><tr><td>合计</td><td class="num">11,595</td><td class="num">1,722</td><td class="num">8,056</td><td class="num">21,373</td></tr></tfoot>
+    </table>
+  </div>
+
+  <p>这场冲突有两类大规模暴力。武装组织杀害印度教和锡克平民、警察、记者及政治人物，也在公共场所制造爆炸。国家安全力量则被长期指控任意拘捕、酷刑、强迫失踪和把处决包装成“遭遇战”。Human Rights Watch 同时记录了两类行为。<sup><a href="#src-2">2</a></sup></p>
+
+  <h3 id="s1-2">1.2 这张表没有回答什么</h3>
+  <p>SATP 表来自公开报道和官方口径。一个人若被秘密抓走、没有登记拘留、尸体以“身份不明”处理，通常不会进入当年的新闻死亡表。表中“恐怖分子”也是警方或报道使用的身份标签，不能证明每一次死亡发生于真实交火。</p>
+  <div class="warn"><b>范围限制</b>1984 年的“蓝星行动”和同年 11 月主要发生在德里等地的反锡克暴力，不能直接加进这张旁遮普年度表。两者应另列。SATP 的 1984 年全年合计只有 <span class="num">456</span> 人，也说明这张表不是 1984 年全部政治暴力的总账。</div>
+
+  <h2 id="s2">二、秘密火化如何被发现</h2>
+  <h3 id="s2-1">2.1 从柴火收据到法院</h3>
+  <p>Jaswant Singh Khalra 与 Jaspal Singh Dhillon 没有从失踪人口登记开始查。他们找到了市政火葬场的登记簿和购买柴火的收据，再把“无人认领”遗体与警方活动、家庭报失和新闻记录交叉核对。1995 年 1 月 16 日，两人发布新闻稿，点名阿姆利则、Patti 和 Tarn Taran 的火葬记录。<sup><a href="#src-5">5</a></sup><sup><a href="#src-14">14</a></sup></p>
+  <p>Khalra 在公开演讲和法律行动中继续追查这些记录。1995 年 9 月 6 日，他在阿姆利则家门口被警方带走。妻子 Paramjit Kaur 提交人身保护申请，最高法院在 1995 年 11 月 15 日把 Khalra 失踪案和秘密火化指控一并交给 CBI。法院当时写明，即使新闻稿只有部分属实，也会构成严重的人权侵犯。<sup><a href="#src-5">5</a></sup></p>
+
+  <h3 id="s2-2">2.2 CBI 查实的范围</h3>
+  <p>CBI 最终报告核对的是三个火葬场，覆盖当时的 Amritsar、Majitha 和 Tarn Taran 三个警区，时间为 1984 年 6 月至 1994 年 12 月。1996 年 12 月，最高法院记录的总数是 <span class="num">2,097</span>：完全识别 <span class="num">585</span> 具，部分识别 <span class="num">274</span> 具，未识别 <span class="num">1,238</span> 具。报告被密封移交给国家人权委员会（NHRC）。<sup><a href="#src-14">14</a></sup></p>
+  <div class="note"><b>边界</b>这项调查没有覆盖全邦所有火葬场，也没有统计被埋葬、投入河流或通过其他方式处理的尸体。它确认了警方送去火化的记录异常，未逐一证明 <span class="num">2,097</span> 人都由警察非法杀害。</div>
+
+  <h2 id="s3">三、三组数字不能相加</h2>
+  <p>这件事最容易错在把记录条数、受害者人数和总体估算混成一个数字。下面四行各自回答不同问题。</p>
+  <div class="tbl">
+    <table>
+      <caption>秘密火化、强迫失踪与法外处决的主要公开数字</caption>
+      <thead><tr><th scope="col">数字</th><th scope="col">证据层级</th><th scope="col">实际含义</th><th scope="col">不能推出什么</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" class="num">2,097</th><td><span class="pill good">法院程序确认</span></td><td>CBI 核对三个火葬场后向最高法院报告的遗体记录</td><td>不是全邦总数；也不是逐案成立的谋杀数</td></tr>
+        <tr><th scope="row" class="num">5,315</th><td><span class="pill">田野记录</span></td><td>Ensaaf 公布的逐村访谈案件</td><td>不是概率抽样推算的全邦总数</td></tr>
+        <tr><th scope="row" class="num">6,733 / 8,257</th><td><span class="pill">田野与档案记录</span></td><td>PDAP 诉讼使用 <span class="num">6,733</span> 宗；2017 年报告宣称 <span class="num">8,257</span> 宗</td><td>两数关系和与 Ensaaf 的重叠没有公开说明</td></tr>
+        <tr><th scope="row" class="num">25,000</th><td><span class="pill bad">倡议估算</span></td><td>Khalra 与家属公开使用的全邦规模估算</td><td>不是 CBI、法院或统计模型的结论</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s3-1">3.1 法院程序确认：2,097</h3>
+  <p><span class="num">2,097</span> 的强处在于有 CBI 调查、最高法院命令和 NHRC 后续程序。它的弱处也很明确：地点只有三个火葬场，地域集中在阿姆利则一带，处理方式只看火化。</p>
+  <p>NHRC 到 2012 年识别了 <span class="num">1,513</span> 人，其中 <span class="num">195</span> 人被视为死前处于警方羁押，另有 <span class="num">1,318</span> 具遗体由警方违反程序送去火化；还有 <span class="num">532</span> 具未能识别。<sup><a href="#src-8">8</a></sup></p>
+  <div class="note"><b>账目差异</b><span class="num">1,513 + 532 = 2,045</span>，与原始 <span class="num">2,097</span> 相差 <span class="num">52</span>。NHRC 公告提到清理了重复姓名，但没有在同一份文件里给出完整对账表。因此，正文保留 NHRC 各阶段公布的原数，不自行补齐。</div>
+
+  <h3 id="s3-2">3.2 Ensaaf 与 PDAP 的个案库</h3>
+  <p>Ensaaf 从 2010 年开始按 2001 年人口普查名录走访全邦 <span class="num">12,000+</span> 个村庄和城市地区，通过村长、村委、出生死亡登记员、老人和受害家庭互相核对。公开数据平台目前列出 <span class="num">5,315</span> 宗强迫失踪和法外处决。<sup><a href="#src-4">4</a></sup></p>
+  <p>PDAP 的 2017 年《Identifying the Unidentified》宣称经过七年调查，整理出 <span class="num">8,257</span> 宗失踪、假遭遇战和非法火化。后来提交法院的申请采用 <span class="num">6,733</span> 宗。公开材料没有说明 <span class="num">6,733</span> 是否为 <span class="num">8,257</span> 的诉讼子集，也没有公布与 Ensaaf、NHRC 数据的去重结果。<sup><a href="#src-10">10</a></sup><sup><a href="#src-11">11</a></sup></p>
+  <div class="warn"><b>不能相加</b><span class="num">2,097 + 5,000 + 6,733</span> 会重复计算同一批受害者。Ensaaf 与 HRDAG 2009 年分析的 <span class="num">21,000+</span> 也指六个数据集的记录总量，其中包括 <cite>The Tribune</cite> 的全部冲突死亡报道，不是 <span class="num">21,000</span> 名失踪者。报告明确说，仍需去重和统计推断才能估计真实规模。<sup><a href="#src-3">3</a></sup></div>
+
+  <h3 id="s3-3">3.3 Khalra 的估算：25,000</h3>
+  <p><span class="num">25,000</span> 来自 Khalra 及其家属在 1995 年前后对全邦规模的公开估算。它有真实调查作起点，却没有公开的逐案名册、抽样框架或统计模型支撑。电影可以引用这个数字作为 Khalra 当时的判断，研究报告不能把它写成法院认定。</p>
+  <p>现有材料也不能据此推出一个更窄的“真实区间”。最稳妥的表述是：至少数千宗案件已有个案记录；全邦总数未知；<span class="num">25,000</span> 仍是未验证估算。</p>
+
+  <h2 id="s4">四、Khalra 被绑架和杀害</h2>
+  <h3 id="s4-1">4.1 从失踪到 CBI 调查</h3>
+  <ol class="timeline">
+    <li><time>1995-01</time><div>Khalra 与 Dhillon 发布秘密火化新闻稿。</div></li>
+    <li><time>1995-09</time><div>Khalra 于 9 月 6 日在家门口被带走；SGPC 主席 Gurcharan Singh Tohra 发电报，Paramjit Kaur 向最高法院申请人身保护。</div></li>
+    <li><time>1995-11</time><div>最高法院命令 CBI 同时调查失踪与火化指控。</div></li>
+    <li><time>1996-07</time><div>CBI 告诉最高法院，将起诉九名警察。</div></li>
+    <li><time>1998-03</time><div>特别警察官 Kuldip Singh 向 CBI 讲述羁押、枪杀和弃尸经过。</div></li>
+    <li><time>2005-11</time><div>Patiala 的审判法院判六人有罪。</div></li>
+    <li><time>2007-10</time><div>高等法院判一人无罪，把其余五人的刑期统一为无期徒刑。</div></li>
+    <li><time>2011-11</time><div>最高法院驳回五人的上诉，判决确定。</div></li>
+  </ol>
+
+  <p>判决接受的事实是：警方把 Khalra 从家中带走，长期非法关押和虐待，最终在 1995 年 10 月下旬开枪杀害，并在 Harike 附近把尸体投入水中。尸体从未找到。特别警察官 Kuldip Singh 是主要证人；他不是获得赦免的“污点证人”，法院把他视为参与其中但未被起诉的同案证人，要求谨慎核对。<sup><a href="#src-6">6</a></sup></p>
+
+  <h3 id="s4-2">4.2 没有尸体，仍能定罪</h3>
+  <p>最高法院在 2011 年明确说，谋杀案不以找回尸体为定罪前提。控方仍须证明死亡和他人犯罪行为，但不能让毁尸本身变成免罪条件。法院结合绑架目击、非法羁押、同案证人、威胁和伪造不在场证明，维持了五人的定罪。<sup><a href="#src-6">6</a></sup></p>
+  <p>另一名曾在 Kang 警岗见过 Khalra 的平民 Kikkar Singh 在审判中翻供。最高法院认为他受过威胁，但定罪并不依赖他在庭上的支持性证词。这也是电影叙事与法庭证据需要分开的地方。<sup><a href="#src-9">9</a></sup></p>
+
+  <h2 id="s5">五、Khalra 案最后定罪五人</h2>
+  <h3 id="s5-1">5.1 九名被告的结局</h3>
+  <div class="tbl">
+    <table>
+      <caption>CBI 起诉的九名警察及最终结果</caption>
+      <thead><tr><th scope="col">姓名</th><th scope="col">当时身份</th><th scope="col">结果</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Ajit Singh Sandhu</th><td>Tarn Taran SSP，被法院称为主要策划者</td><td>1997 年死亡，未受审</td></tr>
+        <tr><th scope="row">Ashok Kumar</th><td>DSP</td><td>审判期间死亡</td></tr>
+        <tr><th scope="row">Rachpal Singh</th><td>警员，公开判决未载明具体警衔</td><td>审判中获释，后续复核结果未查到</td></tr>
+        <tr><th scope="row">Amarjit Singh</th><td>ASI</td><td>2005 年获刑；2007 年高院判无罪</td></tr>
+        <tr><th scope="row">Jaspal Singh</th><td>DSP</td><td><span class="pill good">无期徒刑</span></td></tr>
+        <tr><th scope="row">Satnam Singh</th><td>SI / Jhabal SHO</td><td><span class="pill good">无期徒刑</span></td></tr>
+        <tr><th scope="row">Surinderpal Singh</th><td>SI / Sarhali SHO</td><td><span class="pill good">无期徒刑</span></td></tr>
+        <tr><th scope="row">Jasbir Singh</th><td>SI / Manochahal 警岗负责人</td><td><span class="pill good">无期徒刑</span></td></tr>
+        <tr><th scope="row">Prithipal Singh</th><td>Head Constable</td><td><span class="pill good">无期徒刑</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>因此，“六名警察因 Khalra 谋杀被定罪”只适用于 2005 年一审。2007 年以后，能写进最终法律记录的是五人。Arvinder Singh、Balwinder Singh Gora 等人在证词中出现，却没有被列入这九名被告。<sup><a href="#src-7">7</a></sup></p>
+
+  <h3 id="s5-2">5.2 三次判决</h3>
+  <div class="stats">
+    <div><b>2005-11-18</b><span>一审：6 人有罪</span></div>
+    <div><b>2007-10-16</b><span>高院：5 人无期，1 人无罪</span></div>
+    <div><b>2011-11-04</b><span>最高法院：5 人终审维持</span></div>
+  </div>
+  <p>一审先判 Jaspal Singh 与 Amarjit Singh 无期徒刑，另四人因绑架和共谋获刑七年。高等法院判 Amarjit Singh 无罪，同时把另四人的七年刑期提高为无期。最高法院在 2011 年维持这五人的判决。<sup><a href="#src-7">7</a></sup><sup><a href="#src-6">6</a></sup></p>
+
+  <h2 id="s6">六、多少警察付出了代价</h2>
+  <h3 id="s6-1">6.1 NHRC 只做赔偿</h3>
+  <p>NHRC 在 2012 年建议支付 <span class="num">27.94 crore</span> 卢比，覆盖 <span class="num">1,513</span> 名已识别死者的近亲。<span class="num">195</span> 宗“视为羁押”案件每户 <span class="num">2.5 lakh</span> 卢比，其余不当火化案件每户 <span class="num">1.75 lakh</span> 卢比。该程序没有列出个人刑事责任，也没有处理全邦指挥链。<sup><a href="#src-8">8</a></sup></p>
+
+  <h3 id="s6-2">6.2 两套公开追责统计</h3>
+  <p>2024 年，CBI 在处理 <span class="num">6,733</span> 宗案件申请的高院程序中提交过一组统计：共登记 <span class="num">62</span> 宗案件，其中 <span class="num">46</span> 宗起诉、<span class="num">16</span> 宗结案；已起诉案件中，<span class="num">24</span> 宗定罪、<span class="num">6</span> 宗无罪、<span class="num">16</span> 宗仍在审。<sup><a href="#src-12">12</a></sup></p>
+  <p>2026 年 7 月，<cite>The Tribune</cite> 根据警方和律师提供的数字报道，约 <span class="num">135</span> 名警察已经因假遭遇战被判刑，大部分是低阶警员；报道另称 <span class="num">70</span> 宗 FIR 中已有 <span class="num">64</span> 宗裁决，尚余 <span class="num">6</span> 宗。<sup><a href="#src-13">13</a></sup></p>
+  <div class="warn"><b>统计冲突</b>2024 年 CBI 宣誓材料与 2026 年媒体、律师统计的案件总数和无罪数对不上。时间进展只能解释其中一部分。没有公开的统一名册列出每名警察、每项罪名、上诉和最终生效状态，所以 <span class="num">135</span> 应写作“被判刑的公开汇总”，不宜写成最终生效定罪人数。</div>
+
+  <h3 id="s6-3">6.3 高层责任没有落地</h3>
+  <p>Khalra 案中，法院认为 SSP Ajit Singh Sandhu 策划了绑架和杀害，但他在受审前死亡。证人 Kuldip Singh 说，Khalra 被杀前曾有“包括当时 Punjab DGP 在内的高级警官”到场；最高法院转述了这段证词，却没有点名 K.P.S. Gill，也没有认定其刑事责任。<sup><a href="#src-6">6</a></sup></p>
+  <p>Paramjit Kaur 后来要求 CBI 调查 Gill。Human Rights Watch、Ensaaf 等组织在 2006 年联名要求追究上级责任。公开资料只显示相关高院申请在 2007 年仍未解决；没有查到后来的处分判决。Gill 于 2017 年去世，从未因旁遮普警察暴力受审。<sup><a href="#src-15">15</a></sup></p>
+  <p><cite>The Tribune</cite> 的 2026 年汇总列出少数 DIG、SSP 和 SP 级别的被判刑者，但大多数仍是 SHO、SI、ASI、Head Constable 等执行层。把约 <span class="num">135</span> 人与几千宗个案并列看，电影所说的“极少数人付出代价”大体成立；更准确的说法是：有一批执行者在三十年后获刑，制度与指挥责任没有得到同等追究。</p>
+
+  <h2 id="s7">七、追责为何拖了三十年</h2>
+  <h3 id="s7-1">7.1 调查范围一开始就很窄</h3>
+  <p>最高法院交给 NHRC 的是 CBI 已查出的三个火葬场名单。NHRC 后来把任务集中在识别遗体和赔偿，没有把程序扩展成全邦真相调查。HRW 2007 年报告批评，这种范围排除了同一时期其他火葬场、河流弃尸、埋葬和 1984 年前、1994 年后的案件。<sup><a href="#src-2">2</a></sup></p>
+
+  <h3 id="s7-2">7.2 证据和程序一起耗损</h3>
+  <p>刑事案件长期卡在起诉许可、管辖争议、被告申请和上诉。三十年后，证人死亡、记忆衰退，警局、医院和火葬场原始文件也被销毁或按规定清理。CBI 在 2024 年正是以这些理由反对新调查，称再查 <span class="num">6,733</span> 宗案件难以形成可起诉证据。<sup><a href="#src-12">12</a></sup></p>
+  <p>这套理由解释了取证难度，也暴露了延误本身的后果：国家先用了数十年完成有限案件，再以年代久远反对扩大调查。对许多家庭而言，连死亡证明都没有，赔偿、继承和法律身份问题一起悬着。</p>
+
+  <h2 id="s8">八、电影与法院记录的边界</h2>
+  <h3 id="s8-1">8.1 有判决支持的核心事实</h3>
+  <ul>
+    <li>Khalra 确实通过火葬场和市政记录发现大批“无人认领”遗体。</li>
+    <li>他在 1995 年被 Punjab Police 绑架、非法关押、虐待和杀害，尸体被处理后从未找到。</li>
+    <li>CBI 确实在三个火葬场核对出 <span class="num">2,097</span> 具遗体记录。</li>
+    <li>一审判六名警察有罪；高院和最高法院最终维持五人的无期徒刑。</li>
+    <li>多数秘密火化案件没有转化为刑事审判，NHRC 的主结果是身份确认和赔偿。</li>
+  </ul>
+
+  <h3 id="s8-2">8.2 需要打折理解的数字</h3>
+  <ul>
+    <li><span class="num">25,000</span> 是 Khalra 的全邦估算，不是法院查实数。</li>
+    <li><span class="num">21,000+</span> 在 Ensaaf / HRDAG 2009 年报告中指多个数据库的记录总量，不是失踪者总数。</li>
+    <li><span class="num">2,097</span> 是三个火葬场的异常火化记录，不等于 <span class="num">2,097</span> 宗已经判定的警察谋杀。</li>
+    <li>电影中的调查过程经过合并和戏剧化；法律结论应以 1995、2007 和 2011 年三份法院文件为准。</li>
+  </ul>
+
+  <h2 id="s9">九、电影与导演</h2>
+  <h3 id="s9-1">9.1 从三个片名到一次秘密上线</h3>
+  <p>电影最初名为《Ghallughara》（也写作《Ghalughara》，意为大屠杀），后来使用《Punjab ’95》，上线时改名《Satluj》。Honey Trehan 在 2020 年读到 Amandeep Sandhu 的《Panjab: Journeys Through Fault Lines》后决定拍摄。他取得 Khalra 家属授权，与编剧 Niren Bhatt、Utsav Maitra 完成剧本，2022 年 2 月在旁遮普开拍。Khalra 家属看过成片；Trehan 也把影片放给 SGPC 与 Akal Takht 看，均未收到内容异议。<sup><a href="#src-16">16</a></sup></p>
+  <div class="tbl">
+    <table>
+      <caption>《Satluj》的主要人员与公开信息</caption>
+      <thead><tr><th scope="col">角色</th><th scope="col">人员</th><th scope="col">说明</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">导演</th><td>Honey Trehan</td><td>同时参与制片，长期从事选角和电影制作</td></tr>
+        <tr><th scope="row">主演</th><td>Diljit Dosanjh</td><td>饰演 Jaswant Singh Khalra；Trehan 称其象征性收取 <span class="num">₹1</span></td></tr>
+        <tr><th scope="row">主要演员</th><td>Arjun Rampal、Geetika Vidya Ohlyan、Suvinder Vicky、Kanwaljit Singh</td><td>分别承担 CBI 调查、Khalra 家庭和旁遮普警察等叙事线</td></tr>
+        <tr><th scope="row">制片</th><td>RSVP Movies、MacGuffin Pictures</td><td>Ronnie Screwvala 在多年审查过程中继续支持项目</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>这是一部历史调查剧情片，不是逐字重演的纪录片。影片把人物和调查过程做了戏剧化处理，核心案件、秘密火化记录、Khalra 被警察绑架杀害及五名警察最终获刑，都有法院或官方材料支持。Diljit 的 <span class="num">₹1</span> 片酬来自 Trehan 的公开说法，并非可查的合同记录。<sup><a href="#src-31">31</a></sup></p>
+
+  <h3 id="s9-2">9.2 Honey Trehan 的经历与现状</h3>
+  <p>Trehan 在德里戏剧圈起步，2002 年移居孟买，之后为《Maqbool》《Omkara》《Delhi Belly》《Talvar》《Udta Punjab》等电影做选角或协助导演。2015 年，他与 Abhishek Chaubey 创办 MacGuffin Pictures，制作《A Death in the Gunj》和《Sonchiriya》。他的导演处女作《Raat Akeli Hai》于 2020 年在 Netflix 上线。<sup><a href="#src-22">22</a></sup></p>
+  <p>他小时候曾在 Tarn Taran 生活到七年级，身边长期有人谈论武装冲突和警察遭遇战。这段经历是他选择 Khalra 题材的背景之一。公开资料截至 2026 年仍把他列为孟买电影人；他继续接受采访、制作影片并参与《Satluj》放映讨论。没有可靠报道显示他已经离开印度、躲藏或中止工作。具体住宅地址属于私人信息，本页不收录。<sup><a href="#src-16">16</a></sup><sup><a href="#src-23">23</a></sup></p>
+
+  <h2 id="s10">十、电影为何无法正常上映</h2>
+  <h3 id="s10-1">10.1 从 21 项异议到约 127 处修改</h3>
+  <ol class="timeline">
+    <li><time>2022-12</time><div>影片以《Ghallughara》之名送交 CBFC，准备申请院线放映证书。</div></li>
+    <li><time>2023-02</time><div>CBFC 提出 <span class="num">21</span> 项异议。Trehan 称，其中包括删除 Khalra 和 Tarn Taran 的真实名称、Punjab Police 身份、<span class="num">2,097</span> 这个数字、“法外处决”与“人权”等字眼，以及多段关键情节。</div></li>
+    <li><time>2023-06</time><div>制片方到 Bombay High Court 挑战审查决定。</div></li>
+    <li><time>2023-09</time><div>影片入选 Toronto International Film Festival，最终由制作团队撤回。Trehan 称印度当局要求他们退出。</div></li>
+    <li><time>2024</time><div>制作方多次修改、重新制作拷贝、再送审，随后继续收到新要求。</div></li>
+    <li><time>2025-06</time><div>Trehan 公布的累计要求约为 <span class="num">127</span> 处，其中包括更改 Khalra 姓名、删去印度国旗画面和 Gurbani 声音、删去 Punjab Police 与真实地名，以及不再声称“根据真实事件改编”。</div></li>
+  </ol>
+  <p>制片方一度接受部分修改，希望取得证书，后来认为继续删改会移走影片的事实坐标。Trehan 说，制片方被要求撤回高院案件，协商却让修改数量从 <span class="num">21</span> 项增至约 <span class="num">127</span> 处。撤诉、退出 TIFF 和海外发行受阻可以由后续行为确认；要求来自谁、用了什么正式权力，主要依据 Trehan 的叙述，因为相关电话和完整文件没有公开。<sup><a href="#src-17">17</a></sup><sup><a href="#src-18">18</a></sup></p>
+
+  <h3 id="s10-2">10.2 OTT 绕过院线审查后仍被下架</h3>
+  <p>OTT 影片不需要 CBFC 院线证书。RSVP 与 ZEE5 因而选择不预告，直接在 2026 年 7 月 3 日上线未删减版《Satluj》。核心公司团队和 Diljit 事先知情，Trehan 直到上线前几天才得到确认。<sup><a href="#src-32">32</a></sup></p>
+  <p>7 月 5 日，ZEE5 在印度停止播放；影片随后也从国际区下架。Trehan 说，ZEE5 收到信息与广播部的停止通知，他本人和制片人没有收到政府电话。政府消息人士后来确认，命令依据《信息技术法》第 <span class="num">69A</span> 条，案件再交跨部门委员会审查。委员会决定继续封禁。<sup><a href="#src-19">19</a></sup><sup><a href="#src-20">20</a></sup></p>
+
+  <h3 id="s10-3">10.3 官方给出的理由</h3>
+  <p>政府跨部门委员会把三项风险列为封禁理由：影片对武装分离主义者造成的暴力交代不足；影片会让年轻人重新产生分离主义不满；巴基斯坦、海外 Khalistan 组织或其他“敌对行为者”会把它用于宣传。委员会援引 UAPA 体系下被列为恐怖组织的团体，并认为影片即使没有直接鼓吹分离，也提供了分离主义宣传所需的“情感和证据基础”。<sup><a href="#src-19">19</a></sup></p>
+  <div class="note"><b>判断</b>官方封禁依据没有质疑影片所述核心案件的法院记录。政府关注这些事实传播后会被谁利用，并把它列为国家安全风险。要求删除的人名、地名、机构、数字和法律用语，也是影片证明“这是真实案件”的坐标。</div>
+
+  <h2 id="s11">十一、导演和演员承受了什么压力</h2>
+  <h3 id="s11-1">11.1 可以确认的制度压力</h3>
+  <div class="tbl">
+    <table>
+      <caption>截至 2026 年 9 月公开资料能够支持的判断</caption>
+      <thead><tr><th scope="col">对象</th><th scope="col">有记录的压力</th><th scope="col">证据边界</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Honey Trehan</th><td>三年多无法正常发行；不断收到新增修改要求；高院、TIFF 和海外发行计划被撤回；上线后影片被政府命令下架</td><td>他仍在孟买公开工作；没有被捕、官方人身威胁或被迫流亡的公开证据</td></tr>
+        <tr><th scope="row">Ronnie Screwvala 与制片方</th><td>承担延期和发行损失；Trehan 称制片方收到要求撤诉与退出 TIFF 的电话</td><td>完整电话记录和谈判文件没有公开</td></tr>
+        <tr><th scope="row">Diljit Dosanjh</th><td>影片被封；一名律师向内政部投诉，要求依据 UAPA 等法律对他、导演和 ZEE5 登记 FIR</td><td>没有查到该投诉后来形成 FIR 或起诉，也没有证据显示政府因本片封杀其其他工作</td></tr>
+        <tr><th scope="row">其他主要演员</th><td>作品无法正常发行，职业成果与片方一起受损</td><td>没有可靠报道证明 Arjun Rampal、Geetika Vidya Ohlyan、Suvinder Vicky 或 Kanwaljit Singh 收到个人威胁</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>拍摄约十天后，也有一批当地人到现场阻止拍摄，要求制作方证明获得 Khalra 家属与 Akal Takht 许可，剧组停工数日。Akal Takht 成员支持项目后，拍摄继续。这个事件属于现场社会压力，不能据此归为政府行动。<sup><a href="#src-16">16</a></sup></p>
+  <p>律师对 Diljit、Trehan 与 ZEE5 的投诉是公开法律压力，投诉本身不等于警方已经立案，更不等于法院认定影片支持恐怖主义。Diljit 另有其他政治争议和安全威胁，现有材料没有证明那些事件由《Satluj》引起。<sup><a href="#src-24">24</a></sup></p>
+
+  <h3 id="s11-2">11.2 没有证据支持的部分</h3>
+  <p>现有证据支持“职业和制度压迫”：作品被长期拖延、发行路径被封、制片方面临财务损失，参与者还要承担投诉和声誉风险。现有证据不足以断言导演受到监控、秘密威胁或暴力恐吓，也不足以断言演员遭到政府黑名单处理。把这两层混在一起，会削弱已经可以证明的审查事实。</p>
+
+  <h2 id="s12">十二、民主制度为何仍会压缩资讯自由</h2>
+  <h3 id="s12-1">12.1 选举民主与自由民主不是同一件事</h3>
+  <p>印度仍举行全国和地方竞争性选举，反对党能够赢得邦政府和议会席位，法院、媒体与民间组织也没有消失。定期选举回答谁取得执政权；资讯自由还依赖监管机构独立、行政命令透明、法院能及时审查，以及批评者不必为发声承担过高代价。</p>
+  <p>印度的电影预审制度早于现政府。1952 年《电影法》要求影片公开院线放映前取得 CBFC 证书；CBFC 主席与成员由中央政府任命。最高法院在 1970 年确认电影可以受到事前审查。现政府继承了这套制度，并在数字平台上拥有第 <span class="num">69A</span> 条等封锁权。<sup><a href="#src-26">26</a></sup><sup><a href="#src-27">27</a></sup></p>
+
+  <h3 id="s12-2">12.2 这次封禁用了哪些制度工具</h3>
+  <ul>
+    <li>用 CBFC 的院线证书把发行与内容修改绑定，制作方不同意修改就无法进入影院。</li>
+    <li>用“国家主权、安全、公共秩序”等宽泛理由审查敏感历史。相关概念写进法律，具体风险判断留给行政机关。</li>
+    <li>OTT 绕过院线证书后，政府再用《信息技术法》第 <span class="num">69A</span> 条要求平台屏蔽。平台若不执行，法律规定最高可判七年监禁并处罚金。</li>
+    <li>第 <span class="num">69A</span> 条的封锁命令按现行程序保密，公众看不到完整理由。制作方与观众难以在下架前检验政府证据，漫长诉讼还会错过发行窗口。</li>
+    <li>大型媒体公司同时受到牌照、监管、广告和其他商业关系影响。RSF 把媒体所有权集中和政治结盟列为印度资讯自由恶化的原因。</li>
+  </ul>
+  <p>这类控制主要通过证书、延期、保密命令和平台责任运作。政府无需关闭电影院或逮捕导演，也能让一部已经完成的电影失去合法观众。</p>
+
+  <h3 id="s12-3">12.3 三项外部评估</h3>
+  <div class="stats">
+    <div><b>157 / 180</b><span>RSF 2026 新闻自由排名</span></div>
+    <div><b>62 / 100</b><span>Freedom House 2026，自由程度“部分自由”</span></div>
+    <div><b>EA</b><span>V-Dem 2026 对印度 2025 年制度分类：选举型威权</span></div>
+  </div>
+  <p>三套指标的方法不同，也都包含研究者判断，不能当作法院裁决。它们对趋势的描述接近：选举继续存在，表达自由、媒体独立、民间社会空间和对行政权的约束正在减弱。Freedom House 同时承认印度全国选举总体具有竞争性；V-Dem 的“选举型威权”标签强调的正是选举与自由保障之间的落差。<sup><a href="#src-28">28</a></sup><sup><a href="#src-29">29</a></sup><sup><a href="#src-30">30</a></sup></p>
+
+  <h2 id="s13">十三、截至 2026 年仍未解决</h2>
+  <h3 id="s13-1">13.1 6,733 宗案件申请</h3>
+  <p>PDAP 与九名申请人 2019 年要求由独立委员会调查 <span class="num">6,733</span> 宗遭遇战杀戮、羁押死亡和非法火化。最高法院让申请人转向 Punjab and Haryana High Court；高院在 2024 年 2 月向 Punjab 政府、中央政府和 CBI 发出通知。<sup><a href="#src-11">11</a></sup></p>
+  <p>CBI 在 2024 年 5 月提交反对意见，称年代久远、证人和档案不足，新调查会徒劳无功。检索至 2026 年 9 月 24 日，没有找到该案的公开终局判决。它仍应标作未决。</p>
+
+  <h3 id="s13-2">13.2 电影仍未恢复合法播放</h3>
+  <p>一名观众曾向 Punjab and Haryana High Court 提起公益诉讼，要求 ZEE5 恢复影片并公开下架依据。高院质疑申请人的诉讼资格后，案件于 2026 年 7 月 17 日按撤回处理，没有审查封禁实体是否合法。检索至 2026 年 9 月 24 日，没有找到影片重回 ZEE5 或其他合法流媒体的记录。<sup><a href="#src-25">25</a></sup></p>
+  <p>封禁后，旁遮普村庄和锡克教场所组织了集体放映。ZEE5 曾表示会通过正当程序寻求恢复，导演也继续参与讨论；这些行动没有改变官方播放状态。<sup><a href="#src-21">21</a></sup></p>
+
+  <h3 id="s13-3">13.3 可以确认的结论</h3>
+  <div class="decision"><b>证据结论</b>旁遮普在 1980 年代末至 1990 年代初发生过大规模、具有重复模式的强迫失踪、法外处决和秘密火化。法院记录、官方火化数据、田野访谈和统计分析都支持这个判断。受害者总数仍未知，公开记录足以证明规模远超几宗“个别警察失控”。《Satluj》重述了这批公开事实，影片封禁反映的是当下的国家安全判断，并未改变法院已经确认的历史。</div>
+  <p>追责不能写成“完全没有”。五名警察因 Khalra 被杀终审获无期，另有约百名警察在不同假遭遇战案件中被判刑。完整真相调查、受害者总名册、统一追责统计、对高层指挥责任的司法判断，以及《Satluj》的合法公开播放，到了 2026 年 9 月 24 日仍未实现。</p>
+
+  <h2 id="s14">十四、方法与来源</h2>
+  <p>本页以法院判决和 NHRC 文件为第一层，CBI 向法院提交的数据、Ensaaf / HRDAG 方法报告为第二层。电影制作、审查谈判和参与者压力主要来自 Trehan 的多次采访；能够由法院记录、平台声明、政府消息人士或后续行为交叉确认的部分单独写明。民主与资讯自由部分使用印度官方法律、CBFC 官方说明及三家公开方法的国际评估。</p>
+  <p>SATP 年度数字按 1984—1995 年逐年相加。所有组织的个案数字保留原口径，没有跨库求和。没有获得 CBI 密封最终报告全文、完整 CBFC 修改清单、制片方与政府通话记录、信息与广播部发给 ZEE5 的原始通知全文，以及跨部门委员会完整命令。本页把这些内容标为 Trehan 的说法或媒体取得的命令摘录。</p>
+  <p>另有四项未解决：Ensaaf 与 PDAP 名单之间的重叠；<span class="num">6,733</span> 与 <span class="num">8,257</span> 的精确包含关系；2019 年案件申请未公开的法院进展；律师针对影片的投诉是否进入 FIR 或起诉。检索截止日为 2026 年 9 月 24 日。</p>
+  <ol class="sources">
+    <li id="src-1">South Asia Terrorism Portal，“Punjab Fatalities between 1981—2000”，逐年数据，<a href="https://www.satp.org/datasheet-terrorist-attack/india-punjab/india-punjab-fatalities-between-1981-2000" target="_blank" rel="noopener">satp.org</a></li>
+    <li id="src-2">Human Rights Watch / Ensaaf，<cite>Protecting the Killers: A Policy of Impunity in Punjab, India</cite>，2007-10-17，<a href="https://www.hrw.org/report/2007/10/17/protecting-killers/policy-impunity-punjab-india" target="_blank" rel="noopener">hrw.org</a></li>
+    <li id="src-3">Romesh Silva、Jasmine Marwaha、Jeff Klingner，<cite>Violent Deaths and Enforced Disappearances During the Counterinsurgency in Punjab, India</cite>，Ensaaf / HRDAG，2009-01-26，<a href="https://hrdag.org/wp-content/uploads/2018/03/ensaaf-report_50pp_2009.pdf" target="_blank" rel="noopener">hrdag.org PDF</a></li>
+    <li id="src-4">Ensaaf，Crimes Against Humanity Data Project，“About”与“Key Statistics”，方法与 <span class="num">5,315</span> 宗公开案件，<a href="https://data.ensaaf.org/about/" target="_blank" rel="noopener">About</a>、<a href="https://data.ensaaf.org/overview/" target="_blank" rel="noopener">Key Statistics</a></li>
+    <li id="src-5">Supreme Court of India，<cite>Mrs. Paramjit Kaur v. State of Punjab</cite>，1995-11-15，<a href="https://indiankanoon.org/doc/1538237/" target="_blank" rel="noopener">Indian Kanoon</a></li>
+    <li id="src-6">Supreme Court of India，<cite>Prithipal Singh etc. v. State of Punjab &amp; Anr. etc.</cite>，2011-11-04，<a href="https://indiankanoon.org/doc/342168/" target="_blank" rel="noopener">Indian Kanoon</a></li>
+    <li id="src-7">Punjab and Haryana High Court，<cite>Amarjit Singh v. C.B.I.</cite>，2007-10-16，<a href="https://indiankanoon.org/doc/97304/" target="_blank" rel="noopener">Indian Kanoon</a></li>
+    <li id="src-8">National Human Rights Commission，Punjab Mass Cremation Case 最终赔偿公告，2012-04-03，<a href="https://nhrc.nic.in/media/press-release/nhrc-recommends-rs-27-94-00-000-to-the-families-victims-punjab-mass-cremation-case" target="_blank" rel="noopener">nhrc.nic.in</a></li>
+    <li id="src-9">Amnesty International，<cite>A Mockery of Justice: The Case Concerning the “Disappearance” of Human Rights Defender Jaswant Singh Khalra</cite>，1998-04，<a href="https://www.amnesty.org/en/wp-content/uploads/2021/06/asa200071998en.pdf" target="_blank" rel="noopener">amnesty.org PDF</a></li>
+    <li id="src-10">Punjab Documentation and Advocacy Project，<cite>Identifying the Unidentified</cite> 发布说明，2017-11-28，<a href="https://punjabdisappeared.org/1485-2/" target="_blank" rel="noopener">punjabdisappeared.org</a></li>
+    <li id="src-11"><cite>The Indian Express</cite>，“HC notice to Punjab over PIL seeking probe into 6733 encounter killings…”，2024-02-08，<a href="https://indianexpress.com/article/cities/chandigarh/hc-notice-to-punjab-over-pil-seeking-probe-into-6733-encounter-killings-and-illegal-cremations-during-1984-1995-9149770/lite/" target="_blank" rel="noopener">indianexpress.com</a></li>
+    <li id="src-12"><cite>Hindustan Times</cite>，“Probe at this stage to be futile exercise, CBI tells HC”，2024-05-10，<a href="https://www.hindustantimes.com/cities/chandigarh-news/extrajudicial-killings-during-militancy-probe-at-this-stage-to-be-futile-exercise-cbi-tells-hc-101715282991660.html" target="_blank" rel="noopener">hindustantimes.com</a></li>
+    <li id="src-13"><cite>The Tribune</cite>，“Years later, crusade launched by Jaswant Singh Khalra leads to conviction of 135 policemen”，2026-07-07，<a href="https://www.tribuneindia.com/news/punjab/years-later-crusade-launched-by-jaswant-khalra-leads-to-conviction-of-135-policemen" target="_blank" rel="noopener">tribuneindia.com</a></li>
+    <li id="src-14"><cite>The Indian Express</cite>，“Satluj row: What legal records reveal about Jaswant Singh Khalra’s lifework, and murder”，2026-07-14，<a href="https://indianexpress.com/article/explained/satluj-cbi-court-reveal-about-jaswant-singh-khalra-10783356/lite/" target="_blank" rel="noopener">indianexpress.com</a></li>
+    <li id="src-15">Human Rights Watch、REDRESS、Ensaaf、CHRGJ，致 CBI Director 的联名信，2006-05-01，<a href="https://www.hrw.org/news/2006/05/01/india-joint-letter-director-indias-central-investigation-bureau" target="_blank" rel="noopener">hrw.org</a></li>
+    <li id="src-16"><cite>Scroll</cite>，“Why the film ‘Punjab ’95’ hasn’t seen light of day”，Honey Trehan 访谈，2025-06-19，<a href="https://scroll.in/reel/1083614/scroll_in" target="_blank" rel="noopener">scroll.in</a></li>
+    <li id="src-17"><cite>The Indian Express</cite>，“127 cuts, no release: Diljit Dosanjh’s Punjab 95 is caught in a cycle of postponements”，2025-06-04，<a href="https://indianexpress.com/article/entertainment/bollywood/127-cuts-no-release-diljit-dosanjh-punjab-95-cycle-of-postponements-disappointments-director-honey-trehan-10046114/" target="_blank" rel="noopener">indianexpress.com</a></li>
+    <li id="src-18"><cite>The Indian Express</cite>，“Satluj director Honey Trehan: ‘Jaswant Singh Khalra being abducted again’”，2026-07-16，<a href="https://indianexpress.com/article/india/satluj-director-honey-trehan-interview-diljit-dosanjh-zee5-ban-cbfc-10786363/lite/" target="_blank" rel="noopener">indianexpress.com</a></li>
+    <li id="src-19"><cite>The Indian Express</cite>，“‘Satluj’ row: Government panel raises UAPA spectre, ‘misuse’ by Pakistan”，2026-07-12，<a href="https://indianexpress.com/article/india/satluj-row-government-panel-raises-uapa-spectre-misuse-by-pakistan-10782433/" target="_blank" rel="noopener">indianexpress.com</a></li>
+    <li id="src-20"><cite>Hindustan Times</cite>，“Diljit Dosanjh’s Satluj was taken off Zee5 over pro-Khalistani content: Official”，2026-07-08，<a href="https://www.hindustantimes.com/india-news/diljit-dosanjh-s-satluj-was-taken-off-zee-5-over-pro-khalistani-content-official-101783440441497.html" target="_blank" rel="noopener">hindustantimes.com</a></li>
+    <li id="src-21"><cite>Associated Press</cite>，“Community screenings keep alive a once-suppressed Indian movie”，2026-07-10，<a href="https://apnews.com/article/india-punjab-satluj-film-censorship-a0e31a0f4682f3ec97dcef878844de4f" target="_blank" rel="noopener">apnews.com</a></li>
+    <li id="src-22">National Film Development Corporation / Film Bazaar，Co-Production Market 2024 新闻稿中的 Honey Trehan 简介，<a href="https://www.filmbazaarindia.com/media/3581/press-release-_-co-production-market-2024.pdf" target="_blank" rel="noopener">filmbazaarindia.com PDF</a></li>
+    <li id="src-23"><cite>Filmfare</cite>，“Honey Trehan on Satluj’s Takedown, Why CBFC Shouldn’t Decide What People Watch and More”，2026-08-22，<a href="https://www.filmfare.com/interviews/exclusive-honey-trehan-on-satlujs-takedown-why-cbfc-shouldnt-decide-what-people-watch-and-more-85499.html" target="_blank" rel="noopener">filmfare.com</a></li>
+    <li id="src-24"><cite>The Federal</cite>，“‘Satluj’ spreads misinformation on Punjab insurgency: Lawyer seeks FIR against Diljit Dosanjh”，2026-07-06，<a href="https://thefederal.com/category/entertainment/satluj-misinformation-punjab-insurgency-lawyer-fir-diljit-dosanjh-249234" target="_blank" rel="noopener">thefederal.com</a></li>
+    <li id="src-25"><cite>The Indian Express</cite>，“PIL seeking restoration of Diljit Dosanjh’s Satluj withdrawn in Punjab and Haryana high court”，2026-07-17，<a href="https://indianexpress.com/article/legal-news/satluj-zee5-case-punjab-haryana-high-court-pil-dismissed-diljit-dosanjh-10791671/lite/" target="_blank" rel="noopener">indianexpress.com</a></li>
+    <li id="src-26">Central Board of Film Certification，“About Us”与“Certification”，院线预审制度和政府任命结构，<a href="https://cbfcindia.gov.in/cbfcAdmin/about.php" target="_blank" rel="noopener">cbfcindia.gov.in/about</a>、<a href="https://cbfcindia.gov.in/cbfcAdmin/certification.php" target="_blank" rel="noopener">cbfcindia.gov.in/certification</a></li>
+    <li id="src-27">Government of India，<cite>Information Technology Act, 2000</cite>，第 <span class="num">69A</span> 条，<a href="https://www.indiacode.nic.in/bitstream/123456789/1999/1/A2000-21%20%281%29.pdf" target="_blank" rel="noopener">India Code PDF</a></li>
+    <li id="src-28">Freedom House，<cite>Freedom in the World 2026: India</cite>，<a href="https://freedomhouse.org/country/india/freedom-world/2026" target="_blank" rel="noopener">freedomhouse.org</a></li>
+    <li id="src-29">Reporters Without Borders，<cite>2026 World Press Freedom Index: India</cite>，<a href="https://rsf.org/en/country/india" target="_blank" rel="noopener">rsf.org</a></li>
+    <li id="src-30">V-Dem Institute，<cite>Democracy Report 2026: Unraveling the Democratic Era?</cite>，2026-03，<a href="https://www.v-dem.net/documents/75/V-Dem_Institute_Democracy_Report_2026_lowres.pdf" target="_blank" rel="noopener">v-dem.net PDF</a></li>
+    <li id="src-31"><cite>The Indian Express</cite>，“Sikh body urges public screenings of Satluj; Honey Trehan says Diljit did film for free”，2026-07-08，<a href="https://indianexpress.com/article/entertainment/bollywood/diljit-dosanjh-did-satluj-for-free-sikh-body-public-screenings-of-film-jaswant-singh-khalra-10776546/" target="_blank" rel="noopener">indianexpress.com</a></li>
+    <li id="src-32"><cite>The Hollywood Reporter India</cite>，“Inside Satluj’s Secret ZEE5 Drop and Sudden Removal”，2026-07-03，<a href="https://www.hollywoodreporterindia.com/features/interviews/exclusive-satluj-hours-before-film-was-removed-from-zee5-honey-trehan-reveals-how-high-stakes-secretive-release-came-true" target="_blank" rel="noopener">hollywoodreporterindia.com</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
