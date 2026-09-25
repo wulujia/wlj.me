@@ -253,9 +253,9 @@ publish_reading() {
 
   if [ -z "$changelog_line" ]; then
     if [ "$update" = 1 ]; then
-      changelog_line="- 更新资料页《$title》，\`static/reading/$slug/index.html\`。"
+      changelog_line="- 更新资料页《${title}》，\`static/reading/$slug/index.html\`。"
     else
-      changelog_line="- 新增资料页《$title》，\`static/reading/$slug/index.html\`。$description"
+      changelog_line="- 新增资料页《${title}》，\`static/reading/$slug/index.html\`。${description}"
     fi
   fi
 
