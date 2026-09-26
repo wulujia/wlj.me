@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-26
+
+- 新增资料页《海豚湾》与太地町海豚追猎，`static/reading/the-cove/index.html`。
+
 ## 2026-09-25
 
 - 新增资料页《旁遮普失踪案与《Satluj》封禁：事实、追责和资讯自由》，`static/reading/punjab-disappearances-satluj/index.html`。梳理旁遮普冲突死亡、强迫失踪、秘密火化、Jaswant Singh Khalra 案、《Satluj》的制作与封禁、导演和演员承受的压力，以及印度资讯自由的制度背景。

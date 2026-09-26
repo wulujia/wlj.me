@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《海豚湾》与太地町海豚追猎：各方观点、科学证据和影响</title>
+<meta name="description" content="纪录片《海豚湾》（The Cove, 2009）是否公正，渔民和日本政府怎么看，科学证据说明什么，影片上映后发生了什么。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/the-cove/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* Accent: Kuroshio (black current) indigo, the current that brings dolphin pods close to Taiji. */
+:root {
+  color-scheme: light;
+  --bg: #f5f7f8;
+  --surface: #ffffff;
+  --ink: #1a1e22;
+  --ink-2: #454c54;
+  --ink-3: #626c77;
+  --rule: #d9dee3;
+  --rule-2: #b6bec7;
+  --mid: #e9edf0;
+  --acc: #1f4e79;
+  --acc-ink: #183f63;
+  --acc-wash: rgba(31, 78, 121, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #14181b; --surface: #1c2125; --ink: #eceeef; --ink-2: #c0c6cc; --ink-3: #959ea7;
+    --rule: #2b3238; --rule-2: #444d55; --mid: #232a2f;
+    --acc: #7fb0dd; --acc-ink: #a3c8ea; --acc-wash: rgba(127,176,221,.13);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #14181b; --surface: #1c2125; --ink: #eceeef; --ink-2: #c0c6cc; --ink-3: #959ea7;
+  --rule: #2b3238; --rule-2: #444d55; --mid: #232a2f;
+  --acc: #7fb0dd; --acc-ink: #a3c8ea; --acc-wash: rgba(127,176,221,.13);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+#reading-return { text-align: center; padding: 6px 10px; font-size: 13px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+#reading-return a { color: var(--ink-2); text-decoration: none; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; white-space: nowrap; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 8ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip, #reading-return { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, .note, .warn, .todo, .summary, .timeline li { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div id="reading-return"><a href="/reading/">← 返回整理</a></div>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、这部片子公正吗</a>
+        <ul>
+          <li><a href="#s1-1">属实的部分</a></li>
+          <li><a href="#s1-2">偏向的部分</a></li>
+        </ul>
+      </li>
+      <li><a href="#s2">二、渔民和日本政府的看法</a>
+        <ul>
+          <li><a href="#s2-1">太地渔民</a></li>
+          <li><a href="#s2-2">日本政府</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、科学证据</a>
+        <ul>
+          <li><a href="#s3-1">种群数量</a></li>
+          <li><a href="#s3-2">宰杀方式与动物福利</a></li>
+          <li><a href="#s3-3">汞含量</a></li>
+          <li><a href="#s3-4">标签造假</a></li>
+          <li><a href="#s3-5">海豚的智力</a></li>
+          <li><a href="#s3-6">规模对比</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、较好的做法</a></li>
+      <li><a href="#s5">五、影片上映后的影响</a>
+        <ul>
+          <li><a href="#s5-1">时间线</a></li>
+          <li><a href="#s5-2">捕杀数量的变化</a></li>
+          <li><a href="#s5-3">没有改变的部分</a></li>
+        </ul>
+      </li>
+      <li><a href="#s6">六、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">调研笔记 · 2026 年 9 月 26 日</p>
+    <h1>《海豚湾》与太地町海豚追猎：各方观点、科学证据和影响</h1>
+    <p class="lede">纪录片《海豚湾》（The Cove，2009）拍的是日本和歌山县太地町每年秋冬的海豚追猎。这页整理四件事：片子是否公正，渔民和日本政府怎么看，科学证据说明什么，影片上映后发生了什么。</p>
+    <p class="meta"><span>资料截至 2026-09-26</span><span>捕杀数字截至 2025/26 猎季</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>《海豚湾》是倡导型纪录片，核心画面属实，但只讲一方的道理。科学上争议最大的两点：几种海豚的本地种群数据偏旧，追猎是否可持续还说不准；现行的脊髓刺杀法在 2013 年的兽医学分析里被认定达不到屠宰场的人道标准。影片没有让追猎停下来。2024/25 和 2025/26 两个猎季各杀了约 300 到 400 头，配额都是 1,824 头；变化最大的是日本水族馆协会在 2015 年停止从太地购买海豚。</p>
+  </div>
+
+  <h2 id="s1">一、这部片子公正吗</h2>
+  <p>不算公正。它按“潜入行动”的节奏剪辑，立场先定，再找证据。它拍到的事情是真的，但背景交代得很少。</p>
+
+  <h3 id="s1-1">属实的部分</h3>
+  <ul>
+    <li>太地确实每年把海豚群赶进海湾，挑一部分卖给水族馆，其余宰杀取肉。日本官方也不否认<sup><a href="#src-8">8</a></sup>。</li>
+    <li>主角里克·奥巴瑞（Ric O'Barry）曾是电视剧《海豚飞宝》（Flipper）的驯兽师，后来转做反圈养活动，这段经历是真的<sup><a href="#src-20">20</a></sup>。</li>
+    <li>海豚肉汞含量高。2007 年太地两名町议员自费检测本地出售的领航鲸肉，汞含量是厚生劳动省参考值的 10 到 16 倍<sup><a href="#src-10">10</a></sup>。</li>
+    <li>海豚肉被当成“鲸肉”出售。DNA 抽检从 1993 年起多次证实过这一点<sup><a href="#src-15">15</a></sup>。</li>
+  </ul>
+
+  <h3 id="s1-2">偏向的部分</h3>
+  <ul>
+    <li>渔民和官员被拍成反派，几乎没有解释自己的机会。</li>
+    <li>“秘密海湾”的说法暗示追猎是偷偷进行的。追猎在日本合法，有配额，当地人都知道。</li>
+    <li>影片强调海豚接近人类的智力，用来支撑“不该杀”。这是道德立场，科学本身推不出这个结论。</li>
+    <li>太地的捕鲸历史、小镇的经济处境、日本社会怎么看西方反捕鲸运动，片中几乎没有讲。</li>
+    <li>日本版上映时加了一段声明，写明片中数据由制作方收集并负责<sup><a href="#src-12">12</a></sup>。</li>
+  </ul>
+  <p>想看另一面，可以看日本导演的两部回应片：八木景子的《Behind the Cove》（2015），佐佐木芽生的《A Whale of a Tale》（2016）。前者同样一边倒，后者温和一些<sup><a href="#src-19">19</a></sup>。</p>
+
+  <h2 id="s2">二、渔民和日本政府的看法</h2>
+
+  <h3 id="s2-1">太地渔民</h3>
+  <ul>
+    <li><strong>生计和历史。</strong>太地从 17 世纪起捕鲸，现代的海豚追猎始于 1969 年<sup><a href="#src-19">19</a></sup>。对一个人口约 3,500 人、老龄化的小镇，这是少数还剩下的营生。</li>
+    <li><strong>和杀牛杀猪没有区别。</strong>和歌山县知事仁坂吉伸 2014 年说：“我们每天都在夺走牛、猪这些动物的生命，只说吃海豚肉残忍，说不通。”<sup><a href="#src-8">8</a></sup></li>
+    <li><strong>被骚扰。</strong>活动人士多年来在海湾边拍摄、跟踪、把渔民的脸发到网上。很多居民认为影片抹黑了整个小镇。</li>
+    <li><strong>真正赚钱的是活体交易。</strong>一头海豚的肉价不到 1,000 美元；一头活的宽吻海豚卖给水族馆，报价在 3 万到 12.8 万美元之间<sup><a href="#src-6">6</a></sup>。</li>
+  </ul>
+
+  <h3 id="s2-2">日本政府</h3>
+  <ul>
+    <li><strong>合法且有管理。</strong>水产厅按物种给太地定年度配额。2024/25 和 2025/26 两季都是 9 个物种合计 1,824 头，全国小型鲸类配额约 10,920 头<sup><a href="#src-6">6</a></sup><sup><a href="#src-7">7</a></sup>。时任内阁官房长官菅义伟 2014 年表示，日本的海豚捕捞“依法适当进行”<sup><a href="#src-8">8</a></sup>。</li>
+    <li><strong>国际捕鲸委员会管不到。</strong>日本认为国际捕鲸委员会（IWC）只管大型鲸，不管海豚这类小型鲸类。法律上说得通，其他国家有异议。日本在 2019 年退出了该委员会。</li>
+    <li><strong>可持续利用。</strong>野生动物只要种群承受得住，就可以捕捞，和鱼一样。日本还提出，海豚吃鱼，需要控制数量来保护渔场<sup><a href="#src-8">8</a></sup>。</li>
+    <li><strong>反对文化强加。</strong>不少日本人把西方的反捕鲸运动看成外人把自己的饮食禁忌强加给日本。</li>
+  </ul>
+
+  <h2 id="s3">三、科学证据</h2>
+
+  <h3 id="s3-1">种群数量</h3>
+  <p>太地追猎的物种包括条纹海豚、宽吻海豚、花斑原海豚、里氏海豚（灰海豚）、短肢领航鲸等。按世界自然保护联盟（IUCN）的全球评估，大多数属于“无危”。</p>
+  <p>全球数字说明不了本地种群。日本鲸类学者粕谷俊雄的研究记录了日本近海条纹海豚因过度捕捞而衰退。1960 年代，静冈县伊豆一带每年杀条纹海豚 1 万到 2 万头，后来当地的追猎停了<sup><a href="#src-16">16</a></sup><sup><a href="#src-18">18</a></sup>。2021 年日本学者金治等人对宽吻海豚、里氏海豚和短肢领航鲸做了多模型种群评估，所用捕捞记录只到 2008 年<sup><a href="#src-17">17</a></sup>。粕谷本人在 2007 年写道，种群结构、数量和捕捞统计的可信度都急需研究<sup><a href="#src-16">16</a></sup>。</p>
+  <p>结论：对部分物种，“可持续”说得通；对另一些物种，数据不够，证明不了。</p>
+
+  <h3 id="s3-2">宰杀方式与动物福利</h3>
+  <p>太地从 2008 年起大规模使用脊髓刺杀法：把金属杆插进海豚颈后切断脊髓，再用木塞堵住伤口，减少血流进海里。太地渔协发表的资料称海豚几秒内死亡。</p>
+  <p>2013 年，英国布里斯托大学兽医学院的 Butterworth 等人分析了 2011 年拍到的现场视频<sup><a href="#src-1">1</a></sup>：</p>
+  <ul>
+    <li>海豚不会立即死亡。有一头条纹海豚在刺杀后还动了 254 秒，也就是 4 分 14 秒<sup><a href="#src-2">2</a></sup>。</li>
+    <li>鲸类的脑部供血和陆地哺乳动物不同，刺杀很可能切不断大脑的含氧血供应。</li>
+    <li>椎骨之间的缝隙很小，这种操作很难每次都插准。</li>
+    <li>作者的结论：这种方法不符合任何公认的人道屠宰机制；从驱赶、围困到宰杀，整个过程都损害动物福利。</li>
+  </ul>
+  <p>牛猪屠宰在日本、欧盟、美国都要求瞬间失去知觉。按这个标准，太地现行方法不达标。论文作者中有两位来自保护组织，但结论和后来对法罗群岛追猎的研究一致<sup><a href="#src-1">1</a></sup>。</p>
+
+  <h3 id="s3-3">汞含量</h3>
+  <p>海豚处在食物链顶端，肉和内脏会积累汞。2009 年日本国立水俣病综合研究中心检测了太地 1,137 名志愿者的头发，2010 年 5 月公布结果<sup><a href="#src-4">4</a></sup>：</p>
+  <div class="tbl">
+    <table>
+      <caption>头发甲基汞平均值（ppm），2009 年采样</caption>
+      <thead><tr><th scope="col">人群</th><th scope="col" class="num">男性</th><th scope="col" class="num">女性</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">太地町居民</th><td class="num">11.00</td><td class="num">6.63</td></tr>
+        <tr><th scope="row">日本其他 14 个地点</th><td class="num">2.47</td><td class="num">1.64</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li>太地居民是其他地区的 4 倍多。其中 23 人超过 50 ppm。</li>
+    <li>182 名高值居民做了神经检查，没有发现汞中毒症状。多国医学专家质疑检查方法和“居民自己决定吃什么”的建议<sup><a href="#src-4">4</a></sup>。</li>
+    <li>另一项同行评审研究测得太地出售的领航鲸红肉总汞平均 9.6 微克每克<sup><a href="#src-5">5</a></sup>。日本鱼类的参考值是总汞 0.4 ppm，两者单位相同，差了约 24 倍。</li>
+    <li>厚生劳动省 2005 年起建议孕妇每两个月最多吃 80 克宽吻海豚肉<sup><a href="#src-14">14</a></sup>。</li>
+  </ul>
+  <p>风险是真的，官方也知道。影片“整个小镇在被毒害”的说法超出了现有数据。</p>
+
+  <h3 id="s3-4">标签造假</h3>
+  <p>美国学者 Scott Baker 和 Steve Palumbi 1993 年在东京市场买了 16 份“鲸肉”做 DNA 检测，不到一半来自小须鲸，其余有受保护的大型鲸，也有海豚和鼠海豚。1999 年一次 99 份样本的抽检，同样发现大量海豚肉被当作鲸肉出售<sup><a href="#src-15">15</a></sup>。影片在这一点上说得对。</p>
+
+  <h3 id="s3-5">海豚的智力</h3>
+  <p>2001 年 Reiss 和 Marino 发表在美国《国家科学院院刊》的研究显示，宽吻海豚能在镜子里认出自己<sup><a href="#src-21">21</a></sup>。海豚还有复杂的社会关系，能互相学习。这些是可靠的科学结果。</p>
+  <p>猪、乌鸦、章鱼也很聪明。聪明是否意味着不该杀，是伦理判断，科学回答不了。批评太地的人如果同样反对工厂化养猪，论证才前后一致。</p>
+
+  <h3 id="s3-6">规模对比</h3>
+  <div class="tbl">
+    <table>
+      <caption>每年死亡的鲸类数量对比</caption>
+      <thead><tr><th scope="col">来源</th><th scope="col" class="num">每年死亡数</th><th scope="col">出处</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">太地追猎（2024/25 至 2025/26）</th><td class="num">约 290 到 420 头</td><td>现场观察统计<sup><a href="#src-6">6</a></sup><sup><a href="#src-7">7</a></sup></td></tr>
+        <tr><th scope="row">全球渔业误捕（1990 年代估算）</th><td class="num">约 30 万头</td><td>Read 等，2006<sup><a href="#src-13">13</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>只从物种保护看，太地不是鲸类的主要威胁。争议集中在动物福利和伦理上。</p>
+
+  <h2 id="s4">四、较好的做法</h2>
+  <p>从科学出发，不一定要禁止追猎，但至少要满足这些条件：</p>
+  <ol>
+    <li><strong>人道宰杀。</strong>达到陆地屠宰的标准，瞬间或接近瞬间死亡。缩短驱赶时间，避免拆散家庭群。</li>
+    <li><strong>独立的种群评估。</strong>配额依据近期、经同行评审的调查，留出安全余量。按物种公开捕杀、放生和受伤的数量。</li>
+    <li><strong>停止或严管活体交易。</strong>活体交易是追猎能赚钱的主要原因。日本水族馆协会 2015 年已停止从太地购买，出口到动物福利法规宽松的国家是最大的漏洞。</li>
+    <li><strong>标签和健康提示。</strong>用 DNA 抽检保证物种标注真实，在售卖处标明汞含量提示，尤其是内脏，针对孕妇和儿童。</li>
+    <li><strong>由当地人主导转型。</strong>观鲸和海洋旅游长期收入可能更高，前提是太地自己选择。外部压力到目前为止主要让当地人更加抵触。</li>
+    <li><strong>批评者的一致性。</strong>用同样的标准看待工厂化养殖、法罗群岛的领航鲸追猎和渔业误捕，批评才有分量。</li>
+  </ol>
+  <div class="note"><b>判断</b><p>科学能部分回答的是两个问题：种群数据够不够（目前不确定），宰杀方式是否人道（现有证据偏向否定）。“该不该吃海豚”是价值观冲突，科学裁决不了。</p></div>
+
+  <h2 id="s5">五、影片上映后的影响</h2>
+
+  <h3 id="s5-1">时间线</h3>
+  <ol class="timeline">
+    <li><time>2007-10</time><div><strong>领航鲸肉撤出太地学校午餐。</strong>起因是町议员 Junichiro Yamashita 和 Hisato Ryono 公布的汞检测结果，早于影片上映<sup><a href="#src-10">10</a></sup><sup><a href="#src-11">11</a></sup>。</div></li>
+    <li><time>2009</time><div><strong>影片在圣丹斯电影节首映。</strong>导演路易·西霍尤斯（Louie Psihoyos）<sup><a href="#src-20">20</a></sup>。</div></li>
+    <li><time>2010-03</time><div><strong>获奥斯卡最佳纪录长片。</strong>太地从无名渔村变成全球知名的争议地点<sup><a href="#src-20">20</a></sup>。</div></li>
+    <li><time>2010-05</time><div><strong>水俣病研究中心公布太地居民头发汞检测结果。</strong>数值是其他地区的 4 倍多，未发现中毒症状<sup><a href="#src-4">4</a></sup>。</div></li>
+    <li><time>2010-06</time><div><strong>日本上映受阻。</strong>右翼团体抗议后，至少 3 家影院取消放映。日本记者、学者和导演联名呼吁影院不要退让。6 月 25 日横滨法院下令抗议者离影院至少 100 米<sup><a href="#src-12">12</a></sup>。</div></li>
+    <li><time>2010-07</time><div><strong>在日本 6 家影院上映。</strong>日本版加了数据责任声明<sup><a href="#src-12">12</a></sup>。</div></li>
+    <li><time>2010 起</time><div><strong>活动人士驻守海湾。</strong>海洋守护者协会（Sea Shepherd）的 “Cove Guardians” 等团体每个猎季在现场拍摄、直播。渔民搭起篷布挡镜头，警方加强布防<sup><a href="#src-19">19</a></sup>。</div></li>
+    <li><time>2014-01</time><div><strong>美国驻日大使卡罗琳·肯尼迪发推。</strong>她用英日双语写道，“对追猎杀海豚的不人道深感关切，美国政府反对追猎捕捞”。菅义伟回应称日本依法捕捞<sup><a href="#src-8">8</a></sup>。</div></li>
+    <li><time>2015-05</time><div><strong>日本动物园水族馆协会停止购买太地海豚。</strong>世界动物园水族馆协会 4 月暂停了它的会员资格。5 月 20 日投票，99 票对 43 票决定停购。江之岛水族馆和下关海响馆因此退出协会<sup><a href="#src-3">3</a></sup>。</div></li>
+    <li><time>2016-02</time><div><strong>奥巴瑞被驱逐出境。</strong>他 1 月 18 日在成田机场被拒绝入境，拘留 19 天后于 2 月 5 日被遣返。2019 年东京地方法院判定拒绝入境和驱逐都违法<sup><a href="#src-9">9</a></sup>。</div></li>
+    <li><time>2016-03</time><div><strong>海洋世界停止繁殖虎鲸。</strong>《海豚湾》和 2013 年的纪录片《黑鲸》（Blackfish）共同推动了反圈养舆论<sup><a href="#src-19">19</a></sup>。</div></li>
+  </ol>
+
+  <h3 id="s5-2">捕杀数量的变化</h3>
+  <p>以下数字来自在岸上观察的保护团体，不是政府统计，各家略有出入<sup><a href="#src-6">6</a></sup><sup><a href="#src-7">7</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>太地近年猎季数据</caption>
+      <thead><tr><th scope="col">猎季</th><th scope="col" class="num">配额</th><th scope="col" class="num">宰杀</th><th scope="col" class="num">活捕</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2023/24</th><td class="num">待确认</td><td class="num">833</td><td class="num">待确认</td></tr>
+        <tr><th scope="row">2024/25</th><td class="num">1,824</td><td class="num">286 到 298</td><td class="num">92 到 94</td></tr>
+        <tr><th scope="row">2025/26</th><td class="num">1,824</td><td class="num">393 到 416</td><td class="num">84</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>作为参照，日本海豚追猎的高峰期全国每年宰杀超过 2.1 万头，主要是条纹海豚<sup><a href="#src-18">18</a></sup>。数量下降有几个原因：活动人士的压力、海豚肉需求减少、找到的海豚变少、重心转向活捕。单凭这部影片解释不了。</p>
+
+  <h3 id="s5-3">没有改变的部分</h3>
+  <ul>
+    <li>追猎至今每年 9 月到次年 2 月照常进行。</li>
+    <li>日本多数人本来就不知道太地追猎，也很少吃海豚肉。影片没有改变这一点，反而让一部分人把它当成民族尊严问题。</li>
+    <li>水族馆协会停购之后，太地海豚转卖给协会外的日本水族馆，以及中国等海外市场。停购前，协会成员约占太地活体需求的 40%<sup><a href="#src-3">3</a></sup>。</li>
+  </ul>
+
+  <h2 id="s6">六、方法与来源</h2>
+  <p>资料于 2026 年 9 月 26 日通过网络检索取得，优先用同行评审论文和主流媒体报道。捕杀数字只有保护团体的现场观察统计，没有找到水产厅按猎季公布的官方捕获量。2023/24 猎季的配额和活捕数没有查到。厚生劳动省孕妇食鱼建议只核对了宽吻海豚一项，其他物种的次数限制未核对。部分背景事实（捕鲸历史、活动人士驻守、海洋世界停止繁殖虎鲸）来自维基百科的汇总条目。</p>
+  <ol class="sources">
+    <li id="src-1">Butterworth 等，《A Veterinary and Behavioral Analysis of Dolphin Killing Methods Currently Used in the “Drive Hunt” in Taiji, Japan》，Journal of Applied Animal Welfare Science 16(2)，2013，<a href="https://www.tandfonline.com/doi/abs/10.1080/10888705.2013.768925" target="_blank" rel="noopener">tandfonline.com</a></li>
+    <li id="src-2">Animal Welfare Institute，《Japan's Taiji Dolphin Killing Methods Deemed Inhumane》，2013，<a href="https://awionline.org/awi-quarterly/spring-2013/japans-taiji-dolphin-killing-methods-deemed-inhumane/" target="_blank" rel="noopener">awionline.org</a></li>
+    <li id="src-3">The Japan Times，《Japan aquariums vote to stop using dolphins from Taiji》，2015-05-20，<a href="https://www.japantimes.co.jp/news/2015/05/20/national/national-zoo-body-bans-using-taiji-dolphins/" target="_blank" rel="noopener">japantimes.co.jp</a></li>
+    <li id="src-4">The Japan Times，《Experts fear Taiji mercury tests are fatally flawed》，2010-05-23，<a href="https://www.japantimes.co.jp/life/2010/05/23/environment/experts-fear-taiji-mercury-tests-are-fatally-flawed/" target="_blank" rel="noopener">japantimes.co.jp</a>；Fox News（美联社稿），<a href="https://www.foxnews.com/world/japanese-in-village-known-for-dolphin-hunt-have-dangerous-high-mercury-levels-government-says" target="_blank" rel="noopener">foxnews.com</a></li>
+    <li id="src-5">Endo 等，《High mercury levels in hair samples from residents of Taiji, a Japanese whaling town》，Marine Pollution Bulletin，2009，<a href="https://www.sciencedirect.com/science/article/abs/pii/S0025326X09004974" target="_blank" rel="noopener">sciencedirect.com</a></li>
+    <li id="src-6">International Marine Mammal Project，《Another Taiji Dolphin Slaughter Season Ends》，<a href="https://savedolphins.eii.org/news/another-taiji-dolphin-slaughter-season-ends" target="_blank" rel="noopener">savedolphins.eii.org</a>；Dolphin Project，《Taiji Drive Hunt Statistical Data》，<a href="https://www.dolphinproject.org/campaigns/save-japan-dolphins/statisticaldata/" target="_blank" rel="noopener">dolphinproject.org</a></li>
+    <li id="src-7">Ceta-Base，《Taiji Seasonal Results》，<a href="https://cetabase.org/data/taiji/seasonal-results/" target="_blank" rel="noopener">cetabase.org</a></li>
+    <li id="src-8">NBC News，《Caroline Kennedy “Deeply Concerned” by Japan Dolphin Hunt》，2014-01，<a href="https://www.nbcnews.com/news/world/caroline-kennedy-deeply-concerned-japan-dolphin-hunt-n12916" target="_blank" rel="noopener">nbcnews.com</a>；Fox News（美联社稿），<a href="https://www.foxnews.com/world/japan-defends-dolphin-hunt-after-us-ambassador-kennedys-criticism" target="_blank" rel="noopener">foxnews.com</a></li>
+    <li id="src-9">The Japan Times，《Ric O'Barry, opponent of Japanese dolphin hunt, detained at Narita》，2016-01-19，<a href="https://www.japantimes.co.jp/news/2016/01/19/national/crime-legal/ric-obarry-opponent-japanese-dolphin-hunt-detained-narita" target="_blank" rel="noopener">japantimes.co.jp</a>；Dolphin Project，《Court: O'Barry Free to Return to Japan》，<a href="https://www.dolphinproject.org/blog/court-obarry-free-to-return-to-japan/" target="_blank" rel="noopener">dolphinproject.org</a></li>
+    <li id="src-10">The Japan Times，《Taiji officials: Dolphin meat “toxic waste”》，2007-08-01，<a href="https://www.japantimes.co.jp/life/2007/08/01/environment/taiji-officials-dolphin-meat-toxic-waste/" target="_blank" rel="noopener">japantimes.co.jp</a></li>
+    <li id="src-11">NBC News（美联社稿），《Japan's dolphin hunt sags over mercury fears》，2008-01，<a href="https://www.nbcnews.com/news/amp/wbna22920804" target="_blank" rel="noopener">nbcnews.com</a></li>
+    <li id="src-12">The Hollywood Reporter，《Japan shows “The Cove” after protest delays》，2010-07，<a href="https://www.hollywoodreporter.com/news/general-news/japan-shows-cove-after-protest-25204/" target="_blank" rel="noopener">hollywoodreporter.com</a>；CBC News，《The Cove sparks free-speech fight in Japan》，<a href="https://www.cbc.ca/news/entertainment/the-cove-sparks-free-speech-fight-in-japan-1.884508" target="_blank" rel="noopener">cbc.ca</a></li>
+    <li id="src-13">Read、Drinker、Northridge，《Bycatch of Marine Mammals in U.S. and Global Fisheries》，Conservation Biology 20，2006，<a href="https://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/j.1523-1739.2006.00338.x" target="_blank" rel="noopener">wiley.com</a></li>
+    <li id="src-14">厚生劳动省，《Advice for Pregnant Women on Fish Consumption and Mercury》（英文暂译版），2005-11-02，<a href="https://www.mhlw.go.jp/topics/bukyoku/iyaku/syoku-anzen/suigin/dl/051102-1en.pdf" target="_blank" rel="noopener">mhlw.go.jp</a></li>
+    <li id="src-15">Baker 等，《Molecular genetic identification of whale and dolphin products from commercial markets in Korea and Japan》，Molecular Ecology，1996，<a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-294X.1996.tb00362.x" target="_blank" rel="noopener">wiley.com</a>；SF State Magazine，《The DNA Sleuth》，<a href="https://magazine.sfsu.edu/archive/archive/spring_11/dnasleuth.html" target="_blank" rel="noopener">magazine.sfsu.edu</a></li>
+    <li id="src-16">Kasuya，《Review of the biology and exploitation of striped dolphins off Japan》，Journal of Cetacean Research and Management 1(1)，1999，<a href="https://journal.iwc.int/index.php/jcrm/article/download/454/188" target="_blank" rel="noopener">journal.iwc.int</a>；Kasuya，《Japanese Whaling and Other Cetacean Fisheries》，2007，<a href="https://link.springer.com/article/10.1065/espr2006.09.346" target="_blank" rel="noopener">springer.com</a></li>
+    <li id="src-17">Kanaji 等，《Multiple-model stock assessment frameworks for precautionary management and conservation on fishery-targeted coastal dolphin populations off Japan》，Journal of Applied Ecology，2021，<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2664.13982" target="_blank" rel="noopener">wiley.com</a></li>
+    <li id="src-18">Whale and Dolphin Conservation，《Small whale and dolphin hunts in Japan》，<a href="https://us.whales.org/our-goals/stop-whaling/stop-dolphin-hunts/small-whale-and-dolphin-hunts-in-japan/" target="_blank" rel="noopener">us.whales.org</a></li>
+    <li id="src-19">维基百科，《Taiji dolphin drive hunt》，<a href="https://en.wikipedia.org/wiki/Taiji_dolphin_drive_hunt" target="_blank" rel="noopener">en.wikipedia.org</a></li>
+    <li id="src-20">维基百科，《The Cove (film)》，<a href="https://en.wikipedia.org/wiki/The_Cove_(film)" target="_blank" rel="noopener">en.wikipedia.org</a></li>
+    <li id="src-21">Reiss、Marino，《Mirror self-recognition in the bottlenose dolphin》，PNAS 98(10)，2001，<a href="https://www.pnas.org/doi/10.1073/pnas.101086398" target="_blank" rel="noopener">pnas.org</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
