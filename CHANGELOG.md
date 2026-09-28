@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-28
+
+- 新增资料页《里克·鲁宾谈创作与 AI：中文访谈全文》，`static/reading/rick-rubin-the-only-skill/index.html`。The Diary Of A CEO 对音乐制作人 Rick Rubin 的访谈中文全文译稿，按 30 个章节分节，可跳转至原视频对应时间。
+
 ## 2026-09-26
 
 - 新增资料页《海豚湾》与太地町海豚追猎，`static/reading/the-cove/index.html`。

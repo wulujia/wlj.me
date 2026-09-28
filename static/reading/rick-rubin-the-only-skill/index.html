@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>里克·鲁宾谈创作与 AI：中文访谈全文</title>
+<meta name="description" content="The Diary Of A CEO 对音乐制作人 Rick Rubin 的访谈中文全文译稿，按 30 个章节分节，可跳转至原视频对应时间。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/rick-rubin-the-only-skill/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f8f6f5;
+  --surface: #ffffff;
+  --ink: #1e1a1a;
+  --ink-2: #494e52;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #e2dcdb;
+  --rule-2: #b9bfc5;
+  --mid: #efeae9;
+  --acc: #8a2f3c;            /* 主题色：按题目换 */
+  --acc-ink: #74222f;        /* accent dark enough for text */
+  --acc-wash: rgba(138, 47, 60, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #191617; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #d9828f; --acc-ink: #eba9b3; --acc-wash: rgba(217,130,143,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #191617; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #d9828f; --acc-ink: #eba9b3; --acc-wash: rgba(217,130,143,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+.chap { font-size: 13px; color: var(--ink-3); margin: -6px 0 18px; display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+.chap a.mono { font-size: 13px; text-decoration: none; padding: 0 6px; box-shadow: inset 0 0 0 1px var(--acc); color: var(--acc-ink); }
+.spk { font-weight: 600; color: var(--acc-ink); }
+.spk::after { content: "："; }
+@media print { .chap a.mono::after { content: none !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+<li><a href="#c01">开场</a></li>
+<li><a href="#c02">鲁宾的“无法辩护”原则</a></li>
+<li><a href="#c03">一张梗图怎么变成了《The Way of Code》</a></li>
+<li><a href="#c04">为什么冒险胜过“老一套”</a></li>
+<li><a href="#c05">Jay-Z 的《99 Problems》是怎么做出来的</a></li>
+<li><a href="#c06">超觉冥想，以及找到你热爱的事</a></li>
+<li><a href="#c07">创造力是天生的吗？</a></li>
+<li><a href="#c08">别再和别人比</a></li>
+<li><a href="#c09">“懒惰的工作狂”与躲开截止日期</a></li>
+<li><a href="#c10">创作的四个阶段</a></li>
+<li><a href="#c11">该不该辞职去追梦？</a></li>
+<li><a href="#c12">鲁宾怎么看出一个艺人会成大器</a></li>
+<li><a href="#c13">觉得被困住了？人生的“重启键”</a></li>
+<li><a href="#c14">广告</a></li>
+<li><a href="#c15">身份是一座牢笼：如何重新开始</a></li>
+<li><a href="#c16">33 岁那次抑郁，以及它教会我的事</a></li>
+<li><a href="#c17">怎样变得更有原创性</a></li>
+<li><a href="#c18">AI 危险吗？</a></li>
+<li><a href="#c19">AI 能有创造力吗？</a></li>
+<li><a href="#c20">AI 时代，什么造就伟大的艺人？</a></li>
+<li><a href="#c21">录音棚里的奇迹</a></li>
+<li><a href="#c22">当世界拒绝你的作品</a></li>
+<li><a href="#c23">黑桃 A 的故事：Jay-Z 为什么离开 Cristal</a></li>
+<li><a href="#c24">广告</a></li>
+<li><a href="#c25">如果你的作品不够好呢？</a></li>
+<li><a href="#c26">Jay-Z 有何不同：他的写作过程</a></li>
+<li><a href="#c27">坎耶的过人之处，以及伟大的艺人是天生的吗？</a></li>
+<li><a href="#c28">改变了鲁宾的那些艺人</a></li>
+<li><a href="#c29">鲁宾为什么拍 Jay-Z 纪录片</a></li>
+<li><a href="#c30">你会感谢谁？</a></li>
+<li><a href="#method">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+  <header>
+    <p class="eyebrow">译稿 · 2026 年 9 月 21 日</p>
+    <h1>里克·鲁宾：AI 偷不走的那项技能</h1>
+    <p class="lede">音乐制作人里克·鲁宾（Rick Rubin）做客 The Diary Of A CEO，和主持人史蒂文·巴特利特（Steven Bartlett）聊直觉、冒险、身份、抑郁和 AI 时代的创作。本页是整期节目的中文全文译稿。</p>
+    <p class="meta"><span>原视频：<a href="https://www.youtube.com/watch?v=a_GiFiHXJ6g" target="_blank" rel="noopener">YouTube · The Diary Of A CEO</a></span><span>时长 2 小时 46 分</span><span>30 个章节</span></p>
+  </header>
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>本期节目中，The Diary Of A CEO 主持人史蒂文·巴特利特与音乐制作人里克·鲁宾聊创作中的直觉、冒险，以及为何不以短期销量决定作品方向。鲁宾回忆，Jay-Z 录制《99 Problems》时没有动笔写歌词，只让伴奏循环播放，在脑中构思了二三十分钟便进录音室录下第一段。鲁宾还讲到，自己的一张照片被网友做成“氛围编程”梗图后，他顺势发了一条玩笑推文，浏览量从平常的一两万次升至一百五十万次，随后放下手头工作，投入一本关于氛围编程的书，尽管当时仍不太清楚它是什么。谈到参与制作坎耶的《Yeezus》，他主张把创作推向连自己都难以用理性辩护的方向，并将作品视为个人日记：忠实表达自己的感受，接受听众可能暂时甚至永远无法理解。</p>
+  </div>
+<h2 id="c01">开场</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=0s" target="_blank" rel="noopener">00:00</a><span lang="en">Intro</span></p>
+<p><b class="spk">鲁宾</b>Jay-Z 写歌的方式跟谁都不一样。我合作过的其他说唱歌手都会花很多时间写歌词，但我从没见过 Jay 写歌词。我把《99 个问题》（99 Problems）的伴奏放给他听时，他说：“好，就这样一直循环放。”然后他就坐在房间后面。你能听到他在小声念叨，或者哼哼。</p>
+<p>过了二三十分钟，他说：“好了，有了。”他跑进另一个房间，录下了第一段。他大概录了三遍，然后回来听，说：“哦，对，我觉得第二遍不错。”这一切就在他脑子里完成了。</p>
+<p><b class="spk">巴特利特</b>再看跟你合作过的这些人，真是一份让人难以置信的名单。Jay-Z、坎耶（Kanye）、阿黛尔（Adele）、贾斯汀·汀布莱克（Justin Timberlake）、米克·贾格尔（Mick Jagger），还有红辣椒乐队（Red Hot Chili Peppers）。你觉得这些人为什么会找你？</p>
+<p><b class="spk">鲁宾</b>因为我已经创作了四十年，而且一开始做音乐只是爱好。后来它自己发展起来，成了一门生意。名单上的这些人，也没什么特别的。我会说，他们就是做了一个决定的普通人。我觉得埃米纳姆（Eminem）就是个很好的例子。埃米纳姆一直在写，因为他想尽自己所能做到最好，而且他对这件事的执着简直到了疯狂的地步。</p>
+<p><b class="spk">巴特利特</b>看起来，有些人天生就比别人更有创造力。</p>
+<p><b class="spk">鲁宾</b>嗯，在我们成长的过程中，创造力一点点被磨掉了。我们去上学，别人教我们遵守规则。规则的存在并不是为了帮助我们。规则的存在是为了控制我们。没人教我们自由地、创造性地思考。所以我建议，我们挣脱束缚，自由地表达自己。</p>
+<p><b class="spk">巴特利特</b>怎么做？</p>
+<p><b class="spk">鲁宾</b>嗯，所有最好的东西都伴随着风险。只有冒了险，伟大的东西才会显现出来。所以，有些东西需要死去。那一刻的生活方式、那条职业道路、那段关系，这些就是需要死去的东西。</p>
+<p><b class="spk">巴特利特</b>对于想按下重启键的人来说，朝这个方向走，第一步可以做什么？</p>
+<p><b class="spk">鲁宾</b>有。我首先会说的是……</p>
+<p><b class="spk">巴特利特</b>你三十岁出头的时候，自己也经历过一段抑郁时期。</p>
+<p><b class="spk">鲁宾</b>对。那段时间真的很难熬。我感觉脚下的地毯突然被人抽走了。我开始出现惊恐发作，睡不着觉，身体也出了很严重的问题。感觉就像中了一支毒箭。</p>
+<p><b class="spk">巴特利特</b>跟我讲讲你那段日子吧。</p>
+<p><b class="spk">鲁宾</b>当时……</p>
+<p><b class="spk">巴特利特</b>有个挺奇怪的事实。现在正在看视频的人，大多数，也就是大约 58% 的人，还没有订阅这个频道。从统计上说，你很可能就是其中之一。所以，能请你帮个小忙吗？如果这个频道曾经给你带来过任何价值，能不能帮我点一下订阅？</p>
+<p>这不花一分钱，却能给我们带来远超你想象的帮助。而且你们也看到了，频道越做越大，我们就越能在嘉宾和制作上投入更多。非常感谢，也希望你喜欢这期节目。</p>
+<p>里克（Rick），我想从我好奇的地方开始聊。</p>
+<p><b class="spk">鲁宾</b>好。</p>
+<p><b class="spk">巴特利特</b>说到职业，你会怎么给自己分类，或者怎么定义自己？</p>
+<p><b class="spk">鲁宾</b>我会说，我做的事情跟艺术和创造力有关。</p>
+<p><b class="spk">巴特利特</b>那你具体参与艺术和创造力的哪些方面？</p>
+<h2 id="c02">鲁宾的“无法辩护”原则</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=153s" target="_blank" rel="noopener">02:33</a><span lang="en">Rick Rubin’s &quot;Indefensible&quot; Rule</span></p>
+<p><b class="spk">鲁宾</b>有时是当教练，有时是当合作者。可能是参与一个电影项目，也可能是有人开了一家初创公司，想聊聊有哪些有创意的解决办法。我们遇到的任何问题，或者想做得更好的任何事情，通常都能找到一条有创意的路径来改善，至少可以试一试，看看有没有其他办法。很多时候，大家公认的前进方式，本身又是一种限制。</p>
+<p><b class="spk">巴特利特</b>我特别好奇，你在寻找解决办法时会遵循什么原则，无论是在商业上，还是在音乐上。我也很想知道，寻找解决办法的过程有没有什么相通之处。因为我是个创业者，应该也算个播客主播。我每天整天都在做投资。我一直在寻找解决问题的办法，可能是人的问题，也可能是创作上的问题。你有没有一些总体原则，不管解决什么类型的问题，都能广泛适用？</p>
+<p><b class="spk">鲁宾</b>我跟你说一个有意思的。我最近一直在想一个词，“无法辩护”。“无法辩护”这个词很有意思，因为它是个贬义很重的词。贬义非常强。如果一件事无法辩护，那就不只是糟糕了。“无法辩护”是很极端的说法。</p>
+<p>我在想，创作艺术时，无法辩护其实是件好事。可能不只是好事，甚至是必要的，就是你要把事情推到一个无法辩护的极端。我说不出为什么。我说不出为什么，因为它超出了理性的范围。</p>
+<p>所以，我的看法是，在我们做决定的过程中，理性只占很小的一部分。我更倾向于相信直觉，或者某种来自宇宙的指引，敞开自己，接受某种更宏大的力量的指引，接受宇宙创造力的指引。你可以叫它上帝。我叫它上帝。你不一定要这么叫。</p>
+<p><b class="spk">巴特利特</b>你参与创作过的艺术作品里，有没有一些是你在创作当时就觉得无法辩护的？</p>
+<h2 id="c03">一张梗图怎么变成了《The Way of Code》</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=319s" target="_blank" rel="noopener">05:19</a><span lang="en">How a Meme Became Rick Rubin&#x27;s &quot;The Way of Code&quot;</span></p>
+<p><b class="spk">鲁宾</b>一年多前，有个关于氛围编程（vibe coding）的梗。事情是这样开始的：当时出现了一件新鲜事，一个叫安德烈·卡帕西（Andrej Karpathy）的人提出了“氛围编程”这个词。我不知道那是什么。就在他提出这个词、发推文讲这件事的当天，有人放了一张我的照片，照片里我戴着耳机，闭着眼睛，手放在鼠标上。后来，这张照片就跟氛围编程联系在了一起。</p>
+<p>这事跟我完全没关系。我看到了，但不知道是什么意思。接下来几天，朋友们开始给我发这张照片，几百张，配上各种各样跟氛围编程有关的内容。我心想：“嗯。”</p>
+<p>换作以前的我，写《创造力：一生的事》（The Creative Act）之前的我，可能笑一笑，就接着过自己的日子了。我在写《创造力：一生的事》的过程中学到了一件事，书里也经常谈到，就是我们身边一直都有信息传递过来。各种机会、各种邀请，一直都在出现。</p>
+<p>以前，如果有人跟我说起一部电影，听起来我不想看，我就会想：“这听着不适合我。”然后不去理会。但如果有两三个人说：“这部电影你可能该看看。”即使我没兴趣，我也可能会去看。感觉就像宇宙在……这背后的能量太强了。</p>
+<p>这次就是一个例子，很多跟氛围编程有关的能量朝我涌来。我不知道那是什么。我就想：“好，我怎么参与进去？”如果我想参与这件正在发生的事，把它当成一次实验，一次创作实验。我就想：“好，我来写条跟氛围编程有关的玩笑推文。”</p>
+<p>我想了想，写出这么一句：“工具来了又去，唯有氛围程序员长存。”通常，我的推文会有一两万次浏览。第二天我一看，这条开玩笑的推文居然有一百五十万次浏览。我就觉得，这里面有点什么。</p>
+<p>这是个无法辩护的举动。我没有理由做这件事，但我感觉到这股能量从各个不同的方向朝我涌来。我参与了。我回应了邀请。然后有了回响。有人感兴趣。</p>
+<p>那下一步是什么？下一步就是：“嗯，我还是不太清楚氛围编程到底是什么。也许我可以写一本关于氛围编程的书。”我把所有正经工作、职业上的工作都放到一边，全身心地投入这本关于氛围编程的书。</p>
+<p>而且，我还是没法解释。我说不出为什么。我也不能说这是个好主意。这些我都说不了。我只是顺着一种召唤，感觉有人在邀请我参与这件事。而这就是我回应召唤的方式。</p>
+<p>所以我就做了。</p>
+<p><b class="spk">巴特利特</b>在生活的很多方面，我们都可能收到这样的邀请，去参与一件跟自己毫不相干的事。</p>
+<p><b class="spk">鲁宾</b>对，一直都有。</p>
+<p><b class="spk">巴特利特</b>对，而我们通常会拒绝，因为那不是名片上写的工作，也不是我们过去做过的事。而且越成功，我们在很多方面就越狭窄。</p>
+<p><b class="spk">鲁宾</b>对。</p>
+<p><b class="spk">巴特利特</b>我在想，一个人该怎么抵抗自己身上的标签，才能抓住各种召唤，或者才不会错过重要的……</p>
+<p><b class="spk">鲁宾</b>任何你给自己贴的标签，或者别人给你贴的标签，都会把你变小。没有任何标签适用。</p>
+<p><b class="spk">巴特利特</b>没有任何标签适用。</p>
+<p><b class="spk">鲁宾</b>我们超出了标签能定义的范围。</p>
+<p><b class="spk">巴特利特</b>不过，标签确实很有诱惑力，对吧？因为在酒会上，标签能让人很快了解你。</p>
+<p><b class="spk">鲁宾</b>也没有捷径。而且我希望你别花太多时间参加酒会。</p>
+<p><b class="spk">巴特利特</b>不，我没有。别担心。我只是在猜现在的情况。好，这挺有意思，有时候去追随那些无法辩护的东西。</p>
+<p><b class="spk">鲁宾</b>嗯，如果你感受到一种召唤，即使它说不通，比如一个艺术家写歌，你真心觉得：“这对我很有意义。我觉得不会有人喜欢，但我的感受很强烈。我无法为它辩护。”那就是你能做的最好的事。如果你做一件东西，心里想的是：“这适合所有人。”或者：“他们一定会喜欢。”那就太容易了。</p>
+<p>最有意思的东西都有挑战性。它挑战你，也挑战看到它的人。那些带来革命性变化的东西，我这辈子爱上的大多数创作和艺术，刚看到或刚听到时，我常常未必喜欢，因为它太强烈了，或者我没有任何理解它的背景。真正具有革命性的作品，我们是没有背景可以理解它的。</p> <!-- lint-disable-line -->
+<p><b class="spk">巴特利特</b>里克，在我看来，有时候那些跟已有的东西差不多的作品，反而会有更好的数据。我想到的是……</p>
+<p><b class="spk">鲁宾</b>也许在一段时间里是这样。</p>
+<h2 id="c04">为什么冒险胜过“老一套”</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=629s" target="_blank" rel="noopener">10:29</a><span lang="en">Why Risk Beats &quot;More of the Same&quot;</span></p>
+<p><b class="spk">巴特利特</b>我想到两位音乐人。一位是德雷克（Drake），说真的，他的音乐很好，写出了很多热门歌曲。大家都喜欢。歌一出来，我们就在夜店里跟着跳舞，诸如此类。然后我又想到，你应该参与过坎耶的一张专辑，《耶稣降临》（Yeezus）。</p>
+<p><b class="spk">鲁宾</b>嗯。</p>
+<p><b class="spk">巴特利特</b>我还记得第一次听那张专辑时自己在哪儿。我是坎耶的铁杆歌迷，当时我想：“来了，又能听到更多《大学辍学生》（The College Dropout）那样的音乐了，来了。”</p>
+<p><b class="spk">鲁宾</b>对。</p>
+<p><b class="spk">巴特利特</b>结果一放，我就想：“这他妈什么东西？”</p>
+<p><b class="spk">鲁宾</b>对。</p>
+<p><b class="spk">巴特利特</b>但后来我爱上它了。</p>
+<p><b class="spk">鲁宾</b>对。</p>
+<p><b class="spk">巴特利特</b>而且在我们那个六个人的小圈子里……</p>
+<p><b class="spk">鲁宾</b>花了多久？一段时间吗？</p>
+<p><b class="spk">巴特利特</b>一段时间。</p>
+<p><b class="spk">鲁宾</b>对。</p>
+<p><b class="spk">巴特利特</b>确实花了一段时间。德雷克的歌，我通常第一次听就会喜欢。</p>
+<p><b class="spk">鲁宾</b>嗯。</p>
+<p><b class="spk">巴特利特</b>但《耶稣降临》那张专辑，我真的得坚持听下去。后来我觉得它简直是天才之作，因为它是一种全新的范式。你参与了那张专辑。</p>
+<p><b class="spk">鲁宾</b>对。这就是个很好的例子，它有点像一张反嘻哈的专辑，而且是有意这么做的。我们尽可能地往那个无法辩护的领域走。</p>
+<p><b class="spk">巴特利特</b>那数据呢？销量呢？唱片公司呢？</p>
+<p><b class="spk">鲁宾</b>现在，那张专辑对你来说重要吗？</p>
+<p><b class="spk">巴特利特</b>重要。</p>
+<p><b class="spk">鲁宾</b>好。它完成了自己的任务。</p>
+<p><b class="spk">巴特利特</b>可那些短期回报呢？“听着，德雷克，我们需要你再做一张……”</p>
+<p><b class="spk">鲁宾</b>我们从来不考虑短期回报，任何时候都不考虑。一次都没有。从没考虑过。它不存在。我们做的东西是要一直留下去的。我们做的东西，是真正属于我们自己的。</p>
+<p>如果它真正属于我们自己，有人不理解，那他只是还没理解。也许他永远都不会理解。没关系，因为我知道，这是我的一篇日记。别人能读了你的日记，然后说你写错了吗？说它不够好，或者不真实，或者你看世界的方式不是这样的？</p>
+<p>我们做的每一样东西，都是一篇日记。我们做的每一样东西，都是我们个人真实的表达。我们之所以要表达，就是为了呈现：“你是那样看的，我们是这样看的。”或者：“我是这样看的。这就是我看它的方式。”有了这些信息，你就能看到，就会想：“啊，我以前从没考虑过这个。原来还有更多。”</p>
+<p>这个世界比我以为的更大。它不只是更多一样的东西，也不只是更高的数字。更高的数字。而且，追求更高数字的游戏，也是一场更短期的游戏。</p>
+<p>我记得自己跟林肯公园（Linkin Park）做过一张专辑。当时他们大概是全世界最红的乐队之一，已经做了三张专辑，我觉得风格都非常相似。他们做的是说唱摇滚，当时有一股说唱摇滚风潮：科恩乐队（Korn），我想最早应该是讨伐体制乐队（Rage Against the Machine），然后是科恩乐队、软饼干乐队（Limp Bizkit），这些乐队。林肯公园大概是那波音乐浪潮里最后出现的乐队。他们做这种音乐，取得了巨大的成功。</p>
+<p>我们开始合作时，面前有一个选择。可以继续沿着同样的风格做下一张，听众会喜欢，做起来也容易。或者，我们也可以忠于乐队当时的状态，那时距离他们成立大概已经过了八年、十年，让自己自由地寻找新的声音，下一个声音。</p>
+<p>当我们这样做了以后，大概有一半听众不喜欢，另一半听众非常喜欢，也有新的听众加入进来。这样一来，他们就为自己创造了更长久的职业生涯，可以持续做自己想做的东西。当时，他们所处的音乐类型已经走到尾声，如果再做一张同样的专辑，很可能还会像之前一样成功。但从长远看，这种音乐类型正在消亡。不过，这些都不是我们当时考虑过的。</p>
+<p>我想到的另一个例子，是电台司令（Radiohead）的《A 头士》（Kid A）。我记得《A 头士》刚出来时，我一点都不喜欢。我很喜欢《善变》（The Bends）和《OK 电脑》（OK Computer）。他们是我最喜欢的乐队。然后他们做了《A 头士》这张专辑。</p>
+<p>它完全不同。而且真的让我觉得很疏远。但今天，它可能是我最喜欢的电台司令专辑。</p>
+<p><b class="spk">巴特利特</b>感觉这是在冒险。</p>
+<p><b class="spk">鲁宾</b>对，但所有最好的东西都伴随着风险。</p>
+<p><b class="spk">巴特利特</b>因为我相信，你肯定也见过这样的例子：有人遵循这个想法，听从自己内心想做的东西，或者为自己创作，不太考虑听众，结果却没有成功。</p>
+<p><b class="spk">鲁宾</b>当然。</p>
+<p><b class="spk">巴特利特</b>而他们原本可以做一首热门歌曲，把房贷还清，然后……</p>
+<p><b class="spk">鲁宾</b>对。那没那么有意思。至少我知道，对我来说没那么有意思。我觉得那是另一种游戏。那是投资和商业的游戏，而我玩的是艺术的游戏。</p>
+<p>就是两回事。另一种游戏没什么不对。只是我不玩那个。</p>
+<p><b class="spk">巴特利特</b>从长远看，哪一种能带来更大的成功？所谓成功，比如说，在这里我们把它定义为，人们主观上觉得作品很好，以及赚到钱。</p>
+<p><b class="spk">鲁宾</b>我只能说，我已经创作了四十年。我从没按你说的那种方式做过。我一直在冒险。我一直在做自己最喜欢的东西。我一直在支持艺术家做他们最喜欢的东西。</p>
+<p>幸运的是，这个过程中出现了很多带来革命性变化的作品。我想，这些作品大概也鼓舞了其他艺术家，让他们更自由、更忠于自己、更诚实，冒更大的风险，做出更有意思的东西，让世界变得更有意思。</p> <!-- lint-disable-line -->
+<p><b class="spk">巴特利特</b>你觉得这些人为什么会找你？</p>
+<p><b class="spk">鲁宾</b>我想，不同艺术家的原因可能不一样。</p>
+<p><b class="spk">巴特利特</b>Jay-Z 为什么找你？</p>
+<h2 id="c05">Jay-Z 的《99 Problems》是怎么做出来的</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=998s" target="_blank" rel="noopener">16:38</a><span lang="en">How Jay-Z&#x27;s 99 Problems Was Made</span></p>
+<p><b class="spk">鲁宾</b>我第一次见到 Jay 时，他正在做《黑色专辑》（The Black Album），而且准备退休了，这张专辑会是他的告别之作，最后一张专辑。《黑色专辑》当时是 Jay-Z 的最后一张专辑。后来并不是，但当时是这么打算的。他邀请了自己最喜欢的十位制作人，每人跟他合作一首歌。我们那首叫《99 个问题》。制作过程非常有意思。</p>
+<p><b class="spk">巴特利特</b>那真是一首标志性的歌。你在里面做了哪些工作？所有人都知道那首歌。所有人。</p>
+<p><b class="spk">鲁宾</b>对。我们做了伴奏，放给 Jay 听，他很喜欢。然后他写了歌词，在上面说唱。</p>
+<p><b class="spk">巴特利特</b>所以你制作了音乐？</p>
+<p><b class="spk">鲁宾</b>做了音乐。</p>
+<p><b class="spk">巴特利特</b>做了音乐。我读到过，你也给过他歌词方面的方向。</p>
+<p><b class="spk">鲁宾</b>嗯，我的朋友克里斯·洛克（Chris Rock）有个想法。Ice-T 有首歌也叫《99 个问题》，思路正好相反。歌词是：“我有九十九个问题，娘们儿不在其中。”然后讲的是那些姑娘的故事。克里斯说：“‘99 个问题’会是个很棒的记忆点，而且不一定非得写姑娘。”然后我就建议 Jay：“写那些问题吧。”最后就成了这样。</p>
+<p><b class="spk">巴特利特</b>商界人士、初创公司，也会找你请教吗？创业者也会？</p>
+<p><b class="spk">鲁宾</b>经常。</p>
+<p><b class="spk">巴特利特</b>那他们想从你这里得到什么？</p>
+<p><b class="spk">鲁宾</b>我们再聊聊《99 个问题》吧，因为这个故事挺有意思。Jay-Z 当时签在 Def Jam 唱片公司（Def Jam Records）。Def Jam 唱片公司是我创办的。但做《99 个问题》时，我已经不在 Def Jam 了。</p>
+<p>我记得把这首歌交给了 Def Jam 的人。当时 Def Jam 的总裁听了以后说：“哦，这首很棒。肯定做不了单曲，但放在专辑里会是首很棒的歌。”我记得自己当时想：“好吧。”而且，我也不知道。我也说不准。</p>
+<p>但我创办的这家唱片公司的总裁却在说：“这首绝对做不了单曲，因为它听起来跟电台里其他歌都不一样。”那是过去的思路，也是通常的思路：你做一首歌，想让它上电台，就要让它听起来像电台里的其他歌。可要是这样，谁在乎呢？</p>
+<p>那不过是更多一样的东西。所以，《99 个问题》听起来跟电台里的任何歌都不一样。等它最终在电台播出时，就产生了很大的影响。我合作过的另一支乐队叫 System of a Down。</p>
+<p><b class="spk">巴特利特</b>对，我记得。</p>
+<p><b class="spk">鲁宾</b>我记得带着他们的唱片去找 KROQ 电台的 Kevin Weatherly。KROQ 是加利福尼亚的一家摇滚电台，播另类摇滚。如果他们播一首歌，全国其他另类摇滚电台也都会播。他们是领头的电台。</p>
+<p>这是一支加利福尼亚的乐队，开始在俱乐部里受到欢迎。可能只有两百个人来看，但在俱乐部演出，票就能卖光。这是个好兆头。我带去的那首歌，好像叫《糖》（Sugar）。我拿去找 Kevin Weatherly，放给他听。</p>
+<p>他说：“我们不光不会播这首歌，我们电台永远都不会播这支乐队。”因为它听起来太疯狂了。跟电台里其他任何东西都不一样。一年后，它成了电台排名第一、点播最多的歌。两周前，我看到 System of a Down 在巴黎一座体育场的八万个座位全部售罄。连着两晚，全都卖光了。</p>
+<p>我说不出这是怎么发生的，也说不出为什么。我也说不出有什么可供遵循的方法。但我会说，我们做了自己喜欢的东西。我们从没问过，别人会不会喜欢。从没问过，听众会怎么想。从没问过：“它在市场上处于什么位置？”</p>
+<p>那些通常会有的讨论，我们全都没有。</p>
+<p>我们做出了自己最喜欢的东西。我们把它做到了无法辩护的程度，能走多远就走多远。幸运的是，最后成功了。</p>
+<p>有什么办法能更清楚地知道自己热爱什么吗？这个问题听起来有点奇怪，不过——</p>
+<h2 id="c06">超觉冥想，以及找到你热爱的事</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=1242s" target="_blank" rel="noopener">20:42</a><span lang="en">Transcendental Meditation &amp; Finding What You Love</span></p>
+<p>冥想。我十四岁就学会了冥想。我觉得，超觉静坐（Transcendental Meditation，简称 TM）给我的生活打下了一个根基——这是我十四岁时学的第一种冥想——它改变了我。我知道这一点，是因为上大学以后，我停止了冥想。后来大学刚毕业，我搬到加利福尼亚州（California），又开始冥想了。</p>
+<p>我心里隐约知道，这是个重要的决定，也隐约知道，会有一个合适的时刻重新开始。停了好几年之后，我又过了几个月，才真正坐下来，做了第一次冥想。就在那次冥想中，我意识到：“哦，这种感觉太熟悉了。它是我很重要的一部分，虽然我已经五年没做了。从小就有机会冥想，这件事深深影响了我看待世界的方式。”</p>
+<p>为了理解冥想让你成为了怎样的人，我想反过来问问你：如果没有冥想，你会是什么样的人？</p>
+<p>我不知道。我也很好奇。我很高兴自己不知道，因为我喜欢保持这个练习。不过，无论我接下来还练不练，这辈子我已经练了足够多，那种状态已经在我身上了。冥想做得越多，我就能走得越深。但即便不做，就像玛哈里希（Maharishi），也就是超觉静坐的导师玛哈里希·玛赫西·优济（Maharishi Mahesh Yogi）说的：每做一次冥想，就像往银行存了一笔钱。</p>
+<p>所以它会积累。还是那句话，以前我觉得这只是一种说法，但通过自己的经历，我发现：“哦，这不只是说说。我真的有过这种体验。”它改变了我看待世界的方式。</p>
+<p>我会说，你能看透表面，看到下面更深的东西。对我来说，表面的东西没那么有意思。我感兴趣的是深处，是藏在它后面的东西。</p>
+<p>那我首先想问，什么是超觉静坐？</p>
+<p>这是一种在心里默念咒音的练习。你坐着，闭上眼睛来做。你要跟超觉静坐的老师学，我教不了你。</p>
+<p>好。</p>
+<p>我们闭上眼睛，然后老师会给你一个咒音，也就是一种声音的振动。我十四岁时得到了自己的咒音。从那以后，我从没把它念出声，也从没告诉过任何人，这是训练的一部分。它就像一个私密的声音，你用老师教你的方式，在心里跟这个声音相处。每次二十分钟，每天至少一次，通常是两次。</p>
+<p>我会早上一醒来就做一次，晚饭前再做一次。就是这两个时间段。我住在加利福尼亚州、在不同录音室工作的时候，会在录音开始前和汤姆·佩蒂（Tom Petty）、约翰尼·卡什（Johnny Cash），还有其他艺人一起冥想。这是我们日常练习的一部分，和红辣椒乐队也一样。录音前，我们会坐下来一起冥想。</p>
+<p>所以，这种体验在我生命里已经持续很久了。要说对我影响最深的事，它大概就是了。后面我们还会谈到其他的，但这是一个可以学习、可以练习，而且确实改变了我的做法。</p>
+<p>你怎么知道它有效？怎么知道它起作用了？在你看来，凭什么判断这个练习值得投入这些时间？</p>
+<p>我唯一的证据，就是停下来一段时间，然后再回来。重新开始的第一次冥想，我就感受到了，自己和它的联系有多深。</p>
+<p>我猜，你说的进入更深的层次，是指它让你获得更深层次的创造力和想法？</p>
+<p>所有方面。</p>
+<p>哦。</p>
+<p>所有方面。理解得更深。</p>
+<p>人们经常听说，各种形式的冥想都有好处。经常有非常成功的人坐在这里，说：“我能做成这些事，冥想是非常核心的原因。”但也有人会想：“我坐了十分钟，脑子里还是特别特别忙。我试过一次，没什么用。”</p>
+<p>然后他们就不再试了。可当我去研究世界上一些出色的创作者、出色的远见者，那些在我看来能以非同寻常的方式预见未来的人，比如史蒂夫·乔布斯（Steve Jobs），我总能发现一种练习，一种冥想练习——好吧，是经常能发现——它就在他们过人之处的核心。</p>
+<p>我目前没有冥想的习惯。我很棒的未婚妻有。她每天早上都会做二十分钟。她从事呼吸练习的教学，所以她的整个世界都围绕着这些。</p>
+<p>那跟我说说，她是怎么说的。</p>
+<p>她说，这能带来更深层次的平静。我说的平静，不是指缓解压力，而是一种更深的安定感。她还说，她会觉得自己跟周围的联系更紧密。在她那里，我想这更多是一种灵性上的感受。她觉得自己和宇宙、和其他人的联系更紧密了。</p> <!-- lint-disable-line -->
+<p>就创作体验而言，灵性上的联系是其中很重要的一部分。创作本来就是这样运作的。它不是一个思考推理的过程，它是一个灵性的过程。</p>
+<p>从生物学角度看，是什么机制带来了你感受到的这些效果？</p>
+<p>我可能给不了你期待的那种答案，但我想说，它让你放下了日常的种种烦心事。我也有个问题：你和一个人生活在一起，她告诉你，这个练习对她的人生影响这么大，那我就想问，你为什么至少没有跟她一起试上一个月，看看它会给你带来什么影响？</p>
+<p>这个问题问得太好了。真的，是个好问题。我没有什么说得过去的答案。</p>
+<p>对，因为这件事的关键在于，你不向外寻找线索，你向内寻找线索。什么会让你兴奋起来？什么东西会让你迫不及待地想放给朋友听？你想放给朋友听，不是抱着“你觉得这东西会有什么成绩”的心态。你放给朋友听的时候，想的是：“哇，你能相信世上居然有这样的东西吗？这也太酷了吧？”</p>
+<p>我想弄清楚的区别是，你看商业书或者创业书时，它们谈到创新，谈到亚马逊（Amazon）这样出色的公司，往往会说——前几天，我也听克拉纳（Klarna）的首席执行官 Sebastian 这么说过，他是一位科技公司的创始人——他们花很多时间去思考客户，思考客户的问题，然后从这里倒推，找到答案。他们把这叫作倒推。所以他们会仔细研究里克的世界，说：“里克有这些问题，他怎样怎样。”然后从这里倒推出一个答案。亚马逊说，他们就是这样建起这个平台的。</p>
+<p>杰夫·贝索斯（Jeff Bezos）有句挺有名的话，说他会押注那些他知道不会变的事情。他说：“十年后，不会有人跑来跟我说，‘真希望我的包裹送得再慢一点。’”所以他可以在这件事上持续加码，解决客户的问题。这和你说的相矛盾吗？还是说，这是同一回事？或者，这是另一种类型的工作？</p>
+<p>嗯，我先说一点，如果你看看亚马逊的历史，它大概亏了二十年的钱。它一度被认为是最糟糕的投资之一，直到后来情况变了。他们一直在自己相信的事情上加码。</p>
+<p>当时它行不通。用户的反应表明它行不通。商业模式表明它行不通，但他们坚持自己相信的东西，最后改变了世界。</p>
+<p>所以，这是同一回事？</p>
+<p>就是在所有指标都告诉你行不通的时候，继续在自己相信的事情上加码。这就是亚马逊的故事。</p>
+<h2 id="c07">创造力是天生的吗？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=1735s" target="_blank" rel="noopener">28:55</a><span lang="en">Is Creativity Innate?</span></p>
+<p>你觉得，人们在这方面的能力是不是有高低之分——如果先把冥想这样的练习放在一边，纵观历史，似乎有些人就是比其他人更善于培养内心的声音，或者倾听它。当然，我坐在这里采访过一些非常出色的创始人，看起来有些人就是天生比其他人更有创造力。有些人总是在用大脑里负责分析的那一部分，他们需要一加一永远等于二。我想知道，还有没有其他办法，以及你是否认为，人的创造力存在先天差异。</p>
+<p>我觉得，在成长过程中，我们的创造力一点点受到了打压。我们去上学，大人让我们把听到的东西复述回去，让我们整天坐在椅子上。各种制度把我们的心气磨没了。</p>
+<p>没有人教我们自由地、创造性地思考。我们学到的是遵守规则。那些规则的存在，并不是为了帮助我们。那些规则是用来控制我们的。</p>
+<p>我的建议是，我们挣脱束缚，获得自由，自由地表达自己。这就是我们来到这个星球上的目的：自由地表达自己。这就是我们为什么在这里。</p>
+<p>你说的让我想到我们前面聊过的一点：从很小的时候起，我们就被教导，我们做出来的东西是达成某个目的的手段。而那个目的是升职、加薪、资本、成功、职位头衔。你是不是在说，在创作过程中，讨论如何衡量成功，再想办法把这个指标做到最好，永远都没什么帮助？</p>
+<p>在创作过程中，我通常不会想这些。我想不出有什么情况会让我们想要使用数据。我觉得，更重要的是内心的感受，然后是你把它放给别人听、分享给别人时，我们的感受，还有它能不能让某个人兴奋起来。一个人真的对某样东西产生共鸣，你是看得出来的。有时候，数字显现不出来，数字反映不了这些。</p>
+<p>两样东西在商业上的表现可能差不多，但其中一样会让你兴奋起来，另一样则是：“嗯，它能把事情办了。”它们不一样。从长远来看，那个让你兴奋起来的东西，很可能对你更有价值，你也更愿意长久地支持它。</p>
+<p>在你的这本《创造力：一生的事》里，你谈到了那些阻碍创造力的东西。“不利于创作的想法和习惯。相信自己不够好。”</p>
+<p>这一条影响很大。小时候，可能有一次你在唱歌，有人说：“啊，你根本不会唱歌。”这句话就留在了你心里：“唱歌这件事，我永远都做不了。”或者，“你做饭太难吃了。”又或者，“你不够聪明。”很多时候，我们拥有的天赋就这样受到了压制，最后彻底埋没了。</p> <!-- lint-disable-line -->
+<p>我们都有创造力。我们可能没有选择去做有创造力的事，但这取决于我们自己。我们能做到。我们只是接收了错误的信息。有人告诉我们，我们不够好，我们就信了。但那不是真的。</p>
+<p>当人们说“哦，里克是个有创造力的人”，又说“史蒂文（Steven）没有创造力”时，他们到底在说什么？在我们的文化里，“有创造力的人”意味着什么？我们对这个定义有什么误解？你明白我的意思吗？因为我们确实会这样分：“有创造力，做点艺术和音乐的东西。有创造力，没创造力，做 Excel 表格，有创造力。”</p>
+<p>我们这么说的时候，到底在说什么？</p>
+<p>我觉得，这是人们试图简化世界的一种方式。世界很复杂，而我认为，我们每个人都可以做任何事。我并不是说，我们每个人都能把每件事都做到自己的极限，还比其他所有人做得更好。这里面很大一部分问题，就在于竞争这个观念。</p>
+<p>如果我想打棒球，我知道自己可以打得更好。这不意味着我觉得自己能练到去纽约大都会队（New York Mets）打球的水平，但我知道自己能进步。我也知道，任何我感兴趣的事，我都可以通过训练，把它做得好得多。可一旦发现自己没能力去大都会队打球，我们就觉得这件事不适合自己，把这条路关掉了。这对自己没有好处。我们没有成为最好的自己，也没有真正发挥出身为一个人的全部潜力。</p>
+<h2 id="c08">别再和别人比</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2026s" target="_blank" rel="noopener">33:46</a><span lang="en">Stop Comparing Yourself</span></p>
+<p>通过比较来理解一样东西的价值，感觉像是人的一种自然本能。我觉得，去餐厅的时候我们就会这样。菜单上有三种牛排。“贵的那种可能有点装腔，便宜的那种可能不太好。我选中间的吧。”</p>
+<p>这似乎是人们省事的一种办法，但我们对自己也这么做。所以，我怎么知道自己做的东西好不好？看看你做的东西，如果我的排名更高，或者我的更漂亮、更值钱，我就觉得自己的好。你是在说，我们应该停止比较吗？</p>
+<p>对，因为在我看来，这永远都是在拿不同的东西硬比。如果你问：“迈克尔·杰克逊（Michael Jackson）和普林斯（Prince），谁更好？”我会说，做迈克尔·杰克逊，迈克尔·杰克逊要强得多。做普林斯，普林斯大概更好。但你没法比较他们两个人做的东西。他们做的是两种不同的东西。</p>
+<p>刚才你提到了坎耶和德雷克。他们之间没有什么竞争。他们做的是两种完全不同的东西。你从他们各自身上得到的东西，完全不一样。我不会希望从德雷克那里得到坎耶给我的东西，也绝不会希望从坎耶那里得到德雷克给我的东西。那毫无意义。</p>
+<p>他们谁更有创造力呢？</p>
+<p>这由你来判断。这由你来判断。艺术家之间要互相竞争，这整个想法就很奇怪。又回到了那个问题：谁的日记写得更好？太荒唐了。</p>
+<p>“觉得自己没有所需的精力。”这些都是不利于创作的想法。</p>
+<p>对，我有时候也会这样。经常觉得自己应付不来。</p>
+<p>我昨天从伦敦（London）飞过来。我很累，有点时差反应。我得过来跟你聊。也许聊得不会很好。也许最好还是躺下来，放松一下，恢复恢复。</p>
+<p>但我来了。我还是到场了。</p>
+<p>你说自己是个懒惰的工作狂。</p>
+<p>对。确实如此。</p>
+<p>什么叫懒惰的工作狂？</p>
+<h2 id="c09">“懒惰的工作狂”与躲开截止日期</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2142s" target="_blank" rel="noopener">35:42</a><span lang="en">The &quot;Lazy Workaholic&quot; &amp; Avoiding Deadlines</span></p>
+<p>经常是，大多数日子里，日程上安排的事，我一件都不想做。但那些事是我安排的，我会到场，把该做的事做完。</p>
+<p>你在创作中会将就吗？唱片公司给的截止日期快到了，作品还没做完，那就做到这里，交出去吧？</p>
+<p>我通常不会这样。我通常要等创作推进到某个阶段之后，才会按截止日期来工作。我们第一次定截止日期时，一定是已经找到门道，知道这个东西会是什么样，而且已经看得见了。它可能还没有完全做完，但我们对它是什么、怎么呈现，已经有了很清楚的想法，大概已经完成了百分之九十。这时，我们可能会给最后百分之十的收尾工作定一个截止日期，而这最后的百分之十，大概不会决定整个项目的成败。</p>
+<p>如果按照你描述的这种创作方式，核心始终是“我喜欢吗？我们喜欢吗？”，那你要接受的一点就是，有时候你会做出堪称传奇的东西，和世上已有的任何东西都不一样。它们就是与众不同。但你承担的风险也包括，你会做出别人就是不喜欢的东西。</p>
+<p>对。这个过程就是这样：你有一个想法，然后把它做出来。做的过程中，你可能发现，这个想法也许没那么好，于是它拐了个弯。“我一开始想做一座蓝色雕像”，最后却做成了一幅红色的画。开始的时候你不知道，但你会在过程中发现，这可能花很长时间。</p>
+<p>有时候，你会想：“我要做一个蓝色的东西。”五分钟就做出来了。就在那儿，完成了。这没法计算。你没法预料会发生什么。</p>
+<p>但如果我没有在这里做这个实验，就永远到不了那个更好的东西。这种事一直都在发生。还有的时候，你把它做出来，二十年都不见成效，然后它就成了亚马逊。</p>
+<p>我最近经常在想，给自己设定多长的时间，会怎样改变你做的事。我觉得，你刚才说的也有这层意思。比如你举的那个蓝色雕像的例子，如果你有一个时间限制，就不会有空间去做你描述的那些探索。其实在生活中，我想我们都会给自己设定时间。我们会说：“我的这段职业生涯要用五年。在这五年里，我要实现这些目标。”你怎么看给人生设定时间安排，以及给创作设定时间安排这件事？</p>
+<h2 id="c10">创作的四个阶段</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2298s" target="_blank" rel="noopener">38:18</a><span lang="en">The 4 Phases of Creativity</span></p>
+<p>我在书里谈到的一点是，创作有不同的阶段。第一个阶段是种子阶段。然后是实验阶段，再是打磨阶段，最后是收尾、完成、编辑的阶段。在这个过程的早期，你没法定时间表。</p>
+<p>在种子阶段，你必须尝试很多东西，该花多长时间，就得花多长时间。到了实验阶段，你拿着这些种子，看看它们想长成什么样，这也需要时间。再到第三个阶段，也就是打磨阶段，仍然需要时间，因为这时你已经有了种子，看见它想长成什么样，给了它孕育的时间，也看见了它怎样生长。现在，在第三个阶段，也就是打磨阶段，你开始修剪它，让它变成你心里看到的样子。</p>
+<p>所有这些都要先发生，之后才能考虑时间表。因为在那之前，你其实并不知道自己在做什么。它只是一个梦。但走过这三个阶段以后，这个东西已经摆在你面前。它可能还没完成，但你能看见它是什么。你看见了，而且觉得它很好。你为它兴奋。</p>
+<p>我说它好，意思是我觉得它好。就这样。到这里就够了。我觉得它好。我足够喜欢它，所以愿意拿给你看。如果我喜欢到愿意拿给你看，那我就喜欢到愿意拿给所有人看。</p>
+<p>大家听到这些，会觉得是创作建议。我听到的却是人生建议。我想到的是人生的种子阶段、人生的实验阶段、打磨阶段。</p>
+<p>对，是一样的。全都一样。所以《创造力：一生的事》最初的想法，是讲怎么做出东西来。但在写书的过程中，我意识到，它讲的是怎么在这个世界上生活。你的生活方式，要么允许这些事情发生，要么不允许。如果你的生活方式允许这些事情发生，那你就是个艺术家，哪怕你是商人，是厨师，或者是母亲。</p>
+<p>你在以艺术家的方式生活。你把它活了出来。它来自你。我想说，那就是你。但它并不代表完整的你，它代表的是那一刻的你。我把这个美好的东西展示给你，映照的是我今天看待世界的方式。</p>
+<p>明天，我看待世界的方式可能会不同。这没关系。但当我把它分享给你的时候，它已经是此时此刻能达到的最好状态。</p>
+<p>我之所以刚才问这个关于</p>
+<h2 id="c11">该不该辞职去追梦？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2459s" target="_blank" rel="noopener">40:59</a><span lang="en">Should You Quit Your Job to Chase Your Dream?</span></p>
+<p>世界有时可能不喜欢你拿出来的东西的问题，是因为“失败”这个词。你在书里也谈到了失败，以及如何面对失败。我想，很多人之所以不敢冒险听从自己、追随自己热爱的东西，很大程度上就是因为“风险”这两个字。随之而来的想法就是：“我可能会损失金钱，可能会失去朋友。如果我辞掉这份工作，去追求拉小提琴这个爱好，跑到秘鲁（Peru）去拉小提琴，我会失去朋友，别人会觉得我很奇怪，所以我还是跟大家一样吧。”</p>
+<p>对。而我想说，这些事你都得去做：失去朋友，承担风险。同时我也想说，我并没有说你搬到秘鲁去当小提琴手，就百分之百能成功。</p>
+<p>而且，你在做这件事的时候，可能还需要有一份正经工作来支付日常开销。这没问题。有种想法觉得，这一切必须合在一件事上：“我得做我梦想中的事，而且它必须同时是我的爱好、我的热爱、我的职业、我养活自己的方式。”不一定要这样。</p>
+<p>刚开始做音乐的时候，我以为自己会有一份正经工作，音乐会是我的爱好。我会一直做下去。我做的事会跟当时一模一样，只是我以为自己会靠一份正经工作养活自己，好去做这些我想做的事。幸运的是，音乐后来自己发展了起来，并不是我刻意做了什么。我完全没想过这能成为一份职业。怎么可能呢？那想法太荒唐了。</p>
+<p>我做音乐是因为我热爱它，那时我还在上学，而且很可能会去读法学院。之后我会有一份普通的工作，白天上班，音乐则是我一生的挚爱。我原本打算这么过。幸运的是，我不必那样了。但本来就会是那样。</p>
+<p>很多人在那个年纪都会听到别人说，要追随自己的热爱，找到自己的使命。听起来就像你刚才说的，因为“热爱”这个词是单数。而“找到”这个词，又意味着我必须走出去，主动追寻那个东西。现在很多听众可能会说：“别人一直叫我找到自己的热爱。”可当他们看看自己在工厂或者其他地方的工作，无论他们在做什么，他们会想：“好吧，现在这份工作还不算，但总有一天我会找到的。到时候我就跳出去。”所以你是说，不一定非得跳出去。</p>
+<p>生活中有些现实问题是你必须面对的。我没有说，你可以不管自己还得付房租这件事，或者你说：“在这件事做成之前，我愿意一直住在父母家里。”那也没问题。我想说的是，生活中有些现实问题必须处理。别把这些压力压在你的艺术上，因为那样你就无法做出最好的决定。你会为了应付眼前的现实问题，做出短期决定，而这些决定对你正在做的作品、你真正想做的作品，长远来看并没有好处。</p>
+<p>我想，你肯定也遇到过这样的时刻，你坐在那里，试着说服一位艺术家听从自己，听从他们……没有吗？</p>
+<p>我不会试着说服任何人接受任何事。</p>
+<p>哦，真的？好吧。</p>
+<p>对，我不会用那个词。我不会用“说服”这个词。</p>
+<p>那你会用什么词？</p>
+<p>我们会聊。我会问：“你希望做到什么？”然后我会支持他完成这个过程。</p>
+<p>我们能来做个角色扮演吗？我假装自己是个想做一张专辑的音乐人。</p>
+<p>好。</p>
+<p>好，其实我正在学怎么当唱片骑师（DJ）。我已经学了四年。你会对我说什么？比如我来找你，说：“里克，我想做一张专辑。”你最先会问我什么？</p>
+<p>把你做过的东西里，你最喜欢的放给我听听。我们聊聊。我会先听，然后我们再聊。</p>
+<p>那我放一首给你听，就假设是一首浩室音乐（house）。我放给你听，说：“这是我最喜欢的。”</p>
+<p>我会把自己的想法如实告诉你。</p>
+<p>如实告诉我？就算你觉得它糟透了？</p>
+<p>对，我大概不会说得让人不舒服，但我可能会围绕它多问一些问题。请你给我讲讲，你到底喜欢它什么。你是怎么做出来的？用了什么设备？做的时候开心吗？那段经历好吗？</p>
+<p>你放给别人听过吗？怎么样？那是种什么样的体验？做它的时候，你有什么感觉？放给朋友听的时候，你有什么感觉？</p>
+<p>你在夜店放过它吗？那是什么感觉？我会听你说，然后我们再聊。经常有艺术家来找我，把自己想做什么说得清清楚楚，然后又说：“我完全不知道自己想做什么。你能帮帮我吗？”就好像他们听不见自己说的话。</p>
+<p>我们都有这么一道隔阂……这有点像心理治疗的过程。你去见心理治疗师，可能会一直说。他可能什么都不说，但你在说的过程中，会开始明白自己相信什么、在想什么、生活里正在发生什么。可能仅仅因为有人在听，你就会突然想通一些事。</p>
+<p>大多数人都不习惯有人听自己说话，真正地听，深入地听。很多时候，你在对一个人说话，对方却在想自己接下来要说什么。他并没有真的在听你说什么。我发现，如果你真的全心投入，听一个人说话，他会告诉你自己想做什么。然后，我的工作就是帮他清除那些他自己放在路上的障碍，让他走到那里。</p>
+<p>他们已经说了自己想做什么，却又问你应该做什么，这是不是因为有点不相信自己？这是……</p>
+<p>是的，但这种不相信自己，就是这个世界的常态。我们从小接受的灌输就是这样。大多数人都不相信自己。而这里面又有一个很微妙的分寸，因为少数人看起来真的很相信自己，你却会想：“哦，他们也太自大了。”</p>
+<p>通常，一个人如果表现得极度自负，其实往往是在掩盖某种不安全感。就像戴了一张面具。所以，面对一个缺乏安全感的人，和面对一个过度自信的人，很多时候是在面对同一件事的两面。我们真正想找到的，是中间那个真实的位置。不是你对自己有什么担忧，也不是别人会怎么想，而是你对这件事究竟是什么想法？</p> <!-- lint-disable-line -->
+<p>我经常拿品尝食物来打比方。如果我给你两块披萨，说：“尝尝这两块披萨，告诉我你更喜欢哪块。”这不难回答。你大概会说：“比起这块，我更喜欢那块。”我问你哪块更好吃时，你不会说：“嗯，我觉得那个人会更喜欢这块披萨。”你会说：“我觉得这块更好吃。”</p>
+<p>目标就是达到这种状态。“我觉得这块更好吃。”就这么简单。我们不相信它能有这么简单。可它就是这么简单。</p> <!-- lint-disable-line -->
+<h2 id="c12">鲁宾怎么看出一个艺人会成大器</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2890s" target="_blank" rel="noopener">48:10</a><span lang="en">How Rick Rubin Knows an Artist Will Be Great</span></p>
+<p>如果要你押注一个音乐人，认为他会成为你合作过的那些伟大音乐人中的一员，因为他身上有一些特质，或者一种看待事物的方式，或者一种谦逊，而根据你的经验，这些东西有助于产生杰出的作品，那他们有哪些相似的特质？我投过很多创业者，所以我在想，这两者之间会不会也有共同点，因为有些地方听起来很像。</p>
+<p>我相信有。我有个做风险投资的朋友，我问过他，挑选投资项目的时候，看的究竟是这个生意的想法，还是创始人。他说：“永远是创始人。做什么生意不重要。”他说：“如果我相信这个人，我就会支持他。”</p>
+<p>我想，音乐人也是一样。关键是这个音乐人，不能只看“哦，他写了一首好歌”。好歌更像是一个好产品。你会想，也许他还能再做出一个来。但如果你能看到他怎么看待音乐，怎么在自己的作品里创新，那就是个好信号。</p>
+<p>我给你讲个故事。有支乐队叫鼓击乐队（The Strokes）。我制作了他们的新专辑，大概一个月前刚发行。他们大概在十五年前就请过我做专辑，我记得是十五年前。我听了那些小样，但没听出感觉。我没有说那些歌不可能好听，只是我找不到自己能从哪里入手。</p>
+<p>当时我就想：“我觉得我不该接。我没感觉。”后来他们又找过我一次，大概是十二年前。我听了小样，还是没听出感觉。我不知道该怎么做，所以就婉拒了。我看不到该怎么做。</p>
+<p>能不能具体讲讲，你说的是什么意思？</p>
+<p>可以。有时候我听到一个东西，就知道自己能看到一条路。我听到的东西不一定已经很好，但我能在里面听出点什么，觉得：“我明白这是什么，我想看看它最后能变成什么。”前两次我都没有这种感觉。后来，我们合作的第一张专辑大概是六年前发行的，那次他们又给我发了小样。那可能是他们发给我的最差的一批小样，可我能听出它们将来可能是什么样。其中一个小样可能只是一段二十秒的语音备忘录，而以前发来的都是制作好的小样，像是在说：“听听我们这些很棒的新歌。”</p>
+<p>可听着这段二十秒的语音备忘录，我会想：“我真的很想听到这首歌的完整版。”不管它现在是什么，这个念头的种子，将来会很好。它有潜力变得非常好。</p>
+<p>你怎么知道？</p>
+<p>感觉得到。并不是真的知道。那是一种知道的感觉。就像我心里有一种笃定。我没法给你解释。那是一种内在的体验。</p>
+<p>还是那句话，其中一个表现是，你会想往前凑，不会想往后靠。你会想再听一遍，不会想跳到下一首。它会激起你的好奇，激起你的兴趣。我想知道更多。</p>
+<p>你会给自己的人生设定目标吗？</p>
+<p>完全不会。</p>
+<p>给我的感觉是，你能接受不确定性，而这个世界上的大多数人，都需要先有确定性，才敢往前走，才敢朝某个方向采取行动。</p>
+<p>我知道不确定性是真实存在的。我在马里布（Malibu）有过一栋房子，那是我的主要住所，所有家当都在那里。八年前，一场火把它烧掉了。事情发生的时候，你一下子就明白了。我原以为自己会在那里住一辈子。那件事发生后，我意识到，无常是真实存在的。</p>
+<p>我以为自己会在那里住一辈子。现在它没了。只剩一块地，一块光秃秃的地。所以我觉得，我们没办法知道任何事。我们只是一路往前走，根据当时掌握的信息做决定，生活就这样展开。</p>
+<p>我想，可以拿车里的导航来打个比方。早上你坐进车里，系好安全带，然后设好导航，说：“这是我的目标。这是我想去的地方。”接着你就开车出发。也就是说，你会朝着那个目标行动。而你说的听起来更像是，你就是开车往前走。</p>
+<p>对，一直都是。是的，我以前就会这么做。我记得……你提到这个还挺有意思的。有一段时间，我经常待在录音室里，工作很长时间，一场接一场地录。有时一年做八张专辑，同时在做不同的项目。</p>
+<p>然后到了周末，我会有一天休息，我不做任何安排，就是开车出去，在车里听着音乐，一直开。也许最后会到某个地方，也许只是开上几个小时，放松一下。那种感觉很好。</p>
+<p>可你也可能迷路。这就是风险。</p>
+<p>也许吧。没关系。</p>
+<p>所以我们才会给人生设定目标。所以我们才会做五年计划，许下新年愿望。</p>
+<p>这些事我一件都没做过。想象不来。感觉那会是很大的限制。生活能好到什么程度，是我永远想象不到的。如果让我来想，我对这个世界的理解会平常得多，比不上现实中发生的那些事，比不上一次又一次亲眼看到不可能变成可能。</p>
+<p>这些事，我当然没办法事先计划。如今，因为这种事在我的人生里发生过太多次，我接受了生活就是这样，我就跟着它走。</p>
+<p>你接受未知和不确定性？</p>
+<p>未知。</p>
+<p>这是我们每个人都能做到的，还是因为你如今这么成功，才有这样的特权？</p>
+<h2 id="c13">觉得被困住了？人生的“重启键”</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3250s" target="_blank" rel="noopener">54:10</a><span lang="en">Feeling Boxed In? The “Reset Button&quot; for Your Life</span></p>
+<p>我们在太多方面限制了自己。我记得有一位非常成功的艺术家，当时正在经历一段特别艰难的日子。我们去了马里布的一家餐厅吃晚饭。我记得很清楚是哪一家。我记得自己当时在想：“这个人可能会自杀。”我能感觉到，他整个人的状态非常失衡，充满冲突，他很痛苦。</p>
+<p>我记得自己说：“你不必继续做这些了。你已经做了很多很棒的事，取得了很大的成功。你有条件停下来。只要你愿意，随时都可以说：‘你知道吗？我要搬到世界的另一头，住在海边，吃点好吃的，在水里玩。’</p>
+<p>“你没有义务继续做这些让你的人生充满冲突的事。你已经做得够多了。”</p>
+<p>多年以后我才知道……当时我甚至不知道他到底有没有听进去，因为他的处境真的很艰难。但多年以后，那个人对我说：“还记得你说过的话吗？你说我可以离开，可以退出。”他真的那么做了。做法跟我想象的不一样。我当时并不知道后来发生了这些，但他确实那么做了。</p>
+<p>我认识好几个自杀的人，也有一个朋友，一个很好的朋友，曾经试图自杀，但活了下来。他们所有人在那些时刻，似乎都觉得：“我做过的选择把我困住了，我无路可走。”当一个人这么想的时候，他之所以产生自杀的念头，是因为他知道有些东西需要死去。他以为自己的身体需要死去。但实际上，需要死去的是他做过的那些选择，当时的生活方式，那条职业道路，那段关系。他完全可以离开，开始一种全新的生活。</p>
+<p>可我们看不到这一点。我们会陷在一种想法里，觉得生活就只有这些。可生活远不止这些。这是我们做出的选择，我们正沿着这条路走下去。而我们随时都可以说：“你知道吗？我想换一种完全不同的活法。”</p>
+<p>“我想用一种全新的方式，开始一种全新的生活。”做到这一点并不需要很多钱。可能还会花更少的钱，因为你可以搬到世界上生活开销几乎为零的地方，那些地方很美，人们过得很快乐。这只是一个选择。</p>
+<p>这几乎就像我们在玩一场游戏，一盘国际象棋。你可以站起来，离开棋桌，不再下了，去玩另一个游戏，玩得开心。这个选择一直都在。</p>
+<p>你可以按下一个按钮，让这一切都消失。要做到这一点，并不意味着你必须死去。只需要让那种处境结束。然后你继续往前走，找到一种新的生活。</p>
+<h2 id="c14">广告</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3465s" target="_blank" rel="noopener">57:45</a><span lang="en">Ads</span></p>
+<p>我在网上也经常看到别人讨论，怎么找到心流（flow）。就是那种一切突然顺畅起来、干扰消失、你一下子进入最佳状态的感觉。但我们大多数人都把心流当成一种随机发生的事。可当你需要拿出最高水平时，就不能全靠运气，至少你不会希望这样。状态不好一天，代价就可能很大，你需要随时都能进入专注状态。这就是我们的赞助商 Ketone IQ 背后的理念。我投资了这家公司，也成了它的共同所有人，因为我亲身体会到了，它对我做播客有多大的帮助。</p>
+<p>有时坐在我面前的是投资人、商人、哲学家，或者是一位来聊更年期的人，什么话题都有可能。我需要让自己的头脑保持敏锐。Ketone IQ 为大脑提供优质的专注能量，让你持续保持头脑清晰、注意力集中。这样，你就能更主动地创造专注工作的条件，不再只是靠运气，因为你最好的表现不该非得等一个碰巧状态好的时刻。现在前往 ketone.com/steven，即可享受七折优惠，或者去 CVS 免费领取你的第一支。没错，Ketone IQ 现在已经在全美各地的 CVS 门店上架。</p>
+<p>眼下，做生意最大的压倒性优势，就是拥有真正懂人工智能（AI）的人，而大企业正在非常迅速地招聘这些人才。美国的人工智能职位招聘信息数量，自 2023 年以来大约翻了一倍，而人工智能副总裁职位的招聘信息则增长了约 600%。如果你经营的是一家小企业，很难直接组建一整个人工智能团队，但你仍然希望拥有和那些大企业一样的优势。这时，我们的赞助商 Fiverr 就能帮上忙。它能帮你找到顶尖的人工智能专家，完成那些通常需要公司内部有深厚专业能力才能做好的战略性工作。</p>
+<p>这可能是开发定制的人工智能工具，可能是将复杂的工作流程自动化，也可能是做出现成软件根本无法实现的东西。因为说到底，仍然要靠人的判断，知道什么值得做，也知道什么才算做得好。所以，如果你想为自己的企业获得这样的助力，请访问 fiverr.com。就是 Fiverr，带两个 R，后面加上 dot com。</p> <!-- lint-disable-line -->
+<h2 id="c15">身份是一座牢笼：如何重新开始</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3582s" target="_blank" rel="noopener">59:42</a><span lang="en">Your Identity Is the Trap: How to Start Over</span></p>
+<p>我觉得，你刚才似乎在说，我们给自己造了一座牢笼，让自己感觉无路可走。而这座牢笼，很大一部分就是我们的身份。就是“身份”这个词。“我是曼哈顿（Manhattan）的一名律师，也是一个父亲，还是一个……”我接受了那个身份。这有点像我做了一笔交易。我接受它，就意味着在酒会上，人们会对我刮目相看。</p>
+<p>所以，我们拿一些东西换了另一些东西，如今却困住了。现在，我经常收到这档节目的听众留言。他们觉得自己卡住了。</p>
+<p>对。我们是自由的。我们是自由的。我们只需要选择用好自由这份人类的馈赠，就可以重新开始。我记得那个试图自杀、幸好活下来的好朋友。我去医院看他。</p>
+<p>他躺在病床上，看起来像是完全僵住了。出事之后，他一直没说过话。我站在走廊里，他的朋友们陆续过来看他。大家一个一个进病房。我听见排在我前面的两个人进去后都哭了，那个样子，仿佛他已经死了。</p>
+<p>当时，他就躺在那里，蜷缩成胎儿的姿势，一句话也不说。我心里只觉得，这太奇怪了。整个场面都很奇怪。我从没见过这样的情景。</p>
+<p>我当时第一个念头是，那些进去跟他说话的人，根本不知道该怎么做。我们谁都不知道，因为这种情况太不寻常了。除非亲身经历过，否则根本不知道该怎么办，而我之前也没经历过。但光是听着，我就知道，这样不太好。他们的做法不太好。应该有更好的方式。</p>
+<p>接下来就轮到我了。我走进去，低头看着他，说了这么一句话。还是那句话，我也不知道这话是从哪儿冒出来的，反正就说出来了。我说：“你现在可能很难看出来，但你正处在一个特别好的转折点。”我记得，说完这句话，他看着我的眼神就像在看一个疯子。但这是他第一次有了反应。</p>
+<p>我说：“你刚刚按下了重置键。”我说：“所有你讨厌做，却觉得有义务做、觉得答应了就必须做，最后让你不想再活下去的那些事，你刚刚给它们按下了重置键。那些事，你以后都不用再做了。现在，你想做什么都可以。你可以自由地重新开始。过去那些想法，那些义务，再也不用压在你头上了。”</p>
+<p>后来，我们聊得特别好。他起身穿好了衣服，又像原来的他了。那次经历太不可思议了。但我们就是会觉得自己被困到了这个地步。可这一切都只是我们给自己讲的故事。它并不是真的。我们是自由的。</p>
+<p>对于那些想按下重置键的人，有没有一个可以迈出的第一步？第一步该怎么做？</p>
+<p>我会先看看，生活里到底有哪些事是自己真心想改变的，然后想想，怎样才能最干净利落地做出改变。离开一份工作，离开一段关系。之所以会遇到这种情况，是因为我们做出承诺时，初衷都是好的。后来，承诺变得难以兑现，人就开始觉得被困住了。</p>
+<p>我认为，做出承诺和信守承诺都是好事。话虽如此，事情也可能走到关乎生死的地步。比如，我当初做出这个承诺就是个错误，或者情况发生了变化。也许我结婚的那个人后来酗酒成瘾了，跟一个酗酒的人生活真的很难，也不开心。这跟我们当初说好的不一样。</p>
+<p>我可以尽一切努力帮助这个人，但可能什么办法都没用。到了某个时候，你可以按下重置键，对自己说：“知道吗？你这样对谁都没好处。”如果你困在一种处境里——我有很多朋友有伴侣，也许关系已经恶化了，却还是继续在一起，因为双方都觉得，这就是我们当初选择的生活。但实际上，你在一段关系里过得不快乐，对另一个人也没有任何好处。</p>
+<p>爱本来就是双向的。同样，如果一个人爱上了另一个人，而对方——也就是单相思——对方并不爱他，我觉得这样的爱其实并不成立，因为爱的本质就像磁铁的负极和正极，会相互吸引。你不能让磁铁只有一端在爱。这样行不通。</p>
+<p>那只是一个美好的幻想。你很乐观，觉得这一切本来可以多么美好。可如果那份爱并不存在，放手对所有人都好。我有些朋友觉得：“我不想跟对方分手，因为那会毁了对方。”其实不会。如果这段关系走不下去了，去寻找新的、美好的生活，对所有人都更好。</p>
+<p>你可以这样做。没关系的。</p>
+<p>我想，也有一些人的生活里有很多小地方不合心意。单独看，每一件都不是什么大问题，但现在，他们的生活里有一百件这样的小事。什么事都有可能。于是，他们觉得整个人生都从根上偏离了自己想要的样子，可实际上，也许只是他们在生活里的很多小地方都没能坦诚面对。</p>
+<p>也许这些问题可以慢慢处理，也许可以解决。但不管是哪种情况，都别让它们一直拖着。把它们修好。</p>
+<p>可是，这些话很难开口啊，里克。</p>
+<p>是啊。</p>
+<p>很多人都不擅长这个。我们总想讨好别人。我觉得，这跟创造力这个话题其实有一条贯穿始终的线，就是讨好别人，以及那些难以开口的对话。从你在这次谈话里提到的一些事情，我显然能看出来，你愿意直接跟别人说：“这不适合我。”我想，也经常有人给你开出很高的价钱吧。</p>
+<p>是的。</p>
+<p>如果有人给你一大笔钱，请你做一件事，但在某种程度上，这件事不符合你的原则或价值观，或者……你怎么过这一关？</p> <!-- lint-disable-line -->
+<p>我想做出好东西。我想做出一个好东西。</p>
+<p>你有没有因为觉得某件事做出来不会好，或者跟自己不合，就拒绝过很大一笔钱，或其他很诱人的条件，或者……？</p>
+<p>有，我肯定有过。我想不出具体的例子，但肯定有过。我不去想那些事。我想的是自己做的事，不去想自己没做的事。</p>
+<p>钱这部分，对你重要吗？</p>
+<p>我希望参与成功，也希望分享成功的回报。我觉得这很合理。对我来说，这感觉是对的。我从来不会因为钱做决定。不过，如果我们做出了成功的东西，那当然有价值。</p>
+<p>说到你自己的人生，刚才我们聊到了心理健康，你在三十岁出头的时候，也曾经历过一段抑郁。</p>
+<p>是的。</p>
+<h2 id="c16">33 岁那次抑郁，以及它教会我的事</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=4054s" target="_blank" rel="noopener">1:07:34</a><span lang="en">My Depressive Episode at 33 and What It Taught Me</span></p>
+<p>当时有什么诱因吗？那段经历对你看待世界、艺术和创造力的方式，有多大影响？因为我听你在《新闻日》（Newsday）里说过，它永远改变了你。</p>
+<p>确实如此。</p>
+<p>带我走进你人生的那个阶段吧。那时你三十三岁，跟我现在一样大。</p>
+<p>对。</p>
+<p>发生了什么？</p>
+<p>事情是这样的，我是独生子。父母非常爱我，非常关心我，一直支持我。我去上学，开始把做音乐当成一个爱好。后来，这件事自己发展了起来，变成了一门生意，而且那么多年都非常成功。</p>
+<p>到了三十三岁，这一切第一次受到了质疑。我跟一家大公司有业务合作。跟我合作的那个人，大概是整个音乐行业里最有地位的人，大家都很喜欢他。他是个特别好的人，也是我的导师之一。后来，他在内部权力斗争中被挤走了，换上了一个我不熟悉的人。</p>
+<p>那个人给我打电话，说：“我看过我们的协议了。”因为我跟那位导师签的协议，现在归他接手了。他说：“我不喜欢这份协议。你回加利福尼亚州以后，我们得聊聊。”就这样。整个通话就说了这些。</p>
+<p>可对我来说，我完全不知道该怎么办，因为我已经顺风顺水太久了。人生里，我从来没有应对过这样的不稳定。我觉得脚下的地毯突然被抽走了。接着，我开始恐慌发作，睡不着觉，身体也出了很严重的问题。</p>
+<p>还是那句话，换了几乎任何一个人，遇到完全相同的情况，大概都会说：“好啊，等我回去再处理，没问题。”然后继续过日子。可我没有能力应对，因为我从来没遇到过这样的事。我没有练出应对这种问题的那份力量。感觉脚下的地毯被抽走了，我不知道该怎么办，就这么陷了下去。</p>
+<p>后来，这种状态持续了好几年，连问题解决之后都没结束。我最终离开了那家公司，开始跟一家新公司合作，一切都很好。但我就像一个气球，在那一刻被戳破了。直到现在，我也没能变回从前的那个人。</p>
+<p>也许现在的我更脚踏实地了。听了我前面说的那么多话，这听起来可能有点好笑。在那之前，可以说，我从来没有怀疑过什么。一切都一直朝着同一个方向顺利发展。那是第一次出现了质疑，我一下就垮了，花了好几年才走出来。</p>
+<p>不过，我想说的是，我合作的很多艺术家都在面对各种各样的个人问题。在那之前，在我三十三岁之前，我大概没法像现在这样理解他们的感受。现在，我也有过那种脚下彻底塌陷的经历。可以说，这让我更能理解跟我合作的艺术家。</p>
+<p>你在《荒岛唱片》（Desert Island Discs）里说：“我完全不明白那是什么。我以为自己快死了。”</p>
+<p>是的。</p>
+<p>说到底，那是你在事业上第一次遭遇重大的——如果可以这么说——否定？</p> <!-- lint-disable-line -->
+<p>是的。</p>
+<p>是吗？</p>
+<p>是的。我把自己整个人都系在了那个身份上，而那件事第一次让我怀疑，我到底是谁。</p>
+<p>然后你去接受了心理治疗？</p>
+<p>是的。我去做了心理治疗，最后还吃了抗抑郁药。我一般不太愿意用药，但情况太糟糕了，而且持续了太久，吃药成了最后的办法。那时我不断去见不同的治疗师，大概每周五天，每天至少见一位心理治疗师或疗愈师。</p>
+<p>每次醒来，出门去见他们，我都会想：“也许今天就会好一点。也许今天就会好一点。”但并没有好。那段时间真的很难熬。</p>
+<p>这件事的深处，到底发生了什么？因为从表面上看，人们会说，里克在事业上遭到了否定，结果他就觉得自己快要死了。这是我们在表面上看到的。</p>
+<p>这一切都发生在无意识的层面。我睡不着，一直恶心，不想下床。我是从身体上感受到这一切的，什么都不想做。</p>
+<p>这到底是什么？那到底是什么？</p>
+<p>我听过一种说法，像是中了一支毒箭。从哲学或心理的角度来说，我中了一支毒箭。</p>
+<p>因为我看过你早年的经历，看到了两位非常好的人，你的母亲和父亲。有时候，我采访一些在某方面异于常人的人，会发现他们的成长过程中有过某种创伤，心里一直憋着一口气。但你几乎完全相反，你的父母都非常、非常爱你。</p>
+<p>非常爱我。在他们眼里，我做什么都没错。但这也是问题的一部分。我从小就是这样长大的，相信自己做什么都不会错。后来进入现实世界，开始做音乐，一次次成功又印证了这一点：我做什么都不会错。直到有个人说：“知道吗？我不喜欢你做的东西。”</p>
+<p>所以，我完全没有可以参照的经验。根本不知道怎么应对。</p>
+<p>听起来，那是你人生里特别可怕的一段日子。</p>
+<p>是的。</p>
+<p>如果现在桌上有个按钮，按下去就能抹掉那段经历，你会按吗？</p>
+<p>我不会。</p>
+<p>为什么？</p>
+<p>我觉得，人生里发生过的每一件事，好的也好，坏的也好，都把我带到了今天。我不想改变其中任何一件事。什么都不想改变。</p>
+<p>它给了你什么？</p>
+<p>它让我有了不一样的视角。还是那句话，我觉得它让我落了地，对世界的看法更贴近现实。我依然相信魔法，相信不可能的事每天都有可能发生，但在那之前，我可能更觉得自己像超人（Superman），现在不再觉得自己是超人了。</p>
+<p>那你现在觉得自己怎么样？</p>
+<p>累。</p>
+<p>累？说到创作的人，我想回到前面那个问题，你在这些伟大的艺术家身上看到了哪些共同点。我听到，一头是坚定的信念，另一头又是谦逊，两者似乎有点相互对立。像 Jay-Z、坎耶这些人，你还在他们身上看到了什么共同点？跟你合作过的人，真是数都数不过来。</p>
+<p>通常都跟视角有关，用别人没有的方式看世界。当然，也可能是大家都看见了，却从来没人点出来的东西。他们观察世界的方式不一样。优秀的喜剧演员做的就是这个。他说了一句话，你会笑，是因为你对他说的东西有共鸣。你会想，可不是嘛，太好笑了，太荒唐了。</p>
+<p>我们做的也是这件事。是一样的。看见更多一层的可能，对世界的理解，比我们以为自己所看到的再深一层。通过艺术，我们能体验发生在别人身上的种种情绪，而因为我们都是人，这些情绪会引起共鸣，我们也就能感受到。</p>
+<p>听一首关于心碎的歌，即便你没有心碎，也能感受到那份心情。看一部电影，它可能真的改变你的人生。艺术有一种不可思议的能力，能拓宽我们的视野，让我们从以前看不到的角度去看事物。</p>
+<p>伟大的艺术家工作努力吗？</p>
+<p>非常努力。</p>
+<p>具体是怎样的？</p>
+<p>外人会觉得，你走进录音室，做点东西，发出去，然后去巡演，所有人都为你尖叫。其实，这份工作非常辛苦。方方面面都很难。竞争激烈得惊人，不是因为你在跟别人较劲，而是因为有太多人都想做这件事。</p> <!-- lint-disable-line -->
+<p>你可能极有天赋，但如果没有与之相配的勤奋，很可能永远都没人听到你的作品。所以，需要把这几样东西结合起来：真正勤勉的工作态度，愿意尽一切努力，再加上某种有意思的视角，有意思的观点，有意思的看世界的方式，让别人看了觉得：“我以前从没这样看过。”</p>
+<p>你知道有什么办法，能让我的世界观变得更有意思吗？</p>
+<h2 id="c17">怎样变得更有原创性</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=4626s" target="_blank" rel="noopener">1:17:06</a><span lang="en">How to Be More Original</span></p>
+<p>听起来，你花了很多时间看商业和自我提升方面的内容。我会建议，也许可以看看这个领域之外的优秀作品，看看它们之间如何呼应，如何产生共鸣，又有什么联系。我们常常会从跟自己真正感兴趣的事毫无关系的东西里，得到很棒的想法。我们会看到一些新的东西。</p>
+<p>我会建议你开始去博物馆。去博物馆，看看艺术品，戴上耳机跟着语音导览走，听听那些故事。读优秀的文学作品。我说的优秀文学作品，并不是某一份固定书单，但你多问问，就会找到。如果有三个人都推荐一本书，就一定要读。去看影史上最伟大的电影。</p>
+<p>这很有意思，因为当别人告诉我们，怎样才能做好某种职业时，建议总是去学习那种职业。想当个好律师，就去学法律。但很多时候，像史蒂夫·乔布斯这样的人，似乎都有一些不太常见的技能组合，比如他对设计和字体排印的热爱。大学里不会有人跟他说：“好，你想成为一名优秀的程序员，那就去学字体排印设计。”</p>
+<p>对。通常，你之所以能把自己的事做好，并非因为你的做法跟所有人都一样。所以，如果所有人都读同样的书，就会有同样的视角。我会去那个圈子之外看看。</p>
+<p>我也建议读老书，少盯着新书。古老的智慧最好。从年代非常久远的书读起。</p>
+<p>我这里有几本书。</p>
+<p>对。选得很好。</p>
+<p>你喜欢这几本书？</p>
+<p>我很喜欢这几本书。</p>
+<p>为什么？它们给了你什么？</p>
+<p>我第一次读《道德经》（Tao），是在刚搬到加利福尼亚州的时候。大概是三十年前。我读的时候就觉得，这跟我以前读过的任何东西都不一样。它在很多层面上都说到了我心里。</p>
+<p>我记得，大概六个月后再读，它完全成了另一本书。这就是那种，你在人生的不同阶段，每读一次，都像在读一本全新的书。它也是《代码之道》（The Way of Code）的灵感来源。《代码之道》基本上就是把《道德经》改写成了一本谈氛围编程的书。</p>
+<p>很多时候，一本书可以提炼出一个道理。你从这本书里得到的核心道理是什么？</p>
+<p>也许我会用一句话来说：柔能克刚。这算一个。还有一些看起来有悖直觉的道理，比如，无为往往是最好的行动。听起来很离谱，但真正的关键就在这里。</p>
+<p>有个关于拿破仑（Napoleon）的故事。在那些战乱的日子里，有人带着紧急的事情来找他：“只有你能决定这件事。问题是这样的，情况很紧急。”他总会说：“两周后再来找我。”</p>
+<p>这里的意思是，那些需要你立刻关注的问题，百分之九十九都会在两周内自行解决。如果两周后问题还在，他再处理。</p>
+<p>我或许可以在我未婚妻身上试试。看看会怎么样。不过，这个想法很有意思。你刚才那句话怎么说的？柔？</p>
+<p>柔能克刚。</p>
+<p>柔能克刚。</p>
+<p>对。就像水滴在石头上，最终会滴穿石头，一滴一滴，慢慢地滴，而水是柔软的。水完全可以顺势改变形状，可以塑形，是柔软的。</p>
+<p>那这本书呢？有没有一个核心？</p>
+<p>我喜欢卡尔·荣格（Carl Jung），这大概是他最有神秘色彩的一本书。不过，总的来说，他关于原型（archetypes）、探索梦境，以及共时性（synchronicity）的想法，都很美。我觉得，世界的确就是这样运作的。读他的作品会让我感到安慰，因为它跟数学和科学向我们展示的东西不一样，但也许更接近世界真实的样子。</p>
+<p>这我得请你再展开说说，尤其是你说，共时性其实更接近世界运作的方式。</p>
+<p>对，我觉得，我们并不知道任何事物究竟是怎么运作的。我觉得，这个世界比我们以为的更大，也更有意思。我们以为自己理解的大部分事情，可能都没那么准确。</p>
+<p>科学有一个特点，它代表的是我们目前对事物运作方式的理解，直到下一次科学突破出现，推翻此前的一切。就像一个不断探索的过程。我想，也许存在一种</p>
+<p>内在的笃定。我们不知道为什么。你遇见一个人，就特别想跟对方待在一起。我不觉得科学能解释这一点。你遇见另一个人，却会觉得：“你知道吗？我不想待在这个人身边。这里有种能量，跟我不合。”</p>
+<p>我觉得，这种智慧对我们生活的影响，可能比任何数据能告诉我们的东西都大。</p>
+<p>我刚才在想，如果相信你刚才说的这些，我的生活会发生什么变化。</p>
+<p>会有变化的。</p>
+<p>你觉得会有哪些变化？</p>
+<p>你会摆脱那种束缚，不再觉得事情只能沿着一条狭窄的路走。也不会总想着：“这些数字是这样，那就说明这个，接下来就会发生那个。”可现实里，很多时候，你看了数字，照着做了，三年后才发现：“结果跟我想的其实不一样。”这才是真实的世界。</p>
+<p>那是看待事情的一种方式。魔球（Moneyball）式的方法是一种。还有另一种，就是你遇见妻子时，心里觉得：“我想跟她在一起。”那是另一回事。你没法用什么指标来计算，这到底是不是个好主意。</p>
+<p>这好像也是在鼓励我们更相信自己，因为你说到了对能量的感受，还有——</p>
+<p>还有，做一些事，让相信自己变得更有依据。这是另一个方面。你有那么长时间都不相信自己，那根用来感知周围状况的天线，可能就有点生锈了。所以，尽可能多地使用这根天线，让它来指引你，能为此做什么就去做。</p>
+<p>以前，看到那些奇迹，我会感到惊讶，现在我不惊讶了。它依然令人惊讶，但发生得足够多，你就会觉得：“对，事情就是这样发生的。你看。”你预测不了，也没法拿它下注。但当它发生时，你会觉得：“好像本来就会这样。”</p>
+<p>发生了。你看。</p>
+<p>那你觉得，有一种更高的力量在影响我们的生活吗？</p>
+<p>我觉得有一种更高的创造性智慧，我会说，它让世界活着，就像那种让植物生长的力量。存在某种孕育生命的力量。我不知道它是不是特别针对你或我，但有这么一种能量，让生命想要活下去。</p>
+<p>你可以顺着它，就像乘上一道浪。你能乘上那道浪。浪就在那里。除了海里的浪，还有很多别的浪，你也能乘着那些浪前行。你不一定看得见，但也许能感觉到。慢慢地，你就开始认得它们了。</p>
+<p>而且不知道为什么，宇宙似乎希望我们知道这件事。这就是我说的留心观察，也是我讲《代码之道》时说的。那件事实在荒唐，根本无法辩护。但我听从了这种感觉。它从很多地方传来。</p>
+<p>我想不通。但感觉就像：“有什么在叫我做一件事。会是什么呢？我试着参与一下吧。”</p>
+<p>听你说了这么多，我一直在想，理性这个观念，做一个理性的人，有时候也可能是一种诅咒。我觉得自己是个挺理性的人。</p>
+<p>对，我觉得理性被高估了。理性的世界很小。在理性的世界之外，还有很多更有意思的事在发生。</p>
+<p>对，我未婚妻也会这么跟我说。她一直就是这么跟我说的。有意思的是，你说到正负互补，我觉得这就是我们合得来的原因，因为她能帮我走出理性的范围。</p> <!-- lint-disable-line -->
+<p>对。</p>
+<p>她跟我讲自己的这些想法，讲那些更宏大的想法时，我总是听得很认真，尽管在某个层面上，我想，我心里还是在反驳。</p>
+<p>但你看得到这些想法怎么影响她的生活吗？你看得到它们给她带来了什么吗？</p>
+<p>看得到。</p>
+<p>你觉得它们提升了她的能量频率吗？</p>
+<p>百分之百。</p>
+<p>对。这就有意义。她的感受，就有意义。</p>
+<p>她的气场。</p>
+<p>对。足以让你想一直待在她身边。</p>
+<p>对。我有时觉得，自己多少也在蹭她的这种气场。</p>
+<h2 id="c18">AI 危险吗？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5267s" target="_blank" rel="noopener">1:27:47</a><span lang="en">Is AI Dangerous?</span></p>
+<p>你说到了更高的智慧，也说到了一种孕育生命的力量，这正好带出了当下的大话题，人工智能。也跟你说的氛围编程有点关系。我昨天还在说，有史以来第一次，我收到一个不从事科技行业的朋友发来的消息，他说：“我很担心。我不知道这项技术是什么。它会抢走我们的工作吗？我很担心。”</p>
+<p>对我来说，这就像蝙蝠信号，说明这件事真的已经影响到普通人了。这周，人工智能公司 Anthropic 有位研究员，他之前也在做 ChatGPT 的 OpenAI 工作过。他说，他认为这可能会导致人类灭绝，或者至少有超过 10% 的可能性。人工智能是个很大的话题。你肯定有很多想法。</p>
+<p>对，我觉得它是个强大得惊人的工具，我很好奇它能做什么。跟任何强大的工具一样，它可能非常危险，可以用来做坏事，也可以用来做好事。火烧毁了我的房子，但我不会说我们应该禁火。火能帮我们做饭，能做一些好事，给房子供暖。</p>
+<p>它就像互联网改变了世界那样。可能带来了很多很好的事，也可能带来了很多很坏的事。力量非常大。</p>
+<p>还有印刷机。印刷机出现的时候，教会试图禁止它。他们不想要这个。他们不希望人人都能获取信息。它带来了好事，可能也带来了一些坏事。</p>
+<p>它能有创造力吗？</p>
+<h2 id="c19">AI 能有创造力吗？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5359s" target="_blank" rel="noopener">1:29:19</a><span lang="en">Can AI Be Creative?</span></p>
+<p>我不知道。我很好奇。我不知道。我们今天聊到的所有关于创造力的东西，都跟视角有关。而人工智能没有自己的视角。</p>
+<p>人工智能汇集的是已经存在的想法。它没有一个特定的观察角度。如果你把同一个问题问它好几遍，或者连续几天问它，它每天给你的答案都可能很不一样。所以，你没法说：“这就是它看世界的方式。”</p>
+<p>如果我让人工智能做一千万首曲子，理论上，它是不是总有可能在某个时候做出一首热门歌曲，尽管严格来说，它并没有自己的视角？</p>
+<p>对，我连什么算热门歌曲都很难说清。但我觉得，它可以做一万首曲子，其中你可能会喜欢一两首，也可能会喜欢 5%。有可能。这就很有意思。</p>
+<p>而且我能想象这种用法。以前我们会从唱片里取样。做嘻哈音乐（hip-hop）唱片的时候，有种做法叫挖碟（crate digging），就是去唱片店找老唱片，从头到尾听一遍，找出其中一小段。然后想：“啊，这一小段碎拍（breakbeat）不错，我们拿来做一首新歌吧。”你把它放进不同的语境，做出新的东西。</p>
+<p>所以，如果人工智能一直在后台放音乐，我突然听到一小段：“哦，这是个好采样。我们可以拿它做点东西。”这就是一种用法。</p>
+<p>至于让它从头到尾包办，取代艺术家，我不觉得它能做到。我想象不出来。我倒是很好奇它能不能做到。但我觉得，我们想从艺术家那里得到的东西，跟视角有关。我觉得人工智能也许能成为帮助艺术家的工具，甚至能帮助那些不知道自己是艺术家的人，成为艺术家。</p>
+<p>比如，我不会画画，不会演奏任何乐器，没有什么天赋，也没有办法表达自己的创造力。但我可以跟人工智能对话，也许能通过不断调整、不断给出提示，让它做出美的东西。所以，也许会有更多人借助人工智能进行创作。我觉得这是件很美好的事。</p>
+<p>这个问题真是被反复讨论。现在大概走到哪里，每场论坛都能听到：人工智能能有创造力吗？我想过很多，也试着追问这个问题本身，因为你首先得定义什么叫创造力。然后我发现，很多人说到创造力，其实想的是卖得很好的优秀作品，或者拿过第一的作品。</p>
+<p>所以，很多时候……我记得前几天，有个朋友对我说：“我觉得人工智能永远做不出……”然后他说了一首很棒的歌。“人工智能永远做不出那首歌。”可就算我去看那首很棒的歌，他回头看时觉得它体现了非凡的创造力，实际上也是因为，就像你用的那个词，从头到尾，有一整套过程：跟音乐电视网（MTV）开会，建立发行渠道和口碑，也许还有人一直关注那位歌手的生活，这也成了那个视角的一部分。</p>
+<p>人们一直关注奥利维娅·迪恩（Olivia Dean）。所以她做音乐时，音乐还会带着别的东西，带着一个故事。奥利维娅·迪恩签了唱片公司，所以也许还得到了那方面的支持。我们回头看，就会说：“真有创造力。”但我们实际说的是，经过这么一个漫长的过程，我才接触到了这个东西，所以我觉得它有创造力。</p>
+<p>我就在想，好，人工智能可以成为你说的那种工具，但我们回头说“那真是了不起的创造力”时，这一整个过程不也在其中吗？</p>
+<p>我会说，包括整个过程。而且我觉得，它甚至超出了这个过程。我们做出来的东西，是在提醒我们，我们有创造力。它们只是产出。真正的创造力，是那个让这件东西得以做出来的想法。</p>
+<p>你看阿尔弗雷德·希区柯克（Alfred Hitchcock）的电影，他会提前把整部电影想清楚，为整部电影画好分镜。如果你看过那些分镜，你会觉得，他其实都不用把电影拍出来了。整部电影已经在那里了。</p>
+<p>光靠那些画。</p>
+<p>没错。一格一格，整部电影都在那里了。</p>
+<p>韦斯·安德森（Wes Anderson）在演员参与之前，就会提前把电影一格一格地做出来。所以他能先看完整部电影，看一个电影的模拟版本。然后再和演员一起，把这个想法拍出来。我觉得，人工智能可以成为制作这种模拟版本的好工具。但关键是提示。创造力就在提示里。</p>
+<p>韦斯和阿尔弗雷德·希区柯克都是通过提示，告诉画师每一格要画什么。创造力就在那里。它不在画里，不在最终拍成的电影里。它在提示里。</p>
+<p>所以我觉得，现在有了提示，任何人都可以给出提示，而且可以通过实验，越来越擅长这件事。所以，一个觉得自己没有创造力的人，要学会怎么给出提示，其实挺容易的。门槛很低。我觉得这是好事。</p>
+<p>在一个创作门槛这么低的世界里，什么会成为区分高下的标准？是什么让一位艺术家出色，让另一位没那么出色？</p>
+<h2 id="c20">AI 时代，什么造就伟大的艺人？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5704s" target="_blank" rel="noopener">1:35:04</a><span lang="en">What Makes a Great Artist in the AI Era?</span></p>
+<p>跟现在一样。你之所以喜欢那些艺术家，是因为他们做出的东西改变了你的生活，打动了你。你想听上一百万遍。你想把那部电影看了一遍又一遍。你想读他们的书。</p>
+<p>我不知道人工智能自己能不能写出一本让你想读一遍又一遍的书。我也不知道，真有那一天，会有什么问题。我目前没看到任何迹象表明那会发生。但有更多好作品，听起来不是什么坏事。</p>
+<p>我和在外面的那位商业伙伴 Georgia Gibson，有次在 Spotify 上听到一首歌。我们特别喜欢。大概两个月后，我才发现那是人工智能做的。我之所以会发现，只是因为我想多找些那个歌手的作品来听。一路点进去，才意识到那是人工智能。</p>
+<p>那段时间还发生了另一件事：Spotify 上这个姑且算是歌手的账号，有两首歌，其中一首消失了。于是我就去谷歌（Google）上搜：“那首歌怎么了？”</p>
+<p>嗯。</p>
+<p>结果发现，那是个人工智能歌手。当我意识到自己听的是一首人工智能歌曲时，有意思的事发生了。</p>
+<p>发生了什么？</p>
+<p>我没那么喜欢它了。</p>
+<p>有意思。</p>
+<p>所以再想起创造力，我就会问，是不是有某种无法替代的人性在里面，因为它曾经让我产生共鸣。它原本带着一个故事：有一个女人在唱歌，她在唱这个话题，这个话题对她有意义。后来发现，这一切都不存在，那首歌就失去了些什么。</p>
+<p>想想安迪·沃霍尔（Andy Warhol）的艺术。他一开始是个商业插画师。比如说，他会给广告画鞋子。后来，他创造出了我们现在所说的波普艺术（pop art）。波普艺术，就是一个布里洛（Brillo）清洁垫包装盒，或者一个金宝汤（Campbell’s）罐头。也许最早那批金宝汤罐头，是他自己画线条、自己上色的。最早是这样。</p>
+<p>但后来，他做了一系列丝网印刷的图像。所以，猫王（Elvis）、玛丽莲·梦露（Marilyn Monroe），那些最有名的安迪·沃霍尔作品，他什么都没画，什么都没碰。他只是说：“我们用玛丽莲这张照片，然后用这种方式来处理。”他给工作室里的人指示，让他们把这些东西丝网印出来。</p>
+<p>它们并不会因此就少了几分安迪·沃霍尔的味道。艺术始终存在于构思之中。艺术就在那里。是谁把颜料涂到画布上，并不决定这一点。</p>
+<p>以前，甚至可以追溯到文艺复兴（Renaissance）时期，很多画家都有工作室。比如伦勃朗（Rembrandt），一幅画里，他可能画了 70%，也可能只画了 30%，但整幅画呈现的是他的构想。他会让工作室里的人来做：“你们把这部分画一下。”我不确定伦勃朗是不是最合适的例子，但可能是。拥有工作室的艺术家，会让其他人、其他画家、门徒来完成大量工作，这很常见。</p>
+<p>现在录音室里也会这样。你听到的很多唱片，可能署着某个乐队的名字，但唱片里的演奏并不是他们自己完成的。是录音室乐手在演奏。这很正常。只是制作过程的一部分，不会因此就没那么好。</p> <!-- lint-disable-line -->
+<p>只是做法不同。没什么问题。作品源于构思。而人工智能的构思会不会让人感兴趣，我不知道。看看吧。</p>
+<p>我总会想到一级方程式赛车（F1）。如果把刘易斯·汉密尔顿（Lewis Hamilton）从车里拿掉，我就不会再看一级方程式了，哪怕那些车跑得更快，打破了他们的纪录。因为看着一个人经历竞争、愤怒这些情绪，对我来说有某种吸引力。你多少能从他们开车的方式看出他们的感受。你能感同身受。我以前工作时也有过那种感觉。</p>
+<p>对，如果只是自动驾驶的车在跑，好像确实没那么有意思。</p>
+<p>所以，我想，少掉的那部分，有点像我听那首 Spotify 歌曲时的经历：人与人之间的理解和共鸣，那种“我也一样”的感觉，还有连接。</p>
+<p>但有意思的是，在知道之前，你是喜欢它的。这一点让我觉得很有意思。我也在想，我会因为一个东西的制作方式而排斥它吗？这对我来说说不通。喜欢就是喜欢，不喜欢就是不喜欢。我们生活在一个有意思的时代。</p> <!-- lint-disable-line -->
+<p>确实。你前面用了“奇迹”这个词，我觉得这个用词很有意思。</p>
+<p>嗯。</p>
+<p>我想知道，你跟那些出色的艺术家一起创作时，有没有经历过奇迹。</p>
+<p>一直都有。</p>
+<p>是什么样的奇迹？能分享一个吗？</p>
+<h2 id="c21">录音棚里的奇迹</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6022s" target="_blank" rel="noopener">1:40:22</a><span lang="en">Studio Miracles</span></p>
+<p>艾维特兄弟乐队（The Avett Brothers）有首歌，叫《心无芥蒂》（No Hard Feelings）。他们在录音室里演奏，表现还行。还不错，但谈不上特别好。他们演奏了几遍，最后又来了一遍。我甚至不记得，当时我们有没有说过：“换个做法。”可能只是说：“再试一次。”也可能什么都没变。</p>
+<p>但不知道为什么，他们演奏的时候，时间像是停住了。发生了一件不可思议的事。我不知道为什么。在场的每个人都不知道为什么，也不知道是怎么发生的。</p>
+<p>但后来，我记得，大概演奏到一分钟的时候，我心里冒出一种感觉，有点害怕，因为实在太好了。我们不知道怎么会这样，也不知道为什么。我只希望他们能把这首歌演奏完。因为如果没能演奏到最后，我们就没法留下这一遍，而以后也许再也回不到这个状态了。就是这种感觉。</p>
+<p>所以，在这个过程中，一旦你意识到，如果你恰好意识到了：“好，有些东西变了，神奇的事正在发生。”有时候你不会马上知道，有时候要过后才知道。我跟尼尔·杨（Neil Young）做过一张专辑，我们录了一个星期。</p>
+<p>很不好。听起来，这个乐队不光是当时不会演奏这些歌，甚至永远也学不会。第一个星期给人的感觉就是这样。第一周结束后，尼尔对我说：“别担心，下周会好起来的。他们能做到。”</p>
+<p>我就想：“好吧，好吧。虽然我一点都没看出来，不过继续吧。我听你的。”</p>
+<p>第二周，尼尔对鼓手拉尔夫（Ralph）说：“好，我们再来一遍那个，比如第三首吧。”拉尔夫说：“可我们上周已经录过了。”尼尔说：“哦，也许还能录得更好。”拉尔夫说：“不，我真觉得我们已经录好了。”可上周，我们还觉得，不光是没录好，甚至可能永远也录不好。</p>
+<p>然后我们又试了一遍。没有更好。拉尔夫就说：“放一下上周那一遍。”于是就放了上周那一遍，他说：“嗯，把贝斯调低一点。钢琴也许可以调高一点。”</p>
+<p>我们又听了一遍。感觉还是有问题，但那种魔力已经在了。错了很多地方，但先不管那些错误，感觉是对的。之后，我们要做的，就是这里修一点，那里补一点，或者把某个声音压低一点，把另一个声音突出一点，再加一轨人声，做些小调整。结果，几乎整张专辑都来自第一周的录音，而那一周，我们还以为永远也录不成。</p>
+<p>所以，那感觉就像一个奇迹。</p>
+<p>听你说起这些伟大作品诞生的时刻，我脑子里最想问的，也是大家都想知道的，就是怎么让它再次发生。我们怎么重复这个过程？</p>
+<p>这些都没法重复。对，能重复的是你到场，然后一直做下去，直到做出好作品，不管要付出多少。这才是关键。有时候你回头听，会发现，你录了一个小样，或者画了张草图，心想：“这个想法真棒。真美。”</p>
+<p>“现在我要把它画成一幅大画。”然后你画了好几个月，又是好几个月，可怎么也画不好。但回头看看最初那张花了五分钟画出来的草图，其实你要的就是它。</p>
+<p>我和约翰尼·卡什合作的第一张专辑，就发生过这样的事。我们在我家客厅里，录了他弹着吉他唱的这些歌。当时并不是在录专辑。那是我们互相了解的方式。我请他把自己最喜欢的歌都唱给我听，那些他喜欢回想起的、成长过程中听过的歌，那些对他意义很深的歌。</p>
+<p>或者我会说：“你能试着弹唱一下这首吗？看看听起来怎么样。”更多是在摸索，哪些歌由他唱出来好听。我们就在这样探索。当时的想法是：“我们用这个办法试一百首歌。也许能从中找到十首，然后挑出我们最喜欢的那十首，带着乐队进录音棚，把它们录下来。”</p>
+<p>我们确实这么做了，找了一支很棒的乐队来录。录出来挺有意思，但没有更好。然后我们换了一支乐队，再录了一次。还是一样。没有更好。</p>
+<p>我想，那些在客厅里录的东西，我们原本压根儿没想过会让任何人听到，却有一些正式录音里没有的东西。最后，我们发行的就是那些录音。但同样，我们一开始并没打算这么做。是在做的过程中发现了它。有时候则正好相反，你很清楚自己想做成什么样，一路做下去，它却在这个过程中告诉你，它想变成一个完全不同的东西。</p>
+<p>“它想变成。”你这么说，好像它有自己的想法一样。</p>
+<p>它确实有。我之所以这么说，是因为它会让你看到：“不，你想错了。试试这样做。”</p>
+<p>你有点把它拟人化了——</p>
+<p>对，我把它拟人化了。它不会用语言说出来，但意思很清楚。那些信号很清楚。我们得到的反馈是：“我们以为这首歌应该这么快。但听了以后，很明显，太快了。我们得放慢一点。”</p>
+<p>我们以为它会是一首音量很大的电声歌曲，结果它想成为一首很安静的歌。我们之前不知道。</p>
+<h2 id="c22">当世界拒绝你的作品</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6400s" target="_blank" rel="noopener">1:46:40</a><span lang="en">When the World Rejects Your Work</span></p>
+<p>有没有过这样的情况，你觉得某个作品简直好得不得了，可等它面世，大家主观上并不觉得它有那么好？</p>
+<p>当然有。可能经常发生。</p>
+<p>那你会怎么理解这件事，你会根据什么……？</p>
+<p>只要我决定，我已经足够喜欢它，愿意把它分享给世界，我的事就做完了。我就去做下一件事。别人怎么想，并不会有什么影响。大家喜欢它，我会很开心。我很喜欢大家喜欢它。但那完全是额外的收获。</p>
+<p>真正要做的是：“我足够喜欢这个作品，愿意把它发出去。”唱片背面印着我的名字，正面印着艺人的名字。他们足够喜欢它，愿意发行。我也足够喜欢它，愿意发行。</p>
+<p>给你们。接下来做什么？</p>
+<p>至于之后会怎样，你就觉得跟自己没关系了？</p>
+<p>没错。因为在那之后，无论我再去想什么，都会彻底破坏创作过程。创作是一个纯粹、脆弱、需要保护的过程。如果你想着接下来会发生什么，就会彻底破坏它。纸牌搭的房子就塌了。</p>
+<p>我们在录音棚里工作，某段音乐开始好听起来时，可能有位艺人会说：“这首听起来可以当主打单曲。”我就会说：“我们不谈这个。这跟我们正在做的事没有关系。”</p>
+<p>那你们正在做什么？</p>
+<p>做出我们能做出的最好的作品。我们就是在做出自己能做出的最好的作品。我一直觉得，我们追求的是伟大。我们在朝着伟大努力，追求经得起时间考验的伟大。但我当时并不知道那意味着什么。</p>
+<p>直到最近这些年，我才意识到，我们是在把作品当作献给上帝的礼物。如果我们是在把作品献给上帝，那些数字就无关紧要了。我们尽自己最大的努力，把它献出去。没有什么比这更深刻，也没有任何指标能与之相比。我并不是一直都明白这一点，但做的事始终是一样的。</p>
+<p>你是在某个时刻意识到这一点的吗？</p>
+<p>对，几年前。意识到的时候，我感觉很好。就像：“啊，当然是这样。”做了三十五年，才“啊”了一声。</p>
+<p>你还记得那个瞬间吗？</p>
+<p>有个模糊的印象。具体的细节不记得了。我记得自己坐在夏威夷（Hawaii）的一张救生员高椅上。我记得在那里想过这件事，但不知道那是不是我突然明白的那个瞬间。</p>
+<p>但我记得，那完全是一次顿悟，虽然只是我个人的顿悟，跟其他任何事都无关。我终于明白了自己这些年一直在做、却一直没弄懂的事。一下子就清楚了。就像：“啊，原来是这么回事。”对，那种感觉特别好：“现在一切都更说得通了。”</p>
+<p>你是说，你真的认为自己是在向某种更高的力量献上礼物？</p>
+<p>对。就是字面上的意思。我说的就是上帝。</p>
+<p>而你说的上帝，是指那种更高的力量？</p>
+<p>我们可以称他为天父。</p>
+<p>好。所以，你创作的艺术、你做的音乐，从某种意义上说，他才是真正的顾客。</p>
+<p>不，因为这是礼物。所以他不是顾客。他是接受这份礼物的人，但不是顾客。那种感觉就像：“出于爱、感谢和感恩，我想把自己最好的东西给你看。这就是我能做到的最好。”</p>
+<p>就是这样。这是我能做到的最好。如果其他人也喜欢，那很好。但就算不喜欢，也没关系。</p>
+<p>他会给你反馈吗？</p>
+<p>我想说，别人喜欢的时候，我可能会把它看作一个好兆头。但我不知道。我其实没怎么想这件事。不过我觉得，当很多人都喜欢时，就好像它的能量在方方面面都是积极的。</p>
+<p>这个想法很有意思，想想也挺好玩。你觉得这就是我们来到世上的原因吗？因为我现在试着理解，我们为什么会跟上帝有这样一种关系，向他献上礼物，以及这跟我们可能拥有的更高使命有什么关系。</p>
+<p>我觉得，我们来到这里，是为了展现自己是谁。我们是来表达自己的。我在这里。我在这里告诉你：“这就是我，这就是我看世界的方式。”然后对你说：“让我看看你是谁，告诉我，你是怎么看世界的。”</p>
+<p>我们通过讨论这些，来理解这个世界。有些地方，我们可能一致；有些地方，我们可能不同，但我们就是这样慢慢弄明白的。我们做的每件事，都在说：“这就是我看世界的方式。”然后有人说：“我从没这样看过，但对，我认同。”也有人说：“不，这不适合我。”</p> <!-- lint-disable-line -->
+<p>这都没关系。但我们来到这里，我们的目的就是表达自己。</p>
+<p>通过几种不同的方式，通过——</p>
+<p>什么方式都可以。自我表达有很多种形式。但最好的自我表达，绝不会是因为别人这么做了，你也这么做。那不是自我表达。看到别人成功了，就去模仿他们，那不是自我表达。</p>
+<p>那是另一种游戏。我们来这里不是为了这个。你可以这么做，没关系。但我不觉得这就是我们来到世上的原因。</p>
+<p>我曾经跟一位研究意识的专家聊过。他是个物理学家，也很重视灵性。他跟我说过一件事，我一直记得。他提出了一种可能：意识本身或许是这样的——上帝把意识分成了许多小块，放进我的法国斗牛犬（French bulldog）巴勃罗（Pablo）身上，放进瑞克（Rick）身上，放进中国的某个人身上。然后让我们各自出发，去探索、理解世界。通过这个过程，意识也在试着理解自己。很奇怪的想法。</p>
+<p>后来，我去了一个地方，我想是马耳他（Malta）。我开车走在马耳他的路上，看见了一群游客。当时脑子里还想着那个想法：意识把自己分成这么多小块，去理解自己，变成一条鱼，这样就能去看看海底。我看到那些游客，全都在抬头看着一座山。抽离出来看，我们会对新奇的东西着迷，这件事显得很奇怪。于是我开始想，也许真的是这样。也许这个叫作意识的东西，就是在通过这样的探索来理解自己。</p>
+<p>一部分意识进入了瑞克，瑞克通过尝试和创作去理解。你刚才说的让我想起了这个，因为听起来，你在谈的就是意识本身，以及意识的自我表达。</p>
+<p>有可能。这是个很美的想法。</p>
+<p>很奇怪的想法，对吧？</p>
+<p>我不觉得奇怪。</p>
+<p>你不觉得奇怪。好。</p>
+<p>一点也不。我觉得，什么可能都不能排除。什么可能都不能排除。</p>
+<p>我们聊过，你合作过的一位很棒的艺人是 Jay-Z。</p>
+<p>对。</p>
+<h2 id="c23">黑桃 A 的故事：Jay-Z 为什么离开 Cristal</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6859s" target="_blank" rel="noopener">1:54:19</a><span lang="en">The Ace of Spades Story: Why Jay-Z Walked Away From Cristal</span></p>
+<p>你和 Jay-Z 有一部很精彩的八集纪录片即将上映，我看得特别入迷。它会在九月十八日上线。我看过其中一段片段，刚刚还让人帮忙梳理了一下，讲的是这个品牌的故事。</p>
+<p>啊，对。黑桃 A 香槟（Ace of Spades）。</p>
+<p>Jay-Z 讲的这个黑桃 A 香槟的故事，我觉得特别有意思，原因很多。它也呼应了你刚才谈到的一些事，比如坚守原则、尊重自己的感受。他决定放弃另一个品牌，哪怕短期内要付出代价，不符合自己的短期利益，也要去推出自己的品牌。</p>
+<p>对。而这个故事里最有意思的一点，我们没怎么强调，只是顺带提了一句。事情的起因是，他决定以后不再支持一家公司。</p>
+<p>水晶香槟（Cristal）。</p>
+<p>对。他曾让它在嘻哈音乐圈里变得非常流行。他是最早喝它的人，当时没人知道那是什么。他在唱片里、歌里提到它，于是它就在嘻哈音乐圈里成了一款很流行的酒。但水晶香槟的负责人说了些贬低的话，针对嘻哈音乐圈的人喝水晶香槟这件事。</p>
+<p>“我没法让他们别喝。”</p>
+<p>对。Jay 觉得受到了侮辱，他这么觉得完全有道理。他说：“你知道吗？到此为止。我再也不这么做了。”</p>
+<p>但事情发生之后，他并没有想：“我要去创立自己的品牌。”事情不是这样的。事情发生后，几乎立刻就有人来找他说：“我在考虑创立这个品牌。你想和我一起做吗？”</p>
+<p>他们当时只有那个瓶子，他很喜欢那个瓶子的形状，也很喜欢它是金色的。就好像宇宙给他开了路。先是有人说了那些负面的话，他按自己的信念作出回应，坚持了自己相信的东西。</p> <!-- lint-disable-line -->
+<p>让自己的夜店不再卖那款酒。</p>
+<p>对。然后，一个他根本没在寻找的新机会，就这样来了。这样的故事，你都编不出来。你当然可以编，但它发生的方式，几乎让人难以置信。可事情确实就是这样发生的。</p>
+<p>这又是那种奇妙之处：Jay 做了对的事。而作为做对的事的回报，他最后拥有了一个香槟品牌。</p>
+<p>你相信宇宙就是这样运作的吗？</p>
+<p>对。我知道是这样。我知道。</p>
+<p>这是因果报应吗？这是什么？</p>
+<p>嗯，这是其中的一部分——你可以这么叫。它有很多名字，有很多标签。但你可以称它为因果报应（karma）。</p>
+<p>他采取那个行动的时候，并没有想自己能从中得到什么好处。</p>
+<p>完全没有。他只知道：“这些人在侮辱这场运动，我再也不想跟他们有任何关系。我一直告诉所有人，‘这是最好的酒’，结果他们却侮辱我们。把他们划掉。他们不再适合我们了。我们不会再光顾他们。”</p>
+<p>他没想过要创办一门生意，完全没想过。</p>
+<p>但最后变成了一门很棒的生意。</p>
+<p>最后变成了一门很棒的生意。但宇宙填补了那个空缺。这也是一件我们可以聊的事。这个想法很有意思。</p>
+<p>你跟一个人交往，觉得也许不适合长期在一起。但你还是继续，然后心想：“也许在这期间，我会遇到别人。如果我更喜欢那个人，我就结束这段关系，开始那段关系，换一下。”很多人都会这样做。我不觉得事情是这么运作的。</p>
+<p>我觉得，当你知道某件事行不通，结束它，留出那个空缺，腾出那个空间，你寻找的好东西才能进来填补它。在这件事里，Jay 并没有在寻找什么好东西来填补，但他确实在自己的生活里留出了一个空缺。他一直在外面替一个品牌宣传。现在，因为对方的行为，他决定：“我不会再替这个品牌宣传了。”</p>
+<p>然后宇宙介入，说：“你知道吗？你替那个品牌宣传得很好。不如宣传一个属于你自己的品牌，一个你可以心安理得去宣传的品牌，怎么样？”</p>
+<p>你刚才说留出一个空缺，很有意思。在我们的文化里，在整个社会里，我们通常都会庆祝开始。开始一份新工作，开始一件新事情。但显然，按照你刚才说的，从逻辑上看，你想在人生中开始一件大事，就得先做一件我们谁也不怎么推崇的事。其实正好相反，我们会说：“永远别放弃。不要放弃。”</p>
+<p>对。</p>
+<p>但那恰恰是开始之前必需的第一步，是创立一个品牌之前必需的第一步。就 Jay-Z 来说，在他出售股份时，那个品牌的估值已经达到六亿三千万美元。我们对退出这件事，态度很奇怪。我们需要确定性。我得先抓住另一根树枝。</p>
+<p>对。我觉得这是一件能让人获得力量的事，就像拿回主动权。我最近刚和一个人聊过这个。他在一家高科技公司担任很高的职位，已经决定辞职，而且他辞职的理由是对的。但他担心，外界会以为他遭到了解雇。外面的人会这么看。</p>
+<p>可他真正离开的原因，是不喜欢那里正在发生的事。通常，到了那个级别的人，不会主动离职。所以，这种事发生时，会是一个很有意思的时刻。</p>
+<p>有点像你说的，让艺人走出自己的音乐类型，放下自己的音乐类型。</p>
+<p>对。对。</p>
+<h2 id="c24">广告</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7255s" target="_blank" rel="noopener">2:00:55</a><span lang="en">Ads</span></p>
+<p>这是我为你做的东西。我发现，《首席执行官日记》（The Diary Of A CEO）的观众，都是努力进取的人。无论在事业还是健康上，我们都有想要实现的大目标。我学到的一点是，当你瞄准一个很大、很大、很大的目标时，心理上可能会感到特别不适，因为那有点像站在珠穆朗玛峰（Mount Everest）脚下往上看。</p>
+<p>实现目标的方法，就是把它拆成很小、很小的步骤。我们团队把这叫作“1%”。事实上，我们在这里取得的很多成功，都离不开这个理念。所以，为了帮助屏幕前的你实现自己的任何大目标，我们做了这些“1%”日记本（1% diaries）。去年推出后，全部售罄了。</p>
+<p>所以我一遍又一遍地请团队重新推出这些日记本，同时增加一些新颜色，再做些小调整。现在，我们有了更好的款式选择。如果你心里有一个大目标，需要一个框架、一套方法，还有一些动力，我非常推荐你在它们再次售罄之前买一本。你可以在 thediary.com 买到。如果你想找链接，就在下方的简介里。</p>
+<p>这下面应该有一个按钮。如果上面写着“订阅”，你就已经订阅了。如果写着“订阅者”，那就说明你还没有订阅。如果你还没订阅，能不能帮我们一个忙，点一下那个按钮？它对节目的帮助，比你想象的还大。</p>
+<p>根据算法，你是会看我们节目、但还没有点那个按钮的人。非常感谢。</p>
+<h2 id="c25">如果你的作品不够好呢？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7339s" target="_blank" rel="noopener">2:02:19</a><span lang="en">What If Your Art Isn&#x27;t Good?</span></p>
+<p>听说你以前会用这里这种东西做音乐。</p>
+<p>我从来没用过这款设备，不过它看起来很漂亮。</p>
+<p>如果我来找你，瑞克，说：“我很喜欢这个。”</p>
+<p>嗯。</p>
+<p>但很明显，客观上说，它并不好。</p>
+<p>我不知道。它也可能很好。</p>
+<p>但如果我说：“等等，我想把它发出去。”</p>
+<p>你真的相信它很好吗？如果你真的相信它很好，我支持你发出去。</p>
+<p>真的？</p>
+<p>如果你真的相信它很好，对。</p>
+<p>你会追问吗？</p>
+<p>你给我设了一个假设：“如果这东西很差，但我告诉你，我觉得它很好呢？”可这就说明，你自己并不相信它很好。你跟我说：“我真的很喜欢这个。我想放给别人听。”我会相信你。我支持。</p>
+<p>即便你不喜欢，也没关系，即便你——</p>
+<p>没关系。如果我不喜欢，我会说：“也许你可以试试这几种做法。”但只要有人做出了自己热爱的东西，我都会支持。这对世界来说，是一件美好的事。</p>
+<p>你合作过的艺人里，有没有这样的例子：他们拿了个作品给你，你其实没太理解，没什么感觉，也不喜欢。他们发出去以后，却大获成功，对他们来说如此，对听众来说也是如此。</p>
+<p>我能想到一个，但不太想谈。不过，是的，我能想到一个。确实发生过。</p>
+<p>在不透露是哪首歌、哪位艺人的情况下，你能讲一点吗？</p>
+<p>我当时在跟一位艺人合作，有很多好歌。其中有一首，我觉得：“这首跟其他歌都不搭。感觉跟其他歌放不到一起。”但那位艺人决定把它收进去，最后它成了一首大热歌曲。它不是第一首主打单曲，但后来确实大受欢迎。</p>
+<p>每次我表达自己的看法时——这个想法很有意思。别人会问我：“你怎么这么有把握？”因为我说自己不喜欢某样东西，那就是真不喜欢。他们会说：“可你怎么能这么确定它不好？”我就说：“我能确定自己不喜欢这个披萨。”意思也就仅此而已。</p> <!-- lint-disable-line -->
+<p>有人曾邀请我制作枪炮与玫瑰乐队（Guns N' Roses）的第一张专辑，我拒绝了，因为我去看了他们的现场演出。他们在一间地下室的小俱乐部里演出，现场大概有三十个人。当时他们还是一支华丽金属乐队，化着妆什么的，我就觉得：“我不太能欣赏。”后来，他们成了大家熟知的枪炮与玫瑰乐队。我没跟他们合作，是件好事，因为如果合作了，最后做出来的东西，可能就跟他们没有我参与时做出来的不一样了。所以我们并不合适。</p>
+<p>你懂我的意思吗？我如实说出自己的看法，那是真实的，但只对我自己而言是真实的。</p>
+<p>我在想，反过来的情况是不是也存在：一个人可以是非常出色的创作者，却从来没有获得过商业上的成功，一次都没有。</p>
+<p>当然。肯定有。肯定有。很可能大多数时候都是这样。这可能才是常态。因为能否成功，除了才华，还跟太多其他事情有关。</p>
+<p>才华只是其中一部分，还得天时地利人和。任何东西要想脱颖而出、获得成功，都有太多事情必须恰好顺利。太多了。而且完全不在你的掌控之中。</p>
+<p>你肯定合作过不少这样的艺人，你心里觉得：“我知道这个人太有才华了。”</p>
+<p>对。</p>
+<p>但不知道为什么，他们就是没能——</p>
+<p>对。这种事会发生。</p>
+<p>这个世界没有——</p>
+<p>这种事会发生。那也可能跟因果报应有关。也许出于某种原因，这个人虽然很出色，但那并不是他这辈子要走的路。也许成功就不在他的人生道路上。谁知道呢？那是另一个问题了。</p>
+<p>你很年轻时就联合创办了 Def Jam 唱片公司（Def Jam）。我记得你当时只有二十一岁。</p>
+<p>大概是那个年纪。</p>
+<h2 id="c26">Jay-Z 有何不同：他的写作过程</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7618s" target="_blank" rel="noopener">2:06:58</a><span lang="en">What Made Jay-Z Different: Inside His Writing Process</span></p>
+<p>在那个过程中，你认识了一些非常了不起的人。我这里有几张你在那段时间制作并发行的专辑。在你的职业生涯里，包括后来，你接触过的其中一个人就是 Jay-Z。Jay 有什么特别之处？</p>
+<p>Jay 的写作方式跟所有人都不一样。跟我合作过的其他说唱歌手，都会花很多时间写歌词，但我从没见过 Jay 写歌词。等到跟他合作时，我亲眼见识到，他真的不用动笔写歌词。我把《99个问题》（99 Problems）的节拍放给他听，他说：“好，就这样循环播放。一直反复放。”</p>
+<p>他坐在房间后面，坐了很久，久到我都快忘了他还在那里，因为我在跟录音师说话，歌就那么一遍遍放着，他在后面一声不吭。偶尔能听见他低声念几句，或者哼几声。过了二十到三十分钟，他说：“好了，有了。”然后跑进另一个房间，把第一段从头到尾唱了出来。什么都没写下来，他就是记住了。</p>
+<p>他录了几遍，每一遍的词都一样，但节奏和语调不同，就像萨克斯管演奏者在吹一段独奏。你知道这段独奏怎么走，但每次吹，都会有一点不一样，懂吗？就是那种感觉。重音的位置不同，节奏和语调也有些不同。某个词可能在这一版里特别突出，到了下一版，就轻轻带过去了，没那么重要。</p>
+<p>就算他录了三遍吧。然后他进来听，说：“嗯，我觉得第二遍不错。”接着又说：“好，继续放。”然后他又坐下来，再做一遍同样的事。大概又过了半个小时，他说：“来录下一段吧。”</p>
+<p>一直到他准备好。所以这一切都是在他脑子里完成的。</p>
+<p>那是什么能力？是品味吗？还是——</p>
+<p>我不知道。那是一种实实在在、不同寻常的能力。非常不同寻常。我不知道他怎么记得住，因为那些词很复杂。不像摇滚歌曲，一段可能只有四行词。那很好记。</p>
+<p>但说唱歌曲的词很多，而且很复杂。所以对我来说，最先让我觉得他跟所有人都不一样的，就是他的创作过程。他跟我合作过的任何人都完全不同。</p>
+<p>这很有意思，因为其他人可能也能得到同样的结果，只是走的路不同。他们可能会写下很多东西。所以，并不存在一种正确的创作流程。</p>
+<p>对，艺术里的这些事，从来没有什么唯一正确的做法。适合一个人的，不一定适合另一个人。这也是听取别人建议时一个真正的危险：有人告诉你，“我是这样写的，而且非常成功，所以你就得这样做。”但这不是真的。那样做也许有效，但那可能是适合他的方式，不一定适合你。</p>
+<p>所以，听建议时始终要留个心眼，因为还是那句话，人们给你建议，出发点都是好的，但他们依据的是自己的人生经历，不是你的经历。</p>
+<p>那我们该从哪里获得建议呢？</p>
+<p>我觉得，要多听各种东西。具体取决于我们从事哪一种创作，但无论是哪一种，我都会深入其中，然后认真倾听自己内心的动静。这跟你有关，跟你怎么看有关。你心里有一个指南针，会告诉你往哪儿走。</p>
+<p>我还想说，答案可能不止一个，甚至可能没有正确答案。这时，最终就要靠内心的感受。我会尽可能多地听取尽可能多的人的信息，最好彼此还有冲突，然后认真问问自己，需要多久就花多久，直到内心到了一个明白正确答案是什么的地方。你知道什么答案适合你。没有什么正确答案，但你知道，对你来说什么才是正确答案。</p>
+<p>那就是你始终想要到达的地方。对我来说，什么才是正确答案？</p>
+<p>我怎么知道呢？</p>
+<p>你会知道的。如果你不知道，说明你做的功课还不够，因为它必须来自你自己。必须来自你自己，那种感觉是：“我已经走到这一步了，面对这些彼此冲突的信息，我做了足够的功课，现在可以听自己的了，而且我觉得这样很好。”</p>
+<p>我们内心的声音之所以会产生冲突，一个原因就是父母的存在。我了解你的故事，也了解你父母。他们原本觉得你也许会当医生，但你不喜欢针头。于是他们就想：“好吧，那他可以当律师。”</p>
+<p>很多人都说，自己心里有那个声音：“我爸妈……”有时真的很难分清，哪个声音是我自己的愿望，哪个来自外界。</p>
+<p>是的。我记得刚上大学、搬出父母家时，大概花了一年时间，才弄清楚脑子里哪些想法是我自己的，哪些是他们的。我当时确实很困惑，但我必须给自己留出那个空间，或者说，我很幸运，能有那个空间，让这件事慢慢发生。还是那句话，我并不是为了这个才上大学的。但上大学后，离开了家，我开始明白自己是谁，他们是谁，我们在哪些地方想法一致，在哪些地方看世界的方式不同。</p>
+<p>这没什么问题，只是需要时间，因为我之前不知道这些。我不知道。</p>
+<p>如果你问很多人，他们想成为什么样的人，或者像你从事音乐这一行，问他们想做什么音乐、目标是什么，他们会说出一些自己都没意识到是从别处听来的想法。我在生活里经常遇到这种事。我采访一个人，问：“你想成为什么样的人？”他们会随口说出一个宏大又光鲜的目标。但很多时候，你再多问几句，就发现那背后什么都没有。他们可能是从照片墙（Instagram）上看来的，也可能是从父母那里听来的。</p>
+<p>我们怎样才能更了解自己真实的想法？就像我放给你听那首不好听的歌时，你会去寻找真实的感受。我怎么才能知道？怎么才能分清，哪些是我自己的、符合我心意的，哪些是从别处接过来的？</p>
+<p>就像我前面说的，我觉得你需要找到一些练习，帮助你在内心站稳。冥想就是很好的一种。我相信还有其他方式。但你必须跟自己建立联系。也许心理治疗对有些人有效。你得弄清楚自己是谁。</p>
+<p>这是件很大的事。这是件很大的事。没有速成的办法。我记得第一次接受谈话治疗时，自己根本不知道怎么开口。我不知道自己对任何事情有什么感受。我不知道怎么说。</p>
+<p>我对自己的内心状态一无所知。只有一次次去做，持续做下去，才会开始理解。这也是一种需要培养的能力。我从来没有向内看过。即使冥想了那么多年，我也从来没有向内看过。</p>
+<p>那你现在做到了吗？</p>
+<p>我想是的。</p>
+<p>你知道自己是谁吗？</p>
+<p>我不确定自己能不能解释清楚，但我觉得我在内心站稳了，而且这种感觉相当清晰。</p>
+<p>以前还没做到的时候，跟现在做到了，有什么区别？是一种感觉，还是有什么表现？是快乐吗？</p>
+<p>不是，那时候也有快乐。所以不是快乐。在我还不知道自己是谁的时候，我也有快乐。我可能不知道为什么，但我记得自己很快乐。所以不是快乐。</p>
+<p>嗯，我想还是要回到“笃定”这个词。就是你能感觉到。你问我一件事，我能告诉你自己的感受，能告诉你自己的看法。我不知道自己以前能不能做到。我说的是年轻的时候。</p>
+<p>我不知道自己那时能不能做到。我还是喜欢自己喜欢的东西。我的品味也还是我的品味。但我不知道自己那时能不能像现在这样清楚地触及它。</p>
+<p>快乐值得成为追求的目标吗？</p>
+<p>我喜欢快乐。我不觉得它是一个目标，但我当然更愿意快乐。喜悦是美好的。也许我要说的那个词是平静。达到那样一种状态——因为平静，安住在平静之中，似乎是很好的状态。</p>
+<p>而且我想，如果情绪到了太高的地方，总会有另一面。有时我心情特别好，这种情况确实偶尔会发生，但有时第二天心情就很差。那种感觉几乎让我觉得，也许是体内化学物质在起作用。也许让人感觉良好的化学物质用得太多，第二天就不够了。我不知道。我不知道这是怎么回事，但我觉得，如果一切都挺好，而且能一直这样下去，我就很喜欢。</p>
+<h2 id="c27">坎耶的过人之处，以及伟大的艺人是天生的吗？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=8250s" target="_blank" rel="noopener">2:17:30</a><span lang="en">What Makes Kanye Brilliant + Were Great Artists Born Great?</span></p>
+<p>有一位艺人很熟悉这种起起落落，他也是我最喜欢的艺人之一，就是坎耶（Kanye）。你跟坎耶合作过。我想问同样的问题：他有什么不同？在你看来，是什么让他那么出色？</p>
+<p>我跟他说过：在艺术上，我无所畏惧。他在任何时候都无所畏惧。他在生活里也无所畏惧。我在生活里做不到。艺术上，我是很适合他的合作者，因为我无所畏惧，而并非每个人都是如此。</p>
+<p>但他一直都无所畏惧。亲眼看到这一点，真的很了不起。那是一种强大的力量。</p>
+<p>冒那么大的风险，还能取得那么多次成功，这很少见。这就是他让我着迷的地方。</p>
+<p>嗯，这点我不赞同。</p>
+<p>真的？</p>
+<p>不，不，不。我觉得风险和成功是相伴的。只有冒险，才能显出非凡之处。</p>
+<p>所以，一个人不可能一直做差不多的东西，还被认为是伟大的人物？</p>
+<p>我觉得不行。我不知道。在我看来好像不对。感觉那里有一道边缘。有一根钢丝，你走在上面，走过去了，就非常好。没走过去，就没那么好。</p>
+<p>但唯一的选择，就是走上钢丝。</p>
+<p>冒险。</p>
+<p>对。</p>
+<p>然后你就能成就非凡。</p>
+<p>如果你走过去了，是的。如果你走过去了，是的。但这就是风险。而这种冒险，我全心全意支持。全心全意。</p>
+<p>为什么？</p>
+<p>因为最好的东西就在那里。如果目标是做出你所能做出的最美好的东西，以最纯粹的方式表达自己，那就是在刀刃上行走。这件事没有任何平常之处。它超出了平常。它没有任何寻常之处。寻常不值得追求。</p>
+<p>平庸也不值得追求。如果你追求非凡，有时难免要付出代价，但这就是随之而来的。事情就是这样。</p>
+<p>我们每个人都适合追求非凡吗？毕竟这是有代价的，而且并不是每个人都适合走钢丝。</p>
+<p>对。我觉得我们都有潜力。我说的非凡，是指我们都有潜力成为最好的自己。你可以成为最好的你。至于跟那些在其他事情上很出色的人相比会怎样，我不知道。这不意味着你会成为最好的一级方程式赛车手，但在你所做的事情上，你可以比任何人都更耀眼。</p>
+<p>我喜欢这样。我支持这样。我想看到这样。</p>
+<p>说到这些了不起的人，我面前有一份很长的名单，都是跟你合作过的人，长得几乎让人难以置信。从贾斯汀·汀布莱克（Justin Timberlake），到呛辣红椒乐队（Red Hot Chili Peppers），再到你帮坎耶制作的《逃离》（Runaway），那是有史以来最了不起的作品之一。我们聊过 Jay-Z，还有堕落体制乐队（System of a Down）、交流/直流乐队（AC/DC）、米克·贾格尔（Mick Jagger）。这份名单长得说不完。我看着它就想，这些人全都那么出色吗？</p>
+<p>是的。</p>
+<p>他们是生来就这么出色，还是原本只是普通人，只是做了一个决定？</p>
+<p>我会说，他们是做了一个决定的普通人。也许其中一些人有某种特别的天赋，但另一些人原本很普通，后来培养出了才能。名单上的那些人，并没有什么特殊之处。这样的人也不只有他们，但他们确实乘着那股浪走了下去。</p>
+<p>我觉得埃米纳姆（Eminem）就是个很好的例子。埃米纳姆一直在写。他一直在写，因为他想尽自己所能做到最好。他对这件事痴迷到了极点。所以他整个生活的重心，就是坐在那里对着笔记本写，白天写，晚上写。他做的就只有这件事。</p>
+<p>这才成就了他。</p>
+<p>即使他并没有要发专辑，或者——</p>
+<p>都一样。有一次我看着他的笔记本，问他：“这些全都是为了——”他说：“不，不，不。这些东西有百分之九十九永远不会有人看到。我就是想写得好。我在练习。我想把自己做的事做得更好。”</p>
+<p>他一直在训练。你可以把他想成一个运动员，有些运动员在休赛期也训练，有些就不练。而在休赛期训练的人，通常表现更好，职业生涯也更长。就是这样。</p>
+<h2 id="c28">改变了鲁宾的那些艺人</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=8566s" target="_blank" rel="noopener">2:22:46</a><span lang="en">The Artists Who Changed Rick Rubin</span></p>
+<p>我们刚坐下来的时候，你问了我一个问题。你说：“史蒂文，你做这个播客，这些嘉宾改变过你吗？”今天我谈到的很多内容，都在讲你如何以教练、制作人，或者任何你用来定义自己的身份，改变了别人的人生。我想问你，能不能举几个例子，有哪些艺人，不管出于什么原因，从根本上改变了你？</p>
+<p>可以。我第一个要说的是约翰尼·卡什。约翰尼·卡什。因为我有机会跟这样一个人长时间相处：他那么谦逊、安静、聪明，却很少主动说什么。如果你不引着他说，他就什么也不说。但无论你问起什么，他都了解，而且有非常了不起的见解。</p>
+<p>但他并不需要让你知道这一点。那些都在他心里。他在精神上是一个很美好的人，我很爱他。我觉得，能跟这样一个给人启发的人相处那么久，我的人生真的变得更好了。这是一个。</p>
+<p>你刚才是什么感受？刚才你的情绪有些触动。</p>
+<p>是的。他是个美好的人。美好的人。</p>
+<p>下一个是汤姆·佩蒂，他的技艺登峰造极。披头士乐队（The Beatles）里有约翰（John）和保罗（Paul）。约翰更像一根裸露的神经，剖开胸膛，让心带着自己走。保罗则更像一个音乐奇才，一个手艺人。任何东西到了保罗手里，他都能把它做得很好。约翰是一根裸露的神经，能直接把灵魂展现出来。</p>
+<p>这是两种截然不同的能力。它们结合在一起，才成就了披头士乐队。当然，乔治（George）和林戈（Ringo）也都很了不起。即使保罗和约翰那么出色，也只有四个人在一起，才是披头士乐队。</p>
+<p>保罗是那个手艺人。保罗了解每个部分。保罗知道如何把它们组合起来。披头士乐队里，只有他知道怎么做这些，除了乔治·马丁（George Martin），而那本来就是乔治·马丁的工作。但保罗懂这一面。</p>
+<p>汤姆·佩蒂就像保罗。他什么都能演奏。他能从各个角度看待一首作品。他知道怎么把它做出来。除此之外，他还是个出色的词曲作者。所以他身上同时有约翰和保罗各自最出色的东西。</p>
+<p>所以，跟他相处特别能给我启发。而且，身为唱片制作人，我从跟他合作的过程中也学到了很多。我能提供一个外部视角。我比他年轻，跟他不一样。所以我也能带来一些东西。</p>
+<p>但我学到的实在太多了，因为在跟他合作之前，我合作过的都是刚做第一张专辑的新人。而他已经成名很久了，是个非常出色的录音室艺人。所以跟他合作，我学到了很多。</p>
+<p>如果只能选出一条，他教会了你什么？</p>
+<p>他提过一点：所有演奏和演唱都必须始终合拍、音准到位。人声唱出的每个字都得听得清。这听起来像是理所当然的事，但很多唱片，</p>
+<p>你没法听清每一个字。他会回放来听，然后说：“这个词应该是复数，但听不见结尾的 S。我得重新录。或者我们可以把这个 S 补录进去，因为如果听不清，意思传达出来就会打折扣。每一个字都得听得清。”所以，节奏、音准。</p>
+<p>他也是那种会一直做下去，直到做好为止的人。他一点都不懒。他从来不会急着把事情做完。我们合作的第一张专辑叫《野花（Wildflowers）》。我想我们大概做了两年，不是每天都做，但前前后后有两年，可能两年半。</p>
+<p>做一张专辑，这算很久了。尤其在当时，算很久了。但我们一点也不着急。就是：“哦，我们有进展。继续做。继续做。继续做。”</p>
+<p>所以，关于耐心，我也从他身上学到了很多。</p>
+<p>有人可能会说，这就是完美主义。而大家觉得完美主义是一种拖延。</p>
+<p>对。但这里面没有拖延。我也跟拖延的艺人相处过。那完全是两回事。</p>
+<p>你怎么知道呢？怎么知道自己是完美主义，还是在拖延？有什么表现吗？</p>
+<p>有。真正拖延的人，到了那个关头，通常是因为害怕把作品拿出来，交给全世界。我认识一些艺人，很有名，你也知道他们是谁，他们已经十年没发专辑了。我觉得一般来说，等得越久，就越难。</p>
+<p>为什么？</p>
+<p>压力。等得越久，就越觉得作品永远达不到大家的期待。陷入这种处境会很难受。</p>
+<p>而完美主义者迟迟不交作品，原因跟恐惧无关，是因为别的东西。你是这个意思吗？</p>
+<p>很难说。很难说。我不知道。</p>
+<p>对，我也不知道。你刚才提到了两位改变过你的艺人，强尼（Johnny）和汤姆（Tom）。还有哪位是你马上能想到的吗？</p>
+<p>我想想。阿黛尔（Adele）。她真的很棒。她太棒了。我觉得她做什么都很棒。</p>
+<p>她一开口唱歌，一切都停下来了。而且她可以一遍又一遍地唱，每一遍都很棒。有些歌手会花很长时间，录很多遍，再把不同遍里的片段拼起来，得到一个好的版本。她不一样。她可以连续唱一首歌三十遍，三十遍都很棒。这三十遍可能各不相同，但每一遍都很棒。</p>
+<p>你参与制作了她的《21》专辑，做了里面的一些歌。</p>
+<p>其中一部分。</p>
+<p>你见到她的时候，就知道她很棒吗？她身上有什么东西，让她跟其他优秀的艺人不一样？</p>
+<p>当时，大多数流行歌手都不自己写歌，而她更像是回到了七十年代的那种创作歌手。所以她身上有一种特别的东西。</p>
+<p>我也有机会跟夏奇拉（Shakira）合作，她也自己写歌。那些自己写歌的流行歌手，身上就是有某种东西，跟那些只是能把一首歌唱好的人不一样。所以我觉得，这在流行音乐界有点少见，因为流行音乐有那么多作品更像是——我想说“制造”出来的，就是一群人把歌写好，再由歌手来唱。阿黛尔很关键的一点是，作品始终源自她自己。你能在歌里感受到这一点，也更私人。我很喜欢这一点。</p>
+<p>确实能感受到。我也看过她的现场。听她现场唱歌的时候，你会觉得她好像是第一次唱这首歌。</p>
+<p>瑞克，关于创造力，关于怎么做出很棒的东西、好的东西，或者不管用什么标准来衡量的东西，还有什么最重要的事，是我们应该聊却没聊到的？</p>
+<p>我觉得我们差不多都聊到了。最主要的意思其实就是，别听别人怎么说。忠于自己，努力去做，永远别放弃，别退出，一直做下去。也别给你的艺术创作施加过多压力。找到一种不会给艺术创作带来压力的生活方式，这样你在创作时才能完全自由，把东西做成自己梦想中的样子。希望到了某一天，这个梦想中的样子能成为你生活的全部，不再只是你热爱的事。</p>
+<p>你为什么会和 Jay-Z 拍这部纪录片？</p>
+<h2 id="c29">鲁宾为什么拍 Jay-Z 纪录片</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=9105s" target="_blank" rel="noopener">2:31:45</a><span lang="en">Why Rick Rubin Made the Jay-Z Documentary</span></p>
+<p>几年前，我和保罗·麦卡特尼（Paul McCartney）拍过一部纪录片，一共六集。拍那部片子的原因是，我从没看过一部关于保罗或披头士乐队的纪录片，是在讲他们的演奏功力。那些片子讲的总是歌曲创作，或者披头士狂热（Beatlemania）。我当时想，没有演奏功力，就不会有披头士狂热。没错，歌很重要，但没有演奏功力，你也没法把那些歌呈现出来。</p>
+<p>对。</p>
+<p>所以我觉得，在人们讲述保罗的故事时，这一大块是空缺的。如果要列一份史上最伟大的贝斯手名单，保罗应该排第一，但大多数人甚至不会把他列进去，因为你不会把他当成贝斯手。你想到的是披头士乐队的保罗。</p>
+<p>嗯。</p>
+<p>我就觉得，这是个机会，可以让大家看见我喜欢的东西。我原本以为那会是一部比较传统的纪录片，结果它变成了另一种纪录片。这是自然而然发生的，没有事先计划，最后成了一部很有意思的作品，跟以前所有和保罗一起拍的、或关于披头士乐队的片子都不一样，而且大家很喜欢。能参与其中，对我来说就像做梦一样。</p>
+<p>那之后，我开始想，还有谁也是这样——我想用“被误解”这个词，因为大概就是这么回事。没错，保罗很棒，所有人都知道保罗很棒，但大家不会把他看作一位伟大的乐手。他们想到的是别的身份。然后我就想到了 Jay-Z。</p>
+<p>为什么？</p>
+<p>因为如今人们眼中的 Jay-Z，是一位了不起的商人。你想到的是亿万富翁、商人、幕后的天才，娶了一位著名歌手。我们想到他的那些身份，大多都跟诗人无关。那不是你首先会想到的。就算是喜欢 Jay-Z 的人，也可能并不真正了解他的文字有多深。</p>
+<p>我觉得，这是个有意思的故事。他的歌词非常精巧，也非常难写。他做到的事令人惊叹。他很有名，而这正是他成名的原因，但大家却不知道。人们从别的角度看他。所以我觉得，让大家看见 Jay-Z 身为诗人、作词人的一面，看见他的艺术才华，会是一件非常有意思的事。</p>
+<p>幸好我把这个想法告诉了他。我跟他说的时候，他说：“我很喜欢。但我先不答应，因为我一旦答应，我们就要拍了，而我还没想好。所以我想好了再告诉你。”我说：“好。”然后大概有一年，我们都没再聊过这件事。</p>
+<p>后来我给他的一位朋友打电话，说：“一年前，我跟 Jay 说了这个想法。之后我们一直没聊过。你怎么看？”他说：“给他打电话，问问他。”我说：“我觉得我已经把想法告诉他了。你不觉得应该由他打给我，告诉我他想做吗？”</p>
+<p>他说：“你不给他打电话，这事就不会发生。”他说：“就打给他，问问。他要么答应，要么不答应，但至少你可以问问。”</p>
+<p>我听进去了。他给了我一个很好的建议，告诉我该怎么做。但我可能又过了六个月、八个月都没打，就因为觉得不自在。毕竟已经聊过了。后来，我记不清是在电话里聊的，还是碰巧遇见了他，或者我去见了他。记不清了。</p>
+<p>但我们下次聊到这件事时，他说：“好，那就拍吧。”我说：“好。”然后我们就拍了。</p>
+<p>很震撼。很震撼，我觉得是因为它不一样。它的不同之处还挺出人意料的。我有几个观察，一般这种东西都有一套固定的拍法。但感觉你又一次把拍这类片子的规则抛开了。</p> <!-- lint-disable-line -->
+<p>甚至连调色，我在屏幕上看到的黑白调色，还有一些有点偏的拍摄角度，我都在想：“采访可不是这么拍的。”但不知为什么，我感觉自己像是在偷看一场私人谈话。</p>
+<p>它就是这样。那是一场非常私人的谈话。这么多年来，我们看过 Jay-Z 的一些采访，他接受的采访不算多，但在你看过的那些采访里，他从来没有这个样子。</p>
+<p>对。</p>
+<p>从来没有这个样子。</p>
+<p>我感觉自己像是在回望过去。</p>
+<p>而这才是真正的他。看完这个，你会真正知道 Jay-Z 是个什么样的人，这太棒了。能从这个角度，近距离地看见这样一位了不起的人，实在是一种难得的荣幸。</p>
+<p>显然，跟你在一起也让他觉得很安心，因为你确实看到了 Jay-Z 很真实的一面，我觉得那一面很少见。说到很棒的东西，这本书也很棒。我之所以这么说，部分原因是，我有好多嘉宾来这里都聊起过它。</p>
+<p>真的吗？</p>
+<p>特别多。而且很多人都把它当成自己最喜欢的、关于创造力的书。我觉得是因为它会挑战你。我想，这在某种程度上也是瑞克·鲁宾（Rick Rubin）的本色，就是做一个不断挑战你的教练。我觉得这本书也一样，是一位很会挑战你的教练。</p> <!-- lint-disable-line -->
+<p>我记得它是二〇二三年出版的。我会把链接放在下面，方便还没买的人。如果你还没有这本书，我觉得它也许就是你需要的那个挑战。而且我不一定觉得它就是一本讲创造力的书。我甚至想说，我把它当成一本哲学书。</p>
+<p>塔罗牌（Tarot cards）。我想，有些人注意到，你这本书有——是七十三个吗？</p>
+<p>七十八个。</p>
+<p>七十八个。我们叫它们章节吗？</p>
+<p>思考领域。</p>
+<p>这本书里有七十八个思考领域。而塔罗牌也有七十八张。</p>
+<p>对。</p>
+<p>这两者有联系吗？</p>
+<p>有，也没有。我来告诉你这个联系，说起来还挺好笑的。</p>
+<p>最初，我记得是六十——我想，当我第一次想到把它们划成思考领域、给它们起名字时，应该有六十三个。之前有一段时间，这本书还没有按想法分开，就是很多页的想法。后来就试着把它们重新挪一挪，此前已经花了好几年，用过各种整理方法，都没成功。最后，又经过很多失败的尝试，也有一些成功的尝试，到这些思考领域出现的时候，那一千四百页的内容才开始有了点形状。</p>
+<p>我记得当时是六十三个。我还留着，都是手写的，手机里也有照片，就是最初的六十三个思考领域。后来我们把所有想法分别归进这六十三个里面，结果又多出来一些，最后我记得大概有八十、八十二、八十三，或者八十四个。反正是八十多个。然后书写完了，一共有八十多个。</p>
+<p>我有一位合作者叫尼尔（Neil），也是我的朋友，住在我家附近。他是一位很棒的作家，从一开始就在帮我，不过直到最后才正式参与进来。他全程都有参与。我之前还在跟另一位作家合作，但没能合作下去。后来我们有了这八十三或八十四个思考领域，一切都完成了，所有人都很满意。</p>
+<p>我记得我给朋友尼尔打电话，说：“好，书写完了。我们有八十三个思考领域。我更希望是七十八个。”他说：“你在说什么？什么意思？”</p>
+<p>我说：“我想让它跟某种东西有联系。塔罗牌是七十八张。如果我们有一百零三个，我就会说，那就凑到一百零八个，因为有些数字就是好数字。七十八、一百零八，一百四十四也不错。有一些好数字。我希望它的数量能跟世界上的某种东西呼应。”</p>
+<p>他说：“为什么？”“我就是这么觉得的。我就是想这样。”</p>
+<p>我记得他说：“你疯了。”他说：“这本书你已经写了八年。现在你又莫名其妙地想把八十三改成七十八。已经很好了。知足吧。很好了。就到这儿吧。”</p>
+<p>我说：“我们必须想办法把它变成七十八个。”</p>
+<p>为什么？</p>
+<p>就是一种感觉。接下来发生的事，你听听。我当时有个助理，叫迪伦（Dylan）。</p>
+<p>我们是把这八十三节分开来做的。所以它们几乎就像一篇篇独立的文章。每次做的时候，我们会说：“来做第三十七节吧。”不管是哪一节、什么标题，就只做那一节。每一节都是单独做的。</p>
+<p>然后我说：“好，顺序在这里，把它们全部按顺序排好。”他就排好了，第二天来找我。我记得我们当时在意大利。这就是我跟尼尔谈过、他说我疯了之后的第二天。</p>
+<p>他说：“太奇怪了。我把它们排好顺序，结果一共七十八节。”我说：“不对，昨天还有八十三节。”他说：“现在是七十八节。”我说：“其他的呢？”他说：“没有其他的了。”</p>
+<p>这事真的发生了。</p>
+<p>所以是有人数错了，还是怎么回事？</p>
+<p>不知道。没人知道。但我们当时确定有八十多个，我希望是七十八个。结果第二天就变成七十八个了，而且谁都没做什么。</p>
+<p>哪天尼尔会找到四个章节，然后一声不吭。</p>
+<p>也许吧。也可能他会兴奋地打来电话，说：“我早说你疯了吧。”</p>
+<h2 id="c30">你会感谢谁？</h2>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=9733s" target="_blank" rel="noopener">2:42:13</a><span lang="en">Who Would You Thank?</span></p>
+<p>瑞克，我们在节目结尾有个传统，上一位嘉宾会给下一位嘉宾留一个问题，但不知道会留给谁。如果你能打一个电话，有六十秒，可以打给任何人，但必须是道歉，你会打给谁，说什么，为什么？</p>
+<p>这个问题对我来说很难回答，有几个原因。第一，我几乎从不打电话，我不太喜欢用电话。所以如果我要给谁打电话，那肯定得是什么紧急情况。而且我觉得，我也没什么欠着没道的歉。</p>
+<p>那如果是道谢呢？</p>
+<p>道谢很好。我可以打给任何人，向他们道谢。</p>
+<p>如果你只能打最后一通电话，来表达感谢呢？</p>
+<p>哦，最后一通电话。我大概会打给我太太 Mourielle，谢谢她出现在我的生命里。可能是她，也可能是我的孩子，感谢他们给我的生活带来那么多光。</p>
+<p>这让你发生了什么变化？</p>
+<p>不一样了，完全不一样了。有这样的亲密关系很美好。我们都是一家人一起出行。去哪儿都在一起。我想，我们从来没有分开过。我跟太太在一起十五年了，这十五年里，我们可能只有三个晚上没在一起，大概就是这样。</p>
+<p>不管做什么，我们都是一起出行。像现在这样离开他们，对我来说已经算很久了。所以我很期待回到他们身边。</p>
+<p>那成为父亲呢？</p>
+<p>真的太有意思了。我能看到让他兴奋的东西，想起自己小时候也曾为这些东西兴奋。我也能把自己喜欢的东西拿给他看，有时候他也喜欢。有时候他说出一些话，我完全想不通他怎么会知道。那是一种真正的智慧，让人摸不着头脑。就是很有意思。</p>
+<p>你在书里说，孩子能特别好地提醒我们，在我们把创造力搞砸之前，它最本真的样子可能是什么。</p>
+<p>对。因为你还是小孩子的时候，还没人告诉你什么能做、什么不能做，也没人告诉你世界是怎么运转的。你看什么都觉得新奇。而这就是伟大艺术家看世界的方式。他们带着惊奇四处走动，会对一些在别人眼里可能很普通的东西感到惊叹。</p>
+<p>但这个世界到处都是不可思议的美。美得让人屏息。美得让人屏息。人也很奇妙。随便跟谁聊聊，都很有意思。</p>
+<p>人很有意思。只要你放慢一点，真正去听。</p>
+<p>瑞克，谢谢你。谢谢你带来的启发和智慧，谢谢你做全世界数百万创作者的教练，不断挑战他们，也谢谢你无所畏惧地做自己。这是一本很棒的书。我会把链接放在下面，方便还没读过的人。</p>
+<p>还有和 Jay-Z 一起拍的那部家庭票房电视网（HBO）纪录片，就是我们提到的那部八集纪录片，现在也已经在家庭票房电视网上线了。</p>
+<p>九月十八日上线。</p>
+<p>所以，如果你是在那之后收看我们的节目，它就已经上线了。谢谢你，瑞克。</p>
+<p>很高兴能来。世界其他地区可以在 MUBI 上看。</p>
+<p>瑞克，谢谢你。</p>
+<p>很高兴能来。</p>
+<p>优兔（YouTube）有个很厉害的新算法，能根据人工智能和你的所有观看行为，准确知道你接下来想看什么视频。这个算法说，这条视频最适合你。现在每个人看到的都不一样。看看这条视频吧。我打赌，你可能会很喜欢。</p>
+  <h2 id="method">方法与来源</h2>
+  <p>原视频没有人工字幕。英文文字由 Whisper（large-v3-turbo）语音识别得到，再由大模型逐段整理成书面稿，要求不总结、不删观点、不改句意，然后译成中文。发言人由模型根据上下文推断，未标注的段落沿用上一位发言人；人名、歌名和专有名词可能有听写错误，以原视频为准。</p>
+  <p>章节标题译自视频自带的章节列表，每节开头的时间链接跳到原视频对应位置。章节与正文按识别文本中的视频时间信息配对，章节交界处可能差一两段。两段“广告”是节目里的口播广告，照原样保留。</p>
+  <ol class="sources">
+    <li>原视频：The Diary Of A CEO，《Rick Rubin: The Only Skill That Matters Now Is The One Thing AI Can Never Steal!》，2026-09-21，<a href="https://www.youtube.com/watch?v=a_GiFiHXJ6g" target="_blank" rel="noopener">youtube.com/watch?v=a_GiFiHXJ6g</a>（短链 <a href="https://youtu.be/a_GiFiHXJ6g" target="_blank" rel="noopener">youtu.be/a_GiFiHXJ6g</a>）</li>
+    
+  </ol>
+  <p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
