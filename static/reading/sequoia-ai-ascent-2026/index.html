@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>这就是 AGI｜Sequoia AI Ascent 2026 主题演讲中文译文</title>
+<meta name="description" content="Sequoia Capital AI Ascent 2026 主题演讲中文译文：Pat Grady、Sonya Huang、Konstantine Buhler 谈智能体、AI 应用与认知劳动。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/sequoia-ai-ascent-2026/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f5f8fa;
+  --surface: #ffffff;
+  --ink: #1b2830;
+  --ink-2: #4a5c68;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dae4e9;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #125d82;            /* 主题色：按题目换 */
+  --acc-ink: #0c4b6a;        /* accent dark enough for text */
+  --acc-wash: rgba(15, 94, 120, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+.transcript p { margin-bottom: 1.15em; } .transcript h2 { margin-top: 54px; } .source-note { font-size: 14px; color: var(--ink-2); }
+@media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); max-width: 100vw; } .outline, main { min-width: 0; overflow-wrap: anywhere; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>目录</summary><ul>
+<li><a href="#pat-grady">Pat Grady：AI 浪潮与应用</a></li>
+<li><a href="#sonya-huang">Sonya Huang：智能体</a></li>
+<li><a href="#konstantine-buhler">Konstantine Buhler：认知革命与人的联系</a></li>
+<li><a href="#sources">方法与来源</a></li>
+</ul></details></nav>
+<main id="main">
+<header>
+<p class="eyebrow">Sequoia Capital · AI Ascent 2026</p>
+<h1>这就是 AGI</h1>
+<p class="lede">Pat Grady、Sonya Huang 与 Konstantine Buhler 在 AI Ascent 2026 主题演讲中的发言中文译文。</p>
+<p class="meta"><span>演讲发布于 2026 年 4 月 30 日</span><span>时长 32 分 27 秒</span><span>译文整理于 2026 年 9 月 28 日</span></p>
+</header>
+<div class="summary"><p class="label">先说结论</p><p>Pat Grady 把能接下任务、从失败中恢复并持续做到完成的智能体，视作商业应用层面的 AGI。Sonya Huang 讲述模型、工具和运行框架怎样让智能体处理更长的任务。Konstantine Buhler 将机器承担认知劳动与工业革命作类比，最后谈到人与人之间的联系。</p></div>
+<div class="transcript">
+<h2 id="pat-grady">Pat Grady：AI 浪潮与应用</h2>
+  <p><strong>Pat Grady：</strong> 大家早上好。都怎么样？不错，不错。这下好一点了。</p>
+  <p>谢谢大家来参加。我们真的很感谢。我们办这场活动，是想为这个社区做点事，因为我们正经历一个重要的时代，能提供一个地方，让大家聚在一起，我们很荣幸。这次的议程是我们历年来最好的一次，来宾阵容也是历年来最强的。所以，开场先跟大家说声谢谢。我们知道，各位都忙得不可开交。</p>
+  <p>谢谢大家今天来到这里。我们确实准备了一份非常精彩的议程。和往常一样，穿着无可挑剔的 Sonya、Konstantine，还有我，会先讲几句。我们有幸经常跟很多有意思的人交流。所以每年，我们都想把这些交流稍微梳理一下，把听到的东西分享给大家。</p>
+  <p>我会先讲几句，交代一下整体背景，然后 Sonya 会讲讲我们今天看到了什么，接着 Konstantine 会讲讲我们认为明天可能会发生什么。先把视野拉远一点，回到这些硅基晶体管。这里之所以叫硅谷，就是因为它们。后来，晶体管组成了系统，系统通过网络连接起来，网络又以互联网的形式向公众开放，支撑起社交媒体这类云端应用，最后通过移动设备进了我们的口袋。如今，这些设备已经能做出跟魔法没什么两样的事，那就是人工智能（AI）。</p>
+  <p>我们喜欢展示这张幻灯片，以前来过的朋友应该见过，因为它提醒我们，这些浪潮都是一层层叠加起来的。我们确实需要这几十年的发展，才能拥有今天的算力、带宽、数据和人才，把握住眼前这个时刻。不过，这一轮人工智能浪潮有三个不同之处。第一，它是迄今为止最大的一轮浪潮。一般来说，每一轮浪潮都是如此。</p>
+  <p>但这一轮有个更具体的不同：它第一次同时涉及软件和服务。上面这一行展示的是向云端转型的前十五年，软件的总潜在市场规模（TAM）从大约 3500 亿美元增长到 6500 亿美元，其中云的规模增长到了大约 4000 亿美元。下面这一行才是全新的部分。这些服务收入，现在看来也成了可以争取的市场。10 万亿美元，是个方便说的整数。</p>
+  <p>我们不知道究竟是 10 万亿、5 万亿，还是 50 万亿美元。但我们知道，光是美国的法律服务就是一个 4000 亿美元的市场。一个垂直行业、一个地区，规模就和整个软件市场一样大。所以，这个机会非常大。</p>
+  <p>第二点：这是迄今为止最快的一轮浪潮。我想大家都能感受到。这意味着，这片空白——请大家看这一页人工智能这边——正在很快填满。这些标志代表的公司，都在云、移动和如今人工智能带来的巨变中，把收入做到了 10 亿美元以上。按目前的方向和速度，很快还会有更多公司加入。</p>
+  <p>第三点可能最有意思，这个观点借自我的合伙人 Konstantine：技术革命基本上有两种。一种是通信革命，改变的是信息传播的方式。在座的大多数人，经历过的只有通信革命。互联网、云、移动，改变的都是信息传播方式。这些都是通信革命。</p>
+  <p>人工智能不一样。人工智能属于这一种。人工智能是一场计算革命。它改变的是信息处理的方式。这听起来可能像是在咬文嚼字，但这两类浪潮的形态有根本区别。</p>
+  <p>想最直接地感受这种区别，或许可以想想：我们脚下的地面一直在动。新能力每天都在出现，所有人赖以构建产品的技术基础，也每天都在变化。过去几年，我们经历了三个重大转折点。第一个是 2022 年 11 月的 ChatGPT 时刻，全世界看到了预训练（pre-training）的力量。第二个是几年后的 o1 模型，推理能力出现了，突然之间，围绕推理时计算（inference-time compute），又出现了一条扩展定律（scaling law）。</p>
+  <p>第三个就在最近：Claude Code 和 Opus 4.5，现在已经到了 4.7。全世界看到了长时程智能体（long-horizon agents）的力量。虽然看上去，这是同一条连续曲线上的三个点，但第二个和第三个之间，其实有一道很明显的分界。这个变化多少有点不连续。如果容许我们大胆一点，我们会说，这就是通用人工智能（AGI）。</p>
+  <p>当然，我是学经济的。我们是做风险投资的。我们可没打算给通用人工智能下一个技术定义，好吗？我们研究创始人、市场，以及两者碰到一起产生的东西，也就是企业。但企业，我们确实研究。所以，从商业角度、实际使用的角度、功能角度来说，如果你能派一个智能体（agent）去做一项工作，它遇到失败后能恢复过来，一直做，直到把工作完成，我也说不准。这感觉已经很像通用人工智能了。</p>
+  <p>即使你觉得这还不是通用人工智能，也没关系。顺便说一句，Sonya 待会儿会更详细地聊这个。即使你不觉得这是通用人工智能，我想我们也都看得出来：汽车已经来了。</p>
+  <p>过去几年，我们有了很多跑得更快的马，也就是那些能让你的效率提高 10% 或 40%，却没有从根本上改变工作方式的应用。现在，我们开始看到汽车了，这些应用能让你的效率提高到原来的 10 倍或 40 倍，彻底改变你的工作方式。改变你工作的性质。改变你组织的性质。汽车已经来了。</p>
+  <p>这位是红杉资本（Sequoia）的创始人唐·瓦伦丁（Don Valentine）。他有个出了名的问题：“那又怎样？”这些东西为什么重要？重要就重要在，过去这几个月，比赛已经开始了，而且这场比赛和我们熟悉的那种不一样。</p>
+  <p>开车的方式和骑马不一样。造车的方式和养马也不一样。所以，这是一场很不一样的比赛。</p>
+  <p>我们今天想把大家聚到一起，原因之一就是，没有人掌握所有答案。大家在一起交流的时间越多，学到的就越多，也就越有希望弄清楚这一切会走向哪里。我们得尽快弄清楚，因为单从商业角度看，牵涉的利益就非常大。有 10 万亿美元的市场等着大家去争取。</p>
+  <p>有模型实验室从技术出发，向这个市场推进。也有在模型之上开发产品的初创公司，更多地从客户需求出发。在座有各家模型实验室的代表，不过大多数人是在模型之上开发产品。所以，我们花一点时间，聊聊从客户需求出发这条路。</p>
+  <p>对于在模型实验室的基础上开发产品的各位，我们有个建议。建议是免费的，所以它也就值你为它付的那点钱。我们的建议是，做到 MAD。我们倒不是真的需要你们生气。当然，想生气也可以。如果愤怒能驱动你，那挺好。尽管生气。但这里的 MAD 只是个方便记忆的缩写，分别代表护城河（moats）、可供性（affordance）和扩散（diffusion）。这是在模型之上开发产品时，战略应该具备的三个特点，或者说三根支柱。</p>
+  <p>先说护城河。随便问问，有人记得去年这张幻灯片吗？一个人，而且还是我的合伙人。好，也行。</p>
+  <p>好，提醒一下，这张幻灯片展示的是商品化周期，也就是把一个想法变成让客户满意的产品，价值链上需要经过哪些环节。我们不打算逐个讲这些环节。我想说的是，如果你从技术出发，对链条上每个环节的处理方式都会有点不同。如果你从客户需求出发，对链条上每个环节的处理方式也都会有点不同。</p>
+  <p>这里有一点不太符合直觉。在一场改变信息处理方式的计算革命中，你会想往这里看，因为总有很酷的新东西冒出来。但为了建立护城河，你真正该做的是往这里看，因为客户的变化速度，远远赶不上能力的变化速度。</p>
+  <p>你今天做出来的东西，明天可能就没用了。你和客户结合得有多紧密，这一点会更持久一些。这并不是说产品和技术不重要。它们非常重要，而且一般来说，最好的产品会赢。但在一个能力变化如此之快、产品也随之快速变化的世界里，考虑护城河时，我们建议你尽可能从客户需求出发，想想有哪些办法能和这些客户紧密结合。</p>
+  <p>好。MAD 里的 A 代表可供性。这是从设计领域借来的一个词。锤子就是一个具有可供性的物体。我有个两岁的儿子。如果给他一把锤子，他就知道该怎么用。</p>
+  <p>他会抓起来，开始敲东西。所以我们不给他锤子，好吗？一个有可供性的物体，不需要解释，大家自然就知道怎么用。</p>
+  <p>Claude Code 非常强大。如果给一家《财富》世界 500 强（Fortune 500）企业的普通员工打开终端，他未必能用好它。产品可以针对客户和具体问题，把复杂能力变成顺手可用的功能。你可以针对自己的客户和他们的具体问题，提供最省力的路径，让他们几乎不用动脑筋，就知道怎样得到业务所需的结果。这就是可供性的概念。</p>
+  <p>最后，MAD 里的 D 是扩散。而扩散差距，就是应用层公司的机会。这些能力向市场扩散的速度，远远赶不上它们产生的速度。只要基础模型（foundation models）的发展速度仍然快过普通的《财富》世界 500 强企业，每过一天，这个差距就会扩大，机会也会扩大。所以，考虑护城河时，尽量从客户需求出发；考虑可供性时，想想怎样为客户提供最省力的路径；而那个扩散差距，就代表着你们的机会。</p>
+  <p>如果前面那张空白逐渐填满的幻灯片让谁有点泄气，我们想提醒大家：谁的领先地位都不稳固。赛车里有句话：晴天你超不了十五辆车，雨天却可以。现在，基础模型的新能力就像倾盆大雨一样涌来，这意味着，谁的领先地位都不稳固。但这也意味着，谁都有机会赢。能赶上这样的时代，真好。接下来交给 Sonya。</p>
+  <h2 id="sonya-huang">Sonya Huang：智能体</h2>
+  <p><strong>Sonya Huang：</strong> 谢谢 Pat。我想说，看到台下这么多熟悉的面孔，真好。今天来到这里的，是一群非常出色的人，我很高兴能跟大家一起身处这个生态之中。我这部分要讲的是，人工智能眼下正在发生什么。对 2026 年来说，答案就是智能体。</p>
+  <p>好，回到 2022 年。大家举个手，还有人记得 AutoGPT 或 BabyAGI 吗？好。当时，这两个项目在 GitHub 上一夜爆红。</p>
+  <p>它们的做法，就是拿来 GPT-3，给它一些工具，套进一个循环里，让它朝着一个目标运行。一开始看着很有希望，直到你眼看着这些智能体一次又一次地失败。有点可爱，有点讨人喜欢，但完全没用。我放这张幻灯片，是想提醒大家，我们早就知道智能体会来。几年前就能看见这个方向，但在 2022 年，模型还没准备好。</p>
+  <p>快进到今天。年初前后，有些东西真的变了。突然之间，我们身边到处都是智能体，而且它们似乎真的能干活了。尤其有两类智能体大获成功：一类是面向技术人群的 Claude Code，另一类是 OpenClaw 和它那些龙虾兄弟，让任何有手机的人都能用上智能体。所以，不管你是资深工程师，还是普通人，关键在于，现在谁都能创建智能体。我们看到，人们正在为各种事情开发智能体。</p>
+  <p>有些很胡闹，比如有个 OpenClaw 智能体，居然会去举报你邻居税务欺诈。请别这么做。或者，其实也许该这么做。也有拿来创业的，用智能体制作并投放生成式媒体营销内容，推销建筑服务。还有专业工作这一层。我可以告诉大家，红杉资本内部正在激烈竞争，看谁能做出最好的智能体，帮我们把工作做得更好。</p>
+  <p>那么，什么才算智能体？这里有一种定义。智能体是一个能感知环境、选择行动，并自主朝着目标推进的系统。顺便说一句，各位，这段视频是我自己用 Seedance 做的。我很得意。视频模型真的进步了很多。</p>
+  <p>具体一点，我认为智能体有三个功能组成部分。第一，推理和规划的能力。这是最基本的直觉，以及随时思考的能力。第二，采取行动的能力。这就靠工具：搜索、写入、编译。</p>
+  <p>最后，是朝着目标不断迭代的能力。这种持续性，让智能体能够在很长的时间跨度里完成事情。所以，自主行动能力（agency）结合了这三点。说白了，就是把事做成的能力。</p>
+  <p>如果把智能体拆成几个组成部分：模型、工具和运行框架（harnesses），过去一年，每个部分都在快速进步。首先，模型是大脑。这是最重要的进展。METR 的这张图衡量的是，一个模型能在一项复杂任务上持续推进多久而不跑偏。一年前，这个时间还是几十分钟的量级，今天已经到了几小时的量级。所以，最重要的进展就是：模型的能力终于足够强，能在长时程任务中持续保持表现。</p>
+  <p>第二，工具是胳膊和腿。有了工具，模型就能使用那些让我们在电脑上高效工作的东西。通过终端访问文件系统和开发工具，还有 iMessage、Slack、网页搜索、电脑操作，等等。过去二十年，我们花时间为人类开发的工具，最后也都能转过来，让智能体用得很顺手。“软件即服务（SaaS）已死”是个常见说法。我倒觉得，随着使用这些工具的智能体越来越多，这些工具的价值会暴增。</p>
+  <p>模型和工具赋予智能体能力。运行框架赋予它们持续性，让它们能一直专注于任务，适应变化，继续推进。现在，这个反馈循环真的开始加速了，尤其是有了强化学习（reinforcement learning）之后。我们正把这些智能体送去驾校，在强化学习训练场里训练它们，提升它们在各种场景下的表现，从机械工程到设计，再到金融。</p>
+  <p>我们也开始看到自我改进的早期迹象，也就是机器来构建机器。比如，Andrej 的 autoresearch 项目能够自主改进研究过程，仅用两小时，就朝着达到 GPT-2 水平的模型推进。</p>
+  <p>那么，一个到处都是智能体的世界会是什么样？智能体的自主程度，是一条连续变化的光谱。我们拿编程举个例子。2023 年，我们有了按 Tab 键自动补全代码。一个人工智能，在人写代码的时候就地提供辅助。这带来了一些帮助，还没有改变编程方式。</p>
+  <p>现在，我们有了智能体开发（agentic development）。一个人跟智能体交流，指示它做什么，也可能管理一支智能体团队。但这个模式还在继续向前发展。我们现在开始看到后台智能体、异步智能体（async agents），以及智能体创建子智能体（subagents）。我们认为，这整套模式里的异步智能体，在使用量上很可能会超过目前的模式，因为这套系统能把人的能力放大很多倍。</p>
+  <p>最后，再往最前沿走，就是我所说的黑灯工厂（dark factories）。把人工审核完全从系统里拿掉。这听起来很疯狂，但我已经见过它在生产环境中运行，包括网络安全公司。只要有足够完善的防护机制和工程能力，就能做到。</p>
+  <p>所以，我们正在沿着自主程度这条光谱往前走。智能体先是待在你身边、帮一点小忙的助手，接着变成需要管理的实习生，再变成能管理自己的实习生，最后变成足够值得信任、无需监督就能把代码部署到生产环境的实习生。这种演进不只发生在编程里，也发生在所有智能体领域。</p>
+  <p>对在座的创始人来说，最重要的一点是：服务正在成为新的软件。从我认识 Pat 起，他就一直这么说。我们的合伙人 Julien 今天也在台下，他就这个话题写过一篇很好的文章。这个道理我们早就知道，但我觉得，它现在真的开始发生了。</p>
+  <p>在医疗领域，你可以雇一个智能体，检查你的基因组，提供个性化建议，给你开药，推荐适合你的临床试验。在法律领域，你将能雇智能体替你谈合同，甚至打官司，替你达成和解。在数学和科学领域，我们正在看到有些智能体能解决埃尔德什问题（Erdős problems），或发现新的超导体。这多让人兴奋啊。再看消费领域，个人智能体可以替你管理收件箱、日程、财务，还能帮你报税。</p>
+  <p>我们预计，智能体将无处不在。部分原因在于，雇智能体比雇员工容易太多。人的数量很难大规模扩张。智能体只要有算力，就能无限扩张。人很难一直哄开心。除了我，我一直都挺开心的。</p>
+  <p>智能体不怎么需要操心。人很贵，你得付工资。智能体按词元（token）付费。通常，完成同样一项任务，花在词元上的钱会比工资更少。</p>
+  <p>今天，总体来说还是人更聪明。但“苦涩的教训”（the bitter lesson）仍在不断应验，很快，智能体会在很多事情上比人更聪明。所以，这张幻灯片不是想说，我们人类要失业了。我认为，适应能力是人类独有的特质之一。但我们确实预计，智能体会以空前的速度和规模，迅速部署到整个应用层，因为经济上的优势太清楚了，也因为比特天生就易于大规模扩张。</p>
+  <p>把这些加在一起，智能体的数量正沿着某种指数曲线增长，甚至可能是超指数曲线。我觉得，我们马上就要走到一个节点，事情会变得很奇怪。</p>
+  <p>当商业交易发生在智能体之间，会怎样？它们能互相付款吗？当智能体真的能彼此谈判交易条款，会怎样？会不会有成群的智能体来监管我们，防止网络安全末日这类事情发生？我们只知道，这个世界正以极快的速度变得奇怪。</p>
+  <p>最后，我想借用一下自己内心贝尼·杰瑟里特姐妹会（Bene Gesserit）的那一面。长时程智能体已经来了。它们沿着怎样的曲线发展，已经非常清楚。</p>
+  <p>对创业者来说，我想大家都知道一些例子：有人靠着人工智能，在短得不可思议的时间里完成了极难的任务。比如，Zed 的 Nathan 在假期里独自用 Claude Code，完成了一个原本要做三年的登月级项目。布雷特·泰勒（Bret Taylor）用一个周末重建了 Sierra。Notion 团队只用了六周，就重写了 800 万行代码。</p>
+  <p>所以，大家都见过这种时间大幅压缩的例子，但我觉得，通用人工智能实验室之外，很少有人见过，当你把这些压缩后的开发周期一轮接一轮叠加起来，会发生什么。而现在，这已经做得到了。所以，无论你能想象在未来一百年里造出什么，我们都认为，有了智能体，现在一百天就可能做到。接下来交给 Konstantine。</p>
+  <h2 id="konstantine-buhler">Konstantine Buhler：认知革命与人的联系</h2>
+  <p>谢谢你，Sonya。好，非常感谢 Sonya 和 Pat，刚才的概览和分析非常精彩。</p>
+  <p>这一部分，我们来聊聊接下来会发生什么。我们都知道，自己已经身处人工智能时代。这里想探讨的是：这个时代会是什么样子？身处其中会有什么感受？它有什么特点？</p>
+  <p>刚才演讲中，Pat 把技术革命分成了计算和通信两类。这里我们再做一个划分，把工作分成两类。一类是体力工作。这是小马快递（Pony Express）运送的包裹。这是猎鹰 9 号（Falcon 9）运载的卫星。功等于力乘以距离，也就是物体的移动。</p>
+  <p>另一类是认知工作。这是毕达哥拉斯（Pythagoras）提出他的定理。这是深度思维（DeepMind）解决蛋白质折叠问题，也就是有意识的思考。这两类工作很不一样，但我们相信，它们在变革中会遵循非常相似的模式。所以，先来聊聊体力工作，因为我们已经通过工业革命经历过一次这样的变革。</p>
+  <p>在人类历史的绝大部分时间里，所有或者几乎所有为人类服务的工作，都靠某种肌肉力量完成。人，或者动物。人搬动东西，或者动物拉着人走。这张图从 1700 年开始，但这种情况可以往前追溯几千年。</p>
+  <p>后来，事情开始变化。水力、风力、蒸汽机，然后变化加快了。蒸汽机、内燃机、电动机。</p>
+  <p>到了今天，2026 年，可以估计，地球上所有为人类完成的体力工作，99% 以上都由机器完成。带你来到这里的飞机，这个房间里所有物品的制造，还有各种运输，共同促成了你此刻正在享受的巅峰人生体验。我们认为，认知领域也会出现类似的模式。只是我们还处在稍早的阶段。</p>
+  <p>在人类历史的大部分时间里，地球上为人类进行的所有思考，主要都由人类完成，也许动物承担了一点，比如牧羊犬追赶羊群，对吧？图上方还有很细的一条，代表机械装置做的工作，比如星盘或者时钟。过去几百年里，这方面一直没什么进展，直到电子计算出现。想想过去这一百年，每时每刻，都有数万亿次计算在为你这个人类服务。</p>
+  <p>所有这些工作，所有这些每时每刻为我们服务的认知工作。数万亿次计算。我们相信，神经网络（neural network）会是下一波大浪潮，在不久的将来，地球上 99.9% 的认知活动都会由机器完成。两者的相似之处非常鲜明。好消息是，我们已经经历过这样的革命。认知革命会很像工业革命，只是规模大得多，速度也快得多。</p>
+  <p>那么，生活在这样的未来里，会是什么样子？我想用四个小故事，分享一些关于这个未来的启发。第一个故事。19 世纪中叶，美国想为我们的第一任总统、最伟大的战争英雄乔治·华盛顿（George Washington）建一座宏伟的纪念碑。于是，我们设计了当时世界上最高的建筑，华盛顿纪念碑（Washington National Monument）。我们想用世界上最珍贵的金属为它封顶，用上 100 盎司世界上最珍贵的金属。</p>
+  <p>这种金属珍贵到什么程度呢？我们把它放在曼哈顿（Manhattan）的蒂芙尼（Tiffany’s）店里展出。这种金属就是铝。华盛顿纪念碑建成后的几十年内，一位年轻的发明家想出了电解法（electrolysis），也就是从泥土中分离出铝的方法。又过了几十年，铝就成了包糖果、包三明治的材料，用完就扔进垃圾桶。铝就是智能，电解法就是人工智能。</p>
+  <p>我们即将进入这样一个世界：一些最珍贵、需要几十年才能掌握的技能，达到博士水平的技能，转眼之间就能调用，用完之后，你就可以把它们揉成一团，直接扔进垃圾桶。</p>
+  <p>第二个故事，我们正在进入一个充满异类设计的世界。今天我们看到的世界，处处都是为人类做的设计。它按照我们的大脑能理解的方式做了优化，因为世界上几乎所有的认知活动都由我们完成。</p>
+  <p>当机器来做认知工作时，情况就会有点不一样。2006 年，美国国家航空航天局（NASA）正在为一项大型卫星太空任务优化天线。传统上，他们的天线长这样。它有漂亮的几何对称形状，在一定的功率限制下，把表面积优化到最佳。这一次，他们说：“我们把它交给计算机，用一种很像强化学习的进化算法（evolutionary algorithm）。”</p>
+  <p>结果就是这里的这根天线，性能好得多，但它的设计不符合人类的直觉。在这个人工智能时代，当我们把认知工作交给机器，就会得到不符合我们直觉的结果。当人工智能设计芯片、汽车、建筑时，它们的样子可能会变得截然不同。面对即将进入的世界，我们必须保持开放的心态，因为人工智能的思考方式不会跟我们一样。它会做出异类设计。</p>
+  <p>第三个启发故事，讲的是新兴科学学科。我说的不是新的科学进展。我们都知道会有新的科学进展。我说的是全新的科学学科。</p>
+  <p>工业革命早期，出现了纽科门（Newcomen）、瓦特（Watt）这样的杰出工程师，他们完善了内燃机。基本原理就是，把一种石化燃料放进活塞里，点火，数百万、数十亿个粒子爆炸，推动活塞，做功。将近一百年里，这些全靠摸索和试验。</p>
+  <p>工程师会说：“啊，这样效果好一点。”也许你能从中看到类似扩展定律的东西，但当时就是工程师在摆弄产品，看看怎么让它再好一点。过了 120 多年，萨迪·卡诺（Sadi Carnot）出现了，他把这一切整理成了一门新的科学：热力学（thermodynamics）。他说：“等一下。这里有数百万、数十亿个粒子。我们其实可以用严谨的理论来描述这一切。”</p>
+  <p>而在我们这里，有数十亿个神经元、数万亿个词元。现在，人工智能还处在摸索和试验的阶段。即使我们以为自己已经理解了这门科学，其实也没有。未来几十年里，会诞生一门像热力学一样基础的科学。</p>
+  <p>在座的某个人，也许就会创立这门科学。这门科学会进入高中课堂。它会基础到这种程度。它会帮助我们掌握人工智能，甚至会帮助我们掌握意识。</p>
+  <p>第四个故事，非理性之美。在人类历史的绝大部分时间里，几万年来，艺术一直在朝着写实的方向发展。这是大约 2.5 万年前的洞穴壁画、埃及象形文字、希腊陶器、文艺复兴时期的绘画，一场走向写实艺术的宏大转变。看看它们之间的差别。</p>
+  <p>这是人类数万年积累的成就，然后，工程技术出现了，达盖尔银版摄影法（daguerreotype）、早期摄影出现了。突然之间，过去要花几十年人生去磨炼、才能把每一笔都画得完美的本领，就这样失去了意义。那么，世界作何反应？人们觉得绘画完了。哦，就到这儿了。机器比任何人都做得好。艺术已经终结了。</p>
+  <p>后来发生了什么？人类如何回应？人类的回应是追问：这种艺术的目的，是按照眼睛所见来捕捉那一刻，还是按照内心和灵魂所见来捕捉那一刻？印象派（Impressionism）、表现主义（expressionism）、立体主义（cubism）、新表现主义（neo-expressionism）。所有这些新的艺术形式，都是人类对这场科学巨变的回应。</p>
+  <p>2,500 年前，希腊哲学家普罗泰戈拉（Protagoras）写道：“人是万物的尺度。”他的意思是，任何东西脱离了人的体验，都谈不上对人有什么价值。铝如此，艺术如此，智能也是如此。它们的价值只来自人的体验。</p>
+  <p>人工智能能做这些工作。人工智能会做这些工作。但只有人与人之间的联结，才能给你一个在乎的理由。这就是今天我们齐聚一堂的原因。十年后，工作会变得截然不同。很多事情都会发生巨变。</p>
+  <p>但有一件事会始终不变：你今天与身旁的人建立的关系，会延续下去。以后回过头来，你会记得这些关系。今天留下的价值，就在这里。所以，我鼓励大家与身旁的人建立联系，好好享受在这次人工智能峰会（AI Ascent）相聚的时光，用心投入那些最能体现我们人性的事情。</p>
+</div>
+<h2 id="sources">方法与来源</h2>
+<p class="source-note">本页是演讲译文，数字、预测和判断均为演讲者的表述。文字来源是 Rosetta 收录的同一视频自动字幕，经过整理和翻译。自动字幕会有误识别，专有名词尤其需要对照原视频核查；发言人标签依据内容推断。</p>
+<ul class="sources">
+<li><a href="https://www.youtube.com/watch?v=LRo33rnv6rQ" target="_blank" rel="noopener">Sequoia Capital：原始演讲视频</a></li>
+<li><a href="https://rosetta.to/u/sequoiacapital/this-is-agi-sequoia-ai-ascent-2026-keynote" target="_blank" rel="noopener">Rosetta：视频英文自动字幕文本</a></li>
+</ul>
+<p><a href="/reading/">返回阅读整理页</a></p>
+</main></div>
+</body></html>

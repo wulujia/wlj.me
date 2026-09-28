@@ -2,6 +2,7 @@
 
 ## 2026-09-28
 
+- 新增资料页《这就是 AGI｜Sequoia AI Ascent 2026 主题演讲中文译文》，`static/reading/sequoia-ai-ascent-2026/index.html`。Sequoia Capital AI Ascent 2026 主题演讲中文译文：Pat Grady、Sonya Huang、Konstantine Buhler 谈智能体、AI 应用与认知劳动。
 - 新增资料页《里克·鲁宾谈创作与 AI：中文访谈全文》，`static/reading/rick-rubin-the-only-skill/index.html`。The Diary Of A CEO 对音乐制作人 Rick Rubin 的访谈中文全文译稿，按 30 个章节分节，可跳转至原视频对应时间。
 
 ## 2026-09-26
