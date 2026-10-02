@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-02
+
+- 新增资料页《Instinct 创始人 Noah Shinn 谈个人 AI 助手》，`static/reading/instinct-noah-shinn-2026-09/index.html`。Invest Like The Best 对 Instinct 创始人 Noah Shinn 的访谈中文全文译稿，按 17 个主题分节，谈助理之间的协作、订阅与支付、邀请制增长和算力成本。
+
 ## 2026-09-28
 
 - 新增资料页《这就是 AGI｜Sequoia AI Ascent 2026 主题演讲中文译文》，`static/reading/sequoia-ai-ascent-2026/index.html`。Sequoia Capital AI Ascent 2026 主题演讲中文译文：Pat Grady、Sonya Huang、Konstantine Buhler 谈智能体、AI 应用与认知劳动。
