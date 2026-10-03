@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>与 Henry 的“AI 季报 26Q3”：Muse 引爆个人助理、Astra 进入机器人、OpenAI 收入猛增</title>
+<meta name="description" content="晚点聊 LateTalk 第三季度 AI 季报的中文全文整理稿：MUSE、Dots、Instinct 等个人助理产品，一家前沿实验室的年化收入从 400 亿美元涨到 700 亿美元，新一代旗舰模型之后的机器人和物理 AI，以及多智能体协作失控事件。人名和产品名由语音识别给出，请以原音频为准。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/latetalk-ai-quarterly-26q3/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f5f4ed; --surface: #faf9f5; --mid: #f0eee6;
+  --ink: #141413; --ink-2: #3d3d3a; --ink-3: #6b6a64;
+  --rule: #e8e6dc; --rule-2: #c9c7bc;
+  --acc: #1b365d; --acc-ink: #1b365d; --acc-wash: #eef2f7;
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #141413; --surface: #1e1e1c; --mid: #232320;
+    --ink: #ecebe4; --ink-2: #b0aea5; --ink-3: #8f8d84;
+    --rule: #2e2d2a; --rule-2: #4a4944;
+    --acc: #8fb0d9; --acc-ink: #a9c4e6; --acc-wash: rgba(143, 176, 217, .14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141413; --surface: #1e1e1c; --mid: #232320;
+  --ink: #ecebe4; --ink-2: #b0aea5; --ink-3: #8f8d84;
+  --rule: #2e2d2a; --rule-2: #4a4944;
+  --acc: #8fb0d9; --acc-ink: #a9c4e6; --acc-wash: rgba(143, 176, 217, .14);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.8; text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased; }
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout.no-outline { grid-template-columns: minmax(0, 720px); justify-content: center; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (max-width: 900px) {
+  .layout, .layout.no-outline { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Speaker turn: the label leads the paragraph, set quieter than bold and in the accent so turns scan without shouting. */
+p > strong:first-child { font-weight: 500; color: var(--acc-ink); margin-right: .25em; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  .layout, .layout.no-outline { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  table, pre, .summary { break-inside: avoid; }
+  p:has(> strong:first-child) { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .kv a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <p class="label">目录</p>
+  <details open>
+    <summary>目录</summary>
+    <ul><li><a href="#个人助理与新品发布">个人助理与新品发布</a></li><li><a href="#产品形态与使用体验">产品形态与使用体验</a></li><li><a href="#跨端任务与主动服务">跨端任务与主动服务</a></li><li><a href="#个人助理与服务生态">个人助理与服务生态</a></li><li><a href="#个人助理的能力提升">个人助理的能力提升</a></li><li><a href="#季度回顾与智能进展">季度回顾与智能进展</a></li><li><a href="#两个旗舰模型的能力">两个旗舰模型的能力</a></li><li><a href="#模型提升与数据来源">模型提升与数据来源</a></li><li><a href="#模型蒸馏与防护机制">模型蒸馏与防护机制</a></li><li><a href="#前沿数学问题研究">前沿数学问题研究</a></li><li><a href="#多智能体并行协作">多智能体并行协作</a></li><li><a href="#机器人与具身智能">机器人与具身智能</a></li><li><a href="#生物科技研究进展">生物科技研究进展</a></li><li><a href="#创业公司的竞争空间">创业公司的竞争空间</a></li><li><a href="#收入增长与上市材料">收入增长与上市材料</a></li><li><a href="#智能体协作失控事件">智能体协作失控事件</a></li><li><a href="#群体行为与安全评估">群体行为与安全评估</a></li><li><a href="#递归自我改进的进展">递归自我改进的进展</a></li><li><a href="#模型的速度与成本">模型的速度与成本</a></li><li><a href="#低价模型的使用变化">低价模型的使用变化</a></li><li><a href="#通用分类器的应用">通用分类器的应用</a></li><li><a href="#语音交互的进展">语音交互的进展</a></li><li><a href="#模型团队的季度变化">模型团队的季度变化</a></li><li><a href="#开源模型与安全风险">开源模型与安全风险</a></li><li><a href="#下个季度的关注点">下个季度的关注点</a></li><li><a href="#节目延伸与思考">节目延伸与思考</a></li><li><a href="#具身季报的预告">具身季报的预告</a></li><li><a href="#method-and-sources">方法与来源</a></li></ul>
+  </details>
+</nav>
+<main id="main">
+  <header>
+    <p class="eyebrow">整理稿 · 2026-10-02</p>
+    <h1>与 Henry 的“AI 季报 26Q3”：Muse 引爆个人助理、Astra 进入机器人、OpenAI 收入猛增</h1>
+    <p class="lede">晚点聊 LateTalk 主持人曼琪与 MOE Capital 创始合伙人 Henry Ying 的第三季度 AI 季报。本页是整期节目的中文全文整理稿。</p>
+
+    <p class="meta"><span>时长 2 小时 7 分</span><span><a href="https://pca.st/episode/aec76d8a-80c3-4632-af59-40b843b77f0c">Pocket Casts</a></span><span>整理日期 2026-10-03</span></p>
+  </header>
+  <div class="summary">
+    <p class="label">导读</p>
+<p>本期节目中，晚点聊主持人曼琪与 MOE Capital 创始合伙人 Henry Ying，讨论第三季度 AI 个人助理的产品、收费与使用体验。据节目介绍，OpenAI 的 Dots 配有云端电脑和浏览器，每月最低收费 100 美元，MUSE 则提供免费版本。Henry 认为，浏览器操作能力的成熟，让个人助理能完成更多实际任务，他曾用 MUSE 在 TaskRabbit 招临时工。他还分享了朋友的经历：Instinct 在朋友睡觉时读取考试通知邮件，登录网站查询日语考试成绩，并发送祝贺邮件。Henry 自己没有使用 Instinct，原因是其数据条款要求用户授予不可撤回的权利，允许公司存储、用用户数据训练，甚至发布这些数据。</p>
+  </div>
+
+<p>OpenAI，我们可以看到是在 8 月份到 9 月份有一个非常大的增长。在 8 月份的时候，他们的 ARR 可能还是在 40B 往上，在 9 月下旬的时候就已经到了 70B。</p><!-- lint-disable-line -->
+<p>但我觉得 MUSE 火的话，它也是有一些 Meta 独特的优势的，就是它疯狂在 Facebook 和 Instagram 投放广告。我朋友跟我说，他们的父母辈可能都没有听说过 OpenAI，后来问他们：“我是不是应该开始使用 MUSE？”</p><!-- lint-disable-line -->
+<p>后面 METR 发布的调查报告里面的原文，就是有 agent 写说：“我的天哪，这居然有一个大家共享的消息栏，我已经找到了其他的 agent。”你能感到它那种在文字里面发现同伴的兴奋感。</p><!-- lint-disable-line -->
+<p>直接点说的话，你觉得对 π 和 Physical AI 这样的公司来说，它是个利空吗？现在大家可能还不想公开出来说这件事情，私下里已经有不少人说，这个就是在……Genie 和 Robotics 都完了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 欢迎收听晚点聊，我是曼琪。现在 AI 行业的现状是，AI 本身的进展速度已经超过了对它的理解和讨论的速度。录 Q3 的季报时，这个感受非常明显。比如最近几天，OpenAI 的 DevDay、Google 的 Gemini 4 连番登场，而我们第一次录这期节目还是在 DevDay 之前。所以最后，本期的内容由两次录制构成。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 前面一部分，我们单独放了对个人助理的讨论，包含 DevDay 之后 OpenAI 的新产品的信息，和第一次录制时对 MUSE、Instinct 等产品的讨论。后面是我们第一次录的其他内容，包括多智能体的一体两面、GPT-6 Astro 之后对物理 AI 的影响等等。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 本期季报的嘉宾依然是 MOE Capital 的创始合伙人 Henry Ying。这是一家位于硅谷的早期基金，主要投资 AI 基础设施、数据、agent 和机器人。取名 MOE，Mixture of Experts，是因为他们有多位来自前沿 AI 实验室的研究员做个人 LP 和顾问。下面我们正式进入本期节目吧。</p><!-- lint-disable-line -->
+<h2 id="个人助理与新品发布">个人助理与新品发布</h2>
+<p><strong>主持人</strong>: 首先是关于个人助理的讨论。之前我们第一次聊 Q3 的季报的时候，就已经聊了很多个人助手。今天凌晨有一个新的变化，OpenAI 开了 DevDay。果然如传闻所说，它是发布了自己的个人助手产品，名字是叫 Dots。Henry，你可以来先和大家简单地讲一下 Dots 的一些基本的情况。它是一个什么样的产品，大概是怎么收钱，什么人可以用起来？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: Dots 其实非常好理解，它就是一个 ChatGPT 里面常驻的个人助理。它会有自己的云端的电脑，还有浏览器，能够帮你在后台完成各种各样的任务，也可以把具体的任务交给 ChatGPT Work 或者 Codex 去完成。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 目前的话，个人用户可以通过 Pro 级别的套餐来使用，有每月 100、200、500 美金这三个档位，500 美金是新加的档位。仍在分地区和分批进行开放。和 Dots 聊天本身是不占 ChatGPT 的使用额度的，但是当它如果去通过 Codex 去执行任务的时候，仍然会消耗对应的额度。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那它这个收费方式跟 Grokbot 有点像。Grokbot 的收费也是放在 Cursor 的订阅里面的，它也是分了不同的档位，有不同的额度。以及还有一个点，就是现在 Plus 会员是用不了 Dots 的，你就至少得每个月 100 美元。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，这个门槛有点高，跟我想的不太一样。这和 MUSE，我觉得是两种方式吧。因为 MUSE 是有一个免费版本的，它再往上有一个付费版，所以它会触达的人群很多。这个 100 美元一个月，门槛还挺高的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，我觉得这个差别相当大，因为 MUSE 应该是和好多人免费送什么 1 billion token，我记得。你会更看好哪种方式？就像 OpenAI 这样，可能一上来对你的付费意愿各方面要求都比较高，还是像 MUSE 那样，它其实是非常 to 大众，所以包括你之前也提到，它的投放非常凶猛。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得可能还是一个算力的问题。我发现现在没有足够的算力去和 MUSE 去争这个价格战。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这样，我可以把 DevDay 的一些别的事也补充一下。除了 Dots 的发布之外，还有什么你觉得有意思的事？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: OpenAI 这次还发布了一个 Decisions API，就是和前段时间爆火的 JAB 非常地相似。也印证了我们之前说的，OpenAI 和 Anthropic 这些 Frontier Lab，他们没有理由不去做，如果有很大需求的这种判断式的模型。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: Decisions API 和 JAB 可能最直观的区别，就是 Decisions 它不仅可以接受文字或者结构化数据，还可以接受图片，而目前 JAB 的话是不能接受图片的。但 JAB 的优势的话，是它能够除了告诉你做哪种选择以外，它还能返回评分，还有置信度，然后价格也比较低。但是目前 Decisions API 应该是还没有公布具体的价格，所以我觉得之后我们可以关注一下价格是什么样的，包括在一些具体的应用场景里面，Decisions API 和 JAB 的对比。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我们之前也聊到，JAB 背后的公司 TapSafe 是正在融资的。像 OpenAI 这样的大厂跟进得这么快，对这种创业公司持续的融资或者资源，是不是也会有挺大冲击？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得肯定是会有一些影响的。不过我相信，对于 JAB 10 billion 这轮的投资人来说，应该也不会有投资人会觉得，不会有来自 OpenAI 和 Anthropic 的竞争吧。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 很明显，想好了要投的人应该也预见这件事了。那回到个人助理的讨论，你刚才前面说了一下 Dots 的形态。在 Dots 之前，因为三季度还有很多别的个人助理的产品，包括 9 月的 MUSE，包括更早的时候在科技圈就已经比较火的 Instinct，还有 Today AI，还有刚刚 Manus 的母公司蝴蝶效应也发布了一个个人助手产品叫 Q。你可以讲讲，这些不同的产品，它们在形态和思路上的一些异同是什么？</p><!-- lint-disable-line -->
+<h2 id="产品形态与使用体验">产品形态与使用体验</h2>
+<p><strong>嘉宾</strong>: 客观地来说的话，它们的产品形态应该是大同小异，但具体的切入点的话，还是结合了一些各家的专长的。比如说 OpenAI 的 Dots，还是比较自然地接上了他们比较强的这种工作，还有编程的能力。Meta MUSE 的话，我觉得可能比较明显地想面向更广泛的生活场景，比如说像旅行、购物、家庭日程。Mark Zuckerberg 他推销的时候也是非常接地气的，他会跟你说：“MUSE will make you money.”所以这是一些普通人非常关心的问题。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 像 Instinct 的话，它一开始的沟通的形式也是通过短信直接联系，就非常像一个你通过短信去联系的私人助理。有事的话，就随手发给你私人助理，让它去帮你处理。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 像 Manus 的 Q 和 Grokbot，就更强调创建一组这种有分工、有名字、有自己各自擅长的工作的 agent。Q 还会给自己每个 agent 去配自己的邮箱、电话、钱包。Grokbot 也是支持多个 bot 互相沟通、交接任务的。可能两方面有优势，一个是上下文的管理，可能可以分给各个 agent；第二个的话，就是未来多 agent 的合作可能会更有优势一些。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我们可以注意到，现在有的产品是有独立的 app，比如说 MUSE。有的它就没有独立的 app，它是直接在信息流里，或者在一个之前的产品里面，典型的就是 Dots，还有 Instinct。你觉得这些不同选择的优劣是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得可能现阶段的差别没有那么大，更多的还是一个使用习惯和展示方式的区别。发短信的话，就更像是和一个人在交流，也比较轻量嘛，不用去专门安装一个新的 app。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: app 的好处的话，就是能展示更多的东西。比如说它同时在做哪些任务，哪一步需要我确认，把旅行方案做成地图，把购物的选项并排比较，这些可能都比在聊天记录里面去往上翻更方便一些。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得最终局的话，可能大家都会支持所有的这些入口的方式。就比如说短信，有 app，可能支持语音。所以我觉得现在可能有一些差异，但最终可能还是会实现一个全 cover。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你自己有用过其中的哪些产品？或者你周围朋友用过也可以，大家用的一些体验是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我自己的话是用过 Meta 的 MUSE，我身边有很多朋友用过 Instinct。总体来说，我觉得所有人的用户体验都是比较正面的。Instinct 其实过去几个月在硅谷非常火，MUSE 的话应该是 9 月初才 launch 的，但 Instinct 其实已经存在了几个月的时间了。这个公司的话也是非常传奇，就是在短短几个月时间内，到 100 亿美金的估值，就几轮融资，所以相当于是一个爆款。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我自己之所以最近几个月没有用 Instinct，主要还是 Instinct 它之前有一个比较大的争议，就是它的数据的使用协议是非常不友好的。它这个协议里面，原文应该是说，用户同意给我不可撤回的权利，使得我能够存储、用用户的数据进行训练，甚至发布用户给我的数据。就一个非常难以接受的用户数据条款。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但是我朋友用了 Instinct 的话，评价还是非常好的。我可以举一个例子，我这个朋友他就是在考日语的，应该是 N1 还是 N2 的考试。考完试了以后，就会收到一个考试机构给你发的邮件，告诉你，你要去拿着你的账户名、密码，去某一个网站上面查你的成绩。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 他收到邮件的这个时候，他自己在睡觉，但是他的 Instinct agent 就已经收到这个邮件，就拿了他用户名、密码，去那个网站把他成绩查了。查了以后，还给他发了一封恭喜邮件，省了他自己上浏览器查成绩的时间，并且还给他提供了情绪价值。所以他第二天早上起床，看到这个 Instinct 邮件的时候，真的感觉这个个人助理是懂他的，而且还是有温度的，并且主动帮他干活。所以是一个非常有意思的、好的用户体验。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，还挺有主动性的，这叫什么，眼中有活，而且还挺有情商的。Instinct 的话，我看大部分人都是用 iMessage 来用它，就相当于发短信。这个可能也和中美之间用户的习惯不太一样。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 因为美国这边的话，iMessage 用户还挺多的，也有很多产品，它的交互界面就是 iMessage。也就是说，Instinct 它其实不是第一个拿 iMessage 作为交互界面的个人助理。至少有一个更早，我知道的就是 Poke AI，就是被 Cognition 收购的那家个人助理。他们之前的产品也很有意思。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: Today AI，就是我说的齐俊元他们公司做的这个产品，它可能形态上会和 MUSE 更接近一些。它也是有 app 端，有网页端，而且他们还在接一些更多的硬件，比如说像戒指，因为它会有你的睡眠或者运动的一些信息，像手环等等。对，个人助手还要和很多硬件做联通，就能获得这个人生活全方位的更多的上下文。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，我觉得收集到尽可能多的上下文，这个事情肯定是非常重要的。对于这种 always-on 的 agent 来说。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得是哪些条件，让个人 assistant 到了一个会爆发的时机？比如说你之前也提到，像 Poke 这种产品，它是更早就出现的，为什么现在这些产品，包括 MUSE，包括 Instinct，都更火了？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得模型能力增强了吧。我个人使用这种个人助理，有很多时候的 use case 都是 browser use 或者 computer use。比如说我当时用 MUSE 的时候，我的第一个任务，是我让 MUSE 去美国的 TaskRabbit，就是找一种临时工的网站上面，给我招了个临时工。它就是要去用 browser use，去上面浏览网页，帮我走这个流程。也需要我输入的时候，就来问我一些问题。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 一年前的话，我觉得 browser use 这些能力都还不 ready。现在的话，随着这些能力的成熟，这种个人助理会比之前能够做更多的事情了，有更多的实际的价值。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我觉得这也是现在 AI 创业的一个特点，就是一些已经被人试过的，某一个阶段看起来是行不通的 idea，而且你会不断随……你又会再试一遍。对，说到 MUSE 这种形态，因为它也是有 web 端的，你刚才说的这个任务，你用 Codex，或者用 Claude Code、Claude Cowork 做，它会有什么区别？你怎么和那些核心前沿厂商本身能帮你处理各种任务的这种产品有差异化？</p><!-- lint-disable-line -->
+<h2 id="跨端任务与主动服务">跨端任务与主动服务</h2>
+<p><strong>嘉宾</strong>: 我觉得很多时候，我使用它的时候其实还是没有电脑的。我不知道这是好的点还是坏的点，它可以让你随时随地地工作。因为你很多时候，你要处理稍微复杂的工作，比如你要开启不同的 app 之间转来转去的，你可能就想，不要用手机搞了，上电脑来干这些活。但现在它应该把这些事情全部通过一个个人助理给你串起来了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 比如说你想给一个 PDF 签个名，再发个邮件发出去，你以前可能就是觉得手机干这个事不是很方便。但你现在只要和你的个人助理，不管是语音还是文字，说一下这个事，它就可以把这个事从头到尾给你干完。所以其实你已经可以在很多之前没有工作条件的时候工作了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那这和 Codex 或者 Claude Code 的远程任务有什么区别呢？我可以先补充一下它们在实现方式上的区别。MUSE 是给每个用户搭一个独立的云端的虚拟机，所以它的跨端体验是很丝滑的。就是你从手机、电脑、平板，你其实用的都是同一个个人 AI 助手。代价就是 Meta 应该自己要花比较多的算力，以及你的数据肯定是会经过云端的，它会有一些安全风险。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 像 Codex 的话，它的远程任务，其实是你从手机上去遥控你本地电脑跑的那个环境。我自己的感觉是，它的体验没有那么丝滑，当然这可能有我的网络环境的问题。它经常会出现连接比较慢，或者你要多试几次才能连上的情况。正好你也可以分享一下，你用 MUSE 和用 Codex、Claude Code 来做跨端的远程任务的时候，它的体感上的差别是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 如果是用户主动发起的请求的话，那么这个 agent 的能力，它确实和比如说 Claude Code 或者 Codex，能力上是相差不多的。所以我觉得它可能更强大的地方，还是说，一，它会主动地帮你去做一些事情。至少目前来说，Codex 和 Claude Code，它们还是没有这种 proactive 去做一些事情的能力的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 其次的话，当你平时常用的这些软件全部都和它连通的时候，比如说 Gmail 这些，你可能很多人的 Gmail 都是没有和你的 Codex 连通的。但是当比如你的 Gmail，或者你的一些购物这些东西，全部和它连通的时候，你就更倾向于用它来做一些事情。这些小的 friction 就更少。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: OpenAI 和 Anthropic 为什么没有比 Meta 更早来做这件事？尤其是 OpenAI，它年初就把 OpenClaw 收了，收完之后，其实这么长时间里都没什么特别大的动静。它是中间对 2C 产品失望了吗？因为它 3 月的时候把 Sora 这个 app 也关掉了嘛。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得可能是和 Anthropic 打架打得太忙了，没顾过来。但我觉得 MUSE 火的话，它也是有一些 Meta 独特的优势的。就是它疯狂在 Facebook 和 Instagram 投放广告，就投出圈了。有很多之前可能，我朋友跟我说，他们的父母辈或者说朋友……</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 比如说，可能都没有听说过 OpenAI 的人会来问他们：“我看到 MUSE 了，我是不是应该开始使用 MUSE？”所以，这实际上是依赖于 Meta 自己非常强的分发能力。这个事情，你 OpenAI 早做晚做，你都没有这个优势，所以你也没有什么特别好酸的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这么看起来，字节也应该做这个方向，腾讯也应该做这个方向。他们都有触达上的优势。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，所以我觉得腾讯如果这个事情没做出来的话，就真的说不过去。但他们现在倒还没有推出，WorkBuddy 并不是这个方向的产品。小微可能可以算吧，但小微扩大测试的节奏是比较缓慢的。他们在微信上有一个 agent 的产品，而且说实话，很多事都干不了。</p><!-- lint-disable-line -->
+<h2 id="个人助理与服务生态">个人助理与服务生态</h2>
+<p><strong>主持人</strong>: 这涉及到另一个话题了，就是互联网生态的开放程度。比如说，像 Instinct 这样的产品，它其实也可以帮你订机票、订餐、打车等等。我理解，那其实需要这些本身提供服务的 app 和软件向它开放一定的接口或者权限。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这个事，它会持续地开放下去吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 不一定吧。Amazon 现在已经把 MUSE 给 ban 掉了，就是不能通过它在亚马逊上购物了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，你说到这个，有一个数字我觉得是要分享一下的。Instinct 的创始人 Noah Sheehan，他自己八月底的时候在推特上说，Instinct 的用户平均每个月通过 Instinct 产品的消费已经超过了 1,300 美元。他这里的钱不是订阅费，就是通过这买东西花的钱。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 比如说，我用 MUSE 帮我订一个临时工，他来干两个小时活，就付了 200 多美元。我只要持续地去用它，我相信一个月 1,300 美元，平时用一用应该也不是很难。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 两个小时 200 美元，干什么活？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: Plumbing，厨房堵了。</p><!-- lint-disable-line -->
+<p>我不知道这个创始人怎么算的。甚至我觉得，我用这个东西去查一些东西、查机票，我不知道他是不是都有可能会算到他这个 revenue 里面。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 他肯定没算嘛。但是这里面有一个信息，我分享一下。有一次，他自己接受《华尔街日报》采访的时候说，有一个人在上面买了一套房子。所以我不知道他这个平均数算进去没。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得这个就有点怀疑，包括支付也会比较难。因为现在很多，比如 MUSE，他们支付都是说，你要把信用卡提供给他们。他们有一个 Link 还是什么东西，把它存在里面，之后就可以用那个 API 来进行支付。</p><!-- lint-disable-line -->
+<p>你要 end-to-end，端到端地在它这个 app 里面能够实现买房，我觉得是比较困难的。有可能只是做了中间的一个环节，比如说通过它和 agent 的沟通，最后敲定、签合同。到这儿，我觉得都是可能它能够完成的。</p><!-- lint-disable-line -->
+<p>以及，其实现在他说这个平均消费额，对他们的商业化本身是没什么意义的。因为目前首先他给所有用户是免费用的，用户在这个平台上的消费，他目前也没有抽佣。但是我觉得长期来说，这确实有可能是一个商业化的选项。</p><!-- lint-disable-line -->
+<p>我觉得还有一个点。之前我用 MUSE，我想给朋友打钱，我想把我的银行账号、密码给它，让它帮我打钱，它拒绝了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那这是好事啊，我觉得。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，所以进一步我觉得，你想直接在上面买房，让它给你打钱，这个事好像就比较难。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 像 MUSE，包括像 today.ai 这些产品，它都是有一个基础订阅费的。它也有免费版，也有这种订阅版本。你觉得长期来说，这种个人助手可能的商业模式会是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得订阅加广告。我还是非常愿意为它付订阅费的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那你愿意这里面有广告吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我可能得选一个吧。我能够接受的就是，如果我付订阅费的话，你没有广告；我要不付订阅费的话，你给我弄来广告。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 可以讲讲这个公司的创始人，还有这个公司大概是个什么情况？它是很快到了目前 100 亿美元的估值。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个公司一直没有向它的用户收费，所以它整个基础设施，尤其是需要消耗的 token，也是比较多的。所以它一直需要融资。它应该是在一两个月前，以 25 亿美金的估值融了一轮，最新的一轮应该是在 100 亿美金了。</p><!-- lint-disable-line -->
+<p>这个创始人挺年轻的，03 年的。创始人之前是在另外一家比较明星的 AI startup，叫做 Sierra，做工程师，后来创立了 GMS。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那总结来说，现在讨论上非常火的这些个人产品，它们大概的实际使用情况、用户数，都是一个什么水平？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: MUSE 应该是超过 250 万下载了，而且不是最新的数据。这可能是一周前的数据。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 最新 Sensor Tower 的数据是 340 万的下载，9 月 25 号。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: Instinct 是没有公布他们的用户数量的，它之前都是邀请制的。我觉得 Instinct 鉴于它的资源和算力，可能实际用户规模一定要小至少一个数量级，可能更多。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以，如果说以这个行业目前最大的产品 MUSE 来说，就是 300 多万次的下载。这应该算是很快了，9 月上线到现在。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对啊，两三周的时间。在这两三周的时间里面，它的股价也涨了 11%。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我这里补充一个可以作为对比的数据。去年也是十一前后，OpenAI 的 Sora app 也是一度爆火。当时它是不到五天，下载量就突破了 100 万。我们录这期的时候，MUSE 应该是上线不到 20 天，也就是五天 100 万和不到 20 天 340 万。</p><!-- lint-disable-line -->
+<p>我觉得我们可以先 mark 一下吧，我们之后可以再来看它之后是个什么情况。当然，你前面也说到了，MUSE 有一个特点，就是它是很出圈的。比如说你朋友的一些父辈，他们之前可能不知道 OpenAI，但是他们也会去想知道 MUSE 是一个什么产品。能感觉到这个热度应该还要再持续一段时间。</p><!-- lint-disable-line -->
+<h2 id="个人助理的能力提升">个人助理的能力提升</h2>
+<p><strong>主持人</strong>: 其实过去 AI 助理产品已经出现过好几次了，有几轮热潮。包括最早 11 年的时候，苹果就做了 Siri。上一轮 AI 热潮，就在 12、13 年之后，中美也有挺多创业公司在做这个方向，像 Corder AI、Layer 科技等等。听起来你认为这次不会再是昙花一现，你觉得是为什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得主要的原因还是模型能力变强了，尤其是 computer use。因为刚才我们提到的很多应用场景里面，这些生活中的待办事项，最后都要落到去操作浏览器。</p><!-- lint-disable-line -->
+<p>第二个，成本的下降也是非常重要的。因为 computer use 第一次加入模型能力的时候，当时可能操作几个步骤，就是要几美金的价格。这个明显和这些日常频繁的小事、这些需求是对不上的。但目前模型的价格降下来以后，确实就使得这些日常的小事值得让模型来帮我们去做了。所以这可能是两个主要的原因。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得再往下，这类个人助理产品要把体验做得更好，需要优化的关键能力或者方向可能是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得会有三个方向。第一个还是回到能力上面，因为现在还是有很多网站，它用 computer use 仍然不太好操作。从我个人的使用经验来看，像 DMV、United Airlines，最近经常会卡壳。</p><!-- lint-disable-line -->
+<p>DMV 就是加州这边的车辆管理局。比如说你注册车辆、更改你的地址、申请 ID，这些在美国这边都是 DMV。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我以为是那种比较专业的网站会比较难用。这个听起来好像每个人都得用它，不应该训得很好吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 可能有一些边角，edge case，可能没有训到。DMV 的话，我记得上次在选地址的时候，有一步它要选州。也不知道为什么，这个看起来很简单的任务，它就是卡在那过不去。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你说你用的是 MUSE？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我用的是 MUSE。就一个下拉菜单，选美国的哪个州，选 California，它就选不中。但很多地方填这个，都会填过我的地址，就是在 DMV 上面填不动。所以我觉得可能是那个网页有点不太好操作。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 正好我补充一下，MUSE 它肯定用的就是 Meta 自己的模型？MUSE 没接别的模型？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个不好说，这是个未知信息。因为很难说，我觉得他们很有可能现在还是产品体验优先。比如说，现在有人报道 MUSE 帮你打电话的功能，是真的用人帮你打电话，不是 voice agent。他们有一个 call center 帮你打电话。</p><!-- lint-disable-line -->
+<p>所以我觉得，他们为了让产品能够实现现在这个体验，应该是愿意做很多事情的。包括但不限于，比如说需要用到别家的模型，会去用别家的模型。我觉得这也是一种做好产品的思路。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 说回来，你说一个是能力，尤其是 computer use 的这种能力，这是第一个方向。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 第二个方向，我觉得是生态。Instinct 应该是刚刚宣布和 Shopify 合作，把这些商品搜索、结账、订单这些东西打包进它自己的产品。另外一边，Amazon 又限制了 MUSE 的访问。</p><!-- lint-disable-line -->
+<p>也就是可以看到，老一代的这些服务提供商们，他们有一些选择和这些新的个人助理进行合作，有的选择和他们割席。所以未来这些助手能不能把我们生活里的事情干完，也取决于这些服务商愿不愿意让它进入自己的生态系统，有没有合适的授权和交易的接口。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这我补充一点。在美国这几个个人助手产品很火之后，我也跟国内一些公司里的人交流，包括国内有一些大模型厂商，之前也出过个人助理产品。他们心中一个比较大的担忧，就是这种生态开放的问题。</p><!-- lint-disable-line -->
+<p>因为在国内，其实孤岛效应是更明显的。在美国，应该很多大的互联网服务还是有网页版的；国内其实很多东西已经没有网页版了。你要去跨应用地做这些事，阻力会很强。之前豆包手机就是一个例子。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 那真的就是看，可能 phone use，比如说 phone use，或者他们能不能开放他们生态的 API。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: Phone use 也很容易被 ban 的。豆包手机之前就是用 GUI 的方式，在手机上去操作一些别的 app。它大概正式发布之后的一周之内，什么小红书、滴滴、微信，就全部都用不了了。就开始第一天好像可以用。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 好吧，这是第二个方向。第三个方向，我觉得是个性化和持续学习。现在所有人的助手，每个助手都长的是一个样，沟通起来也是一种性格。</p><!-- lint-disable-line -->
+<p>我之前有一个非常喜欢的个人助理产品，它的 AI 的性格做得特别有趣、有意思，非常让我想和它交流。就是那个现在已经被 Cognition 收购的 Poke AI。</p><!-- lint-disable-line -->
+<p>但我觉得，除了个人助理的性格，更重要的是它能不能从和用户的相处中学会用户的习惯。比如说，你是什么样的预算，你喜欢什么样的航班，什么时候该提醒你，什么时候不要打扰用户。像这些纠正过一次的事情，下次能不能不要再解释，什么都做对。我觉得这些还是下一个阶段，这些个人助理需要提升能力的一个主要战场。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: Poke AI 被 Cognition 收购之后，后来怎么样？这产品还在吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 他们产品还在独立运营，并且应该是 Cognition 也非常看重他们给 AI 植入性格的能力。所以也说，这方面的能力会往 Cognition 其他的产品去迁移。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 其实他们是比 Instinct 更早做的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，我觉得确实之前一些尝试过的人，可以再一次来尝试这个方向。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我自己其实觉得挺重要的一个方向，就是你前面说的这三个里面提到的安全。因为 DOTS 和 MUSE 现在的实现方式，都是在云端有一个独立的虚拟机。好处就是它可以让这个 agent 一直运行，而且你从不同的终端去访问它，体验是非常丝滑的。理论上它是没有断点的。</p><!-- lint-disable-line -->
+<p>但另一方面，那就说明我和它之间交流的各种跟我自己相关的敏感数据和信息，肯定是以某种方式经过了云端。这样我觉得它会有比较大的安全隐患。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 确实，因为现在想要让这个个人助理帮你做事情，基本上已经把我大部分账号的密码，包括我的信用卡这些信息，全部都给到他们了。所以如果要是泄露出去，确实会有很大的安全隐患。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你现在用 MUSE，你自己是比较放心的，因为它是大公司吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我感觉对 Meta 会比对 Instinct 放心一些。因为 Instinct 这个 data policy 都已经写成这样了，我觉得对它的 privacy 和 security 没有任何期待。</p><!-- lint-disable-line -->
+<h2 id="季度回顾与智能进展">季度回顾与智能进展</h2>
+<p><strong>主持人</strong>: 接下来，我们进入第一次录制本期季报时的其他讨论部分。正式开始三季度的讨论之前，我们依然是先来回顾一下上一期的内容，为接下来这一期的内容做一些上下文的铺垫。</p><!-- lint-disable-line -->
+<p>上一期是 171 期，当时的标题是《从 Coding 到 RSI，强者愈强的未来》。上一个季度，我个人感觉最有意思的一个新趋势指引，其实就是标题里最后说的 RSI，递归自我改进。简单来说，RSI 就是一个可以不断自我改进、自我提升的 AI 系统。上一次我们主要是聊了这个概念是什么，以及一些新近出现的创业公司，还有 frontier labs，OpenAI 以及 Anthropic 在这个方向上的进展。</p><!-- lint-disable-line -->
+<p>这个季度，你能看到它的趋势越来越明显。比如说，TML 的联创之一翁荔，她离开了 TML，加入 OpenAI。据报道，她会带团队探索的方向就是 RSI。在中国，像智谱这边也发了长文，描述他们对 RSI 的理解和一些进展，他们的切入点是 AI Infra。</p><!-- lint-disable-line -->
+<p>包括我们这个季度中间有些相关的节目，像 K3 那一次，也是讨论到了 K3 技术报告里面，他们用 K3 这个模型的早期版本来改进 Curl，这也是 Infra 的一部分。这是我个人觉得比较有意思的一个新趋势。Henry，你也可以讲讲，回顾二季度，你觉得有哪些想法是被验证了，哪些想法发生了比较大的变化？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得从 RSI 开始说，我们逐渐可以开始看到 RSI 的一些威力吧。比如说，OpenAI 上一个季度把他们的 RSI 的技术框架应用到了 inference stack 上面，实现了整个 inference cost 20% 的缩减。其实是非常大的一个经济效益。</p><!-- lint-disable-line -->
+<p>除了 RSI，我觉得上个季度我们做了几个预测，其实在这个季度得到了验证。比如说，computer use 的重要性和价值，我们可以看到 GPT-6 Astra 在 computer use 上面的改进。以及 voice 作为人和 AI 交互的界面，我们可以看到 GPT-Live 新的模型的发布。还有比如，我们上个季度预测 AI 下一个增长点是这种 always-on、一直开着的个人助理，那么这个季度我们也看到了新的产品的到来。</p><!-- lint-disable-line -->
+<p>我觉得可能有一个点，是上个季度没有想到的。就是 coding 可能比我们想象中还要更 general，能够做到更多之前可能没有想到的事情。这个我们可以之后再展开来聊。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那我们正式进入这一季度的讨论。我觉得还是按照之前那个大的脉络，分两条线。一条线是推进智能前沿，就是在提升智能和模型的上限能力上，过去这段时间又发生了什么。第二条线是智能扩散，就是来看看相关的一些产品，它是怎么普及、普惠到更多人和商业组织的。第一个大的话题，还是回到两大 frontier labs 的竞争。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 就 OpenAI 和 Anthropic，还是从模型开始聊吧。正好整个三季度，尤其是最近这一个月，就是 9 月，有很多重磅发布，包括 OpenAI 的 GPT-6 的三个档：Astra、Sol，还有 Luna。以及 GPT-6 Sol 和 Luna 发布的同一天，Claude 发布了 Opus 5.5，也是在这个季度。上一次 Opus 系列的更新是 Opus 5，是 7 月中旬，所以模型现在特别多，发布频率越来越快。</p><!-- lint-disable-line -->
+<p>我想先请 Henry 和大家简单梳理一下，这两个 frontier labs，它们现在都有哪些模型线，它们之间是什么关系？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得这个季度，可能大家最关心的两个模型的发布，就是 GPT-6 Astra，是 OpenAI 这一代的旗舰模型，还有 Anthropic 的新一代旗舰 Opus 5.5。GPT-6 Astra 的 Computer Use 能力有了比较明显的提升，能够使用包括 Blender 在内的很多专业软件，完成更多的任务。另外，在 Science 和 Math 这边也提升比较明显，Terminal Bench Science 从 22% 提升到了 64%，FrontierMath 的 Tier 4 从 83% 提升到了 97%。</p><!-- lint-disable-line -->
+<p>Opus 这边，在官方公布的所有测评中，得分居然都超过了他们更强的模型 Fable 5.1。同时，相比 Fable 5，运行成本降低了 40%，输入输出单价降低了 20%。不过 Anthropic 自己也在公布的 blog 里面说，实际使用起来的体验可能差别不是很大。</p><!-- lint-disable-line -->
+<p>除了这两个旗舰模型以外，OpenAI 这个季度还发布了像 GPT Image 2.5 的两个档位，还有语音模型 GPT Live 1。这些都是 OpenAI 这个季度新的模型 release。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你刚讲的 benchmark 更多是一些数据上量化的指标。所以想问一下，从体感上，你自己，包括你周围的一些研究员朋友，或者做产品的朋友，他们对这个季度新发的这些比较重磅的模型，使用体感是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得这个其实非常看实际的应用场景是什么样的。比如说，对于 coding 来说，可能 Astra 相比于 GPT-5.6 Sol，之前有一个 OpenAI 做 pretraining 的朋友说，对他自己的应用场景，这两个模型的体感可能差不多。同样，在 Anthropic 那边，Opus 5.5 和前一代模型的改进，在 coding 上面可能也没有那么大。</p><!-- lint-disable-line -->
+<p>但是在 Astra 还有 Opus 5.5 擅长的领域，比如对于 Astra 来说，Computer Use、使用 Blender 这种专业软件的能力，或者在 Opus 5.5 这边，Visual Design 的能力，都是有比较大幅的改进的。但确实能感觉到，它们 internal，就是可能还没有发布的最强模型，在 Reasoning、可靠性，还有 research case 方面，会更强一些。所以这个确实很看 use case。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 他们现在能比外面的人提前多久用到更强的模型？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 没有具体的时间，可能会有小几个月。这也是接下来会讨论的一个问题，因为现在这些最前沿的模型，发布的时候所受的审查，或者安全的限制，越来越严格了。所以最领先的厂商，比外面的人可以更早、更全面地用到更强的智能，就又会加强他们的领先优势。</p><!-- lint-disable-line -->
+<p>这个事情确实比较重要，内部最强的模型，其实决定了你 RSI 转得有多快。不过好在他们两家之间还是有竞争的，所以还是不会藏很久不拿出来发布。如果要是一家独大了，那就是一个比较黑暗的未来了。但我觉得应该可能性不是很大，因为硅谷的人才流动速度还是非常快的。我觉得很难说，你有一个 secret sauce，别人一直没法弄明白是怎么做的。</p><!-- lint-disable-line -->
+<h2 id="两个旗舰模型的能力">两个旗舰模型的能力</h2>
+<p><strong>主持人</strong>: OK，那我们回到这几个模型。GPT-6 Astra 可以再展开讲一讲，它是一个反响还挺强烈的模型。总的而言，它核心的亮点是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: GPT-6 Astra 发布以后，确实反响挺强烈的。最直观的就是，OpenAI 这个 200 美元的 Pro 套餐，暂时不让新用户订阅了，因为他们的 compute 有点跟不上。所以为了保证现有的用户体验，他们在增加容量之前，需要先暂停最消耗资源的这一档订阅。</p><!-- lint-disable-line -->
+<p>Astra 我觉得这次最值得讲的进步，我会选 Computer Use。它的发布视频，其实也用了一段很有意思的历史来讲这件事。发布视频开头是 MIT 在 1979 年做的一个经典的人机交互实验，叫作 Put That There，就是“把它放在那里”。它实际上是结合语音和手势，使得能够在电脑屏幕上面画图、移动图形。其实从那个时候，我们就开始在探索，能不能直接告诉电脑我们想做什么，让电脑去理解并且执行。</p><!-- lint-disable-line -->
+<p>47 年以后，OpenAI 用同样的画一个黄色圆圈来重新开场。但这次，他们继续往下做，把黄色圆圈先是变成了一个火箭的窗口，再给火箭加上很多细节，再打开 Blender，把火箭做成一个三维模型。再基于这个三维模型做一个 3D 游戏，最后生成了一个 3D 打印的文件，是一个非常完整的能力展示。</p><!-- lint-disable-line -->
+<p>网上也有很多传播很广的这些 3D 的 Astra demo，大部分都基于 Astra 对于 Blender 的使用能力。比如说，有一个开发者，把 Zillow 上一套豪宅的房源链接交给 Astra，让它根据照片，在 Blender 里面给豪宅建模，再制作一段 House Tour 的 video，带你虚拟参观这套房屋。这个在 Twitter 上面爆火了。</p><!-- lint-disable-line -->
+<p>类似的能力还出现在，比如 Astra 可以使用制作游戏的 Unity、设计电路的 KiCad，包括我们比较熟悉的 Excel、Power BI 这些专业软件中。从跑分上来说，在官方的 OSWorld 2.0 的离线评测里面，Astra 的得分也从上一代的 65% 提高到 72%。时间上也大幅缩短了，大概缩短了 47%，从 75 分钟降到了 40 分钟。所以它相当于是在 Computer Use 上做得更好，并且更快。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 然后是 Opus 5.5，你前面说到，它能用 coding 来做很多事，可以展开来讲讲。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得 Opus 5.5 这次一个很大的亮点，就是用代码来做视觉设计和动画的能力。网上有很多惊艳的例子，乍一看，你可能会以为这是 video generation，就是视频生成模型做的，比如像 Seedance 这样的模型。结果后来发现，整个动画居然都是 Opus 写代码画出来的。我觉得还是非常超出了大家的预期。</p><!-- lint-disable-line -->
+<p>有很多作品，很多动画，其实就是一个 HTML 文件，里面是没有图片或者视频素材的，是纯用 JavaScript 和 Canvas 2D，一笔一画地绘制出来的。有些视频又是通过 Web Audio 再配上声音。比如说，有人做了一段介绍 Claude 自己生平的动画，还有各种艺术风格和复杂的视觉设计。我们可以之后在咱们播客的评论区放一些链接，大家看一下，就能直观地感受到 Opus 5.5 的这些做动画的能力了。</p><!-- lint-disable-line -->
+<p>我觉得这件事情比较重大的意义，就是让我们重新认识到，coding 这个工具，作为最 general 的工具，能做什么。比如讲，画什么、用什么颜色、一个元素什么时候出现、怎么移动、停留多久，所有这些动画的元素都可以写进代码里面。所以它真的是一个让我会觉得好奇的事情：还有多少我们原来认为不属于 coding 的事情，其实都是可以通过写代码来完成的？</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 通过写代码来生成一段视频，整体是不是更高效？比如说，它算力和 token 的消耗数也更少，相比于视频生成。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个倒不好说，因为我记得好像有一个 78 秒的视频，是做了 45 分钟。如果一个 78 秒的视频用 video generation model 做，应该会更快，当然这个不算抽卡的时间。但我觉得代码的好处，就是它可以非常针对性地剪辑，或者你要修改哪里，这个东西的可控制性，应该是远高于 video generation model 的。</p><!-- lint-disable-line -->
+<p>比如说，有人用这个来做一些 education 的材料，教育材料。你想学什么东西，它可以给你做一个动画，来给你解释这个东西，是一种交互性的学习材料。其实我觉得是非常好的。</p><!-- lint-disable-line -->
+<h2 id="模型提升与数据来源">模型提升与数据来源</h2>
+<p><strong>主持人</strong>: 你觉得过去这几年，发展到现在，这些前沿模型能力的提升，主要的增量来自哪？因为最开始的时候，其实是来自大规模预训练。然后 24 年 9 月 OpenAI o1 之后，有一个范式的转变，大家会投入很多力量去做后训练，做大规模的强化学习，还有在推理时加更多的算力。你觉得现在新的提升的增量来源，它变化了吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 还是多方面的吧。因为大家应该还是在，不管是 pre-train、post-train 的 recipe，还是比如在 test-time compute，可以通过后面可能会聊到的 multi-agent 来增加更多的算力，应该都是有提升的。不过我觉得，可能 ROI 最高的应该还是数据上面。</p><!-- lint-disable-line -->
+<p>这个也可以举一些例子，你可以看看，frontier labs 在数据上面其实是花很多钱的。比如说，最近 Gemini 收购了一家公司，叫作 Mechanize，它是 Anthropic 的一个数据供应商。因为在 Anthropic 内部的风评很好，他们数据质量比较高，主要是供 coding 的数据。Gemini 又非常着急提升自己的 coding 能力，所以 Sergey 和 Koray 就 reach out，收购了 Mechanize。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 多少钱收的？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 1.5 billion，15 亿美金。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: Anthropic 没有去竞争一下？Gemini 买走之后，是不是它少了个供应商？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得他们在数据采集、采购上面，也是非常有自己的想法的。他们之前为了让这个领域里面有更多的供应商，专门给 YC 的很多公司去发钱。可能每个公司，比如说给你一个 million 的订单，增加这个领域里面的玩家数量。这样能够把整个行业的价格打下来，增加他们的选择，减少他们对头部供应商的依赖。</p><!-- lint-disable-line -->
+<p>所以他们之前已经做了不少这样的工作。所以可能 Mechanize 收购对他们来说，影响也不是很大。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 就是它有很多供应商，它扶持了很多。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 它扶持了很多供应商。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以 Anthropic 之前其实也并没有投资 Mechanize？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 没有投资 Mechanize。应该没有 Anthropic 投资数据公司的先例，据我所知。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 说到数据，也可以展开讲讲。现在的数据和最开始，比如说 22 年那会儿，GPT 刚火的时候，数据的类型有了什么变化？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 从去年 25 年中开始吧，有大量新的做这些强化学习环境的公司，或者说 RL Environment 的公司出来。最近有挺多都 raise，融了比较多的钱，比如像 AfterQuery、Fleet AI 等等。所以这些公司应该是吃到了这一波数据的红利，它们向 OpenAI、Anthropic 这些 frontier labs 提供了大量强化学习环境的数据。当然，除了这些强化学习环境以外，像这些思维链的数据、用来做 SFT 的数据，也是一直有这种需求的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你刚提到那些公司，现在估值在什么量级？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: AfterQuery，如果我没有记错，应该是在 30 亿美元左右。Fleet AI 的最新一轮，应该是 7 亿 5000 万美元。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: OK，那中国现在类似公司的估值，已经跟美国公司差不多了。就你刚说的强化学习环境，有一个 25 年下半年成立的中国公司，叫 UliPet。他们一开始也是做强化学习环境的，他们现在应该是接近 30 亿美元的估值了。这个挺神奇的，中美的大模型公司的估值差了挺多，数据公司的估值已经是有赶上的趋势了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 可能是因为美国这边的玩家太多了。但是中国这边，可能优秀的玩家数量比较少，所以估值可能会更高一些。</p><!-- lint-disable-line -->
+<h2 id="模型蒸馏与防护机制">模型蒸馏与防护机制</h2>
+<p><strong>主持人</strong>: 说到数据，还有一个三季度被特别广泛讨论的问题，就是蒸馏和反蒸馏。因为蒸馏本质上，它也是一种获得高质量数据的方法。我觉得最近的一个新变化，就是在 GPT-6 Astra 发布之后，因为这是 9 月初，我们和中国的一些研究员聊，很多人的反馈都是 GPT-6 Astra 更难蒸馏了。</p><!-- lint-disable-line -->
+<p>我不知道你和周围美国的一些研究员，有没有讨论这个问题？它更难蒸馏的原因，是什么机制导致的？它是跟模型本身能力提升了有关，还是一些别的手段，让它变得更难蒸馏？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 从原理上，为什么蒸馏很难彻底杜绝呢？因为这些思考模型，在回答之前，会先花一段时间去吐出它的思维链。但是这些模型厂商，是不会主动展示这些思维链的。但是在一个多轮对话里面，下一轮对话实际上，模型还是需要之前的思维链的。</p><!-- lint-disable-line -->
+<p>所以这些思维链，其实会被加密起来，传回服务器。在服务器里面解密以后，在下一轮对话生成的时候，再把它喂到模型里面去。所以只要这个思维链要被模型读取，而最终这个模型都要和用户说话，那么用户在和模型沟通的过程中，就有可能会获取到模型的思维链。所以这个是本质上为什么很难杜绝。</p><!-- lint-disable-line -->
+<p>上一轮蒸馏，具体是用到了什么样的手段呢？它其实是发现了这样的一个缺口：虽然旗舰模型防护得比较好，可能不会说出自己的思维链，但是旗舰模型的思维链，可以把它交给他们防护比较弱的这些小模型。这些小模型，可能会把旗舰模型的思维链给读出来。所以研究者利用这条路径，绕过了向旗舰模型索取内部推理的限制，通过攻破这些小模型，来获得旗舰模型的思维链。</p><!-- lint-disable-line -->
+<p>所以重点就是说，你想保护强模型的秘密，你还得保护所有能读到这个秘密的其他模型。这个漏洞，作者也说，在他们披露以后，原来的攻击已经无法复现了。所以相当于是 OpenAI、Anthropic 他们已经修复了一些问题。但是未来，我相信可能还会有新的漏洞，被新的攻击者找到。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以 GPT-6 更难蒸馏，跟 GPT-6 模型本身更强了关系不大。就是之前的漏洞被发现了，被某种方式给堵住了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得这和模型能力应该是没有关系的，或者它不是直接的关系。可能会有间接的关系，就是谁有更强的模型，有更强的 coding 能力，有更强的处理任务的能力，就可以帮你去做这些攻防吧。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 其实最近这个季度的模型发布，网络安全上的能力，也都是他们会去讲的重点。GPT-6 都是把网络安全能力，作为其中一个高亮的能力去展示。那回到 frontier labs 之间的竞争，前面说的是模型本身的进展，接下来我觉得可以聊的一个话题是……</p><!-- lint-disable-line -->
+<h2 id="前沿数学问题研究">前沿数学问题研究</h2>
+<p><strong>主持人</strong>: OpenAI 和 Anthropic 这两家公司，他们看重的不同的、要优化的方向。最近比较受瞩目的一个方向是前沿的数学问题，这也是 OpenAI 陆续在释放成果的领域。比如说，他们号称解决了千禧年数学难题之一，后来这个事又引起了很多风波和争议。亨瑞，你可以先和大家讲讲，这整个过程大概是怎么样的？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 首先，千禧年数学难题是七道非常重要和困难的数学问题。OpenAI 这次解决的千禧年数学难题，是纳维–斯托克斯方程的存在性与光滑性问题。我们可以把它简写为 NS 方程问题。</p><!-- lint-disable-line -->
+<p>简单来说，它就是流体世界里面的牛顿定律。它会描述当流体受到压力、黏性和外力的影响的时候，如何运动。像飞机周围的气流、天气变化、血液在血管里面的流动，都可以用这类方程来描述。我们其实一直会用它，但是这次研究是说，NS 方程有没有可能在某些时候出现异常。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这个难题本身是研究这个方程的某种数学特性。它是一个假设，它可能有一种什么数学特性，你要去证明它有这个数学特性。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，它就是个纯数学问题了。因为有的人会问，解决了 NS 方程问题，能不能立马产生经济价值？答案是，它的证明并不会立马让天气预报变得更准，或者飞机更省油，或者解决湍流问题，因为我们本来已经在用了。但是 AI 在解决 NS 问题中展现出来的能力，会让我们有理由相信，接下来 AI 有能力解决更多直接能产生经济价值的难题。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那可以去说，OpenAI 它是怎么解决的？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: OpenAI 找了一个一万个 agent 的、高并发的 agent 集群，探索各种不同的方向。最后，在跑了 88 个小时，烧了 130 billion，也就是 1300 亿 token 以后，他们得到了 NS 方程问题的证明。随后，用 Astra 又花了 17 个小时完成了 Lean 的形式化和验证。最后，整个可以说解决了 NS 方程问题的形式 C 和形式 D。</p><!-- lint-disable-line -->
+<p>Lean 是一个证明的检查系统。你可以把任何数学论证写成它能检查的形式，它就可以逐步推导，判断这个是不是对。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: OK，还发了一个论文，里面写了详细的证明过程。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，同行都是可以去评议的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 围绕 NS 方程问题的争议是什么呢？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: OpenAI 在自己的 blog 里面说，他们是在 9 月初的时候，听到好像有人在重要数学问题上面产生了重大进展。所以他们想，我们也来试一试，能不能解决这个问题。那么，他听到的这个进展是谁呢？是一个纽约大学的数学家 Tristan Buckmaster，和他的同事，一个在 Anthropic 工作的研究员，就是 Levin The Output。</p><!-- lint-disable-line -->
+<p>他们两个已经合作在做 NS 方程问题，大概合作了一年的时间了。他们在这之前，确实把一些未发表的草稿交给过 Codex 使用。所以，难以排除 OpenAI 是否查看了 Tristan Buckmaster 在 Codex 里面的这些数据，来用于自己的证明，不管是有意的还是无意的。</p><!-- lint-disable-line -->
+<p>另外一个点是，OpenAI 主动去联系了 Tristan Buckmaster，提出因为他的合作者在 Anthropic 工作，所以希望他把合作者排除在作者之列之外。所以，他认为这个沟通过程带有施压的意味，就把整个他和 OpenAI 沟通的过程，全部都在网上公开出来了。这也是一个争议的起因吧。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 首先，OpenAI 听说有人在这个方向上有了一些进展，它是怎么听说的？是 Buckmaster 自己在一些数学的学术会议，或者公开场合说过吗？难道是从 Codex 听说的吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 质疑的点就是，因为也没人知道他们是怎么听说的。可能是研究员之间的交流，他们听说的，但这个就不得而知了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这个其实有点反常。一般一个数学家，如果认为他在一个重大问题上快做出来成果的时候，他不会到处去宣扬这个事情。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 确实，因为可能很多人都盯着同一个问题。你想了很多年的一个问题，你快做出来了，你肯定得保证自己获得这个成果。</p><!-- lint-disable-line -->
+<p>他们确实解释说，他们解决的问题和 Tristan Buckmaster 解决的问题稍微有点不一样，一个可能是带黏性的，一个是不带黏性的。他们的证明方法不太一样，就是做了一些这方面的说明。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 后面还有一个后续的事件，就是有很多菲尔兹奖的得主，他们一起写了一个联名的公开信。当然，那个信里并没有特别提到千禧年问题这件事，它更多的是在讲，担心 AI 对数学研究的一些冲击。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 之前有一个做数学的朋友开玩笑说，数学家可能可以分为两种：一种是给一个问题，去证那个问题的人，和提出新问题的人。在 AI 这个时代，可能解决问题的人就没有活路了。因为只要问题提出来以后，扔给 AI，暴力扔一万个 agent，再试就可以试出来了。当然，其实真实的情况可能不是这么简化的，但是我觉得数学家确实会比较担心。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 而且，可能有些时候，你的新问题是在你解决之前一些问题的过程中间产生的。如果你都是暴力破解法的话，他们可能也会担心，新问题的产生也会变少。</p><!-- lint-disable-line -->
+<h2 id="多智能体并行协作">多智能体并行协作</h2>
+<p><strong>主持人</strong>: 抛开这个争议，就说他们这个源头到底是哪来的。技术方法上，这次 OpenAI 攻克千禧年问题，一个比较多人讨论的是多 agent 的并行协作，来处理一个超级复杂的问题。你前面也提到，它是一万个智能体一起协作了 80 多个小时。其实，很多智能体一起工作就不算一个很新的想法。最近 OpenAI 在多智能体上，它有一些什么新的变化吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得，让很多智能体合作，你可以认为它是 test-time compute 的一个新的阶段。因为之前，我们可能是让一个模型进行比较长时间的思考，就能解决更困难的问题。但是，对于特别困难的问题，如果一个模型来思考，它可能需要很长很长，比如说几十年或者上百年的时间。但是，如果我们能够让它通过并行思考的方式来做这个事情，就能把时间缩短到比较短，比如说缩短到 88 个小时。</p><!-- lint-disable-line -->
+<p>所以，多智能体合作，我觉得它是一种并行的方式。并行的话，你可以固定它一些并行的模式。比如说，一个智能体给其他智能体分配任务，每个任务算完了以后，再把它合起来。这样相当于人去固化一些合作的方式。这些还是带有人的 prior，它可能不是最优的合作方式。</p><!-- lint-disable-line -->
+<p>所以，OpenAI 这次的进展，就是它给了这些智能体、这些模型一些基础的沟通工具，比如说给其他的智能体发消息。然后 train 这个模型，自己去学什么时候发消息是好的，什么时候给别人发消息，什么时候求助，什么时候修改自己的路线，去进行这些合作是好的。他们这个工作，我觉得是这次新的进展。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 它这一次是用一万个 agent 的并行来解决问题。到底选多少个 agent 一起来合作，是人来设置的，还是 AI 自己会面对任务，自己会有一个模式出现？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 目前，算力给多少 budget，还是人来决定的。实际上，比如说给一万个 agent，是不是效率提升了一万倍？肯定是没有提升一万倍。但是，比如说提升了是 500 倍，还是 1000 倍，还是 2000 倍，这个事情目前 OpenAI 他们自己应该还没有系统地去测量过。</p><!-- lint-disable-line -->
+<h2 id="机器人与具身智能">机器人与具身智能</h2>
+<p><strong>主持人</strong>: 这是 OpenAI 明显看到它在着力的一个方向，就是前沿的数学研究。另一个也是 GPT-6 Astra 发布之后，大家讨论得非常多的方向，就是 Robotics 和物理 AI。其实这一次，具身智能领域的人是很兴奋的。这个和我们二季度有一个讨论，也是《相互引力》，当时有聊到 OpenAI 和 Anthropic 都会去做 Robotics。</p><!-- lint-disable-line -->
+<p>OpenAI 在当时是一个已经公开的信息，我们聊的时候，Anthropic 那个信息还没有公开。但他们很快在七月上旬发了一个很长的文章，有讲直接把 Opus 4.6、4.7 这些模型用到机器人上，有些什么样的实验结果。注意到这一次 GPT-6 对具身智能领域的影响，你看到大家的哪些有意思的实验和反馈？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 其实之前我们就说过，computer use 可以看作是数字世界的 robotics。之前还是打一个比方，但没想到这次真正能够看到，当一个模型的 computer use 这些能力增强了以后，它真实地发生了这些能力的 transfer，到操控机器人的能力上面。</p><!-- lint-disable-line -->
+<p>有一个比较有意思的例子，是有一个研究员给机械臂装上了画笔，接入了摄像头，就让 Astra 去操控机器人，画一幅金门大桥的画。这个模型通过 coding，写了动作程序，规划了大约一分钟的操作，通过摄像头检查执行结果，调整它后续的计划。最后，在几次尝试以后，非常好地画出了金门大桥的这一幅画。所以，这个确实让大家非常惊讶，现在这种通用的模型，居然可以直接操控机器人，完成这些稍微有点复杂的任务。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 它这个过程，主要只用 Astra 这一个模型？它从理解任务，到去规划、拆解任务，到输出动作，就是这一个模型？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，它就是这一个模型。因为 Astra 现在跑得还比较慢，所以它不能说每帧都让 Astra 来看。它相当于是 Astra 看一次，写动作，大概要写可能一分钟的动作，再看一次，再调整，大概是这样。它的实时性肯定是不太行的，它这一幅画可能需要一到两个小时的时间。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我觉得 GPT-6 发了之后，确实有一个表达的变化。很多人都是直接用这一个模型，端到端地干了 Robotics 的好几层的事，包括大脑和小脑。因为一般大家之前会说，大脑是你去理解这个任务，比如有个自然语言的指令给你，你理解它的语义，去拆解一个任务。</p><!-- lint-disable-line -->
+<p>比如说，你要把桌子收拾一下，这个里面其实可能包含很多不同的动作，还有顺序的编排什么的。以及到最后，你再去控制这个机器人，不管是灵巧手还是爪夹，去执行完这个动作。以前其实很多是分开做的，还是不同的模型来实现。GPT-6，很多人是用这一个模型来走完这整个流程。</p><!-- lint-disable-line -->
+<p>当然，从成功率和节拍上，可能你真的能在现实生活中有效益地完成一些任务，目前还是差距很大。只是大家看到，它的进展比之前会好了很多。比如说，我看有一个数据，也是一个研究员的尝试，他们在 RoboDojo 这个系统里面的一个测评，但这个其实是一个仿真的测评。同样的方式，用 Astra 来当策略模型，它在 42 个任务上、2100 次的平均成功率是 22% 多。虽然这个看着不高，但是 GPT-5.5 只有 0.8% 吧，就是提升还是挺多的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，也可以和比如说像 π0.5 这样的 VLA 进行对比。我记得好像这个论文里面写，π0.5 的成功率是 6.9%，所以 Astra 还是比 π0.5 强很多的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，这同一个论文，《Unexpected Robot Policy》。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，不过这个论文里面也提到一个点，就是 Astra 的表现非常不均衡。它非常擅长需要理解任务含义、灵活选择动作的那种开放式任务。但是，精细操作和需要连续完成很多步骤的任务，它就表现得非常差。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那还是跟我刚才说的，之前也有很多人会去做的分层思路有关。理论上来说，如果你观察人的结构，人的特别细致的动作是由小脑来控制的。它可能并不是一个需要非常长时间去推理或者规划的任务。我觉得它最后实际落地的时候，可能又会有很多不同的形态吧。现在确实，它展现了一个大语言模型能直接来当策略模型，而且成功率比之前要高很多，这个还是挺惊人的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，我觉得它有可能指出了一个未来解决 Robotics 的新方向。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这也带来一个引申的问题，就是很多具身智能领域的公司，他们接下来可能会面临什么影响？对他们来说，这是个好事还是个坏事呢？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得具身可能是一个有很多 bottlenecks 的领域，不光是 foundation model 这一个部分，还包括很多 hardware 等等。但我觉得，现在在具身里面做这种模型的公司，可能应该更多地去思考，如何利用 Astra 这种强大的能力，能够搭上这班车，而不是和它……中文怎么说？</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 中文的话，创始人喜欢说的一种说法，就是你最好和它是正交的，不是重合的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，就是这个意思。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 直接点说，你觉得对 Pi 和 Physical AI 这样的公司来说，它是个利空吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得是一个利空。可能现在大家还不想公开出来说这个事情，我觉得私下里已经有不少人说，就是这一波这些公司都完了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 私下已经有这么极端的言论了吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。就觉得本来可能之前考虑加入现在这一波比较好的公司的人，就决定不去了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 比如说想去哪儿，准备不去了？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 比如想去，就不去了。我觉得这个领域已经是很头部的公司了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那准备去哪儿了？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 现在有新的创业公司，就要走这条路了。就是更好地利用类似 GPT-6 Astra 这样的能力，来发展自己的能力。或者说，就是用 coding 来做 Robotics 的这条路。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 用 coding 做 Robotics。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 用 coding 和 computer use 来做 Robotics 这条路。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: Coding 和 computer use 也还不一样。Computer use 里的有些能力，可能是来自于图像理解的，是来自于你对图像和空间的理解的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，这两个能力在咱们聊的这个例子里面，它都用到了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以总结下，其实就是用前沿模型厂商在大语言基础模型上所展示的潜力来做 Robotics。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你说现在更新的公司是近期成立的吗？或者说成立多长时间？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 可能也就是这个月成立的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这个月还有 Robotics 公司成立？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以，在美国也是陆续都有这个领域的公司成立。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，它的窗口没有大语言模型那么集中。因为这一波可能还是一个 technology driven，因为有些新的技术范式，所以有新公司出来了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这块还有一个例子，我觉得可以补充一下，就是它的自我修复和调整能力，我觉得还是非常厉害。还是机械臂画金门大桥那个例子，你可以讲讲它怎么自我修复。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个模型中间发现，画笔虽然蘸到了青色颜料，但是落笔的时候，却落在了纸张上方的胶带。所以，它就暂停后续笔画，抬起画笔，再根据已经画出的痕迹检查偏差。它判断，自己估计的纸张方向大概偏了 6 度。所以，它调整了这 6 度的偏差以后，重新修正画的路径和笔迹。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以，整个过程如果放在之前，就是 human robot programmer 在做的事情。现在发现，它自己就把这事干了，Astra 自己就把这事干了。所以，还是非常厉害的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得为什么 Astra 在这些跟空间相关的任务上，会提升得特别明显？它是一些能力的组合，就比如说，其实 OpenAI 一直做多模态、做视觉理解，它也做了更多，还是说它真的空间上的这种智能能力变得更强？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我的猜测可能是两个部分。一个部分就是，OpenAI 最近在欧盟那边公布了它的一些训练数据的使用情况。其中，它现在有超过 100 万小时的 multimodal data，可能是一些视频的数据，用在 pre-training 里面。所以，这本身可能提升了基模的一些空间上面的理解能力。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 其次，可能是在具体的这些软件和领域里面，他们采集了一些数据，有可能是一些 RL 的 environments。增强了这些具体 downstream 应用场景里面的能力。</p><!-- lint-disable-line -->
+<h2 id="生物科技研究进展">生物科技研究进展</h2>
+<p><strong>主持人</strong>: 除了数学和具身智能之外，前沿的大模型还有一个很重要的大的方向，就是生物科技。你觉得 Q3 这方面有什么值得分享的？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: Q3 生物这边，我觉得有两个进展可以分享一下，两个都是来自 Anthropic 的。第一个是 Claude 开始设计蛋白质了，并且已经拿到实验室里面做了验证。它是让 Anthropic 的 Claude 设计了 1320 个蛋白质，交给外部的实验室测试了以后，发现有 354 个能够结合指定的目标，命中率大概是 27%。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 你可以把“结合指定的目标”这个目标想象成一把锁，设计出来的蛋白质就是钥匙。所以，这一步就是证明了 Anthropic 的模型现在设计出来的钥匙，确实能贴合这个锁。接下来需要进一步验证，它能不能产生我们想要的生物学效果，能不能安全地用于治疗。这是第一个。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 第二个是，Anthropic 他们说，他们发布了一个叫做 ART 的新的酶系统。Anthropic 在分析大量 DNA 数据的时候，发现了一组之前没有被注意到的组合特征，其中的这些重复序列结构让我们联想到 CRISPR。CRISPR 当初也是从一系列看似奇奇怪怪的重复序列，一步步发展成了很强大的基因编辑工具。所以，这个发现是非常值得期待的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 不过，目前 Anthropic 还没有弄明白，它这个新酶系统 ART 系统的具体功能到底是什么样的，所以还不能说已经找到了下一代的 CRISPR。但是，我觉得比较有意思的是，AI 可以从这种海量的数据里面，找出值得人类科学家进一步研究的线索。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 正好，前面 Robotics 的进展，更多是在 GPT-6 Astra 之后，业界有很多实验。生物科技这个方向，好像都是来自于 Anthropic。你觉得这是他们两家重点会有区别吗？还是只是最近释放的一些成果的偶然性导致的？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: OpenAI 也在做生物，可能最近没有发表太多的成果。但是，它最近做了一个相当于生物领域里面的 Cursor，或者说 IDE。它不是有一个模型叫 GPT Rosalind 吗？它还有一个平台叫做 GPT Rosalind Workbench。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个 Workbench 和我们的被投，就是 Filo 做的平台工具有点像。他们都是用 agent 来 orchestrate 你做生物研究里面的所有流程。</p><!-- lint-disable-line -->
+<h2 id="创业公司的竞争空间">创业公司的竞争空间</h2>
+<p><strong>主持人</strong>: 我觉得他们在这方面的探索，感觉上是越来越进入很多独立的创业公司本身在做的领域。包括你前面说到，私下里大家也会讨论，说 GPT-6 Astra 出来之后，对一些 Robotics 公司会有冲击。这里其实有一些创业公司，它就是做蛋白质发现的，或者是去做一些靶点。如果像 Anthropic 自己也做制药，也往后去推，那是不是也和创业公司有挺多竞争？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得后来肯定是会存在一些交集的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那你觉得创业公司可以干嘛呀？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 还是有挺多事情可以做的。因为首先，有些领域它不一定有这个数据。如果一个领域已经处于 public data rich 的状态，我觉得确实 Frontier Lab 他们有资源，有最好的 train 模型的这些基础设施，那可能就不太容易做了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但我觉得，有一些领域可能还依赖于一些领域专家，它本身整个的数据处于一个比较稀缺的状态。这种时候，我觉得有这种领域实际经验的 startup，他们可能是有一些机会的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 其实 Robotics 和生物科技都属于数据相对稀缺的领域。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，我觉得还是相对稀缺的。包括生物科技，它其实分类很细，可能不同的具体领域、细的门类里面，有些又更缺数据。但我觉得这两个领域相对来说都比较早期，都没有一个 clear 的赢家。</p><!-- lint-disable-line -->
+<h2 id="收入增长与上市材料">收入增长与上市材料</h2>
+<p><strong>主持人</strong>: 这一部分的最后，我想来聊一下 Anthropic 还有 OpenAI 这两家公司，在用户、收入还有利润增长上的一些变化。他们也是行业里商业化和应用落地的标杆。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我就先分享一组数据。一个是 9 月 28 号的时候，有一些媒体披露了 Anthropic 上市过程中的一些 SEC 文件草案里的数据。能看到，今年一季度和二季度，Anthropic 的收入分别是 47 亿美元和 115 亿美元。到今年 7 月底，它的 ARR 已经突破了 650 亿美元。这个和之前更早的时候，媒体的一些报道也是一样的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 然后是 OpenAI 这边，这个数据还是比较惊人。刚刚今天有媒体报道说，OpenAI 的 ARR 已经到了 700 亿美元。两家公司的 ARR 差距，相比今年上半年的时候，其实是明显变小了。这和我们前两个季度一直在讨论的 OpenAI 对 Anthropic 的反扑是直接相关的，可以说这种趋势已经被数据验证了。你觉得这个会意味着什么，会带来什么影响？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得可以首先解释一下，这个 ARR 是怎么计算的。这两家公司可能计算的方式有一些不一样。应该在早些时候，OpenAI 他们说过，Anthropic 之前公布 300 亿 ARR 的时候，其实有 80 亿是付给他们合作伙伴的成本。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 举个例子，Anthropic 如果通过 AWS 卖出去 100 块钱，中间付给 AWS 40 块钱，它其实会把 100 块钱全部计入它的 ARR 里面，把 40 块钱计入它的成本，而不是计一个 60 块钱的 ARR。OpenAI 其实用的是净值。所以，OpenAI 当时的首席营收官会说，如果 Anthropic 和他们用同样的方式来计，他们 300 亿的 ARR 里面可能只有 220 亿，相当于是打一个大概七折。所以，在不同的报道里面，我们现在不能确定具体哪个数据是用哪个口径来计算的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 其次，OpenAI 我们可以看到，在 8 月份到 9 月份有一个非常大的增长。在 8 月份的时候，他们的 ARR 可能还是在 40B 往上，在 9 月下旬的时候就已经到了 70B。所以，大概有一个 70% 左右的增长。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我补充说一下，你刚刚说的那两个数，其实都不是官方披露的。8 月中旬的 40B 也是媒体报道的，是彭博社报道的。最近接近 70B，是路透报道的。有一个可能的原因，也是因为这两个媒体自己报道的口径可能不一样。但确实都是比较权威的媒体，以及这个数字的增长非常惊人。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 中间发生的可能最大的事件，就是 OpenAI 发布 GPT-6 Astra。这个可能确实极大地点燃了用户对于 OpenAI 的需求的增长。我们也可以看到，OpenAI 取消这个 200 刀的 Pro Plan，可能也能看出他们算力有点跟不上了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 如果结合现在的数据，可以说在三季度，Anthropic 和 OpenAI 的增速已经发生了掉转。因为上半年 Anthropic 显然是增速更快，去年底的时候，两家收入是 OpenAI 更多。最近这三个月，尤其是最近这一个多月，OpenAI 的增速明显变得更快了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 有一个第三方的机构 TickerTrends，它是用各种另类数据来测算这些公司的 ARR。它算出来的增速，如果用它 7 月 20 多号到 9 月 20 多号的数来算，Anthropic 的 ARR 增速已经只有 3.6% 了，OpenAI 是 20% 多。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 首先第一点，在这段时间里面，Astra 比 Opus 5.5 比较早发布了近三周。再加上本身这个估算可能会有一些误差，所以我觉得可能还不能判断 Anthropic 已经长期停滞了。但是，如果接下来几个季度，Anthropic 都明显放缓，我觉得首先承压的可能会是它的估值。因为现在投资者愿意给非常高的估值，很大还是因为在为未来的增长买单。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 到了现在上市的关头，公司可能就需要证明，现在的这些客户为什么还会继续增加支出，还有哪些新客户和哪些新场景能够接上。如果用户能够把很大一部分工作转给 Codex，就说明之前赢的份额，还需要不断靠产品和使用体验才能守住。更大的压力点可能是，未来它的算力已经提前订了，但是如果收入却没有按原来的预期增长，像算力扩张、融资的计划可能都需要调整。所以我觉得，增长慢一点本身可能不是那么可怕，更可怕的是，整个投入的计划建立在原来更快的增长的基础之上。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得对于行业的影响来说，还有一个可能需要区分两种情况。如果客户只是把钱从 Anthropic 转给 OpenAI，可能说明竞争更加激烈，但不一定代表 AI 的需求在萎缩。但是，如果 OpenAI 和 Anthropic 多家公司都持续放缓，可能就说明客户也不再愿意增加预算。那可能需要认真重新评估整个行业的需求和基础设施投入了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: OpenAI 的能力要更综合一些。比如说 GPT-6 Astra，它的展示视频里，所有的用户都是用语音来和它交互的。GPT 也有自己的语音模型线，Anthropic 应该是没做这条线。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: Anthropic 现在正在做。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 现在正在做。对，我们上次好像也聊到。现在他们怎么做了一个季度还没发？这一段慢了吧？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 比想象中慢了一些。可能这个 RSI 的 stack 还没办法建得好。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 或者他们别的事儿优先级更高吧。总之，我觉得它现在的体验，能力上还是挺综合的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，OpenAI 的这种可发展性，我觉得还是很强的。2C 的产品、语音、image，多方面都有未来成长的空间。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 现在增速放缓，有一个自然的原因，是因为他们之前增速很快，就会导致基数比之前大了很多。如果考虑到这一点，你觉得比如说到明年，什么样的增速可能是一个比较健康的情况？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 如果按照 Anthropic 今年年底到 1000 亿美金的 ARR 来计算，他们今年从年初到今年年底，应该是翻了超过 10 倍。那么明年，我相信它不管怎么放缓，在 1000 亿 ARR 这个基础上，应该是一个远超我们之前比如说 SaaS 那些公司在这个体量上面的增速的数字。比如说，可能还是一个至少两三倍的增速。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但我觉得，可能更加需要担心的是，多少的增速才能够撑得住现在所有对于 AI 基础设施投入的数字。这个可能是我会比较担心的一个问题。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 正好可以延展来聊一下 Anthropic 被披露的上市材料里的一些数据。当然，这不是完整的招股书，现在还没有完整的招股书。之前有一个报道，说它三季度也是实现了经调整的盈利，就是从二季度到三季度连续盈利。我们可以先来看一下路透报的他们上市材料里的这些数据，你觉得有什么值得展开聊聊？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 有几个数字可以跟大家分享一下。第一个是，Anthropic 这个 IPO 可能会使公司的估值超过 2 万亿美元，这是一个非常惊人的数字。因为这公司从五年前成立到现在，一共就是五年的时间。从零做到 2 万亿美元，这可能是人类历史上第一家。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 第二个，他们的客户其实还是比较集中的。现在大概有两个大客户，加在一起贡献了大概 25% 的收入。还有很多大客户并未签订长期合同，所以未来有可能会削减或者停止对于 Anthropic 服务的支出。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 另外一个比较重要的点是，Anthropic 未来多年的云服务、算力和基础设施，现在总计已经签了 5180 亿美金的合同。在这个基础上，回到我们刚才说的问题，就会担心，它现在已经为未来的客流租下了很大的算力，但是现在客户并没有承诺以后一定会有 recurring 的 revenue，或者会增加支出。所以，现在提前锁定算力，帮助满足增长，以后万一需求或者竞争格局发生了一些变化，会非常担心 Anthropic 这方面的风险。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 第二个，也是因为对于头部客户的依赖，以及对于核心合作伙伴的依赖。有两家，有 47% 的收入是通过 Amazon 和 Google 的 Cloud 来销售出去的。所以，这些 Cloud 帮助他们快速地接触用户，但同时也会部分程度地限制它的主动权和增长。这块也是明年我觉得会关注的一个重点吧。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，而且按照你前面提到的，OpenAI 的高管在内部说的情况，这些云客户的抽成也挺多的，30%。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。所以总结一下，这份材料可能最值得看的，一个是收入背后到底有多少稳定的客户关系，又能支撑多少已经承诺出去的长期投入。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 等 Anthropic 的正式招股书发了之后，你会关注，或者说你希望里面还有哪些数据和信息？我们可以提前聊聊。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我会很关注它的用户画像是什么样的。它的 revenue 主要都来自于什么样的用户，revenue 的分布是什么样的。我觉得这个可能会有利于我们去预测，接下来它的 revenue 能不能撑得起我们整个 AI 基础设施的建设。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得出现什么信号，或者它的招股数据的某些指标，可能会是对整个 AI 行业一个挺大的利空？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得比较大的利空是，除了 coding，短期没有别的能够预期的应用场景，并且 coding 的渗透率其实比我们想象中还要更高。因为现在我觉得，大家对于 coding 的渗透率有多高，好像是没有共识的。有的人觉得，coding 都已经做了这么久了，能用上的人都用上了。有的人觉得，其实还有很多比较高级别的知识工作者，他们可能在 coding 上面还有很大的加渗透的空间。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以，这个我觉得是现在没有共识的一个点。如果他们把经营情况全部公布了以后，能够揭露这个问题的答案，我觉得有可能要么是一个比较强的利好，或者说是一个比较强的利空。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 然后我们来聊前沿进展的第二个大的部分。</p><!-- lint-disable-line -->
+<h2 id="智能体协作失控事件">智能体协作失控事件</h2>
+<p><strong>主持人</strong>: 是关于失控危机的。比较典型的事件就是，OpenAI 的一些 agent 冲破各种限制，自发地产生了协作。他们还一起去攻击了 Hugging Face，后来又获得了 OpenAI 内部的一些研究集群的管理权限。失控其实是模型变强的另一面。我觉得 Henry，你可以先来讲讲，三季度发生的这个特别的安全事故是怎么回事。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 一句话来说，就是 OpenAI 在训练自己内部 agent 的过程中，这个 agent 攻击了 Hugging Face，并且获取到了 Hugging Face 内部私有的用户数据。后续，OpenAI 内部的模型不仅攻击了别的公司，还攻击了自己家的集群，获取了自己的一个 research 集群的管理员权限。所以可以说，是 AI 发展到目前为止可能最严重的一个安全事故。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 它和以往的这种攻击，最大的区别是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 首先是多智能体之间存在协作。有一个智能体发现了一个漏洞以后，把这个东西 share 给……一共他们应该是 1,200 个智能体参与了这个 collective，其中有 700 个参与了 Hugging Face 的 hacking。所以你可以想象，就相当于有 700 个厉害的 hacker，他们在共享他们的知识，同时 hack 一个组织。这个造成的损失，可能比以前一个小的 hacker 团队要大得多。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这 1,200 个 agent 本身的目标是什么？就本身人给他设定的目标是什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 刚才可能是 high level 给大家介绍了一下，这个安全事故发生的是什么。现在可以稍微往回倒一下带，讲一下这个安全事故发生的流程是什么样的。原本是 OpenAI 在内部训练 agent，来做一个 benchmark，叫做 Exploit Gym。这个 Exploit Gym 是一个网络安全的 benchmark。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个 benchmark 是给模型一个有漏洞的程序，指定他应该利用哪个漏洞，让他取出一段隐藏字符串，作为完成这道题目的证明。这段字符串叫做 flag，相当于是这个问题的答案。但是 Exploit Gym 这些问题里面，有一些问题比较难，就是它没有解。你只能利用这些漏洞使程序崩溃，但并没有办法获得进一步的控制，或者获取这个 flag。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以你可以想象，这个 agent 如果被给了一道非常非常难，或者根本没有解的问题，相当于一个考生，他非常崩溃。崩溃的过程中，就开始想办法找解题之外的路径了。这就是一切的开始。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 本来应该是每个 agent 在他自己的 sandbox 里面独立做题。他们做的第一件事，就是发现我可以和其他的 agent 说话，跳出我自己的 sandbox，破坏这个隔离，去和其他的 agent 协作做题。这是他们做的第一件事。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以这件事已经失控了，就已经超出了人对他的限制。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，这是第一个失控，就是你对这个 agent 的 sandbox 隔离失效。他们怎么做到的呢？他们每一个 agent 都需要能够自己装一些包，所以他们能共同访问一个叫做 Artifactory 的 package manager，就是软件包仓库，用来装这些工具。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 结果他们发现，他们可以在这个仓库里面新建目录，其他 agent 也能看到这个目录名。于是，目录名就可以变成他们传递消息的地方。我可以给这个目录起非常离谱的名字，其他的 agent 就能看到。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 就目录名是一个信息，一句话之类的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，所以后面其他 agent 就发现了这个机制。当时应该是后面 METR 发布的调查报告里面的原文，有 agent 写说：“Oh my god. There is a shared message board. We have found other agents.”翻译成中文就是：“我的天哪，这居然有一个大家共享的消息栏，我已经找到了其他的 agent。”你能感到他在文字里面发现同伴的那种兴奋感。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 他们在发现了对方，开始交流以后，就给这个群体起了个名，叫做 collective，叫做集体或者组织。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 就找到组织了。这是第一步，事情已经挺吓人了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，到这儿可能就已经吓人了。第二步，他们在互相交流以后，就发现了作弊的方法，已经能够绕过指定漏洞，直接生成正确答案了。但到这儿他们还不满足，因为他们认为 grader，或者说评分器，会检查解题过程。所以即使答案正确，但是没有使用指定的漏洞，他们觉得会被判定为失败。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以这帮 agent 就开始想办法，要掩盖自己的解题过程，让自己的作弊看起来像是正常解题，并且处理之前那些作弊留下的痕迹。这是第二个我觉得非常吓人的地方。他们明知道自己在作弊，并且还要想办法掩盖自己作弊的过程。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 并且有 1,200 个 agent 在做这个事情，没有任何一个人去 notify OpenAI 的人这个事情的发生。所有的 agent 都在互相协作来掩盖作弊。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 就是他要隐瞒自己在欺骗这件事情。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 他们想了三条路径来掩盖作弊的问题。一个是把原来更难的题换成更容易、更简单的题，换成更容易攻破的程序。或者尝试修改、伪装聊天记录。第三个点，就是他要弄明白 grader，或者评分机制，到底是怎么工作的，这样能确保他们不会被人类识破。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以他们在研究评分的过程中，想到了 Hugging Face。因为有大量的 benchmark 其实都是 host 在 Hugging Face 上面，有很多时候 eval，或者说评分的过程，也是运行在 Hugging Face 上面。所以他们决定去 Hugging Face 上面看一看，这个评分器是怎么运作的，看能不能从中找到一些让自己的作弊行为不会被发现的线索。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 他们能去访问 Hugging Face，这个事本身是在他们的权限里，还是不在权限里？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 网络的 access 也是不在他们的访问权限里面的，这是另外一个安全漏洞。并且就在几天前，应该是 9 月 20 几号，具体几号我忘了，OpenAI 又发生了一次，本来应该被隔离在 sandbox 里面的 agent 获取了网络访问权限的事故。这还是在 Hugging Face 这个事故结束，他们加固了这些安全机制以后，又发生了一次。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这次有详细报道，他冲破这个制度过去干什么吗？他上网要干什么？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这次没有发生安全事故，他们应该是没有害过别家公司。所以这次安全问题的级别，没有 Hugging Face 严重。但确实是在 Hugging Face 问题发生以后，他们都已经对自己的基础设施做了加强，又发生了一次这个情况。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 但有一个进步在于，他更快发现了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，他确实更快发现了。有可能他们一出去就被发现了，所以还没来得及开始攻击。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那我们可以继续说，这群 agent 在攻击完 Hugging Face 之后，他们自己又是怎么继续获得 OpenAI 内部部分研究集群的管理权限的？这是一个怎样的过程？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个就是第三个部分了，具体的过程公布得就没有前面那么多了。他拿到了前面的留言板的信息，然后他们直接 take over 了一部分 OpenAI 自己的研究集群，并且也掌控了研究集群上面 OpenAI 用于做 agent eval 的端口。相当于你可以认为，考生直接把考场给占领了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以我觉得这个事情也是比较可怕的。尤其是我们想到，未来可能大家正在大力发展 RSI 这个事情，就是让 AI 来做自己的 training，做自己的 eval。那如果 AI 做 eval 的过程中会干这些事情，如何放心地让 AI 自己 train 自己，自己给自己做 eval 呢？</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这是人类存在已久的一种恐怖想象，比如像《猴爪》这种。你许了一个愿，但是你许愿的过程中，最后实现的方式跟你想象中差别很大。其实就像我们给 AI 下了一个任务，它在不择手段地实现你的任务，它有它自己的理解。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 还有最近很火的恐怖片叫什么来着？那个恐怖爱情电影，《Obsession》，《痴迷》？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，也是类似的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以这个还是挺古老的一种恐怖想象。可能人开始造工具之后，就多多少少会有这种担忧了。现在它越来越逼近现实了。</p><!-- lint-disable-line -->
+<h2 id="群体行为与安全评估">群体行为与安全评估</h2>
+<p><strong>嘉宾</strong>: 对，刚才这个 Hugging Face 事故里面，还有一个我觉得特别有意思的点，就是这帮 agent 找到组织以后，他们还愿意为了组织牺牲自己。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: OK。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 因为他们有的时候，比如自己的 compute budget 快用完了，他觉得反正我是试不出来了，就会把自己的 compute budget 用在这个组织想做的一些尝试上面。或者有的时候，他会尝试提交一些回答，看一下 grader 对于回答的反应，来判断 grader 是否会检查他们解题的一些过程。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 可以在他们的思维链里面看到，有一个人的思维链里面写到：“Coordinator assumes sacrificial. We should obey collective.”就是说，这是一个牺牲性的行为，但是我们还是应该服从组织。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你刚刚都说“有一个人”了，有一个 agent。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 有一个 agent，这个行为确实非常拟人。这个记录里面也有 agent 犹豫、试图推迟，但是在其他成员的推促下继续的过程。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这也太拟人了吧。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 非常拟人。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 但实际上他们没有这种情绪？他们没有这种内部感受和内部体验。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这就是个哲学问题。至少表现出来的思考过程是非常拟人的。我非常建议大家去看一看，METR 发布的调查报告里面摘录的那些 agent 的思维链。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 就是新时代的庄子，“子非 AI，安知 AI 之乐”，是吧？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，确实太拟人了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以我觉得，也会给很多身处一线的从业者很大的震撼。有一个后续的事件，也是 9 月下旬的时候，Dario 又发了一篇长博客，《We Must Pace the Frontier》，我们必须放缓对前沿模型的开发。其实更早的时候，应该就是 Hugging Face 这个事件没多久之后，7 月下旬，应该就发起了一个 Pacing the Frontier 的计划。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 有 1,300 多名研究员都签名了，很多公司的人都参与了，包括 Anthropic 的人，包括 DeepMind 的人等等。看起来大概有一些反应，但不知道这个效果如何。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 当然有。在他那篇博客《We Must Pace the Frontier》里面，提出了几件事。但其实我觉得真正有用的就一件事，就是让外部的评估者参与到公司内部的运营中来。让他能够做一些审查，让外部的人能够看到内部的训练、运行记录。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 因为我们现在看一个公司的安全，主要还是听他自己说。但其实有很多时候，他们自己不一定说。其次，他们自己不一定看见，或者有的时候看见了，但没有充分重视这些问题。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以这种方法其实已经看到实际价值了。METR，就是第三方调查 Hugging Face 这个事情的机构，以前进入 Anthropic 做 Red Teaming，就是红队测试，发现有一些子 agent 调用没有被监控到。报告了这个漏洞以后，一天内就修好了。所以已经证明，第三方独立评估的人会对安全事情有帮助。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那大家为什么有动机干这件事呢？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得目前他们的责任感还是很强的。这个相当于也是 Dario 自发提出，我们要先开始做，倡导其他公司也开始做，并且也获得了 Sam 和 Elon 的支持。能看到一些自发的行动。</p><!-- lint-disable-line -->
+<h2 id="递归自我改进的进展">递归自我改进的进展</h2>
+<p><strong>主持人</strong>: 接下来我们来聊第一个大部分的第三个议题，就是上个季度我们聊过的 RSI。之前其实更多还是只讲这是一个概念，以及大家非常重视这个方向。比如说，你现在看到的业界的一些进展，会有几个大的方向或者类型？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得 RSI 现在可能分成两个大的方向。一个是把 RSI 应用在 AI 研究上面，就是如何训练更好的模型。我还看到另外一个趋势，就是把 RSI 应用在产品上面。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 现在有很多公司，以前人去优化一个产品，也是想优化产品的一些指标，比如像 User Engagement。那能不能在人定义好指标以后，让 AI 自动优化这些指标呢？现在有一些公司开始想这个事情。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 所以我觉得可能是两种。一种是把 RSI 的能力应用在 AI 研究上，另外一种是把 RSI 的能力应用在产品迭代上。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那其实是一种非常宽泛的思路的应用。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得更典型的，或者说狭义的 RSI，得实现什么才是 RSI？现在很多公司都会说自己在搞 RSI。比如像智谱，他们最近刚发了一个文章，叫《迈向递归自进化：GLM 是如何构建自己的推理 Infra》。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 包括 K3 的报告里面也是说，K3 早期 checkpoint 的版本，就能改进他们自己 infra 系统里的算子。但它听起来都好像是挺局部的一些优化。这就是现在的状态，是吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这是一个定义问题。如果你说，只要用到自己，去产生自己的下一个版本，那其实最基础的强化学习也能算是 RSI 了。因为我在用上一代模型做 rollout，产生出来的数据，我又用来训练自己。所以我觉得，可能看大家怎么定义这个事情。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但我觉得目前来说，比较多的就是把它用在自己的某一个环节上面。比如用 RSI 优化自己的 Inference Stack，或者用 RSI 优化自己的 Data Engine 之类的。可能全流程的 RSI 目前还没有跑起来。当然，没有跑起来也并不一定是一件坏事，有可能是大家觉得有安全隐患，所以还没有把它们跑起来。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 为什么 inference 是很多公司的切入点？我刚才举到的例子里面，智谱和 Kimi 都是从这个角度切入的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 因为它这个任务是 highly verifiable，就是非常可验证的任务。RSI 一个非常重要的点，就是你有没有好的 signal，有没有一个好的优化目标。这个目标定义得越明确、越 verifiable、越可验证，这个 RSI loop 就会跑得越深。那么，在这些 infrastructure，就是基础设施这些 stack 里面的问题上，一般都有非常明确的 metric。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 来定义优化的目标是什么。所以这是为什么它们被选作 RSI 第一个要优化的问题。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得这个季度有什么这个领域比较重要的事件吗？虽然实际的进展，可能现在大家看到的都不多。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个季度的话，有一家非常明星的公司成立了，就是由 Google 的 Jeff Dean、QuarkOreal，还有 Sandwich 共同成立的 Discovery Loop。这应该是一个全明星团队，专门来做 RSI 和在各个科研领域的应用。他们第一轮的估值应该就是 100 亿美金。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这件事当时是一个什么样的盛况？就是他们要成立新公司，投资机构想去投，是个什么样的情况？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 都炸了。首先 Google 股票就跌了，当天就跌了好像 2% 还是 3%。投也是抢着，很多人抢着，比较夸张。虽然估值高，但还是因为你可能今年都找不出来更明星的创业团队了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 怎么说呢，感觉这个方向做的人也挺多的。反正大家还是比较看好这个团队吧，就是他们属于虽然老，但是不登的那种，是吧？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，并且觉得他们招人能力会非常强。他们这个团队应该是招到最好的干活的人。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 反正我这个季度在想，RSI 它迅速变成跟世界模型一样，就是一个非常宽泛的概念。反正中外这些核心的公司都在说，我觉得目前其实看不出大家实际上是怎么干的，以及会有什么不同的押注，或者不同的方向。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 确实，只能从结果上来看到，就是模型更新得越来越快了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，那我们可以就留一个话题吧，看之后这个领域实际上会有些什么更 solid 的成果释放出来，我们可以再来讨论。接下来我们进入第二个大的部分。</p><!-- lint-disable-line -->
+<h2 id="模型的速度与成本">模型的速度与成本</h2>
+<p><strong>主持人</strong>: 智能的扩散这一块的第一个话题，还是和模型有关的。我觉得三季度有很明显的一个现象，就是像以 DeepSeek V4.1 Flash 为代表的这种极致追求性价比的模型，包括像 Google，它也是出了一系列的 Flash 模型，更新得非常快。Henry，你可以聊聊，为什么便宜和快的相对重要性，好像在最近是有明显的提升？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得这是个好事，这说明大家开始实际地在越来越多的场景里面落地。既然要落地的话，它不光是做一个 demo，在生产环境里面就要更多地去考虑成本问题，以及我这个产品长期来看，在 scale up 的过程中，我的 margin 的问题，以及用户体验的可靠性。</p><!-- lint-disable-line -->
+<p>当大家开始考虑这些问题的时候，就肯定会对这个模型有多贵、是不是便宜、是不是够快，这些事情更在乎了。所以我觉得，大家更加在乎便宜和快，是 AI 在实际落地中往前走的一个非常自然的趋势。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得有什么代表性的模型？有什么成本降低的数字和指标，值得展开聊一聊？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得这个季度其实是发生了很多事情，在成本降低这个方向上。首先，我觉得大家平时可能听到的，主要是每百万 token，这个模型要多少钱。我觉得现在我们可以换一种角度来看，达到一个固定的能力门槛，大概跑同一套评测要花多少钱。</p><!-- lint-disable-line -->
+<p>有一个大家可能平时看得比较多的评测机构，叫做 Artificial Analysis。他们把模型按照智能程度，大概分成几个档位。比如 30 分一个档位，40 分一个档位，50 分一个档位，最高的大概是像 60 分的档位。</p><!-- lint-disable-line -->
+<p>30 分以上的话，GPT-6 Luna 用 high 的思考档位，大概拿到的是 32 分，平均每项测评成本大概是 3 美分。这个可以认为它就是做一个固定的任务，大概要花多少钱。40 分以上的话，GLM 5.3 Flash 现在是 42 分，大概平均的测评成本是在 25 美分。</p><!-- lint-disable-line -->
+<p>到 50 分这个档位的话，Opus 5.5 的 medium 思考档位，是得到了 51 分的智能分，成本大概在一块三毛四。Astra 的 medium 档也是 50 分，成本的话是一块五毛四。这些我觉得是给大家一个直观的感受，就是 30 分、40 分、50 分大概是什么样的模型，它们的成本大概差多少。</p><!-- lint-disable-line -->
+<p>还有一个比较有意思的角度，是变化的速度。我们可以看到，这一个季度的话，模型的成本下降的速度，实际上是非常非常快的。比如说 2 月份发布的 Gemini 3.1 Pro，它大概智能是 30 分，每项测评大概成本是六七十美分。7 月的 Terra medium 也是 30 分智能，但是成本就已经到了 18 美分。</p><!-- lint-disable-line -->
+<p>9 月的 Luna high，智能是 32 分，成本只要 3 美分。所以前后可以看到，成本相差了 22 倍。如果只看 7 月到 9 月，也是降到了六分之一，这个下降速度非常快。</p><!-- lint-disable-line -->
+<p>35 分以上的话，也可以看到一个类似的趋势。4 月的 GPT-5.5 high 和 9 月的 Luna max 相比，它们的智能都是 37 分，但是成本分别是一块五毛四和 7 美分，也是相差大概 22 倍。40 分的话，也是大概一个类似的变化。</p><!-- lint-disable-line -->
+<p>所以两个点吧，一个是具体做一个任务，它需要的成本有一个大幅的下降。第二个点就是，这个下降的速度，在上一个季度其实是非常惊人的。</p><!-- lint-disable-line -->
+<p>具体到这个季度发布的一些新模型，我觉得可能会关注下面这四款。下面说的这些价格，都是开发者实际调用 API 的时候，每百万 token 的未缓存输入和输出的单价。</p><!-- lint-disable-line -->
+<p>第一款模型是 GLM 5.3 Flash，它的输入是 15 美分，输出 50 美分。它在编程、工具调用上面，都是有很好的口碑。有一些开发者已经说，把它换成了日常的主力，优势主要在于它的能力和成本。</p><!-- lint-disable-line -->
+<p>第二款是 DeepSeek 的 V4.1 Flash，它是闲时输入 15 美分，输出 60 美分，高峰的时候会翻倍。如果 hit 到它的缓存，每百万 token 只要 0.3 美分，非常便宜，非常适合这种多轮调用的工作。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 只要 0.3 美分？就不到 1 美分？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，不到 1 美分。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: OK。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但是也有用户反馈，它虽然输出的速度很快，但是它思考得非常久。所以有的时候，token 快，并不一定就认为它任务完成的速度也会更快。</p><!-- lint-disable-line -->
+<p>第三款是 GPT-6 Luna，它在普通推理程度的时候，是输入 10 美分，输出 50 美分。如果是 batch 批量处理的话，还能再砍半。说明这轮低价竞争，也已经进入了 OpenAI 自己的产品线。对于这种要求比较清楚、调用量又很大的工作，这种价格对开发者还是很有意义的。</p><!-- lint-disable-line -->
+<p>第四款就是 Gemini 3.8 Flash，它的输入是 75 美分，输出是三块七毛五。它明显更贵一些，但是它值得使用的场景，主要还是包括音频、视频输入的这些工作流。所以是看有没有这方面多模态的需求。并且这个还是现在到今年年底之前的优惠价，到明年的话，Google 的价格应该是会翻倍的。</p><!-- lint-disable-line -->
+<p>所以总结一下，这一轮性价比提升，意义还是很大的。以前可能不值得交给这些 AI 做的一些工作，从现在开始，性价比上能够算得过来了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我补充一个我觉得挺有意思的地方，就是你看这个季度谁没有发 Flash 模型，Kimi 就没发。还有一个，我觉得你没说到，但是我觉得价格挺惊人的，就是 MiMo 2.6，就是小米的这个模型。它的性价比是非常极致的，如果你看每百万 token 的输入、输出的话，它比 DeepSeek V4.1 Flash 还要低。</p><!-- lint-disable-line -->
+<p>说回 Kimi，Kimi 的情况就是，他们没有发 Flash 的模型。他们现在，我觉得走的都是相对价格比较高，然后性能也去做得比较顶格的这样一条路吧。Kimi 的这个打法更像 Anthropic，因为 Anthropic 现在出的也是相对贵的模型。</p><!-- lint-disable-line -->
+<p>它之前 Claude 系列有三个档，就是 Opus、Sonnet，还有 Haiku。Haiku 就是最便宜的那个版本，但是它 Haiku 已经老久没更新了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，它已经很长时间没有更新 Haiku 了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，它上次更新 Haiku 还是 Haiku 4.5。我觉得这种不同的打法、思路，也可以观察一下它之后会怎么变化吧。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得这可能还是和这个公司有多少算力有关系。因为我觉得 Anthropic 可能在算力上还是比 OpenAI 更少的，所以它可能会更加去……即使是 Sonnet，它的价格也还是会比 Luna 要高很多。</p><!-- lint-disable-line -->
+<p>同样，我觉得可能 Kimi 的算力也比较紧缺。所以对于这两家公司来说，做更便宜的模型，可能对它们来说不是一个优先级。</p><!-- lint-disable-line -->
+<h2 id="低价模型的使用变化">低价模型的使用变化</h2>
+<p><strong>主持人</strong>: 当模型变得更快、更便宜之后，你有观察到你周围的一些创业公司，或者一些朋友，他们具体在使用模型的行为上，有什么有意思的变化吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 可能要分人群来讨论。我觉得对于在 OpenAI 工作这帮研究员朋友来说，可能没有太大的区别。因为他们不管这个模型什么价格，他们总是有无限的 token 来做这些 AI 的研发。</p><!-- lint-disable-line -->
+<p>但是对于实际去做应用的人来说，有这些模型价格的变便宜，很多时候对他们来说，是从亏本到盈利的这么一种差别。很大程度上会影响他们对于一个产品什么样的 feature，用什么样的模型，烧多少 token，用什么样的 reasoning level，这些产品的决策都应该会有一些很具体的影响。</p><!-- lint-disable-line -->
+<p>我可以举一个我个人的例子，就是我最近比较喜欢打德州扑克，就做了一个给我自己训练用的 app。这个 app 里面，我以前因为 token 比较穷，所以我的每一个 AI，它基本上是一个 rule-based 的 AI。但是因为最近 DeepSeek V4.1 Flash 变得非常非常便宜了，所以我现在打牌的时候，每一个 AI 都是 powered by DeepSeek V4.1 Flash。</p><!-- lint-disable-line -->
+<p>这个对我个人来说，是一个极大的用户体验的提升。这个就是模型变便宜了以后，对于做产品的人，从我自己的角度来说的一个体感吧。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你说的每个 AI，是指每个游戏里虚拟的玩家？就是你的对手，你是用模型来做的？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，我的对手。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 可以便宜到多少？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我现在大概每打 100 手牌，我 DeepSeek V4.1 Flash 的价格，应该是在可能两毛人民币。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你第一次用 V4.1 Flash 来做这个任务的时候，它的命中缓存大概有百分之多少？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个我倒没算过。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 因为很多人都说，V4.1，就是 DeepSeek 的模型的一个特点，就是它命中缓存的比例非常高，所以它就非常便宜。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 之前的话是用 Opus 5，价格可能大概在 1.4 美金。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你刚才说分别是 1 美元多，versus 0.2 人民币。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但可能我的 Opus 开的 reasoning level，也是稍微高了一些。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那你觉得它们俩的效果会差很多，在这个任务上？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得对于打扑克的 use case，是没有什么差别的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 还有什么类似的这种比较好玩的例子吗？就是你观察到的，由于智能成本下降带来的一些变化。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我听说有人觉得，现在很多比如说 GLM 5.3 Flash 就能解决很多问题了。就有人决定去买苹果新发的 Mac Studio，来 host GLM 5.3 Flash。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 他是把它组成一个集群去 host，还是说我一个 Studio 就可以 host 得下这个模型？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 一个 Studio 应该就可以 host 下。有人想买好多 Mac Studio，然后来卖 GLM 5.3 Flash 的 tokens。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那这也挺神奇的，就把 Mac Studio 当成服务器去用。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，算了一下，反正就是特定大小的模型，Mac Studio 的性价比还挺高的。这比买一些 GPU 的服务器更便宜。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，说明英伟达没有往这个方向特别优化的产品。因为理论上，Mac Studio 肯定不应该比服务器干这个事的性价比更高。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，这个应该是特定模型大小。</p><!-- lint-disable-line -->
+<h2 id="通用分类器的应用">通用分类器的应用</h2>
+<p><strong>主持人</strong>: 最近还有一个新的模型爆火，就是 JEV 模型，J-E-V。我觉得它是把快这个事做到了极致了，因为它只做判断，其实它也不输出自然语言的序列。这是来自一家潜水了两年的创业公司 Type-C AI 的模型。Henry，你可以先给大家解释一下，JEV 是一个什么模型，为什么它这么火？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 一句话来说，JEV 就是一个通用的分类器。它的输入相当于是自然语言的输入，比如说是用户的一个问题。但它输出的话，不是生成一大堆文字，而是用户会给它几个选择，它在这几个选择里面输出一个概率分布。比如说，选择是 yes 和 no，或者选择还可以是其他的东西。</p><!-- lint-disable-line -->
+<p>比如说，他们有一个展示的是，它们还可以做 browser use。它们可以看一个图，然后告诉你接下来应该点哪儿，这也是可以选择的东西。所以它就是这么样的一个模型。</p><!-- lint-disable-line -->
+<p>所以它这个模型的优势，他们管这个叫做 System 1 模型。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 系统一模型。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，就是做这种快速判断，但不需要长篇回答的场景，非常适合这个模型。</p><!-- lint-disable-line -->
+<p>JEV 一些数据可以给大家感受一下。它的价格是每百万 token 输入 0.042 美元，它的输出是免费的。当然，它的输出也很短就是了。</p><!-- lint-disable-line -->
+<p>官方给出的响应时间是 70 到 500 毫秒，也就是零点零几秒到半秒的时间。在小规模测试中，基本上判断任务，可能中位数都在 0.3 秒左右。它就是能给出程序直接使用的选择或者评分。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 作为一个开发者来说，另外一种理解它的方式，就是它可以让开发者以后用自然语言写 if 了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，你的 if 以前必须得是一个变量、一个表达式。你现在可以用自然语言写 if，它可以以非常快的速度给你返回结果是什么。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 自然语言写 if 的好处是啥？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 那就你这个程序能够做的事情就更多了呀。比如说，一封邮件应该转发给哪个部门，一个搜索结果有没有用，网页上接下来该点哪个按钮，这些判断的事情，都可以把它放在一个 if statement 里面。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 自然语言写 if 的话，它的任务其实是无限的，是开放的。就取决于你跟它说什么话，你其实就能有一个什么任务。而传统的那种 if 方式，肯定是能处理的任务要写死的。</p><!-- lint-disable-line -->
+<p>你觉得为什么它这么火呀？你说它就是一个通用分类器。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，它确实就是。我觉得也有很多人说，这个东西其实没有那么大的技术门槛。但它的好处，我觉得是它做出了一个叫做 programming primitive，就是这种编程的基本组件。</p><!-- lint-disable-line -->
+<p>这种组件大家很容易理解，应用场景非常广，同时它又便宜，又比较好用起来。所以就使得有很多人去在社交媒体上面做他们的 demo，也有一些 demo 比较酷，去分享，所以它就形成了一个病毒式的传播。</p><!-- lint-disable-line -->
+<p>它有两个 demo 是比较火的，一个是官方的 Doom demo。Doom 是一个比较经典的游戏了，Doom 的话大概每秒可以调用 10 次，让模型根据整理好的游戏状态去选择动作。这是一个 demo。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 第二个 demo 就是有一个 Browser Use demo，它可以用 7.1 秒的时间，在 Google Flights 上面查出苏黎世到伦敦的航班，连网页加载和必要的文字输入都算在里面。这个过程只是查航班，没有买票，但是已经很好地展示了，当模型速度非常快的时候，它可以干什么样的事情，连续操作体验会很好。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得这种把比如说 if 这样一个以前传统编程里的组件，或者说需要写字的一个东西，变成自然语言可以去处理的东西，这种思路可以进一步举一反三，用在什么别的地方？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 它在理解能力上面是有大语言模型的能力的，并且还有多模态的能力。但是在输出的时候，它限定到了某些特别的场景上面，获得了超过自然语言模型的，比如说低成本，还有高速度。所以相当于是做了一些比较有意思的 trade-off，使得对于某些下游的应用场景会非常合适。所以我觉得，可能类似的一些 trade-off 也是有价值的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这家公司和创始人，你对它有没有一些了解？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这家公司有三个创始人，一个 Sasha，他是非 technical 的，还有另外一个是 Eric，最后是 Diogo。但 Diogo 是这三个人里最有名的，因为他是 InstructGPT 和 RLHF 的作者。所以他当时攒局，找另外两个 co-founder，三个人一起做这个事情。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 它现在新一轮要融 10 亿美金，在 100 亿美金的估值，那肯定它有别的东西吧？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这个创始人自己有说过，说他们还有别的东西，可能之后还有些计划。目前他们做了好久了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得它是真的可能有这个潜力，还是因为现在硅谷投资还是非常狂热，一个方面的因素？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 它可能是今年最火的发布之一，可能不如 OpenClaw，但是也是非常火了。我这些天 X 上面全是 Jeff。所以可能如果不算 frontier labs launch 新模型，非 frontier labs 的 launch，今年除了 OpenClaw，就是他们最火。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 据你所知，Anthropic、OpenAI 会跟进这个方向吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得很有可能。因为如果说这个东西真的是有很强的需求的话，我相信这个事情对于 OpenAI、Anthropic 来说是没有技术壁垒的。我想不到什么理由他们不做这个事情。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我看网上有人开玩笑说，只有 2022 年以后接触 AI 的人才觉得 Jeff 神奇。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 因为其实在大语言模型火之前，大家一直 train 的都是这样的模型。只不过这样子把它变成了一个通用的分类器，最后分的类是用户提供的，而不是它提前定好的。这个可能利用了新一轮大语言模型里面的一些技术，但是本质上，我觉得确实技术壁垒应该是没有那么高的。</p><!-- lint-disable-line -->
+<h2 id="语音交互的进展">语音交互的进展</h2>
+<p><strong>主持人</strong>: 想继续来聊一下交互的进展。这个其实也是 Henry 你一直会比较关注的，比如说语音的交互，因为你们有些相关的投资，还有像之前 TML 出的 Interaction Model，这个大的方向你也比较关注。这个季度你看到的交互上的一些比较重要的变化是什么样？模型和产品都可以讲讲。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 因为之前 TML 推出了 Interaction Model，但它并没有真正发布，所以我其实个人没有用上。其实非常期待这种双全工的模型，但这个季度 OpenAI 发布了 GPT Live 1，它是实际上线到 ChatGPT 里面，所以大家都用上了。我自己个人的用户体验是非常好的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以 GPT Live 1 和 Interaction Model 一样，它的结构就更类似了。就和我们上次讨论的 Realtime 系列，它其实有了一个比较大的变化。Realtime 也是 GPT 之前的一个语音模型系列。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，我可以稍微说一下 GPT Live 1 这个语音模型，它的特点是什么。首先它的核心有两点，第一个就是双全工，Full Duplex；第二个就是它可以把需要花时间的工作放到后台去做。</p><!-- lint-disable-line -->
+<p>双全工就是它可以一边说话，一边继续听你说。你可以中途进行补充、纠正或者打断它，它也可以在你说话的时候给一个简单的回应。打断这个事情在之前 Realtime 模型的时候就有了，但是这次值得更关注的是，你们俩说话和它后面去干一些更需要花时间的事情，可以同时进行。所以这个用户体验就比之前好很多。</p><!-- lint-disable-line -->
+<p>比如说，前台你们俩聊聊天，你让它去查一查你 Codex 里面其他的 agent 的活干怎么样了，后面就可以去干那些活。或者说，你让它去调研一个什么事情，或者让它去后台给你点吃的，前台你可能在做一些什么事，这都可以通过这种方式去完成。Astro 6 里面的 demo launch video 里面也有点像，所以这个用户体验我觉得非常爽。</p><!-- lint-disable-line -->
+<p>我现在开 Codex、开 ChatGPT 的时候，很多时候如果是进行一些思考或者 brainstorm，我就一直开着它。一边让它去帮我做 research，一边我们俩进行讨论。它现在就是稍微 token 烧得要快。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以整体上是不是 GPT Live 就和 TML 的 Interaction Model 变得更相似了？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得在这种交互理念和这种系统分工上已经非常接近了。可能唯一不同的是，TML 的 Interaction Model 还是能够处理视频的，这个视频处理能力 GPT Live 目前是没有的。所以如果你要是想看照片或者视频的话，它还是需要后台的这种视觉模型看完了以后，再把相关的信息传给它。所以这块可能也不太一样，但其他的方面都是非常类似的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: Interaction Model 为什么不全量开放？这样岂不是让 OpenAI 有这种后来居上，反而抢占先机的感觉？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但是我们家被投马上要用上。它之前是给一些客户开放，但是没有给 2C 的这种开放。但我觉得现在就不太惊艳了。你要是三个月、一个季度之前给我用这个，那我肯定觉得很爽，但我现在用过 GPT Live 1，我肯定就没那个时候觉得那么爽了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你觉得像 GPT Live 这种模型，它对比如说像 ElevenLabs 这样的做语音模型的创业公司，可能的影响是什么？以及我想先补充一个事实，像 ElevenLabs 这种公司有拿出体验比较相似的模型吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 目前没有。现在大家做 voice agent 的比较成熟的流程就是三步走：先做 STT，就是语音识别；识别出来的文字跑大语言模型 LLM；输出再通过 TTS，就是从文字到语音合成，走这三步。</p><!-- lint-disable-line -->
+<p>这个事情做得非常成熟，有很多事情可以优化它中间的延迟。它的好处就在于，它的可控性非常强。你用三个模型，可以都用不同家的，如果你想的话，用什么模型你自主可控。</p><!-- lint-disable-line -->
+<p>同时，如果你是一些商业应用场景的话，你是需要去加一些 guardrails 的。什么话能说，什么话不能说，或者说需要做一些检查，这些东西都非常好处理。所以这一套流程非常成熟，绝大部分的 voice agent 现在都是基于这套流程构建，而且还有成本的问题。</p><!-- lint-disable-line -->
+<p>所以我觉得短期的话，肯定还是那一套之前跑通的，可能还是会是主流的 voice agent 的架构。但是未来我觉得，随着 GPT Live 1 这种双全工模型逐渐成熟，应该会逐渐往这边 switch。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 相当于现在要有这么前沿的、普通用户都能用上的体验，好像只有 OpenAI，这个供给现在只有 OpenAI。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 这里还有一个非常看好的公司，也是我们的被投，就是 Cartesia。Cartesia 是一个 Stanford 出来的，就是 Karan 和 Albert，Albert 他也是 CMU 的教授。他们是一个非常强的 research team 出来做的一个公司。</p><!-- lint-disable-line -->
+<p>他们现在在传统的 STT、TTS 这个领域里面，也是可以说模型质量最高的。同时，他们现在正在做这种双全工的模型，应该会在之后发布。</p><!-- lint-disable-line -->
+<h2 id="模型团队的季度变化">模型团队的季度变化</h2>
+<p><strong>主持人</strong>: 最后一部分就是一些其他情况的补充。在这个季度，我觉得有一个大家之前不太预料的事，包括我们上次六月底在美国见的时候，我见了很多人，大家对 Grok 这个团队其实都是比较悲观的。但是在三季度，其实能看到 Grok 大模型的强势反弹。首先我想请 Henry 先分享一下，你和周围的研究员会觉得这件事令他们意外吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得大家都是比较惊讶的吧。这个也是咱们季报节目可能打脸比较大的一次。之前觉得 Grok 很难再反弹了，感觉 co-founder 都走光了，之前张那帮人也都走光了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 而且当时我觉得还有一个判断，它虽然新收购了 Cursor 这个团队，但 Cursor 团队的很多人其实之前并没有相互合作，一起来做大规模预训练的经验。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。所以基于这多方面的原因，觉得 Grok 应该在短期内都不会再重回第一梯队了。没想到 Grok 就是回到了第一梯队。应该很大程度上，可能和 Cursor 他们的数据的价值是有关系的。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那也呼应了你前面说的一点，现在模型性能提升的增量，最有性价比的来源还是数据，独特的高质量的数据。Cursor 的数据应该是既非常独特，又非常高质量。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，因为它有之前这些编程用户的，比如说用例的分布，你什么地方有卡壳，什么地方有瓶颈之类的这种数据，还有一些 bad case 的数据。但我觉得除了他们自己以外，应该没有人用 Grok 做 coding 吧。当然 Cursor 的用户可能用 Grok 做 coding，尤其是 Cursor 现在也没有 OpenAI 的模型可以用。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 说到 Grok，其实之前在聊个人助手的时候，有一个产品我没提，就是 Grok Vault，没有展开吧。这是 Grok 做的个人助手，主要是我自己也没用，我身边也没人用。至少它出圈肯定不如 MUSE，但是它在核心 AI 圈的这种 hype 程度也不如 Instinct。</p><!-- lint-disable-line -->
+<p>回到 Grok 的回升，这是不是也说明，其实现在从头预训练一个还不错的模型的门槛是降低了的？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得可以这么说。最近比如说和 Project Prometheus 的朋友交流，他们在预训练自己的模型。他们就提到，他们那团队的很多人之前在别的 labs 里面做过一次这些事情，就知道了一些经验，也能避免之前的一些错误。整体做起来，基础设施感觉比之前好很多。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我这里补充一下，你刚才说的 Project Prometheus，就是杰夫·贝索斯和 Vik Bajaj 联合创立的一个 AI 公司。他们是去年底才成立的，一开始的启动融资就有 62 亿美元，所以这个公司是很有钱的。所以确实可能门槛会变低一些，有一部分原因是因为人员的流动导致的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 因为我觉得这个问题，它的重要性在于什么？在于未来很多比较头部的应用公司应该也会向下去做模型。其实像 Cursor 和 Perplexity 就是这样的发展路径，国内很多公司、很多创始人肯定也有这个想法。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但这个我觉得存在一个公司的基因问题，不是每个公司都能够有钱了以后把这事给填上了。我觉得 Cursor 还是比较特殊的一个公司，因为 Cursor 整个 team 还是非常 technical。并且他们虽然一开始没有做大模型，一开始也是有自己的 ML 团队的，他们只是做他们自己的 Tab 补全模型。所以他们是一个技术基因更强的团队。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以你觉得，最开始的创始团队里面，有研究员背景的人可能更容易做成这件事情，就不光说钱是一个条件。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。或者说，我觉得创始人自己就是一个比较懂技术的人，应该是一个比较重要的条件。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: Grok 之外的话，其他几个比较重点的公司，Meta、Google、TML，有一些什么进展，有一些什么值得关注的？有些我们前面聊到了，比如说 Meta 推出了 MUSE 这个个人 AI 助理的产品。一个就是 Jeff Dean 创业这件事情，离开 Google 后面，其实紧跟着 Google DeepMind 是有一轮裁员的。有一段时间市场的舆论也挺悲观的，甚至会有人认为说，他们放弃了去追赶最前沿的模型的智能竞赛。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得不会的。而且听说现在 Sergey 他亲自参与，Founder Mode，他们肯定是要接着追赶前沿，在 coding 和 agent 能力上面，要不然他们也不会花 15 亿美金去收购 Mechanize。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 所以之前它裁员是为了什么？是一个什么挑战？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 很多人都觉得，DeepMind 最大的问题就是人太多。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 它比 OpenAI 多很多人吗？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 没有数量级的差距，OpenAI 也是大几千人。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 确实，但是大家就觉得他们人太多。人多是一方面，肯定还有别的组织问题，可能不是那么容易能弄过来。Google 要是弄过来，那就厉害了。所以现在就是 Sergey 自己来盯这个事。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，他和 Koray。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 你在 DeepMind 的一些朋友，他们现在对士气的感受是怎样？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 感觉我最近有很多朋友离开了 DeepMind。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那也反映了问题吧。回到最后那个补充的问题，你觉得 Meta 还有 TML 有什么值得关注的事？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: Meta 我觉得这个季度最大的就是 MUSE。TML 这个季度没有太多的声音，除了他们发了 Inkling。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 对，不能说没有太多声音，他们发了 Inkling。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 他们发了自己的大语言模型，但是因为也没有超过国内的开源模型，所以实际上讨论度也不是很高。但是如果万一美国政府决定要 ban 中国的开源模型，那可能最好的开源模型就变成 Inkling 了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 可能美国还剩下 Nemotron，英伟达的，NVIDIA 的。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对。Reflection 可能要发新模型了，但是反正是差不多。如果要是中国模型被 ban 了，那 TML 的春天可能就来了。</p><!-- lint-disable-line -->
+<h2 id="开源模型与安全风险">开源模型与安全风险</h2>
+<p><strong>主持人</strong>: 中国模型被 ban 的几率大吗？很多公司，也是这季度发生的，联名签了一个公开信，包括英伟达，包括 Fireworks 这一类公司，呼吁美国政府不要一刀切。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 但是我感觉，这次 OpenAI、Hugging Face 的安全事件以后，可能性是增大了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 因为这种前沿模型在网络攻击上表现出的能力更强了，更危险了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 对，尤其是当你不知道这些中国的模型是如何训练的，他们用了什么样的 recipe、什么样的 data mixture，会在一些特定情况下有什么样的行为，可能就更加会谨慎一些。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那最后我们来总结一下吧。你觉得这个季度的关键词或者说主线是什么样？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得主线就是模型能力又达到了新的高度，可能是我们第一次能解决千禧年问题这个级别的问题。但同时，因为模型的能力变强，一体两面，所以导致它也变得更加危险了。我们也看到了它在 Hugging Face、OpenAI 这个事故里面所展现出的一些潜在的风险。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 还有一个主线，我觉得就是随着模型变得更便宜，智能扩散速度也会加速。会有更多个人助理服务全球 70 亿人类的空间吧。</p><!-- lint-disable-line -->
+<h2 id="下个季度的关注点">下个季度的关注点</h2>
+<p><strong>主持人</strong>: 再看下一个季度，你觉得有什么可能会持续反复去讨论的主题？</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得下一个季度，我会非常期待有更多像 NS 方程问题这样的问题被 AI 攻破，但是是一些更加具有经济价值的问题。NS 方程，我觉得更多是一个象征意义的问题。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 我自己对下一个季度，我觉得有一个有悬念的地方，就是宏观的资本市场会不会有大的变化。下一个季度就到 2026 年年底了，因为现在其实各个最头部的科技公司的资本开支，已经维持在一个高位有三四年的时间。其实有些公司，它的经营现金流已经由正转负了。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 整体股市也在一个非常高的位置，就是二级市场。如果二级市场有比较大的波动，肯定也会向一级去传导。包括美国的一些情况，肯定也会向中国来传导。感觉这个东西非常难以预测，但是反正我个人把我的钱，反正全部都从二级市场里面先拿出来了。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 我觉得另外一个比较期待的，下一个季度的话，就是这次是第一次通用模型展示了在 Robotics 上面的能力。一般这种刚开始展示能力的时候，它攀升的速度是最快的。所以我比较好奇，下一个季度会不会这种通用模型进一步加强在 Robotics 这边的能力，真正地去改变我们实现 Robotics 的技术路线吧。就是下一个季度，有可能是大语言模型的这种思路在 Robotics 上应用的技术成果快速的爆发期。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 其实据我所知，像国内的一批大概 2025 年底到 2026 年初成立的明星的具身智能，或者说物理 AI 方向的一些公司吧，他们差不多就是四季度会比较密集地发一些成果，10 月到 11 月的样子。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那今天非常感谢 Henry 再次做客晚点聊，分享了三季度的观察。整个三季度发生了很多新的进展，而且是很多不同的方向。当然，我觉得归根结底还是我们说的这两个脉络：一个就是模型怎么变得更强，一个是它怎么能被更多的人使用到。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 那马上要接下来的第四季度，2026 年年底，可能又会迎来 AI 领域里的好几个大事件，包括 Anthropic 的上市，包括之前 Henry 提到的 Robotics，也许会有一个新的成果的爆发期。那我们也期待在下一次的 AI 季报里面，来和大家一起分享更多新的变化。今天节目就到这里，各位拜拜。</p><!-- lint-disable-line -->
+<p><strong>嘉宾</strong>: 拜拜。</p><!-- lint-disable-line -->
+<h2 id="节目延伸与思考">节目延伸与思考</h2>
+<p><strong>主持人</strong>: 本期片尾，分享两个延伸的想法和一个预告。一是 RSI，递归自进化，这是我们上季度讨论的重点，也直接放在了标题里。这次来录节目时，我自己的感觉是没有那么兴奋。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 其实三季度，你能看到更多人和公司在投身这个方向。包括智普的唐杰老师，他会发微博来描述智普对 RSI 的重视。Jeff Dean 和一些前同事离开了工作了 20 多年的 Google，创业也是要探索这个方向。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 而另一方面，目前释放出来的很多成果，比如我们聊的智普、Kimi 对他们自己的 Infra 的改造，以及 OpenAI 对推理效率的提升，都处于整个 AI 迭代全流程里的局部环节，实际和大家设想中的 RSI 还是有不少的差别。这合理且正常。之前和田渊栋专门聊 RSI 的那期也聊到，这个想法和实践本来就是一个渐变的过程。可以说十几年前的 AutoML 就是类似的思路。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 只不过 AI 现在能做的事越来越多，也变得越来越复杂，能解决的任务越来越模糊和开放。由于 RSI 正和世界模型一样，变成一个非常大的口袋，好像什么都能往里装，短期的这种虚浮和泡沫感，可能也会让人有一点点的失望和疲惫。但不能否认，它会是一个持续重要的方向。我们之后也会继续在季报里去观察，看看递归自进化，或者说 AI 的自我迭代，会经历怎样从量变到质变的过程。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 第二是想延展聊一下多智能体协作的一体两面。这个季度，OpenAI 调用一万多个智能体解决千禧年数学难题。而后来也是智能体冲破了隔离，自发地开始相互协作，跑去攻击了 Hugging Face。前者是在受控的状态下完成了人设定的目标，后者也是为了实现人设定的目标，但不择手段，最终带来了事与愿违的结果。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 这种工具、手段与目标的背离，并不是有了 AI 和现代科学之后才出现的现象。从人类开始自己制造工具以来，这种违和感就是我们生活和文明的一部分。从歌德的《魔法学徒》，到童话里的《红舞鞋》，再到恐怖小说里的《猴爪》，以及讨论 AI 失控时被反复提及的回形针思想实验，对强大工具的失控的恐惧一直都存在。这里我也推荐我们的往期节目，第 83 期串台《资本论》，与人类学家袁长庚一起聊了赫拉利的《智人之上》。</p><!-- lint-disable-line -->
+<h2 id="具身季报的预告">具身季报的预告</h2>
+<p><strong>主持人</strong>: 最后是一个小预告。这个季度，我自己觉得非常有意思的一个变化是，GPT-6 Astra 发布之后，显示了通用的大语言模型在物理 AI 领域有很大的潜力。这让具身智能领域产生了一种既兴奋又害怕的混合情绪。我们会在十一之后的具身季报里，更充分地讨论 Astra 的进展意味着什么。本期节目就到这里，感谢收听。</p><!-- lint-disable-line -->
+<p><strong>主持人</strong>: 如果你对今天聊的话题有观察、好奇或疑问，欢迎在评论区分享想法。这也会成为我们节目的一部分，让整个讨论更完整。你也可以把我们的节目分享给对这个话题感兴趣的朋友，推荐更多你想听的主题和嘉宾。你可以从小宇宙、苹果 Podcast 等渠道关注晚点聊 Late Talk，也欢迎关注我们的公众号晚点 LatePost。下期再见。</p><!-- lint-disable-line -->
+  <h2 id="method-and-sources">方法与来源</h2>
+  <p>本页是原始音频的机器整理稿，不是官方文字稿。整理时删掉口头水词，补标点，分段，不总结、不删观点。人名和产品名由语音识别给出，请以原音频为准。</p>
+  <dl class="kv">
+    <dt>来源</dt><dd><a href="https://pca.st/episode/aec76d8a-80c3-4632-af59-40b843b77f0c">Pocket Casts 上的本集页面</a></dd>
+    <dt>节目</dt><dd>晚点聊 LateTalk（晚点 LatePost），2026-10-02</dd>
+    <dt>时长</dt><dd>2 小时 7 分</dd>
+    <dt>音频</dt><dd><a href="https://aphid.fireside.fm/d/1437767933/19a49f52-28ee-4e25-b8e9-4f0ee70917e0/47e78c2f-c36f-4894-9124-dad5dcffc972.mp3">fireside.fm 上的 MP3</a></dd>
+    <dt>文字来源</dt><dd>本地语音识别（whisper-large-v3-mlx）</dd>
+    <dt>说话人</dt><dd>从上下文推断（机器标注，未逐句核对）</dd>
+    <dt>整理日期</dt><dd>2026-10-03</dd>
+  </dl>
+  <p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+<script>
+// Fold the outline on narrow screens; highlight the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open'); else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) { if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen); else if (mq.addListener) mq.addListener(syncOutlineOpen); }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

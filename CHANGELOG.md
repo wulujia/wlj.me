@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-03
+
+- 新增资料页《与 Henry 的“AI 季报 26Q3”：Muse 引爆个人助理、Astra 进入机器人、OpenAI 收入猛增》，`static/reading/latetalk-ai-quarterly-26q3/index.html`。晚点聊 LateTalk 第三季度 AI 季报的中文全文整理稿：MUSE、Dots、Instinct 等个人助理产品，一家前沿实验室的年化收入从 400 亿美元涨到 700 亿美元，新一代旗舰模型之后的机器人和物理 AI，以及多智能体协作失控事件。人名和产品名由语音识别给出，请以原音频为准。
+
 ## 2026-10-02
 
 - 新增资料页《Instinct 创始人 Noah Shinn 谈个人 AI 助手》，`static/reading/instinct-noah-shinn-2026-09/index.html`。Invest Like The Best 对 Instinct 创始人 Noah Shinn 的访谈中文全文译稿，按 17 个主题分节，谈助理之间的协作、订阅与支付、邀请制增长和算力成本。
