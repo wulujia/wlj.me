@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-05
+
+- 新增资料页《拆解一套利用 EtherHiding 的 macOS ClickFix 犯罪工具包》，`static/reading/macos-clickfix-etherhiding-crimekit-2026-08/index.html`。NetbyteSEC 2026 年 8 月 macOS 恶意软件分析的中文译本。受害者被假验证页骗着把命令粘进终端，后门从 Polygon 智能合约读取 C2，按指令投放 AMOS 窃密木马、XMRig 矿工或远程 shell。作者从链上交易还原出 21 次 C2 轮换和出资路径。附原文 25 张图和完整入侵指标。
+
 ## 2026-10-03
 
 - 新增资料页《与 Henry 的“AI 季报 26Q3”：Muse 引爆个人助理、Astra 进入机器人、OpenAI 收入猛增》，`static/reading/latetalk-ai-quarterly-26q3/index.html`。晚点聊 LateTalk 第三季度 AI 季报的中文全文整理稿：MUSE、Dots、Instinct 等个人助理产品，一家前沿实验室的年化收入从 400 亿美元涨到 700 亿美元，新一代旗舰模型之后的机器人和物理 AI，以及多智能体协作失控事件。人名和产品名由语音识别给出，请以原音频为准。
