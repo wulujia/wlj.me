@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMOS（Atomic macOS Stealer）资料汇总</title>
+<meta name="description" content="AMOS 是 2023 年起在 Telegram 按月出租的 Mac 窃密木马。本页汇总它的分支（Poseidon、Odyssey、Banshee 等）、偷取的数据、2025 年加入的后门和 2026 年的远程 shell，以及 2023 年 4 月到 2026 年 9 月公开报道的 20 次传播事件和自查方法。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/amos-atomic-macos-stealer-2026-10/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #1b1e22;
+  --ink-2: #474e56;
+  --ink-3: #66707a;
+  --rule: #dbdfe4;
+  --rule-2: #b7bec7;
+  --mid: #eaedf1;
+  --acc: #1f5fa6;
+  --acc-ink: #174b85;
+  --acc-wash: rgba(31, 95, 166, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #15181c; --surface: #1d2126; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #939ba5;
+    --rule: #2c3238; --rule-2: #444c55; --mid: #242a30;
+    --acc: #6ea8e6; --acc-ink: #9cc4ef; --acc-wash: rgba(110,168,230,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #15181c; --surface: #1d2126; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #939ba5;
+  --rule: #2c3238; --rule-2: #444c55; --mid: #242a30;
+  --acc: #6ea8e6; --acc-ink: #9cc4ef; --acc-wash: rgba(110,168,230,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.reading-return { margin: 0 0 18px; font-size: 13px; }
+.reading-return a { color: var(--ink-3); text-decoration: none; }
+.reading-return a:hover { color: var(--acc-ink); text-decoration: underline; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--acc); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+td.mono, th.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 9ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+@media (max-width: 520px) { .timeline li { grid-template-columns: 1fr; gap: 0; } }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+sup + sup::before { content: ","; font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); }
+th:last-child, td:last-child { white-space: nowrap; }
+
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, .note, .warn, .todo, .summary, blockquote { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#what">一、AMOS 是什么</a></li>
+      <li><a href="#family">二、家族和分支</a></li>
+      <li><a href="#data">三、偷哪些数据</a></li>
+      <li><a href="#evolve">四、能力演进</a></li>
+      <li><a href="#timeline">五、传播事件时间线</a></li>
+      <li><a href="#ioc">六、感染迹象和防护</a></li>
+      <li><a href="#sources">七、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <p class="reading-return"><a href="/reading/">返回整理</a></p>
+  <header>
+    <p class="eyebrow">调研 · 2026 年 10 月 6 日</p>
+    <h1>AMOS（Atomic macOS Stealer）资料汇总</h1>
+    <p class="lede">AMOS 是一款专偷 Mac 用户密码、钥匙串、浏览器数据和加密货币钱包的木马，按月出租给犯罪团伙使用。本页汇总它的来历、分支、窃密行为，以及 2023 年 4 月到 2026 年 10 月公开报道过的传播事件。</p>
+    <p class="meta"><span>资料截至 2026-10-06</span><span>来源：33 篇安全厂商和媒体公开报告</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>AMOS 2023 年 4 月首次被报道，以每月 1,000 到 3,000 美元的价格在 Telegram 出租，到 2026 年 10 月仍在大规模传播，Moonlock 统计受影响地区超过 120 个国家。它的核心手法始终是弹出假的系统密码框骗出 Mac 登录密码，再打包偷走钥匙串、浏览器、钱包和文件。2025 年 7 月起它加了常驻后门，2026 年 3 月后门升级成可交互的远程 shell，部分版本还会把 Ledger、Trezor、Exodus 钱包换成假版本。2025 年以来最主要的传播方式是 ClickFix：网页诱导用户自己把一行命令粘进终端。</p>
+  </div>
+
+  <h2 id="what">一、AMOS 是什么</h2>
+  <p>AMOS 全称 Atomic macOS Stealer，也叫 Atomic Stealer。2023 年 4 月由 Cyble 和 Trellix 首次报道，开发者在 Telegram 和黑客论坛上出售<sup><a href="#src-1">1</a></sup><sup><a href="#src-10">10</a></sup>。</p>
+  <ul>
+    <li>商业模式是“恶意软件即服务”：买家按月付费，拿到打包好的木马和一个网页后台，后台里管理受害者和偷来的数据。早期价格每月 1,000 美元，后来报道的区间是 1,000 到 3,000 美元<sup><a href="#src-1">1</a></sup><sup><a href="#src-32">32</a></sup>。</li>
+    <li>运营者在研究报告里的代号是 “ping3r”<sup><a href="#src-4">4</a></sup>。</li>
+    <li>早期版本用 Go 写，后来的版本改用 C++<sup><a href="#src-3">3</a></sup>。SentinelOne 称它是专门针对 Mac 的同类产品里商业上最成功的一款<sup><a href="#src-3">3</a></sup>。</li>
+    <li>Unit 42 的统计里，AMOS、Poseidon、Cthulhu 是 Mac 上最常见的三种窃密木马<sup><a href="#src-6">6</a></sup>。</li>
+  </ul>
+
+  <h2 id="family">二、家族和分支</h2>
+  <p>AMOS 后来分出多个名字。各家厂商命名不统一，同一个样本，一家厂商叫 AMOS，另一家会叫 Poseidon<sup><a href="#src-3">3</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>AMOS 相关名称</caption>
+      <thead><tr><th scope="col">名称</th><th scope="col">关系</th><th scope="col">来源</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">AMOS / Atomic</th><td>原版，ping3r 运营</td><td><sup><a href="#src-4">4</a></sup></td></tr>
+        <tr><th scope="row">Poseidon</th><td>前 AMOS 程序员 “Rodrigo4” 拉出来的分支或竞品，2024 年 6 月通过 Google 广告传播</td><td><sup><a href="#src-3">3</a></sup><sup><a href="#src-5">5</a></sup></td></tr>
+        <tr><th scope="row">Odyssey</th><td>Poseidon 被转卖后改名而来，与 AMOS 代码大量重合，靠 ClickFix 假财经、假加密新闻、假 App Store 页面传播</td><td><sup><a href="#src-4">4</a></sup><sup><a href="#src-5">5</a></sup></td></tr>
+        <tr><th scope="row">Banshee</th><td>C++ 写的，和 2023 年早期 AMOS 样本非常接近</td><td><sup><a href="#src-3">3</a></sup></td></tr>
+        <tr><th scope="row">Cthulhu、DoShell、RodrigoStealer、Rod Stealer</th><td>行为上与 AMOS 基本一致的其他名字</td><td><sup><a href="#src-3">3</a></sup><sup><a href="#src-12">12</a></sup></td></tr>
+        <tr><th scope="row">SHAMOS</th><td>CrowdStrike 2025 年 8 月报道的 AMOS 变种</td><td><sup><a href="#src-32">32</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>区分 AMOS 和 Odyssey 的一个细节：AMOS 的 <code>curl</code> 请求里参数写 <code>BuildID</code>，Odyssey 写成小写 <code>buildid</code>。两者核心的 AppleScript 逻辑、命令顺序和取数方式基本相同<sup><a href="#src-4">4</a></sup>。</p>
+
+  <h2 id="data">三、偷哪些数据</h2>
+  <h3 id="data-pw">骗取登录密码</h3>
+  <p>AMOS 用 <code>osascript</code> 弹出一个仿系统的对话框，输入框设成隐藏模式，打字显示为圆点，看起来和真的系统提示一样。点“取消”会再次弹出，直到用户输入。拿到密码后，它用 <code>/usr/bin/dscl -authonly</code> 验证是否正确<sup><a href="#src-13">13</a></sup>。对话框常见的两种写法：</p>
+  <blockquote lang="en">To launch the application, you need to update the system settings… Please enter your password.<cite>标题 “System Preferences”，来源 SpyCloud 逆向分析<sup><a href="#src-13">13</a></sup></cite></blockquote>
+  <p>较新的版本把标题改成 “Auto-Updates System”，说启动器需要权限来开启后台自动更新<sup><a href="#src-13">13</a></sup>。</p>
+
+  <h3 id="data-list">窃取清单</h3>
+  <div class="tbl">
+    <table>
+      <caption>各报告记录的窃取目标</caption>
+      <thead><tr><th scope="col">类别</th><th scope="col">具体内容</th><th scope="col">来源</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">系统凭据</th><td>Mac 登录密码；macOS 钥匙串（Keychain）；2026 年的版本还偷 Apple 钥匙串和 KeePass 数据库</td><td><sup><a href="#src-1">1</a></sup><sup><a href="#src-18">18</a></sup></td></tr>
+        <tr><th scope="row">浏览器</th><td>Chrome 系浏览器、Firefox、Safari 里保存的密码、Cookie、自动填充、信用卡</td><td><sup><a href="#src-1">1</a></sup><sup><a href="#src-10">10</a></sup></td></tr>
+        <tr><th scope="row">加密货币</th><td>50 多种钱包浏览器插件；桌面钱包 Electrum、Exodus、Atomic、Coinomi、Binance 等</td><td><sup><a href="#src-10">10</a></sup><sup><a href="#src-32">32</a></sup></td></tr>
+        <tr><th scope="row">文件</th><td>“FileGrabber” 模块用 AppleScript 从桌面、文稿等目录收集文档；2026 年版本扩大到更多用户文档</td><td><sup><a href="#src-13">13</a></sup><sup><a href="#src-18">18</a></sup></td></tr>
+        <tr><th scope="row">通讯</th><td>Telegram 会话数据</td><td><sup><a href="#src-25">25</a></sup></td></tr>
+        <tr><th scope="row">开发和云</th><td>AWS、gcloud、Docker、FileZilla 的配置文件</td><td><sup><a href="#src-25">25</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Trend Micro 分析的 ClawHavoc 版本不偷 <code>.env</code> 文件，也不做常驻<sup><a href="#src-18">18</a></sup>。不同买家拿到的版本功能有差别。</p>
+
+  <h2 id="evolve">四、能力演进</h2>
+  <ol class="timeline">
+    <li><time>2023-04</time><div><strong>首版</strong>：一次性偷完数据打包上传，不常驻<sup><a href="#src-1">1</a></sup>。</div></li>
+    <li><time>2024-03</time><div><strong>Python 脚本版</strong>：借 Python 脚本隐藏行为、躲避检测，代码与 RustDoor 后门有相似处<sup><a href="#src-32">32</a></sup>。</div></li>
+    <li><time>2025-07</time><div><strong>加入后门</strong>：在家目录放隐藏程序 <code>~/.helper</code>，由脚本 <code>~/.agent</code> 不断重启；用偷来的密码装一个名为 <code>com.finder.helper</code> 的 LaunchDaemon，重启后继续运行。每 60 秒向控制服务器 <code>45.94.47.145</code>、<code>45.94.47.147</code> 发 HTTP POST 领任务，可执行命令、操作文件、下载更多恶意程序。Moonlock 称这是继朝鲜黑客之后第二个面向全球 Mac 用户的后门<sup><a href="#src-14">14</a></sup><sup><a href="#src-15">15</a></sup>。</div></li>
+    <li><time>2026-03</time><div><strong>远程 shell</strong>：后门文件改名 <code>~/.mainhelper</code>，支持完整的交互式反向 shell，攻击者可以实时操作受害者的 Mac<sup><a href="#src-20">20</a></sup>。</div></li>
+    <li><time>2026-03</time><div><strong>替换硬件钱包软件</strong>：Iru 发现的 “malext” 系版本带自定义解密、虚拟机检测、更激进的数据收集，并把 Ledger Wallet、Trezor Suite、Exodus 换成假应用<sup><a href="#src-17">17</a></sup>。Sophos 也见到了假 Ledger 和假 Trezor<sup><a href="#src-16">16</a></sup>。</div></li>
+    <li><time>2026-04</time><div><strong>绕开终端粘贴警告</strong>：macOS 26.4 开始对粘贴进终端的命令做扫描提示。新变种改为从浏览器拉起“脚本编辑器”（Script Editor），让用户在那里执行命令<sup><a href="#src-21">21</a></sup><sup><a href="#src-22">22</a></sup>。</div></li>
+    <li><time>2026-04</time><div><strong>未公开变种</strong>：glueckkanja 在一次事件响应中逆向出一个此前没有任何公开哈希和控制服务器记录的 AMOS 变种<sup><a href="#src-19">19</a></sup>。</div></li>
+    <li><time>2026 年中</time><div><strong>伪装系统文件</strong>：常驻程序改名为 <code>AccountsHelper</code>、<code>mdworker_shared</code> 等 macOS 自带进程名<sup><a href="#src-25">25</a></sup>。</div></li>
+    <li><time>2026-07</time><div><strong>绕过 Gatekeeper</strong>：安装脚本用 <code>xattr -d com.apple.quarantine</code> 去掉隔离标记，再给程序做 ad-hoc 签名<sup><a href="#src-26">26</a></sup>。</div></li>
+  </ol>
+  <div class="note"><b>说明</b>攻击者的域名、IP 和文件哈希几天就换一批。黑名单很快过时，检测要靠行为特征<sup><a href="#src-25">25</a></sup>。</div>
+
+  <h2 id="timeline">五、传播事件时间线</h2>
+  <div class="tbl">
+    <table>
+      <caption>公开报道的 AMOS 传播事件（按时间）</caption>
+      <thead><tr><th scope="col" class="mono">时间</th><th scope="col">诱饵和渠道</th><th scope="col">报道方</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">2023-04</td><td>Telegram 上架出售，首次被报道</td><td>Cyble、Trellix<sup><a href="#src-1">1</a></sup></td></tr>
+        <tr><td class="mono">2023-09</td><td>Google 搜索广告，搜 TradingView 的用户被引到假下载页</td><td>Malwarebytes<sup><a href="#src-8">8</a></sup></td></tr>
+        <tr><td class="mono">2023-11</td><td>ClearFake：被黑网站弹出假的 Safari / Chrome 更新，下载的 DMG 就是 AMOS。这是原本只打 Windows 的大型社工攻击第一次扩展到 Mac</td><td>Malwarebytes、Moonlock<sup><a href="#src-7">7</a></sup><sup><a href="#src-9">9</a></sup></td></tr>
+        <tr><td class="mono">2024</td><td>Google 广告推假 Arc 浏览器等假应用</td><td>Picus 等<sup><a href="#src-10">10</a></sup><sup><a href="#src-11">11</a></sup></td></tr>
+        <tr><td class="mono">2024-06</td><td>分支 Poseidon 通过 Google 广告传播</td><td>Malwarebytes<sup><a href="#src-5">5</a></sup></td></tr>
+        <tr><td class="mono">2025-01</td><td>Google 广告推假 Homebrew 官网 <code>brewe[.]sh</code>，安装命令先跑木马再装真 Homebrew，专打开发者</td><td>独立研究者<sup><a href="#src-12">12</a></sup></td></tr>
+        <tr><td class="mono">2025-07</td><td>伪装成面试流程的定向钓鱼，针对艺术家和自由职业者，假屏幕共享 DMG 索要系统密码；另有破解软件站</td><td>Moonlock<sup><a href="#src-14">14</a></sup></td></tr>
+        <tr><td class="mono">2025-08</td><td>SHAMOS 变种活动</td><td>CrowdStrike<sup><a href="#src-32">32</a></sup></td></tr>
+        <tr><td class="mono">2025-09</td><td>“破解版” Mac 软件</td><td>Trend Micro<sup><a href="#src-32">32</a></sup></td></tr>
+        <tr><td class="mono">2025-12</td><td>搜索结果投毒，伪装成 ChatGPT / Grok 分享对话</td><td>Huntress<sup><a href="#src-32">32</a></sup></td></tr>
+        <tr><td class="mono">2026-02</td><td>ClawHavoc：在 AI 智能体技能市场 ClawHub、SkillsMP 上传数百个恶意技能</td><td>Koi Security、Trend Micro<sup><a href="#src-18">18</a></sup></td></tr>
+        <tr><td class="mono">2026-03</td><td>针对 Claude Code 等 AI 开发工具用户的 ClickFix 假教程，投放带反向 shell 的版本</td><td>Cybersecuritynews 汇总<sup><a href="#src-20">20</a></sup></td></tr>
+        <tr><td class="mono">2026-04</td><td>伪装苹果官方的“清理磁盘空间”页面，引导用户在脚本编辑器里执行命令</td><td>Jamf Threat Labs<sup><a href="#src-21">21</a></sup></td></tr>
+        <tr><td class="mono">2026-05</td><td>ClickFix 假“macOS 系统工具”安装命令，同时投放 Macsync、Shub Stealer 和 AMOS</td><td>Microsoft<sup><a href="#src-23">23</a></sup></td></tr>
+        <tr><td class="mono">2026-06</td><td>假 CAPTCHA 验证页投放 Odyssey 变种</td><td>Unit 42<sup><a href="#src-25">25</a></sup></td></tr>
+        <tr><td class="mono">2026-07</td><td>假 “macOS toolkit” 安装页，粘贴命令后下载隐藏脚本再装木马</td><td>Unit 42<sup><a href="#src-25">25</a></sup></td></tr>
+        <tr><td class="mono">2026-07-28 起</td><td>超过 1,650 个被黑网站对 Mac 访客显示假 “Bot Protection” 页，背后 154 个轮换的控制服务器域名</td><td>Ransom-ISAC<sup><a href="#src-26">26</a></sup></td></tr>
+        <tr><td class="mono">2026-08</td><td>EtherHiding 犯罪工具包：后门从 Polygon 智能合约读取控制服务器地址，按指令投放 AMOS、XMRig 矿工或远程 shell</td><td>NetbyteSEC<sup><a href="#src-33">33</a></sup></td></tr>
+        <tr><td class="mono">2026-08</td><td>同一 ClickFix 活动加入多段脚本和访问过滤来隐藏自己</td><td>Microsoft<sup><a href="#src-24">24</a></sup></td></tr>
+        <tr><td class="mono">时间不详</td><td>以 Spectrum 为主题的 ClickFix 动态投递，俄语攻击者</td><td>CloudSEK<sup><a href="#src-28">28</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>误报</b>2026-09-24 的 Macfinger ClickFix 事件起初被报成 AMOS。SANS ISC 分析后认为不是：数据收集、外传方式、常驻机制都不同，通信走 websocket<sup><a href="#src-27">27</a></sup>。媒体上“新 AMOS 变种”的说法要看原始分析。</div>
+
+  <h2 id="ioc">六、感染迹象和防护</h2>
+  <h3 id="ioc-signs">可以自查的痕迹</h3>
+  <ul>
+    <li>家目录下的隐藏文件 <code>~/.helper</code>、<code>~/.agent</code>、<code>~/.mainhelper</code><sup><a href="#src-14">14</a></sup><sup><a href="#src-20">20</a></sup></li>
+    <li><code>/Library/LaunchDaemons/</code> 里标签为 <code>com.finder.helper</code> 的 plist<sup><a href="#src-14">14</a></sup></li>
+    <li>不在系统目录下、却叫 <code>AccountsHelper</code> 或 <code>mdworker_shared</code> 的进程<sup><a href="#src-25">25</a></sup></li>
+    <li>来历不明的 <code>osascript</code> 密码框，或 shell 历史里有 <code>curl … | bash</code>、<code>xattr -d com.apple.quarantine</code><sup><a href="#src-13">13</a></sup><sup><a href="#src-26">26</a></sup></li>
+    <li>Ledger Live、Trezor Suite、Exodus 突然要求重新输入助记词<sup><a href="#src-17">17</a></sup></li>
+  </ul>
+  <h3 id="ioc-defend">防护</h3>
+  <ul>
+    <li>网页让你把命令粘进终端或脚本编辑器，一律不做。这是 2025 年以来最主要的感染方式。</li>
+    <li>软件只从官网或 App Store 下载。搜索结果最上面的广告位曾被用来推假 TradingView、Arc、Homebrew。</li>
+    <li>任何应用在安装后要求输入 Mac 登录密码，先确认它是不是系统自己弹的。</li>
+    <li>硬件钱包软件不会在打开时向你要助记词。</li>
+    <li>已经中招：断网，换一台干净设备改掉所有密码和交易所登录，把钱包资产转到新助记词生成的地址，然后重装系统。AMOS 偷走的是浏览器 Cookie，只改密码不让旧会话失效，攻击者仍能登录。</li>
+  </ul>
+
+  <h2 id="sources">七、方法与来源</h2>
+  <p>2026 年 10 月 6 日通过网页搜索收集公开报告，以安全厂商原文为准，媒体报道只用来补充时间和渠道。没有拿到原始样本，也没有整理完整的哈希和域名列表。</p>
+  <div class="todo"><b>待确认</b>2024-03 Python 脚本版、2025-08 SHAMOS、2025-09 破解软件、2025-12 ChatGPT / Grok 投毒这四条只来自 PCrisk 的汇总页，没有读到 CrowdStrike、Trend Micro、Huntress 的原文。2026-06 Odyssey 假 CAPTCHA 一条的具体出处页面也未核对。CloudSEK Spectrum 活动的日期未查到。</div>
+  <ol class="sources">
+    <li id="src-1">Cyble，New Atomic macOS Stealer for sale on Telegram，2023，<a href="https://cyble.com/blog/threat-actor-selling-new-atomic-macos-amos-stealer-on-telegram/" target="_blank" rel="noopener">cyble.com</a></li>
+    <li id="src-2">SentinelOne，Atomic Stealer: Threat actor spawns second variant，<a href="https://www.sentinelone.com/blog/atomic-stealer-threat-actor-spawns-second-variant-of-macos-malware-sold-on-telegram/" target="_blank" rel="noopener">sentinelone.com</a></li>
+    <li id="src-3">SentinelOne，From Amos to Poseidon，2024，<a href="https://www.sentinelone.com/blog/from-amos-to-poseidon-a-soc-teams-guide-to-detecting-macos-atomic-stealers-2024/" target="_blank" rel="noopener">sentinelone.com</a></li>
+    <li id="src-4">Red Canary，Distinguishing Atomic, Odyssey, and Poseidon stealers，2025-10，<a href="https://redcanary.com/blog/threat-intelligence/atomic-odyssey-poseidon-stealers/" target="_blank" rel="noopener">redcanary.com</a></li>
+    <li id="src-5">SC World，Poseidon Stealer rebranded as Odyssey Stealer，<a href="https://www.scworld.com/news/macos-malware-poseidon-stealer-rebranded-as-odyssey-stealer" target="_blank" rel="noopener">scworld.com</a></li>
+    <li id="src-6">Unit 42，Stealers on the rise，<a href="https://unit42.paloaltonetworks.com/macos-stealers-growing/" target="_blank" rel="noopener">unit42.paloaltonetworks.com</a></li>
+    <li id="src-7">Malwarebytes，Atomic Stealer distributed via fake browser updates，2023-11，<a href="https://www.malwarebytes.com/blog/threat-intel/2023/11/atomic-stealer-distributed-to-mac-users-via-fake-browser-updates" target="_blank" rel="noopener">malwarebytes.com</a></li>
+    <li id="src-8">BleepingComputer，Atomic Stealer strikes macOS via fake browser updates，2023-11，<a href="https://www.bleepingcomputer.com/news/security/atomic-stealer-malware-strikes-macos-via-fake-browser-updates/" target="_blank" rel="noopener">bleepingcomputer.com</a></li>
+    <li id="src-9">Moonlock，Atomic Stealer distributed via fake browser updates，<a href="https://moonlock.com/atomic-stealer-clearfake" target="_blank" rel="noopener">moonlock.com</a></li>
+    <li id="src-10">Picus Security，Atomic Stealer: dissecting 2024's most notorious macOS infostealer，<a href="https://www.picussecurity.com/resource/blog/atomic-stealer-amos-macos-threat-analysis" target="_blank" rel="noopener">picussecurity.com</a></li>
+    <li id="src-11">The Walden，A macOS stealer IR story（假 Arc 事件复盘），<a href="https://thewalden.medium.com/a-macos-stealer-story-c8fb1ea16969" target="_blank" rel="noopener">medium.com</a></li>
+    <li id="src-12">cyb3r-hawk，Fake Homebrew clone campaign，2025-01，<a href="https://medium.com/@cyb3r-hawk/theres-a-clone-of-brew-brewe-sh-612e4d03e1f6" target="_blank" rel="noopener">medium.com</a></li>
+    <li id="src-13">SpyCloud，Reversing Atomic macOS Stealer，<a href="https://spycloud.com/blog/reverse-engineering-atomic-macos-stealer/" target="_blank" rel="noopener">spycloud.com</a></li>
+    <li id="src-14">Moonlock，AMOS includes a backdoor for persistent access，2025-07-04，<a href="https://moonlock.com/amos-backdoor-persistent-access" target="_blank" rel="noopener">moonlock.com</a></li>
+    <li id="src-15">Moonlock，AMOS stealer now has a backdoor，2025-07-11，<a href="https://moonlock.com/amos-stealer-backdoor" target="_blank" rel="noopener">moonlock.com</a></li>
+    <li id="src-16">Sophos，Why AMOS matters，<a href="https://www.sophos.com/en-us/blog/why-amos-matters-the-macos-malware-stealing-data-at-scale" target="_blank" rel="noopener">sophos.com</a></li>
+    <li id="src-17">Iru，Atomic Stealer (AMOS) returns，2026-03，<a href="https://www.iru.com/blog/atomic-stealer-amos-returns" target="_blank" rel="noopener">iru.com</a></li>
+    <li id="src-18">Trend Micro，Malicious OpenClaw skills used to distribute AMOS，2026-02，<a href="https://www.trendmicro.com/en_us/research/26/b/openclaw-skills-used-to-distribute-atomic-macos-stealer.html" target="_blank" rel="noopener">trendmicro.com</a></li>
+    <li id="src-19">glueckkanja，AMOS stealer variant: reverse engineering an unknown macOS malware，2026-04-10，<a href="https://www.glueckkanja.com/en/posts/2026-04-10-incident-to-intelligence" target="_blank" rel="noopener">glueckkanja.com</a></li>
+    <li id="src-20">Cybersecuritynews，EvilTokens 与 ClickFix 攻击 Claude Code 用户，2026-03，<a href="https://cybersecuritynews.com/eviltokens-amos-march-2026-threat-campaigns/" target="_blank" rel="noopener">cybersecuritynews.com</a></li>
+    <li id="src-21">BleepingComputer，New macOS stealer campaign uses Script Editor，2026-04，<a href="https://www.bleepingcomputer.com/news/security/new-macos-stealer-campaign-uses-script-editor-in-clickfix-attack/" target="_blank" rel="noopener">bleepingcomputer.com</a></li>
+    <li id="src-22">Infosecurity Magazine，Atomic Stealer ClickFix bypasses Apple warnings，<a href="https://www.infosecurity-magazine.com/news/atomic-stealer-macos-clickfix/" target="_blank" rel="noopener">infosecurity-magazine.com</a></li>
+    <li id="src-23">Microsoft，ClickFix campaign uses fake macOS utilities lures，2026-05-06，<a href="https://www.microsoft.com/en-us/security/blog/2026/05/06/clickfix-campaign-uses-fake-macos-utilities-lures-deliver-infostealers/" target="_blank" rel="noopener">microsoft.com</a></li>
+    <li id="src-24">Microsoft，How a macOS ClickFix campaign learned to hide，2026-08-05，<a href="https://www.microsoft.com/en-us/security/blog/2026/08/05/macos-clickfix-campaign-learned-hide/" target="_blank" rel="noopener">microsoft.com</a></li>
+    <li id="src-25">Unit 42，Atomic macOS (AMOS) stealer activity，2026，<a href="https://unit42.paloaltonetworks.com/atomic-macos-amos-stealer-activity/" target="_blank" rel="noopener">unit42.paloaltonetworks.com</a></li>
+    <li id="src-26">Ransom-ISAC，macOS ClickFix AMOS campaign，2026-09，<a href="https://ransom-isac.org/blog/macos-clickfix-amos-campaign/" target="_blank" rel="noopener">ransom-isac.org</a></li>
+    <li id="src-27">SANS ISC，A closer look at malware from the Macfinger ClickFix campaign，2026-09，<a href="https://isc.sans.edu/diary/33368" target="_blank" rel="noopener">isc.sans.edu</a></li>
+    <li id="src-28">CloudSEK，AMOS variant distributed via ClickFix in Spectrum-themed campaign，<a href="https://www.cloudsek.com/blog/amos-variant-distributed-via-clickfix-in-spectrum-themed-dynamic-delivery-campaign-by-russian-speaking-hackers" target="_blank" rel="noopener">cloudsek.com</a></li>
+    <li id="src-29">Darktrace，Atomic Stealer: Darktrace's investigation，<a href="https://www.darktrace.com/blog/atomic-stealer-darktraces-investigation-of-a-growing-macos-threat" target="_blank" rel="noopener">darktrace.com</a></li>
+    <li id="src-30">Hunt.io，ATOMIC Stealer: macOS credential theft，<a href="https://hunt.io/malware-families/atomic-stealer" target="_blank" rel="noopener">hunt.io</a></li>
+    <li id="src-31">Malpedia，AMOS 家族条目，<a href="https://malpedia.caad.fkie.fraunhofer.de/details/osx.amos" target="_blank" rel="noopener">malpedia.caad.fkie.fraunhofer.de</a></li>
+    <li id="src-32">PCrisk，AMOS-Atomic Stealer (Mac) 汇总页，<a href="https://www.pcrisk.com/removal-guides/26590-atomic-stealer-mac" target="_blank" rel="noopener">pcrisk.com</a></li>
+    <li id="src-33">NetbyteSEC，拆解一套利用 EtherHiding 的 macOS ClickFix 犯罪工具包（中文译本），2026-08，<a href="/reading/macos-clickfix-etherhiding-crimekit-2026-08/">wlj.me/reading</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  if (det && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) det.removeAttribute('open');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
