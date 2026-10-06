@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kingfisher 密钥扫描工具</title>
+<meta name="description" content="MongoDB 开源的密钥扫描工具 Kingfisher：来历、四项能力（找密钥、在线验证、影响范围、吊销）、安全团队的正常用法，攻击者拿到它之后的用法和造成的破坏，以及防护办法。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/kingfisher-secret-scanner/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #1a1d21;
+  --ink-2: #464d56;
+  --ink-3: #5f6873;
+  --rule: #dadee3;
+  --rule-2: #b5bcc5;
+  --mid: #eaedf0;
+  --acc: #1f5f99;
+  --acc-ink: #184c7c;
+  --acc-wash: rgba(31, 95, 153, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #15181c; --surface: #1d2126; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #959ea8;
+    --rule: #2c3238; --rule-2: #444c55; --mid: #23282e;
+    --acc: #7fb3e6; --acc-ink: #a3c9ef; --acc-wash: rgba(127,179,230,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #15181c; --surface: #1d2126; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #959ea8;
+  --rule: #2c3238; --rule-2: #444c55; --mid: #23282e;
+  --acc: #7fb3e6; --acc-ink: #a3c9ef; --acc-wash: rgba(127,179,230,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.8; text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased; }
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+.reading-return { margin: 0 0 18px; font-size: 13px; }
+.reading-return a { color: var(--ink-3); text-decoration: none; }
+.reading-return a:hover { color: var(--acc-ink); text-decoration: underline; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; overflow-wrap: anywhere; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; overflow-wrap: normal; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+th.mono, td.mono { white-space: nowrap; }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 11ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline li.atk::before { background: var(--bad); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; white-space: nowrap; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, pre, .note, .warn, .decision, .todo, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#what">一、它是什么</a></li>
+      <li><a href="#abilities">二、能力</a>
+        <ul>
+          <li><a href="#ab-find">2.1 找密钥</a></li>
+          <li><a href="#ab-validate">2.2 验证密钥是否还能用</a></li>
+          <li><a href="#ab-map">2.3 画出影响范围</a></li>
+          <li><a href="#ab-revoke">2.4 吊销</a></li>
+        </ul>
+      </li>
+      <li><a href="#uses">三、正常使用场景</a></li>
+      <li><a href="#abuse">四、落到攻击者手里</a>
+        <ul>
+          <li><a href="#abuse-flow">4.1 攻击者怎么用</a></li>
+          <li><a href="#abuse-damage">4.2 会造成的破坏</a></li>
+        </ul>
+      </li>
+      <li><a href="#defense">五、怎么防</a></li>
+      <li><a href="#method">六、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <p class="reading-return"><a href="/reading/">返回整理</a></p>
+  <header>
+    <p class="eyebrow">Tool brief · 2026-10-06</p>
+    <h1>Kingfisher 密钥扫描工具</h1>
+    <p class="lede">MongoDB 开源的密钥扫描工具 Kingfisher：它能做什么，安全团队怎么用，攻击者拿到它之后能造成什么破坏。</p>
+    <p class="meta"><span>资料截至 2026-10-06</span><span>工具说明</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>Kingfisher 是 MongoDB 2025-06-16 开源的密钥扫描工具，Apache 2.0 许可，用 Rust 写成。它在代码、git 历史、整个 GitHub 组织、S3、容器镜像里找密钥，再逐个调用服务商接口确认密钥是否还能用。</p>
+    <p>它本身不入侵系统，破坏来自速度：几分钟内把一堆偷来的字符串筛成“哪些还能用、每把能碰到什么”的清单。</p>
+  </div>
+
+  <h2 id="what">一、它是什么</h2>
+  <dl class="kv">
+    <dt>开发者</dt><dd>MongoDB 安全工程师 Mick Grove，2024 年 7 月开始做的个人项目，后来成为 MongoDB 内部安全流程的一部分</dd>
+    <dt>开源时间</dt><dd>2025-06-16，Apache 2.0 许可，不收费</dd>
+    <dt>代码</dt><dd><a href="https://github.com/mongodb/kingfisher" target="_blank" rel="noopener">github.com/mongodb/kingfisher</a></dd>
+    <dt>技术</dt><dd>Rust；Hyperscan / Vectorscan 正则引擎做匹配；Tree-sitter 解析 20 多种编程语言的源码</dd>
+    <dt>来历</dt><dd>最早从 Praetorian 公司开源的 Nosey Parker 分叉出来，后来重写扩展</dd>
+    <dt>安装</dt><dd><code>brew install kingfisher</code>、<code>uv tool install kingfisher-bin</code>，或 Docker 镜像 <code>ghcr.io/mongodb/kingfisher:latest</code>；支持 macOS、Linux、Windows</dd>
+  </dl>
+  <p>MongoDB 的发布文章里说，做它是因为现有开源扫描工具慢、不灵活、误报多。文章附了和 TruffleHog、Gitleaks 的耗时对比，Kingfisher 在每种语言的测试仓库上都最快。</p>
+
+  <h2 id="abilities">二、能力</h2>
+
+  <h3 id="ab-find">2.1 找密钥</h3>
+  <p>发布时有 700 多条检测规则；第三方评测网站 AppSec Santa 2026 年的统计是 1,051 条，覆盖 16 种语言。规则文件是 YAML，可以自己加。能扫的地方：</p>
+  <ul>
+    <li>本地文件、目录、git 仓库连同全部提交历史</li>
+    <li>代码托管平台：GitHub、GitLab、Azure Repos、Bitbucket、Gitea、Hugging Face，可以按整个组织扫</li>
+    <li>云存储：AWS S3、Google Cloud Storage</li>
+    <li>容器镜像和镜像仓库</li>
+    <li>协作工具：Jira、Confluence、Slack、Microsoft Teams，以及 Postman</li>
+    <li>压缩包、SQLite 数据库、Python 字节码</li>
+  </ul>
+  <pre><code>kingfisher scan /path/to/repository
+kingfisher scan github --organization my-org
+kingfisher scan docker ghcr.io/owasp/wrongsecrets/wrongsecrets-master:latest-master
+kingfisher scan s3 my-bucket --prefix backups/production/</code></pre>
+  <p class="muted">命令照抄自项目 README。</p>
+
+  <h3 id="ab-validate">2.2 验证密钥是否还能用</h3>
+  <p>这是它和老一代扫描工具最大的区别。找到疑似密钥后，它会拿去调用对应服务商的接口：AWS 密钥调 <code>GetCallerIdentity</code>，数据库连接串试着连一下，GitHub 令牌查一下身份。结果分“有效”和“无效”。AppSec Santa 统计 1,051 条规则里有 516 条带这种在线验证。</p>
+  <pre><code>kingfisher validate --rule github-pat "$GITHUB_PAT"</code></pre>
+
+  <h3 id="ab-map">2.3 画出影响范围</h3>
+  <p>README 里叫 Access Map / blast radius：对验证有效的密钥，继续查它属于哪个身份、有哪些权限、能碰到哪些资源。支持 43 家服务商，AWS 能分析角色切换，GCP 能分析服务账号冒用。</p>
+
+  <h3 id="ab-revoke">2.4 吊销</h3>
+  <p>对支持的密钥类型，可以直接调服务商接口把它作废，例子是 GitHub PAT。</p>
+  <pre><code>kingfisher revoke --rule github-pat "$GITHUB_PAT"</code></pre>
+  <p>结果可以输出成 JSON、JSONL、SARIF、HTML 等格式，方便接进 CI 或安全平台。</p>
+
+  <h2 id="uses">三、正常使用场景</h2>
+  <ul>
+    <li>CI 里每次提交扫一遍，发现密钥就拦下合并。</li>
+    <li>安全团队定期扫全组织的仓库、S3 和镜像，找历史遗留的硬编码密钥。</li>
+    <li>出了泄露事件，把所有可疑文本丢进去，快速分出哪些密钥还活着、先换哪一把。</li>
+    <li>做渗透测试或红队演练时评估一个组织的密钥卫生。</li>
+  </ul>
+  <p>它全程在本机运行，扫出来的密钥不会发给 MongoDB。验证那一步会连服务商接口，这是验证本身的需要。</p>
+
+  <h2 id="abuse">四、落到攻击者手里</h2>
+  <p>防守方和攻击方用的是同一套功能。Kingfisher 是公开、免费、装一条命令就能用的工具，攻击者用它不需要任何门槛。</p>
+
+  <h3 id="abuse-flow">4.1 攻击者怎么用</h3>
+  <ol>
+    <li>拿到入口：一个能读仓库的令牌，一批泄露的 CI 日志，或者一个公开 S3 桶。</li>
+    <li>扫：<code>scan github --organization</code> 把整个组织的仓库连历史扫一遍；CI 日志、镜像也一起扫。</li>
+    <li>验证：自动把每个候选密钥拿去服务商那里试，筛掉已经作废的。</li>
+    <li>排序：用影响范围功能看哪把是管理员、能碰到生产数据库、能推镜像。</li>
+    <li>动手：拿排在前面的密钥做真正的事，比如跑大模型（LLMjacking）、下载数据、推后门镜像。这一步不再用 Kingfisher。</li>
+  </ol>
+
+  <h3 id="abuse-damage">4.2 会造成的破坏</h3>
+  <div class="tbl">
+    <table>
+      <caption>Kingfisher 在攻击里起的作用</caption>
+      <thead><tr><th scope="col">方面</th><th scope="col">说明</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">把泄露变成可用清单</th><td>一次泄露常常有几十上百个字符串。手工逐个试要几小时，它几分钟给出“还能用的有哪些”。防守方换密钥的时间窗口被压缩</td></tr>
+        <tr><th scope="row">找到被忘掉的密钥</th><td>扫 git 全部历史，早就删掉但没作废的密钥也会被找出来</td></tr>
+        <tr><th scope="row">定位最值钱的目标</th><td>影响范围功能直接告诉攻击者哪把密钥权限最大，省掉试探</td></tr>
+        <tr><th scope="row">验证动静小</th><td>AWS 的 <code>GetCallerIdentity</code> 不需要任何权限，被拒绝的密钥也能调，很少有告警规则盯它</td></tr>
+        <tr><th scope="row">跨平台</th><td>同一次运行里验证 AWS、GitHub、Slack、OpenAI、数据库等多家的密钥，每家只在自己的日志里留一条</td></tr>
+        <tr><th scope="row">吊销功能被滥用</th><td>能力上可以把受害方的有效令牌作废，造成服务中断。没有查到公开的实际案例，列为可能性</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>它不会利用漏洞，不会植入后门，不会改数据。真正的损失发生在攻击者拿着验证过的密钥去用的那一步。</p>
+
+  <h2 id="defense">五、怎么防</h2>
+  <ol>
+    <li>自己先扫：在 CI 和定期任务里跑 Kingfisher 或同类工具，攻击者能扫到的先扫到。</li>
+    <li>少用长期密钥：GitHub Actions 连 AWS 改用 OIDC 拿临时凭证，不在 Actions 密钥里放 AWS access key。</li>
+    <li>泄露后按“已被验证”处理：攻击者几分钟内就能知道哪些密钥有效，轮换要按小时算，不能按天。</li>
+    <li>盯身份查询：对来自陌生 IP 的 <code>GetCallerIdentity</code> 设告警，GuardDuty 能做一部分。</li>
+    <li>给密钥加来源限制：IAM 策略加 <code>aws:SourceIp</code> 或 VPC 条件，被偷走的密钥在别处验证得过，用起来会被拒。</li>
+    <li>开 GitHub 的密钥扫描和推送拦截，阻止密钥进仓库。</li>
+  </ol>
+
+  <h2 id="method">六、方法与来源</h2>
+  <p>工具信息来自项目 README、MongoDB 发布文章和几篇报道，取于 2026-10-06。规则数量有两个口径：发布时官方说 700 多条，1,051 条和 516 条来自第三方评测网站，没有在官方文档里核对到。吊销功能被攻击者滥用的说法是按能力推断，没有找到实际案例。</p>
+  <ol class="sources">
+    <li id="src-1">MongoDB，<a href="https://github.com/mongodb/kingfisher" target="_blank" rel="noopener">github.com/mongodb/kingfisher</a>，项目 README</li>
+    <li id="src-2">MongoDB 博客，Mick Grove，《Introducing Kingfisher: Real-Time Secret Detection and Validation》，2025-06-16，<a href="https://www.mongodb.com/company/blog/product-release-announcements/introducing-kingfisher-real-time-secret-detection-validation" target="_blank" rel="noopener">mongodb.com</a></li>
+    <li id="src-3">The Stack，《MongoDB open-sources “Kingfisher” secrets scanner》，<a href="https://www.thestack.technology/mongodb-open-source-secret-scanner-kingfisher/" target="_blank" rel="noopener">thestack.technology</a></li>
+    <li id="src-4">It’s FOSS，《MongoDB Launches an Open Source Real-Time Secret Scanner》，<a href="https://itsfoss.com/news/mongodb-launches-kingfisher/" target="_blank" rel="noopener">itsfoss.com</a></li>
+    <li id="src-5">AppSec Santa，《Kingfisher 2026: MongoDB's Rust Secret Scanner》，<a href="https://appsecsanta.com/kingfisher" target="_blank" rel="noopener">appsecsanta.com</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

@@ -2,6 +2,7 @@
 
 ## 2026-10-06
 
+- 新增资料页《Kingfisher 密钥扫描工具》，`static/reading/kingfisher-secret-scanner/index.html`。MongoDB 开源的密钥扫描工具 Kingfisher：来历、四项能力（找密钥、在线验证、影响范围、吊销）、安全团队的正常用法，攻击者拿到它之后的用法和造成的破坏，以及防护办法。
 - 新增资料页《AMOS（Atomic macOS Stealer）资料汇总》，`static/reading/amos-atomic-macos-stealer-2026-10/index.html`。AMOS 是 2023 年起在 Telegram 按月出租的 Mac 窃密木马。本页汇总它的分支（Poseidon、Odyssey、Banshee 等）、偷取的数据、2025 年加入的后门和 2026 年的远程 shell，以及 2023 年 4 月到 2026 年 9 月公开报道的 20 次传播事件和自查方法。
 
 ## 2026-10-05
