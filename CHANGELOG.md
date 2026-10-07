@@ -2,6 +2,7 @@
 
 ## 2026-10-07
 
+- 新增资料页《C2 通信现状、企业网络限制与遗留风险》，`static/reading/c2-landscape-network-controls-2026-10/index.html`。恶意程序与控制服务器之间的通信有哪些方式，企业在网络层应做哪些限制，做完之后还剩什么风险。附 UniFi 实施示例、开源清单的自动更新和托管安全 DNS 方案。
 - 新增资料页《Mac 企业端云防护产品》，`static/reading/mac-enterprise-security/index.html`。比较 Mac 企业端云防护产品，覆盖商业方案、开源方案与试用检查。
 - 新增资料页《Apple Business 免费设备管理部署指南》，`static/reading/apple-business-free-mdm-guide/index.html`。面向新加坡与中国大陆企业，说明 Apple Business 免费设备管理的功能、注册、设备注册方式与部署检查。
 

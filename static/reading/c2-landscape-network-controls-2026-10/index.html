@@ -1,0 +1,2989 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C2 通信现状、企业网络限制与遗留风险</title>
+<meta name="description" content="恶意程序与控制服务器之间的通信有哪些方式，企业在网络层应做哪些限制，做完之后还剩什么风险。附 UniFi 实施示例、开源清单的自动更新和托管安全 DNS 方案。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/c2-landscape-network-controls-2026-10/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #1a1e24;
+  --ink-2: #474d57;
+  --ink-3: #636c78;
+  --rule: #d9dde3;
+  --rule-2: #b4bbc5;
+  --mid: #e9ecf1;
+  --acc: #2f5d8a;
+  --acc-ink: #244a70;
+  --acc-wash: rgba(47, 93, 138, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #15181c; --surface: #1d2126; --ink: #eaedf1; --ink-2: #bfc5cd; --ink-3: #939ca8;
+    --rule: #2c3238; --rule-2: #454d56; --mid: #23282e;
+    --acc: #7fb3e6; --acc-ink: #a3c9ee; --acc-wash: rgba(127,179,230,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #15181c; --surface: #1d2126; --ink: #eaedf1; --ink-2: #bfc5cd; --ink-3: #939ca8;
+  --rule: #2c3238; --rule-2: #454d56; --mid: #23282e;
+  --acc: #7fb3e6; --acc-ink: #a3c9ee; --acc-wash: rgba(127,179,230,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.8; text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased; }
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+.note, .warn { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.note b:first-child, .warn b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child { margin: 0; }
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+.wide table { min-width: 760px; }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; white-space: nowrap; }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 8ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  .wide table { min-width: 0; font-size: 9pt; }
+  h1, h2, h3 { break-after: avoid; }
+  table, .note, .warn, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#p1">第一部分：C2 现状</a>
+        <ul>
+          <li><a href="#p1-1">1.1 C2 由几段通信组成</a></li>
+          <li><a href="#p1-2">1.2 12 类通信方式</a></li>
+          <li><a href="#p1-3">1.3 趋势一：自建服务器仍是主体，份额在降</a></li>
+          <li><a href="#p1-4">1.4 趋势二：云服务 API 成为控制通道</a></li>
+          <li><a href="#p1-5">1.5 趋势三：隧道、远程管理工具和覆盖网络</a></li>
+          <li><a href="#p1-6">1.6 趋势四：地址来源公开化</a></li>
+          <li><a href="#p1-7">1.7 跨类别的隐藏手段</a></li>
+        </ul>
+      </li>
+      <li><a href="#p2">第二部分：企业应在网络上做的限制</a>
+        <ul>
+          <li><a href="#p2-1">2.1 原则</a></li>
+          <li><a href="#p2-2">2.2 阻塞规则</a></li>
+          <li><a href="#p2-3">2.3 服务清单的处理方式</a></li>
+          <li><a href="#p2-4">2.4 网关能做和不能做的事</a></li>
+          <li><a href="#p2-5">2.5 建议的部署结构</a></li>
+          <li><a href="#p2-6">2.6 建议部署的 10 条报警</a></li>
+          <li><a href="#p2-7">2.7 日志字段与留存</a></li>
+          <li><a href="#p2-8">2.8 部署次序</a></li>
+          <li><a href="#p2-9">2.9 验收表</a></li>
+          <li><a href="#p2-10">2.10 可用的开源项目</a></li>
+          <li><a href="#p2-11">2.11 区块链 RPC 与链上数据域名</a></li>
+          <li><a href="#p2-12">2.12 实施示例：UniFi</a></li>
+          <li><a href="#p2-13">2.13 在 UniFi 上自动更新开源清单</a></li>
+          <li><a href="#p2-14">2.14 托管安全 DNS</a></li>
+        </ul>
+      </li>
+      <li><a href="#p3">第三部分：遗留风险</a></li>
+      <li><a href="#p4">方法与来源</a></li>
+      <li><a href="#p5">记录</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p><a href="/reading/">返回整理</a></p>
+    <p class="eyebrow">Research notes · 2026 年 10 月 7 日</p>
+    <h1>C2 通信现状、企业网络限制与遗留风险</h1>
+    <p class="lede">恶意程序与控制服务器之间的通信（C2）有哪些方式，企业在网络层应做哪些限制，做完之后还剩什么风险。给负责企业网络和安全的人看。</p>
+    <p class="meta"><span>案例覆盖至 2026 年 10 月</span><span>产品文档查阅日 2026-10-07</span><span>不针对特定公司网络或设备型号</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>C2 正在从攻击者自建的服务器，转向企业已经允许的服务。2025 到 2026 年的公开案例里，Google Calendar、Microsoft 365、Discord、Telegram、Cloudflare Tunnel、Tailscale 和商业远程管理工具都被用作控制通道。</p>
+    <p>网络层能做三件事：收紧 DNS，阻塞不需要的服务和端口，记录足够的日志供关联分析。这三件事挡得住大部分自建 C2 和地址寻址，也能让隧道和远程管理工具的滥用留下痕迹。</p>
+    <p>网络层挡不住藏在已允许云服务里的 C2。那部分需要终端进程证据和服务审计日志。企业应把网络限制当成第一层，不当成唯一一层。</p>
+  </div>
+
+  <p>本文依据公开的一手报告和产品文档。规则、阈值和次序是建议，需要在各自环境中测试。本文不修改任何网络设置。</p>
+
+  <h2 id="p1">第一部分：C2 现状</h2>
+
+  <h3 id="p1-1">1.1 C2 由几段通信组成</h3>
+  <p>恶意程序常有几段通信：寻找控制地址、下载下一段程序、交换命令、上传结果、传送文件。一个服务可以承担一段，也可以承担全部。</p>
+  <p>例如，程序先从公共博客或区块链合约读取地址，再用 HTTPS 连接另一台服务器。博客是地址来源，另一台服务器是命令通道。大文件还可能上传到第三个云存储。<sup><a href="#src-4">4</a>,<a href="#src-5">5</a></sup></p>
+  <p>只监测上传的服务，会错过早期控制。只阻塞地址来源，会错过已建立的通道。设计限制时，每一段都要考虑。</p>
+
+  <h3 id="p1-2">1.2 12 类通信方式</h3>
+  <p>下表按通信方式分类。各类可以组合。端口是常见设置，不能作为唯一识别依据。MITRE ATT&amp;CK 收录这些协议及代理方式。<sup><a href="#src-7">7</a> 到 <a href="#src-14">14</a></sup></p>
+  <div class="tbl wide">
+    <table>
+      <caption>12 类 C2 通信方式，以及网络层能阻塞什么、能报警什么</caption>
+      <thead><tr><th scope="col">方式</th><th scope="col">通信如何发生</th><th scope="col">网络可阻塞的对象</th><th scope="col">网络报警依据</th><th scope="col">主要限制</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">自建 HTTP/HTTPS、WebSocket</th><td>设备请求命令，或保留连接接收命令</td><td>已知恶意域名、IP；不必要的外部连接</td><td>罕见目的地、反复短连接、少量定期通信、异常长连接</td><td>TCP 443 与正常网页相同；加密隐藏内容</td></tr>
+        <tr><th scope="row">DNS 通道</th><td>命令或数据进入查询名及 DNS 响应</td><td>已知域名；外部解析器</td><td>长子域名、多次不同子域名、异常 TXT、异常查询量</td><td>合法解析器也能转发恶意查询</td></tr>
+        <tr><th scope="row">加密 DNS</th><td>DoH、DoT、DoQ 隐藏解析或 DNS 通道</td><td>未批准解析服务、853；必要时限制 UDP 443</td><td>设备连接多个解析服务、绕过公司 DNS</td><td>自建 DoH 可混入普通 HTTPS</td></tr>
+        <tr><th scope="row">公共内容中的控制地址</th><td>博客、代码仓库、帖子、区块链合约存放地址</td><td>恶意页面、账号、仓库；不必要的内容服务</td><td>公共内容访问后，紧接罕见外部连接</td><td>HTTPS 隐藏具体页面；服务域名本身正常</td></tr>
+        <tr><th scope="row">云 API 双向通信</th><td>日历、云盘、邮箱、消息 API 承载命令和结果</td><td>无业务需求的 API；可见的恶意账号或资源</td><td>异常调用、罕见进程访问、租户和账号异常</td><td>单看域名不能识别账号或命令</td></tr>
+        <tr><th scope="row">隧道和中继</th><td>Cloudflare Tunnel、ngrok 或自建隧道连接外部</td><td>未批准服务、应用、目的地和端口</td><td>新的长期连接、隧道进程、新外部中继</td><td>不需要开放入站端口；可用 TCP 443</td></tr>
+        <tr><th scope="row">合法远程管理工具</th><td>RMM、远程桌面客户端接收操作</td><td>未批准工具及服务；限制获批设备</td><td>首次出现的远程管理、异常会话或账号</td><td>工具可改名；自建服务器没有固定厂商域名</td></tr>
+        <tr><th scope="row">Tor、代理和 VPN</th><td>多段中继隐藏最终控制服务器</td><td>已知入口、未批准代理和 VPN 应用</td><td>未批准中继、持续连接、跨规则回退</td><td>桥接和自建服务可绕过静态清单</td></tr>
+        <tr><th scope="row">P2P 和覆盖网络</th><td>设备直接通信，或借中继交换命令</td><td>不必要的 P2P、未批准覆盖网络</td><td>多个罕见节点、异常 UDP、外部中继</td><td>域名阻塞可能找不到控制服务器</td></tr>
+        <tr><th scope="row">邮件、消息代理、文件协议</th><td>SMTP/IMAP、MQTT/XMPP、FTP 等传命令</td><td>无需求的外部端口；限定批准服务器</td><td>外部邮件服务器、首次消息代理、协议与设备用途不符</td><td>同类协议也能使用 HTTPS 或非标准端口</td></tr>
+        <tr><th scope="row">原始 TCP/UDP、ICMP</th><td>自定义协议或报文传命令</td><td>不必要的协议和外部端口</td><td>异常协议、固定大小报文、罕见外部主机</td><td>IP 直连不需要 DNS；正常诊断也用 ICMP</td></tr>
+        <tr><th scope="row">内部代理、内部 C2、入站控制</th><td>一台设备替其他设备通信；攻击者操作公开服务</td><td>内网访问范围、暴露服务、未批准端口</td><td>新的横向连接、内部中继、服务异常访问</td><td>同一 VLAN 的流量可能不经过网关</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="p1-3">1.3 趋势一：自建服务器仍是主体，份额在降</h3>
+  <p>Recorded Future 的 2025 年回顾显示，Cobalt Strike 仍是检测到最多的攻击框架，约占攻击工具 C2 服务器的一半，但份额连续两年下降。Metasploit、Mythic 保持位置，RedGuard、Ligolo、Supershell 增长。AsyncRAT 和 QuasarRAT 继续领跑远程木马。<sup><a href="#src-34">34</a></sup></p>
+  <p>同一报告对 2026 年的判断是：变化来自渐进调整，攻击者会继续借用合法工具、服务和 CDN，把恶意流量混进正常流量。<sup><a href="#src-34">34</a></sup> 2026 年上半年的后续报告确认了这个方向：Hive0163 用 AI 生成的 C2 框架 NodeSnake，Interlock RAT 则通过 WebSocket 连接硬编码地址。<sup><a href="#src-35">35</a></sup></p>
+  <p>这类自建 C2 是网络限制最能覆盖的部分。已知指标、罕见目的地和连接节律都有效。</p>
+
+  <h3 id="p1-4">1.4 趋势二：云服务 API 成为控制通道</h3>
+  <ol class="timeline">
+    <li><time>2025-05</time><div><strong>TOUGHPROGRESS</strong> 使用 Google Calendar。程序读取活动描述中的命令，把结果写进其他活动。Google 报告。<sup><a href="#src-19">19</a></sup></div></li>
+    <li><time>2026-05</time><div><strong>EchoCreep、GraphWorm</strong>。Webworm 组织放弃旧工具，改用两个 Go 后门：EchoCreep 用 Discord 频道收发命令，GraphWorm 用 Microsoft Graph API 在攻击者自己的 OneDrive 租户里为每个受害者建文件夹。ESET 报告。<sup><a href="#src-36">36</a></sup></div></li>
+    <li><time>2026-07</time><div><strong>TELESHIM</strong> 使用 Telegram API。Zscaler 报告。<sup><a href="#src-20">20</a></sup></div></li>
+    <li><time>2026-07</time><div><strong>HOLLOWGRAPH</strong> 用 Microsoft 365 日历活动接收命令，用 DNS 通道刷新凭据。Group-IB 报告。<sup><a href="#src-37">37</a></sup></div></li>
+    <li><time>2026-08</time><div><strong>TWINLOOT</strong> 用 SharePoint Online 下发任务，用 Teams 的 TURN 中继做交互，并借受害者本机的 Edge 浏览器发出 Graph 请求。Ontinue 报告。<sup><a href="#src-38">38</a></sup></div></li>
+    <li><time>2026-09</time><div><strong>CHOSEN BRICK</strong> 为每个受害者使用独立的 Telegram Bot。NCSC、FBI 和 AIVD 联合报告。<sup><a href="#src-21">21</a></sup></div></li>
+    <li><time>2026-10</time><div><strong>Antino</strong>。Outlook 邮件承载命令和响应，OneDrive 承载注册、状态、窃取的文件和工具。到 2026 年 7 月，约 350 台终端受影响。Cisco Talos 报告。<sup><a href="#src-39">39</a></sup></div></li>
+  </ol>
+  <p>这些案例的共同点：网络只看到 <code>graph.microsoft.com</code>、<code>api.telegram.org</code> 或 <code>discord.com</code>。租户、账号、Bot ID 和内容都在加密之内。TWINLOOT 借用正常浏览器进程，连终端进程归因也变难。</p>
+
+  <h3 id="p1-5">1.5 趋势三：隧道、远程管理工具和覆盖网络</h3>
+  <p>Red Canary 的 2026 年检测报告分析了超过 11 万起威胁。它把 RMM 列为 2025 年最常见的载荷之一，尤其是在诱导用户粘贴命令的攻击之后。AnyDesk、QuickAssist、SimpleHelp 出现在勒索软件加密之前。2026 年初，ScreenConnect 和 NetSupport Manager 位列滥用榜首。<sup><a href="#src-40">40</a>,<a href="#src-41">41</a></sup></p>
+  <p>2026 年 9 月，Microsoft 报告 Storm-2570 使用多种 RMM，并配合 ngrok 和 Cloudflare Tunnel。<sup><a href="#src-22">22</a></sup> 2026 年 8 月，Microsoft 的 TerminalFix 分析记录了 Python 反向隧道，通过加密 WebSocket 转发 TCP 流量。<sup><a href="#src-15">15</a></sup></p>
+  <p>2026 年 9 月，Malwarebytes 报告 Kothamine 使用 tailcat。tailcat 借助 Tailscale 的数据通道，包括 WireGuard、NAT 穿透和 DERP 中继，不走常规的账号控制流程。<sup><a href="#src-25">25</a></sup></p>
+  <p>这类通道的特点是：不需要开放入站端口，可以走 TCP 443，而且与企业自己批准的工具共用服务。企业允许 Tailscale 或 AnyDesk，并不等于允许所有同类通道。</p>
+
+  <h3 id="p1-6">1.6 趋势四：地址来源公开化</h3>
+  <p>2025 年，Google 报告朝鲜攻击者采用 EtherHiding，把下一段程序和控制地址写进区块链合约。读取既可以通过 RPC 节点，也可以通过集中式区块浏览器 API。<sup><a href="#src-4">4</a></sup> 这种设计让攻击者不必维护域名。阻塞一组 RPC 域名后，攻击者换提供商或换链即可。</p>
+  <p>MITRE 把这类方式归为 Dead Drop Resolver。<sup><a href="#src-5">5</a></sup> 公共博客、代码仓库、社交帖子都能充当地址来源。</p>
+
+  <h3 id="p1-7">1.7 跨类别的隐藏手段</h3>
+  <ul>
+    <li>DGA：程序生成大量域名，寻找可用控制地址。</li>
+    <li>Fast flux：一个域名快速更换 IP 或名称服务器。2025 年 4 月的联合公告把它列为防御缺口。<sup><a href="#src-26">26</a></sup></li>
+    <li>动态 DNS：域名随设备地址变化。</li>
+    <li>CDN、Serverless：控制服务藏在正常托管平台后面。</li>
+    <li>Domain fronting：可见名称与实际请求目的地不同。<sup><a href="#src-10">10</a></sup></li>
+    <li>ECH：加密 ClientHello 中的真实服务器名。外部设备只能看到共享名称。<sup><a href="#src-27">27</a></sup></li>
+    <li>多层加密：BRICKSTORM 先建 HTTPS，再升级 WebSocket，再在通道内增加 TLS 并复用多个数据流。即使解密外层，内层仍是密文。<sup><a href="#src-16">16</a></sup></li>
+    <li>内容隐写：图片、文本和文件都能藏指令。<sup><a href="#src-7">7</a>,<a href="#src-15">15</a></sup></li>
+  </ul>
+  <p>合法 CDN 也会更换 IP，低 TTL 不能单独证明 fast flux。ECH 本身不是恶意行为。这些手段抬高了网络层单独判断的难度。</p>
+
+  <h2 id="p2">第二部分：企业应在网络上做的限制</h2>
+
+  <h3 id="p2-1">2.1 原则</h3>
+  <ol>
+    <li>规则按设备类别分组。员工设备、访客、IoT、服务器、开发设备各有独立规则。</li>
+    <li>例外必须指定设备、目的地、负责人和到期时间。</li>
+    <li>IPv4 与 IPv6 采用相同策略。</li>
+    <li>允许规则先于阻塞规则生效。检查已有的“允许所有”规则。</li>
+    <li>每条阻塞都记录日志。阻塞而不记录，等于放弃了最便宜的报警信号。</li>
+    <li>规则只适用于经过网关的流量。离开办公网络的笔记本，需要设备上的 DNS 过滤或网络代理。</li>
+  </ol>
+
+  <h3 id="p2-2">2.2 阻塞规则</h3>
+  <div class="tbl wide">
+    <table>
+      <caption>10 条阻塞规则，按部署顺序排列</caption>
+      <thead><tr><th scope="col">顺序</th><th scope="col">规则</th><th scope="col">动作</th><th scope="col">例外和检查</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">1</td><td>员工设备 → 指定 DNS</td><td>允许 TCP/UDP 53；如采用加密 DNS，允许指定服务</td><td>包括 IPv6；保留内部域名解析</td></tr>
+        <tr><td class="mono">2</td><td>员工设备 → 其他外部 DNS</td><td>阻塞 TCP/UDP 53，并记录</td><td>检查网关重定向与日志归因</td></tr>
+        <tr><td class="mono">3</td><td>员工设备 → 未批准加密 DNS</td><td>阻塞 TCP/UDP 853；阻塞已知 DoH 服务</td><td>获批的离网 DNS 代理需例外</td></tr>
+        <tr><td class="mono">4</td><td>无需求的区块链 RPC、链上 API</td><td>域名阻塞并记录</td><td>开发或钱包设备单独审批</td></tr>
+        <tr><td class="mono">5</td><td>员工设备 → 外部 TCP/UDP 7844</td><td>阻塞并记录</td><td>获批 Cloudflare Tunnel 设备单独允许</td></tr>
+        <tr><td class="mono">6</td><td>未批准隧道、RMM、VPN、代理</td><td>应用与域名规则；具备准确指标时加 IP 规则</td><td>自建服务仍需行为检测</td></tr>
+        <tr><td class="mono">7</td><td>外部 SMB、RDP、FTP、消息代理</td><td>无业务需求时阻塞并记录</td><td>常见端口 445、3389、21、1883、8883；端口不是完整清单</td></tr>
+        <tr><td class="mono">8</td><td>外部 SSH、邮件协议</td><td>只允许批准目的地</td><td>SSH、邮件客户端和开发设备有正常需求</td></tr>
+        <tr><td class="mono">9</td><td>横向网络访问</td><td>员工、IoT、访客、管理网分段；按服务允许</td><td>不能假定不同 VLAN 自动隔离</td></tr>
+        <tr><td class="mono">10</td><td>UDP 443</td><td>先测试，再决定阻塞</td><td>可让部分 HTTP/3 回退 TCP；可能影响其他正常服务</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>第 1 到 3 条是 DNS 控制。阻塞 853 只能处理常规 DoT 和 DoQ。DoH 走 TCP 443，也可经 HTTP/3 走 UDP 443，任何 HTTPS 服务都能转发 DNS。所以要同时限制外部 53、已知 DoH 服务，并记录设备连接多个解析服务的行为。<sup><a href="#src-1">1</a>,<a href="#src-2">2</a>,<a href="#src-3">3</a></sup></p>
+  <p>第 5 条针对 Cloudflare Tunnel。官方文档列出标准连接端口 TCP/UDP 7844。阻塞两者可阻塞标准 <code>cloudflared</code>，不需要阻塞整个 Cloudflare 网络。<sup><a href="#src-23">23</a></sup> 但 ngrok 官方说明其代理可走 TCP 443，所以端口规则不能覆盖所有隧道。<sup><a href="#src-24">24</a></sup></p>
+  <p>第 10 条只用于减少加密 UDP 的检测缺口，不是通用 C2 规则。WebSocket、DoH 和 VPN 仍可使用 TCP 443。</p>
+  <p>对服务器和 IoT，逐步采用目的地允许清单。对工程师的通用电脑，先收集业务基线。只允许 80/443，无法识别借用这两个端口的 C2。</p>
+
+  <h3 id="p2-3">2.3 服务清单的处理方式</h3>
+  <p>不要把合法服务直接加入恶意清单。滥用要按业务需要处理。</p>
+  <div class="tbl wide">
+    <table>
+      <caption>常被滥用的服务，以及对应的处理策略</caption>
+      <thead><tr><th scope="col">对象</th><th scope="col">建议策略</th><th scope="col">原因</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">已确认恶意域名、IP</th><td>阻塞；立即报警</td><td>属于具体威胁指标；仍需检查指标期限</td></tr>
+        <tr><th scope="row">区块链 RPC 与链上读取 API</th><td>先列实际使用的域名，无需求时阻塞；查询触发调查</td><td>提供商和链可替换；覆盖区块浏览器 API</td></tr>
+        <tr><th scope="row"><code>api.telegram.org</code></th><td>仅允许批准的机器人和自动化设备</td><td>减少 Bot API 滥用；需验证已有集成</td></tr>
+        <tr><th scope="row">Discord</th><td>无业务需求时阻塞；有需求时限制到批准设备</td><td>EchoCreep 等后门用频道收发命令</td></tr>
+        <tr><th scope="row">Cloudflare Tunnel 中继</th><td>无需求时阻塞 7844；补域名策略</td><td>代理中继与公开网页地址不同</td></tr>
+        <tr><th scope="row">ngrok</th><td>无需求时阻塞服务；开发设备定期例外</td><td>使用 TCP 443；支持自定义域名</td></tr>
+        <tr><th scope="row">Tailscale、其他覆盖网络</th><td>限定批准设备和应用；检测未批准程序</td><td>合法服务可承载恶意通信</td></tr>
+        <tr><th scope="row">AnyDesk、TeamViewer、ScreenConnect、NetSupport、SimpleHelp、MeshCentral 等</th><td>只保留批准工具；监测新实例</td><td>商业服务和自建服务器均可用于控制</td></tr>
+        <tr><th scope="row">GitHub、Google、Microsoft 365、Cloudflare、云存储</th><td>保留业务需要；关联行为和账号日志</td><td>整域或整段 IP 阻塞影响面大</td></tr>
+        <tr><th scope="row">新注册域名、动态 DNS</th><td>先报警；高限制网络可阻塞并加例外</td><td>正常服务也使用这些域名</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>ThreatFox 提供已知恶意指标，SSLBL 提供恶意 TLS 连接相关指标。<sup><a href="#src-32">32</a>,<a href="#src-33">33</a></sup> 信誉库有时间差。共享云 IP、失效 IP、转移后的域名，避免永久阻塞。</p>
+  <p>每个指标至少记录：来源、首次发现时间、最后核查时间、失效时间、匹配范围和业务例外。</p>
+
+  <h3 id="p2-4">2.4 网关能做和不能做的事</h3>
+  <div class="tbl">
+    <table>
+      <caption>常见企业网关的能力边界</caption>
+      <thead><tr><th scope="col">能力</th><th scope="col">常见网关能做</th><th scope="col">对本方案的影响</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">DNS 过滤</th><td>按网络或设备阻塞域名</td><td>适合阻塞无需求服务；不能替代 HTTPS 内容检测</td></tr>
+        <tr><th scope="row">IDS/IPS</th><td>签名检测；IPS 可阻塞命中流量</td><td>开启并维护；未知协议和加密内容仍有缺口</td></tr>
+        <tr><th scope="row">应用识别</th><td>按流量特征识别常见应用</td><td>能标记已知 RMM、VPN、隧道；改名或自建服务可能漏</td></tr>
+        <tr><th scope="row">流量记录</th><td>记录经过网关的会话</td><td>可查端口、字节数、时长；长连接需检查记录时机；记录数有上限</td></tr>
+        <tr><th scope="row">TLS 解密</th><td>只有部分型号支持，且需要在终端安装证书</td><td>多数中小企业网关不支持；即使支持，内层加密仍不可见</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>“深度包检测”不等于“TLS 解密”。开启应用识别和 IPS，不会让网关读到加密 URL、Bot Token、日历内容或 JSON-RPC 方法。<sup><a href="#src-1">1</a>,<a href="#src-6">6</a>,<a href="#src-28">28</a>,<a href="#src-29">29</a></sup></p>
+  <div class="warn"><b>部署前确认</b>阻塞事件和 DNS 查询能否导出到日志分析服务，字段是否包含查询域名、设备地址、动作和规则。不能假定所有事件都能完整导出。要生成测试事件，再检查接收端。<sup><a href="#src-6">6</a></sup></div>
+
+  <h3 id="p2-5">2.5 建议的部署结构</h3>
+  <div class="tbl">
+    <table>
+      <caption>五个部件的职责分工</caption>
+      <thead><tr><th scope="col">部件</th><th scope="col">职责</th><th scope="col">需要的证据</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">网关</th><td>阻塞不需要的通信；IPS；网络分段</td><td>规则命中和流量记录</td></tr>
+        <tr><th scope="row">公司 DNS 解析器或保护型 DNS</th><td>域名信誉、RPC 清单、完整 DNS 查询日志</td><td>原设备身份、查询名、响应、阻塞原因</td></tr>
+        <tr><th scope="row">日志分析服务</th><td>合并记录；去重；关联；发送报警</td><td>报警记录和送达时间</td></tr>
+        <tr><th scope="row">网络传感器</th><td>DNS、连接、TLS 元数据、协议分析</td><td>Zeek/Suricata 日志及捕获丢包情况</td></tr>
+        <tr><th scope="row">终端防护与管理</th><td>进程归因；限制代理和 DNS 设置；应用控制</td><td>进程路径、签名、父进程、外部连接</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>先用现有日志分析服务。缺少 DNS 行为分析时，再增加传感器。Security Onion 可接收网关事件，也可通过镜像流量运行 Zeek 和 Suricata。<sup><a href="#src-30">30</a>,<a href="#src-31">31</a></sup></p>
+  <p>传感器应接收 LAN 侧的双向流量。只监测 WAN，NAT 后容易丢失原设备身份。只镜像网关上联，会漏掉同一交换机内的设备通信。镜像流量不会解密 TLS。采集和分析放在独立设备上。</p>
+  <p>Red Canary 把应用控制列为治理 RMM 的第一步：批准清单之外的 RMM 一律禁止执行。<sup><a href="#src-41">41</a></sup> 这一步在终端完成，网络只能补充。</p>
+
+  <h3 id="p2-6">2.6 建议部署的 10 条报警</h3>
+  <p>以下是起点，不是经过测试的标准。每条报警应说明数据来源。没有对应字段时，不应声称规则已运行。</p>
+  <div class="tbl wide">
+    <table>
+      <caption>10 条报警的条件、级别、数据要求和处理</caption>
+      <thead><tr><th scope="col">ID</th><th scope="col">条件</th><th scope="col">初始级别</th><th scope="col">必需数据</th><th scope="col">处理</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" class="mono">C2-01</th><td>命中有效的已知 C2 指标或高置信 IPS 签名</td><td><span class="pill bad">高</span></td><td>DNS、IPS 或连接日志</td><td>阻塞；调查设备；确认后隔离</td></tr>
+        <tr><th scope="row" class="mono">C2-02</th><td>员工设备查询禁止的 RPC 或链上 API</td><td><span class="pill warn">中</span> 有其他异常时升高</td><td>DNS 查询及设备身份</td><td>查终端进程和后续连接</td></tr>
+        <tr><th scope="row" class="mono">C2-03</th><td>设备尝试外部 DNS、853 或未批准 DoH</td><td><span class="pill warn">中</span></td><td>防火墙、DNS、应用识别</td><td>区分设置错误与恶意回退</td></tr>
+        <tr><th scope="row" class="mono">C2-04</th><td>设备在 1 小时内访问至少 3 个未批准 DoH 服务</td><td><span class="pill warn">中</span></td><td>可识别解析服务的连接数据</td><td>排除获批浏览器设置；调查回退</td></tr>
+        <tr><th scope="row" class="mono">C2-05</th><td>设备向同一注册域发出异常编码子域名查询</td><td><span class="pill warn">中</span></td><td>完整 DNS 查询</td><td>结合名称长度、变化率、查询类型和业务基线</td></tr>
+        <tr><th scope="row" class="mono">C2-06</th><td>罕见外部目的地出现反复小流量通信</td><td><span class="pill warn">中</span></td><td>非采样连接记录或传感器</td><td>关联 DNS 信誉、设备用途和进程</td></tr>
+        <tr><th scope="row" class="mono">C2-07</th><td>未批准隧道、RMM、VPN 或覆盖网络首次出现</td><td><span class="pill warn">中</span> 伴随命令执行时升高</td><td>应用识别、连接和终端日志</td><td>核对例外；阻塞未批准通信</td></tr>
+        <tr><th scope="row" class="mono">C2-08</th><td>设备访问异常公共内容后，建立罕见外部连接</td><td><span class="pill warn">中</span></td><td>代理或终端日志、DNS、连接</td><td>检查地址解析链和下载行为</td></tr>
+        <tr><th scope="row" class="mono">C2-09</th><td>脚本或未知程序反复访问消息、日历或云存储 API</td><td><span class="pill bad">高</span> 或 <span class="pill warn">中</span>，按进程证据</td><td>终端进程加代理或 DNS</td><td>检查签名、父进程、计划任务和账号</td></tr>
+        <tr><th scope="row" class="mono">C2-10</th><td>一个控制通道被阻塞后，设备短时改用其他服务</td><td><span class="pill bad">高</span> 或 <span class="pill warn">中</span>，按关联证据</td><td>多种日志及统一设备身份</td><td>合并为一个事件；调查设备</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><span class="mono">C2-04</span> 参考 BRICKSTORM 的多 DoH 检测思路。<sup><a href="#src-18">18</a></sup> 数量和时间窗口需按业务调整。</p>
+  <p><span class="mono">C2-05</span> 可先用观察条件：10 分钟内，同一设备对同一注册域查询至少 100 个不同子域名，至少一半含超过 40 个字符的标签。它只产生调查信号，低速 DNS C2 不一定触发。不要阻塞全部 TXT，邮件验证需要 TXT。CDN、反垃圾邮件和安全软件也会产生类似流量。<sup><a href="#src-8">8</a>,<a href="#src-17">17</a></sup></p>
+  <p><span class="mono">C2-06</span> 可先检查 1 小时内至少 20 次小连接，目的地在近 14 天基线中罕见。再检查间隔规律性和传输大小。定时更新、安全软件和监控程序需要排除。长连接用另一条条件，例如持续 30 分钟且目的地罕见。</p>
+  <p>不要只按流量大报警，命令通道可以很小。不要只按固定间隔报警，攻击者可以改变间隔。不要把共享 CDN 的 IP 稀有度当成域名稀有度。</p>
+  <p>报警按“设备＋规则＋目的地”去重，同类事件 15 分钟内合并。高置信事件立即通知值班人，其余进入调查队列。自动隔离只用于已验证的高置信规则。</p>
+
+  <h3 id="p2-7">2.7 日志字段与留存</h3>
+  <p>必须保留：</p>
+  <ul>
+    <li>时间、时区和设备唯一标识。</li>
+    <li>原始客户端 IP、VLAN 和当时的地址归属。</li>
+    <li>目标 IP、端口、协议、字节数和连接时长。</li>
+    <li>查询域名、查询类型、响应码；可用时保留响应地址。</li>
+    <li>允许或阻塞动作、命中规则、IPS 签名和指标来源。</li>
+    <li>有终端日志时，保留进程路径、签名和父进程。</li>
+  </ul>
+  <p>MAC 地址不能独自保证稳定身份。DHCP 变化、IPv6 隐私地址和设备代理都影响归因。</p>
+  <p>先保留 30 天可查询日志，再按容量、调查需要和隐私要求扩展到 90 天。网关自身的记录数上限不能直接换算成天数。采样流量记录适合看趋势，不保证保留每次短连接。</p>
+  <p>监测日志停止、设备时间偏移和镜像丢包。数据源失效时，产生单独的监测报警。没有报警不等于没有通信。</p>
+
+  <h3 id="p2-8">2.8 部署次序</h3>
+  <ol>
+    <li>核对网关版本、存储和日志导出。用自有测试域名生成允许与阻塞事件，确认接收端能查到设备、域名、动作和规则。</li>
+    <li>建立 DNS 控制。指定公司解析器，阻塞其他外部 DNS，处理未批准的加密 DNS。验证 IPv4 与 IPv6 结果一致，内部域名正常。</li>
+    <li>阻塞低影响服务。无需求的 RPC、未批准的 7844 隧道、未批准 RMM 和远程访问。每类阻塞都有记录，每个例外都有范围和到期时间。</li>
+    <li>收集 7 到 14 天行为基线。标记合法更新、浏览器、机器人、CI 和远程支持。规则先只产生调查事件。减少误报时用具体设备和目的地例外，不整体关闭规则。</li>
+    <li>启用通知与响应。高置信命中即时通知，行为异常进入队列，日志中断单独报警。高置信事件建议 5 分钟内送达。</li>
+  </ol>
+
+  <h3 id="p2-9">2.9 验收表</h3>
+  <p>以下测试只使用自有服务或批准的测试服务。不连接真实 C2，不下载恶意样本。</p>
+  <div class="tbl wide">
+    <table>
+      <caption>13 项无恶意程序的验收测试</caption>
+      <thead><tr><th scope="col">测试</th><th scope="col">方法</th><th scope="col">必须看到的结果</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">域名阻塞</th><td>临时阻塞自有测试域名；请求根域与子域</td><td>解析受阻；记录原设备和规则</td></tr>
+        <tr><th scope="row">外部普通 DNS</th><td>测试机向外部解析器发 UDP/TCP 53 查询</td><td>阻塞或按设计重定向；有证据</td></tr>
+        <tr><th scope="row">DoT、DoQ、DoH</th><td>用批准测试客户端请求批准与未批准服务</td><td>结果分别符合允许和阻塞规则</td></tr>
+        <tr><th scope="row">IP 直连</th><td>用预先记录的自有服务器 IP 建立 HTTPS</td><td>展示 DNS 阻塞的边界；其他策略结果符合设计</td></tr>
+        <tr><th scope="row">IPv6</th><td>通过自有 AAAA 记录重复测试</td><td>策略与 IPv4 一致；设备可归因</td></tr>
+        <tr><th scope="row">Cloudflare Tunnel</th><td>在隔离测试设备使用批准测试隧道</td><td>阻塞 TCP/UDP 7844 后，标准代理不能建立连接</td></tr>
+        <tr><th scope="row">DNS 行为规则</th><td>向自有域名发有限的合成查询</td><td><span class="mono">C2-05</span> 调查事件出现</td></tr>
+        <tr><th scope="row">周期连接</th><td>向自有服务器发有限的定期小请求</td><td>行为事件出现；正常监测例外生效</td></tr>
+        <tr><th scope="row">云 API</th><td>让批准脚本访问测试资源</td><td>网络日志能归因；确认是否具备路径和进程信息</td></tr>
+        <tr><th scope="row">长连接</th><td>向自有服务保持测试连接</td><td>证明长连接记录与通知的实际延迟</td></tr>
+        <tr><th scope="row">内网通信</th><td>在同 VLAN 与跨 VLAN 各发受控请求</td><td>证明传感器和网关的实际可见范围</td></tr>
+        <tr><th scope="row">离开办公室</th><td>测试机使用手机热点</td><td>设备上的 DNS 或网络代理继续执行策略</td></tr>
+        <tr><th scope="row">通知</th><td>生成测试规则命中</td><td>值班人收到完整事件；重复事件合并</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>保留每项测试的时间、设备、规则、日志或截图。网络规则只能证明阻塞了测试通信，不能证明覆盖所有 C2。</p>
+
+  <h3 id="p2-10">2.10 可用的开源项目</h3>
+  <p>开源项目分两层。一层提供已知恶意域名和 IP 的清单，另一层分析连接行为。没有一个项目覆盖全部 12 类，也没有项目能阻塞已允许云服务内的 C2。</p>
+  <div class="tbl">
+    <table>
+      <caption>10 个开源项目，以及它们覆盖的 C2 类别</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">提供什么</th><th scope="col">覆盖的类别</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><a href="https://threatfox.abuse.ch/" target="_blank" rel="noopener">ThreatFox</a>（abuse.ch）</th><td>已知 C2 域名和 IP，hostfile 格式</td><td>有已知指标的自建 C2</td></tr>
+        <tr><th scope="row"><a href="https://github.com/hagezi/dns-blocklists" target="_blank" rel="noopener">HaGeZi TIF</a></th><td>聚合威胁情报清单，适配 Pi-hole、AdGuard Home、pfBlockerNG</td><td>恶意软件、钓鱼、部分 C2 和动态 DNS</td></tr>
+        <tr><th scope="row"><a href="https://github.com/magicsword-io/LOLRMM" target="_blank" rel="noopener">LOLRMM</a></th><td>RMM 工具目录，含域名、IP 和 Sigma 规则；lolrmm.io 提供 API</td><td>远程管理工具滥用</td></tr>
+        <tr><th scope="row"><a href="https://github.com/0xtato/LOLRMM-Actions" target="_blank" rel="noopener">LOLRMM-Actions</a></th><td>从 LOLRMM 自动生成的 <code>domains.txt</code> 和 <code>ips.txt</code></td><td>同上，可直接加载</td></tr>
+        <tr><th scope="row"><a href="https://lolc2.github.io/" target="_blank" rel="noopener">LOLC2</a></th><td>借用 Telegram、Discord、Graph API 等服务的 C2 框架目录</td><td>只提供检测思路。域名本身是合法服务</td></tr>
+        <tr><th scope="row"><a href="https://github.com/danzek/awesome-lol-commonly-abused" target="_blank" rel="noopener">LOTS、LOTTunnels</a></th><td>被滥用的合法站点和隧道服务清单</td><td>ngrok、Cloudflare Tunnel 等，作参考清单</td></tr>
+        <tr><th scope="row">Suricata 加 ET Open 规则</th><td>签名检测，可在网关内联阻塞</td><td>已知 C2 签名</td></tr>
+        <tr><th scope="row">Zeek 加 <a href="https://github.com/activecm/rita" target="_blank" rel="noopener">RITA</a></th><td>Zeek 记录连接和 DNS；RITA 对信标、长连接、DNS 通道和罕见目的地打分</td><td>报警 <span class="mono">C2-05</span>、<span class="mono">C2-06</span> 所需的行为分析</td></tr>
+        <tr><th scope="row">Security Onion</th><td>把 Zeek、Suricata 和日志平台打包成一套</td><td>传感器和日志分析</td></tr>
+        <tr><th scope="row">Velociraptor</th><td>基于 LOLRMM 数据的终端取证规则</td><td>终端侧识别 RMM</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>清单类项目接入 DNS 过滤器（Pi-hole、AdGuard Home、Technitium、Blocky）或防火墙清单（pfSense 加 pfBlockerNG、OPNsense）。常见做法是在一个通用清单之上，叠加 ThreatFox 和 URLhaus 的 hostfile 作为恶意软件层。<sup><a href="#src-42">42</a>,<a href="#src-43">43</a>,<a href="#src-44">44</a></sup></p>
+  <p>RITA 读取 Zeek 日志，输出的目的地可以写入 DNS 的 RPZ 区域，在解析器上阻塞。它需要每对地址有足够多的连接才能打分，低速通道会漏。<sup><a href="#src-45">45</a>,<a href="#src-46">46</a></sup></p>
+  <p>加载 RMM 清单前，先减去公司批准的厂商。<sup><a href="#src-47">47</a>,<a href="#src-48">48</a></sup> LOLC2 记录的服务与正常办公用同一域名，它不能生成阻塞清单。<sup><a href="#src-49">49</a></sup></p>
+  <div class="note"><b>自行维护</b>区块链 RPC 域名不在任何维护中的公开阻塞清单里。这份清单需要自己维护，2.11 给出起点。</div>
+  <p>一套可用的开源组合是：DNS 过滤器加载 ThreatFox、HaGeZi TIF 和 LOLRMM 域名清单；网关内联运行 Suricata；LAN 侧镜像流量交给 Zeek 和 RITA，产生 <span class="mono">C2-05</span> 和 <span class="mono">C2-06</span> 报警。</p>
+
+  <h3 id="p2-11">2.11 区块链 RPC 与链上数据域名</h3>
+  <p>恶意程序读取链上数据有三条路径：公共 RPC 服务商、各链官方节点、区块浏览器和索引 API。Google 的 EtherHiding 报告指出，攻击者既用 RPC，也用集中式 API。<sup><a href="#src-4">4</a></sup> 阻塞清单要三类都覆盖，测试网也要覆盖。</p>
+
+  <p>公开案例中出现过的链和端点：</p>
+  <div class="tbl wide">
+    <table>
+      <caption>使用链上数据寻址或存放载荷的公开案例</caption>
+      <thead><tr><th scope="col">案例</th><th scope="col">链</th><th scope="col">报告中出现的端点</th><th scope="col">用途</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Glupteba（2021）</th><td>Bitcoin</td><td>报告未写明读取所用的 API</td><td>主 C2 失联后，从 3 个钱包最新交易的 OP_RETURN 读取备用 C2 域名<sup><a href="#src-63">63</a></sup></td></tr>
+        <tr><th scope="row">UNC5142 / CLEARFAKE（2023 至 2025-07）</th><td>BNB Smart Chain</td><td>第三方 RPC 节点</td><td>合约存放第二段 JavaScript；后期拆成 3 个合约<sup><a href="#src-53">53</a></sup></td></tr>
+        <tr><th scope="row">ClearFake（2025 至 2026）</th><td>BSC 测试网</td><td><code>bsc-testnet-rpc.publicnode.com</code>、<code>bsc-testnet.drpc.org</code>、<code>data-seed-prebsc-1-s1.binance.org</code>、<code>data-seed-prebsc-2-s1.binance.org</code>、<code>data-seed-prebsc-2-s2.binance.org</code>、<code>bsc-testnet-dataseed.bnbchain.org</code>、<code>bnb-testnet.api.onfinality.io</code></td><td>合约存放载荷和受害者追踪；新版同时查询全部端点，取第一个有效结果<sup><a href="#src-54">54</a>,<a href="#src-55">55</a></sup></td></tr>
+        <tr><th scope="row">UNC5342 / XCTDH（2025-02 起）</th><td>TRON、Aptos、BSC、Ethereum</td><td><code>api.trongrid.io</code>、<code>fullnode.mainnet.aptoslabs.com</code>、<code>bsc-dataseed.binance.org</code>、<code>bsc-rpc.publicnode.com</code></td><td>TRON 存索引，Aptos 作备用索引，BSC 存载荷；2026-09 新增以太坊转账地址编码 C2 的 IP 和端口<sup><a href="#src-4">4</a>,<a href="#src-56">56</a>,<a href="#src-57">57</a>,<a href="#src-58">58</a></sup></td></tr>
+        <tr><th scope="row">GlassWorm（2025-10 至 2026-05）</th><td>Solana</td><td>9 个公共 RPC 端点轮询；本文引用的报告未列出主机名</td><td>交易 memo 存放下一段载荷地址；2025-11 至 2026-03 更新 50 次以上；2026-05 被联合打掉<sup><a href="#src-59">59</a>,<a href="#src-60">60</a></sup></td></tr>
+        <tr><th scope="row">macOS 植入程序（2026）</th><td>Polygon</td><td>报告未写明</td><td>从合约读取 C2 地址，约每周更换一次<sup><a href="#src-61">61</a></sup></td></tr>
+        <tr><th scope="row">Acreed 窃密程序</th><td>BSC 测试网</td><td>报告未写明</td><td>投递载荷和追踪受害者<sup><a href="#src-62">62</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>这些案例给出四条阻塞要求：</p>
+  <ul>
+    <li>测试网与主网同样阻塞。ClearFake 选 BSC 测试网，一个原因是测试网没有交易费。<sup><a href="#src-54">54</a></sup></li>
+    <li>按服务商整体阻塞，不按单个端点阻塞。ClearFake 新版并行查询 7 个端点，GlassWorm 轮询 9 个。</li>
+    <li>非 EVM 链要单独列。TRON、Aptos、Solana、Bitcoin 不在 EVM 链注册表里。</li>
+    <li>攻击用过的端点要手工补进清单。BNB Chain 的注册信息已改用 <code>bnbchain.org</code>，两份注册表里 <code>binance.org</code> 的条目都是 0，但 XCTDH 和 ClearFake 仍在查询 <code>binance.org</code> 的节点。</li>
+  </ul>
+
+  <p>EVM 链的公共 RPC 有两份开源注册表。本文在 2026-10-07 拉取两份数据，提取主机名，按注册域名归并：<sup><a href="#src-51">51</a>,<a href="#src-52">52</a></sup></p>
+  <div class="tbl">
+    <table>
+      <caption>EVM 公共 RPC 注册表的规模（数据截至 2026-10-06 的提交）</caption>
+      <thead><tr><th scope="col">数据源</th><th scope="col" class="num">链</th><th scope="col" class="num">RPC 主机名</th><th scope="col" class="num">注册域名</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">ethereum-lists/chains</th><td class="num">2,796</td><td class="num">3,519</td><td class="num">1,791</td></tr>
+        <tr><th scope="row">DefiLlama/chainlist（extraRpcs.js）</th><td class="num">未统计</td><td class="num">1,802</td><td class="num">未统计</td></tr>
+        <tr><th scope="row">两者合并去重</th><td class="num">未统计</td><td class="num">4,638</td><td class="num">2,045</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>长尾很长。ethereum-lists 的 1,791 个注册域名里，1,102 个只服务一条链，多为各链自己的节点。下表 12 家多链服务商合计 669 个主机名，约占合并数据的 14%。</p>
+  <div class="tbl">
+    <table>
+      <caption>合并数据中主机名最多的多链 RPC 服务商</caption>
+      <thead><tr><th scope="col">注册域名</th><th scope="col" class="num">主机名数</th><th scope="col">备注</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><code>drpc.org</code></th><td class="num">191</td><td>ClearFake 使用；原 Polygon 案例使用</td></tr>
+        <tr><th scope="row"><code>publicnode.com</code></th><td class="num">70</td><td>ClearFake、XCTDH 使用</td></tr>
+        <tr><th scope="row"><code>tatum.io</code></th><td class="num">68</td><td></td></tr>
+        <tr><th scope="row"><code>onfinality.io</code></th><td class="num">49</td><td>ClearFake 使用</td></tr>
+        <tr><th scope="row"><code>pocket.network</code></th><td class="num">42</td><td></td></tr>
+        <tr><th scope="row"><code>blastapi.io</code></th><td class="num">41</td><td></td></tr>
+        <tr><th scope="row"><code>tenderly.co</code></th><td class="num">39</td><td></td></tr>
+        <tr><th scope="row"><code>sentio.xyz</code></th><td class="num">38</td><td></td></tr>
+        <tr><th scope="row"><code>therpc.io</code></th><td class="num">38</td><td></td></tr>
+        <tr><th scope="row"><code>alchemy.com</code></th><td class="num">32</td><td>同域有公司官网</td></tr>
+        <tr><th scope="row"><code>dwellir.com</code></th><td class="num">31</td><td></td></tr>
+        <tr><th scope="row"><code>nodies.app</code></th><td class="num">30</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>主机名数只反映注册表的写法，不代表服务商支持多少条链。<code>ankr.com</code> 只有 5 个主机名，但用路径区分链，在 ethereum-lists 里服务 34 条链。其他常见服务商的主机名数：<code>bnbchain.org</code> 13、<code>infura.io</code> 12、<code>blockpi.network</code> 12、<code>quiknode.pro</code> 9、<code>chainstacklabs.com</code> 7、<code>lava.build</code> 7、<code>nodereal.io</code> 6、<code>1rpc.io</code> 3、<code>getblock.io</code> 2。<code>llamarpc.com</code> 和 <code>binance.org</code> 不在注册表里，需要手工补。</p>
+
+  <p>非 EVM 链和区块浏览器 API 不在上述注册表里，下表单独列出：</p>
+  <div class="tbl wide">
+    <table>
+      <caption>非 EVM 链官方端点与链上数据 API</caption>
+      <thead><tr><th scope="col">链或服务</th><th scope="col">主机名</th><th scope="col">阻塞粒度</th><th scope="col">依据</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Solana</th><td><code>api.mainnet-beta.solana.com</code>、<code>api.mainnet.solana.com</code>、<code>api.devnet.solana.com</code>、<code>api.testnet.solana.com</code></td><td>主机名；<code>solana.com</code> 是官网</td><td>官方集群文档<sup><a href="#src-65">65</a></sup></td></tr>
+        <tr><th scope="row">TRON</th><td><code>api.trongrid.io</code>、<code>api.shasta.trongrid.io</code>、<code>nile.trongrid.io</code>；浏览器 API <code>apilist.tronscanapi.com</code></td><td>注册域名 <code>trongrid.io</code>、<code>tronscanapi.com</code></td><td>TronGrid 文档；XCTDH 使用<sup><a href="#src-66">66</a>,<a href="#src-56">56</a></sup></td></tr>
+        <tr><th scope="row">Aptos</th><td><code>fullnode.mainnet.aptoslabs.com</code>、<code>api.mainnet.aptoslabs.com</code>；测试网 <code>fullnode.testnet.aptoslabs.com</code>、<code>fullnode.devnet.aptoslabs.com</code></td><td>主机名；<code>aptoslabs.com</code> 是官网</td><td>主网端点见 XCTDH 报告；测试网按官方命名推断，待确认<sup><a href="#src-56">56</a></sup></td></tr>
+        <tr><th scope="row">Sui</th><td><code>fullnode.mainnet.sui.io</code>、<code>fullnode.testnet.sui.io</code>、<code>fullnode.devnet.sui.io</code></td><td>主机名；<code>sui.io</code> 是官网</td><td>官方 RPC 文档<sup><a href="#src-67">67</a></sup></td></tr>
+        <tr><th scope="row">TON</th><td><code>toncenter.com</code>、<code>testnet.toncenter.com</code>、<code>tonapi.io</code></td><td>注册域名</td><td>TON 文档<sup><a href="#src-68">68</a></sup></td></tr>
+        <tr><th scope="row">Bitcoin 浏览器 API</th><td><code>blockstream.info</code>、<code>mempool.space</code>、<code>blockchain.info</code>、<code>api.blockcypher.com</code></td><td>注册域名</td><td>常见公共 API；Glupteba 未写明所用 API，本表作候选</td></tr>
+        <tr><th scope="row">EVM 区块浏览器 API</th><td><code>api.etherscan.io</code>；旧版 <code>api.bscscan.com</code>、<code>api.polygonscan.com</code></td><td>主机名；浏览器网站可保留</td><td>Etherscan V2 用一个端点覆盖 60 多条链；V1 于 2025-08-15 弃用<sup><a href="#src-64">64</a></sup></td></tr>
+        <tr><th scope="row">其他链上数据服务</th><td><code>blockscout.com</code>、<code>oklink.com</code>、<code>covalenthq.com</code>、<code>moralis.io</code>、<code>bitquery.io</code>、<code>thegraph.com</code></td><td>注册域名</td><td>常见索引和数据服务；本文未逐个核对 API 主机名，待确认</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>建议的处理方式：</p>
+  <ol>
+    <li>先阻塞攻击用过的主机名，并对它们设 <span class="mono">C2-02</span> 报警。清单见下方第一个折叠块。</li>
+    <li>再按注册域名阻塞多链服务商和 RPC 专用域名。官网与 API 同域的项目，如 <code>solana.com</code>、<code>sui.io</code>、<code>aptoslabs.com</code>、<code>alchemy.com</code>，无业务需求才整域阻塞，否则按主机名阻塞。</li>
+    <li>注册表里有噪声。合并数据把 <code>github.com</code> 和 <code>www.cloudflare.com</code> 也列为 RPC 主机名，本文已删除。另有 5 个主机名在共享平台上，4 个在 <code>workers.dev</code>，1 个在 <code>net.ru</code>，只能按完整主机名阻塞。</li>
+    <li>不做 IP 阻塞。这些服务大多在 CDN 后面，IP 与其他网站共用。</li>
+    <li>每周从两份注册表重新生成清单。两份注册表每天都有提交。</li>
+    <li>开发和钱包设备单独放行，例外按 2.2 的规则写明设备、负责人和到期时间。</li>
+  </ol>
+  <div class="warn"><b>限制</b>DNS 阻塞挡不住自建节点、IP 直连和设备自带的加密 DNS。攻击者也可以改用不在清单里的新链。清单只降低风险，报警比阻塞更重要。</div>
+
+  <details>
+    <summary>攻击报告中出现过的主机名（优先阻塞并报警）</summary>
+<pre>api.trongrid.io
+fullnode.mainnet.aptoslabs.com
+bsc-dataseed.binance.org
+bsc-dataseed1.binance.org
+bsc-dataseed2.binance.org
+bsc-dataseed3.binance.org
+bsc-dataseed4.binance.org
+bsc-rpc.publicnode.com
+bsc-testnet-rpc.publicnode.com
+bsc-testnet.publicnode.com
+bsc-testnet.drpc.org
+bsc-testnet-dataseed.bnbchain.org
+bnb-testnet.api.onfinality.io
+data-seed-prebsc-1-s1.binance.org
+data-seed-prebsc-2-s1.binance.org
+data-seed-prebsc-2-s2.binance.org</pre>
+  </details>
+  <details>
+    <summary>完整注册域名清单（2,064 个，含非 EVM 和攻击补充项）</summary>
+<pre>01no.de
+0base.dev
+0g.ai
+0xblockswap.com
+0xhash.io
+0xl3.com
+0xrpc.com
+0xrpc.io
+0xtchain.com
+1000x.ch
+1971.network
+1money.network
+1rpc.io
+3sps.net
+48.club
+4everland.org
+5ire.network
+6dochain.com
+aah.name
+aarmarpc.com
+ab.org
+abeychain.com
+abs.xyz
+abyssprotocol.ai
+aca-api.network
+aca-staging.network
+acala.network
+accesscan.io
+accesschain.org
+accesschainapp.site
+accumulatenetwork.io
+acria.ai
+actionblockchain.org
+acuteangle.com
+adftechnology.com
+adifoundation.ai
+adilchain-rpc.io
+adiri.tel
+aeon.xyz
+aere.network
+aeredium.io
+aerielab.io
+aerochain.id
+aevachain.app
+aevachain.com
+agentlayer.xyz
+agoranodes.com
+aiachain.org
+aiechain.io
+aifisc.io
+aifiv2.ai
+ailayer.xyz
+aioz.network
+aiw3.io
+akroma.io
+akroma.org
+alaya.network
+alchemy.com
+aldebaranode.xyz
+aldrickb.xyz
+algen.network
+alienxchain.io
+alkadeta.com
+allthatnode.com
+allthingslemon.io
+alltra.global
+alpen.org
+alpenlabs.io
+alph.network
+alphab.ai
+alphabetnetwork.org
+alt.technology
+altblockscan.com
+althea.zone
+altlayer.io
+altscan.org
+alvey.io
+alyxchain.com
+ama.one
+amaxchain.io
+ambros.network
+ambrosus-test.io
+ambrosus.io
+amchain.net
+amechain.io
+amstarscan.com
+amxrpc.link
+analog-rpc.com
+ancient8.gg
+anduschain.io
+anime.xyz
+animechain.ai
+ankara-cagacrypto.com
+ankr.com
+anomalygames.io
+ansybl.io
+antofy.io
+antrixy.org
+anwang.com
+anytype.io
+apechain.com
+apertum.io
+apexfusion.org
+apexlayer.xyz
+api3.org
+apolloscan.io
+apothem.network
+appchain.xyz
+applayer.com
+aptoslabs.com
+aquacha.in
+arabianchain.org
+arbitrum.io
+arc.io
+arc.network
+arcology.network
+arcturuschain.io
+ardenium.wiki
+ardescan.com
+arena-z.gg
+areon.network
+areum.network
+arianee.net
+ark.io
+armascan.io
+arrowrpc.com
+artela.network
+arthera.net
+artis.network
+arvix.network
+arzio.co
+ascscan.io
+ashchain.io
+assetchain.org
+astar.network
+asterium.uz
+astranaut.dev
+astranaut.io
+astria.org
+ata.network
+aternoschain.com
+atgraphite.com
+atheios.org
+athenescan.io
+atl.network
+atlantischain.network
+atleta.network
+atoshi.io
+atoshinetwork.xyz
+au.cc
+aultblockchain.xyz
+aura.network
+auranode.xyz
+aurora-cloud.dev
+aurora.dev
+autheo.com
+autobahn.network
+autonity-apis.com
+autonomys.xyz
+autostake.com
+autyon.io
+auxilium.global
+ava.do
+ava.network
+avastar.cc
+avax-test.network
+avax.network
+avenium.io
+avescoin.io
+aviaone.com
+avicoin.org
+axonfinance.xyz
+b2-rpc.com
+b3.fun
+backstop.technology
+bahamut.io
+bahamutchain.com
+banascan.com
+banelabs.org
+banteng.asia
+base.org
+baseazul.dev
+basedaibridge.com
+battlechain.com
+bccloud.net
+bchscan.io
+bcsdev.io
+bdagexplorer.com
+beagle.chat
+beamrpc.com
+bearnetwork.net
+beefledgerwallet.com
+beonechain.com
+beonescan.com
+berachain-apis.com
+berachain.com
+berylbit.io
+bescscan.io
+betaxchain.org
+bethel.network
+bethscan.io
+bevm.io
+bexchain.com
+bh.rocks
+bharatblockchain.io
+bie.ai
+bifrostnetwork.com
+bighive-beets.io
+bigsb.io
+bigsb.network
+binance.org
+binarychain.org
+bionixnetwork.com
+birdlayer.xyz
+bit-rock.io
+bit.diamonds
+bitassetchain.io
+bitchain.biz
+bitci.com
+bitcichain.com
+bitcoincode.technology
+bitcoinevm.com
+bitcoinevm.org
+bitfinity.network
+biticablockchain.com
+bitindi.org
+bitkubchain.io
+bitlayer-rpc.com
+bitlayer.org
+bitnet.money
+bitnetmoney.com
+bitquery.io
+bitroot.co
+bitstack.com
+bittexscan.info
+bittorrentchain.io
+bityuan.com
+bizex.io
+blackfort.network
+blast.io
+blastapi.io
+blastblockchain.com
+blastchain.org
+blgchain.com
+block-spirit.ch
+blockchain.info
+blockchain.or.th
+blockcypher.com
+blockeden.xyz
+blockex.biz
+blockfitscan.io
+blockhub.id
+blockhunters.org
+blockmachine.io
+blocknative.com
+blockpi.io
+blockpi.network
+blockrazor.io
+blockrazor.xyz
+blockscout.com
+blockstream.info
+blocktonscan.com
+blockxnet.com
+bloomgenesis.com
+bloxberg.org
+bloxroute.com
+bluchain.pro
+blx.org
+blxq.org
+blxrbdn.com
+blxscan.com
+bmcchain.com
+bnbchain.org
+bnken.net
+boar.network
+boba.network
+bombchain.com
+bool.network
+boraportal.com
+boraportal.io
+bosagora.org
+botanixlabs.com
+botanixlabs.dev
+botchain.ai
+bouncebitapi.com
+boyaa.network
+boyanet.org
+bpxchain.cc
+brainark.online
+brcchain.io
+brisescan.com
+brochain.org
+brockrpc.io
+bronos.org
+bscrpc.com
+bscscan.com
+bsquared.network
+bstchain.io
+bt.io
+btachain.com
+btcix.org
+btcprotocol.io
+btcs.network
+btcw.tech
+bthscan.io
+btn-network.org
+btn.network
+btnscan.com
+buildbear.io
+buildintheshade.com
+buildonhybrid.com
+buildwithtoki.com
+bullionsx.org
+buycex.net
+bycrpc.com
+c4ei.net
+c8ntinuum.com
+c8ntinuum.io
+c8ntinuum.link
+ca-dag.work
+cadaut.com
+caduceus.foundation
+cagamainnet.com
+caldera.xyz
+calderachain.xyz
+callisto.network
+callistodao.org
+callstatic.com
+callstaticrpc.com
+camdl.gov.kh
+camelark.com
+camino.network
+candle-rpc.com
+candychain.io
+canxium.net
+canxium.org
+capitalexchange.com
+capitalexchange.digital
+carbon.network
+carbonium.network
+carrchain.io
+cartenz.works
+cascadia.foundation
+catechain.com
+catenarpc.com
+cchain.cc
+cedalio.dev
+celestium.network
+celo-testnet.org
+celo.org
+celocolombia.org
+cemchain.com
+centrality.me
+centrifuge.io
+ceremonies.ai
+chadchain.org
+chain.link
+chain.love
+chain49.com
+chainanalytics.org
+chainbase.com
+chaingames.io
+chainpulse.cc
+chainrpc.com
+chainstack.com
+chainstacklabs.com
+chainup.net
+chainupcloud.com
+chainverse.info
+chainx.org
+chakrachain.io
+chandrastation.com
+cheapeth.org
+checkdot.io
+cheeseblockchain.com
+cheesechain.xyz
+cheesescan.com
+chiadochain.net
+chiliz.com
+chips.ooo
+choochain.io
+cicscan.com
+cipherem.com
+citrate.ai
+citrea.xyz
+citronus.com
+ckbapp.dev
+clawcoin.com
+cloudflare-eth.com
+cloudtx.finance
+clover.finance
+cmxofficial.com
+cndlchain.com
+cntrfg.com
+co2e.cc
+co2ledger.xyz
+codefin.pro
+codeupp.xyz
+codex-stg.xyz
+codex.xyz
+coinafrica.tech
+coinbosa.com
+coinex.net
+coinsec.network
+coinweb.io
+coinzax.com
+colossus.credit
+combonetwork.io
+commudao.xyz
+compverse.io
+condor.systems
+conduit.xyz
+conet.network
+confluxrpc.com
+consensys.net
+contentfabric.io
+coredao.org
+corn-rpc.com
+cosmicchain.site
+cosmostation.io
+coti.io
+covalenthq.com
+cpchain.com
+cratd2csmartchain.io
+creatorchain.io
+creditcoin.network
+creditsmartchain.com
+cronos.org
+crossbell.io
+crynux.io
+cryptocoinpay.info
+cryptocurrencydevs.org
+cryptos.com
+cryptoxnetwork.io
+crystaleum.org
+ctexscan.com
+cthscan.com
+cube.network
+cuckoo.network
+cumulo.com.es
+cumulo.me
+curvescan.io
+cybascan.io
+cyber.co
+cyberchain.xyz
+cyberdeck.eu
+cybertrust.space
+cybria.io
+cyclenetwork.io
+cyphercore.io
+cypherium.io
+cytonic.com
+d-bis.org
+d-chain.network
+d.energy
+daaps-j4ran.cloud
+dailycrypto.net
+dancorescan.com
+dannyscan.com
+darwinchain.ai
+darwinia.network
+datachain.network
+datagram.network
+datahaven-mainnet.network
+datahaven-testnet.network
+datarpc.io
+davinci.bz
+dbcwallet.io
+dbkchain.io
+dbmbp.com
+dcdao.box
+dcnetio.cloud
+dcpay.io
+deamchain.com
+debank.com
+debounce.network
+decentrabone.com
+decentraconnect.io
+decentralized-web.tech
+decentrio.ventures
+decimalchain.com
+decubate.com
+deelance.com
+deeplnetwork.org
+deepsafe.network
+defi-oracle.io
+defi-verse.org
+defibit.io
+degen.tips
+degenprotocol.io
+dehvo.com
+deinfra.net
+denergytestnet.com
+denvion.com
+deperp.com
+depinscan.io
+deptofgood.com
+deriw.com
+dev-universe-bank.com
+devianttoken.net
+devolvedai.com
+devops.cash
+dexilla.com
+dexit.network
+dexrouting.com
+dexvaults.com
+diadata.org
+diamondswap.org
+diamondz.baby
+digitalnext.business
+digitalregion.jp
+digitsoul.co.th
+dilithium3.com
+dimai.ai
+din.dev
+diode.io
+dioneprotocol.com
+divchain.org
+dkargo.io
+dmm.com
+docoin.shop
+dogcoin.me
+dogechain.dog
+dogelayer.org
+dogether.dog
+doid.tech
+dojima.network
+doken.dev
+doma.xyz
+dome.cloud
+donatuz.com
+doric.network
+dorsenscan.io
+doschain.com
+dotblox.io
+dotone.network
+dotters.network
+dpu.ac.th
+dracones.net
+dracscan.com
+dragonstake.io
+drawchain.org
+dreyerx.com
+drpc.org
+dscscan.io
+dteam.tech
+duckchain.io
+dustproject.org
+dwellir.com
+dxchain.com
+dynoprotocol.com
+e-dollar.org
+e-talk.xyz
+eavscan.com
+ebcscan.net
+ebi.xyz
+eclatscan.com
+ecnascan.com
+ecoball.org
+ecredits.com
+ecroxscan.com
+edexa.com
+edexa.network
+edgeless.network
+edgewa.re
+egem.io
+eggs.cool
+egochain.org
+egoldchain.com
+egonscan.com
+eh-dev.app
+einc.io
+eiob.xyz
+ekaash.biz
+ekta.io
+elastos.io
+elastos.net
+electranetwork.tech
+electroneum.com
+eliberty.ngo
+elk.finance
+ella.network
+ellaism.org
+eluxscan.com
+elysiumchain.tech
+elysiumchain.us
+emc.network
+emoney.io
+emoney.network
+empirenetwork.io
+energi.network
+energyweb.org
+engram.tech
+eniac.network
+eniacrpc.net
+enirpc.com
+enosys.global
+entangle.fi
+entercoin.net
+envelop.is
+eosargentina.io
+eosnetwork.com
+eosusa.io
+eramscan.com
+eraswap.network
+erbie.io
+escscan.com
+esportsblock.org
+esync.network
+etc-network.info
+etccooperative.org
+etcdesktop.com
+etcmc.xyz
+eteria.io
+ethdevops.io
+ethercluster.com
+etherfair.org
+etherlink.com
+etherlite.org
+ethernitychain.io
+etherscan.io
+etherspot.io
+ethiq.network
+ethnova.net
+ethoprotocol.com
+ethos.cool
+ethpandaops.io
+ethpar.net
+ethstorage.io
+ethxy.com
+eticaprotocol.org
+eticascan.org
+etins.org
+etm.network
+etnd.pro
+etpscan.xyz
+europool.me
+eurus.network
+evanesco.org
+evascan.io
+evedex.com
+everstake.one
+evex.cloud
+evmnode.online
+evmos.dev
+evmos.org
+evnode.org
+evoexplorer.com
+evokescan.org
+evolveblockchain.io
+evozscan.com
+evrice.com
+exlscan.com
+exorium.net
+exosama.com
+exoscan.net
+expanse.tech
+expchain.ai
+exsat.network
+exzo.technology
+ezchain.com
+fantasiachain.com
+fantom.network
+fastblocks.io
+fastexchain.com
+fastnode.io
+favoscan.com
+fene.app
+ferrumnetwork.io
+fhenix.zone
+fibo-api.asia
+fibo-rpc.asia
+fidesinnova.io
+filefilego.com
+filenova.org
+filfox.info
+filutils.com
+final-de.fi
+findora.org
+finetry.win
+firachain.com
+firestation.io
+firsttensor.com
+flaexchange.top
+flagscan.xyz
+flamma.network
+flare.network
+flashbots.net
+fluence.dev
+fluent.xyz
+fmcscan.com
+fncy.world
+fod.games
+form.network
+forma.art
+foundryscan.org
+fountainhead.cash
+foxchain.app
+foxxone.one
+fractalai.net.co
+frame.xyz
+frax.com
+freighttrust.net
+frenscan.io
+ftm.tools
+ftnscan.io
+ftso.au
+fuga.blue
+fullsend.to
+functionx.io
+funkichain.com
+furtheon.org
+furya.io
+fuse.io
+fusespark.io
+fushuma.com
+fusionist.io
+fusionnetwork.io
+g4mm4.io
+gaiaopen.network
+galactica.com
+galadriel.com
+game7.build
+game7.io
+gameswift.io
+garizon.net
+garnetchain.com
+garudachain.id
+gasswap.org
+gatenode.cc
+gateway.fm
+gather.network
+gaussgang.com
+gblend.xyz
+gcscan.io
+gdccscan.io
+gdprchain.com
+geb.network
+geekout-pte.com
+gelato.cloud
+gelato.digital
+gembascan.io
+gemchain.org
+gemuchain.io
+genechain.io
+genesis-gn.com
+genesisl1.org
+genesys.network
+genesyscode.io
+genlayer.com
+gesoten.com
+getblock.io
+getloop.network
+gghyper.net
+gigatheminter.com
+giltestnet.com
+gitagi.org
+gitbook.io
+gitshock.com
+gitswarm.com
+giwa.io
+gl1infra.online
+glidefinance.io
+glideprotocol.xyz
+glif.io
+globalstake.io
+glscan.io
+glue.net
+gmmtchain.io
+gmnetwork.ai
+gnodi.zone
+gnosischain.com
+goalpha.org
+goat.network
+gobbl.io
+gobob.xyz
+gochain.io
+godwoken.io
+gokite.ai
+gold.dev
+goldenratiostaking.net
+goldsmartchain.com
+goldxchain.io
+gon.network
+gonspool.com
+goodata.io
+gorengine.com
+gptprotocol.io
+gpu.net
+graffiti.farm
+grandvalleys.com
+graphlinq.io
+gravity.xyz
+gravitychain.io
+greenchain.app
+greendinoswap.com
+greyh.at
+greymass.com
+grid-mind.com
+grokchain.dev
+grove.city
+grvt.io
+gtbsblockchain.com
+gtcscan.io
+gton.network
+guapcoinx.com
+gunz.dev
+gunzchain.io
+gurunetwork.ai
+gut.network
+h-1.io
+h2chain.io
+haichain.io
+hairylabs.io
+halo.land
+ham.fun
+hammerchain.io
+hanchain.cc
+hap.land
+happy.tech
+haqq.network
+haqq.sh
+haradev.com
+harmony.one
+hashbit.org
+hashio.io
+hausserver.xyz
+haust.app
+haust.network
+haven1.org
+haymo.network
+hazlor.com
+hecochain.com
+heima.network
+helachain.com
+helikon.io
+helioschainlabs.org
+hemi.network
+hertzscan.com
+hetu.org
+hgraph.com
+hgraph.io
+hika.network
+hipercapitalfinance.com
+histori.xyz
+hizoco.net
+hmny.io
+hokum.gg
+homeverse.games
+hoodrun.io
+hoosmartchain.com
+hostdefi.com
+hpbnode.com
+hpp.io
+hsk.xyz
+htmlcoin.com
+htmlcoin.dev
+htw.tech
+huabeizhenxuan.com
+hubble.exchange
+huginn.tech
+humanity.org
+humanode.io
+humans.zone
+huobichain.com
+hupayx.io
+hybridchain.ai
+hychain.com
+hydrachain.org
+hydradx.cloud
+hydration.cloud
+hyperagi.ai
+hyperagi.network
+hypercluster.org
+hyperflow.finance
+hyperliquid-testnet.xyz
+hyperonchain.com
+hypersync.xyz
+hyperx.technology
+hypr.network
+hypra.network
+hyvechain.com
+ibp.network
+ic-plaza.org
+icbnetwork.info
+icecreamswap.com
+ichainscan.com
+icplaza.pro
+idcfengye.com
+idchain.one
+idn-rpc.com
+idos.games
+igralabs.com
+iic-blockchain.com
+ikchain.net
+ility.xyz
+immutable.com
+imperator.co
+imperiumchain.com
+imversed.network
+inan.in.th
+inco.org
+inertiascan.com
+inevm.com
+infinaeon.com
+infura.io
+inichain.com
+initia.xyz
+injective.network
+inkonchain.com
+innbcchain.io
+innovatorchain.com
+innovunode.io
+inoai-network.com
+instadapp.io
+integralayer.com
+interchained.org
+intertrain.online
+intuition.systems
+iolite.io
+iopn.tech
+iorachain.com
+iost.io
+iota.org
+iotaledger.net
+iotex.io
+iotex.one
+iotexrpc.com
+ipdc.io
+iposlab.com
+irisnet.org
+irys.xyz
+isuncoin.com
+itaninetworkchain.com
+ithaca.xyz
+itrocket.net
+itxchain.com
+ivarex.com
+j-node.net
+j2o.io
+jaihochain.com
+jamton.network
+janction.io
+janusnetwork.io
+japanopenchain.org
+jasmyscan.net
+jdubedition.com
+jegotrip.net
+jelliedowl.net
+jellyfishsdk.com
+jellypool.xyz
+jfinchain.com
+jfinpos.com
+jibchain.net
+jibl2.com
+jinglex.net
+jmdt.io
+jnsdao.com
+josephtran.xyz
+jovay.io
+joys.cash
+joys.digital
+juchain.org
+jumbochain.org
+juncachain.com
+juneo-mainnet.network
+kaia.io
+kaichain.net
+kakarot.org
+kalarchain.tech
+kaleido.io
+kalia.network
+kalychain.io
+karak.network
+kardiachain.io
+karura.network
+kaspaclassic.world
+katana.network
+katanarpc.com
+katronai.com
+kava-rpc.com
+kava.io
+kbcfoundation.com
+kcc-rpc.com
+kcc.network
+keccak.io
+kekchain.com
+kenny-us-pool.com
+khalani.network
+kiivalidator.com
+kingdomchain.observer
+kinggamer.org
+kingsuper.services
+kinto.xyz
+klc.live
+klyntar.org
+klyntarscan.org
+knight.center
+kode.ru
+kon-wallet.com
+konsortech.xyz
+kore-technologies.ch
+kortana.xyz
+kortho-chain.com
+kpachain.com
+kpascan.com
+krews.xyz
+kriptoaman.com
+kroma.network
+krotho-test.net
+krown.network
+kultchain.com
+kuma.bid
+kwala.network
+kymaticscan.online
+kynraze.com
+kyotochain.io
+kyotoprotocol.io
+l2aas.com
+l2protocol.com
+l3x.com
+l7c.ai
+lachain.io
+lachain.network
+ladyrpc.us
+laikachain.dog
+lambda.im
+lambda.top
+laosfoundation.io
+larissa.network
+latam-blockchain.com
+latestcoin.io
+lava.build
+lavanet.xyz
+layeredge.foundation
+layeredge.io
+lbry.nl
+lcserve.net
+lcserve.org
+lemonchain.io
+lens.dev
+lens.xyz
+lestnet.org
+letsplayfair.ai
+levko.io
+li-fi-base.intustechno.workers.dev
+li-fi-blast.intustechno.workers.dev
+li-fi-redirect.intustechno.workers.dev
+libertychain.org
+liebi.com
+lif3.com
+lightlink.io
+lightstreams.io
+limonata.xyz
+linea.build
+linkpool.io
+linkpool.pro
+linksme.info
+linqto-dev.com
+liquichain.io
+liquidchain.net
+liquidlayer.network
+liquify.com
+liquify.io
+lisinski.online
+lisk.com
+litermark.org
+litheum.com
+litho.ai
+litprotocol.com
+liveplex.io
+livingassets.io
+llamarpc.com
+load.network
+locachain.io
+lokibuilder.xyz
+lorenzo-protocol.xyz
+lovely.network
+lucidcoin.io
+luckyfriday.io
+ludan.org
+lukso.network
+lumia.org
+lumio.io
+lummio.net
+lumoz.org
+lunaro.network
+luniverse.io
+lux-test.network
+lux.network
+luxeports.com
+lycanchain.com
+lydiacoins.com
+lyra.finance
+m1chain.io
+ma-chain.xyz
+ma.ro
+maalscan.io
+maclive.info
+madataseed.xyz
+magape.io
+magport.io
+maichain.org
+main-rpc.com
+mainnet.ms
+mainnetloop.com
+mainnetz.io
+mainsailhq.com
+maiziqianbao.net
+make-cph-great-again.community
+makiai.app
+mandalachain.io
+mandragora.io
+manoracoin.com
+manta.network
+manta.systems
+mantle.xyz
+mantrachain.io
+maplabs.io
+markr.io
+maroo.io
+marschain.net
+marscredit.xyz
+masnet.ai
+matchain.io
+maticvigil.com
+maxi.network
+maxxchain.org
+mazze.io
+mdgl.io
+meerfans.club
+meerlabs.com
+meerscan.com
+meerscan.io
+megaeth.com
+meld.com
+memecore.net
+mementoblockchain.com
+memescan.io
+mempool.space
+meowrpc.com
+merkle.io
+merklescan.com
+merlinchain.io
+meronscan.ai
+mersennet.com
+metabenzscan.com
+metachain.dev
+metachain.one
+metadap.io
+metadium.com
+metadot.network
+metahub.cash
+metalblockchain.org
+metall2.com
+metamemo.one
+metanovaverse.com
+metaplayer.one
+metatime.com
+meter.io
+metis.io
+metisdevops.link
+mev-x.com
+mevblocker.io
+meversemainnet.io
+meversetestnet.io
+mewapi.io
+mezo.org
+mfenx.com
+mfevscan.com
+mfx.network
+midpointcross.com
+miexs.com
+migochain.org
+mijk.pro
+milkomeda.com
+mindchain.info
+mindnetwork.xyz
+mining4people.com
+mintchain.io
+mintme.com
+miraclechain.com
+miraclechain.dev
+miracleplay.io
+mirasmanda.uz
+mitosis.org
+mix-blockchain.org
+miyou.io
+miyoulab.com
+mizodevelopment.com
+mizuhiki.io
+mmtscan.io
+moac.io
+mocachain.dev
+mocachain.org
+mochain.app
+modchain.net
+mode.network
+molibra.org
+monad.xyz
+monadinfra.com
+monarcaproject.com
+moneypoolscash.com
+mononodes.xyz
+moonbeam.network
+moonchain.com
+moonrhythm.io
+moonsama.com
+moralis.io
+morphl2.io
+mosscan.com
+movementlabs.xyz
+movementnetwork.xyz
+movochain.org
+movoscan.com
+movoswap.com
+mp1network.com
+mschihuahua.org
+mstblockchain.com
+msu.io
+mtt.network
+mtv.ac
+mud.network
+mudit.blog
+murphynode.net
+musicoin.tw
+mvm.dev
+mxc.com
+mycryptoapi.com
+mycryptoheroes.net
+mydefichain.com
+myrxwallet.io
+mythicalgames.com
+mytokenpocket.vip
+myweber.org
+mzonder.com
+nagafintech.com
+nagara.network
+nahmii.io
+nal.network
+namefi.io
+nanon.network
+nariox.org
+nativ3.network
+nautchain.xyz
+near.org
+nebkas.ro
+nebula-chain.com
+neonevm.org
+neonlink.io
+nepachain.com
+nepachain.org
+nepalblockchain.dev
+nepalblockchain.network
+nerochain.io
+netsbo.io
+netxscan.io
+neurochain.io
+neurovatic.ai
+neutrinoschain.com
+newpay.io
+newtonproject.org
+nexa.sh
+nexablockscan.io
+nexera.network
+nexi.technology
+nexilix.com
+nexis.network
+nexurachain.io
+nfbchain.com
+nftruth.io
+ngd.network
+nibiru.fi
+nilin.org
+nillion.network
+ninicoin.io
+nirmalxscan.com
+nirvanalabs.xyz
+nitrograph.foundation
+nizascan.io
+nobody.network
+nocturnode.tech
+node75.org
+nodebridge.xyz
+nodeconnect.org
+nodeflare.app
+nodeinfra.com
+nodereal.io
+nodestake.org
+nodestake.top
+nodies.app
+nodifi.ai
+nomina.io
+nordekscan.com
+notadegen.com
+notional.ventures
+novanetwork.io
+nownodes.io
+nowscan.io
+ntity.io
+nuls.io
+num.network
+numa.network
+numblock.org
+numecrypto.com
+numen-network.org
+nurachain.net
+nutriemp-chain.link
+nutriemp.com
+nvnmchain.io
+nxy.social
+o.xyz
+oasis.io
+oasischain.io
+oasys.games
+oat.farm
+octa.space
+octano.dev
+oeblock.com
+official-vasyl.network
+ogpuscan.io
+oho.ai
+ohoscan.com
+okex.org
+oklink.com
+okx.com
+omaxray.com
+omaxscan.com
+omchain.io
+omlira.com
+omni.network
+omniatech.io
+omniaverse.io
+omnicoin.net
+omplatform.com
+onbeam.com
+onchainpoints.xyz
+oneagent.uk
+onechain.nexus
+oneg8.network
+oneiricts.com
+oneitfarm.com
+oneledger.network
+onenesslabs.io
+oneworldchain.org
+onfa.io
+onfachain.com
+onfachain.net
+onfinality.io
+onflow.org
+onical.org
+onino.io
+onmidas.xyz
+ont.io
+onuschain.io
+oonechain.com
+oortech.com
+openex.network
+openledger.xyz
+openpiece.io
+opentensor.ai
+openvessel.io
+opn.network
+opside.network
+optimism.io
+optimusz7.com
+optopia.ai
+optrust.io
+opulent-x.com
+orai.io
+orangechain.xyz
+orbinum.io
+ordenglobal-rpc.com
+orderly.network
+orderly.org
+ordofi.network
+oredex.finance
+orenium.org
+origin-trail.network
+originstake.com
+origintrail.network
+orlchain.com
+orqus.io
+otc.run
+overprotocol.com
+owlracle.info
+owshen.io
+oxinchain.io
+oxscan.io
+oychain.io
+ozonechain.io
+p12.games
+p2eppl.com
+p2p.org
+palette-opennet.com
+palette-rpc.com
+palmsmartchain.io
+pandasea.io
+pandoproject.org
+parallaxprotocol.org
+parex.network
+paribu.network
+paribuscan.com
+patex.io
+pawchainx.com
+paxb.io
+pay1coin.com
+payload.de
+paynetwork.io
+payscan.live
+peaq.network
+peaq.xyz
+peercash.io
+pegorpc.com
+pentagon.games
+pepchain.io
+pepe-chain.vip
+pepenetwork.io
+peperium.io
+perennial.foundation
+permission.io
+phala.network
+pharos.xyz
+phi.network
+phochain.org
+phoenix-systems.io
+phoenixplorer.com
+photonchain.io
+phron.ai
+piecenetwork.com
+pikascan.com
+pine.ink
+pionescan.com
+pionetrace.com
+pirl.io
+pivotalprotocol.com
+pixie.xyz
+planq.network
+plasma.to
+plasticherokorea.com
+platon.network
+playa3ull.games
+playblock.io
+playfi.ai
+plexfinance.us
+plexnode.org
+plexnode.wtf
+plgchain.com
+plian.io
+plinga.technology
+plume.org
+plusmain.net
+pmon.xyz
+pmtchain.com
+poa.network
+poanetwork.dev
+pochain.io
+pocket.network
+pointledger.net
+pointpay.io
+pokt.network
+polis.tech
+polkachu.com
+polkadot.io
+polkadothub-rpc.com
+polygon-rpc.com
+polygon.community
+polygon.technology
+polygonscan.com
+polynomial.fi
+polysmartchain.com
+polysplit.cloud
+polytopia.org
+pon.network
+poodl.org
+poolsmobility.com
+poolz.finance
+popcateum.org
+popdex.xyz
+porters.xyz
+portfolio-x.xyz
+posichain.org
+potos.hk
+powerloom.network
+pph-server.de
+premiumblock.org
+primeanetwork.com
+primevertexlabs.com.mx
+primusmoney.com
+privixchain.xyz
+prmscan.org
+prodax.io
+prometheuz.io
+proofofplay.com
+proscan.pro
+protago-dev.com
+pruv.network
+ptcscan.io
+ptekcoin.com
+pub.ro
+public-rpc.com
+publicgoods.network
+publicmint.io
+publicnode.com
+pulsechain.com
+pulsechainrpc.com
+pulsechainstats.com
+pulseheartbeat.com
+pumpfi.me
+pxachain.com
+pylun.network
+pyrachain.io
+pyropechain.com
+q.org
+qbc.network
+qbitscan.com
+qchain.kr
+qeasyweb3.com
+qiblockchain.online
+qitmeer.io
+qkacoin.org
+qkirpc.org
+qkiscan.cn
+qkiscan.io
+qms.finance
+qom.one
+qtestnet.org
+quadrans.io
+quai.network
+quantumbit.foo
+quantumscan.org
+quarkchain.io
+quarrychain.network
+qubelabs.io
+qubenode.space
+qubetics.com
+qubetics.work
+qubeticstralbo.eu
+quicknode.com
+quiknode.pro
+quip.network
+r5.network
+raba.app
+rabbitchain.org
+racaille.dev
+racemainnet.io
+racetestnet.io
+radiumblock.co
+radiumblock.com
+radiustech.xyz
+rainfall.one
+ramestta.com
+rangersprotocol.com
+rannta.com
+raptorchain.io
+rarichain.org
+rarimo.com
+rawaki.xyz
+rayls.com
+rclsidechain.com
+realio.network
+realiostage.network
+reapchain.org
+rebus.money
+rebuschain.com
+recall.network
+redbelly.network
+reddio.com
+redecoin.eu
+redefi.world
+redjackstudio.com
+redlightscan.finance
+redmansion.io
+redstone.xyz
+redstonechain.com
+rei.network
+restratagem.com
+rethereum.org
+rexxnetwork.com
+reya.network
+rhinostake.com
+ri-nn.io
+rikscan.com
+risechain.com
+riselabs.xyz
+river.build
+rivet.cloud
+rivet.link
+rnk.dev
+robinhood.com
+roburna.com
+rocknblock.io
+rockx.com
+roguechain.io
+rollux.com
+romeprotocol.xyz
+roninchain.com
+roonchain.com
+rootnet.app
+rootnet.live
+rope.network
+routeme.sh
+rpc-campnetwork.xyz
+rpc-icb-network.io
+rpc-r0ar.io
+rpc.main.siberium.net.ru
+rpcfast.com
+rpcfree.com
+rpcgrid.com
+rpcshark.com
+rphxscan.com
+rsk.co
+rss3.io
+rthcentral.org
+rubychain.io
+runevm.io
+runic.build
+runonflux.io
+rupaya.io
+rupayacoin.org
+rwa-chain.io
+saakuru.network
+sagarpc.io
+saharalabs.ai
+saitascan.io
+sanko.xyz
+sanr.app
+santiment.net
+sardisnetwork.com
+satelink.network
+satosh.ie
+satoshichain.io
+satuchain.com
+saxemberg.com
+sbcrypto.app
+scai.network
+scalind.com
+scdoscan.io
+scolcoin.com
+script.tv
+scroll.io
+scschain.com
+secexplorer.io
+securechain.ai
+securerpc.com
+seelen.pro
+sei-apis.com
+seinetwork.io
+seismictest.net
+seleman-edge.mineriafjs.workers.dev
+selendra.org
+senjepowersscan.com
+sentio.xyz
+sentrixchain.com
+sepolia.org
+serveousercontent.com
+serverrpc.com
+sftproject.io
+sgverse.net
+shape.network
+shardeum.org
+sharecle.com
+sherpax.io
+shib.io
+shibachain.net
+shibchain.org
+shibrpc.com
+shidoscan.com
+shidoscan.net
+shimmer.network
+shinarium.org
+shinescan.io
+shyft.network
+siberium.net
+sidrachain.com
+sigmacore.io
+silentdata.com
+silentvalidator.com
+silicon.network
+simplystaking.xyz
+singularity.gold
+siriusnet.io
+sixprotocol.net
+skalenodes.com
+skatechain.org
+skynet.io
+slerfchain.xyz
+slingshot.finance
+slingshotdao.com
+smartbch.org
+smartlayer.network
+smartmesh.cn
+smartmoneyewallet.com
+snaxchain.io
+socotra-testnet.network
+softnote.com
+solana.com
+solidifi.app
+somanetwork.io
+somnia.network
+soneium.org
+soniclabs.com
+soonchain.ai
+sophon.xyz
+soraai.bot
+sorian.io
+soter.one
+sova.io
+soverun.com
+sparked.network
+spectrumnodes.com
+spidernode.net
+spire.dev
+splendor-rpc.org
+splendor.org
+sportschainnetwork.xyz
+sriscan.com
+sslip.io
+ssquad.games
+stabilityprotocol.com
+stable.xyz
+stablenet.network
+stackflow.site
+stackup.sh
+stake-town.com
+stakely.io
+stakeme.pro
+stakepool.dev.br
+staketab.org
+stakin-nodes.com
+startale.com
+starworksglobal.com
+stateless.solutions
+statemesh.net
+status.network
+stavr.tech
+stcexplorer.io
+steamexchange.io
+stenix.network
+step.network
+stochainscan.io
+storagechain.io
+storchain.io
+storyrpc.io
+strato.nexus
+stratovm.io
+streetdog.me
+strmchain.com
+structx.io
+studio-blockchain.com
+studio-scan.com
+su.gy
+subquery.network
+sui.io
+superaichain.ai
+superposition.so
+superseed.xyz
+surge.wtf
+sushii.dev
+svmscan.io
+svpchain.org
+swanchain.io
+swanchain.org
+swapdex.network
+swiftnodes.io
+swissdlt.ch
+swisstronik.com
+switch.ch
+swss.io
+sx.technology
+synapseprotocol.com
+syndicate.io
+syndr.com
+syrax.global
+syscoin.org
+taaqo.com
+tabichain.com
+tac.build
+tafchain.com
+taiko.tools
+taiko.xyz
+tajirchain.com
+taker.xyz
+tanenbaum.io
+tangle.tools
+tanssi-mainnet.network
+tanssi-testnet.network
+tanssi.network
+tao.network
+taoevm.io
+taprootchain.io
+taraxa.io
+tatum.io
+tbwg.io
+tcgverse.xyz
+tcnetwork.io
+tea.xyz
+teamblockchain.team
+tech-coha05.xyz
+techpay.io
+telcoin.network
+teleport.network
+telos.net
+tempo.xyz
+ten.xyz
+tencentcloud-rpc.com
+tenderly.co
+tenet.org
+terminet.io
+ternoa.network
+testnet.ms
+thaichain.org
+thaifi.com
+thatchain.io
+theamsolutions.info
+thebinaryholdings.com
+theconsta.com
+thefirechain.com
+thegraph.com
+thehelixchain.xyz
+themerge.dev
+thepower.io
+theradius.xyz
+therpc.io
+theseven.meme
+thestratos.org
+thetatoken.org
+thinkiumrpc.net
+thirdweb.com
+thundercore.com
+thundercore.io
+thundertoken.net
+tiktrix-rpc.xyz
+timenetwork.io
+tingscan.com
+tipboxcoin.net
+titanlab.io
+tl.web.tr
+tlxscan.com
+tmyblockchain.org
+tobescan.com
+tokamak.network
+tokclaw.com
+tokenview.io
+tombchain.com
+tomo.inc
+tonapi.io
+toncenter.com
+topnetwork.org
+torium.network
+toronet.org
+toruschain.com
+tpix.online
+transparency.solutions
+treasure.lol
+treasurenet.io
+treschain.io
+tresleches.finance
+trex.xyz
+trias.one
+trinity-tech.io
+tritanium.network
+tronclassicscan.org
+trongrid.io
+tronscanapi.com
+trumpchain.dev
+trumpchain.io
+trust.one
+trustbitcoin.io
+trustivon.com
+trywagmi.xyz
+tscscan.com
+tscscan.io
+tscscan.org
+ttl1.top
+tucana.zone
+turkscan.com
+twala.io
+twitter.com
+twixchain.com
+twmcrypto.com
+tycoscan.com
+u2u.xyz
+uat.cash
+uatvo.com
+ubitscan.io
+uchain.link
+ultraproscan.io
+ultron-dev.io
+ultron-rpc.net
+unfrastructure.io
+uniblock.dev
+unichain.org
+unifra.io
+uniport.network
+unique.network
+unit0.dev
+unitedbloc.com
+uniultra.xyz
+uptick.network
+uptn.io
+uschain.network
+usecorn.com
+utsa.tech
+uxer.network
+uxlinkone.com
+uzmigames.com.br
+v.network
+validationcloud.io
+validatorvn.com
+validatrium.club
+validium.network
+valorbit.com
+valve.city
+vana.org
+vanarchain.com
+vcex.xyz
+vchain.pro
+vcity.app
+vechain.energy
+vecno.org
+vefinetwork.org
+velas.com
+velaverse.io
+velo.org
+venidium.io
+vention.network
+veri5.network
+versatizecoin.com
+verylabs.io
+vexascan.com
+vexonhub.org
+viacube.com
+viction.xyz
+vinuchain.org
+vitruveo.xyz
+vizing.com
+vncscan.io
+vne.network
+volleychain.com
+vordium.com
+vrcscan.com
+vrd.network
+vscblockchain.org
+vtrs.io
+vvs.finance
+vyoscan.com
+vyvo.org
+w3gamez.network
+wabaworld.com
+wadzchain.io
+wandevs.org
+wannachain.com
+wardenprotocol.org
+waterfall.network
+wattxchange.app
+web3cdn.network
+web3endpoints.com
+web3games.org
+web3q.io
+wegochain.io
+welshdag.trade
+wemblockchain.com
+wemix.com
+whitechain.io
+winmar.tech
+winmarchain.org
+winr.games
+wireshape.org
+wirexpaychain.com
+witnesschain.com
+wolot.io
+wonderchain.org
+wonnetwork.org
+woop.ai
+woowow.io
+worldland.foundation
+worldmobile.net
+wowchain.io
+wyzthchain.org
+x-phere.com
+xai-chain.net
+xcap.network
+xdaichain.com
+xdc.network
+xdc.org
+xdcrpc.com
+xen.network
+xeneascan.com
+xenonchain.com
+xerom.org
+xertra.com
+xfair.ai
+xferchain.org
+xgr.network
+xinfin.network
+xitcoin.org
+xixoio.com
+xlayer.tech
+xlcscan.com
+xlon.org
+xo-dex.com
+xo-dex.io
+xo.market
+xone.org
+xone.plus
+xpla.dev
+xprotocol.org
+xrpc.cl
+xrplevm.org
+xsc.pub
+xsollazk.com
+xstaking.sg
+xusd.live
+yidark.io
+ynxweb4.com
+yooldo-verse.xyz
+yuan.org
+zagros.network
+zagrosnetwork.com
+zakumi.io
+zan.top
+zchain.org
+zchains.com
+zcore.cash
+zebrocoin.app
+zedscan.net
+zeeth.io
+zeeve.net
+zeeve.online
+zeninhost.xyz
+zeniq.network
+zenithchain.co
+zenithnode.xyz
+zerion.io
+zeroscan.org
+zeroth.run
+zether.org
+zeuschainscan.io
+zilliqa.com
+zillnet.io
+zircuit.com
+zitcoin.us
+zkamoeba.com
+zkbase.app
+zkcandy.io
+zkevm-rpc.com
+zkevm-test.net
+zkfair.io
+zklink.io
+zksats.io
+zksync.dev
+zksync.io
+zkxpla.io
+zmok.io
+znodes.net
+zoo.network
+zora.energy
+zorinscan.org
+zthscan.com
+zuux.network
+zypher.game
+zypher.network
+zyx.network</pre>
+  </details>
+  <p class="muted">清单生成方法：合并两份注册表的 RPC 地址，去掉 IP 和本机地址，用公共后缀列表取注册域名，删除噪声条目，加入上表的非 EVM 端点、浏览器 API 和攻击补充项。报告只写了 <code>bsc-dataseed.binance.org</code>；<code>bsc-dataseed1</code> 到 <code>bsc-dataseed4</code> 是同组节点，按命名规则补充。其余主机名均出自上表所列报告。</p>
+
+  <h3 id="p2-12">2.12 实施示例：UniFi</h3>
+  <p>本节以 UniFi 网关（UDM、UCG、UXG 系列）和 UniFi 交换机为例，把 2.2 到 2.8 的规则对应到具体功能。菜单路径按 UniFi Network 9.x 的官方文档写。不同版本的菜单名称会变，以控制台实际界面为准。本节未在真实设备上逐项验证。</p>
+
+  <p>开始前先确认四件事：</p>
+  <ul>
+    <li>Network 应用版本不低于 9.0。区域防火墙（Zone-Based Firewall）从 9.0 开始提供。<sup><a href="#src-69">69</a></sup></li>
+    <li>流量日志需要 Network 9.1 以上、UniFi OS 4.2.8 以上，并且网关装有存储。<sup><a href="#src-6">6</a></sup></li>
+    <li>CyberSecure 的扩展签名库是付费订阅。基础 IDS/IPS 免费。<sup><a href="#src-73">73</a></sup></li>
+    <li>TLS 解密只在 EFG、UXG-Enterprise 等企业型号上提供。UDM、UCG 系列不提供。<sup><a href="#src-29">29</a></sup></li>
+  </ul>
+
+  <div class="tbl wide">
+    <table>
+      <caption>2.2 的规则与 UniFi 功能的对应关系</caption>
+      <thead><tr><th scope="col">规则</th><th scope="col">UniFi 功能</th><th scope="col">菜单路径（9.x）</th><th scope="col">设置要点</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">网络分段（规则 9）</th><td>Networks（VLAN）加自定义防火墙区域</td><td>Settings › Networks；Settings › Security › Firewall 的区域矩阵</td><td>员工、IoT、访客、管理网各建一个 VLAN。为员工设备和 IoT 各建一个自定义区域，在区域矩阵中设置区域之间的策略<sup><a href="#src-69">69</a></sup></td></tr>
+        <tr><th scope="row">指定 DNS（规则 1）</th><td>DHCP 下发的 DNS 服务器；允许员工区域到网关的 53 端口</td><td>Settings › Networks › 各网络的 DHCP 设置</td><td>DNS 服务器填网关或公司解析器。IPv6 的 DNS 下发同样设置</td></tr>
+        <tr><th scope="row">阻塞其他外部 DNS（规则 2）</th><td>防火墙策略，或目的地址 NAT 重定向</td><td>Settings › Security › Firewall › Create Policy；或 Policy Engine / Policy Table › NAT › Dest. NAT</td><td>员工区域到 External 区域，端口 53，TCP 和 UDP，动作 Block，打开日志。选择重定向时，把发往外部 53 端口的查询改写到公司解析器，排除解析器所在网络，避免回环<sup><a href="#src-71">71</a>,<a href="#src-74">74</a></sup></td></tr>
+        <tr><th scope="row">阻塞未批准加密 DNS（规则 3）</th><td>防火墙策略加 Content Filter 域名清单</td><td>Settings › Security › Firewall；Settings › CyberSecure › Content Filter</td><td>阻塞到 External 的 TCP 和 UDP 853。把常见 DoH 服务的域名加进 Content Filter 的 Blocklist。网关自身的上游解析可以用 Encrypted DNS 加密，它不影响客户端策略<sup><a href="#src-1">1</a></sup></td></tr>
+        <tr><th scope="row">区块链 RPC 与链上 API（规则 4）</th><td>Content Filter 自定义 Blocklist</td><td>Settings › CyberSecure › Content Filter › Create New › Blocklist › Add Multiple</td><td>上传 2.11 的域名清单（txt 文件）。策略按网络或设备生效；开发和钱包设备放在单独网络，或建单独策略<sup><a href="#src-1">1</a></sup></td></tr>
+        <tr><th scope="row">Cloudflare Tunnel（规则 5）</th><td>防火墙策略</td><td>Settings › Security › Firewall › Create Policy</td><td>员工区域到 External，端口 7844，TCP 和 UDP，动作 Block，打开日志。获批设备的 Allow 策略放在它上方</td></tr>
+        <tr><th scope="row">未批准隧道、RMM、VPN、代理（规则 6）</th><td>Simple App Blocking 或防火墙策略的 App 匹配；Content Filter 域名清单</td><td>Settings › CyberSecure 或防火墙策略中的 App 字段</td><td>先按应用阻塞，再把 LOLRMM 域名清单减去批准厂商后加入 Blocklist<sup><a href="#src-70">70</a>,<a href="#src-48">48</a></sup></td></tr>
+        <tr><th scope="row">外部 SMB、RDP、FTP、消息代理（规则 7）</th><td>防火墙策略，端口列表</td><td>Settings › Security › Firewall › Create Policy</td><td>端口选 List：445、3389、21、1883、8883。可以先建端口组，后续策略复用</td></tr>
+        <tr><th scope="row">外部 SSH、邮件（规则 8）</th><td>IP 组加两条策略</td><td>Settings › Security › Firewall</td><td>先建“批准的 SSH 和邮件服务器”IP 组。上方一条 Allow 到该组，下方一条 Block 到 External 的 22、25、465、587、993</td></tr>
+        <tr><th scope="row">UDP 443（规则 10）</th><td>防火墙策略，先停用</td><td>Settings › Security › Firewall</td><td>建好 Block 到 External 的 UDP 443，先只对一台测试设备启用，观察业务影响后再扩大</td></tr>
+        <tr><th scope="row">IPv4 与 IPv6 一致</th><td>每条策略的 IP Version</td><td>Create Policy › 高级选项</td><td>IP Version 选 Both，不单独选 IPv4<sup><a href="#src-76">76</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>策略顺序按“具体的 Allow，具体的 Block，宽泛的 Block”排列。新建的自定义策略排在内置策略之上、已有自定义策略之下，建完要检查顺序。动作选 Reject 而不选 Block，客户端会立即失败，不用等待超时，排查更快。<sup><a href="#src-76">76</a></sup></p>
+
+  <p>入侵防御的设置：</p>
+  <ol>
+    <li>进入 Settings › CyberSecure › Protection，打开 Intrusion Prevention。<sup><a href="#src-28">28</a></sup></li>
+    <li>选择员工、IoT 和服务器网络。</li>
+    <li>Detection Mode 选 Notify and Block。</li>
+    <li>在 Active Detections 里选择与恶意软件、C2 相关的类别。</li>
+    <li>命中误报时用 Allow Signature 加入签名抑制表，不整体关闭类别。</li>
+  </ol>
+  <p>IPS 会降低吞吐量。一项第三方测试在 UDM-Pro 上测得：打开 IPS 后吞吐量从约 8 Gbps 降到约 3.5 Gbps，再增加类别几乎不再下降。该数据未经官方确认，部署前按自己的带宽测试。<sup><a href="#src-73">73</a></sup></p>
+
+  <p>日志导出分两路，格式不同：</p>
+  <div class="tbl">
+    <table>
+      <caption>UniFi 的两类日志</caption>
+      <thead><tr><th scope="col">日志</th><th scope="col">菜单路径</th><th scope="col">内容和格式</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Traffic Logging</th><td>Settings › CyberSecure › Traffic Logging</td><td>Flow Logging 选 All Traffic 或 Blocked Traffic Only；打开 Gateway DNS 等附加记录。防火墙日志格式</td></tr>
+        <tr><th scope="row">Activity Logging</th><td>Settings › Control Plane › Integrations › Activity Logging › SIEM Server</td><td>选择安全检测等类别，填写接收端 IP 和端口。CEF 格式，经 syslog 发送<sup><a href="#src-72">72</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>每条阻塞策略都要打开自己的日志开关，否则命中不会出现在日志里。接收端要分别解析两种格式。Security Onion 的示例用一个端口收流量日志、另一个端口收 CEF 日志。<sup><a href="#src-30">30</a></sup> 2.7 要求的字段，要在接收端用测试事件逐项核对。</p>
+
+  <p>网络传感器的镜像用 UniFi 交换机做：</p>
+  <ul>
+    <li>在传感器所接的端口上设置镜像，源端口选上联口。方向容易设反，设反会让被监测的端口断网。<sup><a href="#src-77">77</a></sup></li>
+    <li>控制台界面只支持一对一镜像，不能多端口汇聚到一个端口，也不能按 VLAN 镜像。网关自身不提供端口镜像。需要更大范围时，用网络 TAP 或其他交换机。</li>
+  </ul>
+
+  <p>清单需要每周更新。Content Filter 的自定义清单可以通过 UniFi 的接口批量写入，有社区脚本示例。这个接口没有官方文档，升级后可能失效，每次更新后要检查清单条目数。<sup><a href="#src-75">75</a></sup> 不依赖这个接口的自动更新做法见 2.13。</p>
+
+  <div class="warn"><b>UniFi 做不到的部分</b>
+    <p>Content Filter 和防火墙的域名匹配都依赖 DNS。设备用自带的 DoH 或直连 IP 时，域名规则不生效，只能靠端口规则、IPS 和行为报警补。Content Filter 单个策略可容纳多少条自定义域名，官方文档未写明，上传 2,000 条以上的清单前先测试，待确认。笔记本离开办公网络后，UniFi 的规则全部失效，需要设备上的 DNS 过滤或网络代理。报警 <span class="mono">C2-05</span>、<span class="mono">C2-06</span> 需要 Zeek 和 RITA 等外部分析，UniFi 自身不做这类行为评分。</p>
+  </div>
+  <p>完成配置后，按 2.9 的验收表逐项测试，并确认每类事件都送到了日志接收端。</p>
+
+  <h3 id="p2-13">2.13 在 UniFi 上自动更新开源清单</h3>
+  <p>UniFi 不能按网址订阅外部清单。2.10 的清单要持续更新，需要一个外部程序定时拉取，再交给 UniFi 或替代 UniFi 执行。按三层部署：签名、域名、IP。</p>
+  <div class="tbl wide">
+    <table>
+      <caption>三层清单的位置、来源和更新频率</caption>
+      <thead><tr><th scope="col">层</th><th scope="col">在哪里执行</th><th scope="col">数据来源</th><th scope="col">谁来更新</th><th scope="col">建议拉取频率</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">IPS 签名</th><td>网关自身</td><td>基础签名库；CyberSecure 订阅后换成 Proofpoint 签名库<sup><a href="#src-73">73</a></sup></td><td>UniFi 自动更新</td><td>不用设置</td></tr>
+        <tr><th scope="row">域名</th><td>内网的 DNS 过滤器，例如 AdGuard Home</td><td>ThreatFox hostfile 或 RPZ；HaGeZi TIF；LOLRMM-Actions 的 <code>domains.txt</code>；2.11 的 RPC 清单；HaGeZi 的加密 DNS 绕过清单</td><td>DNS 过滤器按计划拉取</td><td>每 1 小时</td></tr>
+        <tr><th scope="row">IP</th><td>网关的防火墙 IP 组</td><td>Feodo Tracker 推荐清单；Spamhaus DROP</td><td>CrowdSec 的 UniFi 组件经控制台接口写入</td><td>Feodo 每 15 分钟；DROP 每天 1 次</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>各清单的生成频率不同，拉取频率按它定：</p>
+  <div class="tbl">
+    <table>
+      <caption>主要清单的生成频率与使用条件</caption>
+      <thead><tr><th scope="col">清单</th><th scope="col">生成频率</th><th scope="col">使用条件</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">ThreatFox 导出</th><td>每 5 分钟</td><td>下载需要免费的 Auth-Key。只含最近 6 个月的指标<sup><a href="#src-79">79</a></sup></td></tr>
+        <tr><th scope="row">Feodo Tracker</th><td>每 5 分钟；官方建议至少每 15 分钟拉取一次</td><td>用 <code>ipblocklist_recommended.txt</code>，误报较少<sup><a href="#src-78">78</a></sup></td></tr>
+        <tr><th scope="row">HaGeZi TIF</th><td>每 4 到 8 小时</td><td>Full 版约 242 万条，Mini 版约 22 万条。家用设备先用 Mini 或 Medium<sup><a href="#src-42">42</a></sup></td></tr>
+        <tr><th scope="row">Spamhaus DROP</th><td>每天复核</td><td>拉取不能超过每小时一次，每天一次已够。用于产品时要注明来源<sup><a href="#src-80">80</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>C2-Tracker 已于 2026-04-13 归档，数据文件已删除，不再使用。<sup><a href="#src-84">84</a></sup></p>
+
+  <p>域名层的部署步骤：</p>
+  <ol>
+    <li>在 NAS 或一台常开的主机上，用容器运行 AdGuard Home。Pi-hole、Technitium 也可以。</li>
+    <li>添加上表的清单网址。ThreatFox 的网址带上自己的 Auth-Key。</li>
+    <li>把清单更新间隔设为 1 小时。这个设置以小时为单位。<sup><a href="#src-83">83</a></sup></li>
+    <li>加入 HaGeZi 的 <code>doh-vpn-proxy-bypass.txt</code>，阻塞常见 DoH、VPN 和代理域名。<sup><a href="#src-42">42</a></sup></li>
+    <li>在 UniFi 各网络的 DHCP 设置里，把 DNS 服务器改成这台主机。</li>
+    <li>按 2.12 的规则 2 和规则 3，阻塞外部 53 和 853 端口。DNS 过滤器所在的主机要排除在外。</li>
+    <li>打开 DNS 过滤器的查询日志，送到 2.7 的日志接收端。</li>
+  </ol>
+  <p>这条路不经过 Content Filter，所以不受它的条目上限和未公开接口影响。代价是解析器成了单点。只部署一台时，它停机会让全网无法解析。部署两台，DHCP 下发两个地址。不要把公共 DNS 设为备用地址，否则清单会被绕过。</p>
+
+  <p>IP 层的部署步骤：</p>
+  <ol>
+    <li>在控制台的 Integrations 页面创建 API key。菜单名称以实际界面为准。</li>
+    <li>用容器运行 CrowdSec 和它的 UniFi 组件。可选 cs-unifi-bouncer 或 cs-unifi-bouncer-pro，两者都支持区域防火墙。<sup><a href="#src-81">81</a>,<a href="#src-82">82</a></sup></li>
+    <li>把 Feodo Tracker 和 Spamhaus DROP 设为外部清单。cs-unifi-bouncer-pro 可以按设定间隔拉取纯文本 IP 清单。<sup><a href="#src-82">82</a></sup></li>
+    <li>组件会在控制台里建 IP 组和阻塞策略。建好后检查策略顺序，并打开日志。</li>
+  </ol>
+  <p>UDM 的单个 IP 组最多 10,000 条，其他型号可能不同。cs-unifi-bouncer-pro 超过上限时会自动新建一组。<sup><a href="#src-81">81</a>,<a href="#src-82">82</a></sup> IP 层只放小而准的清单。几十万条的大清单放在 DNS 层。也有项目通过 SSH 在网关上直接改 ipset，它要靠持久化脚本抵抗固件升级。经控制台接口写入的规则在界面上可见，升级后不丢，优先用这种。</p>
+
+  <div class="warn"><b>“实时”的边界</b>
+    <p>清单只收录已被发现并上报的地址。攻击者新建的服务器和域名，在上报前不在任何清单里。拉取比生成更频繁没有收益：ThreatFox 每 5 分钟生成，每 5 分钟拉取已是上限。藏在 Cloudflare、Azure 等大型云服务后面的 C2，域名和 IP 都不能阻塞，见第三部分。这三层挡的是已知的常见恶意软件和复用的 C2 工具。新出现的通道要靠 2.6 的行为报警发现。</p>
+  </div>
+  <p>部署次序：先开 IPS，约 5 分钟。再部署 DNS 过滤器和 DNS 绕过阻塞，约 1 小时。IP 层最后做，可选。用时是估计值。</p>
+  <p>不想自己运行 DNS 过滤器时，域名层可以交给托管服务，见 2.14。</p>
+
+  <h3 id="p2-14">2.14 托管安全 DNS</h3>
+  <p>多家公共 DNS 服务已经阻塞已知的恶意软件和 C2 域名，清单由服务方更新。小型办公室和家庭可以用它替代 2.13 的自建 DNS 过滤器。这样不用维护清单，也不会因为一台主机停机而全网断网。</p>
+  <div class="tbl wide">
+    <table>
+      <caption>四类托管安全 DNS 的比较</caption>
+      <thead><tr><th scope="col">服务</th><th scope="col">费用</th><th scope="col">自定义清单</th><th scope="col">按设备的日志</th><th scope="col">说明</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Quad9（9.9.9.9）</th><td>免费</td><td>无</td><td>无</td><td>瑞士非营利组织。只阻塞安全威胁，清单来自约 20 个威胁情报来源<sup><a href="#src-85">85</a></sup></td></tr>
+        <tr><th scope="row">Cloudflare 1.1.1.2 / 1.1.1.3</th><td>免费</td><td>无</td><td>无</td><td>1.1.1.2 阻塞恶意软件；1.1.1.3 另外阻塞成人内容。DoH 地址是 <code>security.cloudflare-dns.com</code><sup><a href="#src-86">86</a></sup></td></tr>
+        <tr><th scope="row">Cloudflare Zero Trust Gateway</th><td>50 个用户以内免费</td><td>有</td><td>有</td><td>有策略、日志和自定义清单，可以加入 2.11 的 RPC 清单和 RMM 清单<sup><a href="#src-87">87</a>,<a href="#src-88">88</a></sup></td></tr>
+        <tr><th scope="row">NextDNS、Control D</th><td>有免费额度，超出后按月付费</td><td>有</td><td>有</td><td>NextDNS 免费额度是每月 30 万次查询。Control D 可直接选用 HaGeZi 的清单，含 TIF<sup><a href="#src-89">89</a>,<a href="#src-42">42</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>UniFi 的 Content Filter 本身已使用 Cloudflare 的域名分类。打开它，就已有一部分同类保护。<sup><a href="#src-73">73</a></sup></p>
+
+  <p>与 UniFi 一起使用：</p>
+  <ol>
+    <li>把网关的上游 DNS 设为托管服务。优先用 UniFi 的 Encrypted DNS 走 DoH，运营商看不到也改不了查询。</li>
+    <li>客户端继续用网关做 DNS 服务器。</li>
+    <li>保留 2.12 的规则 2 和规则 3：阻塞局域网到外部的 53 和 853 端口。没有这两条，设备可以绕过过滤。</li>
+    <li>打开 UniFi Traffic Logging 的 Gateway DNS 记录。托管服务只看到网关的 IP，按设备的记录要靠 UniFi 自己留。</li>
+  </ol>
+
+  <p>托管服务解决的问题和解决不了的问题：</p>
+  <div class="tbl wide">
+    <table>
+      <caption>换成 Cloudflare 安全 DNS 后，各项问题的变化</caption>
+      <thead><tr><th scope="col">问题</th><th scope="col">是否解决</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">自己拉取和更新清单</th><td>解决。清单由服务方持续更新</td></tr>
+        <tr><th scope="row">自建解析器是单点</th><td>大部分解决。托管服务比一台 NAS 可靠。网关仍转发全部 DNS，网关停机时 DNS 同样中断</td></tr>
+        <tr><th scope="row">尚未被上报的新 C2</th><td>不解决。服务方的清单更大、更新更快，但同样只收录已发现的地址</td></tr>
+        <tr><th scope="row">已允许云服务内的 C2</th><td>不解决。Microsoft 365、Telegram、Discord 的域名是合法域名</td></tr>
+        <tr><th scope="row">直连 IP 的恶意程序</th><td>不解决。它不发 DNS 查询，仍需 IPS 和 2.13 的 IP 层</td></tr>
+        <tr><th scope="row">设备自带 DoH 或公共 DNS</th><td>不能单独解决。仍需 UniFi 阻塞 53、853 和已知 DoH 域名</td></tr>
+        <tr><th scope="row">离开办公网络的笔记本</th><td>只在每台笔记本装 WARP 客户端时解决。只改 UniFi 的 DNS，笔记本离开网络就失去保护</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>另外三项代价：看不到服务方用了哪些清单，也不知道收录有多快；Quad9 和 1.1.1.2 不接受自定义清单；网络里所有被查询的域名都会交给第三方。</p>
+
+  <p>启用 Cloudflare Zero Trust Gateway：</p>
+  <ol>
+    <li>在 <code>one.dash.cloudflare.com</code> 注册，设一个团队名，选 Free 方案。免费方案的日志只留 24 小时，不能导出。这两项数据来自第三方价格页，注册时以官方页面为准。<sup><a href="#src-90">90</a></sup></li>
+    <li>进入 Networks › Resolvers &amp; Proxies › DNS locations，选 Add a location。服务会给出 IPv4、IPv6、DoT 和 DoH 地址。<sup><a href="#src-87">87</a></sup></li>
+    <li>IPv4 地址只接受登记过的来源 IP。办公室有固定公网 IP 就登记它。IP 会变时，改用 DoH 或 IPv6 地址。<sup><a href="#src-87">87</a></sup></li>
+    <li>进入 Traffic policies › DNS，按顺序建策略。第一条 Allow：批准的 RMM 和隧道厂商域名。第二条 Block：全部 Security Categories。第三条 Block：2.11 的 RPC 域名清单。<sup><a href="#src-88">88</a></sup></li>
+    <li>RPC 清单在 My Team › Lists 上传。免费方案的清单有条目上限，上传完整清单前先确认，待确认。</li>
+    <li>新出现域名和 DoH 服务类别也可以阻塞。先只对一台设备启用，观察误报。</li>
+    <li>在 UniFi 上把网关的上游 DNS 改成这个位置的 DoH 地址。Encrypted DNS 是否接受自定义 DoH 地址，各版本不同，待确认。不接受时，用登记过来源 IP 的 IPv4 地址。</li>
+    <li>阻塞 8.8.8.8 等备用 DNS。Cloudflare 的文档要求这样做，否则部分应用会绕过策略。iCloud 专用代理和第三方 VPN 的流量不受 Gateway 过滤，要关闭或阻塞。<sup><a href="#src-88">88</a></sup></li>
+    <li>在客户端运行 <code>dig example.com @网关地址</code>，再到 Logs › Gateway › DNS 确认查询出现在这个位置下。把一个无害的测试域名临时加进 Block 策略，确认解析失败，然后删除。</li>
+    <li>可选：笔记本安装 WARP 客户端并加入团队，离开办公网络后策略仍生效。每个登记用户占 50 个名额中的一个。</li>
+  </ol>
+  <p>建议的组合：域名层用 Cloudflare Zero Trust 免费方案或 NextDNS，不再自建 AdGuard Home；把 2.11 的 RPC 清单放进去；UniFi 的 IPS 保持打开；CrowdSec 的 IP 层按需要加。三层结构不变，只是域名层从自建换成托管。</p>
+
+  <h2 id="p3">第三部分：遗留风险</h2>
+  <p>做完第二部分，下面这些风险仍然存在。每条列出网络层为什么挡不住，以及要靠什么补。</p>
+  <div class="tbl wide">
+    <table>
+      <caption>13 项网络层无法消除的风险</caption>
+      <thead><tr><th scope="col">风险</th><th scope="col">网络层为什么挡不住</th><th scope="col">补救方向</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">已允许云服务内的 C2</th><td>Graph API、Calendar、Telegram Bot、Discord 的租户、账号和内容都在加密之内。网络只看到共享域名</td><td>终端进程归因；服务审计日志；对消息平台按设备限制 Bot API</td></tr>
+        <tr><th scope="row">借用正常进程发请求</th><td>TWINLOOT 用受害者的 Edge 浏览器发 Graph 请求，连进程归因都失效</td><td>终端行为检测；浏览器无头模式和异常父进程的告警；账号侧异常登录检测</td></tr>
+        <tr><th scope="row">批准工具被滥用</th><td>公司批准的 RMM、Tailscale、Cloudflare Tunnel 与攻击者使用的是同一服务</td><td>应用控制限定批准版本和设备；监测新实例、新账号、新中继；会话审计</td></tr>
+        <tr><th scope="row">已缓存地址的设备</th><td>阻塞地址来源后，已拿到地址的程序继续直连 IP</td><td>罕见目的地与连接节律报警；终端外联进程检查</td></tr>
+        <tr><th scope="row">走 TCP 443 的隧道和 DoH</th><td>与正常 HTTPS 无法在端口上区分；ECH 还隐藏服务器名</td><td>应用识别加行为规则；设备 DNS 配置锁定；TLS 元数据分析</td></tr>
+        <tr><th scope="row">多层加密与多路复用</th><td>BRICKSTORM 类通道解开外层仍是密文，TLS 解密无效</td><td>连接时长、节律和目的地稀有度；终端证据</td></tr>
+        <tr><th scope="row">同一 VLAN 内的横向通信</th><td>流量不经过网关</td><td>交换机端口隔离或微分段；LAN 侧镜像；终端防火墙</td></tr>
+        <tr><th scope="row">离开办公网络的设备</th><td>热点、家庭网络、外部 VPN 不受网关规则约束</td><td>设备上的 DNS 过滤或零信任代理；统一设备管理</td></tr>
+        <tr><th scope="row">自建 DoH、自建中继、自定义域名</th><td>静态清单跟不上新建服务</td><td>行为规则；新注册域名报警；信誉库定期更新</td></tr>
+        <tr><th scope="row">公共内容做地址来源</th><td>博客、仓库、链上合约的域名本身正常</td><td>访问后紧接罕见外联的关联规则；对无需求的链上 API 阻塞</td></tr>
+        <tr><th scope="row">低速、随机间隔的通道</th><td>阈值型规则抓不到每天几次的通信</td><td>延长基线窗口；按目的地稀有度而非频率报警；接受部分漏报</td></tr>
+        <tr><th scope="row">日志本身失效</th><td>采样记录丢短连接；长连接延迟出现；镜像丢包；时间偏移</td><td>日志中断和丢包的独立监测；定期用测试事件验证从采集到通知的每一段</td></tr>
+        <tr><th scope="row">误报带来的规则松动</th><td>行为规则的误报会让团队整体关闭规则</td><td>只加具体设备和目的地例外；记录每条规则的误报原因</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>两点需要明确接受。第一，网络层对趋势二中的云服务 C2 几乎没有直接阻塞能力，只能提供关联线索。企业如果业务依赖 Microsoft 365 或 Google Workspace，这部分风险要靠终端和身份层承担。第二，趋势三中的工具滥用，网络能挡住未批准的工具，挡不住批准工具的账号被滥用。</p>
+  <p>这两点决定了网络限制的定位：它是成本最低、覆盖最广的第一层，不是最后一层。</p>
+
+  <h2 id="p4">方法与来源</h2>
+  <p>本文整理公开的一手威胁报告、MITRE ATT&amp;CK 条目和厂商产品文档。产品文档均于 2026-10-07 查阅。案例日期是报告发布日期。资料不提供各类 C2 的统一占比，所以本文不给出各类方式的比例。</p>
+  <p>来源 36、38、39 引用的是转述厂商报告的新闻稿，未核对 ESET、Ontinue 和 Cisco Talos 的原始文章。规则、阈值和次序是建议，尚未在任何环境测试。</p>
+  <ol class="sources">
+    <li id="src-1">Ubiquiti，《Content and Domain Filtering in UniFi》，<a href="https://help.ui.com/hc/en-us/articles/12568927589143-Content-and-Domain-Filtering-in-UniFi" target="_blank" rel="noopener">help.ui.com</a>。DNS 过滤、设备范围与版本限制。</li>
+    <li id="src-2">Ubiquiti，《UniFi Gateway Ad Blocking》，<a href="https://help.ui.com/hc/en-us/articles/9794438523799-UniFi-Gateway-Ad-Blocking" target="_blank" rel="noopener">help.ui.com</a>。加密 DNS、VPN、代理的过滤限制。</li>
+    <li id="src-3">Palo Alto Networks，《Configure DNS Security Over DoH》，<a href="https://docs.paloaltonetworks.com/dns-security/administration/configure-dns-security/configure-dns-over-doh" target="_blank" rel="noopener">docs.paloaltonetworks.com</a>。DoH 检测与解密策略。</li>
+    <li id="src-4">Google Threat Intelligence，《DPRK Adopts EtherHiding》，2025 年，<a href="https://cloud.google.com/blog/topics/threat-intelligence/dprk-adopts-etherhiding" target="_blank" rel="noopener">cloud.google.com</a>。RPC 与集中式 API 的不同使用方式。</li>
+    <li id="src-5">MITRE ATT&amp;CK，《Dead Drop Resolver》，<a href="https://attack.mitre.org/techniques/T1102/001/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-6">Ubiquiti，《Traffic Flows and Traffic Logging in UniFi Network》，<a href="https://help.ui.com/hc/en-us/articles/32201256219799-Traffic-Flows-and-Traffic-Logging-in-UniFi-Network" target="_blank" rel="noopener">help.ui.com</a>。版本、存储、记录数、导出与采样。</li>
+    <li id="src-7">MITRE ATT&amp;CK，《Command and Control》，<a href="https://attack.mitre.org/tactics/TA0011/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-8">MITRE ATT&amp;CK，《Application Layer Protocol: DNS》，<a href="https://attack.mitre.org/techniques/T1071/004/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-9">MITRE ATT&amp;CK，《Web Service》，<a href="https://attack.mitre.org/techniques/T1102/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-10">MITRE ATT&amp;CK，《Domain Fronting》，<a href="https://attack.mitre.org/techniques/T1090/004/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-11">MITRE ATT&amp;CK，《Non-Application Layer Protocol》，<a href="https://attack.mitre.org/techniques/T1095/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-12">MITRE ATT&amp;CK，《Publish/Subscribe Protocols》，<a href="https://attack.mitre.org/techniques/T1071/005/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-13">MITRE ATT&amp;CK，《Mail Protocols》，<a href="https://attack.mitre.org/techniques/T1071/003/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-14">MITRE ATT&amp;CK，《Multi-hop Proxy》，<a href="https://attack.mitre.org/techniques/T1090/003/" target="_blank" rel="noopener">attack.mitre.org</a>。</li>
+    <li id="src-15">Microsoft Security，《TerminalFix campaign deploys reverse tunnel》，2026-08-28，<a href="https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/" target="_blank" rel="noopener">microsoft.com</a>。</li>
+    <li id="src-16">CISA、NSA、Cyber Centre，《Malware Analysis Report: BRICKSTORM Backdoor》，2025-12-04，<a href="https://media.defense.gov/2025/Dec/04/2003834878/-1/-1/0/MALWARE-ANALYSIS-REPORT-BRICKSTORM-BACKDOOR.PDF" target="_blank" rel="noopener">media.defense.gov</a>（PDF）。</li>
+    <li id="src-17">Palo Alto Networks Unit 42，《DNS Tunneling in the Wild》，<a href="https://unit42.paloaltonetworks.com/dns-tunneling-in-the-wild/" target="_blank" rel="noopener">unit42.paloaltonetworks.com</a>。</li>
+    <li id="src-18">Google Threat Intelligence，《BRICKSTORM espionage campaign》，2025-09-24，<a href="https://cloud.google.com/blog/topics/threat-intelligence/brickstorm-espionage-campaign" target="_blank" rel="noopener">cloud.google.com</a>。</li>
+    <li id="src-19">Google Threat Intelligence，《Mark Your Calendar: APT41 Innovative Tactics》，2025-05-28，<a href="https://cloud.google.com/blog/topics/threat-intelligence/apt41-innovative-tactics" target="_blank" rel="noopener">cloud.google.com</a>。</li>
+    <li id="src-20">Zscaler ThreatLabz，《Targeted Attack on Government Entities in the Middle East, Part 1》，2026-07-20，<a href="https://www.zscaler.com/blogs/security-research/targeted-attack-government-entities-middle-east-part-1" target="_blank" rel="noopener">zscaler.com</a>。</li>
+    <li id="src-21">NCSC、FBI、AIVD，《Iranian cyber targeting of dissidents, activists and journalists》，2026-09-15，<a href="https://www.ncsc.gov.uk/news/iranian-cyber-targeting-of-dissidents-activists-and-journalists" target="_blank" rel="noopener">ncsc.gov.uk</a>。</li>
+    <li id="src-22">Microsoft Security，《Beyond ransomware: tracking Storm-2570》，2026-09-24，<a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" target="_blank" rel="noopener">microsoft.com</a>。</li>
+    <li id="src-23">Cloudflare Docs，《Tunnel with firewall》，<a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/tunnel-with-firewall/" target="_blank" rel="noopener">developers.cloudflare.com</a>。</li>
+    <li id="src-24">ngrok，《Share localhost》，<a href="https://ngrok.com/use-cases/share-localhost" target="_blank" rel="noopener">ngrok.com</a>。</li>
+    <li id="src-25">Malwarebytes，《Kothamine malware uses Tailscale's tailcat》，2026-09-25，<a href="https://www.malwarebytes.com/blog/threat-intel/2026/09/kothamine-malware-uses-tailscales-tailcat-to-evade-network-detection" target="_blank" rel="noopener">malwarebytes.com</a>。</li>
+    <li id="src-26">NSA、CISA 等联合公告，《Fast Flux: A National Security Threat》，2025-04，<a href="https://media.defense.gov/2025/Apr/02/2003681172/-1/-1/1/CSA-FAST-FLUX.PDF" target="_blank" rel="noopener">media.defense.gov</a>（PDF）。</li>
+    <li id="src-27">Cloudflare Docs，《Encrypted Client Hello (ECH)》，<a href="https://developers.cloudflare.com/ssl/edge-certificates/ech/" target="_blank" rel="noopener">developers.cloudflare.com</a>。</li>
+    <li id="src-28">Ubiquiti，《UniFi Gateway Intrusion Detection and Prevention》，<a href="https://help.ui.com/hc/en-us/articles/360006893234-UniFi-Gateway-Intrusion-Detection-and-Prevention-IDS-IPS" target="_blank" rel="noopener">help.ui.com</a>。</li>
+    <li id="src-29">Ubiquiti，《UniFi Gateway SSL Traffic Deep Inspection》，<a href="https://help.ui.com/hc/en-us/articles/18068491373975-UniFi-Gateway-SSL-Traffic-Deep-Inspection" target="_blank" rel="noopener">help.ui.com</a>。TLS 解密的支持型号范围。</li>
+    <li id="src-30">Security Onion，《UniFi integration》，<a href="https://docs.securityonion.net/en/2.4/unifi.html" target="_blank" rel="noopener">docs.securityonion.net</a>。</li>
+    <li id="src-31">Security Onion，《Architecture》，<a href="https://docs.securityonion.net/en/3/main/architecture/" target="_blank" rel="noopener">docs.securityonion.net</a>。TAP/SPAN、Zeek 与 Suricata。</li>
+    <li id="src-32">abuse.ch，ThreatFox，<a href="https://threatfox.abuse.ch/" target="_blank" rel="noopener">threatfox.abuse.ch</a>。</li>
+    <li id="src-33">abuse.ch，SSLBL，<a href="https://sslbl.abuse.ch/" target="_blank" rel="noopener">sslbl.abuse.ch</a>。</li>
+    <li id="src-34">Recorded Future Insikt Group，《2025 Year in Review: Malicious Infrastructure》，2026 年 3 月前后，<a href="https://www.recordedfuture.com/research/2025-year-in-review-malicious-infrastructure" target="_blank" rel="noopener">recordedfuture.com</a>。</li>
+    <li id="src-35">Recorded Future Insikt Group，《H1 2026 Malware and Vulnerability Trends》，2026 年 9 月前后，<a href="https://www.recordedfuture.com/research/h1-2026-malware-vulnerability-trends" target="_blank" rel="noopener">recordedfuture.com</a>。</li>
+    <li id="src-36">The Hacker News，《Webworm Deploys EchoCreep and GraphWorm Backdoors》，2026 年 5 月，<a href="https://thehackernews.com/2026/05/webworm-deploys-echocreep-and-graphworm.html" target="_blank" rel="noopener">thehackernews.com</a>。转述 ESET 报告。</li>
+    <li id="src-37">Group-IB，《HOLLOWGRAPH: Turning Microsoft 365 Calendars into Covert C2 Channels》，2026 年 7 月，<a href="https://www.group-ib.com/blog/hollowgraph-microsoft-365/" target="_blank" rel="noopener">group-ib.com</a>。</li>
+    <li id="src-38">The Hacker News，《TWINLOOT Abuses SharePoint and Teams》，2026 年 8 月，<a href="https://thehackernews.com/2026/08/twinloot-abuses-sharepoint-and-teams-to.html" target="_blank" rel="noopener">thehackernews.com</a>。转述 Ontinue 报告。</li>
+    <li id="src-39">Cyber Security News，《Hackers Built a Windows Backdoor Whose Entire C2 Lives Inside Microsoft 365》，2026 年 10 月，<a href="https://cybersecuritynews.com/hackers-built-a-windows-backdoor/" target="_blank" rel="noopener">cybersecuritynews.com</a>。转述 Cisco Talos 的 Antino 报告。</li>
+    <li id="src-40">Red Canary，《AI and browser threats stand out in the 2026 Threat Detection Report》，2026 年，<a href="https://redcanary.com/blog/threat-detection/2026-threat-detection-report/" target="_blank" rel="noopener">redcanary.com</a>。</li>
+    <li id="src-41">Red Canary，《Remote Monitoring and Management Abuse》，2026 年，<a href="https://redcanary.com/threat-detection-report/trends/rmm-tools/" target="_blank" rel="noopener">redcanary.com</a>。</li>
+    <li id="src-42">HaGeZi，《DNS Blocklists》，<a href="https://github.com/hagezi/dns-blocklists" target="_blank" rel="noopener">github.com/hagezi</a>。威胁情报清单及适配的 DNS 过滤器。</li>
+    <li id="src-43">PrimePoobah，《Pi-hole Blocklist Catalog》，<a href="https://github.com/PrimePoobah/Pi-hole-Blocklist-Catalog" target="_blank" rel="noopener">github.com/PrimePoobah</a>。通用清单加恶意软件层的分层做法。</li>
+    <li id="src-44">CyberHost，《Best Malware Blocklists for Pi-hole and AdGuard Home》，<a href="https://cyberhost.uk/malware-blocklists-pi-hole-adguard-home/" target="_blank" rel="noopener">cyberhost.uk</a>。ThreatFox、URLhaus 等 hostfile 清单。</li>
+    <li id="src-45">Active Countermeasures，RITA，<a href="https://github.com/activecm/rita" target="_blank" rel="noopener">github.com/activecm/rita</a>。基于 Zeek 日志的信标、长连接和 DNS 通道分析。</li>
+    <li id="src-46">Active Countermeasures，《Threat Hunting Over the Network With Zeek and RITA》，<a href="https://www.activecountermeasures.com/threat-hunting-over-the-network-with-zeek-and-rita/" target="_blank" rel="noopener">activecountermeasures.com</a>。</li>
+    <li id="src-47">MagicSword，LOLRMM，<a href="https://github.com/magicsword-io/LOLRMM" target="_blank" rel="noopener">github.com/magicsword-io/LOLRMM</a>。RMM 工具目录与 API。</li>
+    <li id="src-48">0xtato，LOLRMM-Actions，<a href="https://github.com/0xtato/LOLRMM-Actions" target="_blank" rel="noopener">github.com/0xtato/LOLRMM-Actions</a>。自动生成的 RMM 域名和 IP 清单。</li>
+    <li id="src-49">LOLC2，<a href="https://lolc2.github.io/" target="_blank" rel="noopener">lolc2.github.io</a>。借用合法服务的 C2 框架目录。</li>
+    <li id="src-50">danzek，awesome-lol，<a href="https://github.com/danzek/awesome-lol-commonly-abused" target="_blank" rel="noopener">github.com/danzek</a>。LOTS、LOTTunnels 等清单的汇总。</li>
+    <li id="src-51">ethereum-lists，chains，<a href="https://github.com/ethereum-lists/chains" target="_blank" rel="noopener">github.com/ethereum-lists/chains</a>。EVM 链注册表；拉取的提交日期 2026-10-06。</li>
+    <li id="src-52">DefiLlama，chainlist，<a href="https://github.com/DefiLlama/chainlist" target="_blank" rel="noopener">github.com/DefiLlama/chainlist</a>。extraRpcs.js；拉取的提交日期 2026-10-06。</li>
+    <li id="src-53">Google Threat Intelligence，《New Group on the Block: UNC5142 Leverages EtherHiding》，2025，<a href="https://cloud.google.com/blog/topics/threat-intelligence/unc5142-etherhiding-distribute-malware" target="_blank" rel="noopener">cloud.google.com</a>。</li>
+    <li id="src-54">Trend Micro，《Smart Contracts for Command and Control: How ClearFake Hid in Plain Sight on BSC Testnet》，2026-05，<a href="https://www.trendmicro.com/en_us/research/26/e/smart-contracts-for-command-and-control.html" target="_blank" rel="noopener">trendmicro.com</a>。</li>
+    <li id="src-55">rmceoin，《ClearFake 2026》，2026-09-09，<a href="https://rmceoin.github.io/malware-analysis/2026/09/09/clearfake.html" target="_blank" rel="noopener">rmceoin.github.io</a>。并行查询的 RPC 端点清单。</li>
+    <li id="src-56">Ransom-ISAC，《Cross-Chain TxDataHiding Crypto Heist, Part 2》，2025-10，<a href="https://ransom-isac.org/blog/cross-chain-txdatahiding-crypto-heist-part-2/" target="_blank" rel="noopener">ransom-isac.org</a>。TRON、Aptos、BSC 的查询方式。</li>
+    <li id="src-57">Ransom-ISAC，《XCTDH Adopts Hash Hiding》，2026-09，<a href="https://ransom-isac.org/blog/xctdh-adopts-hash-hiding/" target="_blank" rel="noopener">ransom-isac.org</a>。以太坊转账编码 C2 地址。</li>
+    <li id="src-58">StepSecurity，《Joyfill npm supply chain compromise》，<a href="https://www.stepsecurity.io/blog/joyfill-npm-supply-chain-compromise" target="_blank" rel="noopener">stepsecurity.io</a>。XCTDH 端点清单。</li>
+    <li id="src-59">The Hacker News，《GlassWorm Malware Uses Solana Dead Drops》，2026-03，<a href="https://thehackernews.com/2026/03/glassworm-malware-uses-solana-dead.html" target="_blank" rel="noopener">thehackernews.com</a>。</li>
+    <li id="src-60">The Hacker News，《GlassWorm Malware Takedown》，2026-05，<a href="https://thehackernews.com/2026/05/glassworm-malware-takedown-disrupts.html" target="_blank" rel="noopener">thehackernews.com</a>。</li>
+    <li id="src-61">Prophet Security，《EtherHiding Malware on macOS》，<a href="https://www.prophetsecurity.ai/blog/etherhiding-malware-macos-blockchain-c2" target="_blank" rel="noopener">prophetsecurity.ai</a>。Polygon 合约 C2。</li>
+    <li id="src-62">以色列国家数字局，《Malware-On-The-Blockchain》，<a href="https://govextra.gov.il/national-digital-agency/cyber/research/malware-on-the-blockchain/" target="_blank" rel="noopener">govextra.gov.il</a>。</li>
+    <li id="src-63">Google TAG，《Disrupting the Glupteba operation》，2021-12，<a href="https://blog.google/threat-analysis-group/disrupting-glupteba-operation/" target="_blank" rel="noopener">blog.google</a>。</li>
+    <li id="src-64">Etherscan，《V2 Migration》，<a href="https://docs.etherscan.io/v2-migration" target="_blank" rel="noopener">docs.etherscan.io</a>。</li>
+    <li id="src-65">Solana，《Clusters and Public RPC Endpoints》，<a href="https://solana.com/docs/references/clusters" target="_blank" rel="noopener">solana.com</a>。</li>
+    <li id="src-66">TRON Developer Hub，《TronGrid》，<a href="https://developers.tron.network/docs/trongrid" target="_blank" rel="noopener">developers.tron.network</a>。</li>
+    <li id="src-67">Sui，《RPC Best Practices》，<a href="https://docs.sui.io/references/sui-api/rpc-best-practices" target="_blank" rel="noopener">docs.sui.io</a>。</li>
+    <li id="src-68">TON Docs，《TON Center API v2 overview》，<a href="https://docs.ton.org/api/v2/overview" target="_blank" rel="noopener">docs.ton.org</a>。</li>
+    <li id="src-69">Ubiquiti，《Zone-Based Firewalls in UniFi》，<a href="https://help.ui.com/hc/en-us/articles/115003173168-Zone-Based-Firewalls-in-UniFi" target="_blank" rel="noopener">help.ui.com</a>。区域、区域矩阵和策略。</li>
+    <li id="src-70">Ubiquiti，《Application Filtering in UniFi》，<a href="https://help.ui.com/hc/en-us/articles/28314415752727-Application-Filtering-in-UniFi" target="_blank" rel="noopener">help.ui.com</a>。Simple App Blocking 与防火墙的应用匹配。</li>
+    <li id="src-71">Ubiquiti，《Traffic &amp; Policy Management in UniFi》，<a href="https://help.ui.com/hc/en-us/articles/5546542486551-Traffic-Policy-Management-in-UniFi" target="_blank" rel="noopener">help.ui.com</a>。Policy Engine 与 Object Manager。</li>
+    <li id="src-72">Ubiquiti，《UniFi System Logs &amp; SIEM Integration》，<a href="https://help.ui.com/hc/en-us/articles/33349041044119-UniFi-System-Logs-SIEM-Integration" target="_blank" rel="noopener">help.ui.com</a>。CEF 导出和菜单路径。</li>
+    <li id="src-73">Ubiquiti，《UniFi CyberSecure Enhanced by Proofpoint and Cloudflare》，<a href="https://help.ui.com/hc/en-us/articles/25930305913751-UniFi-CyberSecure-Enhanced-by-Proofpoint-and-Cloudflare" target="_blank" rel="noopener">help.ui.com</a>。签名库与订阅；吞吐量数据来自第三方测试 <a href="https://shiftctrl.net/articles/unifi-ids-ips-throughput-ceiling" target="_blank" rel="noopener">shiftctrl.net</a>。</li>
+    <li id="src-74">mikaeldui，《UniFi: DNAT to redirect DNS requests》，<a href="https://gist.github.com/mikaeldui/b1d89e1c0954a6c77252c390629fa145" target="_blank" rel="noopener">gist.github.com</a>。DNS 重定向的设置。</li>
+    <li id="src-75">fguisso，《How to apply a DNS blocklist to UniFi's content filter using the API》，<a href="https://gist.github.com/fguisso/b2dc35128c56647b54375b66e6f9db4d" target="_blank" rel="noopener">gist.github.com</a>。未公开文档的接口。</li>
+    <li id="src-76">WunderTech，《How to Configure UniFi Firewall Rules (Zone-Based Policies)》，<a href="https://www.wundertech.net/how-to-configure-unifi-firewall-rules/" target="_blank" rel="noopener">wundertech.net</a>。策略字段、顺序与动作。</li>
+    <li id="src-77">Ubiquiti Community，《Port mirroring direction》，<a href="https://community.ui.com/questions/Port-mirroring-direction/798d2c35-d299-4fad-b08b-7ed06d29fcdb" target="_blank" rel="noopener">community.ui.com</a>。镜像方向。</li>
+    <li id="src-78">abuse.ch，Feodo Tracker Blocklist，<a href="https://feodotracker.abuse.ch/blocklist/" target="_blank" rel="noopener">feodotracker.abuse.ch</a>。生成频率和文件格式。</li>
+    <li id="src-79">abuse.ch，ThreatFox Export，<a href="https://threatfox.abuse.ch/export/" target="_blank" rel="noopener">threatfox.abuse.ch</a>。导出格式、生成频率、Auth-Key 与 6 个月保留期。</li>
+    <li id="src-80">Spamhaus，《Don't Route Or Peer (DROP)》，<a href="https://www.spamhaus.org/blocklists/do-not-route-or-peer/" target="_blank" rel="noopener">spamhaus.org</a>。复核频率、拉取限制与署名要求。</li>
+    <li id="src-81">Teifun2，cs-unifi-bouncer，<a href="https://github.com/Teifun2/cs-unifi-bouncer" target="_blank" rel="noopener">github.com/Teifun2</a>。区域防火墙支持与 UDM 的 IP 组上限。</li>
+    <li id="src-82">developingchet，cs-unifi-bouncer-pro，<a href="https://github.com/developingchet/cs-unifi-bouncer-pro" target="_blank" rel="noopener">github.com/developingchet</a>。分组、API key 认证与外部清单拉取。</li>
+    <li id="src-83">AdGuard Home Wiki，《Configuration》，<a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration" target="_blank" rel="noopener">github.com/AdguardTeam</a>。<code>filters_update_interval</code> 以小时为单位。</li>
+    <li id="src-84">montysecurity，C2-Tracker，<a href="https://github.com/montysecurity/C2-Tracker" target="_blank" rel="noopener">github.com/montysecurity</a>。2026-04-13 归档。</li>
+    <li id="src-85">Quad9，《Threat Blocking》，<a href="https://quad9.net/service/threat-blocking/" target="_blank" rel="noopener">quad9.net</a>。阻塞方式与情报来源数量。</li>
+    <li id="src-86">Cloudflare Docs，《1.1.1.1 for Families》，<a href="https://developers.cloudflare.com/1.1.1.1/setup/#1111-for-families" target="_blank" rel="noopener">developers.cloudflare.com</a>。1.1.1.2、1.1.1.3 的范围与 DoH 地址。</li>
+    <li id="src-87">Cloudflare Docs，《DNS locations》，<a href="https://developers.cloudflare.com/cloudflare-one/networks/resolvers-and-proxies/dns/locations/" target="_blank" rel="noopener">developers.cloudflare.com</a>。菜单路径、四类地址与来源 IP 登记。</li>
+    <li id="src-88">Cloudflare Docs，《DNS policies》，<a href="https://developers.cloudflare.com/cloudflare-one/traffic-policies/dns-policies/" target="_blank" rel="noopener">developers.cloudflare.com</a>。选择器、动作，以及 VPN 和备用 DNS 的限制。</li>
+    <li id="src-89">NextDNS，《Pricing》，<a href="https://nextdns.io/pricing" target="_blank" rel="noopener">nextdns.io</a>。免费额度与付费价格。</li>
+    <li id="src-90">CostBench，《Is Cloudflare Zero Trust Free?》，<a href="https://costbench.com/software/business-vpn/cloudflare-zero-trust/free-plan/" target="_blank" rel="noopener">costbench.com</a>。第三方整理的免费方案用户数与日志留存期。</li>
+  </ol>
+
+  <h2 id="p5">记录</h2>
+  <p>2026-10-07：完成公开资料调研并整理成本页。所有网络设置保持未执行状态，部署结果需以后续测试记录为准。</p>
+  <p>2026-10-07：第二部分新增“可用的开源项目”一节，10 个项目及 9 个来源。</p>
+  <p>2026-10-07：第二部分新增“区块链 RPC 与链上数据域名”一节，含 7 个案例、注册表统计、非 EVM 端点和完整注册域名清单，新增 18 个来源。</p>
+  <p>2026-10-07：第二部分新增“实施示例：UniFi”一节，把各条规则对应到 UniFi 功能和菜单路径，新增 9 个来源。</p>
+  <p>2026-10-07：第二部分新增“在 UniFi 上自动更新开源清单”一节，说明签名、域名、IP 三层的更新方式和各清单的生成频率，新增 7 个来源。</p>
+  <p>2026-10-07：第二部分新增“托管安全 DNS”一节，比较四类公共安全 DNS，给出与 UniFi 配合的方法和 Cloudflare Zero Trust Gateway 的启用步骤，新增 6 个来源。</p>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
