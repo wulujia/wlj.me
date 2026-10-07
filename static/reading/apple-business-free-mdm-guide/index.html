@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple Business 免费设备管理部署指南</title>
+<meta name="description" content="面向新加坡与中国大陆企业，说明 Apple Business 免费设备管理的功能、注册、设备注册方式与部署检查。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/apple-business-free-mdm-guide/">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --ink: #20262b;
+  --ink-2: #44515b;
+  --ink-3: #59656f;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dce2e7;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #365e77;            /* 主题色：按题目换 */
+  --acc-ink: #294b61;        /* accent dark enough for text */
+  --acc-wash: rgba(54, 94, 119, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Keep Chinese labels unspaced and long menu paths inside the reading column. */
+h1, h2, h3, th, .eyebrow, .outline .label, .summary .label { letter-spacing: 0; }
+code { overflow-wrap: anywhere; }
+.sources a { overflow-wrap: anywhere; }
+.outline li { margin-bottom: 5px; }
+.outline li.level-3 { margin-left: 12px; padding-left: 10px; border-left: 1px solid var(--rule); }
+@media (max-width: 600px) { table { min-width: 580px; } h1 { font-size: 29px; } }
+@media print { .tbl { overflow: visible; } table { min-width: 0; break-inside: auto; } }
+</style>
+</head>
+<body><a class="skip" href="#main">跳到正文</a><div class="layout"><nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>目录</summary><ul><li class="level-2"><a href="#free">免费范围与地区差异</a></li><li class="level-2"><a href="#features">管理功能与使用边界</a></li><li class="level-3"><a href="#blueprint">Blueprint 的使用示例</a></li><li class="level-3"><a href="#packages">非 App Store 软件与自定义配置</a></li><li class="level-3"><a href="#lost">远程锁定、定位与个人设备</a></li><li class="level-2"><a href="#signup">注册与组织验证</a></li><li class="level-3"><a href="#materials">申请材料</a></li><li class="level-3"><a href="#apply">申请步骤</a></li><li class="level-2"><a href="#enable">启用管理与配置 Blueprint</a></li><li class="level-2"><a href="#enrollment">选择设备注册方式</a></li><li class="level-3"><a href="#new">新设备的自动部署</a></li><li class="level-3"><a href="#existing">已有公司设备的免抹除注册</a></li><li class="level-3"><a href="#configurator">未在采购系统中的设备</a></li><li class="level-3"><a href="#personal">员工个人设备</a></li><li class="level-2"><a href="#security">FileVault 与现有 MDM 迁移</a></li><li class="level-3"><a href="#filevault">FileVault 恢复密钥</a></li><li class="level-3"><a href="#migration">现有 MDM 的迁移限制</a></li><li class="level-2"><a href="#pilot">部署试验与验收</a></li><li class="level-2"><a href="#sources">方法与来源</a></li></ul></details></nav><main id="main">
+<header>
+<p class="eyebrow">部署指南 / 2026-10-06</p>
+<p><a href="/reading/">← 返回整理</a></p>
+<h1>Apple Business <span style="white-space: nowrap">免费</span>设备管理部署指南</h1>
+<p class="lede">面向新加坡与中国大陆的普通企业。覆盖免费范围、申请方法、新旧设备部署与检查。</p>
+<p class="meta">资料核对：2026-10-06。公司 Mac 优先，兼顾 iPhone 与 iPad。状态：文档核对，未实机部署。</p>
+</header>
+<div class="summary"><p class="label">结论</p><p>新加坡与中国大陆均可免费使用内置设备管理。Apple 托管管理服务，企业通过浏览器操作。已有设备可选择无需抹除的注册方式。现有 MDM 转入内置管理，需要单独安排重新注册。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-2" aria-label="来源 2">[2]</a></sup><sup><a href="#src-13" aria-label="来源 13">[13]</a></sup><sup><a href="#src-14" aria-label="来源 14">[14]</a></sup><sup><a href="#src-17" aria-label="来源 17">[17]</a></sup></p></div>
+
+<h2 id="free">免费范围与地区差异</h2>
+<p>Apple Business 于 2026 年 4 月 14 日上线。它整合原 Apple Business Manager 等服务。内置设备管理属于免费基础服务。个体经营者和大型企业均可申请。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></p>
+<p>企业按组织使用服务，无需自建 MDM 服务器。启用内置管理不需要申请 MDM Vendor 权限。该权限用于自建或开发管理服务。内置管理按下文的组织注册流程申请。<sup><a href="#src-13" aria-label="来源 13">[13]</a></sup></p>
+<div class="tbl"><table><caption>地区功能范围，核对日期：2026-10-06</caption><thead><tr><th scope="col">功能</th><th scope="col">新加坡</th><th scope="col">中国大陆</th></tr></thead><tbody>
+<tr><th scope="row">内置设备管理</th><td>支持</td><td>支持</td></tr>
+<tr><th scope="row">自动设备部署</th><td>支持</td><td>支持</td></tr>
+<tr><th scope="row">Managed Apple Accounts</th><td>支持</td><td>支持</td></tr>
+<tr><th scope="row">获取与分发应用</th><td>支持</td><td>支持</td></tr>
+<tr><th scope="row">品牌与地点管理</th><td>支持</td><td>未列出</td></tr>
+<tr><th scope="row">Branded Mail</th><td>支持</td><td>未列出</td></tr>
+<tr><th scope="row">托管企业邮箱、日历与通讯录</th><td>未列出</td><td>未列出</td></tr>
+<tr><th scope="row">通过 Apple Business 购买扩容与 AppleCare+</th><td>未列出</td><td>未列出</td></tr>
+</tbody></table></div>
+<p>上表依据 Apple 地区功能表。“未列出”按该表处理。托管邮箱、扩容与 AppleCare+ 订阅目前列于美国。Branded Mail 用于显示品牌，不提供托管企业邮箱。<sup><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<p>免费管理不免除硬件与付费应用的费用。第三方软件订阅也需按供应商价格支付。企业仍需安排设备管理人员。额外服务按地区和订阅收费。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></p>
+
+<h2 id="features">管理功能与使用边界</h2>
+<div class="tbl"><table><caption>企业可使用的设备管理功能</caption><thead><tr><th scope="col">功能</th><th scope="col">企业用途</th><th scope="col">条件或边界</th></tr></thead><tbody>
+<tr><th scope="row">设备清单</th><td>查看型号、系统、员工、容量与最后连接时间。</td><td>个人设备的信息和命令范围受限。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup></td></tr>
+<tr><th scope="row">Blueprints</th><td>向员工、群组或设备分配应用与配置。</td><td>多套配置冲突时，需设置优先级。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></td></tr>
+<tr><th scope="row">网络配置</th><td>下发 Wi-Fi、VPN 与证书。</td><td>各配置支持的平台不同。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></td></tr>
+<tr><th scope="row">安全配置</th><td>设置密码、锁屏、FileVault 与 Mac 防火墙。</td><td>FileVault 需先上传加密证书。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup><sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></td></tr>
+<tr><th scope="row">系统更新</th><td>安排更新与升级；设置执行期限。</td><td>部分功能依赖注册方式。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></td></tr>
+<tr><th scope="row">App Store 应用</th><td>自动安装，或供员工在配套应用中安装。</td><td>需获取足够的应用授权。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup><sup><a href="#src-6" aria-label="来源 6">[6]</a></sup></td></tr>
+<tr><th scope="row">Mac 安装包</th><td>部署 Mac App Store 之外的软件。</td><td>企业维护下载地址与更新版本。<sup><a href="#src-7" aria-label="来源 7">[7]</a></sup></td></tr>
+<tr><th scope="row">自定义配置</th><td>上传额外的系统配置描述文件。</td><td>文件须小于 1 MB，并满足平台要求。<sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></td></tr>
+<tr><th scope="row">丢失设备处理</th><td>远程锁定或抹除符合条件的设备。</td><td>设备需联网，且满足注册要求。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></td></tr>
+</tbody></table></div>
+<h3 id="blueprint">Blueprint 的使用示例</h3>
+<p>Blueprint 是一组应用和配置。示例：创建“员工 Mac” Blueprint。加入办公应用、公司 Wi-Fi 与防火墙配置。将它分配给员工群组。员工更换 Mac 后，新设备接收该组设置。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></p>
+<p>Managed Apple Accounts 是企业拥有的工作账号。企业可手动创建账号。也可接入 Google Workspace 或 Microsoft Entra ID。工作数据与个人数据的分离取决于注册方式。<sup><a href="#src-19" aria-label="来源 19">[19]</a></sup><sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<h3 id="packages">非 App Store 软件与自定义配置</h3>
+<p>Mac 安装包需要可访问的 HTTPS 直接下载地址。企业可使用已有文件服务。下载地址不应要求员工登录。每个地址应对应一个固定的软件版本。<sup><a href="#src-7" aria-label="来源 7">[7]</a></sup></p>
+<p>安装包可包含安装前、安装后脚本。这不等于完整的远程脚本管理功能。移除 Blueprint 中的安装包，不会卸载软件。设备退出管理后，该软件仍会保留。软件没有自更新功能时，需维护新包和新地址。<sup><a href="#src-7" aria-label="来源 7">[7]</a></sup></p>
+<p>自定义配置使用 <code>.mobileconfig</code> 格式。企业可用 Apple Configurator 创建描述文件。Apple Business 检查格式与平台条件。描述文件仍受系统版本和监督要求限制。<sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></p>
+<h3 id="lost">远程锁定、定位与个人设备</h3>
+<p>监督的 iPhone、iPad 可进入管理式丢失模式。管理员可在该模式中查询位置。Mac 提供远程锁定，不能据此承诺 Mac 定位。锁定和抹除依赖设备注册方式。个人设备的 User Enrollment 管理范围更小。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup><sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<p>设备离线时，管理命令需等待联网。企业应检查设备收到命令后的状态。命令已发送不等于设备已锁定。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></p>
+
+<h2 id="signup">注册与组织验证</h2>
+<h3 id="materials">申请材料</h3>
+<p>准备公司名称、地址、地区与管理员资料。管理员应填写个人法定姓名。初始邮箱不能已关联其他 Apple Account。Apple 允许使用公共邮箱服务。账号审批后，建议增加第二名管理员。<sup><a href="#src-11" aria-label="来源 11">[11]</a></sup><sup><a href="#src-12" aria-label="来源 12">[12]</a></sup></p>
+<p>组织验证需要两种验证方式。Apple 列出企业编号、域名验证、关联应用与官方文件。D-U-N-S 编号是可选方法之一。企业可按门户选项提交其他材料。<sup><a href="#src-11" aria-label="来源 11">[11]</a></sup></p>
+<div class="tbl"><table><caption>组织验证的可用材料</caption><thead><tr><th scope="col">方式</th><th scope="col">准备内容</th></tr></thead><tbody>
+<tr><th scope="row">企业编号</th><td>D-U-N-S 等门户接受的编号。</td></tr>
+<tr><th scope="row">域名验证</th><td>公司域名的 DNS 权限，用于添加 TXT 记录。</td></tr>
+<tr><th scope="row">App Store Connect</th><td>与申请组织关联的应用。</td></tr>
+<tr><th scope="row">官方文件</th><td>营业执照等门户接受的文件。</td></tr>
+</tbody></table></div>
+<h3 id="apply">申请步骤</h3>
+<ol>
+<li>打开 <a href="https://business.apple.com/">Apple Business 注册入口</a>。</li>
+<li>选择 <code>Sign up now</code>。</li>
+<li>填写公司名称、地址与国家或地区。</li>
+<li>填写管理员姓名、邮箱与电话。</li>
+<li>完成邮箱和电话验证。</li>
+<li>接受服务条款。</li>
+<li>打开 <code>Settings → Organization</code>。</li>
+<li>选择 <code>Verify Now</code>。</li>
+<li>提交两种验证方式。</li>
+<li>选择 <code>Send for Review</code>。</li>
+</ol>
+<p>普通企业选择组织注册路径。代理商选项用于代其他企业管理品牌资料。Apple 预计验证最多需 5 个工作日。申请量大时，审批会延长。企业应在注册后 60 天内完成验证。验证通过后，员工才可在设备上使用工作账号。<sup><a href="#src-11" aria-label="来源 11">[11]</a></sup></p>
+
+<h2 id="enable">启用管理与配置 Blueprint</h2>
+<ol>
+<li>用具有设备管理权限的管理员登录。</li>
+<li>打开 <code>Devices → Management Services</code>。</li>
+<li>选择 <code>Add new device management service</code>。</li>
+<li>选择 <code>Turn on included device management</code>。</li>
+<li>选择 <code>Continue</code>。</li>
+</ol>
+<p>上述操作启用 Apple 托管的内置管理服务。<sup><a href="#src-13" aria-label="来源 13">[13]</a></sup></p>
+<ol>
+<li>打开 <code>Devices → Configurations</code>。</li>
+<li>创建公司需要的配置。</li>
+<li>打开 <code>Devices → Blueprints</code>。</li>
+<li>选择添加 Blueprint。</li>
+<li>加入应用和配置。</li>
+<li>分配试验用户、群组或设备。</li>
+<li>保存 Blueprint。</li>
+</ol>
+<p>员工设备可使用用户 Blueprint。会议室或专用设备可使用设备 Blueprint。先向试验设备分配配置。确认结果后，再扩大分配范围。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup><sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></p>
+
+<h2 id="enrollment">选择设备注册方式</h2>
+<p>“组织设备清单”和“设备已接受管理”是不同状态。设备必须完成注册，才能接收管理配置。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup><sup><a href="#src-18" aria-label="来源 18">[18]</a></sup></p>
+<div class="tbl"><table><caption>按设备用途选择注册方式</caption><thead><tr><th scope="col">设备情况</th><th scope="col">注册方式</th><th scope="col">操作结果</th></tr></thead><tbody>
+<tr><th scope="row">新设备或已抹除的公司设备</th><td>Automated Device Enrollment</td><td>在初始设置时注册；支持监督管理。</td></tr>
+<tr><th scope="row">正在使用的公司设备</th><td>Account-driven Device Enrollment</td><td>可不抹除注册；Mac 可受监督。</td></tr>
+<tr><th scope="row">员工个人设备</th><td>Account-driven User Enrollment</td><td>管理工作账号与应用；保留个人数据。</td></tr>
+<tr><th scope="row">共享或专用公司设备</th><td>自动注册＋设备 Blueprint</td><td>按设备序列号管理；无需员工工作账号。</td></tr>
+</tbody></table></div>
+<p>上表依据 Apple 的注册方式说明。公司设备的账号驱动注册不监督 iPhone、iPad。需要更完整控制时，应采用自动设备注册。自动注册不提供工作数据与个人数据的分离。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<h3 id="new">新设备的自动部署</h3>
+<ol>
+<li>取得 Apple Customer Number，或采购商的 Reseller Number。</li>
+<li>将采购商资料加入 Apple Business。</li>
+<li>要求参与计划的采购商提交设备到本公司组织。</li>
+<li>确认设备出现在组织设备清单。</li>
+<li>将设备分配给内置管理服务。</li>
+<li>分配对应 Blueprint。</li>
+<li>让员工将设备连接到互联网。</li>
+<li>让员工按初始设置中的提示完成注册。</li>
+</ol>
+<p>Apple Customer Number 用于直接向 Apple 采购。Reseller Number 用于参与计划的授权采购商。只在授权店购买，不会自动完成组织绑定。历史订单能否补录，应向采购商确认。<sup><a href="#src-12" aria-label="来源 12">[12]</a></sup></p>
+<p>自动注册的用户 Blueprint 要求员工使用工作账号。设备 Blueprint 按序列号分配，可不使用工作账号。自动注册的基础版本要求为 macOS 12.0.1、iOS 15 或 iPadOS 15 及以后版本。部分配置要求更高版本。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<h3 id="existing">已有公司设备的免抹除注册</h3>
+<ol>
+<li>为试验员工创建 Managed Apple Account。</li>
+<li>将用户 Blueprint 分配给该员工。</li>
+<li>打开 <code>Management Services → Device Enrollment</code>。</li>
+<li>对对应平台选择 <code>Enroll as an organization-owned device</code>。</li>
+<li>打开 <code>People → Users</code>。</li>
+<li>选择试验员工。</li>
+<li>选择 <code>Enroll Devices</code>。</li>
+<li>发送对应平台的注册说明。</li>
+<li>让员工按说明使用工作账号完成注册。</li>
+</ol>
+<p>该方式可保留已有数据。Apple 详细要求写明 macOS 14.1、iOS 17.1、iPadOS 17.1 及以后版本。按 Apple 说明，旧版本将转为 User Enrollment。试验时应确认控制台显示正确的注册方式。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<p>该方式可保留个人 Apple Account。Mac 注册后受监督；iPhone、iPad 不受监督。已有 MDM 的设备应先按迁移计划处理。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup><sup><a href="#src-17" aria-label="来源 17">[17]</a></sup></p>
+<h3 id="configurator">未在采购系统中的设备</h3>
+<p>Apple Configurator 可手动添加设备。用 iPhone 为 Mac 添加组织绑定时，Mac 必须有 Apple silicon 或 Apple T2 Security Chip。已配置的 Mac 需先备份，再抹除。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<ol>
+<li>在 iPhone 上打开 Apple Configurator。</li>
+<li>用有设备管理权限的工作账号登录。</li>
+<li>启动新 Mac 或已抹除的 Mac。</li>
+<li>停在初始设置的国家或地区选择页面。</li>
+<li>用 iPhone 扫描 Mac 上的配对图案。</li>
+<li>等待设备上传到组织设备清单。</li>
+<li>确认设备分配给内置管理服务。</li>
+<li>按新设备流程完成自动注册。</li>
+</ol>
+<p>手动加入的设备有 30 天临时退出期。期限从成功分配并注册管理服务后开始。用户在此期间可退出组织与管理。免抹除的账号驱动注册可作为已有设备的另一条路径。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup><sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<h3 id="personal">员工个人设备</h3>
+<p>个人设备使用 Account-driven User Enrollment。管理员选择 <code>Enroll as personal device</code>。工作账号与应用接受有限管理。个人账号与个人数据不属于企业管理范围。退出注册时，系统移除组织数据。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<p>不要将个人设备按公司设备注册。丢失模式、锁定和抹除能力也不能统一套用。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup><sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+
+<h2 id="security">FileVault 与现有 MDM 迁移</h2>
+<h3 id="filevault">FileVault 恢复密钥</h3>
+<p>企业可通过配置要求 Mac 启用 FileVault。启用该配置前，需生成加密证书和匹配私钥。Apple Business 使用证书加密恢复密钥。管理员需用匹配私钥解密。<sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></p>
+<ol>
+<li>按 Apple 的 FileVault 文档生成证书和私钥。</li>
+<li>将私钥保存到企业控制的安全位置。</li>
+<li>打开 <code>Devices → Management Services</code>。</li>
+<li>选择内置管理服务。</li>
+<li>上传加密证书。</li>
+<li>保存配置。</li>
+<li>向试验 Mac 分配 FileVault 配置。</li>
+<li>验证恢复密钥上传与解密。</li>
+</ol>
+<p>丢失私钥后，对应恢复密钥无法解密。更换证书时，应保留旧私钥。旧密钥仍需原来的私钥解密。文件存档和试验结果应由企业管理员负责。<sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></p>
+<h3 id="migration">现有 MDM 的迁移限制</h3>
+<div class="warn"><p>Apple 当前不支持向内置管理自动迁移。也不支持从内置管理自动迁出。macOS 26 等系统提供的迁移机制不覆盖这条路径。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup></p></div>
+<p>更改设备分配不会改变现有 MDM 注册。企业可在同一组织连接多个管理服务。不同设备可分配给不同服务。应先试验单台设备的退出与重新注册。<sup><a href="#src-18" aria-label="来源 18">[18]</a></sup></p>
+<p>迁移前，记录 FileVault 恢复密钥与旧配置。核对应用授权、Activation Lock 和旧代理软件。迁移后，确认新配置接管设备。是否需要抹除，应按设备及注册方式判断。</p>
+<p>Apple 的配套应用与协作功能有独立版本要求。发布说明要求 iOS 26、iPadOS 26 或 macOS 26。基础管理可支持更早版本。不能按基础注册要求推定所有新功能都可用。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup><sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></p>
+
+<h2 id="pilot">部署试验与验收</h2>
+<p>以下为建议的试验方法，尚未实机验证。选一台备用 Mac 和一台已有公司 Mac。涉及移动设备时，再选一台备用 iPhone。锁定和抹除只在可清空的备用设备上试验。</p>
+<div class="tbl"><table><caption>每步保留控制台状态与设备结果</caption><thead><tr><th scope="col">检查项</th><th scope="col">通过条件</th></tr></thead><tbody>
+<tr><th scope="row">组织与管理员</th><td>组织通过验证。备用管理员能登录。</td></tr>
+<tr><th scope="row">设备注册</th><td>注册方式与设备归属符合计划。</td></tr>
+<tr><th scope="row">Blueprint</th><td>设备收到预期应用与配置。</td></tr>
+<tr><th scope="row">应用与安装包</th><td>安装成功。更新与卸载方式明确。</td></tr>
+<tr><th scope="row">安全配置</th><td>FileVault、锁屏与防火墙状态符合要求。</td></tr>
+<tr><th scope="row">恢复密钥</th><td>管理员取得并成功解密试验恢复密钥。</td></tr>
+<tr><th scope="row">系统更新</th><td>设备收到更新时间要求，并完成更新。</td></tr>
+<tr><th scope="row">离线设备</th><td>离线状态可识别。联网后结果可核对。</td></tr>
+<tr><th scope="row">丢失设备</th><td>备用设备实际锁定，并可按预定方法恢复。</td></tr>
+<tr><th scope="row">员工离职</th><td>工作数据按注册方式移除。安装包残留有记录。</td></tr>
+<tr><th scope="row">现有 MDM 迁移</th><td>旧服务退出，新服务接管。密钥与应用结果完整。</td></tr>
+</tbody></table></div>
+<p>通过后再扩大设备范围。未通过时，记录失败环节与实际设备条件。根据失败结果修订部署步骤。不要只按“命令已发送”判断成功。</p>
+
+<h2 id="sources">方法与来源</h2>
+<p>资料核对日期为 2026-10-06。依据 Apple 官方 FAQ、地区功能表与用户指南。页面将前述说明整理为独立部署指南。注册步骤按当前英文菜单记录。</p>
+<p>本页未注册企业，也未改变设备管理状态。没有实测特定企业的账号审批与设备兼容性。本文的试验设备数量和验收表属于建议。生产部署前，应以实际账号和设备结果核对。</p>
+<p class="muted">版本记录：2026-10-06 初版。新增免费范围、注册方法、部署路径与验收表。记录 FileVault 私钥及内置管理迁移限制。</p>
+<ol class="sources"><li id="src-1"><a href="https://business.apple.com/en-ww/support/">Apple Business FAQ</a>。免费内置管理、适用企业与可选服务。</li>
+<li id="src-2"><a href="https://support.apple.com/en-euro/guide/business/axmef1c47twq/web">Apple：地区功能表</a>。Asia-Pacific 与 United States；新加坡、中国大陆及美国功能范围。</li>
+<li id="src-3"><a href="https://support.apple.com/en-euro/guide/business/axm02774ff54/web">Apple：查看设备信息</a>。Organization-owned enrolled device details；设备状态与隐私限制。</li>
+<li id="src-4"><a href="https://support.apple.com/en-euro/guide/business/axmd03047928/web">Apple：配置类型</a>。配置列表与平台范围。</li>
+<li id="src-5"><a href="https://support.apple.com/en-euro/guide/business/axm0d43737a4/web">Apple：应用 Blueprints</a>。用户、群组与设备分配；创建步骤。</li>
+<li id="src-6"><a href="https://support.apple.com/en-euro/guide/business/axmf6ab5d3eb/web">Apple：应用安装</a>。自动安装、员工安装与应用撤销。</li>
+<li id="src-7"><a href="https://support.apple.com/en-euro/guide/business/axmeeed343b0/web">Apple：部署 Mac 安装包</a>。下载地址、安装脚本、移除与更新限制。</li>
+<li id="src-8"><a href="https://support.apple.com/en-euro/guide/business/axmcf4de99c4/web">Apple：自定义配置</a>。配置描述文件格式、大小与平台要求。</li>
+<li id="src-9"><a href="https://support.apple.com/en-euro/guide/business/axm5c4b3c81d/web">Apple：系统更新配置</a>。Features and enrollment methods；更新时间与注册方式。</li>
+<li id="src-10"><a href="https://support.apple.com/en-euro/guide/business/axmc3c3e0b1e/web">Apple：定位、锁定与抹除</a>。管理式丢失模式、Mac 锁定与设备注册要求。</li>
+<li id="src-11"><a href="https://support.apple.com/en-euro/guide/business/axm402206497/web">Apple：注册与验证组织</a>。Create a new organization 与 Verify your organization。</li>
+<li id="src-12"><a href="https://support.apple.com/en-euro/guide/business/axm6d9dc7acf/web">Apple：账号与采购要求</a>。初始管理员邮箱；Apple Customer Number 与 Reseller Number。</li>
+<li id="src-13"><a href="https://support.apple.com/en-euro/guide/business/axmc7864dd73/web">Apple：启用内置设备管理</a>。Turn on the built-in device management。</li>
+<li id="src-14"><a href="https://support.apple.com/en-euro/guide/business/axma9a72e8a5/web">Apple：设备注册方式</a>。三种注册方式；详细版本要求；向员工发送注册说明。</li>
+<li id="src-15"><a href="https://support.apple.com/en-euro/guide/business/axm200a54d59/web">Apple：使用 Apple Configurator 添加设备</a>。Mac 芯片要求、抹除条件与 30 天临时退出期。</li>
+<li id="src-16"><a href="https://support.apple.com/en-euro/guide/business/axm1dd824baf/web">Apple：FileVault 配置</a>。加密证书、私钥与恢复密钥。</li>
+<li id="src-17"><a href="https://support.apple.com/en-euro/guide/business/axm3a49a769d/web">Apple：迁移设备管理服务</a>。Requirements；内置管理不支持自动迁移。</li>
+<li id="src-18"><a href="https://support.apple.com/en-euro/guide/business/axm659f6bd48/web">Apple：设备管理服务</a>。服务分配不改变当前注册；多个服务可并存。</li>
+<li id="src-19"><a href="https://support.apple.com/en-euro/guide/business/axm78b477c81/web">Apple：Managed Apple Accounts</a>。企业拥有的账号；身份服务接入与员工账号同步。</li>
+<li id="src-20"><a href="https://www.apple.com/newsroom/2026/03/introducing-apple-business-a-new-all-in-one-platform-for-businesses-of-all-sizes/">Apple：Apple Business 发布说明</a>。2026 年 4 月 14 日上线；原服务整合与配套应用要求。</li>
+</ol></main></div>
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-07
+
+- 新增资料页《Apple Business 免费设备管理部署指南》，`static/reading/apple-business-free-mdm-guide/index.html`。面向新加坡与中国大陆企业，说明 Apple Business 免费设备管理的功能、注册、设备注册方式与部署检查。
+
 ## 2026-10-06
 
 - 新增资料页《Kingfisher 密钥扫描工具》，`static/reading/kingfisher-secret-scanner/index.html`。MongoDB 开源的密钥扫描工具 Kingfisher：来历、四项能力（找密钥、在线验证、影响范围、吊销）、安全团队的正常用法，攻击者拿到它之后的用法和造成的破坏，以及防护办法。
