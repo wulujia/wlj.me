@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mac 企业端云防护产品</title>
+<meta name="description" content="比较 Mac 企业端云防护产品，覆盖商业方案、开源方案与试用检查。">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f5f7f8;
+  --surface: #ffffff;
+  --ink: #17232b;
+  --ink-2: #52616b;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #245b72;            /* 主题色：按题目换 */
+  --acc-ink: #245b72;        /* accent dark enough for text */
+  --acc-wash: rgba(36, 91, 114, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #5fb3d0; --acc-ink: #8fcde2; --acc-wash: rgba(95,179,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+th { letter-spacing: 0; }
+.tbl table { min-width: 620px; }
+.sources a { overflow-wrap: anywhere; }
+@media print { .tbl { overflow: visible; } .tbl table { min-width: 0; } table { break-inside: auto; } }
+</style>
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/mac-enterprise-security/">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>目录</summary><ul><li><a href="#scope">范围</a></li><li><a href="#commercial">商业产品</a></li><li><a href="#opensource">开源方案</a></li><li><a href="#selection">选型建议</a></li><li><a href="#trial">试用检查</a></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
+
+<main id="main"><header><p><a href="/reading/">返回整理</a></p>
+<p class="eyebrow">产品调研 · 2026-10-07</p><h1>Mac 企业端云防护产品</h1><p class="lede">面向 Mac 为主的企业。比较端点防护与中央管理方案，覆盖商业产品和开源方案。</p><p class="meta">资料查询：2026-10-07　｜　依据：官方产品页面与文档</p></header>
+<div class="summary"><p class="label">选型结论</p><p>建议先评估 Jamf Protect、Iru 和 Santa + Workshop。它们分别对应 Mac 防护、设备与安全管理、应用与文件访问控制。开源部署可先评估 Santa + Zentral。以下建议依据官方能力说明，不代表检测效果排名。</p></div>
+<h2 id="scope">范围</h2><p>本页将“端＋云”理解为客户端加中央管理。客户端监测或阻止威胁，中央服务管理策略、告警和响应。此处的“云”指管理服务。</p><p>EDR 指端点检测与响应。设备管理负责配置和更新。应用控制负责决定哪些软件可以执行。各产品的覆盖范围不同。</p><p>表格中的适用场景属于选型判断。产品能力来自对应来源。</p>
+<h2 id="commercial">商业产品</h2><div class="tbl"><table><caption>商业产品与中央管理模式</caption><thead><tr><th scope="col">产品</th><th scope="col">模式</th><th scope="col">能力</th><th scope="col">适用场景与限制</th></tr></thead><tbody><tr><th scope="row">Jamf Protect</th><td>商业／云管理</td><td>恶意软件阻止、行为检测、事件采集、USB 控制和网页防护。<sup><a href="#src-1" aria-label="来源 1">1</a></sup></td><td>Mac 为主的企业。建议先评估。</td></tr><tr><th scope="row">Iru（原 Kandji）</th><td>商业／云管理</td><td>设备管理、EDR、漏洞管理和软件更新。<sup><a href="#src-2" aria-label="来源 2">2</a>、<a href="#src-3" aria-label="来源 3">3</a></sup></td><td>希望同一团队管理设备与安全。</td></tr><tr><th scope="row">CrowdStrike Falcon</th><td>商业／云管理</td><td>Mac 杀毒、EDR、USB 与蓝牙控制、应用防火墙管理。<sup><a href="#src-4" aria-label="来源 4">4</a></sup></td><td>需要覆盖多种操作系统的安全团队。</td></tr><tr><th scope="row">SentinelOne Singularity</th><td>商业／中央管理</td><td>Mac 客户端、EDR 和端点防火墙策略。<sup><a href="#src-5" aria-label="来源 5">5</a></sup></td><td>与 CrowdStrike 一起评估。逐项验证 Mac 功能。</td></tr><tr><th scope="row">Microsoft Defender for Endpoint</th><td>商业／云管理</td><td>Mac 杀毒、云防护、EDR、网页防护和可移动介质控制。<sup><a href="#src-6" aria-label="来源 6">6</a></sup></td><td>已使用 Microsoft 安全服务的企业。先核对许可证。</td></tr><tr><th scope="row">Santa + Workshop</th><td>开源客户端／商业管理</td><td>应用执行控制、文件访问控制、中央策略、审批和事件采集。支持云托管或自托管。<sup><a href="#src-7" aria-label="来源 7">7</a>、<a href="#src-8" aria-label="来源 8">8</a>、<a href="#src-9" aria-label="来源 9">9</a></sup></td><td>重点控制软件执行与敏感文件访问。</td></tr><tr><th scope="row">LimaCharlie</th><td>商业／云管理</td><td>Mac 客户端上传安全事件。团队配置检测规则与响应动作。<sup><a href="#src-10" aria-label="来源 10">10</a></sup></td><td>有安全工程人员，需要自定义规则。</td></tr></tbody></table></div>
+<h2 id="opensource">开源方案</h2><div class="tbl"><table><caption>开源部署与可选商业服务</caption><thead><tr><th scope="col">产品</th><th scope="col">模式</th><th scope="col">能力</th><th scope="col">适用场景与限制</th></tr></thead><tbody><tr><th scope="row">Santa + Zentral</th><td>开源／自托管</td><td>Santa 控制应用执行与文件访问。Zentral 管理 Santa 策略和 osquery 数据。<sup><a href="#src-8" aria-label="来源 8">8</a>、<a href="#src-9" aria-label="来源 9">9</a>、<a href="#src-11" aria-label="来源 11">11</a></sup></td><td>需要集成与运维。Santa 的执行控制有脚本限制。</td></tr><tr><th scope="row">Wazuh</th><td>开源／自托管；可选付费云</td><td>Mac 客户端、中央日志、文件变更监测、配置检查和响应脚本。<sup><a href="#src-12" aria-label="来源 12">12</a>、<a href="#src-13" aria-label="来源 13">13</a>、<a href="#src-14" aria-label="来源 14">14</a>、<a href="#src-15" aria-label="来源 15">15</a>、<a href="#src-18" aria-label="来源 18">18</a></sup></td><td>检测与响应效果取决于规则和集成。</td></tr><tr><th scope="row">Fleet + osquery</th><td>开源基础版；可选商业功能与托管</td><td>设备清单、中央查询和基础设备管理。<sup><a href="#src-16" aria-label="来源 16">16</a>、<a href="#src-17" aria-label="来源 17">17</a></sup></td><td>主要用于设备管理与可观测性。恶意软件防护需另配客户端。</td></tr></tbody></table></div><p>Santa 也支持 Moroz 和 Rudolph 等开源策略同步服务。Zentral 更适合作为集成方案的评估起点。<sup><a href="#src-8" aria-label="来源 8">8</a>、<a href="#src-11" aria-label="来源 11">11</a></sup></p>
+<h2 id="selection">选型建议</h2><div class="tbl"><table><caption>按需求确定试用对象</caption><thead><tr><th scope="col">需求</th><th scope="col">建议评估</th><th scope="col">理由</th></tr></thead><tbody>
+<tr><th scope="row">采购 Mac 防护</th><td>Jamf Protect</td><td>重点覆盖 Apple 设备安全。</td></tr>
+<tr><th scope="row">统一管理 Mac 与安全</th><td>Iru</td><td>设备管理、EDR 与漏洞管理共用平台。</td></tr>
+<tr><th scope="row">控制应用和敏感文件</th><td>Santa + Workshop</td><td>直接控制执行与文件访问。</td></tr>
+<tr><th scope="row">开源部署</th><td>Santa + Zentral；按需加入 Wazuh</td><td>前者管理访问策略，后者集中监测安全事件。</td></tr>
+<tr><th scope="row">覆盖多种操作系统</th><td>CrowdStrike、SentinelOne、Defender</td><td>根据已有系统和安全团队能力比较。</td></tr>
+<tr><th scope="row">自定义检测规则</th><td>LimaCharlie</td><td>适合安全工程团队维护规则与响应动作。</td></tr>
+</tbody></table></div>
+<h2 id="trial">试用检查</h2><p>要求厂商在 Mac 上演示目标功能。将测试结果写入验收记录。</p><ul>
+<li>测试脚本攻击和凭据窃取的检测。</li><li>测试网络隔离和离线防护。</li><li>记录开发工作产生的误报。</li><li>核对 Apple silicon 和目标 macOS 版本。</li><li>验证 macOS 升级后的兼容性。</li><li>核对云端数据位置和事件导出。</li><li>核对许可证覆盖范围和所需模块。</li></ul>
+<h2 id="sources">方法与来源</h2><p>本页整理了 2026-10-07 查询的官方页面与文档。产品能力说明来自厂商或项目维护者。选型建议属于基于这些说明的判断。</p><p>本次未安装客户端，未测试检测效果。报价、采购条件和数据位置仍需向厂商核对。未将官方功能说明视为独立测试结果。</p><p class="muted">记录：2026-10-07，创建产品比较页面。</p><ol class="sources"><li id="src-1"><a href="https://www.jamf.com/products/jamf-protect/" target="_blank" rel="noopener">Jamf：Jamf Protect</a></li><li id="src-2"><a href="https://www.iru.com/solutions/mac" target="_blank" rel="noopener">Iru：Mac 设备管理与安全</a></li><li id="src-3"><a href="https://api-docs.iru.com/" target="_blank" rel="noopener">Iru：API 文档与 Kandji 名称说明</a></li><li id="src-4"><a href="https://www.crowdstrike.com/en-us/platform/endpoint-security/falcon-for-macos/" target="_blank" rel="noopener">CrowdStrike：Falcon for macOS</a></li><li id="src-5"><a href="https://www.sentinelone.com/faq/" target="_blank" rel="noopener">SentinelOne：平台与 Mac 支持说明</a></li><li id="src-6"><a href="https://learn.microsoft.com/defender-endpoint/microsoft-defender-endpoint-mac" target="_blank" rel="noopener">Microsoft：Defender for Endpoint on macOS</a></li><li id="src-7"><a href="https://northpole.security/workshop" target="_blank" rel="noopener">North Pole Security：Workshop</a></li><li id="src-8"><a href="https://github.com/northpolesec/santa" target="_blank" rel="noopener">North Pole Security：Santa 源码与限制</a></li><li id="src-9"><a href="https://northpole.security/santa" target="_blank" rel="noopener">North Pole Security：Santa 功能与许可证</a></li><li id="src-10"><a href="https://limacharlie.io/use-cases/edr" target="_blank" rel="noopener">LimaCharlie：EDR</a></li><li id="src-11"><a href="https://github.com/zentralopensource/zentral" target="_blank" rel="noopener">Zentral：源码与集成范围</a></li><li id="src-12"><a href="https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-macos.html" target="_blank" rel="noopener">Wazuh：Mac 客户端部署</a></li><li id="src-13"><a href="https://documentation.wazuh.com/current/user-manual/capabilities/sec-config-assessment/index.html" target="_blank" rel="noopener">Wazuh：配置检查</a></li><li id="src-14"><a href="https://documentation.wazuh.com/current/user-manual/capabilities/file-integrity/advanced-settings.html" target="_blank" rel="noopener">Wazuh：文件监测</a></li><li id="src-15"><a href="https://wazuh.com/cloud/" target="_blank" rel="noopener">Wazuh：云托管与响应脚本</a></li><li id="src-16"><a href="https://fleetdm.com/lp/open-source" target="_blank" rel="noopener">Fleet：开源范围与许可证</a></li><li id="src-17"><a href="https://fleetdm.com/" target="_blank" rel="noopener">Fleet：产品能力与部署模式</a></li><li id="src-18"><a href="https://documentation.wazuh.com/current/user-manual/capabilities/active-response/" target="_blank" rel="noopener">Wazuh：Active Response</a></li></ol></main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
