@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>减少本地凭据：用 1Password 和不用 1Password 的做法</title>
+<meta name="description" content="按凭据类型列出用 1Password 和不用 1Password 的两套做法，包括无人值守的办公室机器。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/local-credentials-1password/">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #1a1d22;
+  --ink-2: #494e52;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #0572ec;            /* 1Password brand blue */
+  --acc-ink: #0a4fa8;        /* accent dark enough for text */
+  --acc-wash: rgba(5, 114, 236, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #15171b; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #6aa8f5; --acc-ink: #9cc5fa; --acc-wash: rgba(106,168,245,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #15171b; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #6aa8f5; --acc-ink: #9cc5fa; --acc-wash: rgba(106,168,245,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .back { display: inline-block; margin-bottom: 28px; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <a class="back" href="/reading/">← 返回整理</a>
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#risk">一、本地凭据从哪里泄露</a>
+        <ul>
+          <li><a href="#risk-paths">1.1 五条泄露路径</a></li>
+          <li><a href="#risk-limit">1.2 这套做法挡不住什么</a></li>
+        </ul>
+      </li>
+      <li><a href="#types">二、按凭据类型的做法</a>
+        <ul>
+          <li><a href="#t-overview">2.1 总表</a></li>
+          <li><a href="#t-ssh">2.2 SSH 私钥</a></li>
+          <li><a href="#t-env">2.3 API 密钥和 .env 文件</a></li>
+          <li><a href="#t-cli">2.4 命令行工具的令牌</a></li>
+          <li><a href="#t-git">2.5 Git 凭据和提交签名</a></li>
+          <li><a href="#t-cloud">2.6 云平台访问密钥</a></li>
+          <li><a href="#t-web">2.7 网站密码、两步验证和恢复码</a></li>
+        </ul>
+      </li>
+      <li><a href="#unattended">三、无人值守的机器</a>
+        <ul>
+          <li><a href="#u-problem">3.1 问题：没有人按 Touch ID</a></li>
+          <li><a href="#u-op">3.2 用 1Password：服务账号</a></li>
+          <li><a href="#u-noop">3.3 不用 1Password：系统钥匙串和加密凭据</a></li>
+          <li><a href="#u-remote">3.4 人不在时需要高权限</a></li>
+        </ul>
+      </li>
+      <li><a href="#agents">四、AI 代理的规则</a></li>
+      <li><a href="#sources">五、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Security guide · 2026-10-08</p>
+    <h1>减少本地凭据：用 1Password 和不用 1Password 的做法</h1>
+    <p class="lede">这一页按凭据类型列出两套做法。一套用 1Password，另一套只用系统自带工具和开源工具。第三节单独讲办公室里当服务器用、平时没人在旁边的机器。</p>
+    <p class="meta"><span>适用：macOS 和 Linux</span><span>1Password 功能核对日期：2026-10-08</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>目标是磁盘上不留明文凭据。有人在旁边的电脑，用 1Password 桌面应用加 Touch ID 发放凭据：SSH 代理、<code>op run</code>、shell 插件。</p>
+    <p>没人在旁边的机器按不了 Touch ID。这类机器各用一个只读的服务账号，只能读一个专用保险库。这个服务账号的令牌是磁盘上唯一留下的凭据，放进系统钥匙串或 <code>systemd-creds</code>。</p>
+    <p>生产环境和个人账号的凭据不放到无人值守的机器上。这套做法防的是同步、备份、git 和丢电脑造成的泄露。以你的用户身份运行的恶意程序仍然能拿到当时正在用的凭据。</p>
+  </div>
+
+  <h2 id="risk">一、本地凭据从哪里泄露</h2>
+
+  <h3 id="risk-paths">1.1 五条泄露路径</h3>
+  <div class="tbl">
+    <table>
+      <caption>明文凭据的常见泄露路径</caption>
+      <thead><tr><th scope="col">路径</th><th scope="col">例子</th><th scope="col">去掉明文后</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">云同步</th><td>Dropbox、iCloud 里的 <code>.env</code>、密码导出文件、私钥</td><td>挡住</td></tr>
+        <tr><th scope="row">Git 提交</th><td>写在 <code>.zshrc</code> 或配置文件里的密钥，被 push 到 GitHub。删掉文件后，历史里还在</td><td>挡住</td></tr>
+        <tr><th scope="row">备份</th><td>Time Machine、整机镜像、发给别人的日志和导出包</td><td>挡住</td></tr>
+        <tr><th scope="row">设备丢失</th><td>笔记本被偷，磁盘没加密或开机密码太弱</td><td>挡住（磁盘加密是前提）</td></tr>
+        <tr><th scope="row">本机恶意程序</th><td>粘贴执行了一条来路不明的命令，程序以你的身份读文件和钥匙串</td><td>只能缩小范围</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>最后一条在常见的例子中是这样发生的：有人在 MacBook 的终端里执行了一条伪装成 base64 的命令，后门拿到了 macOS 登录密码。这时登录钥匙串、浏览器保存的密码和 Cookie、SSH 私钥、云平台凭据都在攻击者的能力范围内。如果 1Password 当时处于解锁状态，它的本地数据也在范围内。攻击者随后就能从外部用这些凭据操作 GitHub 和 AWS。</p>
+
+  <h3 id="risk-limit">1.2 这套做法挡不住什么</h3>
+  <ul>
+    <li>以你的用户身份运行的程序，可以读同一用户下其他进程的环境变量，也可以在 1Password 解锁期间调用它。</li>
+    <li>浏览器 Cookie 和应用自己缓存的登录状态（Slack、VS Code、Codex 的 <code>auth.json</code>）。它们由应用管理，1Password 接不进去。</li>
+    <li>已经泄露过的凭据。把明文删掉不会让旧值失效，只有轮换（作废旧值、换新值）才会。</li>
+  </ul>
+  <p>所以这套做法要配三件事：不在终端里粘贴来路不明的命令；每个凭据只给最小权限；发现异常时能快速轮换。</p>
+
+  <h2 id="types">二、按凭据类型的做法</h2>
+
+  <h3 id="t-overview">2.1 总表</h3>
+  <div class="tbl">
+    <table class="compare">
+      <caption>每类凭据的两套做法</caption>
+      <thead><tr><th scope="col">凭据</th><th scope="col" class="pick">用 1Password</th><th scope="col">不用 1Password</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">SSH 私钥</th><td class="pick">1Password SSH 代理，私钥不写到磁盘，每次使用 Touch ID</td><td>macOS：Secretive（私钥在 Secure Enclave）；两种系统都可用 YubiKey 的 <code>ed25519-sk</code> 密钥</td></tr>
+        <tr><th scope="row">API 密钥、<code>.env</code></th><td class="pick"><code>.env</code> 只写 <code>op://</code> 引用，用 <code>op run</code> 启动程序</td><td>sops 加 age 加密 <code>.env</code>；或者运行时从钥匙串取值</td></tr>
+        <tr><th scope="row">命令行工具令牌</th><td class="pick">shell 插件（gh、aws 等）</td><td>工具自带的钥匙串存储（<code>gh</code> 默认就是）；AWS 用 aws-vault</td></tr>
+        <tr><th scope="row">Git HTTPS 凭据</th><td class="pick">shell 插件或 <code>gh auth setup-git</code></td><td><code>osxkeychain</code>、<code>libsecret</code> 凭据助手</td></tr>
+        <tr><th scope="row">提交签名</th><td class="pick">用 1Password 里的 SSH 密钥签名（<code>op-ssh-sign</code>）</td><td>用 Secretive 或 YubiKey 里的 SSH 密钥签名</td></tr>
+        <tr><th scope="row">云平台密钥</th><td class="pick">shell 插件；能用 SSO 短期凭据时优先用 SSO</td><td>SSO 短期凭据；aws-vault</td></tr>
+        <tr><th scope="row">网站密码、两步验证</th><td class="pick">1Password 保存密码、TOTP、通行密钥；Watchtower 查弱密码和泄露</td><td>Apple 密码 App；两步验证用硬件密钥或单独的验证器</td></tr>
+        <tr><th scope="row">无人值守机器</th><td class="pick">每台机器一个只读服务账号，一个专用保险库</td><td>macOS 钥匙串；Linux <code>systemd-creds</code>；sops 加 age</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="t-ssh">2.2 SSH 私钥</h3>
+  <p><b>用 1Password。</b>在 1Password 里新建或导入 SSH 密钥，然后在“设置 → 开发者”里打开“使用 SSH 代理”。在 <code>~/.ssh/config</code> 里把代理指向 1Password：</p>
+  <pre><code>Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"   # macOS
+# Linux: IdentityAgent ~/.1password/agent.sock</code></pre>
+  <p>1Password 对每把密钥单独要求授权，用 Touch ID 或系统密码批准。确认能登录以后，删掉 <code>~/.ssh/id_*</code> 私钥文件。</p>
+  <p><b>不用 1Password。</b>macOS 用开源应用 Secretive，私钥在 Secure Enclave 里生成，导不出来，每次使用可以要求 Touch ID。Linux 和 macOS 都能用 YubiKey 生成 <code>ed25519-sk</code> 密钥，每次使用要碰一下硬件。最低要求：私钥加 passphrase，再交给 <code>ssh-agent</code>，不要放进 Dropbox。</p>
+
+  <h3 id="t-env">2.3 API 密钥和 .env 文件</h3>
+  <p><b>用 1Password。</b><code>.env</code> 里只写引用，格式是 <code>op://保险库/条目/字段</code>：</p>
+  <pre><code>OPENAI_API_KEY=op://Dev/openai/credential
+DATABASE_URL=op://Dev/slax-local-db/url</code></pre>
+  <p>启动时用 <code>op run --env-file=.env -- npm run dev</code>。真实值只出现在这个进程的环境变量里。<code>op run</code> 默认把输出里的密钥值替换成一段提示文字。这种 <code>.env</code> 可以提交到 git。配置文件模板用 <code>op inject -i config.tpl.yml -o config.yml</code>，生成的文件要加进 <code>.gitignore</code>。</p>
+  <p>1Password Environments 是更新的做法：在桌面应用里管理一组变量，把它挂载成本地 <code>.env</code>。官方说明写的是“不把明文密钥写到磁盘”。它要求管理员打开 Environments 策略，桌面应用要处于登录状态。</p>
+  <p><b>不用 1Password。</b>用 sops 加 age 把 <code>.env</code> 加密后提交，运行时 <code>sops exec-env .env.enc 'npm run dev'</code>。age 私钥是唯一的明文，放在 <code>~/.config/sops/age/keys.txt</code>，不进 Dropbox。只有一两个变量时，直接从钥匙串取：<code>export OPENAI_API_KEY="$(security find-generic-password -s openai -w)"</code>。这一行可以写进 <code>.zshrc</code>，文件里没有明文。</p>
+
+  <h3 id="t-cli">2.4 命令行工具的令牌</h3>
+  <p><b>用 1Password。</b><code>op plugin init gh</code>，按提示选择 1Password 里的令牌条目。以后运行 <code>gh</code> 时，1Password 在运行那一刻提供令牌，需要 Touch ID。1Password 为几十个工具提供了插件，包括 gh、aws、stripe、openai、huggingface。接入后删掉工具原来的明文文件，比如 <code>~/.config/gh/hosts.yml</code> 里的 <code>oauth_token</code>。</p>
+  <p><b>不用 1Password。</b>很多工具默认用系统钥匙串，<code>gh</code> 新版本默认存进钥匙串，加了 <code>--insecure-storage</code> 才写明文。先 <code>gh auth logout</code>，再 <code>gh auth login</code>，检查 <code>hosts.yml</code> 里不再有令牌。Docker 设置 <code>credsStore</code>，npm 和 PyPI 用短期令牌或可信发布。</p>
+
+  <h3 id="t-git">2.5 Git 凭据和提交签名</h3>
+  <p>用 SSH 地址时，Git 用的就是 2.2 节的 SSH 密钥。提交签名也用同一把密钥：</p>
+  <pre><code>git config --global gpg.format ssh
+git config --global user.signingkey "ssh-ed25519 AAAA..."      # 公钥
+git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+git config --global commit.gpgsign true</code></pre>
+  <p>不用 1Password 时，不设置 <code>gpg.ssh.program</code>，签名密钥指向 Secretive 或 YubiKey 的公钥。HTTPS 地址的凭据交给 <code>osxkeychain</code>（macOS）或 <code>libsecret</code>（Linux 桌面）凭据助手。不要用 <code>store</code> 助手，它把令牌明文写进 <code>~/.git-credentials</code>。</p>
+
+  <h3 id="t-cloud">2.6 云平台访问密钥</h3>
+  <p>长期访问密钥（AWS 的 <code>AKIA</code> 开头那种）是最危险的一类：泄露后在作废前一直能用。能用 SSO 的，用 <code>aws sso login</code>、<code>gcloud auth login</code> 拿几小时有效的短期凭据。必须用长期密钥时，用 1Password 的 aws 插件，或者用 aws-vault 把密钥存进钥匙串，每次换成短期凭据再交给命令。<code>~/.aws/credentials</code> 里不留明文。</p>
+
+  <h3 id="t-web">2.7 网站密码、两步验证和恢复码</h3>
+  <ul>
+    <li>浏览器导出的密码 CSV 是全部密码的明文。导入密码管理器以后马上删除；在 Dropbox 网页的“已删除文件”里再永久删除一次。</li>
+    <li>关掉浏览器自带的密码保存，避免两处各存一份。</li>
+    <li>1Password 的 Watchtower 列出重复、弱、已泄露的密码和“可开启两步验证”的网站，按列表处理。不用 1Password 时，Apple 密码 App 也有“安全建议”。</li>
+    <li>1Password、Apple ID、主邮箱这三个账号的恢复码，另外在线下存一份。它们是找回其他一切的入口，不能只存在 1Password 里。</li>
+  </ul>
+
+  <h2 id="unattended">三、无人值守的机器</h2>
+
+  <h3 id="u-problem">3.1 问题：没有人按 Touch ID</h3>
+  <p>1Password 桌面应用给命令行授权时，需要有人在这台机器上按 Touch ID 或输入密码。授权在终端空闲 10 分钟后失效，最长 12 小时；应用锁定后全部授权立即失效。人在外面时，办公室的机器弹出授权框也没人批准，代理和定时任务就会卡住或失败。</p>
+  <p>不能为了方便关掉锁定，也不能让个人账号一直保持解锁。这类机器要用另一种身份：机器自己的身份，权限固定，而且很小。</p>
+
+  <h3 id="u-op">3.2 用 1Password：服务账号</h3>
+  <p>服务账号是给机器用的 1Password 身份，用一个令牌登录，不需要桌面应用和 Touch ID。设置 <code>OP_SERVICE_ACCOUNT_TOKEN</code> 环境变量后，<code>op read</code>、<code>op run</code>、<code>op inject</code> 都照常工作。</p>
+  <ul>
+    <li>每台机器单独建一个保险库，例如 <code>Server-M2</code>，只放这台机器的无人值守任务需要的凭据。</li>
+    <li>每台机器单独建一个服务账号，只给这个保险库的读权限。泄露时只作废这一个。</li>
+    <li>服务账号读不到 Personal、Private、Employee 保险库和默认的 Shared 保险库。个人凭据因此天然隔开。</li>
+    <li>权限建好后不能修改。要改范围，就新建一个服务账号，再删掉旧的。</li>
+    <li>令牌只显示一次，先存进 1Password 自己的条目里，再放到机器上。</li>
+  </ul>
+  <div class="tbl">
+    <table>
+      <caption>服务账号的请求限制（官方文档，2026-10-08 核对）</caption>
+      <thead><tr><th scope="col">套餐</th><th scope="col">每个令牌每小时</th><th scope="col">整个账户每 24 小时</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Business</th><td>读 10,000 次，写 1,000 次</td><td>50,000 次</td></tr>
+        <tr><th scope="row">Teams</th><td>读 1,000 次，写 100 次</td><td>5,000 次</td></tr>
+        <tr><th scope="row">Individual、Families</th><td>读 1,000 次，写 100 次</td><td>1,000 次</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>个人和家庭套餐每天只有 1,000 次，所有服务账号共用。每分钟跑一次的定时任务如果每次都调用 <code>op</code>，一天就超了。长期运行的程序应该在启动时取一次凭据，不要每次请求都去读。</p>
+  <div class="warn"><b>风险</b>服务账号令牌本身就是一个凭据。谁拿到它，谁就能读那个保险库。常见的例子中，CI 用一个服务账号读 1Password，每次 GitHub Actions 运行都会读一次。能触发工作流的人，就能借 CI 的令牌读密钥。所以保险库要小，生产凭据和测试凭据要分开。</div>
+
+  <h3 id="u-noop">3.3 不用 1Password：系统钥匙串和加密凭据</h3>
+  <p><b>macOS。</b>用户保持登录时，登录钥匙串是解锁的，后台任务可以直接读：</p>
+  <pre><code>security add-generic-password -a "$USER" -s openai-m2 -w      # 回车后输入值，不进 shell 历史
+security find-generic-password -a "$USER" -s openai-m2 -w      # 脚本里这样取值</code></pre>
+  <p><b>Linux。</b>系统服务用 <code>systemd-creds</code> 加密凭据。有 TPM2 芯片时，密文和这台机器绑定，拷到别的机器上解不开：</p>
+  <pre><code>sudo systemd-creds encrypt --name=openai - /etc/credstore.encrypted/openai
+# 单元文件里：
+LoadCredentialEncrypted=openai:/etc/credstore.encrypted/openai
+# 程序从 $CREDENTIALS_DIRECTORY/openai 读取</code></pre>
+  <p>多台机器共用一批凭据时，用 sops 加 age：密文进 git，每台机器各有一把 age 私钥，丢一台只作废那一把。</p>
+
+  <h3 id="u-remote">3.4 人不在时需要高权限</h3>
+  <p>无人值守的机器只放自动任务需要的凭据。人不在办公室、又要做高权限操作（生产部署、改 DNS、动个人账号）时，按下面的顺序选：</p>
+  <ol>
+    <li>从随身电脑 SSH 到办公室机器，用 <code>ssh -A</code> 转发 1Password SSH 代理。授权框弹在随身电脑上，用 Touch ID 批准，办公室机器上不留私钥。只对自己的机器用 <code>-A</code>，不要在配置里写 <code>Host * ForwardAgent yes</code>。批准以后，这个会话里同一把密钥的后续连接都不再询问。</li>
+    <li>操作在随身电脑上本地做，不经过办公室机器。</li>
+    <li>等回到办公室再做。</li>
+  </ol>
+  <p>不要为了远程方便，把生产密钥放进服务器保险库。</p>
+
+  <h2 id="agents">四、AI 代理的规则</h2>
+  <p>Claude Code、Codex 这类代理以你的用户身份运行，能读你能读的文件，也能运行 <code>op</code>。下面五条把它们能拿到的东西压到最小：</p>
+  <ul>
+    <li>代理进程只拿它需要的环境变量。用 <code>op run --env-file=agent.env -- env -u OP_SERVICE_ACCOUNT_TOKEN 代理命令</code> 启动：代理拿到解析后的值，拿不到服务账号令牌本身。</li>
+    <li>有人值守的电脑上，没有预期的 1Password 授权框一律拒绝。批准一次，这个终端会话就有最多 12 小时的访问权。</li>
+    <li>代理用的 GitHub 令牌用细粒度令牌：只给需要的仓库，设置到期日，不给组织管理权限。</li>
+    <li>代理可读的目录里不放 <code>.env</code> 明文。项目的 <code>.env</code> 只写 <code>op://</code> 引用。</li>
+    <li>代理的日志和对话导出可能带上密钥。导出包放进 Dropbox 前，先搜一遍 <code>sk-</code>、<code>ghp_</code>、<code>AKIA</code>、<code>PRIVATE KEY</code>。</li>
+  </ul>
+
+  <h2 id="sources">五、方法与来源</h2>
+  <p>1Password 的功能、时限和请求限制在 2026-10-08 按官方开发者文档核对。FileVault 远程解锁按 Apple 的 macOS 26 企业版说明核对。<code>gh</code> 从哪个版本开始默认使用钥匙串，本次没有核对。</p>
+  <ol class="sources">
+    <li id="src-1">1Password Developer，Service accounts: Get started，<a href="https://www.1password.dev/service-accounts/get-started/" target="_blank" rel="noopener">1password.dev/service-accounts/get-started</a></li>
+    <li id="src-2">1Password Developer，Service account rate limits，<a href="https://www.1password.dev/service-accounts/rate-limits/" target="_blank" rel="noopener">1password.dev/service-accounts/rate-limits</a></li>
+    <li id="src-3">1Password Developer，CLI app integration security，<a href="https://www.1password.dev/cli/app-integration-security/" target="_blank" rel="noopener">1password.dev/cli/app-integration-security</a></li>
+    <li id="src-4">1Password Developer，SSH agent forwarding，<a href="https://www.1password.dev/ssh/agent/forwarding/" target="_blank" rel="noopener">1password.dev/ssh/agent/forwarding</a></li>
+    <li id="src-5">1Password Developer，Environments，<a href="https://www.1password.dev/environments/" target="_blank" rel="noopener">1password.dev/environments</a></li>
+    <li id="src-6">Apple Support，What's new for enterprise in macOS Tahoe 26，<a href="https://support.apple.com/en-us/124963" target="_blank" rel="noopener">support.apple.com/en-us/124963</a></li>
+    <li id="src-7">Secretive（Secure Enclave SSH 密钥），<a href="https://github.com/maxgoedjen/secretive" target="_blank" rel="noopener">github.com/maxgoedjen/secretive</a></li>
+    <li id="src-8">sops，<a href="https://github.com/getsops/sops" target="_blank" rel="noopener">github.com/getsops/sops</a></li>
+    <li id="src-9">aws-vault，<a href="https://github.com/99designs/aws-vault" target="_blank" rel="noopener">github.com/99designs/aws-vault</a></li>
+    <li id="src-10">systemd-creds 手册，<a href="https://www.freedesktop.org/software/systemd/man/latest/systemd-creds.html" target="_blank" rel="noopener">freedesktop.org/…/systemd-creds.html</a></li>  </ol>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

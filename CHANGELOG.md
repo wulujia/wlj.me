@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-09
+
+- 新增资料页《减少本地凭据：用 1Password 和不用 1Password 的做法》，`static/reading/local-credentials-1password/index.html`。按凭据类型列出用 1Password 和不用 1Password 的两套做法，包括无人值守的办公室机器。
+
 ## 2026-10-08
 
 - 新增资料页《Open Source Endowment 调研》，`static/reading/open-source-endowment-2026-10/index.html`。Open Source Endowment（OSE）怎么运作、钱从哪来、谁在管、资助了谁、投资是否公开。数据截至 2026-10-08。
