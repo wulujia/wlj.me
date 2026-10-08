@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-08
+
+- 新增资料页《Open Source Endowment 调研》，`static/reading/open-source-endowment-2026-10/index.html`。Open Source Endowment（OSE）怎么运作、钱从哪来、谁在管、资助了谁、投资是否公开。数据截至 2026-10-08。
+
 ## 2026-10-07
 
 - 新增资料页《C2 通信现状、企业网络限制与遗留风险》，`static/reading/c2-landscape-network-controls-2026-10/index.html`。恶意程序与控制服务器之间的通信有哪些方式，企业在网络层应做哪些限制，做完之后还剩什么风险。附 UniFi 实施示例、开源清单的自动更新和托管安全 DNS 方案。

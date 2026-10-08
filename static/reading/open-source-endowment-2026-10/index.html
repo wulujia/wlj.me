@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Source Endowment 调研</title>
+<meta name="description" content="Open Source Endowment（OSE）怎么运作、钱从哪来、谁在管、资助了谁、投资是否公开。数据截至 2026-10-08。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/open-source-endowment-2026-10/">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Ledger green: neutrals lean slightly green to match. */
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --ink: #1a1d1b;
+  --ink-2: #474e4a;
+  --ink-3: #626c66;
+  --rule: #dde1de;
+  --rule-2: #b8c0bb;
+  --mid: #eceeec;
+  --acc: #2d5a47;
+  --acc-ink: #234a3a;
+  --acc-wash: rgba(45, 90, 71, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #151816; --surface: #1d211f; --ink: #eaece9; --ink-2: #bec5c0; --ink-3: #929c96;
+    --rule: #2c322e; --rule-2: #444c47; --mid: #232825;
+    --acc: #7fbfa3; --acc-ink: #a3d4be; --acc-wash: rgba(127,191,163,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #151816; --surface: #1d211f; --ink: #eaece9; --ink-2: #bec5c0; --ink-3: #929c96;
+  --rule: #2c322e; --rule-2: #444c47; --mid: #232825;
+  --acc: #7fbfa3; --acc-ink: #a3d4be; --acc-wash: rgba(127,191,163,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline ul ul a { font-weight: 400; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- formula: the subject's own notation, set as content ---------- */
+.formula { font-family: var(--font-mono); font-size: 15px; background: var(--surface); border: 1px solid var(--rule); padding: 12px 16px; margin: 0 0 1.2em; overflow-x: auto; white-space: nowrap; }
+.formula .muted { font-size: 13px; }
+
+/* ---------- summary block ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts ---------- */
+.note, .warn, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* ---------- stat row ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+
+/* ---------- kv grid ---------- */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 10ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- pills ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print ---------- */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, .note, .warn, .todo, .stats, .summary, .formula { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、OSE 是什么</a>
+        <ul>
+          <li><a href="#s1-1">1.1 运作方式</a></li>
+          <li><a href="#s1-2">1.2 时间线</a></li>
+        </ul>
+      </li>
+      <li><a href="#s2">二、7–8% 的回报从哪来</a>
+        <ul>
+          <li><a href="#s2-1">2.1 回报的来源</a></li>
+          <li><a href="#s2-2">2.2 为什么是 7–8%</a></li>
+          <li><a href="#s2-3">2.3 回报有没有保证</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、团队与运营成本</a></li>
+      <li><a href="#s4">四、和 Open Source Pledge 的区别</a></li>
+      <li><a href="#s5">五、Konstantin Vinogradov 的背景</a></li>
+      <li><a href="#s6">六、目前的规模和资助</a>
+        <ul>
+          <li><a href="#s6-1">6.1 资金和捐赠人</a></li>
+          <li><a href="#s6-2">6.2 资助进度</a></li>
+          <li><a href="#s6-3">6.3 选项目的模型</a></li>
+        </ul>
+      </li>
+      <li><a href="#s7">七、preview.xlsx 里排前面的项目</a>
+        <ul>
+          <li><a href="#s7-1">7.1 前 15 名</a></li>
+          <li><a href="#s7-2">7.2 被排除的高分项目</a></li>
+        </ul>
+      </li>
+      <li><a href="#s8">八、投资信息公开了多少</a></li>
+      <li><a href="#s9">九、判断</a></li>
+      <li><a href="#s10">十、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p><a href="/reading/">返回整理</a></p>
+    <p class="eyebrow">Research notes · 2026 年 10 月 8 日</p>
+    <h1>Open Source Endowment 调研</h1>
+    <p class="lede">OSE 想用大学捐赠基金的办法长期资助开源维护者。这页整理它的运作方式、回报来源、团队、资助进度、选项目的模型和投资披露。</p>
+    <p class="meta"><span>数据截至 2026-10-08</span><span>范围：endowment.dev 公开页面、GitHub 仓库、媒体报道</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>截至 2026-10-08，OSE 的基金为 76.5 万美元，有 120 位捐赠人。按每年 5% 支出，一年能发约 3.8 万美元，约等于 7 笔 5,000 美元的小额资助。</p>
+    <p>董事会在 2026-07-15 的会议上选定了第一批资助对象，但没有公开名单。我没找到任何已经发出的资助记录。</p>
+    <p>选项目的模型完全开源，可以复查；投资配置、顾问费用、实际回报都没有公开。治理透明，财务不透明。</p>
+  </div>
+
+  <h2 id="s1">一、OSE 是什么</h2>
+  <p>Open Source Endowment（OSE）是美国的 501(c)(3) 非营利组织，自称“世界上第一个开源软件捐赠基金”。2026 年 2 月 27 日公开发布<sup><a href="#src-1">1</a>,<a href="#src-6">6</a></sup>。</p>
+
+  <h3 id="s1-1">1.1 运作方式</h3>
+  <ul>
+    <li>捐款全部拿去投资，本金不花，只把投资收益发成资助。</li>
+    <li>目标支出率是每年基金的 5%，目标年化回报是 7–8%。投资交给外部机构 Infinite Giving 管理，它为美国非营利组织做外包首席投资官（outsourced CIO）<sup><a href="#src-3">3</a></sup>。</li>
+    <li>资助对象是已经被广泛使用的非营利或独立开源项目，不资助商业产品开发。重点放在开源生态的核心：大约 1% 的包，占了 99% 的下载量和依赖关系<sup><a href="#src-4">4</a></sup>。</li>
+    <li>每笔资助最多 5,000 美元<sup><a href="#src-4">4</a></sup>。</li>
+    <li>捐款超过 1,000 美元的人成为会员（Member），可以参与治理。</li>
+  </ul>
+
+  <h3 id="s1-2">1.2 时间线</h3>
+  <ol class="timeline">
+    <li><time>2025-02-14</time><div>在美国注册成立<sup><a href="#src-5">5</a></sup>。</div></li>
+    <li><time>2025-05-29</time><div>董事会决议开设 Vanguard 账户<sup><a href="#src-5">5</a></sup>。</div></li>
+    <li><time>2025-06-25</time><div>董事会决议购买美国国债。早期投资方式是国债，年化约 5%<sup><a href="#src-3">3</a>,<a href="#src-5">5</a></sup>。</div></li>
+    <li><time>2025-12-12</time><div>拿到 501(c)(3) 免税认定函<sup><a href="#src-5">5</a></sup>。</div></li>
+    <li><time>2026-02-27</time><div>公开发布，TechCrunch、The Register、Hacker News 报道<sup><a href="#src-6">6</a>,<a href="#src-7">7</a>,<a href="#src-8">8</a></sup>。</div></li>
+    <li><time>2026-04-27</time><div>董事会审阅 “OSE Financial Framework &amp; Model”，文件放在不公开的 Google Drive 里<sup><a href="#src-10">10</a></sup>。</div></li>
+    <li><time>2026-07-15</time><div>董事会按模型结果选定第一批资助对象，计划第一次发放。Chad Whitacre 卸任董事，Amy Parker 任秘书<sup><a href="#src-9">9</a></sup>。</div></li>
+  </ol>
+
+  <h2 id="s2">二、7–8% 的回报从哪来</h2>
+
+  <h3 id="s2-1">2.1 回报的来源</h3>
+  <p>这笔回报和开源无关，来自普通的投资，做法和养老基金、大学捐赠基金一样。</p>
+  <ul>
+    <li>股票：公司分红，利润增长带动股价上涨。长期看这是最大的回报来源。</li>
+    <li>债券：政府和公司借钱，付利息。</li>
+    <li>其他资产（房地产、私募基金等）同理：有人为使用资本付钱。</li>
+  </ul>
+  <p>资本能产生回报，是因为企业用这笔钱造出能赚钱的东西，再把一部分利润分给出资人。投资人也要为承担风险和等待拿补偿，股票有的年份会跌 30% 以上。过去约 100 年，美国股票扣除通胀前年化约 10%，扣除通胀后约 7%。7–8% 的目标以这段历史为基础。</p>
+
+  <h3 id="s2-2">2.2 为什么是 7–8%</h3>
+  <p>这个目标等于支出率加通胀：</p>
+  <div class="formula">5% 资助支出 + 约 2.5% 通胀 ≈ 7.5% <span class="muted">（每年回报达到这个数，基金实际价值不缩水）</span></div>
+  <p>回报达到 7.5%，基金不靠新捐款也能一直发钱。低于这个数，基金会慢慢变小。</p>
+
+  <h3 id="s2-3">2.3 回报有没有保证</h3>
+  <p>没有。7–8% 是目标。2008 年很多大学捐赠基金一年亏了 20–30%。捐赠基金通常用三个办法应对：</p>
+  <ul>
+    <li>分散投资：钱分到多种资产，一次暴跌不至于毁掉基金。</li>
+    <li>平滑支出：按过去 3 年平均值的 5% 支出，坏年份资助额不会骤降。OSE 有没有用这条规则，公开资料没写。</li>
+    <li>长期持有：捐赠基金明年不需要现金，可以等市场恢复。</li>
+  </ul>
+  <p>投资这一步是成熟做法，难点在规模。76.5 万美元按 7.5% 算，一年回报约 5.7 万美元。</p>
+
+  <h2 id="s3">三、团队与运营成本</h2>
+  <p>网站列出 6 个人，没有专门写全职员工<sup><a href="#src-2">2</a>,<a href="#src-3">3</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>OSE 人员（网站列表，2026-10-08）</caption>
+      <thead><tr><th scope="col">姓名</th><th scope="col">角色</th><th scope="col">是否领薪</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Konstantin Vinogradov</th><td>董事长</td><td>董事无薪</td></tr>
+        <tr><th scope="row">Amy Parker</th><td>董事、秘书（2026-05-28 任董事）</td><td>董事无薪</td></tr>
+        <tr><th scope="row">Maxim Konovalov</th><td>董事、财务</td><td>董事无薪</td></tr>
+        <tr><th scope="row">Chad Whitacre</th><td>网站仍列为董事；2026-07-15 会议纪要记录卸任</td><td>董事无薪</td></tr>
+        <tr><th scope="row">Jonathan Starr</th><td>执行董事（ED），此前在 NumFOCUS 任项目经理</td><td>未公开</td></tr>
+        <tr><th scope="row">Vlad-Stefan Harbuz</th><td>顾问</td><td>未公开</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>FAQ 写明：所有董事无薪任职，且必须是会员<sup><a href="#src-2">2</a></sup>。董事会最多可扩到 11 人。Infinite Giving 的管理费没有公开。</p>
+  <p>运营成本由谁付，OSE 自己的说法不一致：</p>
+  <ul>
+    <li>FAQ 说每笔公开捐款都直接进基金，用于投资；预期投资收益全部用于资助<sup><a href="#src-2">2</a></sup>。</li>
+    <li>llms-full.txt 说资助和运营成本付完后，剩下的收益再投资<sup><a href="#src-3">3</a></sup>。按这个说法，运营成本从回报里出。</li>
+  </ul>
+  <div class="todo"><b>待确认</b>运营成本的实际来源和执行董事是否领薪。OSE 作为 501(c)(3) 每年要向美国国税局提交 Form 990，表里有高管薪酬和总支出。截至 2026-10-08 没查到它 2025 年的第一份 Form 990，之后可以到 ProPublica Nonprofit Explorer 查。</div>
+
+  <h2 id="s4">四、和 Open Source Pledge 的区别</h2>
+  <div class="tbl">
+    <table>
+      <caption>两种资助方式对比</caption>
+      <thead><tr><th scope="col"></th><th scope="col">Open Source Pledge</th><th scope="col">Open Source Endowment</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">谁出钱</th><td>公司</td><td>主要是个人（创始人、高管）</td></tr>
+        <tr><th scope="row">规则</th><td>公司每年按每名开发者至少 2,000 美元付给维护者（待确认）</td><td>捐款拿去投资，只花回报</td></tr>
+        <tr><th scope="row">钱怎么到维护者手里</th><td>公司直接付，自己选给谁</td><td>OSE 汇总，用模型和董事会选项目</td></tr>
+        <tr><th scope="row">持续性</th><td>按年。公司退出，钱就停</td><td>本金永久，不依赖单个捐赠人</td></tr>
+        <tr><th scope="row">已付出的钱</th><td class="num">约 700 万美元</td><td class="num">未见公开记录</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Pledge 的博客把两者称为互补：Pledge 让公司现在就付钱，OSE 建一个在赞助方变动时还能继续发钱的基金。写这篇博客的是 Chad Whitacre，他当时在 OSE 董事会<sup><a href="#src-11">11</a></sup>。</p>
+  <div class="todo"><b>待确认</b>Pledge 由 Sentry 在 2024 年下半年发起、每名开发者 2,000 美元的规则，这两点来自既有知识，引用的博客里没有写。</div>
+
+  <h2 id="s5">五、Konstantin Vinogradov 的背景</h2>
+  <dl class="kv">
+    <dt>职位</dt><dd>Runa Capital 普通合伙人（General Partner），常驻伦敦。2012 年以初级分析师加入，2022 年升为普通合伙人，负责欧洲<sup><a href="#src-13">13</a>,<a href="#src-14">14</a></sup>。</dd>
+    <dt>Runa Capital</dt><dd>投资开源和基础设施软件的风险投资机构，投过 Nginx、MariaDB、n8n 等<sup><a href="#src-12">12</a></sup>。</dd>
+    <dt>代表作</dt><dd>ROSS Index（Runa Open Source Startup Index），2020 年起每季度列出增长最快的 20 家开源创业公司<sup><a href="#src-13">13</a></sup>。</dd>
+    <dt>教育</dt><dd>莫斯科物理技术学院（MIPT）应用数学与物理学士、硕士<sup><a href="#src-13">13</a></sup>。</dd>
+    <dt>此前经历</dt><dd>运营创业比赛 Technocup，在早期创业公司工作过。联合创办并出售的公司，有的资料说是加密货币挖矿公司，有的说是硬件公司，说法不一。</dd>
+    <dt>荣誉</dt><dd>2019 年 Forbes 30 Under 30。</dd>
+  </dl>
+  <p>OSE 的结构和他的背景对得上。风险投资人熟悉捐赠基金和出资人（LP）的运作；Runa 投资组合里的创始人（NGINX、n8n）也在 OSE 的创始捐赠人里。一位靠开源创业公司赚钱的投资人，为这些公司底下没有报酬的维护者筹钱，对生态有好处，对他在开源圈的声誉也有好处。两件事不冲突，读者应该两件都知道。</p>
+
+  <h2 id="s6">六、目前的规模和资助</h2>
+
+  <h3 id="s6-1">6.1 资金和捐赠人</h3>
+  <div class="stats">
+    <div><b>$765K</b><span>基金规模</span></div>
+    <div><b>120</b><span>捐赠人</span></div>
+    <div><b>69</b><span>会员（捐款 1,000 美元以上）</span></div>
+    <div><b>≈ $38K</b><span>每年可支出（按 5% 估算）</span></div>
+  </div>
+  <p class="muted">数据来自 endowment.dev 首页，2026-10-08<sup><a href="#src-1">1</a></sup>。最后一格是估算。</p>
+  <p>发布时的报道说募集了约 70 万到 75 万美元，来自 60 到 90 位创始捐赠人，各家数字不同<sup><a href="#src-6">6</a>,<a href="#src-8">8</a></sup>。发布后约 7 个月只多了约 5 万美元。创始捐赠人包括 HashiCorp、Elastic、ClickHouse、Supabase、Sentry、n8n、NGINX、Vue.js、cURL、Pydantic、Zerodha 的创始人或高管<sup><a href="#src-15">15</a></sup>。</p>
+
+  <h3 id="s6-2">6.2 资助进度</h3>
+  <p>早期报道说第一轮资助安排在 2026 年第二季度。2026-07-15 的董事会纪要写着“Reviewed grant recipients indicated by funding model and selected final recipients”，并“Planned additional details of first grant distribution”<sup><a href="#src-9">9</a></sup>。名单没有公开。网站和新闻里也没有资助对象、金额或日期。</p>
+  <p>按 3.8 万美元一年、每笔最多 5,000 美元算，一年能资助约 7 个项目。</p>
+
+  <h3 id="s6-3">6.3 选项目的模型</h3>
+  <p>模型开源在 GitHub 的 osendowment/model 仓库，2026-07-24 最后更新，20 个 star<sup><a href="#src-4">4</a></sup>。它分四步：</p>
+  <ol>
+    <li>价值（Value）：读 npm、PyPI、crates.io、Debian、Homebrew 的数据，把下载量和依赖关系算成加权 PageRank，划出“核心”项目。</li>
+    <li>风险（Risk）：给核心项目打风险分，看维护者集中度、复杂度、安全、工作量。</li>
+    <li>资格（Eligibility）：只保留开源、有求资助意愿、没有公司强关联、仍在维护的项目。四条全过才算合格。</li>
+    <li>尽调：董事会人工核查，联系项目，最后批准。</li>
+  </ol>
+  <p>最终分数是价值和风险的几何平均，两项都高才能排前面：</p>
+  <div class="formula">score = sqrt(value_score × risk_score) <span class="muted">（两项都是 0–100）</span></div>
+
+  <h2 id="s7">七、preview.xlsx 里排前面的项目</h2>
+  <p>preview.xlsx 是模型的输出文件<sup><a href="#src-16">16</a></sup>。文件里有 947 个打了分的项目，667 个合格。合格项目按生态分：npm 418、PyPI 100、crates.io 97、C/C++ 52。</p>
+
+  <h3 id="s7-1">7.1 前 15 名</h3>
+  <div class="tbl">
+    <table>
+      <caption>合格项目前 15 名（下载于 2026-10-08）</caption>
+      <thead><tr><th scope="col" class="num">#</th><th scope="col">项目</th><th scope="col">生态</th><th scope="col" class="num">价值</th><th scope="col" class="num">风险</th><th scope="col" class="num">总分</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><th scope="row">moment/moment</th><td>npm</td><td class="num">63.8</td><td class="num">87.5</td><td class="num">74.7</td></tr>
+        <tr><td class="num">2</td><th scope="row">websockets/ws</th><td>npm</td><td class="num">67.7</td><td class="num">82.2</td><td class="num">74.6</td></tr>
+        <tr><td class="num">3</td><th scope="row">lxml/lxml</th><td>PyPI</td><td class="num">66.1</td><td class="num">81.0</td><td class="num">73.2</td></tr>
+        <tr><td class="num">4</td><th scope="row">terser/terser</th><td>npm</td><td class="num">64.8</td><td class="num">82.6</td><td class="num">73.2</td></tr>
+        <tr><td class="num">5</td><th scope="row">serde-rs/serde</th><td>Rust</td><td class="num">75.5</td><td class="num">70.3</td><td class="num">72.9</td></tr>
+        <tr><td class="num">6</td><th scope="row">retep998/winapi-rs</th><td>Rust</td><td class="num">59.0</td><td class="num">89.7</td><td class="num">72.7</td></tr>
+        <tr><td class="num">7</td><th scope="row">dtolnay/syn</th><td>Rust</td><td class="num">69.9</td><td class="num">74.5</td><td class="num">72.2</td></tr>
+        <tr><td class="num">8</td><th scope="row">crossbeam-rs/crossbeam</th><td>Rust</td><td class="num">65.6</td><td class="num">78.9</td><td class="num">71.9</td></tr>
+        <tr><td class="num">9</td><th scope="row">paramiko/paramiko</th><td>PyPI</td><td class="num">62.8</td><td class="num">82.2</td><td class="num">71.8</td></tr>
+        <tr><td class="num">10</td><th scope="row">sqlalchemy/sqlalchemy</th><td>PyPI</td><td class="num">69.8</td><td class="num">72.3</td><td class="num">71.0</td></tr>
+        <tr><td class="num">11</td><th scope="row">toml-rs/toml</th><td>Rust</td><td class="num">68.9</td><td class="num">73.0</td><td class="num">70.9</td></tr>
+        <tr><td class="num">12</td><th scope="row">tqdm/tqdm</th><td>PyPI</td><td class="num">63.9</td><td class="num">78.5</td><td class="num">70.8</td></tr>
+        <tr><td class="num">13</td><th scope="row">eemeli/yaml</th><td>npm</td><td class="num">62.0</td><td class="num">80.8</td><td class="num">70.8</td></tr>
+        <tr><td class="num">14</td><th scope="row">ljharb/qs</th><td>npm</td><td class="num">66.9</td><td class="num">74.2</td><td class="num">70.5</td></tr>
+        <tr><td class="num">15</td><th scope="row">yaml/libyaml</th><td>C</td><td class="num">58.3</td><td class="num">84.6</td><td class="num">70.3</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>第 16 到 25 名：rust-lang/regex、pallets/jinja、bytecodealliance/rustix、nodeca/js-yaml、vuejs/core、prettier/prettier、zloirock/core-js、nodeca/argparse、rust-lang/futures-rs、time-rs/time。</p>
+  <p>排在前面的多是被大量系统依赖、只有一两个人维护的库，例如 moment、ws、terser、winapi-rs、core-js。core-js 的维护者曾公开求助资金。</p>
+  <p>moment 排第一值得商榷。Moment.js 已进入维护模式，团队自己建议新项目换别的库。它风险分高，是因为旧而且到处在用，但资助一个不再加功能的项目，效果有限。纯数据模型看不出这一点，所以董事会的人工核查很要紧。</p>
+
+  <h3 id="s7-2">7.2 被排除的高分项目</h3>
+  <p>280 个项目不合格。其中 209 个没有表现出求资助意愿（没有 FUNDING.yml、Open Collective 之类的信号），60 个和公司强关联，21 个已停止维护，4 个不是开源许可。</p>
+  <div class="tbl">
+    <table>
+      <caption>总分最高的不合格项目</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col" class="num">总分</th><th scope="col">不合格原因</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">evanw/esbuild</th><td class="num">76.2</td><td>无求资助意愿</td></tr>
+        <tr><th scope="row">pyca/cryptography</th><td class="num">75.4</td><td>无求资助意愿</td></tr>
+        <tr><th scope="row">takluyver/jeepney</th><td class="num">73.9</td><td>无求资助意愿</td></tr>
+        <tr><th scope="row">estools/escodegen</th><td class="num">73.8</td><td>无求资助意愿</td></tr>
+        <tr><th scope="row">xtuc/webassemblyjs</th><td class="num">72.3</td><td>无求资助意愿</td></tr>
+        <tr><th scope="row">microsoft/windows-rs</th><td class="num">72.2</td><td>公司强关联</td></tr>
+        <tr><th scope="row">gnutls/gnutls</th><td class="num">71.2</td><td>无求资助意愿</td></tr>
+        <tr><th scope="row">aws/aws-sdk-js-v3</th><td class="num">70.0</td><td>公司强关联</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>esbuild 和 pyca/cryptography 是全表总分第一和第二，都高过 moment，但因为没挂求资助的标识被排除。这条规则尊重维护者的意愿，代价是最关键的项目不在名单里。</p>
+
+  <h2 id="s8">八、投资信息公开了多少</h2>
+  <div class="tbl">
+    <table>
+      <caption>OSE 已公开和未公开的信息（2026-10-08）</caption>
+      <thead><tr><th scope="col">已公开</th><th scope="col">未公开</th></tr></thead>
+      <tbody>
+        <tr><td>章程、利益冲突政策、会员政策</td><td>资产配置（哪些资产、各占多少）</td></tr>
+        <tr><td>董事会纪要（只有议程标题）</td><td>Infinite Giving 的费用</td></tr>
+        <tr><td>开 Vanguard 账户、买国债两份决议（只有标题）</td><td>成立以来的实际回报</td></tr>
+        <tr><td>选项目模型的全部代码和数据</td><td>财务报表、运营成本、薪酬</td></tr>
+        <tr><td>基金总额、捐赠人数</td><td>投资政策说明书（Investment Policy Statement）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>按 OSE 自己的透明标准，投资信息也应该公开，理由有三条：</p>
+  <ul>
+    <li>它把选项目的模型做成代码让人复查。投资是这个系统的另一半，现在没法复查。</li>
+    <li>捐赠基金的主要风险在投资端。回报、费用、成本决定基金能不能撑下去。按 76.5 万美元算，1% 的管理费是每年 7,650 美元，约等于一笔半 5,000 美元资助。捐赠人看不到这笔账。</li>
+    <li>公开的成本很低。大型大学捐赠基金每年公布资产配置和回报。OSE 可以每季度发一张表（配置比例、回报、费用），每年发一份资助和成本明细。</li>
+  </ul>
+  <div class="note"><b>说明</b>OSE 在 2025 年 12 月才拿到 501(c)(3) 认定，2025 年的 Form 990 应在 2026 年提交。那会是第一份有硬数字的财务文件。</div>
+  <p>想推动这件事，可以在 GitHub 的 osendowment/foundation 仓库提 issue，或发邮件到 donations@endowment.dev，问三件事：资产配置、Infinite Giving 费率、成立以来的回报。</p>
+
+  <h2 id="s9">九、判断</h2>
+  <ul>
+    <li>本金永久、只花回报，资助不随单个赞助方退出而中断。代价是每年 95% 的钱不到维护者手里。</li>
+    <li>规模决定作用。基金到 1,000 万美元，每年约 50 万美元，按每笔 5,000 美元算能资助约 100 个项目。现在的规模只够验证流程。</li>
+    <li>判断 OSE 看四件事：募资增长（尤其是大额捐赠）、实际发出的资助（数量、金额、名单是否公开）、运营和管理费占基金的比例、投资明细是否公开。一两年的回报率波动参考价值低，长期的费率差会复利放大。</li>
+    <li>选项目的模型比基金本身建得更完整，但还没经过一次真实发放的检验。模型给 moment 排第一、把 esbuild 和 cryptography 排除在外，说明人工核查仍然关键。</li>
+  </ul>
+
+  <h2 id="s10">十、方法与来源</h2>
+  <p>2026-10-08 读取 endowment.dev 首页、FAQ、资助页、文件页和 llms 文本；读取 GitHub 上 osendowment/model 的 README、资格说明和提交记录，以及 osendowment/foundation 的 2026-04-27、2026-07-15 董事会纪要；下载 preview.xlsx，用 Python 统计合格项目、排名和不合格原因。</p>
+  <p>没拿到的：资助名单、Form 990、资产配置、Infinite Giving 费率、执行董事薪酬、董事会 Google Drive 附件。stats.endowment.dev 接口当天没有返回数据。美股长期回报（约 10% 名义、约 7% 实际）、2008 年捐赠基金亏损幅度、Pledge 的发起方和 2,000 美元规则来自既有知识，没有逐条查证。“每年可支出约 3.8 万美元”和“约 7 笔资助”是按 5% 支出率估算的。</p>
+  <ol class="sources">
+    <li id="src-1">Open Source Endowment 首页，<a href="https://endowment.dev/" target="_blank" rel="noopener">endowment.dev</a></li>
+    <li id="src-2">Open Source Endowment，FAQ，<a href="https://endowment.dev/faq/" target="_blank" rel="noopener">endowment.dev/faq</a></li>
+    <li id="src-3">Open Source Endowment，llms-full.txt，<a href="https://endowment.dev/llms-full.txt" target="_blank" rel="noopener">endowment.dev/llms-full.txt</a></li>
+    <li id="src-4">osendowment/model，README 与 docs/eligibility.md，<a href="https://github.com/osendowment/model" target="_blank" rel="noopener">github.com/osendowment/model</a>；资助页 <a href="https://endowment.dev/funding/" target="_blank" rel="noopener">endowment.dev/funding</a></li>
+    <li id="src-5">Open Source Endowment，Foundation Documents，<a href="https://endowment.dev/docs/" target="_blank" rel="noopener">endowment.dev/docs</a></li>
+    <li id="src-6">The Register，2026-02-27，<a href="https://www.theregister.com/2026/02/27/open_source_endowment" target="_blank" rel="noopener">theregister.com</a></li>
+    <li id="src-7">TechCrunch，《A VC and some big-name programmers are trying to solve open source's funding problem, permanently》，2026-02-26，<a href="https://techcrunch.com/2026/02/26/a-vc-and-some-big-name-programmers-are-trying-to-solve-open-sources-funding-problem-permanently/" target="_blank" rel="noopener">techcrunch.com</a></li>
+    <li id="src-8">Hacker News 讨论，<a href="https://news.ycombinator.com/item?id=47168012" target="_blank" rel="noopener">news.ycombinator.com</a>；OpenSourceForU，<a href="https://www.opensourceforu.com/2026/02/worlds-first-oss-endowment-backs-maintainers-with-investment-income/" target="_blank" rel="noopener">opensourceforu.com</a></li>
+    <li id="src-9">OSE 董事会纪要，2026-07-15，<a href="https://github.com/osendowment/foundation/blob/main/docs/board/2026-07-15/minutes.md" target="_blank" rel="noopener">github.com/osendowment/foundation</a></li>
+    <li id="src-10">OSE 董事会纪要，2026-04-27，<a href="https://github.com/osendowment/foundation/blob/main/docs/board/2026-04-27/minutes.md" target="_blank" rel="noopener">github.com/osendowment/foundation</a></li>
+    <li id="src-11">Open Source Pledge，《Welcoming the Open Source Endowment》，<a href="https://opensourcepledge.com/blog/welcoming-the-open-source-endowment" target="_blank" rel="noopener">opensourcepledge.com</a></li>
+    <li id="src-12">Wikipedia，Runa Capital，<a href="https://en.wikipedia.org/wiki/Runa_Capital" target="_blank" rel="noopener">en.wikipedia.org</a></li>
+    <li id="src-13">Kauffman Fellows，Konstantin Vinogradov，<a href="https://www.kauffmanfellows.org/fellows/konstantin-vinogradov" target="_blank" rel="noopener">kauffmanfellows.org</a></li>
+    <li id="src-14">TechCrunch，Runa Capital 新基金，2022-09-13，<a href="https://techcrunch.com/2022/09/13/runa-capital-kicks-off-new-fund-as-it-joins-the-scramble-for-europe" target="_blank" rel="noopener">techcrunch.com</a></li>
+    <li id="src-15">Linuxiac，《Open Source Endowment Launches to Fund Critical FOSS Infrastructure》，<a href="https://linuxiac.com/open-source-endowment-launches-to-fund-critical-foss-infrastructure/" target="_blank" rel="noopener">linuxiac.com</a></li>
+    <li id="src-16">osendowment/model，data/preview/preview.xlsx，<a href="https://github.com/osendowment/model/raw/main/data/preview/preview.xlsx" target="_blank" rel="noopener">preview.xlsx</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
