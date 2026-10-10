@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mac 安全：NIST 的建议</title>
+<meta name="description" content="NIST 对 Mac 安全的建议：mSCP 与 SP 800-219 的版本状态、用法、基线要求的设置，以及它不覆盖的风险。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/nist-mac-security-mscp-2026-10/">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. */
+  --bg: #f5f7f5;
+  --surface: #ffffff;
+  --ink: #1b1d1f;
+  --ink-2: #494e52;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #d9dfda;
+  --rule-2: #b5c0b8;
+  --mid: #e9eeea;
+  --acc: #2f6b45;    
+  --acc-ink: #24543a;        /* accent dark enough for text */
+  --acc-wash: rgba(47, 107, 69, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #151917; --surface: #1c221f; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79b98d; --acc-ink: #9fd0ae; --acc-wash: rgba(121,185,141,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #151917; --surface: #1c221f; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79b98d; --acc-ink: #9fd0ae; --acc-wash: rgba(121,185,141,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、NIST 的做法：mSCP 与 SP 800-219</a>
+        <ul>
+          <li><a href="#s1-1">1.1 版本状态</a></li>
+          <li><a href="#s1-2">1.2 怎么用</a></li>
+        </ul>
+      </li>
+      <li><a href="#s2">二、基线要求的设置</a></li>
+      <li><a href="#s3">三、它是不是全球最佳实践</a>
+        <ul>
+          <li><a href="#s3-1">3.1 擅长的部分</a></li>
+          <li><a href="#s3-2">3.2 不覆盖的部分</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">四、个人 Mac 的最小做法</a></li>
+      <li><a href="#s6">五、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Security notes · 2026 年 10 月 10 日</p>
+    <h1>Mac 安全：NIST 的建议</h1>
+    <p class="lede">NIST 对 Mac 安全给了什么建议，这些建议覆盖哪些风险、不覆盖哪些风险。</p>
+    <p class="meta"><span>资料截至 2026-10-10</span><span>范围：macOS 单机与公司设备</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>NIST 对 Mac 的建议是 macOS Security Compliance Project（mSCP），由 NIST SP 800-219 说明。现行正式版是 2023 年 7 月的 Rev. 1；Rev. 2 草案 2026 年 6 月发布，8 月 14 日截止征求意见。</p>
+    <p>mSCP 是一份很好的配置基线，只回答“这台 Mac 设置对没有”。账号被盗、开发工具链、检测、备份这几类风险，它基本不管，需要用别的资料补上。只有一台个人 Mac 时，打开 FileVault、自动更新、防火墙和短时锁屏，日常用标准账号，就覆盖了大部分价值。</p>
+  </div>
+
+  <h2 id="s1">一、NIST 的做法：mSCP 与 SP 800-219</h2>
+  <p>NIST 不给 Mac 出固定的检查清单。它在 GitHub 上维护一套规则，每个 macOS 版本更新一次，每条规则对应 NIST SP 800-53 Rev. 5 的控制项。项目由 NIST、NASA、DISA 和 Los Alamos 国家实验室的安全人员共同维护<sup><a href="#src-3">3</a></sup>。Apple 的认证文档把 SP 800-219 列为这个项目的权威说明<sup><a href="#src-4">4</a></sup>。</p>
+
+  <h3 id="s1-1">1.1 版本状态</h3>
+  <ol class="timeline">
+    <li><time>2022</time><div>SP 800-219 第一版，只覆盖 macOS 台式机和笔记本<sup><a href="#src-5">5</a></sup>。</div></li>
+    <li><time>2023-03</time><div>Rev. 1 草案发布，3 月 13 日开始征求意见。</div></li>
+    <li><time>2023-07</time><div>Rev. 1 正式版发布（7 月 20 日），到今天仍是现行版本。</div></li>
+    <li><time>2026-06</time><div>Rev. 2 草案发布（6 月 22 日），作者 Eric Trapnell 和 Bob Gendler。范围扩大到 iOS 和 visionOS，系统版本和规则的管理更简单<sup><a href="#src-1">1</a>,<a href="#src-2">2</a></sup>。</div></li>
+    <li><time>2026-08</time><div>Rev. 2 征求意见 8 月 14 日截止。2026-10-10 的检索结果里没有看到正式版。</div></li>
+  </ol>
+
+  <h3 id="s1-2">1.2 怎么用</h3>
+  <ol>
+    <li>克隆 <code>usnistgov/macos_security</code><sup><a href="#src-6">6</a></sup>，切到和你的 macOS 版本对应的分支。</li>
+    <li>选一个基线：<code>800-53r5_low</code>、<code>800-53r5_moderate</code>、<code>800-53r5_high</code>、<code>cis_lvl1</code>、<code>cis_lvl2</code> 或 <code>cisv8</code>。机构也可以自定义基线。</li>
+    <li>生成产物：给 MDM 用的配置描述文件、合规检查和修复脚本、审计文档。</li>
+  </ol>
+  <p>目标读者是系统管理员、安全人员、安全策略作者、信息安全官和审计人员<sup><a href="#src-1">1</a></sup>。</p>
+
+  <h2 id="s2">二、基线要求的设置</h2>
+  <p>下表按主题归纳各基线常见的要求。具体条目和取值随基线等级和 macOS 版本变化，以仓库里对应分支为准。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">主题</th><th scope="col">要求</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">磁盘加密</th><td>FileVault 全盘加密打开。</td></tr>
+        <tr><th scope="row">系统完整性</th><td>Gatekeeper、系统完整性保护（SIP）、XProtect 保持打开。只运行已签名或已公证的应用。</td></tr>
+        <tr><th scope="row">更新</th><td>软件更新自动安装，包括快速安全响应。</td></tr>
+        <tr><th scope="row">防火墙</th><td>应用防火墙打开，并打开隐身模式。</td></tr>
+        <tr><th scope="row">锁屏</th><td>空闲很短时间后锁屏，唤醒后立即要密码。</td></tr>
+        <tr><th scope="row">密码</th><td>设最小长度；多次输错后锁定账号。</td></tr>
+        <tr><th scope="row">登录</th><td>关闭访客登录、自动登录和密码提示。</td></tr>
+        <tr><th scope="row">远程服务</th><td>默认关闭 SSH、屏幕共享、远程 Apple 事件和文件共享。</td></tr>
+        <tr><th scope="row">无线与助手</th><td>较高等级的基线限制 AirDrop、蓝牙共享和 Siri。</td></tr>
+        <tr><th scope="row">日志与审计</th><td>统一日志打开并保留；设定 <code>auditd</code> 审计参数。</td></tr>
+        <tr><th scope="row">账号权限</th><td>少用管理员账号，日常工作用标准账号。</td></tr>
+        <tr><th scope="row">登录横幅</th><td>显示登录提示文字，联邦机构基线要求。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s3">三、它是不是全球最佳实践</h2>
+  <p>mSCP 是一份强的配置基线，单靠它构不成完整的安全做法。它回答“这台 Mac 设置对没有”，不回答“谁会攻击我、怎么攻击”。</p>
+
+  <h3 id="s3-1">3.1 擅长的部分</h3>
+  <ul>
+    <li>设置可以批量下发，也可以审计，适合用 MDM 管很多台 Mac、又要向审计方证明合规的组织。</li>
+    <li>基线里已经包含 CIS Benchmark 的主要 macOS 设置，DISA STIG 的大部分要求也能对上。</li>
+  </ul>
+
+  <h3 id="s3-2">3.2 不覆盖的部分</h3>
+  <p>它只管预防，不管检测；只管本机设置，不管账号、云服务、开发工具链和备份。下面几份资料各补一块，可以对照看：Apple Platform Security Guide（Apple 对硬件和系统安全机制的说明）、英国 NCSC 的设备安全指南、澳大利亚的 Essential Eight。</p>
+
+  <h2 id="s5">四、个人 Mac 的最小做法</h2>
+  <p>只有一台个人 Mac 时，不需要整套 mSCP 工具链。下面五件事覆盖了 <code>cis_lvl1</code> 的大部分价值：</p>
+  <ol>
+    <li>打开 FileVault。</li>
+    <li>打开自动更新。</li>
+    <li>打开防火墙。</li>
+    <li>设置短时间锁屏，唤醒立即要密码。</li>
+    <li>日常用标准账号，关闭各项共享服务。</li>
+  </ol>
+  <p>公司要管很多台 Mac 时，再用 mSCP 加 MDM 批量下发和审计。</p>
+
+  <h2 id="s6">五、方法与来源</h2>
+  <p>2026-10-10 用网页检索查了 SP 800-219 的版本状态和 mSCP 项目说明，第一节的事实来自下面的来源。第二节的设置表按 mSCP 基线的常见规则归纳，没有逐条对照仓库当前分支。第三、四节的判断，以及提到的其他框架（CIS、DISA STIG、NCSC、Essential Eight），来自一般知识，本次没有打开原文核对，用之前以官方页面为准。Rev. 2 是否已出正式版待确认。</p>
+  <ol class="sources">
+    <li id="src-1">NIST CSRC，《SP 800-219 Rev. 2 (Draft)》，2026-06-22，<a href="https://csrc.nist.gov/pubs/sp/800/219/r2/ipd" target="_blank" rel="noopener">csrc.nist.gov/pubs/sp/800/219/r2/ipd</a></li>
+    <li id="src-2">NIST 新闻，《mSCP Automated Secure Configuration Guidance: Draft SP 800-219r2 Available for Public Comment》，2026-06，<a href="https://www.nist.gov/news-events/news/2026/06/mscp-automated-secure-configuration-guidance-draft-sp-800-219r2-available" target="_blank" rel="noopener">nist.gov</a></li>
+    <li id="src-3">NIST CSRC，《macOS Security》项目页，<a href="https://csrc.nist.gov/Projects/macos-security" target="_blank" rel="noopener">csrc.nist.gov/Projects/macos-security</a></li>
+    <li id="src-4">Apple 支持，《macOS Security Compliance Project》，<a href="https://support.apple.com/guide/certifications/macos-security-compliance-project-apc322685bb2/web" target="_blank" rel="noopener">support.apple.com</a></li>
+    <li id="src-5">NIST，《SP 800-219》第一版 PDF，<a href="https://csrc.nist.rip/external/nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-219.pdf" target="_blank" rel="noopener">NIST.SP.800-219.pdf</a></li>
+    <li id="src-6">mSCP 规则仓库，<a href="https://github.com/usnistgov/macos_security" target="_blank" rel="noopener">github.com/usnistgov/macos_security</a></li>
+    <li id="src-7">Scalefusion，《macOS Security Compliance Project (mSCP): 2026 Guide》，<a href="https://blog.scalefusion.com/what-is-macos-security-compliance-project-mscp/" target="_blank" rel="noopener">blog.scalefusion.com</a></li>
+  </ol>
+  <p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

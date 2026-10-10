@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-10
+
+- 新增资料页《Mac 安全：NIST 的建议》，`static/reading/nist-mac-security-mscp-2026-10/index.html`。NIST 对 Mac 安全的建议：mSCP 与 SP 800-219 的版本状态、用法、基线要求的设置，以及它不覆盖的风险。
+
 ## 2026-10-09
 
 - 新增资料页《减少本地凭据：用 1Password 和不用 1Password 的做法》，`static/reading/local-credentials-1password/index.html`。按凭据类型列出用 1Password 和不用 1Password 的两套做法，包括无人值守的办公室机器。
