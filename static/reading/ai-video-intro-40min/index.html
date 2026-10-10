@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 视频入门：40 分钟教学计划</title>
+<meta name="description" content="教只用过聊天机器人的朋友用 AI 做视频：工具、流程、技巧、演示和案例。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/ai-video-intro-40min/">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f8f6f5;
+  --surface: #ffffff;
+  --ink: #1d1a1a;
+  --ink-2: #4d4646;
+  --ink-3: #6d6464;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #e2dcdb;
+  --rule-2: #c3bab8;
+  --mid: #f0ecea;
+  --acc: #b23a2e;
+  --acc-ink: #8e2c22;        /* accent dark enough for text */
+  --acc-wash: rgba(178, 58, 46, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #181515; --surface: #211d1c; --ink: #eeeae9; --ink-2: #c8c0be; --ink-3: #a09694;
+    --rule: #342e2d; --rule-2: #4f4745; --mid: #2a2524;
+    --acc: #e57a6c; --acc-ink: #f2a398; --acc-wash: rgba(229,122,108,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #181515; --surface: #211d1c; --ink: #eeeae9; --ink-2: #c8c0be; --ink-3: #a09694;
+  --rule: #342e2d; --rule-2: #4f4745; --mid: #2a2524;
+  --acc: #e57a6c; --acc-ink: #f2a398; --acc-wash: rgba(229,122,108,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+@page { size: A4; margin: 18mm 16mm; }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ---------- page-specific ---------- */
+.prompt { background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--acc); padding: 10px 16px; margin: .6em 0 1.2em; }
+.prompt .tag { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--acc-ink); margin: 0 0 2px; }
+.prompt p { margin: 0 0 .4em; }
+.prompt p:last-child { margin: 0; }
+.tc { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 13px; color: var(--acc-ink); white-space: nowrap; }
+h3 .tc { font-size: 14px; margin-right: .6em; }
+.timeline.agenda li { grid-template-columns: 12ch 1fr; }
+.cases h4 { color: var(--ink); }
+@media print { .prompt { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、先记住一个比喻</a></li>
+      <li><a href="#s2">二、只需要三个工具</a></li>
+      <li><a href="#s3">三、40 分钟怎么安排</a>
+        <ul>
+          <li><a href="#s3-1">0–5 分钟：先看，不讲道理</a></li>
+          <li><a href="#s3-2">5–10 分钟：三种玩法</a></li>
+          <li><a href="#s3-3">10–15 分钟：装工具</a></li>
+          <li><a href="#s3-4">15–27 分钟：三个演示</a></li>
+          <li><a href="#s3-5">27–36 分钟：她自己做</a></li>
+          <li><a href="#s3-6">36–40 分钟：收尾</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、技巧卡片（发给她存手机）</a></li>
+      <li><a href="#s5">五、案例库</a>
+        <ul>
+          <li><a href="#s5-1">开场用的真实案例</a></li>
+          <li><a href="#s5-3">做得好的中文 AI 短剧</a></li>
+          <li><a href="#s5-2">课后练习用的案例</a></li>
+        </ul>
+      </li>
+      <li><a href="#s6">六、好提示词和差提示词对照</a></li>
+      <li><a href="#s7">七、上课前你要准备的</a></li>
+      <li><a href="#s8">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow"><a href="/reading/">← 整理</a> · Lesson plan · 2026 年 9 月 28 日</p>
+    <h1>AI 视频入门：40 分钟教学计划</h1>
+    <p class="lede">教一位只用过 ChatGPT、豆包这类聊天机器人、零剪辑经验的朋友。40 分钟后，她能用手机或电脑自己做出一条 15 到 30 秒、带音乐的小视频。</p>
+    <p class="meta"><span>信息核对日期 2026-09-28</span><span>免费额度和版本号变得很快，上课前一天再看一眼</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>三个工具就够：她已经会用的聊天机器人写脚本，即梦生成视频（它的 Seedance 2.0 模型在 2026 年 9 月的画质排行榜上比可灵高一截），剪映拼接配乐。</p>
+    <p>流程只有一句话：一次拍一个 5 到 10 秒的镜头，不满意就重拍，最后在剪映里拼起来。课上她用自己手机里的一张照片做出第一条作品。</p>
+    <p>网上很多教程还在教 Sora，OpenAI 已在 2026 年 4 月 26 日关掉 Sora App，9 月 24 日关掉接口，不用再学。</p>
+  </div>
+
+  <h2 id="s1">一、先记住一个比喻</h2>
+  <p>AI 视频工具就是一个摄影组，你是导演。</p>
+  <ul>
+    <li>你每次只能叫它拍一个镜头，一个镜头 5 到 10 秒</li>
+    <li>你用一段话（提示词）告诉它拍什么，或者给它一张照片，让照片动起来</li>
+    <li>拍出来不满意就重拍，导演本来就要喊很多次“再来一条”</li>
+    <li>最后把几个镜头拼起来，配上音乐，就是一条完整的视频</li>
+  </ul>
+  <p>整堂课都围绕这四句话。她只要记住“一次一个镜头，不满意就重拍，最后拼起来”，就够用了。</p>
+
+  <h2 id="s2">二、只需要三个工具</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">用途</th><th scope="col">工具</th><th scope="col">为什么选它</th><th scope="col">费用</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">写脚本、写提示词</th><td>她已经会用的聊天机器人（ChatGPT、豆包、Gemini 都行）</td><td>不用学新东西</td><td>免费即可</td></tr>
+        <tr><th scope="row">生成视频</th><td>即梦（海外叫 Dreamina），用里面的 Seedance 2.0 模型</td><td>2026 年 9 月的 Artificial Analysis 视频模型排行榜（带声音）上，Seedance 2.0 在“照片变视频”排第 4、“文字变视频”排第 5，可灵 3.0 分别排第 19 和第 12。和剪映是同一家公司，还能先画一张图当第一帧<sup><a href="#src-10">10</a></sup></td><td>免费积分不稳定，上课前开一个月最便宜的会员，价格以 App 内为准</td></tr>
+        <tr><th scope="row">拼接、配乐、加字幕</th><td>剪映（海外叫 CapCut）</td><td>手机上拖一拖就能剪，自带音乐和自动字幕</td><td>免费即可</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>即梦国内版需要中国手机号和抖音账号，高峰时段排队久。她没有中国手机号，就用海外版 Dreamina，或者直接用可灵。</p>
+  <p>备选（二选一记住就行）：</p>
+  <ul>
+    <li>可灵 AI（海外叫 Kling），快手出品。每天送 66 个免费积分，不用绑卡，免费版有水印。画质排名比即梦低一截，新手够用。即梦积分用完了就换它</li>
+    <li>Google 的 Gemini App 或 Google Flow，里面的模型叫 Veo 3.1，画面最逼真，能直接生成带声音的视频。Flow 免费账户每天 50 个积分，大约够做两条快速版视频</li>
+  </ul>
+  <div class="warn"><p><b>避坑</b>网上很多 2025 年的教程在教 Sora。OpenAI 已经在 2026 年 4 月关掉了 Sora App，9 月关掉了接口，不用再学。另外，名字里带“seedance”的陌生网站（比如 seedance2.ai）不是官方网站，别在上面付钱。</p></div>
+
+  <h2 id="s3">三、40 分钟怎么安排</h2>
+  <ol class="timeline agenda">
+    <li><time>00:00–05:00</time><div><strong>看案例</strong>：放 3 个真实案例（见第五节）。她知道 AI 视频能做到什么程度。</div></li>
+    <li><time>05:00–10:00</time><div><strong>讲比喻</strong>：讲“你是导演”的四句话，讲三种玩法。她脑子里有一张地图。</div></li>
+    <li><time>10:00–15:00</time><div><strong>装工具</strong>：手机上装好即梦和剪映，登录。工具在手里。</div></li>
+    <li><time>15:00–27:00</time><div><strong>看我演示</strong>：三个演示，由简到难。她看清完整流程。</div></li>
+    <li><time>27:00–36:00</time><div><strong>她自己做</strong>：用自己手机里的一张照片做一条视频。第一条作品。</div></li>
+    <li><time>36:00–40:00</time><div><strong>收尾</strong>：发技巧卡片，布置作业。回家能继续练。</div></li>
+  </ol>
+
+  <h3 id="s3-1"><span class="tc">00:00</span>0–5 分钟：先看，不讲道理</h3>
+  <p>一上来别讲概念，直接放视频。顺序是“先骗过你，再告诉你”：</p>
+  <ol>
+    <li>先放“兔子蹦床”那条监控视频（<a href="https://www.youtube.com/watch?v=9O-8kAnBL2s" target="_blank" rel="noopener">WWLTV 新闻，2:05</a>），问她：“你觉得这是真的吗？”</li>
+    <li>告诉她是 AI 做的，TikTok 上点赞超过 2500 万，很多人都信了</li>
+    <li>再放 Kalshi 的 NBA 总决赛广告（<a href="https://www.youtube.com/watch?v=-QMftwmyW-A" target="_blank" rel="noopener">PJ Ace 原片，0:30</a>），告诉她：一个人，两三天，大约 2000 美元，在电视转播里播出</li>
+    <li>最后放《纸手机》的前 1 分钟（<a href="https://www.youtube.com/watch?v=Ye_Ra_o5RUU" target="_blank" rel="noopener">Richin 上传，5:01</a>），告诉她：两个人，三天，用可灵做的，清明前后全网播放超过 4000 万</li>
+    <li>说：今天 40 分钟，你也能做一条</li>
+  </ol>
+
+  <h3 id="s3-2"><span class="tc">05:00</span>5–10 分钟：三种玩法</h3>
+  <p>用生活里的话讲，每种配一句例子：</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">玩法</th><th scope="col">意思</th><th scope="col">一句话例子</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">文字变视频</th><td>只打字，AI 从零拍</td><td>“一只橘猫在咖啡店里拉花”</td></tr>
+        <tr><th scope="row">照片变视频</th><td>给一张照片，让它动起来</td><td>奶奶的老照片，让她笑一下、眨眨眼</td></tr>
+        <tr><th scope="row">首尾两张图</th><td>给开头和结尾两张照片，AI 补中间的过程</td><td>第一张是种子，第二张是开满花的花盆</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>告诉她：新手从“照片变视频”开始最稳，因为画面是她自己给的，AI 只负责让它动，不容易跑偏。</p>
+
+  <h3 id="s3-3"><span class="tc">10:00</span>10–15 分钟：装工具</h3>
+  <p>提前让她把手机充好电。现场只做三件事：</p>
+  <ol>
+    <li>装“即梦”App，用抖音账号登录，领当天的免费积分</li>
+    <li>装“剪映”App，登录</li>
+    <li>打开她常用的聊天机器人，确认能用</li>
+  </ol>
+  <p>如果现场网络慢、排队久，拿出你提前做好的备用视频（见第七节），别让她干等。</p>
+
+  <h3 id="s3-4"><span class="tc">15:00</span>15–27 分钟：三个演示</h3>
+
+  <h4>演示 1：让老照片动起来（3 分钟）</h4>
+  <p>最容易出效果，放在第一个。</p>
+  <ol>
+    <li>即梦里点“视频生成”，选 Seedance 2.0，上传一张人像照片当第一帧（最好是她自己或家人的，提前征得同意）</li>
+    <li>提示词只写一句（见下框）</li>
+    <li>时长选 5 秒，点生成，等一两分钟</li>
+  </ol>
+  <div class="prompt"><span class="tag">提示词</span><p>照片里的人慢慢抬头，对着镜头微笑，轻轻眨眼，头发被微风吹动，镜头固定不动</p></div>
+  <p>讲解点：动作只写一两个，越简单越自然。写太多动作，脸容易变形。</p>
+
+  <h4>演示 2：用“提示词公式”从零拍一个镜头（4 分钟）</h4>
+  <p>先打一句很差的提示词，让她看效果：</p>
+  <div class="prompt"><span class="tag">差的提示词</span><p>一只猫</p></div>
+  <p>再换成用公式写的：</p>
+  <div class="prompt"><span class="tag">好的提示词</span><p>一只胖乎乎的橘猫，戴着小厨师帽，站在木头吧台后面，用爪子认真地给咖啡拉花。温暖的午后阳光从窗户照进来，背景是模糊的咖啡店。镜头慢慢推近猫的脸。画面风格像一部温馨的电影。</p></div>
+  <p>两条放在一起对比。然后写出公式，让她拍照存下来：</p>
+  <div class="note"><p><b>公式</b>主体（谁） + 动作（在干什么） + 场景（在哪里） + 镜头（怎么拍） + 光线和风格（什么感觉）</p></div>
+  <p>用 Gemini 或 Flow 的话，还可以在最后加一句声音：“能听到咖啡机的嘶嘶声和轻柔的爵士乐”。</p>
+
+  <h4>演示 3：做一条 20 秒的小故事（5 分钟）</h4>
+  <p>这是完整流程，把前面两步串起来。</p>
+  <p>第一步，让聊天机器人当编剧。把下面这段话原样发给它：</p>
+  <div class="prompt"><span class="tag">发给聊天机器人</span><p>我想用 AI 做一个 20 秒的竖屏短视频，主题是“一只小狗第一次看到雪”。请帮我分成 4 个镜头，每个镜头 5 秒。每个镜头写成一段可以直接交给 AI 视频工具的提示词，包含：主体、动作、场景、镜头怎么拍、光线和风格。四个镜头里的小狗长相要写得一模一样。</p></div>
+  <p>第二步，把 4 段提示词逐个贴进即梦生成。现场时间紧，可以只现场生成 1 个，另外 3 个用提前做好的。</p>
+  <p>第三步，打开剪映：</p>
+  <ol>
+    <li>点“开始创作”，按顺序选中 4 段视频</li>
+    <li>点“音频”，选一首轻快的音乐</li>
+    <li>点“文字”里的“识别字幕”或手动加一句标题，比如“它第一次见到雪”</li>
+    <li>导出，发到微信给她看</li>
+  </ol>
+  <p>讲解点：四个镜头里的小狗可能长得不完全一样。这是 AI 视频目前的老毛病。解决办法是先用 AI 画一张小狗的图，每个镜头都用“图生视频”，从同一张图出发。</p>
+
+  <h3 id="s3-5"><span class="tc">27:00</span>27–36 分钟：她自己做</h3>
+  <p>给她三个选项，挑一个：</p>
+  <ul>
+    <li>手机里一张宠物照片，让它动起来</li>
+    <li>一张旅行照片，让风景动起来（云在飘、海浪在拍、树叶在晃）</li>
+    <li>用公式从零写一个镜头，主题她自己定</li>
+  </ul>
+  <p>你只在旁边看，她卡住了再提示。常见卡点和提示：</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">她遇到的问题</th><th scope="col">你怎么提示</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">不知道写什么</th><td>“你想让照片里的什么东西动？怎么动？”</td></tr>
+        <tr><th scope="row">画面变形、脸变了</th><td>“动作减少到一个，再生成一次”</td></tr>
+        <tr><th scope="row">动作不对</th><td>“把动作写得更具体，比如‘慢慢转头看向左边’”</td></tr>
+        <tr><th scope="row">画面太普通</th><td>“加一句镜头怎么动，再加一句光线”</td></tr>
+        <tr><th scope="row">积分用完了</th><td>换可灵继续（每天 66 个免费积分），或者明天再来</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s3-6"><span class="tc">36:00</span>36–40 分钟：收尾</h3>
+  <p>把第四节的技巧卡片发给她，布置一个作业：这周做一条 15 秒的视频，发给家人。</p>
+
+  <h2 id="s4">四、技巧卡片（发给她存手机）</h2>
+  <ol>
+    <li>一次只拍一个镜头，一个镜头只写一两个动作</li>
+    <li>用公式写：主体 + 动作 + 场景 + 镜头 + 光线和风格</li>
+    <li>镜头怎么动要写出来：推近、拉远、跟着走、从上往下看、镜头不动</li>
+    <li>同一段提示词多生成几次，挑最好的。专业的人也是这样：Kalshi 那条广告生成了 300 到 400 次，只用了其中 15 段<sup><a href="#src-7">7</a></sup></li>
+    <li>想让角色前后长得一样，先画一张角色图，每个镜头都从这张图出发</li>
+    <li>不会写提示词，就让聊天机器人帮你写，告诉它“写成 AI 视频工具能用的提示词”</li>
+    <li>AI 现在还不擅长：画面里的文字、手指、很多人一起做复杂动作、快速打斗。避开这些</li>
+    <li>发抖音、小红书、视频号选竖屏 9:16；发朋友圈或 YouTube 可以选横屏 16:9</li>
+    <li>不用别人的脸做视频，除非对方同意。用家人照片也先问一声</li>
+    <li>发出去的时候标注“AI 生成”，平台也要求这样做</li>
+  </ol>
+
+  <h2 id="s5">五、案例库</h2>
+
+  <h3 id="s5-1">开场用的真实案例</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">案例</th><th scope="col">发生了什么</th><th scope="col">讲给她听的点</th><th scope="col">视频</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">兔子蹦床</th><td>2025 年 7 月 26 日，TikTok 账号 @rachelthecatlovers 发了一条 8 秒的“家里监控拍到兔子跳蹦床”，点赞超过 2500 万。后来被认出是 AI 做的：开头 6 只兔子，第 6 秒左右有一只凭空消失<sup><a href="#src-5">5</a></sup></td><td>AI 视频已经能以假乱真；也提醒她，自己刷到的视频也可能是假的</td><td><a href="https://www.youtube.com/watch?v=9O-8kAnBL2s" target="_blank" rel="noopener">WWLTV 新闻，2:05</a>、<a href="https://www.youtube.com/watch?v=ydycD3iMhvc" target="_blank" rel="noopener">The Dodo 讲解，2:41</a></td></tr>
+        <tr><th scope="row">Kalshi 的 NBA 总决赛广告</th><td>2025 年 6 月，导演 PJ Accetturo 用 Gemini 写分镜、用 Google Veo 3 生成镜头、用 CapCut 剪辑，两三天做完，成本约 2000 美元，在 NBA 总决赛转播中播出。三周内播放量超过 3000 万<sup><a href="#src-7">7</a></sup><sup><a href="#src-8">8</a></sup></td><td>流程和她今天学的一样：聊天机器人写分镜，AI 拍镜头，剪映拼起来</td><td><a href="https://www.youtube.com/watch?v=-QMftwmyW-A" target="_blank" rel="noopener">PJ Ace 原片，0:30</a>、<a href="https://www.youtube.com/watch?v=iyEncfhAFRY" target="_blank" rel="noopener">PJ Ace 幕后，1:02</a></td></tr>
+        <tr><th scope="row">《纸手机》</th><td>2026 年清明前，深圳 WAI 工作室的李婷和杨选两个人，用三天、可灵 3.0 做完这部 5 分钟短片：小男孩攒了 15 元，想买一部纸手机烧给去世的奶奶。全片没有真人演员，只有手绘的纸手机是真道具。到 4 月 2 日全网播放超过 4000 万<sup><a href="#src-6">6</a></sup></td><td>普通人用 AI 也能讲一个让人流泪的故事；打动人的是故事本身</td><td><a href="https://www.youtube.com/watch?v=Ye_Ra_o5RUU" target="_blank" rel="noopener">Richin 上传，5:01</a></td></tr>
+        <tr><th scope="row">老照片动起来</th><td>现场用她家人的一张老照片演示</td><td>最打动人的案例往往就在自己手机相册里</td><td>现场演示</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s5-3">做得好的中文 AI 短剧</h3>
+  <p>下面都是中文作品，大多在 5 分钟上下，长的注明了看哪一段。YouTube 上的版本大多是转载，原作多发在 B 站或抖音，表里写了原作者。所有链接都在 2026 年 9 月 28 日逐条打开核对过。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">作品</th><th scope="col">作者</th><th scope="col">时长</th><th scope="col">好在哪</th><th scope="col">给她看的点</th><th scope="col">YouTube</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">《美猴亡》</th><td>漫游会议室</td><td class="tc">2:58</td><td>用孙悟空的口吻唱的摇滚。作者是一位 85 后 IT 从业者，没学过音乐：AI 写词、AI 作曲、AI 生成画面再对口型。B 站播放近 1664 万，同系列写了 20 多首西游角色歌<sup><a href="#src-11">11</a></sup></td><td>一个人加几个 AI 工具，就能做出完整的 MV</td><td><a href="https://www.youtube.com/watch?v=o0UUvfP-lBs" target="_blank" rel="noopener">海外新生活 转载</a></td></tr>
+        <tr><th scope="row">《差一点》</th><td>漫游会议室</td><td class="tc">2:26</td><td>黑熊精的视角，唱的是“就差那么一点”。这首先走红，作者才开始专门做西游角色歌<sup><a href="#src-11">11</a></sup></td><td>给配角写心里话，是一个好切入点</td><td><a href="https://www.youtube.com/watch?v=D0My5TFhTzQ" target="_blank" rel="noopener">转载</a></td></tr>
+        <tr><th scope="row">《西游音乐封神榜 1–4》</th><td>次元引擎</td><td class="tc">13:44</td><td>西游人物轮流登台唱歌的四集合集，国风、电音、热血几种曲风混着来</td><td>同一批角色做成系列，观众会追着看</td><td><a href="https://www.youtube.com/watch?v=rp1oW_c-Ki8" target="_blank" rel="noopener">次元引擎</a></td></tr>
+        <tr><th scope="row">《丧尸清道夫》</th><td>Mx-Shell</td><td class="tc">3:34</td><td>机器人牛仔在丧尸末世里捡垃圾。一个人做了 10 天，算力成本折合约 3000 元，X 上观看超过 1200 万；作者说没画分镜，提示词基本是手写的<sup><a href="#src-12">12</a></sup></td><td>没有一句台词，也能讲清楚一个故事</td><td><a href="https://www.youtube.com/watch?v=xAmkYAuQu8I" target="_blank" rel="noopener">The Life Of People 转载</a></td></tr>
+        <tr><th scope="row">《非妖哉》第 1 集</th><td>导演一人制作</td><td class="tc">5:41</td><td>聊斋式的志怪故事，山水画风格，狐妖、画皮。剧本、分镜、生成、剪辑、配音一个人做完，前 2 集点赞破 300 万</td><td>整部片用一种统一的画风，看起来就像一个完整的作品</td><td><a href="https://www.youtube.com/watch?v=FSEbqRRcO1E" target="_blank" rel="noopener">第 1 集</a>、<a href="https://www.youtube.com/watch?v=8TT59bQ5JaE" target="_blank" rel="noopener">中天新闻报道，10:41</a></td></tr>
+        <tr><th scope="row">《我这一生最大的罪，是把人写成了妖……》</th><td>青瓜蛋</td><td class="tc">26:14，先看前 3 分钟</td><td>取材东晋《搜神记》和东汉末年黄巾起义。2026 年 8 月 17 日上 B 站，5 天播放破千万，用了 Seedance 2.5 和 GPT Image 2<sup><a href="#src-13">13</a></sup></td><td>剧本最值钱：它来自作者几年前写的一篇随笔</td><td><a href="https://www.youtube.com/watch?v=w6_LnQJ8TDA" target="_blank" rel="noopener">转载</a>、<a href="https://www.youtube.com/watch?v=sv_tb13BfhE" target="_blank" rel="noopener">TVBS 新闻，2:06</a></td></tr>
+        <tr><th scope="row">《后西游记》</th><td>芒果 TV</td><td class="tc">新闻 1:57；正片每集约 42 分钟</td><td>第一部上卫视黄金档的全 AI 长剧，2026 年 8 月 31 日在湖南卫视开播，30 集，每集 40 分钟<sup><a href="#src-14">14</a></sup></td><td>看新闻片段就够：AI 已经能做电视剧了</td><td><a href="https://www.youtube.com/watch?v=IDL8UYckOOw" target="_blank" rel="noopener">TVBS 新闻</a>、<a href="https://www.youtube.com/watch?v=T2Xzd7KHSis" target="_blank" rel="noopener">芒果 TV 官方第 1 集</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s5-2">课后练习用的案例</h3>
+  <p>每个都附提示词，可以直接复制。</p>
+  <div class="cases">
+  <h4>生活类</h4>
+  <p>1. 宠物照片动起来</p>
+  <div class="prompt"><span class="tag">提示词</span><p>照片里的小狗歪着头看镜头，耳朵抖了一下，然后开心地摇尾巴，镜头固定不动</p></div>
+  <p>2. 孩子的画变动画（用“图生视频”，上传孩子画的画）</p>
+  <div class="prompt"><span class="tag">提示词</span><p>画里的小房子烟囱冒出烟，太阳慢慢转动，花朵随风摇摆，保持蜡笔画的风格</p></div>
+  <p>3. 旅行照片变动态</p>
+  <div class="prompt"><span class="tag">提示词</span><p>海浪一层层拍上沙滩，天上的云缓慢飘动，镜头慢慢向前推进，傍晚金色的阳光</p></div>
+  <p>4. 生日祝福</p>
+  <div class="prompt"><span class="tag">提示词</span><p>一个插满蜡烛的草莓蛋糕放在木桌上，蜡烛的火苗轻轻晃动，彩色气球从画面上方慢慢飘下来，温暖的室内灯光，镜头慢慢环绕蛋糕半圈</p></div>
+  <p>5. 节日贺卡</p>
+  <div class="prompt"><span class="tag">提示词</span><p>红色灯笼挂在古老的屋檐下，雪花慢慢飘落，灯笼轻轻摇晃，远处有烟花在夜空绽放，镜头从下往上缓缓抬起</p></div>
+
+  <h4>工作类</h4>
+  <p>6. 小店商品展示（上传一张商品照片）</p>
+  <div class="prompt"><span class="tag">提示词</span><p>这瓶香水放在白色大理石台面上，镜头缓慢环绕一圈，光线从侧面照过来，瓶身有细腻的反光，背景干净简洁，像高端广告</p></div>
+  <p>7. 美食店宣传</p>
+  <div class="prompt"><span class="tag">提示词</span><p>一碗热气腾腾的牛肉面，筷子夹起面条慢慢拉高，汤汁滴落，热气往上飘，特写镜头，暖色灯光</p></div>
+  <p>8. 活动预告片头</p>
+  <div class="prompt"><span class="tag">提示词</span><p>空旷的舞台，灯光一盏一盏依次亮起，彩带从天而降，镜头从观众席慢慢推向舞台中央</p></div>
+
+  <h4>趣味类</h4>
+  <p>9. 名画动起来（上传一张名画图片，比如《蒙娜丽莎》）</p>
+  <div class="prompt"><span class="tag">提示词</span><p>画中的人物慢慢转头看向镜头，露出微笑，背景的风景里有云在飘动，保持油画质感</p></div>
+  <p>10. 动物做人类的事</p>
+  <div class="prompt"><span class="tag">提示词</span><p>一只穿西装的柴犬坐在办公桌前，戴着眼镜认真敲键盘，时不时叹一口气，办公室的日光灯，镜头固定</p></div>
+  <p>11. 监控视角的趣味视频（模仿兔子蹦床的拍法）</p>
+  <div class="prompt"><span class="tag">提示词</span><p>夜间家庭监控摄像头的黑白画面，三只小猫在客厅的沙发上轮流往下跳，画面右上角有时间显示</p></div>
+  <p>做完发出去一定标注“AI 生成”，别拿来骗人。</p>
+
+  <h4>故事类</h4>
+  <p>12. 三镜头小故事“种子长大”</p>
+  <div class="prompt"><span class="tag">三个镜头</span>
+    <p>镜头 1：一只手把一颗种子按进花盆的泥土里，特写，清晨的阳光</p>
+    <p>镜头 2：延时摄影，嫩芽从土里钻出来，慢慢长高，长出叶子</p>
+    <p>镜头 3：花盆里开满了黄色的小花，一只蝴蝶飞过来停在花上，镜头慢慢拉远</p>
+  </div>
+  <p>13. 让聊天机器人帮她编自己的故事，模板：</p>
+  <div class="prompt"><span class="tag">发给聊天机器人</span><p>我想用 AI 做一个 [时长] 秒的 [竖屏/横屏] 短视频，主题是“[主题]”。请分成 [几] 个镜头，每个镜头 5 秒。每个镜头写成一段可以直接交给 AI 视频工具的提示词，包含：主体、动作、场景、镜头怎么拍、光线和风格。同一个角色在每个镜头里的长相要写得一模一样。</p></div>
+  </div>
+
+  <h2 id="s6">六、好提示词和差提示词对照</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">差的写法</th><th scope="col">问题</th><th scope="col">好的写法</th></tr></thead>
+      <tbody>
+        <tr><td>一个女孩</td><td>没有动作，没有场景</td><td>一个穿黄色雨衣的小女孩在下雨的街道上踩水坑，水花溅起来，镜头跟在她身后，阴天的柔和光线</td></tr>
+        <tr><td>一个人跑步、跳舞、弹琴、然后吃饭</td><td>动作太多，画面会乱</td><td>一个人在海边的清晨慢跑，镜头从侧面跟拍</td></tr>
+        <tr><td>好看的风景</td><td>“好看”AI 看不懂</td><td>雪山脚下的湖面平静如镜，倒映着山峰，日出时分天空是粉色的，镜头缓慢向前推进</td></tr>
+        <tr><td>做一个广告，上面写“全场五折”</td><td>AI 写字经常写错</td><td>只拍画面，“全场五折”在剪映里用文字工具加</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s7">七、上课前你要准备的</h2>
+  <ul>
+    <li>两个工具提前在你的手机上登录好，确认当天有免费积分</li>
+    <li>提前生成好备用视频：演示 1 的老照片视频、演示 2 的猫咖啡师、演示 3 的四个小狗镜头。现场排队慢就直接放</li>
+    <li>问她要一两张她愿意用的照片（宠物、家人、旅行），提前传到手机里</li>
+    <li>把兔子蹦床新闻、Kalshi 广告和《纸手机》下载到手机，别依赖现场网络</li>
+    <li>把第四节的技巧卡片和第五节的案例库做成一张图或一条消息，课后直接发她</li>
+  </ul>
+
+  <h2 id="s8">方法与来源</h2>
+  <p>工具现状、免费额度和案例数据来自 2026 年 9 月 28 日的网页搜索。免费额度各家说法不一：可灵每天 66 积分来自评测文章；画质排名取自 Artificial Analysis 视频排行榜的带声音版本，页面没写更新日期，列出的最新模型是 2026 年 9 月发布的；Google Flow 每天 50 积分是多个来源最一致的数字，Gemini App 免费版的每日上限 Google 没有公布。案例的提示词和课堂安排是按新手常见问题编写的，没有在现场实测过生成效果，上课前按第七节提前跑一遍。</p>
+  <p>修改记录：2026-09-28，生成视频的主力工具从可灵改为即梦（Seedance 2.0），可灵改为备选；所有参考视频改成 YouTube 链接并逐条核对，开场加入《纸手机》，新增“做得好的中文 AI 短剧”，兔子蹦床改用能打开的来源。视频链接的核对方法：用 YouTube 的公开接口确认每条视频存在，再读出上传者、时长和上传日期。</p>
+  <ol class="sources">
+    <li id="src-1">OpenAI Help Center，《What to know about the Sora discontinuation》，<a href="https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation" target="_blank" rel="noopener">help.openai.com</a>；The Decoder，<a href="https://the-decoder.com/openai-sets-two-stage-sora-shutdown-with-app-closing-april-2026-and-api-following-in-september/" target="_blank" rel="noopener">the-decoder.com</a></li>
+    <li id="src-2">2026 年主流视频模型对比：<a href="https://aimlapi.com/blog/best-ai-video-generators-2026-veo-3-1-kling-sora-2-seedance-more-compared" target="_blank" rel="noopener">AIMLAPI</a>、<a href="https://lushbinary.com/blog/ai-video-generation-sora-veo-kling-seedance-comparison/" target="_blank" rel="noopener">Lushbinary</a></li>
+    <li id="src-3">可灵、即梦免费额度：<a href="https://filmora.wondershare.com/video-editor-review/seedance-2-0-vs-kling-3-0.html" target="_blank" rel="noopener">Filmora</a>、<a href="https://dreamina.capcut.com/seedance/seedance-2-0-pricing" target="_blank" rel="noopener">Dreamina 官方</a></li>
+    <li id="src-4">Google Flow 免费额度：<a href="https://diyai.io/ai-tools/video-generation/google-veo-pricing/" target="_blank" rel="noopener">DIYAI</a>、<a href="https://gemini.google/subscriptions/" target="_blank" rel="noopener">Google AI 订阅页</a></li>
+    <li id="src-5">兔子蹦床：TODAY.com，《Video of Bunnies Jumping on Trampoline Went Viral Over AI Suspicion》，2025-08-12，<a href="https://www.today.com/news/bunnies-jumping-trampoline-viral-video-ai-concern-rcna223637" target="_blank" rel="noopener">today.com</a></li>
+    <li id="src-6">《纸手机》：京报网（转南方都市报），2026-04-02，<a href="https://news.bjd.com.cn/2026/04/02/11667242.shtml" target="_blank" rel="noopener">news.bjd.com.cn</a></li>
+    <li id="src-7">Kalshi 广告：<a href="https://www.thedaringcreatives.com/creator-stories/pj-ace-nba-finals-ad/" target="_blank" rel="noopener">The Daring Creatives</a></li>
+    <li id="src-8">Kalshi 广告：<a href="https://www.npr.org/2025/06/23/nx-s1-5432712/ai-video-ad-kalshi-advertising-nba-finals" target="_blank" rel="noopener">NPR</a></li>
+    <li id="src-9">Kalshi 广告：PJ Ace 发布的幕后视频，<a href="https://www.youtube.com/watch?v=iyEncfhAFRY" target="_blank" rel="noopener">YouTube</a></li>
+    <li id="src-10">视频模型排行榜：<a href="https://artificialanalysis.ai/video/leaderboard/text-to-video" target="_blank" rel="noopener">Artificial Analysis 文字变视频</a>、<a href="https://artificialanalysis.ai/video/leaderboard/image-to-video" target="_blank" rel="noopener">Artificial Analysis 照片变视频</a>，2026-09-28 查看</li>
+    <li id="src-11">《美猴亡》《差一点》：京报网，《〈美猴亡〉爆款AI歌曲背后竟是“85后”理工男》，2026-01-30，<a href="https://news.bjd.com.cn/2026/01/30/11554959.shtml" target="_blank" rel="noopener">news.bjd.com.cn</a></li>
+    <li id="src-12">《丧尸清道夫》：钛媒体，《3000元手搓〈爱死机〉，这部国产AI短片为何能外网刷屏？》，<a href="https://www.tmtpost.com/7985284.html" target="_blank" rel="noopener">tmtpost.com</a></li>
+    <li id="src-13">《我这一生最大的罪，是把人写成了妖……》：Yahoo 新闻（台湾），2026-08-22，<a href="https://tw.news.yahoo.com/ai%E7%9F%AD%E7%89%87-%E6%88%91%E9%80%99-%E7%94%9F%E6%9C%80%E5%A4%A7%E7%9A%84%E7%BD%AA-%E7%88%86%E7%B4%85-%E8%A7%80%E7%9C%8B%E6%95%B85%E5%A4%A9%E7%A0%B4%E5%8D%83%E8%90%AC-064800905.html" target="_blank" rel="noopener">tw.news.yahoo.com</a></li>
+    <li id="src-14">《后西游记》：凤凰网科技，《全AI生成的〈后西游记〉今天开播》，<a href="https://tech.ifeng.com/c/8w1xwGjPUye" target="_blank" rel="noopener">tech.ifeng.com</a></li>
+  </ol>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

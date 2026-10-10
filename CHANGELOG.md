@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-11
+
+- 新增资料页《AI 视频入门：40 分钟教学计划》，`static/reading/ai-video-intro-40min/index.html`。教只用过聊天机器人的朋友用 AI 做视频：工具、流程、技巧、演示和案例。
+
 ## 2026-10-10
 
 - 新增资料页《Mac 安全：NIST 的建议》，`static/reading/nist-mac-security-mscp-2026-10/index.html`。NIST 对 Mac 安全的建议：mSCP 与 SP 800-219 的版本状态、用法、基线要求的设置，以及它不覆盖的风险。
