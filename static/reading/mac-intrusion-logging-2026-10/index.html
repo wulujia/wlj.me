@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mac Intrusion Logging</title>
+<meta name="description" content="How to send company Mac logs to a central server, which events to collect to detect an intrusion, which tools to use, and which files to check on a suspect Mac.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/mac-intrusion-logging-2026-10/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<style>
+/* ---------- tokens ---------- */
+:root {
+  color-scheme: light;
+  /* Accent: the slate blue of a selected row in macOS Console. Neutrals lean slightly cool toward it. */
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --ink: #1a1d21;
+  --ink-2: #474e57;
+  --ink-3: #636d78;
+  --rule: #dadee3;
+  --rule-2: #b6bdc6;
+  --mid: #eaedf0;
+  --acc: #3d5a80;
+  --acc-ink: #2f4868;
+  --acc-wash: rgba(61, 90, 128, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #15181b; --surface: #1d2125; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #939ca6;
+    --rule: #2c3237; --rule-2: #454d55; --mid: #23282d;
+    --acc: #8eaad0; --acc-ink: #aec4e2; --acc-wash: rgba(142,170,208,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #15181b; --surface: #1d2125; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #939ca6;
+  --rule: #2c3237; --rule-2: #454d55; --mid: #23282d;
+  --acc: #8eaad0; --acc-ink: #aec4e2; --acc-wash: rgba(142,170,208,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 760px); gap: 56px; max-width: 1080px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.5; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > details > ul > li { margin: 0 0 7px; }
+.outline > details > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 1.2; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 19px; line-height: 1.55; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.3; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 18px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+code { font-family: var(--font-mono); font-size: .84em; background: var(--mid); padding: 1px 5px; border-radius: 3px; overflow-wrap: anywhere; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; overflow-wrap: normal; }
+
+/* ---------- summary ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary ul { margin: 0; }
+.summary li:last-child { margin: 0; }
+
+/* ---------- callouts ---------- */
+.note, .warn, .decision { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.5; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td code, th code { font-size: .86em; }
+
+/* ---------- pills: priority levels ---------- */
+.pill { display: inline-block; font-family: var(--font-mono); font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 7px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); white-space: nowrap; }
+.pill.p0 { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+.pill.p1 { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+
+/* ---------- report outline ---------- */
+.steps { padding-left: 1.6em; }
+.steps li { margin-bottom: .6em; }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print ---------- */
+@page { size: A4; margin: 20mm 20mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 10.5pt; }
+  body { background: #fff; color: #000; line-height: 1.45; font-family: Georgia, "Times New Roman", serif; font-size: 10.5pt; }
+  table { font-size: 9pt; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  pre, .note, .warn, .decision, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout">
+
+<nav class="outline" aria-label="Outline">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>Outline</summary>
+    <ul>
+      <li><a href="#forward">Sending Mac logs to a server</a>
+        <ul>
+          <li><a href="#forward-limit">The unified log limit</a></li>
+          <li><a href="#forward-setups">Three setups</a></li>
+          <li><a href="#forward-mdm">MDM work</a></li>
+          <li><a href="#forward-risks">Privacy, law and volume</a></li>
+        </ul>
+      </li>
+      <li><a href="#collect">What to collect</a>
+        <ul>
+          <li><a href="#collect-source">Main source: Endpoint Security</a></li>
+          <li><a href="#collect-priority">Priority list</a></li>
+          <li><a href="#collect-snapshot">Daily state snapshot</a></li>
+          <li><a href="#collect-protect">Protect the logs</a></li>
+          <li><a href="#collect-skip">What to skip</a></li>
+        </ul>
+      </li>
+      <li><a href="#priority">Why this order</a>
+        <ul>
+          <li><a href="#priority-agree">What the guidance agrees on</a></li>
+          <li><a href="#priority-changes">Two changes for current threats</a></li>
+        </ul>
+      </li>
+      <li><a href="#tools">Tools</a>
+        <ul>
+          <li><a href="#tools-continuous">Continuous collection</a></li>
+          <li><a href="#tools-onetime">One-time investigation</a></li>
+        </ul>
+      </li>
+      <li><a href="#files">Files to check on a suspect Mac</a>
+        <ul>
+          <li><a href="#files-before">Before you start</a></li>
+          <li><a href="#files-tier1">Tier 1: always check</a></li>
+          <li><a href="#files-tier2">Tier 2: check when Tier 1 shows something</a></li>
+        </ul>
+      </li>
+      <li><a href="#report">Showing the results to a user</a></li>
+      <li><a href="#method">Method and sources</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Guide · 2026-10-11</p>
+    <h1>Mac Intrusion Logging</h1>
+    <p class="lede">How to send logs from company Macs to a central server, which events to collect to find an intrusion, which tools to use, and which files to check on a Mac you suspect.</p>
+    <p class="meta"><span>Scope: company-managed Macs, macOS 13 and later</span><span>For IT and security staff</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">Conclusion</p>
+    <ul>
+      <li>macOS has no setting that forwards its main log (the unified log) to a remote server. Install an agent on each Mac and deploy it with MDM.</li>
+      <li>For intrusion detection, the unified log is a weak source. Use Endpoint Security events: process execution, persistence, logins, and tamper actions. These four are the minimum.</li>
+      <li>Small company: use Elastic Defend or Jamf Protect for continuous logs, and Aftermath for a one-time check of a suspect Mac.</li>
+      <li>On a suspect Mac, check launch items, background items, download history, permission databases and shell history first. Send logs off the Mac in near real time, because an attacker with root can delete local logs.</li>
+    </ul>
+  </div>
+
+  <h2 id="forward">Sending Mac logs to a server</h2>
+
+  <h3 id="forward-limit">The unified log limit</h3>
+  <p>Since macOS 10.12, most system and app messages go to the unified log (<code>os_log</code>). The unified log has no setting that sends it to a remote server.</p>
+  <p>The old <code>syslogd</code> and <code>/etc/syslog.conf</code> can still forward, for example <code>*.* @logserver:514</code>. But they only see programs that still use the old <code>syslog()</code> API, which is a small part. Do not depend on this.</p>
+
+  <h3 id="forward-setups">Three setups</h3>
+  <div class="tbl">
+    <table>
+      <caption>Ways to get logs off company Macs</caption>
+      <thead><tr><th scope="col">Setup</th><th scope="col">How it works</th><th scope="col">Use when</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Commercial agent</th><td>Install an EDR or log agent with MDM. It uses Apple's Endpoint Security framework and sends events to its cloud or to your SIEM.</td><td>You want detection rules and alerts without building them. Most companies do this.</td></tr>
+        <tr><th scope="row">Build it yourself</th><td>A launchd daemon runs <code>log stream --style ndjson --predicate '&lt;filter&gt;'</code> or <code>eslogger</code>. Fluent Bit or Vector on the Mac reads the output and forwards it over TLS to Loki, Elasticsearch, Graylog or syslog.</td><td>You need app or system logs for troubleshooting, and you have staff to write filters and alerts.</td></tr>
+        <tr><th scope="row">Collect on demand</th><td>Run <code>log collect</code> or <code>sysdiagnose</code> and upload the file.</td><td>One-time troubleshooting. This is not continuous.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Use <code>--predicate</code> in a DIY setup. The full stream is very large.</p>
+
+  <h3 id="forward-mdm">MDM work</h3>
+  <ul>
+    <li>Install the agent package silently.</li>
+    <li>Push a PPPC profile that gives the agent Full Disk Access.</li>
+    <li>Approve the agent's system extension with a profile. Without this, each user sees a prompt.</li>
+    <li>Keep the agent running with a launchd job. Turn on tamper protection if the product has it.</li>
+  </ul>
+
+  <h3 id="forward-risks">Privacy, law and volume</h3>
+  <ul>
+    <li><strong>Private data.</strong> The unified log hides many values as <code>&lt;private&gt;</code>. A logging profile can show them, but then you collect much more personal data.</li>
+    <li><strong>Law.</strong> In Singapore, the PDPA applies<sup><a href="#src-pdpa">10</a></sup>. Tell employees what you collect and why, and put it in the IT policy. Do the same in each country where you have staff.</li>
+    <li><strong>Volume.</strong> Filter on the Mac. Do not send everything. This saves bandwidth, battery and server cost.</li>
+  </ul>
+
+  <h2 id="collect">What to collect</h2>
+  <p>If a Mac can be compromised, its local logs cannot be fully trusted. Collect events that show what ran, what stays after a reboot, who logged in, and what was turned off. Send them off the Mac in near real time.</p>
+
+  <h3 id="collect-source">Main source: Endpoint Security</h3>
+  <ul>
+    <li>The unified log does not reliably record process starts, file changes or persistence.</li>
+    <li>Use an agent built on Apple's Endpoint Security framework<sup><a href="#src-es">1</a></sup>: an EDR, Elastic, Wazuh, or osquery with Endpoint Security.</li>
+    <li>For a DIY setup, macOS 13 and later include <code>eslogger</code>. It writes Endpoint Security events as JSON. It needs root and Full Disk Access.</li>
+    <li>OpenBSM audit (<code>praudit</code>, <code>/etc/security/audit_control</code>) is deprecated. Do not build on it.</li>
+  </ul>
+
+  <h3 id="collect-priority">Priority list</h3>
+  <p>P0 is the minimum. With P0 alone you can find most real Mac intrusions: info-stealers, fake installers and stolen SSH keys.</p>
+  <div class="tbl">
+    <table>
+      <caption>Events to collect, by priority</caption>
+      <thead><tr><th scope="col">Priority</th><th scope="col">Category</th><th scope="col">What to record</th><th scope="col">Source</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill p0">P0</span></td><th scope="row">Process execution</th><td>Path, arguments, parent process, user, code signature, Team ID, cdhash</td><td>Endpoint Security <code>exec</code>, <code>fork</code>, <code>exit</code></td></tr>
+        <tr><td><span class="pill p0">P0</span></td><th scope="row">Persistence</th><td>New or changed LaunchAgents and LaunchDaemons, login items, background items, cron jobs</td><td><code>btm_launch_item_add</code> (macOS 13+); file writes to <code>~/Library/LaunchAgents</code> and <code>/Library/LaunchDaemons</code></td></tr>
+        <tr><td><span class="pill p0">P0</span></td><th scope="row">Authentication</th><td>Login, logout, screen unlock, <code>sudo</code>, <code>su</code>, SSH logins, failed logins</td><td>Endpoint Security <code>authentication</code>, <code>openssh_login</code>, <code>sudo</code>, <code>su</code> (macOS 13 to 14+); unified log <code>process == "sudo"</code>, <code>process == "sshd"</code></td></tr>
+        <tr><td><span class="pill p0">P0</span></td><th scope="row">Defense tampering</th><td>EDR agent stopped, MDM profile removed, firewall off, Gatekeeper off (<code>spctl</code>), <code>log erase</code>, quarantine attribute removed</td><td><code>exec</code> events matched by command rules; profile events</td></tr>
+        <tr><td><span class="pill p0">P0</span></td><th scope="row">Info-stealer behavior</th><td><code>osascript</code> with <code>display dialog</code> and hidden answer (fake password prompt); non-browser processes that read browser cookie and login files or the keychain</td><td><code>exec</code> arguments; Endpoint Security <code>open</code> with a path filter</td></tr>
+        <tr><td><span class="pill p1">P1</span></td><th scope="row">Privacy permissions</th><td>Apps that get camera, microphone, screen recording, Full Disk Access or Accessibility</td><td>Unified log <code>subsystem == "com.apple.TCC"</code>; <code>tcc_modify</code> (macOS 15+)</td></tr>
+        <tr><td><span class="pill p1">P1</span></td><th scope="row">Accounts</th><td>New user, new admin, group change, password change</td><td>Endpoint Security <code>od_*</code> events (macOS 14+)</td></tr>
+        <tr><td><span class="pill p1">P1</span></td><th scope="row">Extensions</th><td>Kernel extension, system extension, configuration profile and authorization plugin installs</td><td><code>kextload</code>, system extension events</td></tr>
+        <tr><td><span class="pill p1">P1</span></td><th scope="row">Remote access</th><td>SSH, Screen Sharing or Remote Management turned on</td><td><code>exec</code> of <code>systemsetup</code> and <code>kickstart</code>; launchd events</td></tr>
+        <tr><td><span class="pill p1">P1</span></td><th scope="row">Sensitive file access</th><td>Reads of <code>~/.ssh</code> and cloud CLI credentials (<code>~/.aws</code>, <code>~/.kube</code>)</td><td>Endpoint Security <code>open</code> with a path filter</td></tr>
+        <tr><td><span class="pill p1">P1</span></td><th scope="row">DNS</th><td>DNS queries per Mac, per process if possible</td><td>Company DNS resolver or web gateway; EDR network extension</td></tr>
+        <tr><td><span class="pill">P2</span></td><th scope="row">Network connections</th><td>Outbound connections per process, new listening ports</td><td>EDR network extension. Endpoint Security has no network events.</td></tr>
+        <tr><td><span class="pill">P2</span></td><th scope="row">Downloads</th><td>Files with the quarantine attribute; executables written to <code>/tmp</code>, <code>/Users/Shared</code>, <code>~/Downloads</code></td><td>Endpoint Security <code>create</code>, <code>rename</code> with xattr data</td></tr>
+        <tr><td><span class="pill">P2</span></td><th scope="row">Malware detection</th><td>XProtect and XProtect Remediator results</td><td>Unified log for the XProtect processes</td></tr>
+        <tr><td><span class="pill">P2</span></td><th scope="row">USB and volumes</th><td>Mounted disks and DMG files</td><td>Endpoint Security <code>mount</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>Note</b>Endpoint Security event names and the first macOS version for each event come from Apple's framework documentation. Check them against the macOS versions in your fleet before you write rules.</div>
+
+  <h3 id="collect-snapshot">Daily state snapshot</h3>
+  <p>A snapshot catches changes that you did not see as events. osquery<sup><a href="#src-osquery">5</a></sup> is good for this. Record once a day:</p>
+  <ul>
+    <li>Installed apps and their signatures.</li>
+    <li>Browser extensions.</li>
+    <li>Configuration profiles.</li>
+    <li>SIP, FileVault, Gatekeeper and firewall status.</li>
+    <li>Members of the <code>admin</code> group.</li>
+  </ul>
+
+  <h3 id="collect-protect">Protect the logs</h3>
+  <ul>
+    <li>Send a heartbeat every few minutes. Alert when a Mac goes silent. A gap in the logs often means that the attacker stopped the agent.</li>
+    <li>Use TLS. Authenticate each Mac with its own certificate.</li>
+    <li>Keep the logs on a server that the Macs can write to but cannot read or delete.</li>
+    <li>Use one accurate time source on all Macs and servers, and a structured format such as JSON<sup><a href="#src-asd">3</a></sup>. Without this, you cannot join events from different Macs into one timeline.</li>
+    <li>Keep at least 90 days. Most incidents are found weeks late.</li>
+  </ul>
+
+  <h3 id="collect-skip">What to skip</h3>
+  <ul>
+    <li>The full unified log stream. It is very large, and most of it does not help to find an intrusion.</li>
+    <li>File events for every path. Filter to sensitive directories, or the volume will be too large.</li>
+  </ul>
+
+  <h2 id="priority">Why this order</h2>
+
+  <h3 id="priority-agree">What the guidance agrees on</h3>
+  <p>No official priority list exists for macOS. This order follows two common references: MITRE ATT&amp;CK for macOS<sup><a href="#src-mitre">2</a></sup>, and the 2024 joint guidance on event logging from ASD's ACSC, CISA, NSA and partners, including Singapore's CSA<sup><a href="#src-asd">3</a></sup>. Both put process execution, persistence and authentication first. So the P0 rows are a safe start.</p>
+  <p>Change the priorities to match your real threats. For a company with many developers, watch SSH keys and cloud credentials more closely.</p>
+
+  <h3 id="priority-changes">Two changes for current threats</h3>
+  <ul>
+    <li><strong>DNS is P1.</strong> If your company DNS or web gateway already logs queries, the cost is almost zero. Most malware must contact its server, and DNS shows this.</li>
+    <li><strong>Info-stealer behavior is P0.</strong> Info-stealers such as AMOS and Poseidon are now the most common Mac threat. They show a fake password prompt with <code>osascript</code>, then read the keychain and browser files.</li>
+  </ul>
+
+  <h2 id="tools">Tools</h2>
+  <p>There is no single best tool. Choose by goal.</p>
+
+  <h3 id="tools-continuous">Continuous collection</h3>
+  <div class="tbl">
+    <table>
+      <caption>Tools for all Macs, every day</caption>
+      <thead><tr><th scope="col">Tool</th><th scope="col">Cost</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Jamf Protect</th><td>Paid</td><td>Mac only. Strong Mac detections. Good if you already use Jamf.</td></tr>
+        <tr><th scope="row">CrowdStrike, SentinelOne, Microsoft Defender</th><td>Paid</td><td>Cross-platform EDR. Good if you also have Windows.</td></tr>
+        <tr><th scope="row">Elastic Defend (Elastic Agent)</th><td>Free tier</td><td>Endpoint Security events into Elasticsearch. The best free EDR-style option.</td></tr>
+        <tr><th scope="row">osquery + Fleet</th><td>Free</td><td>SQL queries on Mac state. Very good for snapshots and inventory. Weak for real-time events.</td></tr>
+        <tr><th scope="row">Santa</th><td>Free</td><td>Allowlist and blocklist for binaries. Logs every exec. Now maintained by North Pole Security<sup><a href="#src-santa">6</a></sup>.</td></tr>
+        <tr><th scope="row">Wazuh</th><td>Free</td><td>Agent and server. Mac support is weaker than its Linux support.</td></tr>
+        <tr><th scope="row"><code>eslogger</code></th><td>Built in</td><td>Raw Endpoint Security JSON. You build the filter, the shipping and the alerts.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="tools-onetime">One-time investigation</h3>
+  <div class="tbl">
+    <table>
+      <caption>Tools for one suspect Mac</caption>
+      <thead><tr><th scope="col">Tool</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Aftermath (Jamf, open source)</th><td>Collects the main forensic files from a Mac and builds a timeline<sup><a href="#src-aftermath">4</a></sup>. A good first step.</td></tr>
+        <tr><th scope="row">Velociraptor</th><td>Remote collection with ready-made macOS artifacts<sup><a href="#src-velo">7</a></sup>. Good for many Macs at once.</td></tr>
+        <tr><th scope="row">mac_apt</th><td>Parses a Mac disk image or collected files offline<sup><a href="#src-macapt">8</a></sup>.</td></tr>
+        <tr><th scope="row">Objective-See tools</th><td>Free<sup><a href="#src-os">9</a></sup>. KnockKnock lists all persistence items, and non-experts can read its output. BlockBlock and LuLu add live alerts.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="decision"><b>Pick</b>Small company: Elastic Defend or Jamf Protect for continuous logs, and Aftermath for one-time checks.</div>
+
+  <h2 id="files">Files to check on a suspect Mac</h2>
+
+  <h3 id="files-before">Before you start</h3>
+  <div class="warn"><b>Warning</b>An attacker with root can edit all the files below. If the Mac is truly compromised, trust the logs on your server more than the files on the Mac.</div>
+  <ul>
+    <li>Collect first, and analyze later. Do not reboot or clean the Mac before you collect. You will lose running processes and network connections.</li>
+    <li>Many of these files need root and Full Disk Access.</li>
+  </ul>
+
+  <h3 id="files-tier1">Tier 1: always check</h3>
+  <div class="tbl">
+    <table>
+      <caption>Core files for every investigation</caption>
+      <thead><tr><th scope="col">What</th><th scope="col">Path</th><th scope="col">How to read</th><th scope="col">What it shows</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Launch items</th><td><code>/Library/LaunchDaemons/</code>, <code>/Library/LaunchAgents/</code>, <code>~/Library/LaunchAgents/</code></td><td>Read the <code>.plist</code> files</td><td>The most common malware persistence</td></tr>
+        <tr><th scope="row">Background items (BTM)</th><td><code>/private/var/db/com.apple.backgroundtaskmanagement/BackgroundItems-v*.btm</code></td><td><code>sudo sfltool dumpbtm</code></td><td>All login and background items, with developer name</td></tr>
+        <tr><th scope="row">Download history</th><td><code>~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2</code></td><td>SQLite</td><td>Each downloaded file, its source URL and time. Shows how malware arrived.</td></tr>
+        <tr><th scope="row">Unified log</th><td><code>/private/var/db/diagnostics/</code>, <code>/private/var/db/uuidtext/</code></td><td><code>sudo log collect</code>, then <code>log show</code> with a predicate</td><td><code>sudo</code>, SSH, TCC, XProtect and installs</td></tr>
+        <tr><th scope="row">Privacy permissions (TCC)</th><td><code>/Library/Application Support/com.apple.TCC/TCC.db</code>, <code>~/Library/Application Support/com.apple.TCC/TCC.db</code></td><td>SQLite</td><td>Apps with Full Disk Access, screen recording, Accessibility, camera or microphone</td></tr>
+        <tr><th scope="row">Shell history</th><td><code>~/.zsh_history</code>, <code>~/.zsh_sessions/</code>, <code>~/.bash_history</code></td><td>Text</td><td>Commands that the attacker typed, such as <code>curl … | bash</code></td></tr>
+        <tr><th scope="row">Install history</th><td><code>/Library/Receipts/InstallHistory.plist</code>, <code>/var/log/install.log</code></td><td>plist, text</td><td>Packages installed, and when</td></tr>
+        <tr><th scope="row">SSH</th><td><code>~/.ssh/authorized_keys</code>, <code>/etc/ssh/sshd_config</code></td><td>Text</td><td>Added keys and SSH backdoors</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="files-tier2">Tier 2: check when Tier 1 shows something</h3>
+  <ul>
+    <li>Configuration profiles: <code>sudo profiles show -all</code>. Malware can install a profile with a proxy or a root certificate.</li>
+    <li>Accounts and admins: <code>dscl . -list /Users</code>, <code>dscl . -read /Groups/admin</code>.</li>
+    <li>Shell startup files: <code>/etc/zshrc</code>, <code>~/.zshrc</code>, <code>~/.zprofile</code>. They can run code at each terminal start.</li>
+    <li>Cron: <code>/usr/lib/cron/tabs/</code>.</li>
+    <li>Browser extensions: the Chrome, Edge and Safari profile folders.</li>
+    <li>File system change history: <code>/.fseventsd/</code>. It helps to build a timeline.</li>
+    <li>Running state: <code>ps aux</code>, <code>lsof -i</code>, <code>systemextensionsctl list</code>. Capture these before a reboot.</li>
+  </ul>
+
+  <h2 id="report">Showing the results to a user</h2>
+  <p>Do not show raw logs. Make one report with four sections, in this order:</p>
+  <ol class="steps">
+    <li><strong>Timeline.</strong> Downloads, installs, new persistence items and new permissions, sorted by time.</li>
+    <li><strong>Persistence items.</strong> Each item with signer, Team ID and path. Mark unsigned items and items from unknown developers.</li>
+    <li><strong>Permissions.</strong> Each app with Full Disk Access, screen recording or Accessibility.</li>
+    <li><strong>Findings.</strong> Mark each finding as normal, suspicious or bad, with one plain sentence for each.</li>
+  </ol>
+
+  <h2 id="method">Method and sources</h2>
+  <p>This guide comes from a working discussion on 2026-10-09 to 2026-10-11 about logging on company Macs. It was not tested on a live fleet. Event names and macOS version limits follow Apple's Endpoint Security documentation as of mid-2026. Check them against your macOS versions. The 90-day retention is a common practice, not a legal rule. The claim that info-stealers are the most common Mac threat comes from public vendor threat reports in 2025 and 2026; no single report is cited here.</p>
+  <ol class="sources">
+    <li id="src-es">Apple Developer, Endpoint Security framework, <a href="https://developer.apple.com/documentation/endpointsecurity" target="_blank" rel="noopener">developer.apple.com/documentation/endpointsecurity</a></li>
+    <li id="src-mitre">MITRE ATT&amp;CK, macOS matrix, <a href="https://attack.mitre.org/matrices/enterprise/macos/" target="_blank" rel="noopener">attack.mitre.org/matrices/enterprise/macos</a></li>
+    <li id="src-asd">ASD's ACSC, CISA, FBI, NSA and partners, Best Practices for Event Logging and Threat Detection, 2024-08-21, <a href="https://www.cisa.gov/resources-tools/resources/best-practices-event-logging-and-threat-detection" target="_blank" rel="noopener">cisa.gov</a>; Singapore CSA advisory AD-2024-016, <a href="https://www.csa.gov.sg/alerts-and-advisories/advisories/ad-2024-016/" target="_blank" rel="noopener">csa.gov.sg</a></li>
+    <li id="src-aftermath">Jamf, Aftermath, <a href="https://github.com/jamf/aftermath" target="_blank" rel="noopener">github.com/jamf/aftermath</a></li>
+    <li id="src-osquery">osquery, <a href="https://osquery.io" target="_blank" rel="noopener">osquery.io</a>; Fleet, <a href="https://fleetdm.com" target="_blank" rel="noopener">fleetdm.com</a></li>
+    <li id="src-santa">North Pole Security, Santa, <a href="https://github.com/northpolesec/santa" target="_blank" rel="noopener">github.com/northpolesec/santa</a></li>
+    <li id="src-velo">Velociraptor documentation, <a href="https://docs.velociraptor.app" target="_blank" rel="noopener">docs.velociraptor.app</a></li>
+    <li id="src-macapt">mac_apt, <a href="https://github.com/ydkhatri/mac_apt" target="_blank" rel="noopener">github.com/ydkhatri/mac_apt</a></li>
+    <li id="src-os">Objective-See, tools, <a href="https://objective-see.org/tools.html" target="_blank" rel="noopener">objective-see.org/tools.html</a></li>
+    <li id="src-pdpa">Personal Data Protection Commission Singapore, <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener">pdpc.gov.sg</a></li>
+  </ol>
+  <p><a href="/reading/">Back to the reading list</a></p>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
