@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YubiKey 的使用场景</title>
+<meta name="description" content="YubiKey 能用在哪些地方：网站登录、电脑登录、SSH 和 Git、加密签名、TOTP 验证码，它不做的事，以及按优先级的建议配置。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/yubikey-use-cases-2026-10/">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. */
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #1b1d1f;
+  --ink-2: #494e52;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #d8dde3;
+  --rule-2: #b3bcc6;
+  --mid: #e8ecf0;
+  --acc: #2d5a7b;    
+  --acc-ink: #24496a;        /* accent dark enough for text */
+  --acc-wash: rgba(45, 90, 123, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #14171b; --surface: #1b2026; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #8db8d6; --acc-ink: #a9cbe3; --acc-wash: rgba(141,184,214,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #14171b; --surface: #1b2026; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #8db8d6; --acc-ink: #a9cbe3; --acc-wash: rgba(141,184,214,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、六类用法总览</a></li>
+      <li><a href="#s2">二、网站和应用登录</a>
+        <ul>
+          <li><a href="#s2-1">2.1 无密码登录和第二因素</a></li>
+          <li><a href="#s2-2">2.2 支持的服务</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、电脑登录</a></li>
+      <li><a href="#s4">四、SSH 和 Git</a>
+        <ul>
+          <li><a href="#s4-1">4.1 SSH 密钥放进 YubiKey</a></li>
+          <li><a href="#s4-2">4.2 Git 提交签名</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">五、加密和签名</a></li>
+      <li><a href="#s6">六、TOTP 验证码</a></li>
+      <li><a href="#s7">七、OTP 和其他功能</a></li>
+      <li><a href="#s8">八、YubiKey 不做的事</a></li>
+      <li><a href="#s9">九、建议配置</a></li>
+      <li><a href="#s10">十、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Security notes · 2026 年 10 月 11 日</p>
+    <h1>YubiKey 的使用场景</h1>
+    <p class="lede">一把 YubiKey 能用在哪些地方：网站登录、电脑登录、SSH 和 Git、加密签名、验证码，以及它管不到的地方。</p>
+    <p class="meta"><span>资料截至 2026-10-11</span><span>范围：YubiKey 5 系列和 Security Key 系列</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>YubiKey 5 系列支持六类用法；Security Key 系列只支持第一类，即网站和应用登录（FIDO2）。</p>
+    <p>收益最大的两件事：给主邮箱、Apple 账号、密码管理器这类“管着其他账号的账号”加上 YubiKey；把 SSH 私钥放进 YubiKey。每个账号都注册两把 key，一把随身，一把放家里。</p>
+  </div>
+
+  <h2 id="s1">一、六类用法总览</h2>
+  <p>下表按对个人的用处从高到低排列。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">用法</th><th scope="col">用到的功能</th><th scope="col">5 系列</th><th scope="col">Security Key 系列</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">网站和应用登录</th><td>FIDO2 / WebAuthn、U2F</td><td>支持</td><td>支持</td></tr>
+        <tr><th scope="row">电脑登录</th><td>智能卡（PIV）、FIDO2</td><td>支持</td><td>只支持 FIDO2 部分</td></tr>
+        <tr><th scope="row">SSH 和 Git</th><td>FIDO2（<code>-sk</code> 密钥）</td><td>支持</td><td>支持</td></tr>
+        <tr><th scope="row">加密和签名</th><td>OpenPGP、PIV</td><td>支持</td><td>不支持</td></tr>
+        <tr><th scope="row">TOTP 验证码</th><td>OATH</td><td>支持</td><td>不支持</td></tr>
+        <tr><th scope="row">OTP 和其他</th><td>Yubico OTP、静态密码、挑战应答</td><td>支持</td><td>不支持</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>固件 5.7 及以后，一把 key 最多存 100 个 passkey、64 个 TOTP 账号；5.0 到 5.6 分别是 25 个和 32 个。U2F 方式的第二因素不占存储，数量不限<sup><a href="#src-1">1</a>,<a href="#src-2">2</a></sup>。固件不能升级，买新 key 时确认版本在 5.7 以上。</p>
+
+  <h2 id="s2">二、网站和应用登录</h2>
+  <p>这是 YubiKey 最主要的用法。网站发来一个随机挑战，YubiKey 用存在 key 里的私钥签名，网站用公钥验证。私钥只认注册时的域名，钓鱼网站拿不到可用的签名。</p>
+
+  <h3 id="s2-1">2.1 无密码登录和第二因素</h3>
+  <ul>
+    <li>无密码登录：passkey 存在 YubiKey 里。登录时插上或贴一下 key，输入 PIN，直接进入账号。</li>
+    <li>第二因素：先输入密码，再碰一下 key。它替代短信验证码和手机验证器 App。</li>
+    <li>iPhone 上的用法：把 key 贴在手机顶部（NFC），或插进 USB-C 口。</li>
+  </ul>
+
+  <h3 id="s2-2">2.2 支持的服务</h3>
+  <p>常见的有 Apple 账号、Google 和 Google Workspace、Microsoft、GitHub、GitLab、Cloudflare、AWS、1Password、Bitwarden、Dropbox、X、Facebook、Coinbase、Binance，以及大部分域名注册商。</p>
+  <p>Apple 账号要求至少注册两把 key，最多六把；所有登录这个账号的设备要升级到 iOS 16.3 或 macOS Ventura 13.2 以上<sup><a href="#src-3">3</a></sup>。Apple 建议两把 key 分开放，一把在家，一把在办公室；key 和受信任设备全部丢失时，账号可能永久锁死<sup><a href="#src-3">3</a>,<a href="#src-4">4</a></sup>。</p>
+  <p>公司用 Google Workspace 时，可以要求管理员必须用安全密钥登录。管理员密码被钓走后，攻击者仍然登不进去。</p>
+
+  <h2 id="s3">三、电脑登录</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">系统</th><th scope="col">做法</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Mac</th><td>macOS 原生支持智能卡登录。用 <code>sc_auth</code> 把 key 和账号配对，之后用 key 加 PIN 登录，替代账号密码。</td></tr>
+        <tr><th scope="row">Windows</th><td>Microsoft 账号和 Entra ID（原 Azure AD）支持用 FIDO2 key 登录。</td></tr>
+        <tr><th scope="row">Linux</th><td>装 <code>pam-u2f</code>，登录和 <code>sudo</code> 都要求碰一下 key<sup><a href="#src-6">6</a></sup>。</td></tr>
+        <tr><th scope="row">Linux 磁盘加密</th><td><code>systemd-cryptenroll --fido2-device=auto</code> 让 key 解锁 LUKS 加密盘<sup><a href="#src-7">7</a></sup>。Mac 的 FileVault 不能直接用 key 解锁。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s4">四、SSH 和 Git</h2>
+  <p>OpenSSH 8.2 起支持把 SSH 密钥绑在 FIDO2 key 上<sup><a href="#src-5">5</a></sup>。对写代码、管服务器的人，这一类用处很大。</p>
+
+  <h3 id="s4-1">4.1 SSH 密钥放进 YubiKey</h3>
+  <pre><code>ssh-keygen -t ed25519-sk -O resident -O verify-required</code></pre>
+  <ul>
+    <li>私钥留在 YubiKey 里，不能导出。电脑被偷或中了恶意软件，攻击者也复制不走私钥。</li>
+    <li>每次连接要碰一下 key。<code>verify-required</code> 还要求输入 PIN。</li>
+    <li><code>-O resident</code> 把密钥存在 key 上。换新电脑时运行 <code>ssh-keygen -K</code>，就能取回密钥文件。</li>
+    <li>macOS 自带的 <code>ssh</code> 可能不支持 <code>-sk</code> 密钥。生成失败时，用 Homebrew 装 OpenSSH 再试。</li>
+  </ul>
+  <p>把 <code>-sk</code> 公钥放到服务器上之后，只拷走一份电脑硬盘的人登不进服务器。</p>
+
+  <h3 id="s4-2">4.2 Git 提交签名</h3>
+  <pre><code>git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519_sk.pub
+git config --global commit.gpgsign true</code></pre>
+  <p>用同一把 <code>-sk</code> 密钥签名提交。公钥加到 GitHub 的签名密钥后，提交显示 Verified<sup><a href="#src-8">8</a></sup>。没有这把 key，别人无法以你的名义签名提交。</p>
+
+  <h2 id="s5">五、加密和签名</h2>
+  <ul>
+    <li>OpenPGP：key 存 PGP 私钥，用于邮件加密、文件签名和 <code>pass</code> 密码库。私钥不能导出。</li>
+    <li>age：装上 <code>age-plugin-yubikey</code> 后，用 key 加密文件、备份和服务器密钥，只有这把 key 能解密<sup><a href="#src-9">9</a></sup>。它比 PGP 简单。</li>
+    <li>证书（PIV）：key 存 X.509 证书，用于公司 VPN、文档签名和内部证书系统。</li>
+  </ul>
+
+  <h2 id="s6">六、TOTP 验证码</h2>
+  <p>Yubico Authenticator 把 TOTP 的密钥存在 YubiKey 里，手机上只负责显示验证码<sup><a href="#src-10">10</a></sup>。</p>
+  <ul>
+    <li>适用：只支持 TOTP、不支持 FIDO2 的网站。很多国内服务和老系统是这样。</li>
+    <li>好处：换手机不用迁移；手机丢了，验证码还在 key 里。</li>
+    <li>限制：TOTP 验证码能被钓鱼网站骗走。网站支持 FIDO2 时，用 FIDO2。</li>
+  </ul>
+
+  <h2 id="s7">七、OTP 和其他功能</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">功能</th><th scope="col">做什么</th><th scope="col">现在的用处</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Yubico OTP</th><td>key 自动输入一串一次性码。</td><td>用的服务很少。</td></tr>
+        <tr><th scope="row">静态密码</th><td>key 输入一串固定的长字符串。</td><td>可以当主密码的一半，不能当整个密码。</td></tr>
+        <tr><th scope="row">挑战应答</th><td>程序发来挑战，key 算出应答。</td><td>KeePassXC 用它解锁密码库。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s8">八、YubiKey 不做的事</h2>
+  <ul>
+    <li>它不存普通密码。密码还放在密码管理器里，YubiKey 保护的是密码管理器的登录。</li>
+    <li>它不是加密货币钱包。存币用 Ledger、Trezor 这类硬件钱包。</li>
+    <li>它只保护登录那一步。登录之后，电脑上的恶意软件仍然能偷走浏览器里的会话 cookie。</li>
+  </ul>
+
+  <h2 id="s9">九、建议配置</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col" class="num">优先级</th><th scope="col">用法</th><th scope="col">账号和工具</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>“主账号”加 FIDO2</td><td>Apple 账号、Google（个人和 Workspace 管理员）、1Password、主邮箱</td></tr>
+        <tr><td class="num">2</td><td>基础设施加 FIDO2</td><td>GitHub、Cloudflare、AWS 和云服务器、域名注册商、银行</td></tr>
+        <tr><td class="num">3</td><td>SSH 和 Git 签名</td><td>服务器和 GitHub 用 <code>ed25519-sk</code> 密钥</td></tr>
+        <tr><td class="num">4</td><td>TOTP</td><td>只支持 TOTP 的网站</td></tr>
+        <tr><td class="num">5</td><td>按需</td><td>Mac 智能卡登录、age 加密备份</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>每个账号都注册两把 key。SSH 的 <code>-sk</code> 密钥例外：它只存在生成它的那一把 key 上。在第二把 key 上另生成一个 SSH 密钥，两个公钥都加到服务器和 GitHub。</p>
+  <p>其他普通账号用手机或密码管理器同步的 passkey 就够了。YubiKey 留给那些一旦丢失、会连带丢掉其他账号的账号。</p>
+
+  <h2 id="s10">十、方法与来源</h2>
+  <p>本页由一次问答整理而成。2026-10-11 用网页检索核对了两组事实：YubiKey 固件 5.7 的存储上限（来源 1、2），Apple 账号使用安全密钥的要求（来源 3、4）。其余内容来自一般知识，包括各服务的支持列表、Mac 智能卡登录、OpenSSH、Git 签名、pam-u2f、systemd-cryptenroll、age 插件和 KeePassXC。来源 5 到 10 是这些工具的官方页面，本次没有逐条打开核对。macOS 自带 <code>ssh</code> 是否支持 <code>-sk</code> 密钥待确认。各服务的支持情况会变，用之前以服务方的页面为准。</p>
+  <ol class="sources">
+    <li id="src-1">Yubico，《5.7 - 5.6 Firmware Specifics》，YubiKey Technical Manual，<a href="https://docs.yubico.com/hardware/yubikey/yk-tech-manual/yk5-firmware-5.7.html" target="_blank" rel="noopener">docs.yubico.com</a></li>
+    <li id="src-2">Yubico 支持，《How many accounts can I register my YubiKey with?》，<a href="https://support.yubico.com/hc/en-us/articles/360013790319-How-many-accounts-can-I-register-my-YubiKey-with" target="_blank" rel="noopener">support.yubico.com</a></li>
+    <li id="src-3">Apple 支持，《About Security Keys for Apple Account》，<a href="https://support.apple.com/en-us/102637" target="_blank" rel="noopener">support.apple.com/102637</a></li>
+    <li id="src-4">Apple，《Use security keys for two-factor authentication on Mac》，Mac 使用手册，<a href="https://support.apple.com/guide/mac-help/use-security-keys-mchld6920426/mac" target="_blank" rel="noopener">support.apple.com</a></li>
+    <li id="src-5">OpenSSH，《Release notes 8.2》，<a href="https://www.openssh.com/txt/release-8.2" target="_blank" rel="noopener">openssh.com/txt/release-8.2</a></li>
+    <li id="src-6">Yubico 开发者文档，《pam-u2f》，<a href="https://developers.yubico.com/pam-u2f/" target="_blank" rel="noopener">developers.yubico.com/pam-u2f</a></li>
+    <li id="src-7">systemd，《systemd-cryptenroll》手册页，<a href="https://www.freedesktop.org/software/systemd/man/latest/systemd-cryptenroll.html" target="_blank" rel="noopener">freedesktop.org</a></li>
+    <li id="src-8">GitHub Docs，《About commit signature verification》，<a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification" target="_blank" rel="noopener">docs.github.com</a></li>
+    <li id="src-9">age-plugin-yubikey 仓库，<a href="https://github.com/str4d/age-plugin-yubikey" target="_blank" rel="noopener">github.com/str4d/age-plugin-yubikey</a></li>
+    <li id="src-10">Yubico，《Yubico Authenticator》，<a href="https://www.yubico.com/products/yubico-authenticator/" target="_blank" rel="noopener">yubico.com</a></li>
+  </ol>
+  <p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

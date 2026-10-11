@@ -2,6 +2,7 @@
 
 ## 2026-10-11
 
+- 新增资料页《YubiKey 的使用场景》，`static/reading/yubikey-use-cases-2026-10/index.html`。YubiKey 能用在哪些地方：网站登录、电脑登录、SSH 和 Git、加密签名、TOTP 验证码，它不做的事，以及按优先级的建议配置。
 - 新增资料页《AI 视频入门：40 分钟教学计划》，`static/reading/ai-video-intro-40min/index.html`。教只用过聊天机器人的朋友用 AI 做视频：工具、流程、技巧、演示和案例。
 - 新增资料页《Mac Intrusion Logging》，`static/reading/mac-intrusion-logging-2026-10/index.html`。How to send company Mac logs to a central server, which events to collect to detect an intrusion, which tools to use, and which files to check on a suspect Mac.
 
