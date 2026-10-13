@@ -694,13 +694,13 @@ reading_url = "/reading/ai-video-intro-40min/"
 
 [[materials]]
 slug = "mac-intrusion-logging-2026-10"
-title = "Mac Intrusion Logging"
+title = "Mac 入侵日志采集与排查"
 subtitle = ""
 author = "Luca"
 category = "report"
 date = "2026-10-11T10:38:36+08:00"
 year = "2026"
-description = "How to send company Mac logs to a central server, which events to collect to detect an intrusion, which tools to use, and which files to check on a suspect Mac."
+description = "企业 Mac 的集中日志采集指南：事件优先级、采集工具、日志保护，以及疑似受入侵设备的检查文件。"
 original_url = ""
 reading_url = "/reading/mac-intrusion-logging-2026-10/"
 

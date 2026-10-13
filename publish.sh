@@ -18,7 +18,7 @@
 #     --post-slug <slug>       related post under /posts/<slug>/
 #     --changelog "<text>"     custom CHANGELOG line (default is built from title + description)
 #     --noindex                page is noindex; also excluded from sitemap
-#     --update                 replace an existing page; keep its list metadata
+#     --update                 replace a page; refresh title and description; keep its date
 #     --dry-run                validate and show the plan, write nothing
 #   title and description are read from <title> and <meta name="description"> in the HTML.
 #   The HTML must carry robots + canonical for https://wlj.me/reading/<slug>/ and a link back to /reading/.
@@ -289,7 +289,7 @@ publish_reading() {
   if [ "$dry_run" = 1 ]; then
     echo ""
     if [ "$update" = 1 ]; then
-      echo "[dry-run] 将替换现有整理页，保留 data/reading-materials.toml 条目"
+      echo "[dry-run] 将替换现有整理页，更新列表标题和摘要，保留日期"
     else
       echo "[dry-run] 将追加到 data/reading-materials.toml:"
       echo "$entry"
@@ -303,6 +303,22 @@ publish_reading() {
   if [ "$update" = 1 ]; then
     find "$target_dir" -mindepth 1 -maxdepth 1 -delete
     cp -R "$src_dir"/. "$target_dir"/
+    # Refresh translated metadata and preserve the publication date.
+    python3 - "$toml" "$slug" "$title" "$description" <<'PYMETA'
+import json
+import re
+import sys
+from pathlib import Path
+path = Path(sys.argv[1])
+blocks = path.read_text().split("[[materials]]")
+for index, block in enumerate(blocks):
+    if re.search(r'^slug = "' + re.escape(sys.argv[2]) + r'"$', block, re.M):
+        for key, value in zip(("title", "description"), sys.argv[3:]):
+            block = re.sub(r"^" + key + r" = .*?$", lambda match: key + " = " + json.dumps(value, ensure_ascii=False), block, flags=re.M)
+        blocks[index] = block
+        break
+path.write_text("[[materials]]".join(blocks))
+PYMETA
   else
     cp -R "$src_dir" "$target_dir"
     printf '%s\n' "$entry" >> "$toml"

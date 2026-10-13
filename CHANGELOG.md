@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-13
+
+- 将 Mac 日志指南改为中文，保留原网址和来源链接；修复整理页更新时未刷新列表标题和摘要的问题。
+
 ## 2026-10-11
 
 - 新增资料页《YubiKey 的使用场景》，`static/reading/yubikey-use-cases-2026-10/index.html`。YubiKey 能用在哪些地方：网站登录、电脑登录、SSH 和 Git、加密签名、TOTP 验证码，它不做的事，以及按优先级的建议配置。
