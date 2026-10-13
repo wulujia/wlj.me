@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>罗伯特·摩西的权力从哪里来：七件事和一套法律技术</title>
+<meta name="description" content="根据卡罗《权力掮客》整理：罗伯特·摩西在七件关键事件中靠什么做到、欺骗和伤害了谁，重点拆解 1924 年公园法和三区大桥管理局修法的条文技术。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/robert-moses-power-sources/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+    --bg: #f5f6f7;
+  --surface: #ffffff;
+  --ink: #1a1d20;
+  --ink-2: #494e52;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #9a3d1c;
+  --acc-ink: #85331a;
+  --acc-wash: rgba(154, 61, 28, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #e2906b; --acc-ink: #efae90; --acc-wash: rgba(226,144,107,.13);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #e2906b; --acc-ink: #efae90; --acc-wash: rgba(226,144,107,.13);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ---------- statute excerpt: the wording is the evidence ---------- */
+.clause { margin: 1.2em 0; padding: 12px 16px; background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--acc); }
+.clause .sec { display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; color: var(--acc-ink); margin: 0 0 4px; }
+.clause p { margin: 0 0 .5em; }
+.clause p:last-child { margin: 0; }
+.clause q { quotes: "“" "”"; font-weight: 600; }
+.back { font-size: 14px; margin: 0 0 20px; }
+@media print { .clause { break-inside: avoid; } .back { display: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、1924 年：一条藏在公园法里的旧法</a></li>
+      <li><a href="#s2">二、1920 年代末：北方州立公园大道的路线交易</a></li>
+      <li><a href="#s3">三、1934 到 1936 年：和罗斯福总统对抗</a></li>
+      <li><a href="#s4">四、1936 到 1938 年：三区管理局的修法</a>
+        <ul>
+          <li><a href="#s4-1">原来的管理局是什么样</a></li>
+          <li><a href="#s4-2">摩西改了哪几处</a></li>
+          <li><a href="#s4-3">合同为什么让权力收不回来</a></li>
+          <li><a href="#s4-4">谁被欺骗，谁受伤害</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">五、1939 年：炮台桥和水族馆</a></li>
+      <li><a href="#s6">六、1950 年代：跨布朗克斯高速公路</a></li>
+      <li><a href="#s7">七、1949 年起：Title I 贫民区清理</a></li>
+      <li><a href="#s8">有争议的两个说法</a></li>
+      <li><a href="#s9">几件事放在一起看</a></li>
+      <li><a href="#s10">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <p class="back"><a href="/reading/">← 返回整理</a></p>
+  <header>
+    <p class="eyebrow">The Power Broker · 读书整理</p>
+    <h1>罗伯特·摩西的权力从哪里来：七件事和一套法律技术</h1>
+    <p class="lede">罗伯特·摩西从 1924 年到 1968 年主持纽约的公园、公路、桥梁和住房工程。他一生没有赢过一次选举，1934 年参选州长还大败。但在 1950 年代的高峰期，他同时担任十几个职位，市长和州长都很难动他。</p>
+    <p class="meta"><span>根据罗伯特·卡罗（Robert Caro）《权力掮客》整理</span><span>2026 年 10 月</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>摩西的权力是一层一层叠起来的：早期的真实成就带来信任，信任让议会通过他起草的法律，法律给了他自己的钱，钱又买来一张利益网。</p>
+    <p>关键一步是 1936 到 1938 年三区大桥管理局的修法。他让管理局可以借新债还旧债，又把权力写进受宪法保护的债券合同，州从此收不回已经给出的权力。</p>
+    <p>他欺骗的多是议员和公众，伤害的几乎都是没有政治力量的人。</p>
+  </div>
+
+  <p>在这个过程中，有一种能力他用得最多，也最少被人看见：他会写法律。下面按时间讲七件事，每件看三点：他手里有什么，他怎样做到，他欺骗和伤害了谁。第一件和第四件主要讲法律条文。卡罗的结论有的已被后来的研究质疑，文中会标出。</p>
+
+  <h2 id="s1">一、1924 年：一条藏在公园法里的旧法</h2>
+  <p>1924 年，州长阿尔·史密斯请摩西为长岛建州立公园。摩西手里有两样东西：史密斯的完全信任，和他自己在州政府改革委员会里练出来的起草本领。卡罗给他的评价是“奥尔巴尼最好的法案起草人”（奥尔巴尼是纽约州首府）。</p>
+  <p>摩西亲自起草了设立长岛州立公园委员会的法案。这份法案读起来像一份普通的机构设置法：委员会的名称、人数、经费、职责。真正的权力藏在一条引用里。法案规定，委员会取得土地时，可以按照一部 1884 年旧法的程序办理。</p>
+  <div class="clause">
+    <span class="sec">§ 长岛州立公园委员会法案 · 1924 · 大意</span>
+    <p>委员会取得土地时，可以按照 1884 年某法规定的程序办理。</p>
+  </div>
+  <p>议员看到的是一个法律编号，大多数人没有去翻那部旧法。那部旧法规定的程序叫“占用”（appropriation）。它和通常的“征收”（condemnation）差别很大：</p>
+  <ul>
+    <li>征收要先上法院。政府证明公共用途，法院定价，付款后土地才转手。</li>
+    <li>占用不需要先上法院。机构的人进入土地，提交一份通知，产权当场转给州。业主要想拿到补偿，得自己去索赔法院起诉。</li>
+  </ul>
+  <p>一个是先审后拿，一个是先拿后审。这个区别没有写在摩西的法案正文里，只能从引用的编号里找到。</p>
+  <p>法案里还有第二层设计。委员会成员有固定任期，州长不能随时免职。在当时这看起来是保护公园事业不受政治干扰的改革措施，改革派也支持。它的实际效果是，下一任州长很难把摩西赶走。</p>
+  <p>法案通过后不久，摩西就用了占用权。他看中了长岛南岸泰勒家族的庄园，派人进去宣布土地归州。泰勒家起诉，法院判他违法。但他已经占住了土地，史密斯在政治上支持他，官司拖了很久。后来有富人捐了钱，这块地最后还是成了公园。</p>
+  <p>被伤害的是庄园主人，他们有钱，公众同情不多。被欺骗的是议员，他们投票时不知道自己给了什么权力。这件事定下了摩西后来常用的一个顺序：先占住，再打官司，判决来时工程已经开始了。</p>
+  <p>第二层设计在五年后起了作用。1929 年罗斯福接任州长，他不喜欢摩西，没有让他继续当州务卿。州务卿由州长任免，说撤就撤。但罗斯福动不了长岛公园委员会，因为那个位置写在法律里，有固定任期。</p>
+
+  <h2 id="s2">二、1920 年代末：北方州立公园大道的路线交易</h2>
+  <p>长岛北岸住着当时美国最有钱的一批人。北方州立公园大道要穿过他们的庄园，他们强烈反对。</p>
+  <p>摩西手里有选路线的权力，还有“为普通人修路、对抗富豪”的公众形象。他公开说的正是这一套。私下里，他和奥托·卡恩等庄园主达成交易，把路线向南移，绕开庄园。卡恩还出钱支付了重新勘测的费用。</p>
+  <p>路线南移以后，经过的是小农户的土地。这些农户没有律师团，也没有报纸替他们说话。</p>
+  <p>摩西欺骗了公众：他公开的说法和私下的交易正好相反。他伤害了南边的小农户。卡罗认为，这是摩西第一次为了让工程推进，牺牲没有力量的人。</p>
+
+  <h2 id="s3">三、1934 到 1936 年：和罗斯福总统对抗</h2>
+  <p>1934 年，拉瓜迪亚当选纽约市长，任命摩西为市公园局长，同时让他进入三区大桥管理局。拉瓜迪亚需要摩西，因为摩西能把联邦救济资金最快变成工程和就业。</p>
+  <p>同一年，罗斯福已经是总统。他让内政部长伊克斯发布了一条规定：如果一个管理局的成员同时担任市政职位，联邦就不给这个管理局拨款。全国符合这个条件的人基本只有摩西一个。</p>
+  <p>摩西手里有三样东西：报纸的支持、改革派的声誉、拉瓜迪亚对他的依赖。他把这条规定泄露给报纸，说总统为了私怨卡住纽约的工程和工作岗位。舆论站到他这边，罗斯福最后退让。</p>
+  <p>这件事里欺骗不多。他做的是把一个私人冲突说成公共利益问题。结果是，纽约的政客都看到了攻击摩西要付出的代价，连总统都没有赢。</p>
+
+  <h2 id="s4">四、1936 到 1938 年：三区管理局的修法</h2>
+  <p>这是摩西权力的关键一步。前面所有的位置都还需要别人的信任，这一步之后，他有了一个不需要信任的基地。</p>
+
+  <h3 id="s4-1">原来的管理局是什么样</h3>
+  <p>三区大桥管理局由州议会立法设立，负责建造连接曼哈顿、皇后区和布朗克斯的三区大桥。它是一个独立的公法人，可以发债券借钱，用过桥费还钱。</p>
+  <p>原来的设计有一个终点：大桥的债券还清以后，管理局解散，大桥和过桥费交还纽约市。到那时，权力也就回到选出来的政府手里。</p>
+
+  <h3 id="s4-2">摩西改了哪几处</h3>
+  <p>摩西在 1936 年成为管理局主席。之后几年里，他推动议会修改了管理局的法律。这些修改在议员看来都是融资技术问题。卡罗的分析指出，有几处修改合在一起，改变了这个机构的性质。</p>
+  <div class="clause">
+    <span class="sec">§ 第一处 · 发行新债券</span>
+    <p>管理局可以<q>不时</q>为它的<q>任何法人目的</q>发行债券。</p>
+  </div>
+  <p>原来的债券只为一座桥服务，现在管理局可以为新项目借新钱。</p>
+  <div class="clause">
+    <span class="sec">§ 第二处 · 再融资</span>
+    <p>管理局可以发行新债券，偿还旧债券。</p>
+  </div>
+  <p>旧债还没到期，新债已经发出。这样一来，“债券还清”这一天可以一直往后推。解散条款还在法律里，但它的条件永远不会满足。</p>
+  <div class="clause">
+    <span class="sec">§ 第三处 · 项目范围</span>
+    <p>管理局可以建设和它现有设施<q>相关</q>的工程。</p>
+  </div>
+  <p>“相关”这个词没有清楚的边界，摩西可以用过桥费修新的道路、新的桥，几乎不需要别人批准。</p>
+  <div class="clause">
+    <span class="sec">§ 第四处 · 州的承诺（这类法律的标准文字，大意）</span>
+    <p>州向债券持有人保证，在债券及其利息完全清偿之前，州不会限制或改变授予管理局的权利，也不会损害债券持有人的权利。</p>
+  </div>
+  <p>第四处最关键。这段文字本来是为了让投资者放心买债券。投资者担心州明年改法律，把过桥费挪作他用，那样钱就还不上。有了这个保证，州的权力就变成了州对债券持有人的合同义务。</p>
+
+  <h3 id="s4-3">合同为什么让权力收不回来</h3>
+  <p>美国宪法第一条第十款规定，州不得通过损害合同义务的法律。1819 年最高法院的达特茅斯学院案又确认，州授予的特许状也可以是合同。</p>
+  <p>把前面几处放在一起看：</p>
+  <ul>
+    <li>法律说，债券还清前州不能改变管理局的权利。</li>
+    <li>法律又允许管理局不断发新债、借新钱还旧钱，所以债券永远还不清。</li>
+    <li>管理局的权利具体有哪些，写在债券决议（bond resolution）里，那是管理局和投资者之间的合同文件。</li>
+    <li>起草债券决议的人是摩西本人。他把管理局的权力、成员的地位、过桥费的用途都写进去。凡是写进去的，都受宪法保护。</li>
+  </ul>
+  <p>结果，州议会仍然有立法权，但它通过一份合同限制了自己。如果州以后通过法律撤掉摩西的权力，债券持有人可以到联邦法院起诉，法院会倾向于判这条法律无效。</p>
+  <p>成员的固定任期和这套合同配合使用。市长和州长不能随时免掉成员。他们也不能用预算卡管理局，因为管理局有过桥费，不需要拨款。普通官员的三条控制线在这里都被挡住了：</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">控制线</th><th scope="col">普通官员</th><th scope="col">三区管理局</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">任免</th><td>上级随时免职</td><td>成员有固定任期</td></tr>
+        <tr><th scope="row">预算</th><td>依赖每年的拨款</td><td>靠过桥费和债券，不需要拨款</td></tr>
+        <tr><th scope="row">立法</th><td>议会随时修改法律</td><td>修改会损害债券合同，违宪</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="s4-4">谁被欺骗，谁受伤害</h3>
+  <p>投票通过修正案的议员，以及签字的市长和州长，大多把它当成技术性修改。卡罗认为，他们没有理解这几处条文合在一起的后果。</p>
+  <p>这一步没有明显的直接受害者。长期的代价落在全体选民身上：一大笔过桥费和隧道费，以及用这笔钱决定修什么、拆什么的权力，从此不受选举控制。</p>
+
+  <h2 id="s5">五、1939 年：炮台桥和水族馆</h2>
+  <p>有了三区的钱以后，摩西想在曼哈顿南端修一座连接布鲁克林的大桥，代替原来计划的隧道。大桥的引道会占掉炮台公园的大部分。</p>
+  <p>市民团体、建筑界和报纸都反对。摩西手里有三区的钱和越来越大的利益网，他几乎成功了。最后拦住他的是联邦陆军部，理由是大桥会威胁上游海军船厂的航道安全。这个理由在三区合同的保护范围之外。</p>
+  <p>失败后，摩西提出拆掉炮台公园里的克林顿堡，那里当时是纽约水族馆。他给出的理由是修隧道的工程需要。水族馆被迫搬走。克林顿堡后来由联邦定为历史遗址，才保留下来。卡罗把这件事写成报复：公共决策输了，他就拿一座公共建筑出气。</p>
+
+  <h2 id="s6">六、1950 年代：跨布朗克斯高速公路</h2>
+  <p>1946 年，摩西被任命为纽约市建设协调人，全市的公共工程和联邦给纽约的建设资金都要经过他。跨布朗克斯高速公路是他用这个位置推动的工程之一。</p>
+  <p>路线经过东特里蒙特，一个稳定的犹太工人社区。居民组织起来，找到一条替代路线：往南移两个街区，沿着克罗托纳公园的边缘走，只需要拆很少的房子。</p>
+  <p>摩西说替代路线有工程问题，成本也更高。卡罗查阅资料、采访工程人员后认为，这些理由不真实，差别并不像摩西说的那样大。卡罗对“为什么不改线”给出的解释是摩西不愿让步，这一点只能算卡罗的推断。</p>
+  <p>摩西欺骗了居民和市政官员。大约 1500 户家庭失去住所，社区被高速公路切开，之后迅速衰败。</p>
+
+  <h2 id="s7">七、1949 年起：Title I 贫民区清理</h2>
+  <p>1949 年联邦住房法的第一章（Title I）给城市拨款清理贫民区、建新住房。摩西领导纽约市的贫民区清理委员会，决定清理哪些街区、交给哪个开发商。</p>
+  <p>他把很多项目交给有政治关系的开发商。一些开发商先低价拿到土地，接着收旧楼的房租，多年不建新楼。摩西报出的居民安置数字，后来被证明和实际情况不符。</p>
+  <p>受害者主要是穷人，其中很多是黑人和波多黎各人。他们被迫搬走，很多人没有得到像样的安置。卡罗估计，摩西一生的工程一共迫使大约 50 万人搬离住所。</p>
+
+  <h2 id="s8">有争议的两个说法</h2>
+  <p>卡罗还写过两件事。一是摩西故意把长岛公园大道上的桥修得很低，让公交车开不过去，把坐公交的穷人和黑人挡在海滩外。二是他通过控制水温，让黑人不去某些泳池。这两个说法主要来自单一证人，后来有学者提出质疑。它们可以作为卡罗的判断来读，不宜当成定论。</p>
+
+  <h2 id="s9">几件事放在一起看</h2>
+  <p>摩西手里的东西有四样：早期真实的成就和声誉，起草法律的本领，三区管理局自己的钱，以及政客、银行、工会、承包商对他的需要。前两样让他拿到第三样，第三样买来第四样。</p>
+  <p>他欺骗的对象是议员、州长、市长、报纸和公众。方法反复出现：把关键权力藏在引用和技术条款里，压低项目成本先开工，对替代方案说谎，把反对者说成自私或别有用心。</p>
+  <p>他伤害的人几乎都没有政治力量。北岸的富豪反对他，他和他们做交易。南边的农户、东特里蒙特的居民、贫民区的租户反对他，他直接推过去。</p>
+  <p>1962 年，摩西用辞职威胁州长洛克菲勒，洛克菲勒当场接受，他的州职位当天就没了。那些位置是上级给的。三区管理局是他用法律条文和债券合同锁住的，洛克菲勒又花了六年。1968 年，洛克菲勒把三区并入新成立的大都会运输署（MTA），并保证债券持有人不受损失。债券持有人的受托人是大通曼哈顿银行，由他弟弟戴维·洛克菲勒领导。银行没有起诉，这把锁才打开。</p>
+
+  <h2 id="s10">方法与来源</h2>
+  <p>本文根据卡罗原书的叙述整理，按时间挑出七件事。法律条文部分用的是大意，不是逐字原文：第一件里 1884 年旧法的编号和原立法目的没有写出，第四件的州承诺用的是这类管理局法律的标准文字。要引用原文，请对照原书核对。书中人物、职位和权力结构的速查，见 <a href="/reading/the-power-broker/">权力掮客速查</a>。</p>
+  <ol class="sources">
+    <li>Robert A. Caro，<i>The Power Broker: Robert Moses and the Fall of New York</i>，Knopf，1974。</li>
+    <li>Hilary Ballon、Kenneth T. Jackson 编，<i>Robert Moses and the Modern City: The Transformation of New York</i>，Norton，2007。书中对低桥和泳池说法提出质疑。</li>
+  </ol>
+  <p class="back"><a href="/reading/">← 返回整理</a></p>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
