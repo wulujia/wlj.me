@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-21
+
+- 新增资料页《旧金山的两座美术馆：de Young 博物馆与荣勋宫》，`static/reading/deyoung-legion-of-honor/index.html`。介绍旧金山 de Young 博物馆和荣勋宫的历史、建筑、馆藏和参观方式。
+
 ## 2026-10-13
 
 - 新增资料页《罗伯特·摩西的权力从哪里来：七件事和一套法律技术》，`static/reading/robert-moses-power-sources/index.html`。根据卡罗《权力掮客》整理：罗伯特·摩西在七件关键事件中靠什么做到、欺骗和伤害了谁，重点拆解 1924 年公园法和三区大桥管理局修法的条文技术。
