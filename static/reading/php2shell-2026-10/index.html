@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP2Shell：两个 PHP 核心漏洞的现状与处置</title>
+<meta name="description" content="CVE-2026-109618 与 CVE-2026-109619 的机制、在野攻击证据、exploit 传播情况，以及修复与临时阻断方法。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/php2shell-2026-10/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f6f8;
+  --surface: #ffffff;
+  --ink: #1a1b22;
+  --ink-2: #474a58;
+  --ink-3: #656a7c;
+  --rule: #dbdce4;
+  --rule-2: #b7b9c7;
+  --mid: #ebecf1;
+  --acc: #4f5b93;
+  --acc-ink: #3d4877;
+  --acc-wash: rgba(79, 91, 147, .10);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16171c; --surface: #1e1f26; --ink: #ebecf0; --ink-2: #bfc1cc; --ink-3: #959aad;
+    --rule: #2d2f3a; --rule-2: #474a58; --mid: #24262e;
+    --acc: #9aa5de; --acc-ink: #b4bdea; --acc-wash: rgba(154,165,222,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16171c; --surface: #1e1f26; --ink: #ebecf0; --ink-2: #bfc1cc; --ink-3: #959aad;
+  --rule: #2d2f3a; --rule-2: #474a58; --mid: #24262e;
+  --acc: #9aa5de; --acc-ink: #b4bdea; --acc-wash: rgba(154,165,222,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; white-space: nowrap; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+sup + sup::before { content: ","; font-size: 11px; margin: 0 1px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3 { break-after: avoid; }
+  table, pre, .note, .warn, .decision, .todo, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、结论与解法</a></li>
+      <li><a href="#s2">二、漏洞细节</a>
+        <ul>
+          <li><a href="#s2-1">2.1 CVE-2026-109618：内存不足时的清理错误</a></li>
+          <li><a href="#s2-2">2.2 CVE-2026-109619：跨请求的悬空引用</a></li>
+          <li><a href="#s2-3">2.3 受影响范围</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、在野攻击</a></li>
+      <li><a href="#s4">四、exploit 传播</a></li>
+      <li><a href="#s5">五、修复与阻止</a>
+        <ul>
+          <li><a href="#s5-1">5.1 升级 PHP</a></li>
+          <li><a href="#s5-2">5.2 暂时无法升级时</a></li>
+          <li><a href="#s5-3">5.3 配置级缓解及其边界</a></li>
+          <li><a href="#s5-4">5.4 排查是否已被入侵</a></li>
+        </ul>
+      </li>
+      <li><a href="#s6">六、再说一遍：按顺序做这五件事</a></li>
+      <li><a href="#s7">七、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Security brief · 2026 年 10 月 22 日</p>
+    <h1>PHP2Shell：两个 PHP 核心漏洞的现状与处置</h1>
+    <p class="lede">回答四个问题：这两个漏洞是什么，有没有人在攻击，exploit 传开了没有，现在该怎么修、怎么挡。给运维 PHP 站点的人看。</p>
+    <p class="meta"><span>信息截至 2026-10-22（新加坡时间）</span><span>范围：CVE-2026-109618、CVE-2026-109619</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>PHP 于 2026 年 10 月 21 日修复了两个核心漏洞，统称 PHP2Shell，CVSS v4.0 均为 9.2，可在应用代码运行之前拿到 Web 进程权限<sup><a href="#src-1">1</a></sup>。在野攻击流量已被 Cloudflare 和 watchTowr 确认，但大规模成功入侵没有被证实<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup>。公开 PoC 在流传，PHP 官方发布时检查过这些 PoC，当时没有一个能用，此后的版本不在此结论内<sup><a href="#src-2">2</a></sup>。唯一完整的修法是升级到 8.2.35 / 8.3.36 / 8.4.27 / 8.5.12 并重启所有 PHP 进程；WAF 和 <code>php.ini</code> 改动只是临时挡一部分路径。</p>
+  </div>
+
+  <h2 id="s1">一、结论与解法</h2>
+  <p>把暴露在公网、未打补丁的 PHP 服务器当成紧急升级任务。下表按 Luca 问的四个问题逐条对应证据。</p>
+  <div class="tbl">
+    <table>
+      <caption>四个问题与证据支持的答案</caption>
+      <thead><tr><th scope="col">问题</th><th scope="col">证据支持的答案</th><th scope="col">状态</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">有在野攻击吗</th><td>有。Cloudflare 看到攻击流量，并观察到攻击者改 payload 绕过其规则；watchTowr 的蜜罐网络也记录到利用尝试<sup><a href="#src-3">3</a></sup><sup><a href="#src-4">4</a></sup>。</td><td><span class="pill bad">已确认</span></td></tr>
+        <tr><th scope="row">exploit 广泛传播了吗</th><td>公开 PoC 和演示视频在流传。PHP 官方在发布时检查过公开 PoC，当时无一可用；研究者手里有能用的版本<sup><a href="#src-2">2</a></sup>。</td><td><span class="pill warn">部分</span></td></tr>
+        <tr><th scope="row">大规模成功入侵被证实了吗</th><td>没有。两家观测方都只报告攻击尝试，没有给出成功入侵生产服务器的数量。</td><td><span class="pill warn">未证实</span></td></tr>
+        <tr><th scope="row">有完整修法吗</th><td>有。升级 PHP 并重启所有 worker。配置改动只挡部分路径<sup><a href="#src-1">1</a></sup>。</td><td><span class="pill good">有</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>解法按优先级排三层：第一层升级 PHP，这是唯一的完整修复；第二层在升级前用 WAF 或网络层挡住公网请求；第三层改 <code>php.ini</code>，只能关掉已知的几条路径。第五节展开每一层的具体做法和边界。</p>
+
+  <h2 id="s2">二、漏洞细节</h2>
+  <p>两个漏洞都出在 PHP 的内存管理，都在请求解析阶段触发，早于任何应用代码。这意味着登录页、框架的路由守卫、PHP 层的维护页都挡不住它。</p>
+
+  <h3 id="s2-1">2.1 CVE-2026-109618：内存不足时的清理错误</h3>
+  <p>触发条件是一次内存分配失败。PHP 在初始化过程中因为内存不足中途停下，此时内部数据结构只初始化了一半。随后的清理流程仍然按完整结构去处理，于是用到了无效数据。攻击者可以用精心构造的请求让 PHP 在可控的位置耗尽内存。</p>
+  <p>已确认的攻击路径针对 <code>mod_php</code>（Apache 内嵌模式）。它在应用代码运行之前完成，拿到的是 Web worker 的权限<sup><a href="#src-5">5</a></sup>。</p>
+
+  <h3 id="s2-2">2.2 CVE-2026-109619：跨请求的悬空引用</h3>
+  <p>这是一个 use-after-free。PHP 在上一个请求结束时释放了某块内存，但 worker 进程仍保留着指向它的引用。下一个请求如果走到特定的错误处理、session 或上传进度路径，就会用到这个已释放的引用。研究者证明某些路径可以转成代码执行<sup><a href="#src-5">5</a></sup>。</p>
+  <p>这个漏洞的利用依赖 worker 复用，所以长期运行的 PHP-FPM 池和 <code>mod_php</code> 都在范围内。</p>
+
+  <h3 id="s2-3">2.3 受影响范围</h3>
+  <div class="tbl">
+    <table>
+      <caption>按部署方式看攻击路径</caption>
+      <thead><tr><th scope="col">部署方式</th><th scope="col">攻击路径</th><th scope="col">依赖条件</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">mod_php</th><td>已有不依赖应用代码的完整演示</td><td>无需特定应用行为</td></tr>
+        <tr><th scope="row">PHP-FPM</th><td>已有演示的攻击路径</td><td>需要合适的应用行为配合</td></tr>
+        <tr><th scope="row">其他 SAPI</th><td>PHP 官方把所有 Web 部署都列为有风险</td><td>利用条件随配置和构建方式变化</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>除了代码执行，研究还演示了内存泄露：不执行命令，也能读出进程内存里的凭据<sup><a href="#src-4">4</a></sup>。所以“没发现 webshell”不等于没有损失。</p>
+  <dl class="kv">
+    <dt>CVSS v4.0</dt><dd>9.2 / 9.2（两个漏洞相同）</dd>
+    <dt>修复版本</dt><dd class="mono">8.2.35、8.3.36、8.4.27、8.5.12</dd>
+    <dt>已停止维护的分支</dt><dd>7.4、8.0、8.1 有官方最小源码补丁，但不恢复上游支持</dd>
+    <dt>公布日期</dt><dd>2026-10-21</dd>
+  </dl>
+
+  <h2 id="s3">三、在野攻击</h2>
+  <p>两家独立观测方都报告了攻击流量，时间都在修复发布当天或次日。</p>
+  <ol class="timeline">
+    <li><time>10-21</time><div>PHP 发布修复版本与安全公告；PHP 基金会同日说明公开 PoC 的流传情况<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup>。</div></li>
+    <li><time>10-21</time><div>Cloudflare 从 03:02 UTC 起对免费和付费 WAF 用户默认开启 PHP2Shell 规则，随后观察到攻击流量，以及攻击者修改 payload 试图绕过规则<sup><a href="#src-3">3</a></sup>。</div></li>
+    <li><time>10-22</time><div>watchTowr 发布 FAQ，报告其蜜罐网络记录到利用尝试<sup><a href="#src-4">4</a></sup>。</div></li>
+  </ol>
+  <p>两份报告的共同边界：它们看到的是攻击尝试，不是入侵结果。Cloudflare 看到的是经过其网络的流量，watchTowr 看到的是蜜罐。都没有给出“多少台生产服务器被拿下”的数字。攻击者改 payload 绕 WAF 这件事本身说明有人在认真投入，不是扫描器顺手扫一下。</p>
+
+  <h2 id="s4">四、exploit 传播</h2>
+  <p>这一节要分开两件事：有没有公开代码，和公开代码能不能用。</p>
+  <ul>
+    <li><strong>公开 PoC 在流传。</strong>PHP 基金会确认 10 月 21 日当天公开 PoC 的流传量明显上升，另有演示视频<sup><a href="#src-2">2</a></sup>。</li>
+    <li><strong>发布时的公开 PoC 没有一个能用。</strong>PHP 官方在发布前逐个检查过，结论是当时没有可用的公开 exploit<sup><a href="#src-2">2</a></sup>。这个结论只覆盖发布时刻，之后新出的版本不在内。</li>
+    <li><strong>能用的研究级 exploit 存在。</strong>发现漏洞的研究者手里有可用版本，这是 Cloudflare 规则和 PHP 补丁的依据<sup><a href="#src-4">4</a></sup>。</li>
+    <li><strong>“对所有部署都可靠的 exploit”没有被证实。</strong>利用条件随 PHP 构建、SAPI、应用行为变化，公开代码质量参差。</li>
+  </ul>
+  <div class="note"><b>说明</b>本页没有运行任何公开 PoC。关于 PoC 是否可用的判断全部来自 PHP 基金会和 watchTowr 的公开说明。</div>
+
+  <h2 id="s5">五、修复与阻止</h2>
+  <p>按三层做。第一层是修，后两层是挡。挡的措施都有边界，列在各自的小节里。</p>
+
+  <h3 id="s5-1">5.1 升级 PHP</h3>
+  <ol>
+    <li>升级到 <code>8.2.35</code>、<code>8.3.36</code>、<code>8.4.27</code> 或 <code>8.5.12</code><sup><a href="#src-1">1</a></sup>。</li>
+    <li>用发行版包的，版本号可能不是这几个。发行版常把补丁回移到旧版本号上。以发行版的安全公告为准，确认它同时覆盖两个 CVE。</li>
+    <li>还在跑 7.4、8.0、8.1 的，PHP 提供了最小源码补丁。打了补丁也不恢复上游支持，应当作为迁移前的过渡。</li>
+    <li>升级后重启每一个 PHP 进程：FPM 池、Apache、容器、各个虚拟主机账户。没重启的 worker 仍在跑旧代码。</li>
+    <li>逐站核对实际服务网页的 PHP 版本。命令行 <code>php -v</code> 只能证明 CLI 的版本，证明不了 FPM 池、Apache 模块或容器里的版本。</li>
+  </ol>
+
+  <h3 id="s5-2">5.2 暂时无法升级时</h3>
+  <p>目标是让请求到不了 PHP。挡在 PHP 前面的措施才有效，挡在 PHP 后面的（应用登录、PHP 写的维护页）无效，因为漏洞在应用代码之前触发。</p>
+  <ul>
+    <li><strong>网络层阻断。</strong>用反向代理、防火墙白名单或临时下线，把公网请求挡在 PHP 之外。</li>
+    <li><strong>开启 WAF 规则。</strong>Cloudflare 自 2026-10-21 03:02 UTC 起对免费和付费 WAF 用户默认开启 PHP2Shell 防护<sup><a href="#src-3">3</a></sup>。要核对两件事：流量确实经过 WAF；源站不能被直接访问。否则攻击者绕过 WAF 直连源站。</li>
+    <li><strong>限制 multipart 请求。</strong>应用不需要文件上传的，在代理层直接拒绝 multipart 请求。需要的，限制解码后的请求大小、分段数量、头部数量和嵌套深度。这只挡住一类变体。</li>
+  </ul>
+  <div class="warn"><b>风险</b>攻击者已经在改 payload 绕 Cloudflare 规则<sup><a href="#src-3">3</a></sup>。WAF 是争取时间的手段，不是终点。</div>
+
+  <h3 id="s5-3">5.3 配置级缓解及其边界</h3>
+  <p>PHP 官方给了几条配置改动。每一条都只关掉某一条已知路径，而且必须写在启动配置里并重启所有 worker。在代码里 <code>ini_set()</code> 无效，因为它运行得太晚，请求解析早已完成<sup><a href="#src-1">1</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>PHP 官方列出的配置缓解</caption>
+      <thead><tr><th scope="col">配置项</th><th scope="col">作用</th><th scope="col">代价与边界</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><code>session.upload_progress.enabled=0</code></th><td>关闭上传进度路径，堵住 CVE-2026-109619 的一条触发路径</td><td>只挡这一条路径；依赖上传进度的应用会失去该功能</td></tr>
+        <tr><th scope="row"><code>fatal_error_backtraces=0</code></th><td>仅 PHP 8.5 需要。关闭致命错误回溯，堵住另一条触发路径</td><td>只挡这一条路径；排错时少了回溯信息</td></tr>
+        <tr><th scope="row"><code>memory_limit=-1</code></th><td>去掉 PHP 自身可预测的内存上限失败，降低 CVE-2026-109618 被稳定触发的概率</td><td>同时去掉了内存保护，拒绝服务风险上升；底层分配失败仍能触发漏洞。必须配合容器或 cgroup 的内存上限和前端请求限制</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>风险</b>不要用 <code>RLIMIT_AS</code> 或 <code>RLIMIT_DATA</code> 来替代 <code>memory_limit</code>。这两个限制触发的正是“分配失败”，等于把漏洞的触发条件交到攻击者手里<sup><a href="#src-1">1</a></sup>。</div>
+
+  <h3 id="s5-4">5.4 排查是否已被入侵</h3>
+  <p>升级之前先保全日志：代理、WAF、PHP 和进程日志都留下来。然后按下面的信号查。</p>
+  <ul>
+    <li><strong>流量侧：</strong>异常的 multipart 请求；大量内存错误；worker 频繁重启；响应里出现超大或畸形的 <code>PHPSESSID</code> cookie。</li>
+    <li><strong>主机侧：</strong>Web 用户名下出现 shell 进程；意外的外连；Web 目录里新出现的 PHP 文件。</li>
+  </ul>
+  <p>这些信号只说明需要进一步查，没有这些信号不能证明安全。怀疑已被入侵的，先隔离主机、保全证据，再从干净的机器上更换所有暴露过的凭据。别忘了 2.3 节提到的内存泄露路径：攻击者可能只读走了凭据，没留下 webshell。</p>
+
+  <h2 id="s6">六、再说一遍：按顺序做这五件事</h2>
+  <p>把前面五节压成一个顺序清单。第一条是终点，后面四条是到终点之前的保护。</p>
+  <ol>
+    <li><strong>升级到修复版本并重启所有 PHP 进程。</strong>逐站核对实际服务的运行时版本。这是唯一完整的修法。</li>
+    <li><strong>升级前先挡在 PHP 外面。</strong>网络层限制访问，开 WAF，封死源站直连。</li>
+    <li><strong>配置缓解只当补充。</strong>关 <code>session.upload_progress</code>，8.5 关 <code>fatal_error_backtraces</code>，<code>memory_limit=-1</code> 要配 cgroup 限制。写进启动配置，重启 worker。</li>
+    <li><strong>保全日志并排查入侵信号。</strong>重点看 multipart 异常、内存错误、worker 重启、新 PHP 文件、外连。</li>
+    <li><strong>把“攻击尝试已确认，大规模入侵未证实”当成当前状态，不当成安全保证。</strong>公开 PoC 在变，Cloudflare 已看到绕过尝试。这个判断的有效期只到 2026-10-22。</li>
+  </ol>
+
+  <h2 id="s7">七、方法与来源</h2>
+  <p>信息于 2026 年 10 月 22 日（新加坡时间）通过网页检索和直接读取下列官方页面得到。本页没有运行任何 PoC，没有接触任何受害主机，关于 exploit 可用性的判断全部转述自来源。没拿到的信息：成功入侵生产服务器的数量；10 月 21 日之后新出现的公开 PoC 是否可用；各发行版回移补丁的具体版本号。</p>
+  <ol class="sources">
+    <li id="src-1">PHP，《PHP 8.2.35, 8.3.36, 8.4.27, 8.5.12 Security Releases》，2026-10-21，<a href="https://www.php.net/archive/2026.php#2026-10-21-5" target="_blank" rel="noopener">php.net</a></li>
+    <li id="src-2">The PHP Foundation，《Today's PHP Security Release and How We're Strengthening PHP Security》，2026-10-21，<a href="https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/" target="_blank" rel="noopener">thephp.foundation</a></li>
+    <li id="src-3">Cloudflare，《PHP vulnerabilities and WAF protection》，2026-10-21，<a href="https://blog.cloudflare.com/php-vulnerabilities-waf-protection" target="_blank" rel="noopener">blog.cloudflare.com</a></li>
+    <li id="src-4">watchTowr，《PHP CVE-2026-109618 FAQ》，2026-10-22，<a href="https://watchtowr.com/intelligence/php-cve-2026-109618-faq/" target="_blank" rel="noopener">watchtowr.com</a></li>
+    <li id="src-5">php/php-src，GitHub 安全公告 GHSA-w8hw-w9fx-j79w，2026-10-21，<a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w" target="_blank" rel="noopener">github.com/php/php-src</a></li>
+  </ol>
+  <p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+
+<script>
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

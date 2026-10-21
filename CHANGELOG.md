@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-22
+
+- 新增资料页《PHP2Shell：两个 PHP 核心漏洞的现状与处置》，`static/reading/php2shell-2026-10/index.html`。CVE-2026-109618 与 CVE-2026-109619 的机制、在野攻击证据、exploit 传播情况，以及修复与临时阻断方法。
+
 ## 2026-10-21
 
 - 新增资料页《旧金山的两座美术馆：de Young 博物馆与荣勋宫》，`static/reading/deyoung-legion-of-honor/index.html`。介绍旧金山 de Young 博物馆和荣勋宫的历史、建筑、馆藏和参观方式。
