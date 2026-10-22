@@ -2,6 +2,7 @@
 
 ## 2026-10-23
 
+- 新增资料页《MSIG TravelEasy：从新加坡出发的旅行险》，`static/reading/msig-traveleasy-2026-10/index.html`。MSIG TravelEasy 的投保条件、四档保额、购买步骤、急救热线和理赔方式。适合住在新加坡、从新加坡出发去第三国的行程。
 - 新增资料页《伯克利周边博物馆：开门时间、票价和要逛多久》，`static/reading/berkeley-museums-2026-10/index.html`。伯克利校园及东湾七家博物馆的开门时间、票价、离 Haas 商学院的距离、值得看的东西和建议停留时间，另附旧金山四家。
 
 ## 2026-10-22
