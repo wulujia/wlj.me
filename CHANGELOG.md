@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-23
+
+- 新增资料页《伯克利周边博物馆：开门时间、票价和要逛多久》，`static/reading/berkeley-museums-2026-10/index.html`。伯克利校园及东湾七家博物馆的开门时间、票价、离 Haas 商学院的距离、值得看的东西和建议停留时间，另附旧金山四家。
+
 ## 2026-10-22
 
 - 新增资料页《PHP2Shell：两个 PHP 核心漏洞的现状与处置》，`static/reading/php2shell-2026-10/index.html`。CVE-2026-109618 与 CVE-2026-109619 的机制、在野攻击证据、exploit 传播情况，以及修复与临时阻断方法。
