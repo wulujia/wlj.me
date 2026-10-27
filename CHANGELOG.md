@@ -3,6 +3,7 @@
 ## 2026-10-27
 
 - 新增资料页《ALPA 12 TC 后背指南》，`static/reading/alpa-12tc-backs/index.html`。ALPA 12 TC 撕拉片后背、CFV II 50C 数码后背与 HAA 转接板的图文指南。
+- 新增资料页《斯坦福与伯克利｜大学对比研究》，`static/reading/stanford-berkeley/index.html`。比较斯坦福与伯克利的本科教学、科研、教授、创业、资金、住房和治安。用同年班级与安全数据，说明两校优势及费用如何改变选择。
 
 ## 2026-10-23
 

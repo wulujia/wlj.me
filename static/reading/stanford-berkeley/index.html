@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>斯坦福与伯克利｜大学对比研究</title><style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --ink: #242226;
+  --ink-2: #514d54;
+  --ink-3: #625e65;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #820000;            /* 主题色：按题目换 */
+  --acc-ink: #720000;        /* accent dark enough for text */
+  --acc-wash: rgba(130, 0, 0, .06);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #e5a5a5; --acc-ink: #efb7b7; --acc-wash: rgba(229,165,165,.10);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #e5a5a5; --acc-ink: #efb7b7; --acc-wash: rgba(229,165,165,.10);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Keep comparison rows readable on narrow screens. */
+.layout { max-width: 1180px; grid-template-columns: 208px minmax(0, 820px); gap: 48px; }
+.eyebrow, .summary .label, th { letter-spacing: 0; }
+.theme-control { display:flex; align-items:center; gap:10px; margin:0 0 22px; font-size:13px; color:var(--ink-3); }
+select { font:inherit; color:var(--ink); background:var(--surface); border:1px solid var(--rule-2); border-radius:3px; padding:6px 8px; }
+.meta { line-height:1.8; }
+.ref { white-space:nowrap; font-size:12px; }
+.section-note { font-size:14px; color:var(--ink-2); }
+.compare { table-layout:fixed; }
+.compare th:first-child { width:22%; }
+.compare td { width:39%; }
+.compare th, .compare td { padding:12px 14px 12px 0; overflow-wrap:anywhere; }
+.compare thead th:nth-child(2) { color:var(--acc-ink); }
+figure { border:1px solid var(--rule); padding:16px; }
+.back-top { font-size:13px; margin-top:32px; }
+@media(max-width:900px) { .layout { display:block; max-width:850px; padding:24px 20px 64px; } .outline { margin-bottom:30px; } }
+@media(max-width:600px) {
+  h1 { font-size:29px; } h2 { font-size:23px; margin-top:40px; } .lede { font-size:17px; }
+  .layout { padding:22px 16px 56px; } .summary { padding:16px; }
+  .compare, .compare tbody { display:block; }
+  .compare caption { display:block; width:100%; text-align:left; }
+  .compare thead { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); }
+  .compare tr { display:grid; grid-template-columns:1fr 1fr; gap:0 16px; padding:12px 0; border-bottom:1px solid var(--rule); }
+  .compare th[scope="row"] { grid-column:1/-1; width:auto; border:0; padding:0 0 7px; }
+  .compare td { width:auto; padding:0; border:0; font-size:14px; }
+  .compare td::before { content:attr(data-school); display:block; font-size:12px; color:var(--ink-3); margin-bottom:4px; }
+  .compare td.num { text-align:left; }
+  .tbl { margin-bottom:1.2em; }
+}
+@media(max-width:360px) { .compare tr { grid-template-columns:1fr; gap:10px; } .compare th[scope="row"] { padding-bottom:0; } }
+@media print { .theme-control, .back-top { display:none; } .tbl { overflow:visible; } table { break-inside:auto; } figure { border:0; padding:0; } }
+</style><meta name="description" content="比较斯坦福与伯克利的本科教学、科研、教授、创业、资金、住房和治安。用同年班级与安全数据，说明两校优势及费用如何改变选择。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/stanford-berkeley/">
+</head><body><a class="skip" href="#main">跳到正文</a>
+<div class="layout"><nav aria-label="目录" class="outline">
+<p class="label">阅读目录</p><details open=""><summary>展开目录</summary><ul>
+<li><a href="#overview">整体判断</a></li>
+<li><a href="#scale">学生规模与资源密度</a></li>
+<li><a href="#campus">校舍、建筑与校园环境</a></li>
+<li><a href="#housing">住宿与生活连续性</a></li>
+<li><a href="#teaching">教学、选课与专业自由</a></li>
+<li><a href="#subjects">学术水准与学科比较</a></li>
+<li><a href="#research">科研能力与研究机会</a></li>
+<li><a href="#faculty">教授水平与导师质量</a></li>
+<li><a href="#startup">创业生态与投资网络</a></li>
+<li><a href="#money">资金实力与资源分配</a></li>
+<li><a href="#cost">学费、生活费与国际生资助</a></li>
+<li><a href="#safety">治安、通勤与周边街区</a></li>
+<li><a href="#life">交通、文化与其他体验</a></li>
+<li><a href="#choice">按目标选择</a></li>
+<li><a href="#methods">方法与来源</a></li></ul></details></nav><main id="main"><header><p class="meta"><a href="/reading/">返回整理</a></p>
+<p class="eyebrow">大学对比研究 · 修订于 2026 年 10 月 27 日</p><h1>斯坦福与伯克利</h1>
+<p class="lede">Stanford 的本科资源与生活条件更有优势。Berkeley 的价格、公共教育规模与具体研究机会，构成不同的选择理由。</p>
+<p class="meta">对象：Stanford University 与 University of California, Berkeley<br/>范围：本科体验、研究生选择及大学整体资源</p></header>
+<div class="summary"><p class="label">主要判断</p><p>本科净支出接近时，优先 Stanford：小班比例、连续住宿和资源密度都有证据支持。Berkeley 的主要优势是加州居民价格、城市便利性和公共教育规模。研究生应按具体导师与资助选择，校级资源差距不足以判定研究组高低。</p></div>
+<div class="theme-control"><label for="theme">阅读主题</label><select id="theme"><option value="system">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select>
+</div>
+<section aria-labelledby="overview"><h2 id="overview">整体判断</h2><p><strong>如果比较整所大学，Stanford 的综合优势更大。</strong>它把较强的财力、较小的本科规模和连续住宿，放在同一套学生体验里。对于费用接近的本科录取，本报告优先选择 Stanford。这个判断来自资源和制度，不依赖校名。 </p><div class="tbl"><table class="compare"><caption>各维度的明确判断；细节与证据见后文</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">本科整体体验</th><td data-school="Stanford">占优：小班比例、住宿和探索专业的条件更好</td><td data-school="UC Berkeley">能提供顶尖学术训练，但学生承担更多安排成本</td></tr><tr><th scope="row">教授的研究水平</th><td data-school="Stanford">达到学术前沿，不能据财富判定全校教授更强</td><td data-school="UC Berkeley">达到学术前沿，不应因公立身份降低评价</td></tr><tr><th scope="row">科研投入</th><td data-school="Stanford">总额领先；拥有自己的医学院体系</td><td data-school="UC Berkeley">总额较低，但不能据此判定具体实验室较弱</td></tr><tr><th scope="row">创业</th><td data-school="Stanford">本报告优先：资本连接与融资规模更有优势</td><td data-school="UC Berkeley">校友创始人和公司总数领先</td></tr><tr><th scope="row">资金、住宿、住宅环境</th><td data-school="Stanford">优势明确，且直接影响学生生活</td><td data-school="UC Berkeley">资源要覆盖更大的本科群体</td></tr><tr><th scope="row">加州居民性价比</th><td data-school="Stanford">需要额外收益才能解释显著溢价</td><td data-school="UC Berkeley">优势明确，尤其是全额自费家庭</td></tr><tr><th scope="row">城市生活与公共交通</th><td data-school="Stanford">校园较分散，外出常需接驳</td><td data-school="UC Berkeley">优势明确，校园与城市生活连接更直接</td></tr><tr><th scope="row">公共教育规模</th><td data-school="Stanford">本科规模较小</td><td data-school="UC Berkeley">优势明确：服务的本科生约为对方的 4.5 倍</td></tr></tbody></table></div><p>Berkeley 最有力的竞争理由，是加州居民价格、具体院系与导师，以及更大的公共教育规模。把两校每项都写成“各有优势”，会掩盖 Stanford 在个人本科体验上的累积优势。把 Berkeley 写成低一档的科研大学，也不符合证据。 </p></section>
+<section aria-labelledby="scale"><h2 id="scale">学生规模与资源密度</h2><p>2025 年秋季，Berkeley 的本科生人数约为 Stanford 的 4.5 倍。这个差距比研究生人数差距大得多。两校都做前沿研究，但 Berkeley 同时承担更大规模的本科教育。 <a class="ref" href="#src-1">[1]</a><a class="ref" href="#src-2">[2]</a></p><div class="tbl"><table class="compare"><caption>2025 年秋季在校生人数</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">本科生</th><td data-school="Stanford">7,289 人</td><td data-school="UC Berkeley">33,122 人</td></tr><tr><th scope="row">研究生</th><td data-school="Stanford">10,025 人</td><td data-school="UC Berkeley">13,029 人</td></tr><tr><th scope="row">合计</th><td data-school="Stanford">17,314 人</td><td data-school="UC Berkeley">46,151 人</td></tr></tbody></table></div><p>对个人而言，较小规模配合较强财力，更有利于持续提供支持。对公共教育而言，Berkeley 的规模本身就是贡献。不能拿“每名学生得到多少资源”，当作衡量公共大学价值的唯一标准。这里评价的是两个不同目标。 </p></section>
+<section aria-labelledby="campus"><h2 id="campus">校舍、建筑与校园环境</h2><p><strong>按校园整体感、空间和居住环境评价，Stanford 更好。</strong>红瓦、砂岩、拱廊与庭院形成较统一的建筑语言。这是审美判断。它的实用价值是教学和居住空间更容易连成完整生活区。 </p><div class="tbl"><table class="compare"><caption>校舍与环境：区分空间品质和设备品质</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">建筑与空间</th><td data-school="Stanford">风格较统一，开放空间多，校园尺度大</td><td data-school="UC Berkeley">Doe Library 等古典建筑与现代建筑并存，密度更高</td></tr><tr><th scope="row">日常体验</th><td data-school="Stanford">适合长期住校，自行车和接驳车更有用</td><td data-school="UC Berkeley">核心校园步行方便，但有坡度；出校即进入城市</td></tr><tr><th scope="row">优点的代价</th><td data-school="Stanford">空间大也意味着距离长；校外生活需要交通安排</td><td data-school="UC Berkeley">商业和交通方便，也增加街道噪声与治安管理需求</td></tr></tbody></table></div><p>Stanford 的 8,353 英亩是大学土地总量，包含核心教学区之外的土地。不能用这个面积，证明实验室设备比 Berkeley 好。对研究设施，楼宇、仪器和使用权限才是有效比较单位。当前证据支持 Stanford 的整体环境优势，不能支持全校设备全面领先。 <a class="ref" href="#src-3">[3]</a><a class="ref" href="#src-4">[4]</a></p></section>
+<section aria-labelledby="housing"><h2 id="housing">住宿与生活连续性</h2><p><strong>住宿是 Stanford 最实在的本科优势之一。</strong>它减少学生每年找房、搬家和处理通勤的负担。对远离家乡的学生，这项优势比建筑外观更有用。 </p><div class="tbl"><table class="compare"><caption>本科新生住宿规则；以符合申请与在读条件为前提</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">保证期限</th><td data-school="Stanford">四年</td><td data-school="UC Berkeley">2026 年秋季起，新生两年</td></tr><tr><th scope="row">住校情况</th><td data-school="Stanford">约 98% 的符合资格本科生住校</td><td data-school="UC Berkeley">不使用口径不同的比例作比较</td></tr><tr><th scope="row">实际影响</th><td data-school="Stanford">可在本科阶段持续安排大学住宿</td><td data-school="UC Berkeley">保证期后需要另行确认住房，不能预设四年连续保障</td></tr></tbody></table></div><p>Berkeley 已把新生住宿保证扩展到两年。继续引用“一年”会低估它的改善。保证期限仍有两年差距。两校都不保证每名学生获得指定房型。上述本科保证不适用于研究生与家庭住房。 <a class="ref" href="#src-5">[5]</a><a class="ref" href="#src-6">[6]</a></p></section>
+<section aria-labelledby="teaching"><h2 id="teaching">教学、选课与专业自由</h2><p><strong>Stanford 的本科教学条件更好，证据足够明确。</strong>2025 年秋季的同口径数据，显示它的小班比例更高、师生比更低。不能据此断言每名教授讲课更好，但也没有理由把这项差异写成平手。 <a class="ref" href="#src-38">[38]</a><a class="ref" href="#src-39">[39]</a></p><div class="tbl"><table class="compare"><caption>2025—2026 Common Data Set；I-2、I-3</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">学生与教师之比</th><td data-school="Stanford">10∶1</td><td data-school="UC Berkeley">18.2∶1</td></tr><tr><th scope="row">少于 20 人的课班</th><td data-school="Stanford">1,226 / 1,759，约 69.7%</td><td data-school="UC Berkeley">1,531 / 3,006，约 50.9%</td></tr><tr><th scope="row">50 人及以上的课班</th><td data-school="Stanford">224 / 1,759，约 12.7%</td><td data-school="UC Berkeley">650 / 3,006，约 21.6%</td></tr><tr><th scope="row">100 人及以上的课班</th><td data-school="Stanford">80 / 1,759，约 4.5%</td><td data-school="UC Berkeley">352 / 3,006，约 11.7%</td></tr><tr><th scope="row">专业探索</th><td data-school="Stanford">先按大学录取，再申报专业</td><td data-school="UC Berkeley">学院与专业限制更重要；CDSS 转入需要审核</td></tr><tr><th scope="row">学制</th><td data-school="Stanford">学季制；课程切换快</td><td data-school="UC Berkeley">学期制；单门课持续更久</td></tr></tbody></table></div><p>这里的比例按课班数计算，排除讨论课等分班。它不等于学生在小班上课的时间比例。师生比按两校当年的 CDS 定义计算，含指定范围的本科生和研究生，不含助教。不能继续混用旧宣传页上的 6∶1 与另一年份的数据。 <a class="ref" href="#src-38">[38]</a><a class="ref" href="#src-39">[39]</a></p><p>对尚未确定专业的学生，Stanford 的探索空间更有价值。Berkeley 录取者若想转入计算机科学，必须先读目标学院的规则。拿到学校录取，不能视作拿到所有专业的选择权。学季制和学期制没有统一优劣；这里不强行判胜负。 <a class="ref" href="#src-8">[8]</a><a class="ref" href="#src-9">[9]</a><a class="ref" href="#src-10">[10]</a><a class="ref" href="#src-11">[11]</a></p></section>
+<section aria-labelledby="subjects"><h2 id="subjects">学术水准与学科比较</h2><p><strong>Stanford 的整体优势，不能直接下放到每个学科。</strong>具体项目能改变选择。有效比较必须使用同年、同榜单的数据，或明确的学位与组织差异。只列 Berkeley 的好排名，再把 Stanford 留空，不能产生结论。 </p><div class="tbl"><table class="compare"><caption>能够支持判断的学科证据</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">化学：2025 年 GRAS</th><td data-school="Stanford">全球第 1</td><td data-school="UC Berkeley">全球第 2</td></tr><tr><th scope="row">电气工程：2026 年 U.S. News 研究生榜单</th><td data-school="Stanford">并列第 1</td><td data-school="UC Berkeley">并列第 1</td></tr><tr><th scope="row">临床医学与相关创业</th><td data-school="Stanford">拥有本校医学院与临床体系，组织上的连接更直接</td><td data-school="UC Berkeley">可以与 UCSF 合作；UCSF 是独立校区</td></tr><tr><th scope="row">本科商科</th><td data-school="Stanford">没有本科商科学位</td><td data-school="UC Berkeley">Haas 的 Spieker 项目提供本科工商管理学位</td></tr></tbody></table></div><p>化学能说明单边引用排名的问题。Berkeley 的优秀排名真实存在；同一套 GRAS 数据却把 Stanford 排在前面。因此，不能从一校宣传页推导“Berkeley 化学强于 Stanford”。GRAS 主要评价科研，也不能直接用来评价本科教学。 <a class="ref" href="#src-40">[40]</a><a class="ref" href="#src-13">[13]</a><a class="ref" href="#src-14">[14]</a></p><p>临床医学方向，Stanford 的组织结构有利于跨医学与工程合作。本科商科方向，Berkeley 提供 Stanford 没有的学位。这两项差异比相邻名次更能改变选择。计算机、经济、人文等专业，本报告不在缺少成对证据时编造高低表。 <a class="ref" href="#src-15">[15]</a><a class="ref" href="#src-16">[16]</a><a class="ref" href="#src-1">[1]</a></p></section>
+<section aria-labelledby="research"><h2 id="research">科研能力与研究机会</h2><p><strong>科研投入总额由 Stanford 领先；具体研究机会不能按总额分配胜负。</strong>按 NSF 的 FY 2024 统计，Stanford 支出约高 46%。同一表中，MIT 的总额也低于 Berkeley。可见经费规模不适合直接充当科研质量排名。 <a class="ref" href="#src-17">[17]</a></p><div class="tbl"><table class="compare"><caption>NSF HERD FY 2024；表 4，原单位为千美元</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">大学研发支出</th><td data-school="Stanford">16.41961 亿美元</td><td data-school="UC Berkeley">11.26782 亿美元</td></tr><tr><th scope="row">联邦政府来源</th><td data-school="Stanford">10.12767 亿美元</td><td data-school="UC Berkeley">5.18011 亿美元</td></tr><tr><th scope="row">企业来源</th><td data-school="Stanford">1.52221 亿美元</td><td data-school="UC Berkeley">0.46138 亿美元</td></tr><tr><th scope="row">国家实验室联系</th><td data-school="Stanford">为美国能源部运营 SLAC</td><td data-school="UC Berkeley">University of California 管理 Berkeley Lab</td></tr></tbody></table></div><p>医学研究会增加大学研发支出。两校学科结构不同，国家实验室也有独立预算。不能把实验室全部预算加到学校账上，再宣称科研优势扩大。企业来源经费显示 Stanford 获得更多企业研究资金；它不能替代技术成果或学术质量评价。 <a class="ref" href="#src-17">[17]</a><a class="ref" href="#src-18">[18]</a><a class="ref" href="#src-19">[19]</a></p><p>本科研究需要进入项目的渠道，也需要学生承担得起时间成本。Stanford 有本科研究资助；Berkeley 的 URAP 通常给学分、不付工资。对需要收入的学生，这项差异有实际影响。它不代表 Berkeley 所有研究岗位都没有报酬。 <a class="ref" href="#src-20">[20]</a><a class="ref" href="#src-21">[21]</a></p><p>博士选择时，课题、导师时间和明确资助，应高于校级总额。Berkeley 给出合适课题和稳定资助时，选择它无需用“退而求其次”解释。 </p></section>
+<section aria-labelledby="faculty"><h2 id="faculty">教授水平与导师质量</h2><p><strong>没有证据支持 Stanford 的教授整体高一个档次。</strong>它更明确的优势，是学生获得教师资源的条件。研究能力与接触机会应分开判断。 </p><p>一个有直接可比性的例子，是 Stanford 的 John Hennessy 与 Berkeley 的 David Patterson。他们共同获得 2017 年图灵奖，研究领域都是计算机体系结构。这样的配对，比拿一校的计算机教授对比另一校的生物学家更有意义。 <a class="ref" href="#src-41">[41]</a></p><p>这项共同获奖只能证明两校都拥有改变领域的学者，不能替所有在职教授排名。对本科生，前文的师生比与班级数据更接近实际体验。对博士生，导师是否见面、能否提供有效反馈、资助是否稳定，比学校拥有多少知名教授更重要。 </p><p>如果只能用校名作初步选择，Stanford 的资源条件值得优先考虑。如果已经拿到具体博士录取，则应比较导师和研究组。校级判断不能覆盖一个差的指导关系。 </p></section>
+<section aria-labelledby="startup"><h2 id="startup">创业生态与投资网络</h2><p><strong>以融资和资本网络为目标，本报告优先选 Stanford。</strong>Berkeley 在创始人总数上领先，但 Stanford 校友企业的累计融资更多。只看创始人数量，会漏掉融资规模的差异。 </p><div class="tbl"><table class="compare"><caption>2026 年 PitchBook 本科校友榜单；据 Poets&amp;Quants 转述</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">获得风险投资的创始人数</th><td data-school="Stanford">1,997 人</td><td data-school="UC Berkeley">2,380 人</td></tr><tr><th scope="row">对应公司数</th><td data-school="Stanford">1,787 家</td><td data-school="UC Berkeley">2,155 家</td></tr><tr><th scope="row">这些公司的累计融资</th><td data-school="Stanford">2,527 亿美元</td><td data-school="UC Berkeley">1,394 亿美元</td></tr><tr><th scope="row">创业支持入口</th><td data-school="Stanford">StartX 等项目</td><td data-school="UC Berkeley">SkyDeck 等项目</td></tr></tbody></table></div><p>Berkeley 的创始人数约多 19%；Stanford 的对应公司融资总额约高 81%。这支持两个不同判断：Berkeley 产出的创业者总量更大；Stanford 的校友创业成果与资本连接更强。融资金额受少数大公司影响，不能据此计算个人成功率。 <a class="ref" href="#src-42">[42]</a><a class="ref" href="#src-25">[25]</a></p><p>本报告据此偏向 Stanford 的资本网络，但没有把它当作校园教育的因果效果。校友原有条件、行业、公司规模都会影响融资。榜单统计获得指定类型融资的企业，时间窗口为 2015 年 1 月 1 日至 2026 年 8 月 1 日。它不覆盖所有企业，不能除以今天的在校人数来算创业率。 <a class="ref" href="#src-42">[42]</a></p><p>对已经在 Berkeley 做研究、拥有团队和技术的人，为一个校级名次离开现有网络，通常不值得。两校都有成熟创业项目。选择的关键是实际能接触的合作人与投资人，StartX 与 SkyDeck 都有自己的资格和筛选。 <a class="ref" href="#src-26">[26]</a><a class="ref" href="#src-27">[27]</a></p></section>
+<section aria-labelledby="money"><h2 id="money">资金实力与资源分配</h2><p><strong>资金实力由 Stanford 明显领先。</strong>它的捐赠基金更大，需要覆盖的学生更少。这是长期资源条件的差距，不能只用“两校都很富”概括。 </p><div class="tbl"><table class="compare"><caption>捐赠基金；以 2025 年学生人数作粗略规模对照</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">基金市值</th><td data-school="Stanford">408 亿美元；2025 年 8 月 31 日</td><td data-school="UC Berkeley">85 亿美元；2024—2025 年度</td></tr><tr><th scope="row">总额比较</th><td data-school="Stanford">约为 Berkeley 的 4.8 倍</td><td data-school="UC Berkeley">作为比较基准</td></tr><tr><th scope="row">除以在校生人数</th><td data-school="Stanford">约 236 万美元 / 人</td><td data-school="UC Berkeley">约 18.4 万美元 / 人</td></tr></tbody></table></div><p>粗略人均资产相差约 13 倍。基金年度和学生统计日期不同，而且两校基金覆盖范围也不完全一致。因此，这个比值只表示资产密度，不能写成“教育质量好 13 倍”或“每年投入多 13 倍”。捐赠用途也限制学校支出。 <a class="ref" href="#src-1">[1]</a><a class="ref" href="#src-2">[2]</a><a class="ref" href="#src-28">[28]</a></p><p>本报告据此判断，Stanford 更有条件维持住宿、研究资助和学生支持。每项服务是否更好，仍须看对应制度和结果。财富是资源条件，不能直接替心理服务、课程质量或行政效率背书。Stanford 的 FY 2027 预算也面临捐赠基金税带来的压力。 <a class="ref" href="#src-29">[29]</a></p></section>
+<section aria-labelledby="cost"><h2 id="cost">学费、生活费与国际生资助</h2><p><strong>加州居民通常能得到 Berkeley 最强的价格优势。</strong>对于全额自费的国际生，Berkeley 仍更便宜，但差距小得多。Stanford 的标准预算未含医保，比较时需要补入。 </p><div class="tbl"><table class="compare"><caption>2026—2027 学年本科预算；美元；尚未扣助学金</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">标准预算</th><td data-school="Stanford">97,545；医保另计，旅行另计</td><td data-school="UC Berkeley">加州居民新生住校：54,674；含医保</td></tr><tr><th scope="row">非居民附加学费</th><td data-school="Stanford">无此居民差别</td><td data-school="UC Berkeley">39,270</td></tr><tr><th scope="row">学校医保</th><td data-school="Stanford">Cardinal Care：全年 8,808</td><td data-school="UC Berkeley">已计入上列预算</td></tr><tr><th scope="row">加入学校医保后的参考合计</th><td data-school="Stanford">106,353，旅行另计</td><td data-school="UC Berkeley">加州居民：54,674；非居民：93,944</td></tr><tr><th scope="row">Stanford 新生一次性费用</th><td data-school="Stanford">另有 775，含上述费用时为 107,128</td><td data-school="UC Berkeley">其他费用另按实际项目计算</td></tr></tbody></table></div><p>按上述参考合计，Stanford 比 Berkeley 非居民预算多 12,409 美元，比加州居民预算多 51,679 美元。两校的旅行、一次性费用与个人生活开支仍有口径差异。它是价格量级，不是家庭账单预测。Cardinal Care 是全年保险；学年生活预算并不覆盖全部暑期生活。 <a class="ref" href="#src-30">[30]</a><a class="ref" href="#src-31">[31]</a><a class="ref" href="#src-43">[43]</a></p><p>如果国际生家庭能轻松承担每学年约 1.2 万美元的额外费用，本报告仍优先 Stanford 的本科体验。如果这会挤压家庭储蓄，就没有理由为校名忽略 Berkeley 的教育质量。加州居民若每年相差约 5 万美元，Stanford 的溢价需要很具体的收益才能成立。 </p><p>助学金能改变上述结论。Stanford 国际生申请资助会影响录取评估，但对按要求申请并获录取者，学校满足核定需求。Berkeley 国际生一般不能取得该校助学金办公室管理的资助。因此，获得 Stanford 资助的国际生，净支出反而可能更低。 <a class="ref" href="#src-32">[32]</a><a class="ref" href="#src-33">[33]</a></p></section>
+<section aria-labelledby="safety"><h2 id="safety">治安、通勤与周边街区</h2><p><strong>对重视夜间出行与住宅环境的本科生，本报告优先 Stanford。</strong>校内住宿连续性和周边空间支持这一判断。两校最新报告中的抢劫、入室盗窃数量，也显示明确差异。下面同时列出两校报告，保留相同的年份与类别。 </p><div class="tbl"><table class="compare"><caption>2026 年安全报告；Clery 校园范围内报告数，单位：起</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">抢劫，2023 年</th><td data-school="Stanford">5</td><td data-school="UC Berkeley">18</td></tr><tr><th scope="row">抢劫，2024 年</th><td data-school="Stanford">2</td><td data-school="UC Berkeley">17</td></tr><tr><th scope="row">抢劫，2025 年</th><td data-school="Stanford">0</td><td data-school="UC Berkeley">13</td></tr><tr><th scope="row">加重攻击，2025 年</th><td data-school="Stanford">22</td><td data-school="UC Berkeley">34</td></tr><tr><th scope="row">入室盗窃，2025 年</th><td data-school="Stanford">18</td><td data-school="UC Berkeley">65</td></tr><tr><th scope="row">强奸，2025 年</th><td data-school="Stanford">20</td><td data-school="UC Berkeley">29</td></tr></tbody></table></div><p>Stanford 数据见报告第 103—104 页；Berkeley 见第 304、306—307 页。统计类别均为校内范围；宿舍是校内子集，不能重复相加。这些是报告数，不是定罪数，也不等于学生受害人数。 <a class="ref" href="#src-34">[34]</a><a class="ref" href="#src-35">[35]</a></p><p>Berkeley 的校园人口、访客和周边环境不同，因此原始总数不能推导个人受害风险倍数。这里的判断只限于环境与出行管理负担，不声称两校全部安全风险都有相同比例。Stanford 同样报告性暴力事件；校园整洁和较少街头抢劫，不能替代这类风险的评估。 </p><p>实际住址会改变结果。Berkeley 的校内住宿与远处租房，不应混成一种体验。选择 Berkeley 时，核对夜间步行路线与住房位置，比只看整座城市的犯罪率更有用。 </p></section>
+<section aria-labelledby="life"><h2 id="life">交通、文化与其他体验</h2><p><strong>无车出行、城市餐饮和日常商业便利性，Berkeley 更好。</strong>Downtown Berkeley BART 靠近校园；Stanford 通常先通过 Marguerite 等方式连接 Palo Alto Caltrain。前者更适合把大学生活与城市生活放在一起的人。 <a class="ref" href="#src-36">[36]</a><a class="ref" href="#src-37">[37]</a></p><div class="tbl"><table class="compare"><caption>生活取舍；环境判断，不作统一幸福感评分</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">大学与城市的关系</th><td data-school="Stanford">大学生活较集中，外出常需安排交通</td><td data-school="UC Berkeley">步行可到城市商业区，轨道交通连接直接</td></tr><tr><th scope="row">社交环境</th><td data-school="Stanford">学生较少，连续住校更利于稳定联系</td><td data-school="UC Berkeley">群体更大，社群选择更多，也更分散</td></tr><tr><th scope="row">空间与通行</th><td data-school="Stanford">长距离是主要考虑</td><td data-school="UC Berkeley">坡度、路口与具体街区是主要考虑</td></tr><tr><th scope="row">职业与学习节奏</th><td data-school="Stanford">学季制增加课程切换频率</td><td data-school="UC Berkeley">学期制让单门课程持续更久</td></tr></tbody></table></div><p>“更安全”“更有钱”都不能直接推导“更幸福”。本报告没有可靠的成对数据，判断两校心理服务等待时间、学生幸福感或全校就业增收。因此删除这类空泛排名，也不把“竞争激烈”“更自由”写成所有学生的共同体验。 </p></section>
+<section aria-labelledby="choice"><h2 id="choice">按目标选择</h2><p>校级选择应有默认答案，也应有改变答案的具体条件。以下建议不以两校得分相等为目标。 </p><div class="tbl"><table class="compare"><caption>把判断用于实际选择</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">本科，净支出接近</th><td data-school="Stanford">优先。教学条件、住宿和探索空间形成累积优势</td><td data-school="UC Berkeley">需要具体专业、城市偏好等理由改变默认选择</td></tr><tr><th scope="row">加州居民，全额自费</th><td data-school="Stanford">明显溢价需要说明额外收益</td><td data-school="UC Berkeley">通常优先。差价足以影响家庭长期财务</td></tr><tr><th scope="row">国际本科生，全额自费且预算充足</th><td data-school="Stanford">优先；学校医保计入后再比较</td><td data-school="UC Berkeley">约少 1.2 万美元 / 学年的量级值得计入</td></tr><tr><th scope="row">博士，有具体导师与资助方案</th><td data-school="Stanford">校名不能压过课题、指导关系和资助</td><td data-school="UC Berkeley">合适导师与明确资助可以直接胜出</td></tr><tr><th scope="row">明确需要本科商科学位</th><td data-school="Stanford">不提供该学位</td><td data-school="UC Berkeley">Haas 提供对应项目</td></tr><tr><th scope="row">创业，尤其看重融资网络</th><td data-school="Stanford">本报告优先</td><td data-school="UC Berkeley">已有技术、研究组或团队连接时更有说服力</td></tr><tr><th scope="row">喜欢城市生活，主要依靠公共交通</th><td data-school="Stanford">需要接受接驳与距离</td><td data-school="UC Berkeley">优先</td></tr></tbody></table></div><p>比较真实录取时，应把录取专业、四年净支出、住房资格写在同一张表里。博士再加入导师、资助期限与研究课题。具体条件满足后，才值得用校级声誉处理最后的差别。 </p></section>
+<section aria-labelledby="methods">
+<h2 id="methods">方法与来源</h2>
+
+
+<p>资料核查日期为 2026 年 10 月 27 日。优先采用两校官方资料、同年 Common Data Set、NSF 与 Clery 报告。创业数据采用注明来源的二手转述，并与 Berkeley 官方报道交叉核对。金额均为美元。 </p><p>班级比例、资金比值和费用差额由表内原始数据计算。不同年度数据保留年份，不合成总分。各项“优先”“占优”属于本报告的研究判断；判断旁列出依据与适用条件。 </p><p>本次修订补齐两校班级和治安数据，计入 Stanford 学校医保，纠正单边排名形成的学科暗示。未取得统一口径的教学满意度、幸福感、心理服务结果与就业增收数据，不给这些项目编造胜负。 </p><ol class="sources">
+<li id="src-1" value="1"><a href="https://facts.stanford.edu/" rel="noopener" target="_blank">Stanford Facts</a>。2025 年秋季学生规模。</li>
+<li id="src-2" value="2"><a href="https://inspire.berkeley.edu/get-inspired/calfacts/" rel="noopener" target="_blank">Berkeley Cal Facts</a>。2026 年春季更新；含 2025 年秋季学生规模及 2024—2025 年度资金数据。</li>
+<li id="src-3" value="3"><a href="https://facts.stanford.edu/about/stanford-campus" rel="noopener" target="_blank">Stanford Campus</a>。大学土地与建筑范围。</li>
+<li id="src-4" value="4"><a href="https://dac.berkeley.edu/navigating-berkeley/buildings/buildings-z" rel="noopener" target="_blank">Berkeley Buildings A–Z</a>。建筑特征与无障碍信息。</li>
+<li id="src-5" value="5"><a href="https://facts.stanford.edu/campus-life" rel="noopener" target="_blank">Stanford Student Life</a>。本科及研究生住宿信息。</li>
+<li id="src-6" value="6"><a href="https://housing.berkeley.edu/apply/how-to-apply-for-undergraduate-housing/housing-guarantee/" rel="noopener" target="_blank">Berkeley Housing Guarantee</a>。2026—2027 学年新生住宿保证及条件。</li>
+
+<li id="src-8" value="8"><a href="https://datasciencemajor.stanford.edu/academics/frequently-asked-questions" rel="noopener" target="_blank">Stanford Data Science FAQ</a>。按大学录取后再申报专业。</li>
+<li id="src-9" value="9"><a href="https://cdss.berkeley.edu/admissions" rel="noopener" target="_blank">Berkeley CDSS Admissions</a>。专业录取、转专业及转学生限制。</li>
+<li id="src-10" value="10"><a href="https://studentservices.stanford.edu/calendar-events/academic-calendars/stanford-academic-calendar-2026-2027" rel="noopener" target="_blank">Stanford Academic Calendar 2026–2027</a>。学季制。</li>
+<li id="src-11" value="11"><a href="https://registrar.berkeley.edu/calendars/academic-calendar/" rel="noopener" target="_blank">Berkeley Academic Calendar</a>。学期制。</li>
+
+<li id="src-13" value="13"><a href="https://chemistry.berkeley.edu/rankings" rel="noopener" target="_blank">Berkeley Chemistry Rankings</a>。化学及化学工程排名。</li>
+<li id="src-14" value="14"><a href="https://cdss.berkeley.edu/news/uc-berkeley-computer-and-electrical-engineering-computer-science-statistics-graduate-programs" rel="noopener" target="_blank">Berkeley CDSS 2026 Rankings</a>。2026 年电气工程、计算机工程及统计学结果。</li>
+<li id="src-15" value="15"><a href="https://haas.berkeley.edu/undergrad/programs/spieker/" rel="noopener" target="_blank">Berkeley Haas Spieker Program</a>。本科工商管理学位。</li>
+<li id="src-16" value="16"><a href="https://www.gsb.stanford.edu/experience/about/school-profile" rel="noopener" target="_blank">Stanford GSB School Profile</a>。研究生学位及无本科商科学位的说明。</li>
+<li id="src-17" value="17"><a href="https://ncses.nsf.gov/pubs/nsf26304/assets/nsf26304.pdf" rel="noopener" target="_blank">NSF HERD FY 2024</a>。表 4：两校研发支出；原单位为千美元。</li>
+<li id="src-18" value="18"><a href="https://www6.slac.stanford.edu/about/lab-overview" rel="noopener" target="_blank">SLAC Lab Overview</a>。Stanford 为美国能源部运营 SLAC。</li>
+<li id="src-19" value="19"><a href="https://hr.lbl.gov/policy-and-assurance/" rel="noopener" target="_blank">Berkeley Lab Policy and Assurance</a>。能源部、University of California 与实验室的管理关系。</li>
+<li id="src-20" value="20"><a href="https://undergradresearch.stanford.edu/info-fac-staff/fac-dept-grant-applications" rel="noopener" target="_blank">Stanford Undergraduate Research Grants</a>。本科研究项目及资助。</li>
+<li id="src-21" value="21"><a href="https://research.berkeley.edu/urap/" rel="noopener" target="_blank">Berkeley URAP Overview</a>。研究学分、报酬及当前部分国际学生项目限制。</li>
+
+
+
+<li id="src-25" value="25"><a href="https://news.berkeley.edu/2026/09/01/uc-berkeley-maintains-its-spot-as-the-worlds-top-producer-of-startups-and-founders/" rel="noopener" target="_blank">Berkeley News：2026 PitchBook Results</a>。2026 年 9 月 1 日；本科校友创办的获风险投资公司统计。</li>
+<li id="src-26" value="26"><a href="https://web.startx.com/programs" rel="noopener" target="_blank">StartX Programs</a>。创业项目。</li>
+<li id="src-27" value="27"><a href="https://skydeck.berkeley.edu/" rel="noopener" target="_blank">Berkeley SkyDeck</a>。加速器、导师与投资网络。</li>
+<li id="src-28" value="28"><a href="https://facts.stanford.edu/admin-finances/finances" rel="noopener" target="_blank">Stanford Finances</a>。2025 年 8 月 31 日捐赠基金市值及使用限制。</li>
+<li id="src-29" value="29"><a href="https://news.stanford.edu/stories/2026/06/faculty-senate-budget-plan" rel="noopener" target="_blank">Stanford FY 2027 Budget</a>。2026 年 6 月；捐赠基金税与预算压力。</li>
+<li id="src-30" value="30"><a href="https://financialaid.stanford.edu/undergrad/budget/index.html" rel="noopener" target="_blank">Stanford Student Budget</a>。2026—2027 学年；旅行、医保及新生一次性收费说明。</li>
+<li id="src-31" value="31"><a href="https://financialaid.berkeley.edu/how-aid-works/student-budgets-cost-of-attendance/" rel="noopener" target="_blank">Berkeley Cost of Attendance</a>。2026—2027 学年；按入学年份、住宿形式及居民身份区分。</li>
+<li id="src-32" value="32"><a href="https://admission.stanford.edu/apply/international/" rel="noopener" target="_blank">Stanford International Applicants</a>。国际本科生助学金与录取政策。</li>
+<li id="src-33" value="33"><a href="https://financialaid.berkeley.edu/how-aid-works/eligibility/" rel="noopener" target="_blank">Berkeley Financial Aid Eligibility</a>。国际学生资助资格与例外渠道。</li>
+<li id="src-34" value="34"><a href="https://police.stanford.edu/pdf/statspages-ssfr-2026.pdf" rel="noopener" target="_blank">Stanford 2026 Safety Report</a>。统计摘页第 103—104 页；2023—2025 年校内犯罪报告。</li>
+<li id="src-35" value="35"><a href="https://ucpd.berkeley.edu/sites/default/files/uc_berkeley_asfsr.pdf" rel="noopener" target="_blank">Berkeley 2026 Safety Report</a>。第 304、306—307 页；2023—2025 年校内犯罪报告。链接会随学校发布而更新。</li>
+<li id="src-36" value="36"><a href="https://www.bart.gov/stations/dbrk" rel="noopener" target="_blank">BART Downtown Berkeley</a>。车站与校园的位置关系。</li>
+<li id="src-37" value="37"><a href="https://transportation.stanford.edu/getting-stanford/marguerite" rel="noopener" target="_blank">Stanford Marguerite</a>。免费接驳车与 Palo Alto 交通枢纽。</li><li id="src-38" value="38"><a href="https://irds.stanford.edu/data-findings/cds" rel="noopener" target="_blank">Stanford Common Data Set 2025–2026</a>。I-2、I-3，PDF 第 36—37 页，表内印刷页码 34—35；2025 年秋季。</li><li id="src-39" value="39"><a href="https://opa.berkeley.edu/campus-data/common-data-set" rel="noopener" target="_blank">Berkeley Common Data Set 2025–2026</a>。电子表格 CDS-I 工作表，I-2、I-3；2025 年秋季，2026 年 6 月更新。</li><li id="src-40" value="40"><a href="https://www.shanghairanking.com/rankings/gras/2025/AS0103" rel="noopener" target="_blank">ShanghaiRanking GRAS 2025：Chemistry</a>。同榜单配对比较；Stanford 第 1，Berkeley 第 2。</li><li id="src-41" value="41"><a href="https://news.stanford.edu/stories/2018/03/hennessy-wins-turing-award-contributions-computing" rel="noopener" target="_blank">Stanford Report：Hennessy and Patterson</a>。2018 年 3 月 21 日；共同获得 2017 年图灵奖。</li><li id="src-42" value="42"><a href="https://poetsandquantsforundergrads.com/first-jobs/pitchbooks-2026-top-universities-ranked-by-number-of-undergrad-startup-founders/" rel="noopener" target="_blank">Poets&amp;Quants：PitchBook 2026 Undergraduate Founders</a>。2026 年 9 月 8 日；二手转述。两校创始人数、公司数、融资额及统计窗口。</li><li id="src-43" value="43"><a href="https://vaden.stanford.edu/student-and-dependent-health-insurance/2026-2027-student-health-insurance-cardinal-care-and-0" rel="noopener" target="_blank">Stanford Cardinal Care 2026–2027</a>。全年保费 8,808 美元；可以申请豁免时，费用另按实际保险计算。</li></ol>
+</section>
+<p class="back-top"><a href="#main">返回开头</a></p></main>
+</div><script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+
+// Store the reading theme locally. All content remains available without JavaScript.
+(function () {
+  var control = document.getElementById('theme');
+  function apply(value) {
+    if (value === 'system') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', value);
+  }
+  try { var saved = localStorage.getItem('university-comparison-theme'); if (['light','dark','system'].includes(saved)) { control.value = saved; apply(saved); } } catch (error) {}
+  control.addEventListener('change', function () { apply(control.value); try { localStorage.setItem('university-comparison-theme', control.value); } catch (error) {} });
+})();
+</script></body></html>
