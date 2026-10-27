@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-27
+
+- 新增资料页《ALPA 12 TC 后背指南》，`static/reading/alpa-12tc-backs/index.html`。ALPA 12 TC 撕拉片后背、CFV II 50C 数码后背与 HAA 转接板的图文指南。
+
 ## 2026-10-23
 
 - 新增资料页《MSIG TravelEasy：从新加坡出发的旅行险》，`static/reading/msig-traveleasy-2026-10/index.html`。MSIG TravelEasy 的投保条件、四档保额、购买步骤、急救热线和理赔方式。适合住在新加坡、从新加坡出发去第三国的行程。
