@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新加坡烟霾政策与棕榈油利益关系</title>
+<meta name="description" content="截至 2026 年 10 月 29 日，核查新加坡烟霾执法、区域合作与棕榈油股权关系。">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f5f8f6;
+  --surface: #ffffff;
+  --ink: #18241e;
+  --ink-2: #394d40;
+  --ink-3: #55665b;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #23634a;            /* 主题色：按题目换 */
+  --acc-ink: #1b573e;        /* accent dark enough for text */
+  --acc-wash: rgba(35, 99, 74, .08);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #151d18; --surface: #1c2821; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #82cba4; --acc-ink: #a1dfbc; --acc-wash: rgba(130,203,164,.12);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #151d18; --surface: #1c2821; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #82cba4; --acc-ink: #a1dfbc; --acc-wash: rgba(130,203,164,.12);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Report controls and long tables. */
+.report-controls { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; font-size:13px; }
+select, button { font:inherit; color:var(--ink); border:1px solid var(--rule-2); background:var(--surface); padding:6px 10px; border-radius:3px; }
+.report-controls label { display:flex; gap:8px; align-items:center; }
+.outline .label, .summary .label, th { letter-spacing:0; }
+.outline details > ul > li { margin-bottom:8px; }
+.outline details > ul > li > a { font-weight:600; }
+.outline details > ul ul { margin-left:5px; padding-left:9px; }
+.wide { min-width:620px; }
+.compact { min-width:350px; }
+th, td { padding:11px 15px 11px 0; }
+.wide th:first-child { width:23%; }
+.wide th:nth-child(2) { width:43%; }
+.wide th:nth-child(3) { width:34%; }
+.tbl { overscroll-behavior-x:contain; }
+.tbl:focus-visible { outline:2px solid var(--acc); outline-offset:3px; }
+h2,h3,[id^="src-"] { scroll-margin-top:24px; }
+sup { margin-left:2px; }
+.sources li { padding-bottom:7px; }
+.reading-note { color:var(--ink-3); font-size:13px; }
+@media(max-width:600px) { h1 {font-size:29px;} .lede {font-size:17px;} .meta {margin-bottom:24px;} .summary {padding:16px;} }
+@media print {
+ .report-controls {display:none;}
+ table {font-size:9pt;}
+ .wide,.compact {min-width:0;}
+ table {break-inside:auto;}
+ .tbl {overflow:visible;}
+ .sources a {overflow-wrap:anywhere;}
+ .sources a[href^="http"]::after {font-size:8pt;}
+ h2 {margin-top:22pt;}
+ :root {--acc:#23634a; --acc-ink:#1b573e;}
+}
+</style>
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/singapore-haze-policy-ownership/">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>展开目录</summary><ul><li><a href="#s1">调查结论</a></li><li><a href="#s2">2026 年应对时间线</a></li><li><a href="#s3">法律调查与公司会面</a><ul><li><a href="#s4">第 9 条、第 10 条与会面的区别</a></li><li><a href="#s5">两组公司名单</a></li><li><a href="#s6">评估团队与待议修法</a></li></ul></li><li><a href="#s7">THPA 的能力与执法结果</a><ul><li><a href="#s8">现行法律能追究什么</a></li><li><a href="#s9">2015 年旧案仍是关键检验</a></li></ul></li><li><a href="#s10">金融、上市披露与采购压力</a><ul><li><a href="#s11">银行融资与政府优惠</a></li><li><a href="#s12">SGX 问询与绿色采购</a></li></ul></li><li><a href="#s13">对印尼与东盟的源头策略</a><ul><li><a href="#s14">预防、地图资料与灭火援助</a></li><li><a href="#s15">2026 年联合工作组的新任务</a></li><li><a href="#s16">泥炭地与东盟机制的作用</a></li></ul></li><li><a href="#s17">新加坡国内已经采取的保护措施</a></li><li><a href="#s18">“大多数受益人是新加坡股东”的核查</a><ul><li><a href="#s19">这句话至少包含三种不同主张</a></li><li><a href="#s20">“超过一半”最接近的可靠出处</a></li><li><a href="#s21">主要上市公司的股权穿透</a></li><li><a href="#s22">代持、受托与视同权益的误读</a></li><li><a href="#s23">政府投资与本地商业利益</a></li></ul></li><li><a href="#s24">油棕股权不能解释全部烟霾</a></li><li><a href="#s25">为何措施持续多年仍未解决</a></li><li><a href="#s26">下一步应追踪的公开结果</a></li><li><a href="#s27">方法与来源</a></li></ul></details></nav>
+<main id="main">
+<header>
+<p class="eyebrow">政策研究 / 2026-10-29</p>
+<h1>新加坡烟霾政策与棕榈油利益关系</h1>
+<p class="lede">政府采取了哪些措施，执法为何受限，以及“多数收益归新加坡股东”的说法能否成立。</p>
+<p class="meta">检索截至 2026 年 10 月 29 日。政策最新记录至 10 月 28 日。股权日期逐项列明。</p>
+<p class="reading-note"><a href="/reading/">返回整理目录</a></p>
+<div class="report-controls"><label>显示主题<select id="theme" aria-label="显示主题"><option value="auto">跟随系统</option><option value="light">亮色</option><option value="dark">暗色</option></select></label><button type="button" id="print">打印／保存 PDF</button></div>
+</header>
+<div class="summary"><p class="label">先说结论</p>
+<p>新加坡已把调查延伸至本地公司、融资和控制关系，但处罚成效仍待检验。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-5" aria-label="来源 5">[5]</a></sup><sup><a href="#src-7" aria-label="来源 7">[7]</a></sup><sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<p>现有资料支持新加坡是棕榈油贸易与融资中心，无法证明新加坡公民取得行业多数利润。<sup><a href="#src-27" aria-label="来源 27">[27]</a></sup><sup><a href="#src-28" aria-label="来源 28">[28]</a></sup><sup><a href="#src-30" aria-label="来源 30">[30]</a></sup><sup><a href="#src-31" aria-label="来源 31">[31]</a></sup></p>
+<p>2026 年 10 月的新措施包含待议修法和新印联合工作组，不能提前记为已完成的追责结果。<sup><a href="#src-6" aria-label="来源 6">[6]</a></sup><sup><a href="#src-8" aria-label="来源 8">[8]</a></sup><sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></p>
+</div>
+<p class="reading-note">表格可横向滚动。来源编号可跳至原始资料。全部正文无需联网即可阅读。</p>
+<section><h2 id="s1">调查结论</h2>
+<p>新加坡已经使用法律、金融监管和公共卫生措施。2026 年 10 月，政府把调查延伸至本地公司、供应链和实际控制关系。新印两国也同意设立联合工作组。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-7" aria-label="来源 7">[7]</a></sup><sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></p>
+<p>现有结果仍不足以证明这些措施能稳定阻止烟霾。2015 年启动的部分调查至今未结。公开报道未确认 THPA 起诉或定罪。调查扩大与追责完成之间仍有距离。<sup><a href="#src-12" aria-label="来源 12">[12]</a></sup><sup><a href="#src-13" aria-label="来源 13">[13]</a></sup><sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<p>“大多数油棕收益归新加坡股东”缺少统计支持。已有资料能证明新加坡的贸易和融资地位。它们不能证明新加坡公民取得行业大部分利润。上市地点、注册地和最终受益人必须分别核对。<sup><a href="#src-27" aria-label="来源 27">[27]</a></sup><sup><a href="#src-28" aria-label="来源 28">[28]</a></sup><sup><a href="#src-30" aria-label="来源 30">[30]</a></sup><sup><a href="#src-31" aria-label="来源 31">[31]</a></sup></p>
+<div class="note"><p>研究判断：新加坡既承担污染损失，也承载相关商业活动。最有检验价值的政策，是利用本地公司资料、银行关系和市场准入，促成可执行的企业责任。这个判断不等于任何收件公司已经违法。</p></div>
+</section><section><h2 id="s2">2026 年应对时间线</h2><div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="wide"><caption>2026 年公开措施及其状态；截至 10 月 29 日检索</caption><thead><tr><th scope="col">时间</th><th scope="col">已确认措施</th><th scope="col">状态及限制</th></tr></thead><tbody><tr><th scope="row">5—7 月</th><td>5 月向东盟成员国发函提醒。6 月与印尼签订环境合作备忘录。7 月参加巴厘岛分区域部长会议。<sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></td><td>外交及预防合作。没有在这份答复中公布可归因的减火结果。</td></tr><tr><th scope="row">9 月 4 日</th><td>跨部门烟霾工作组启动保护措施。NEA 开始每日预报及通告。<sup><a href="#src-21" aria-label="来源 21">[21]</a></sup></td><td>国内应对已启动。</td></tr><tr><th scope="row">10 月 12 日</th><td>烟霾医疗补助在指定诊所和综合诊疗所生效。<sup><a href="#src-22" aria-label="来源 22">[22]</a></sup></td><td>符合条件的患者获得补助。</td></tr><tr><th scope="row">10 月 15—19 日</th><td>SGX RegCo 问询上市农业公司。NEA 分两批向 10 家印尼公司发出第 9 条通知。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-2" aria-label="来源 2">[2]</a></sup><sup><a href="#src-4" aria-label="来源 4">[4]</a></sup><sup><a href="#src-37" aria-label="来源 37">[37]</a></sup></td><td>要求停止焚烧、灭火及提交计划。通知本身不构成定罪。</td></tr><tr><th scope="row">10 月 20 日</th><td>MOM 发布按一小时 PM2.5 调整户外工作的补充指引。<sup><a href="#src-23" aria-label="来源 23">[23]</a></sup></td><td>日内防护标准更明确。</td></tr><tr><th scope="row">10 月 23 日</th><td>NEA 向 10 家新加坡注册公司发出第 10 条资料通知。第二轮口罩发放开始。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-24" aria-label="来源 24">[24]</a></sup></td><td>调查延伸至本地企业关系。</td></tr><tr><th scope="row">10 月 27 日</th><td>新印外长同意设立联合工作组。<sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></td><td>合作机制已宣布。具体人员及运行细节尚未完整公布。</td></tr><tr><th scope="row">10 月 28 日</th><td>部长与本地公司代表会面。政府说明评估团队安排。MAS 重申银行应对烟霾风险的要求。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup><sup><a href="#src-6" aria-label="来源 6">[6]</a></sup><sup><a href="#src-7" aria-label="来源 7">[7]</a></sup></td><td>会面已经发生。新增评估机制的强制权力仍待修法。</td></tr></tbody></table></div></section><section><h2 id="s3">法律调查与公司会面</h2></section><section><h3 id="s4">第 9 条、第 10 条与会面的区别</h3><div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="wide"><caption>三类措施的法律含义</caption><thead><tr><th scope="col">措施</th><th scope="col">实际要求</th><th scope="col">不能据此推断</th></tr></thead><tbody><tr><th scope="row">第 9 条预防措施通知</th><td>NEA 要求相关企业灭火、停止焚烧，并提交防止扩散或复发的计划。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup><sup><a href="#src-2" aria-label="来源 2">[2]</a></sup></td><td>不能直接推断企业已经被法院认定造成新加坡烟霾。</td></tr><tr><th scope="row">第 10 条资料通知</th><td>要求提交特许经营地、公司关系、防火及灭火资料。傅海燕明确指出：不遵守法定资料通知构成违法。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-6" aria-label="来源 6">[6]</a></sup></td><td>不能把收到通知写成遭到罚款。</td></tr><tr><th scope="row">10 月 28 日部长会面</th><td>颜金勇、尚穆根和傅海燕会见收件公司的代表。全部公司均派代表出席，并表示配合。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></td><td>不能把行政会面写成刑事审讯或起诉。</td></tr></tbody></table></div></section><section><h3 id="s5">两组公司名单</h3>
+<p>新闻中的“10 家印尼公司”和“10 家新加坡公司”是两组法律实体。部分实体存在集团或供应关系，不能当作彼此独立的集团数。以下名单按 NEA 公告记录。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="compact"><caption>印尼实体：2026 年 10 月第 9 条通知名单</caption><thead><tr><th scope="col">通知时间</th><th scope="col">公司</th></tr></thead><tbody><tr><th scope="row">10 月 16 日；苏门答腊</th><td>PT Bumi Andalas Permai；PT Bumi Mekar Hijau；PT Paramitra Mulia Langgeng；PT Sumatera Alam Anugerah；PT SBA Wood Industries；PT Hutan Lestari Raya；PT Bangkanesia。</td></tr><tr><th scope="row">10 月 19 日；加里曼丹</th><td>PT Buana Megatama Jaya；PT Mananjung Hayak；PT Baratama Putra Perkasa。</td></tr></tbody></table></div>
+<div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="compact"><caption>新加坡注册实体：2026 年 10 月 23 日第 10 条通知名单</caption><thead><tr><th scope="col">业务范围</th><th scope="col">公司</th></tr></thead><tbody><tr><th scope="row">纸浆及林业</th><td>Asia Pulp &amp; Paper Company Limited；Asia Pulp &amp; Paper Company (China) Limited。</td></tr><tr><th scope="row">油棕及农业集团相关实体</th><td>Bumitama Agri Ltd；Golden Agri International Pte Ltd；First Resources Ltd；Indofood Agri Resources Ltd；Kencana Agri Ltd；TSH Global Plantation Pte Ltd；TSH Oversea Pte Ltd；Wilmar International Ltd。</td></tr></tbody></table></div>
+<p>名单中的 Golden Agri International 是具体收件实体。股权分析中的 Golden Agri-Resources 是上市集团。两者不能互换名称。APP 与 Golden Agri-Resources 也须分别识别。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-29" aria-label="来源 29">[29]</a></sup></p>
+</section><section><h3 id="s6">评估团队与待议修法</h3>
+<p>10 月 28 日，政府说明新的核查安排。公司须自费聘请指定名单内的团队。团队包括调查机构与律师事务所。NEA 指定核查范围，涵盖经营、供应链及公司关系。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></p>
+<p>评估团队须向 NEA 提交报告。Davinder Singh 及其律所担任政府顾问，并协调核查。政府计划在下一次国会会议提出修法。拒绝配合评估团队的新增罪责，仍须通过法律程序。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup><sup><a href="#src-6" aria-label="来源 6">[6]</a></sup></p>
+<p>截至本次检索，不能把修法计划写成已生效法律。第 10 条现有资料义务，与拟加强的评估团队义务，也不能混为一谈。</p>
+</section><section><h2 id="s7">THPA 的能力与执法结果</h2></section><section><h3 id="s8">现行法律能追究什么</h3>
+<p>《Transboundary Haze Pollution Act 2014》（THPA）具有域外适用范围。造成、促成或纵容新加坡烟霾的行为，都可能产生责任。法律也覆盖参与有关土地经营实体管理的情形。责任仍取决于法定要件及证据。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></p>
+<div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="compact"><caption>THPA 现行制度的关键边界</caption><thead><tr><th scope="col">事项</th><th scope="col">制度内容</th></tr></thead><tbody><tr><th scope="row">空气污染事件</th><td>法律定义涉及境外土地或森林火灾烟雾。新加坡任一区域的指数因 PM2.5 达到 PSI 101；此后 24 小时或更久，原区域或其他区域须持续达到相关水平。单次闻到烟味不等于满足全部法律要件。<sup><a href="#src-11" aria-label="来源 11">[11]</a></sup></td></tr><tr><th scope="row">第 5 条刑事罚款</th><td>有关罪行每天最高罚款 S$100,000。若同时违反相关预防通知，可另加每天最高 S$50,000。第 5 条规定的合计上限为 S$2 million，即 200 万新元。法院须先定罪。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></td></tr><tr><th scope="row">民事追偿</th><td>第 6 条另设民事责任。人身、财产及经济损失须符合要件。刑事罚款上限不等于民事赔偿上限。<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup><sup><a href="#src-11" aria-label="来源 11">[11]</a></sup></td></tr><tr><th scope="row">推定及抗辩</th><td>法律允许使用卫星、气象和地图资料形成可反驳推定。企业仍可提出法定抗辩。地块出现热点，不会自动完成全部责任认定。<sup><a href="#src-11" aria-label="来源 11">[11]</a></sup></td></tr></tbody></table></div>
+</section><section><h3 id="s9">2015 年旧案仍是关键检验</h3>
+<p>2015 年，NEA 对 6 家印尼公司发出通知。政府在 2021 年说明，2 案于 2017 年结案。另 4 案仍未结。2026 年 10 月的 NEA 回应仍维持这个状态。<sup><a href="#src-12" aria-label="来源 12">[12]</a></sup><sup><a href="#src-13" aria-label="来源 13">[13]</a></sup></p>
+<p>2016 年，新加坡曾针对未出席调查的公司董事取得法院令状。印尼方面的反应引起外交争议。这说明调查会触及人员出席及跨境执法限制。它没有证明新加坡能在印尼直接拘捕董事。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<p>公开报道未确认 THPA 起诉或定罪。本次检索也没有找到后续法院定罪或罚款公告。因此，报告把“发出通知”记为调查动作，把“处罚结果”另列。<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></p>
+<div class="warn"><p>研究判断：现有公开记录尚未证明，THPA 能稳定地把境外火灾调查转为处罚。这支持对执法效果的批评。它不能证明所有调查都毫无影响。</p></div>
+</section><section><h2 id="s10">金融、上市披露与采购压力</h2></section><section><h3 id="s11">银行融资与政府优惠</h3>
+<p>MAS 在 10 月 28 日明确要求银行考虑 NEA 信息。银行应调查相关客户是否采取有效防火措施。风险升高时，可附加条件、调整融资条款或限制新增业务。明确违法时，应考虑更强措施，包括退出客户关系。<sup><a href="#src-7" aria-label="来源 7">[7]</a></sup></p>
+<p>这属于金融监管要求。它不等于已经全面冻结相关公司账户。报告没有找到逐家银行停止授信的完整清单。</p>
+<p>10 月 19 日，政府也宣布审查相关企业的补助和优惠。政府将核对企业是否仍符合条件。本次检索没有找到逐家公司撤销优惠的正式结果。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></p>
+</section><section><h3 id="s12">SGX 问询与绿色采购</h3>
+<p>10 月 19 日政府列出 7 家受 SGX 问询的农业公司。名单包括 GAR、Bumitama、First Resources、Wilmar、Kencana、Indofood Agri 和 TSH Resources。交易所问询要求披露资料，不等于环保定罪。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></p>
+<p>GAR 的公开答复提供了具体例子。SGX 问及火灾影响、潜在贡献和防火安排。GAR 表示其政策禁止焚烧，并称未掌握自身造成烟霾的信息。这些内容属于企业陈述，仍需独立核查。<sup><a href="#src-37" aria-label="来源 37">[37]</a></sup></p>
+<p>公共采购也能形成需求压力。政府曾明确，公共部门自 2016 年起须采购获新加坡绿色标签认证的打印纸。<sup><a href="#src-26" aria-label="来源 26">[26]</a></sup></p>
+<p>2026 年 10 月，Singapore Environment Council 对 APP 的认证施加临时限制。APP 须每日报告供应地块的火情及应对措施。认证限制不同于法院罚款，也不同于政府禁售令。SEC 属于认证机构，不能把其措施全部记成政府执法。<sup><a href="#src-25" aria-label="来源 25">[25]</a></sup></p>
+</section><section><h2 id="s13">对印尼与东盟的源头策略</h2></section><section><h3 id="s14">预防、地图资料与灭火援助</h3>
+<p>新加坡的常规策略包括外交交涉、预警资料和援助提议。2026 年的正式记录列出提醒函、环境合作备忘录及部长会议。它们证明合作持续存在，但未提供足够资料核算各项合作的减火贡献。<sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></p>
+<p>10 月 16 日，傅海燕说明已提出民用灭火及人工增雨支持。当时她表示尚未收到印尼部长回复。援助提议、接受援助与实际部署是不同状态。<sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></p>
+<p>新加坡确实有实际部署的历史。2015 年，SAF 与 SCDF 赴印尼协助灭火。政府也曾推动占碑省的预防合作。这些历史行动不能当作 2026 年已经部署的证明。<sup><a href="#src-19" aria-label="来源 19">[19]</a></sup></p>
+<p>本次检索未取得完整的 2026 年新加坡赴印尼部署及成效清单。因此不填写飞机架次、灭火面积或避免的排放量。</p>
+</section><section><h3 id="s15">2026 年联合工作组的新任务</h3>
+<p>10 月 27 日，新印两国外长同意设立联合工作组。新加坡官方记录强调协调行动及交换资料。政府也表示，本地注册公司会受到追查。<sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></p>
+<p>10 月 28 日，维文说明工作组将协助双方各自在本国执法。他当时尚未公布完整组成和人员。因此，该工作组仍处于建立阶段。尚无公开成果可证明它已解决证据障碍。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></p>
+<p>研究判断：如果工作组能交换地块边界、土地经营记录和实际控制资料，它就能补上旧案的重要缺口。检验标准应是资料交付及案件结果，不能只看工作组是否成立。</p>
+</section><section><h3 id="s16">泥炭地与东盟机制的作用</h3>
+<p>新加坡通过东盟泥炭地工作组参与源头预防。区域工作包括技术合作、能力建设和泥炭地管理。<sup><a href="#src-17" aria-label="来源 17">[17]</a></sup></p>
+<p>现行第二份路线图以 2030 年无跨境烟霾为目标。措施包括恢复泥炭地水位、及早灭火和改善土地管理。这些措施针对易燃景观，作用超出扑灭单次明火。<sup><a href="#src-18" aria-label="来源 18">[18]</a></sup></p>
+<p>研究判断：新加坡需要印尼配合取得现场证据，也需要印尼执行土地管理。东盟机制提供合作渠道；国家执法决定企业是否实际受罚。新加坡无法仅靠本国法律替代印尼的现场治理。</p>
+</section><section><h2 id="s17">新加坡国内已经采取的保护措施</h2><div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="wide"><caption>保护居民的措施与覆盖范围</caption><thead><tr><th scope="col">领域</th><th scope="col">已确认安排</th><th scope="col">实际边界</th></tr></thead><tbody><tr><th scope="row">空气信息</th><td>NEA 提供一小时 PM2.5、24 小时 PSI 及翌日预报。myENV 与烟霾网站持续发布信息。<sup><a href="#src-38" aria-label="来源 38">[38]</a></sup></td><td>一小时读数用于眼前活动。翌日预报用于计划。两者不能直接互换。</td></tr><tr><th scope="row">学校与社区</th><td>9 月 4 日公告说明相关 MOE 学校课堂已配备净化器。PSI 超过 200 时，民众俱乐部及部分社区场所的空调房间准备开放。<sup><a href="#src-21" aria-label="来源 21">[21]</a></sup></td><td>净化器和避霾空间能减少暴露。它们不能停止境外燃烧。</td></tr><tr><th scope="row">医疗补助</th><td>10 月 12 日起启动 HSS。符合条件的新加坡公民在 PHPC 就医可获补助；综合诊疗所面向所有新加坡公民。PA 持卡者免费，PG／MG 长者最多付 S$5，其他合资格者最多付 S$10。<sup><a href="#src-22" aria-label="来源 22">[22]</a></sup></td><td>资格及疾病范围有限。不能理解为所有居民均获同一补助。</td></tr><tr><th scope="row">口罩</th><td>10 月 23 日启动第二轮发放。年长者年龄门槛由 67 岁降至 60 岁。政府协调国家库存及零售补货。<sup><a href="#src-24" aria-label="来源 24">[24]</a></sup></td><td>发放条件须按官方现行安排核对。</td></tr><tr><th scope="row">户外工作</th><td>10 月 20 日补充指引要求按一小时 PM2.5 调整工作。高风险雇员在 ≥251 µg/m³ 时不得从事户外工作。雇主还须准备口罩、室内休息及工作调整。<sup><a href="#src-23" aria-label="来源 23">[23]</a></sup></td><td>健康雇员与高风险雇员的要求不同。没有统一的全行业停工门槛。</td></tr><tr><th scope="row">军队训练</th><td>SAF 按空气状况调整训练和户外活动。<sup><a href="#src-40" aria-label="来源 40">[40]</a></sup></td><td>调整须同时考虑人员安全及战备。</td></tr></tbody></table></div></section><section><h2 id="s18">“大多数受益人是新加坡股东”的核查</h2></section><section><h3 id="s19">这句话至少包含三种不同主张</h3><div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="wide"><caption>把可核对的主张分别判断</caption><thead><tr><th scope="col">主张</th><th scope="col">证据判断</th><th scope="col">原因</th></tr></thead><tbody><tr><th scope="row">新加坡是主要贸易与融资中心</th><td>有证据支持。<sup><a href="#src-27" aria-label="来源 27">[27]</a></sup></td><td>大型集团在此设总部、融资或开展贸易。</td></tr><tr><th scope="row">许多相关企业在新加坡注册或上市</th><td>有证据支持。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-28" aria-label="来源 28">[28]</a></sup><sup><a href="#src-30" aria-label="来源 30">[30]</a></sup><sup><a href="#src-31" aria-label="来源 31">[31]</a></sup><sup><a href="#src-33" aria-label="来源 33">[33]</a></sup></td><td>官方通知及企业报告均可核对。</td></tr><tr><th scope="row">行业超过一半利润归新加坡公民／本地最终受益人</th><td>本次研究未找到足够证据。</td><td>没有明确分母、受益人国籍资料或全行业利润分配统计。</td></tr></tbody></table></div></section><section><h3 id="s20">“超过一半”最接近的可靠出处</h3>
+<p>WWF 与 SASPO 在 2021 年报告中写道：全球大型棕榈油贸易商中，多家把总部设在新加坡。其中 Wilmar、Musim Mas 和 GAR 合计占全球贸易的一半以上。<sup><a href="#src-27" aria-label="来源 27">[27]</a></sup></p>
+<p>这个数字描述贸易流量。它没有统计利润归属、股东国籍或新加坡家庭收入。资料采用当时的研究口径，也不能直接当作 2026 年市场份额。</p>
+<p>本次未取得传言原始出处，无法确认传播路径。贸易份额不能替代最终受益人的利润份额。</p>
+</section><section><h3 id="s21">主要上市公司的股权穿透</h3>
+<p>下面选择 6 家与新加坡市场密切相关的上市集团。样本用于核对股权结构，不代表整个行业。比例来自 2025 年报或公司资料页。各行保留其 2026 年 3 月股权日期，不能当作 10 月 29 日即时持仓。</p>
+<div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="wide"><caption>主要股权关系；直接权益与视同权益不重复相加</caption><thead><tr><th scope="col">公司及日期</th><th scope="col">可核对的股权关系</th><th scope="col">对主张的含义</th></tr></thead><tbody><tr><th scope="row">Wilmar<br>2026-03-03</th><td>美国 ADM 视同持股 22.49%，由其新加坡实体持有。PPB Group 持有 18.78%。Kuok Khoon Hong 视同持有 14.39%。<sup><a href="#src-28" aria-label="来源 28">[28]</a></sup></td><td>存在明确的新加坡个人商业利益，也存在美国和马来西亚集团利益。新加坡注册实体所持股份不能全部归为新加坡公民所有。</td></tr><tr><th scope="row">Golden Agri-Resources<br>2026-03-10</th><td>Widjaja Family Master Trust 通过 Flambo 等实体持有 50.56%。其余股份公开持有。<sup><a href="#src-29" aria-label="来源 29">[29]</a></sup></td><td>信托和持股实体显示家族权益。表中没有逐一列明受益人的现行国籍。</td></tr><tr><th scope="row">Bumitama Agri<br>2026-03-11</th><td>Wellpoint Pacific 持有 52.277%。年报说明其最终由 Hariyanto 家族持有。IOI Corporation 视同权益为 32.101%。<sup><a href="#src-30" aria-label="来源 30">[30]</a></sup></td><td>新加坡上市公司的大部分权益沿跨境家族及集团结构持有。不能从上市地判定受益人国籍。</td></tr><tr><th scope="row">First Resources<br>2026-03-13</th><td>Eight Capital 持有 67.49%。年报追溯至 Fangiono 家族相关酌情信托。受益人个人比例无法确定。<sup><a href="#src-31" aria-label="来源 31">[31]</a></sup></td><td>新加坡受托人的名称不是受益人的国籍证明。67.49% 在多层实体中重复披露，须只算一次。</td></tr><tr><th scope="row">Indofood Agri<br>2026-03-13</th><td>Indofood Singapore Holdings 直接持有 71.51%。PT Indofood Sukses Makmur 的直接及视同权益合计 85.90%。年报继续追溯至 First Pacific 及 Anthoni Salim 的关联权益。<sup><a href="#src-32" aria-label="来源 32">[32]</a></sup></td><td>71.51% 的新加坡实体持股属于跨境持股链，不能再与 85.90% 相加。</td></tr><tr><th scope="row">Kencana Agri<br>2026-03-13</th><td>Kencana Holdings 持有 53.15%。Henry Maknawi 持有该控股实体 43.41%，因此申报视同权益。Wilmar 通过 Newbloom 持有 20.00%。<sup><a href="#src-33" aria-label="来源 33">[33]</a></sup></td><td>存在新加坡注册控股关系，也存在跨公司持股。若做行业统计，还须排除集团间重复计算。</td></tr></tbody></table></div>
+<p>这些资料足以说明结构复杂，也能识别部分实际利益关系。它们不足以计算全行业“新加坡公民取得多少利润”。家族来源地、主要居住地与现行国籍也不能互相替代。</p>
+</section><section><h3 id="s22">代持、受托与视同权益的误读</h3>
+<p>股东表中的 DBS Nominees、Citibank Nominees 等名称，通常指代名持股安排。它们不能直接识别客户的国籍。First Resources 的年报同时列出代名持股表与大股东权益表。两张表回答不同问题。<sup><a href="#src-31" aria-label="来源 31">[31]</a></sup></p>
+<p>Wilmar 是另一个具体例子。ADM、ADM Investment Singapore Holding I，以及 ADM Investment Singapore，均披露同一笔 22.49% 权益。把三行相加会把同一权益计算三次。<sup><a href="#src-28" aria-label="来源 28">[28]</a></sup></p>
+<p>“视同权益”属于法律披露口径。它不总等于个人可分配的经济收益。酌情信托尤其不能简单按名单平均分配。公司利润、股息与个人实际收益也不是同一个数。</p>
+</section><section><h3 id="s23">政府投资与本地商业利益</h3>
+<p>新加坡相关利益确实存在。它可以来自个人持股、基金、银行融资、贸易服务及其他经营收入。借款利息与股东利润属于不同收入，不能合成一个未定义的“股东受益比例”。</p>
+<p>GIC 与淡马锡也曾受到国会追问。2016 年财政部说明，GIC 投资的印尼棕榈油公司表示遵守零焚烧政策。政府没有在该答复中公布完整持仓金额。<sup><a href="#src-34" aria-label="来源 34">[34]</a></sup></p>
+<p>2016 年 3 月，财政部转述两机构当时的说法：没有投资于造成烟霾的有关公司。这个答复有明确年份，不能当作 2026 年逐家公司核查的结果。<sup><a href="#src-35" aria-label="来源 35">[35]</a></sup></p>
+<div class="note"><p>研究判断：公开资料支持“新加坡商业体系有相关利益”。资料不支持“多数利润最终归新加坡公民”。也不能据此认定政府因为投资利益而故意放任火灾；这需要另外的决策及干预证据。</p></div>
+</section><section><h2 id="s24">油棕股权不能解释全部烟霾</h2>
+<p>本轮调查涉及油棕、纸浆和林业。NEA 的印尼名单包含多家木材供应企业。政府说明 APP 向其中 3 家采购。供应关系需要调查，但采购关系本身不等于持股或违法。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup><sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></p>
+<p>Greenpeace 与 Pantau Gambut 的 2026 年报告，分别记录油棕及林业地块。报告列出与 Bumitama、First Resources 等集团的关系。这是调查线索，不是法院对纵火者的认定。<sup><a href="#src-36" aria-label="来源 36">[36]</a></sup></p>
+<p>同一报告的表格和个案段落采用不同时间窗口。烟源点也不能直接换算成新加坡吸入的 PM2.5 份额。本报告没有据此计算“多少烟霾来自新加坡资本”。这种计算还需要排放量、风向及输送模型。</p>
+<p>研究判断：即使未来能证明某类股东在油棕行业占多数，也仍须逐一证明哪些火灾造成新加坡污染。股权、土地管理、防火责任和烟雾输送是不同的证据环节。</p>
+</section><section><h2 id="s25">为何措施持续多年仍未解决</h2>
+<p>商业激励仍是核心问题。烧地的私人收益与污染的公共损失由不同人承担。泥炭地排水与反复燃烧也使单次灭火难以提供长期保护。世界银行建议加强执法、调整激励，并改善土地及泥炭地管理。<sup><a href="#src-41" aria-label="来源 41">[41]</a></sup></p>
+<div class="tbl" tabindex="0" role="region" aria-label="可横向滚动的资料表"><table class="wide"><caption>现有政策的实际约束；本表为研究判断</caption><thead><tr><th scope="col">约束</th><th scope="col">现有回应</th><th scope="col">仍须观察的结果</th></tr></thead><tbody><tr><th scope="row">证据主要在境外</th><td>资料通知、指定评估团队、联合工作组。</td><td>是否取得准确地块边界、经营记录和实际控制资料。</td></tr><tr><th scope="row">集团关系遮蔽责任</th><td>追查供应链、关联公司和控制者。</td><td>是否能依法证明管理参与、行为及因果关系。</td></tr><tr><th scope="row">处罚与实际损失脱节</th><td>刑事罚款、民事责任、融资及优惠审查。</td><td>是否出现可执行处罚或赔偿，以及实际融资后果。</td></tr><tr><th scope="row">火灾在雨季后淡出关注</th><td>政府表示空气改善后仍持续调查。</td><td>是否公开案件进展，而非只发布下一轮通知。</td></tr><tr><th scope="row">土地仍然容易燃烧</th><td>泥炭地管理、恢复水位和社区预防。</td><td>是否公开持续维护、复燃率及实际减火结果。</td></tr></tbody></table></div>
+<p>“邻国完全没有改善意愿”超出目前证据。实际存在灭火、法律行动和新合作承诺。更可靠的批评是：现有措施尚未把污染风险和企业收益稳定地联系起来。这个缺口会继续损害居民。<sup><a href="#src-8" aria-label="来源 8">[8]</a></sup><sup><a href="#src-19" aria-label="来源 19">[19]</a></sup><sup><a href="#src-25" aria-label="来源 25">[25]</a></sup></p>
+</section><section><h2 id="s26">下一步应追踪的公开结果</h2>
+<p>以下项目用于判断政策是否产生结果。它们属于本报告提出的观察标准，不是政府已承诺的完整指标。</p>
+<ol>
+<li>核对 THPA 修正案的正式文本、通过时间和生效日期。</li>
+<li>核对评估团队名单、工作范围，以及报告是否完成。</li>
+<li>核对 2015 年旧案及 2026 年调查的结案、起诉或处罚公告。</li>
+<li>核对银行是否实际限制融资，以及政府是否撤销不符条件的优惠。</li>
+<li>核对新印工作组是否交付地块地图、控制关系和现场证据。</li>
+<li>比较后续干旱年份的火灾与污染暴露，并控制天气差异。</li>
+</ol>
+<p>短期空气改善不能单独证明执法有效。NEA 对 2026 年 10 月 29 日的 PSI 预报为 60 至 90，属中等范围。这是当日预报，不能据此判断火源已永久受控。<sup><a href="#src-39" aria-label="来源 39">[39]</a></sup></p>
+</section><section><h2 id="s27">方法与来源</h2>
+<p>检索日期为 2026 年 10 月 29 日，时区为新加坡。政策资料以 NEA、MSE、MHA、MFA、MAS、MOH 和 MOM 的公告为主。最新主要政策记录发布于 10 月 28 日。法律解释同时核对法条及新加坡提交联合国的说明。</p>
+<p>股权资料优先采用企业年报及正式披露。本报告核读 Wilmar、Bumitama、First Resources 的原始 PDF。GAR、Indofood Agri 和 Kencana 使用企业网页或企业年报。表格保留每项股权的实际日期。</p>
+<p>公开通知证明官方采取了动作。它们不证明调查对象违法。企业答复证明企业说了什么，不等于独立核验。NGO 报告提供线索，仍须核对时间窗口及归因方法。文中的“研究判断”属于分析。</p>
+<p>本次研究未取得所有最终受益人的国籍、税务居民身份及收益分配。也未取得完整私营集团股权、全部银行授信和未公开调查卷宗。因此不计算行业国别利润份额。6 家上市公司样本不能外推全行业。</p>
+<p>本次未找到公开确认的 THPA 起诉或定罪结果。这个结论限于可检索公开记录。报告不把“没有查到”写成“绝对不存在”。2016 年政府投资答复也保留其历史日期。</p>
+<p>页面全部内容、样式和必要脚本均在本文件内。来源编号指向下列原始资料。PDF 页码按所链接文件计算；印刷页码另列。</p>
+<ol class="sources">
+<li id="src-1"><a href="https://www.nea.gov.sg/media/news/news/index/nea-to-issue-notices-under-the-transboundary-haze-pollution-act-2026" target="_blank" rel="noopener">NEA：首批 7 家印尼公司的预防措施通知</a>。2026-10-16；公司名单及三项要求。</li><li id="src-2"><a href="https://www.nea.gov.sg/media/news/news/index/nea-issues-additional-notices-under-the-transboundary-haze-pollution-act" target="_blank" rel="noopener">NEA：追加 3 家印尼公司的通知</a>。2026-10-19；加里曼丹公司名单。</li><li id="src-3"><a href="https://www.nea.gov.sg/media/news/news/index/nea-serves-notices-to-10-singapore-based-companies" target="_blank" rel="noopener">NEA：向 10 家新加坡注册公司发出通知</a>。2026-10-23；第 2 至 4 段及附件。</li><li id="src-4"><a href="https://www.mha.gov.sg/media-room/newsroom/transcript-of-media-doorstop-by-mr-k-shanmugam-senior-minister-coordinating-minister-for-national-security-and-minister-for-home-affairs-on-the-haze-situation/" target="_blank" rel="noopener">MHA：尚穆根谈烟霾应对措施</a>。2026-10-19；公司关联、SGX、银行及政府优惠。</li><li id="src-5"><a href="https://www.mha.gov.sg/media-room/newsroom/transcript-of-media-doorstop-by-mr-k-shanmugam-senior-minister-coordinating-minister-for-national-security-and-minister-for-home-affairs-after-meeting-with-companies-issued-s10-notices-under-the-transboundary-haze-pollution-act-on-28-october-2026/" target="_blank" rel="noopener">MHA：与第 10 条通知收件公司会面后的谈话</a>。2026-10-28；评估团队、配合义务及立法计划。</li><li id="src-6"><a href="https://www.mse.gov.sg/latest-news/media-doorstop-post-meeting-with-companies---ms-grace-fu/" target="_blank" rel="noopener">MSE：傅海燕与公司会面后的谈话</a>。2026-10-28；第 8 至 10 段。</li><li id="src-7"><a href="https://www.mas.gov.sg/news/media-releases/2026/statement-on-banks-management-of-haze-related-environmental-risks" target="_blank" rel="noopener">MAS：银行管理烟霾相关环境风险的声明</a>。2026-10-28；第 1 至 5 段。</li><li id="src-8"><a href="https://www.mfa.gov.sg/newsroom/press-statements-transcripts-and-photos/transcript-of-remarks-by-minister-for-foreign-affairs-dr-vivian-balakrishnan-at-the-joint-press-conference-with-indonesian-minister-of-foreign-affairs-arrmanatha-nasir-in-jakarta--indonesia--on-27-october-2026/" target="_blank" rel="noopener">MFA：新印外长联合记者会讲话</a>。2026-10-27；联合工作组及本地注册公司责任。</li><li id="src-9"><a href="https://www.mfa.gov.sg/newsroom/press-statements-transcripts-and-photos/transcript-of-wrap-up-interview-with-singapore-media-by-minister-for-foreign-affairs-dr-vivian-balakrishnan-in-jakarta--indonesia--on-28-october-2026/" target="_blank" rel="noopener">MFA：维文在雅加达的访问总结</a>。2026-10-28；工作组组成尚未公布的问答。</li><li id="src-10"><a href="https://sso.agc.gov.sg/Act/THPA2014?ProvIds=pr5-&amp;ViewType=Advance&amp;WiAl=1" target="_blank" rel="noopener">Singapore Statutes Online：《Transboundary Haze Pollution Act 2014》</a>。第 3 至 11 条；第 5 条罚款及总上限。</li><li id="src-11"><a href="https://legal.un.org/ilc/sessions/67/pdfs/english/poa_singapore.pdf" target="_blank" rel="noopener">新加坡提交联合国的 THPA 法律说明</a>。正文第 4 至 6 页；空气污染事件、可反驳推定及抗辩。</li><li id="src-12"><a href="https://www.mse.gov.sg/latest-news/written-reply-to-pq-on-nea-investigation-on-transboundary-haze-in-2015/" target="_blank" rel="noopener">MSE：2015 年调查的国会答复</a>。2021-09-13；6 家调查、2 家结案、4 家未结。</li><li id="src-13"><a href="https://www.channelnewsasia.com/singapore/singapore-haze-transboundary-haze-pollution-act-nea-6452196" target="_blank" rel="noopener">CNA：旧案继续调查，NEA 追踪新的烟霾来源</a>。2026 年 10 月；引述 NEA 对 4 家未结案件的说明。</li><li id="src-14"><a href="https://www.channelnewsasia.com/asia/malaysia-transboundary-haze-asean-indonesia-fires-6359766" target="_blank" rel="noopener">CNA：东盟跨境烟霾执法的障碍</a>。2026 年 9 月；未公开确认起诉或定罪、跨境证据限制。</li><li id="src-15"><a href="https://www.mfa.gov.sg/newsroom/press-statements-transcripts-and-photos/mfa-spokesmans-comments-on-indonesias-foreign-ministrys-response-to-nea-obtaining-court-warrant-agai-13-may-2016/" target="_blank" rel="noopener">MFA：针对印尼公司董事取得法院令状的回应</a>。2016-05-13；对调查出席要求的外交回应。</li><li id="src-16"><a href="https://www.mse.gov.sg/latest-news/written-reply-to-parliamentary-question-on-partnering-asean-on-haze-mitigation-/" target="_blank" rel="noopener">MSE：与东盟合作减轻烟霾的国会答复</a>。2026-09-08；5 月函件、6 月谅解备忘录、7 月会议。</li><li id="src-17"><a href="https://www.mse.gov.sg/latest-news/written-reply-to-parliamentary-question-on-upstream-haze-prevention/" target="_blank" rel="noopener">MSE：源头烟霾预防的国会答复</a>。2026-10-06；泥炭地工作组和区域合作。</li><li id="src-18"><a href="https://asean.org/wp-content/uploads/2024/09/The-Second-Haze-Free-Roadmap-2023-2030.pdf" target="_blank" rel="noopener">ASEAN：第二份无烟霾路线图</a>。2023 年通过；2024 年出版；2030 年目标及行动框架。</li><li id="src-19"><a href="https://www.mfa.gov.sg/newsroom/press-statements-transcripts-and-photos/mfa-spokesmans-comments-in-response-to-media-queries-on-the-conclusion-of-singapores-firefighting-op-25-oct-2015/" target="_blank" rel="noopener">MFA：2015 年新加坡赴印尼灭火行动结束</a>。2015-10-25；SAF、SCDF 实际部署及占碑合作。</li><li id="src-20"><a href="https://www.mse.gov.sg/latest-news/haze-press-conference---ms-grace-fu/" target="_blank" rel="noopener">MSE：烟霾记者会</a>。2026-10-16；第 20 至 26 段，援助提议及证据来源。</li><li id="src-21"><a href="https://www.nea.gov.sg/media/news/news/index/singapore-government-agencies-implement-measures-to-mitigate-impact-of-haze-Aug2026" target="_blank" rel="noopener">NEA：政府部门启动烟霾保护措施</a>。2026-09-04；第 2、9 至 10、16 段。</li><li id="src-22"><a href="https://www.moh.gov.sg/newsroom/haze-subsidy-scheme-to-start-at-public-health-preparedness-clinics-and-polyclinics-from-12-october-2026/" target="_blank" rel="noopener">MOH：2026 年烟霾医疗补助计划</a>。2026-10-11；10 月 12 日起生效；第 3 至 5 段。</li><li id="src-23"><a href="https://www.mom.gov.sg/newsroom/press-releases/2026/1020-guidance-for-employers-on-use-of-1-hour-pm25-readings-to-protect-outdoor-workers-during-haze" target="_blank" rel="noopener">MOM：按一小时 PM2.5 调整户外工作的指引</a>。2026-10-20；第 2 至 6 段及附表。</li><li id="src-24"><a href="https://www.mse.gov.sg/latest-news/media-doorstop-on-the-second-wave-of-mask-distribution---ms-grace-fu/" target="_blank" rel="noopener">MSE：第二轮口罩发放</a>。2026-10-22；年龄门槛、库存及发放安排。</li><li id="src-25"><a href="https://www.mse.gov.sg/latest-news/sec-sustainable-procurement-forum---ms-grace-fu/" target="_blank" rel="noopener">MSE：可持续采购论坛讲话</a>。2026-10-27；第 9 至 12、18 至 28 段。</li><li id="src-26"><a href="https://www.mse.gov.sg/latest-news/opening-address-at-the-partners-for-the-environment-forum/" target="_blank" rel="noopener">MSE：公共部门绿色采购要求</a>。2021-07-12；第 21 至 24 段；追溯至 2016 年的纸张采购要求。</li><li id="src-27"><a href="https://wwfasia.awsassets.panda.org/downloads/wwf_singapore__in_the_palm_of_singapore_s_hand.pdf#page=8" target="_blank" rel="noopener">WWF-Singapore / SASPO：《In the Palm of Singapore’s Hand》</a>。2021-09；第 3、8 至 9 页；使用 2019 至 2020 年研究资料。</li><li id="src-28"><a href="https://www.wilmar-international.com/annualreport2025/documents/Wilmar-AR25-Full.pdf#page=109" target="_blank" rel="noopener">Wilmar：《Annual Report 2025》</a>。股权截至 2026-03-03；印刷第 215 至 216 页，PDF 第 109 至 110 页。</li><li id="src-29"><a href="https://www.golden-agri.com/investors/shareholder-information/" target="_blank" rel="noopener">Golden Agri-Resources：股东资料</a>。股权截至 2026-03-10；主要股东表及附注。</li><li id="src-30"><a href="https://bumitama-agri.com/wp-content/uploads/2026/04/BAL-Annual-Report-2025.pdf#page=140" target="_blank" rel="noopener">Bumitama Agri：《Annual Report 2025》</a>。股权截至 2026-03-11；印刷第 83、137 页，PDF 第 86、140 页。</li><li id="src-31"><a href="https://www.first-resources.com/wp-content/uploads/2026/04/First-Resources-Limited-Annual-Report-2025.pdf#page=149" target="_blank" rel="noopener">First Resources：《Annual Report 2025》</a>。股权截至 2026-03-13；印刷第 146 至 147 页，PDF 第 148 至 149 页。</li><li id="src-32"><a href="https://investor.indofoodagri.com/misc/ar2025/166/" target="_blank" rel="noopener">Indofood Agri：《Annual Report 2025》股东资料</a>。股权截至 2026-03-13；印刷第 164 页，网页第 166 页。</li><li id="src-33"><a href="https://kencana.listedcompany.com/newsroom/Kencana_Agri_AR2025.pdf#page=56" target="_blank" rel="noopener">Kencana Agri：《Annual Report 2025》</a>。股权截至 2026-03-13；PDF 第 56 页，主要股东表及附注。</li><li id="src-34"><a href="https://www.mof.gov.sg/news-resources/newsroom/gic-and-temasek-holdings-39-investments-in-haze-linked-companies/" target="_blank" rel="noopener">MOF：GIC 与淡马锡的烟霾相关投资答复</a>。2016-01-28；第 1 至 3 段。</li><li id="src-35"><a href="https://www.mof.gov.sg/news-resources/newsroom/gic-and-temasek-holdings-39-investments-in-haze-linked-companies-2-/" target="_blank" rel="noopener">MOF：GIC 与淡马锡的后续答复</a>。2016-03-24；关于涉烟霾公司和零焚烧政策的答复。</li><li id="src-36"><a href="https://www.greenpeace.org/static/planet4-malaysia-stateless/2026/10/509ed03a-when-clean-air-is-sacrificed-for-global-commodities.pdf#page=30" target="_blank" rel="noopener">Greenpeace / Pantau Gambut：2026 年森林与泥炭火灾报告</a>。2026-10-05；PDF 第 23 至 26、30 页；企业关联及不同统计窗口。</li><li id="src-37"><a href="https://links.sgx.com/FileOpen/GAR%20-%20Compliance%20Query%20on%2015%20Oct%202026.ashx?App=Announcement&amp;FileID=907365" target="_blank" rel="noopener">GAR：对 SGX RegCo 2026 年 10 月 15 日问询的答复</a>。第 1 至 3 页；企业自身陈述及问询事项。</li><li id="src-38"><a href="https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs" target="_blank" rel="noopener">NEA：空气污染常见问题</a>。2026-10 检索；一小时 PM2.5、PSI、口罩及室内防护。</li><li id="src-39"><a href="https://data.gov.sg/datasets/d_c2c7fa70f297cdaee13afbe53a900eb9/view" target="_blank" rel="noopener">NEA / data.gov.sg：PSI 预报数据</a>。检索于 2026-10-29；2026-10-29 预报为 60 至 90。</li><li id="src-40"><a href="https://www.mindef.gov.sg/news-and-events/latest-releases/9oct26-nr/" target="_blank" rel="noopener">MINDEF：军队按烟霾情况调整活动</a>。2026-10-09；训练和户外活动安排。</li><li id="src-41"><a href="https://documents1.worldbank.org/curated/en/622281575920970133/pdf/Indonesia-Economic-Quarterly-Investing-in-People.pdf" target="_blank" rel="noopener">World Bank：印尼火灾的成本与政策回应</a>。《Indonesia Economic Quarterly: Investing in People》，2019-12；火灾分析章节。</li></ol></section>
+</main></div>
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+
+document.getElementById('theme').addEventListener('change', function () {
+  if (this.value === 'auto') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', this.value);
+});
+document.getElementById('print').addEventListener('click', function () { window.print(); });
+</script>
+</body></html>

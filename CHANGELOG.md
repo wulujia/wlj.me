@@ -2,6 +2,7 @@
 
 ## 2026-10-29
 
+- 新增资料页《新加坡烟霾政策与棕榈油利益关系》，`static/reading/singapore-haze-policy-ownership/index.html`。截至 2026 年 10 月 29 日，核查新加坡烟霾执法、区域合作与棕榈油股权关系。
 - 新增资料页《AssemblyAI 的特点与竞品》，`static/reading/assemblyai-competitors-2026-10/index.html`。语音转文字接口 AssemblyAI 的产品、长处和短板，以及它和 Deepgram、ElevenLabs Scribe、Whisper 等竞品的准确率、延迟、价格对比，和按场景的选型建议。
 
 ## 2026-10-28
