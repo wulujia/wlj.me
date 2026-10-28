@@ -2,6 +2,7 @@
 
 ## 2026-10-28
 
+- 新增资料页《罗丹的雕塑：美感、材料与真迹》，`static/reading/rodin-sculpture/index.html`。通过八幅馆藏照片，解释罗丹的美感与风格变化，并区分雕塑材料、生前铸件、身后铸件与复制品。
 - 新增资料页《Agentic robot 研究报告》，`static/reading/agentic-robot-research/index.html`。自主决策机器人研究：技术实现、商业证据、模型分工与世界模型影响。
 
 ## 2026-10-27
