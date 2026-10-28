@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AssemblyAI 的特点与竞品</title>
+<meta name="description" content="语音转文字接口 AssemblyAI 的产品、长处和短板，以及它和 Deepgram、ElevenLabs Scribe、Whisper 等竞品的准确率、延迟、价格对比，和按场景的选型建议。">
+<!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/assemblyai-competitors-2026-10/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
+:root {
+  color-scheme: light;
+  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --ink: #1b1d1f;
+  --ink-2: #494e52;
+  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
+  --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #2f6b4f;            /* 主题色：按题目换 */
+  --acc-ink: #24553e;        /* accent dark enough for text */
+  --acc-wash: rgba(47,107,79,.09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #6dbb95; --acc-ink: #9bd4b7; --acc-wash: rgba(109,187,149,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #6dbb95; --acc-ink: #9bd4b7; --acc-wash: rgba(109,187,149,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* ---------- layout: outline + reading column ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+/* ---------- header ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+/* ---------- prose ---------- */
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+/* Quotes read by indent and tone alone; a side bar is decoration. */
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+/* ---------- callouts: label is the icon; four kinds only ---------- */
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+/* ---------- stat row: only when the numbers are the point ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+/* ---------- kv grid: label / value pairs that read as one object ---------- */
+/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- timeline: only when order carries information ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+/* ---------- figure / chart ---------- */
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+/* ---------- pills / tags ---------- */
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+/* ---------- sources ---------- */
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
+/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
+  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+
+<nav class="outline" aria-label="目录">
+  <p class="label">Outline</p>
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、AssemblyAI 是什么</a></li>
+      <li><a href="#s2">二、长处和短板</a>
+        <ul>
+          <li><a href="#s2-1">2.1 录音转写准确率</a></li>
+          <li><a href="#s2-2">2.2 说话人区分</a></li>
+          <li><a href="#s2-3">2.3 转写之后的分析</a></li>
+          <li><a href="#s2-4">2.4 价格</a></li>
+          <li><a href="#s2-5">2.5 短板：实时延迟</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、竞品</a>
+        <ul>
+          <li><a href="#s3-1">3.1 数字对比</a></li>
+          <li><a href="#s3-2">3.2 各家的位置</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、按场景选</a></li>
+      <li><a href="#s5">五、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+
+<main id="main">
+  <header>
+    <p class="eyebrow">Speech-to-text notes · 2026 年 10 月 29 日</p>
+    <h1>AssemblyAI 的特点与竞品</h1>
+    <p class="lede">AssemblyAI 是给开发者用的语音转文字接口。这页整理它的产品、长处和短板，再和 Deepgram、ElevenLabs Scribe、Whisper 等竞品对比，最后按使用场景给建议。</p>
+    <p class="meta"><span>资料截至 2026-10-21</span><span>范围：云端语音转文字 API</span><span>多数数字来自厂商或第三方评测</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>AssemblyAI 在录音转写上准确率靠前：Universal-3 Pro 在 Retell AI 的实测里平均词错误率 5.6%。它把摘要、结构化提取、隐私信息脱敏放在同一个接口里，录音价格约 0.0025 到 0.0035 美元每分钟。短板是实时延迟，出最终结果约 760 毫秒，慢于 Deepgram 和 ElevenLabs。做会议纪要、客服质检选它；做抢毫秒的语音助手选 Deepgram 或 ElevenLabs。</p>
+  </div>
+
+  <h2 id="s1">一、AssemblyAI 是什么</h2>
+  <p>官网把自己定位为“Voice AI infrastructure”，产品线有六块<sup><a href="#src-1">1</a></sup>：</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">产品</th><th scope="col">做什么</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Pre-recorded STT</th><td>转写已录好的音频和视频</td></tr>
+        <tr><th scope="row">Real-time STT</th><td>转写实时音频，用于语音助手、字幕、坐席辅助</td></tr>
+        <tr><th scope="row">Voice Agent API</th><td>语音进、语音出的对话机器人，走一条 WebSocket 连接</td></tr>
+        <tr><th scope="row">Speech Understanding</th><td>从转写稿里提取结构化信息</td></tr>
+        <tr><th scope="row">Guardrails</th><td>隐私信息脱敏、脏话过滤、内容审核</td></tr>
+        <tr><th scope="row">LLM Gateway</th><td>在转写稿上调用大模型做后续处理</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>主力模型是 Universal 系列。2026 年的评测里出现过 Universal-2、Universal-3 Pro 和 Universal-3.5 Pro 三个版本<sup><a href="#src-2">2</a>, <a href="#src-4">4</a></sup>。</p>
+
+  <h2 id="s2">二、长处和短板</h2>
+  <h3 id="s2-1">2.1 录音转写准确率</h3>
+  <p>Retell AI 在 2026 年 10 月的实测里，Universal-3 Pro 平均词错误率（WER）5.6%，是非实时转写里最准的一家。同一组带噪音频上，Deepgram Nova-3 的差距在 2 个百分点以内<sup><a href="#src-2">2</a></sup>。</p>
+  <div class="warn"><b>注意</b>FutureAGI 在 2026 年 5 月的表里给 AssemblyAI 标的是约 14.5% WER，那个数字测的是旧的 Universal-2<sup><a href="#src-3">3</a></sup>。看评测先看模型版本。</div>
+
+  <h3 id="s2-2">2.2 说话人区分</h3>
+  <p>AssemblyAI 自己的说话人区分评测里，Universal-3.5 Pro 平均 cpWER 30.17，ElevenLabs Scribe v2 35.26，Gladia 36.87，Deepgram Nova-3 英文 37.92，数字越低越好<sup><a href="#src-5">5</a></sup>。这是厂商自测，只当参考。</p>
+
+  <h3 id="s2-3">2.3 转写之后的分析</h3>
+  <p>摘要、结构化提取、隐私信息脱敏、内容审核和大模型调用都在同一个接口里。多份 2026 年的对比把这一点列为它和 Deepgram 的主要区别，客服质检这类场景常把它和 Amazon Transcribe 放在一起比<sup><a href="#src-3">3</a>, <a href="#src-6">6</a></sup>。</p>
+
+  <h3 id="s2-4">2.4 价格</h3>
+  <p>VexaScribe 约 2026 年 8 月的整理：Universal-3.5 Pro 0.0035 美元每分钟，Universal-2 0.0025 美元每分钟，新账户送 50 美元额度<sup><a href="#src-4">4</a></sup>。Retell AI 给的 Universal-3 Pro 录音价是 0.21 美元每小时<sup><a href="#src-2">2</a></sup>。</p>
+
+  <h3 id="s2-5">2.5 短板：实时延迟</h3>
+  <p>实时音频出最终结果约 760 毫秒。Deepgram 在 300 毫秒以内，ElevenLabs Scribe v2 Realtime 约 150 毫秒<sup><a href="#src-2">2</a>, <a href="#src-3">3</a></sup>。对话机器人每轮都要等这段时间，差几百毫秒用户能感觉到。三家现在都内置了说话结束检测（EOT），不用另接工具<sup><a href="#src-6">6</a></sup>。</p>
+
+  <h2 id="s3">三、竞品</h2>
+  <h3 id="s3-1">3.1 数字对比</h3>
+  <div class="tbl">
+    <table class="compare">
+      <caption>三家主力模型，2026 年 5 到 10 月的公开数字</caption>
+      <thead><tr><th scope="col">指标</th><th scope="col" class="pick">AssemblyAI</th><th scope="col">Deepgram Nova-3</th><th scope="col">ElevenLabs Scribe v2</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">录音价格（美元每分钟）</th><td class="pick num">0.0025 到 0.0035</td><td class="num">0.0043</td><td class="num">0.0037</td></tr>
+        <tr><th scope="row">实时价格（美元每分钟）</th><td class="pick">待确认</td><td class="num">0.0077</td><td class="num">0.0065</td></tr>
+        <tr><th scope="row">实时延迟</th><td class="pick num">约 760 ms</td><td class="num">&lt; 300 ms</td><td class="num">约 150 ms</td></tr>
+        <tr><th scope="row">英文 WER</th><td class="pick num">5.6%（3 Pro）</td><td class="num">5.26%</td><td class="num">3.3%（RT）</td></tr>
+        <tr><th scope="row">语言数</th><td class="pick num">99+</td><td class="num">36+</td><td class="num">90+</td></tr>
+        <tr><th scope="row">免费额度</th><td class="pick">50 美元</td><td>200 美元</td><td>每月 10 小时</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>WER 来自不同评测、不同音频，不能横向直接比大小。AssemblyAI 的 5.6% 来自 Retell AI 带噪实测；Deepgram 和 ElevenLabs 的数字来自 FutureAGI 的表<sup><a href="#src-2">2</a>, <a href="#src-3">3</a></sup>。ElevenLabs Scribe v2 Realtime 在 FLEURS 基准 30 种语言上准确率 93.5%，延迟低于 150 毫秒<sup><a href="#src-3">3</a></sup>。</p>
+
+  <h3 id="s3-2">3.2 各家的位置</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">竞品</th><th scope="col">强于 AssemblyAI 的地方</th><th scope="col">弱的地方</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Deepgram（Nova-3、Flux）</th><td>延迟最低，价格低，语音机器人工具成熟；自称数字和编号识别率 90% 以上</td><td>带噪录音准确率略低</td></tr>
+        <tr><th scope="row">ElevenLabs Scribe v2</th><td>实时最快，多语言强，每月 10 小时免费</td><td>非英文实时说话人区分还粗糙，生产工具较新</td></tr>
+        <tr><th scope="row">OpenAI Whisper</th><td>开源，可自己部署，语言多</td><td>没有内置分析，要自己搭整套</td></tr>
+        <tr><th scope="row">Speechmatics</th><td>口音和小语种强，有私有部署</td><td>开发者社区小</td></tr>
+        <tr><th scope="row">Gladia</th><td>基于 Whisper，多语混说处理好，欧洲公司</td><td>公司规模小</td></tr>
+        <tr><th scope="row">Rev.ai</th><td>人工转写可作备选</td><td>新模型少</td></tr>
+        <tr><th scope="row">Google、AWS、Azure</th><td>直接用现有云账号，合规认证全；Amazon Transcribe 常用于客服中心</td><td>准确率通常不如专门厂商，配置麻烦</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Deepgram 的数字识别率和 AssemblyAI 的说话人区分排名都来自厂商自己，竞品的 43% 到 58% 也是 Deepgram 给的数字<sup><a href="#src-3">3</a></sup>。Speechmatics、Gladia、Rev.ai 和三家云厂商这几行是概括，这次没有拿到同口径的数字。</p>
+
+  <h2 id="s4">四、按场景选</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">场景</th><th scope="col">首选</th><th scope="col">理由</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">会议纪要、客服质检、播客转写</th><td>AssemblyAI</td><td>录音准确率高，分析功能在同一接口</td></tr>
+        <tr><th scope="row">实时语音机器人</th><td>Deepgram 或 ElevenLabs</td><td>延迟 150 到 300 毫秒</td></tr>
+        <tr><th scope="row">多语言实时转写</th><td>ElevenLabs Scribe v2</td><td>90 多种语言，实时准确率高</td></tr>
+        <tr><th scope="row">数据不能出内网</th><td>Whisper 自部署</td><td>开源，可本地跑</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>评测数字多数来自厂商或用不同音频测出。选之前拿自己的 20 到 30 段真实音频，同时跑 2 到 3 家，比较错误率、延迟和账单。</p>
+
+  <h2 id="s5">五、方法与来源</h2>
+  <p>2026-10-21 读取 AssemblyAI 官网首页，整理产品线；同日搜索 2026 年的语音转文字对比文章，摘出准确率、延迟、价格和说话人区分数字。没有调用任何一家的接口自测。官网首页没有写价格和模型名，价格来自第三方整理，AssemblyAI 实时转写的单价这次没拿到，标为待确认。</p>
+  <ol class="sources">
+    <li id="src-1">AssemblyAI 官网首页，<a href="https://www.assemblyai.com/" target="_blank" rel="noopener">assemblyai.com</a></li>
+    <li id="src-2">Retell AI，《5 Best Speech to Text Models in 2026》，2026-10，<a href="https://www.retellai.com/blog/best-speech-to-text-models" target="_blank" rel="noopener">retellai.com</a></li>
+    <li id="src-3">FutureAGI，《Speech-to-Text APIs in 2026》，2026-05，<a href="https://futureagi.com/blog/speech-to-text-apis-in-2026-benchmarks-pricing-developer-s-decision-guide/" target="_blank" rel="noopener">futureagi.com</a></li>
+    <li id="src-4">VexaScribe，《Best Transcription API 2026》，约 2026-08，<a href="https://vexascribe.com/compare/best-transcription-api-for-developers" target="_blank" rel="noopener">vexascribe.com</a></li>
+    <li id="src-5">AssemblyAI 博客，《Top 8 speaker diarization libraries and APIs in 2026》，<a href="https://www.assemblyai.com/blog/top-speaker-diarization-libraries-and-apis" target="_blank" rel="noopener">assemblyai.com/blog</a></li>
+    <li id="src-6">Coval，《Best STT Providers 2026》，<a href="https://www.coval.ai/blog/best-speech-to-text-providers-in-2026-independent-benchmarks-and-how-to-choose/" target="_blank" rel="noopener">coval.ai</a></li>
+    <li id="src-7">Inworld，《Best Speech-to-Text APIs for Voice AI Developers 2026》，<a href="https://inworld.ai/resources/best-speech-to-text-apis" target="_blank" rel="noopener">inworld.ai</a></li>
+  </ol>
+  <p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+
+<script>
+// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+(function () {
+  var det = document.querySelector('.outline details');
+  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
+  function syncOutlineOpen() {
+    if (!det || !mq) return;
+    if (mq.matches) det.removeAttribute('open');
+    else det.setAttribute('open', '');
+  }
+  syncOutlineOpen();
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
+    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+  var current = null;
+  function set(id) {
+    if (current === id) return;
+    current = id;
+    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>

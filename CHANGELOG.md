@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-29
+
+- 新增资料页《AssemblyAI 的特点与竞品》，`static/reading/assemblyai-competitors-2026-10/index.html`。语音转文字接口 AssemblyAI 的产品、长处和短板，以及它和 Deepgram、ElevenLabs Scribe、Whisper 等竞品的准确率、延迟、价格对比，和按场景的选型建议。
+
 ## 2026-10-28
 
 - 新增资料页《罗丹的雕塑：美感、材料与真迹》，`static/reading/rodin-sculpture/index.html`。通过八幅馆藏照片，解释罗丹的美感与风格变化，并区分雕塑材料、生前铸件、身后铸件与复制品。
