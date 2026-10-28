@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-28
+
+- 新增资料页《Agentic robot 研究报告》，`static/reading/agentic-robot-research/index.html`。自主决策机器人研究：技术实现、商业证据、模型分工与世界模型影响。
+
 ## 2026-10-27
 
 - 新增资料页《ALPA 12 TC 后背指南》，`static/reading/alpa-12tc-backs/index.html`。ALPA 12 TC 撕拉片后背、CFV II 50C 数码后背与 HAA 转接板的图文指南。
