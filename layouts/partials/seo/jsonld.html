@@ -5,7 +5,7 @@
 {{- $personID := printf "%s#person" $authorURL -}}
 {{- $websiteID := printf "%s#website" .Site.BaseURL -}}
 {{- $sameAs := .Site.Params.author.sameAs | default (slice) -}}
-{{- $person := dict "@type" "Person" "@id" $personID "name" $authorName "alternateName" $authorDisplayName "url" $authorURL "sameAs" $sameAs "description" (.Site.Params.author.description | default "") -}}
+{{- $person := dict "@type" "Person" "@id" $personID "name" $authorName "alternateName" (.Site.Params.author.alternateName | default $authorDisplayName) "url" $authorURL "sameAs" $sameAs "description" (.Site.Params.author.description | default "") -}}
 {{- $website := dict "@type" "WebSite" "@id" $websiteID "url" .Site.BaseURL "name" .Site.Title "description" (.Site.Params.description | default .Site.Params.subtitle | default "") "inLanguage" .Site.Language.Lang "publisher" (dict "@id" $personID) -}}
 {{- $graph := slice $person $website -}}
 

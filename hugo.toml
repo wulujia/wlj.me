@@ -35,7 +35,7 @@ enableRobotsTXT = true
   centerTheme = true
   showLastUpdated = true
   showFullContent = true
-  description = "Luca Wu 的个人博客，长期记录产品、技术、创业、写作和生活观察。"
+  description = "Luca Wu（吴鲁加）的个人博客，长期记录产品、技术、创业、写作和生活观察。"
   keywords = "产品, 技术, 创业, 写作, AI, 安全, 阅读"
   images = ["og-image.png"]
   [params.Logo]
@@ -43,6 +43,7 @@ enableRobotsTXT = true
   [params.author]
     name = "Luca Wu"
     displayName = "Luca"
+    alternateName = ["Luca", "吴鲁加"]
     url = "/about/"
     description = "产品经理、连续创业者，长期写作者。关注产品设计、技术工具、创业和生活。"
     sameAs = [

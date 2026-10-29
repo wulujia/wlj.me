@@ -44,8 +44,8 @@
 {{ with .Site.Params.twitter.site }}<meta name="twitter:site" content="{{ . }}">{{ end }}
 {{ with .Site.Params.twitter.creator }}<meta name="twitter:creator" content="{{ . }}">{{ end }}
 
-<meta property="og:locale" content="{{ .Site.Language.Lang }}">
-<meta property="og:type" content="{{ if and .IsPage (eq .Section "posts") }}article{{ else }}website{{ end }}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="{{ if and .IsPage (or (eq .Section "posts") (eq .Section "startupnotes")) }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:url" content="{{ .Permalink }}">

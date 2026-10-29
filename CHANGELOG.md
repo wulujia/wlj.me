@@ -2,6 +2,9 @@
 
 ## 2026-10-29
 
+- SEO：首页描述、关于页标题和 Person 结构化数据加入中文名“吴鲁加”，让按姓名搜索能找到本站。
+- SEO：描述长度按字符数计算，不再按字节数计算。手写的中文描述不再被误加“...”。
+- SEO：创业笔记页的 `og:type` 改为 `article`；`og:locale` 改为 `zh_CN`。
 - 新增资料页《计算机历史博物馆：技术脉络与展品研究》，`static/reading/computer-history-museum/index.html`。围绕博物馆展品解释计算机历史，包含技术机制、软件、网络与公开在线展览条目索引。
 - 发布文章《盲人摄影展》，原文展示在首页日志列表。
 - 新增资料页《新加坡烟霾政策与棕榈油利益关系》，`static/reading/singapore-haze-policy-ownership/index.html`。截至 2026 年 10 月 29 日，核查新加坡烟霾执法、区域合作与棕榈油股权关系。

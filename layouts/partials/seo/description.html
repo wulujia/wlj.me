@@ -9,7 +9,7 @@
   {{- $description = .Site.Params.description | default .Site.Title -}}
 {{- end -}}
 {{- $description = $description | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
-{{- if gt (len $description) 160 -}}
+{{- if gt (strings.RuneCount $description) 160 -}}
   {{- $description = printf "%s..." (substr $description 0 157) -}}
 {{- end -}}
 {{- $description -}}
