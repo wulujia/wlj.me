@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-30
+
+- 新增资料页《诱骗研发人员安装恶意软件：四类动作与 35 种场景》，`static/reading/developer-social-engineering/index.html`。按四类动作整理 35 种公开诱骗场景，含 28 张逐图复核的原报告配图和 31 个来源。
+
 ## 2026-10-29
 
 - SEO：Person 结构化数据的别名加入 wulujia。
