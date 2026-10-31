@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-31
+
+- 新增资料页《10 Ken Goldberg：机器人、AI 和艺术（图文版）》，`static/reading/ken-goldberg-robotics-2026-10/index.html`。Ken Goldberg 在伯克利关于机器人、AI 与艺术的课堂笔记，含机器人抓取、手术、农业、智能体机器人及相关背景资料。
+
 ## 2026-10-30
 
 - 新增资料页《诱骗研发人员安装恶意软件：四类动作与 35 种场景》，`static/reading/developer-social-engineering/index.html`。按四类动作整理 35 种公开诱骗场景，含 28 张逐图复核的原报告配图和 31 个来源。
