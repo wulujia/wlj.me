@@ -2,6 +2,7 @@
 
 ## 2026-11-02
 
+- 新增资料页《群晖 NAS 勒索事件：漏洞、补丁与处置建议》，`static/reading/synology-nas-security/index.html`。群晖 NAS 勒索事件调研：核实零日漏洞争议，区分 QuickConnect、Cloud Sync 与断网建议。
 - 保留《Omarchy 开源运营笔记》中的公开邮箱，关闭脚本时仍可阅读。
 - 保留《Open Source Endowment 调研》中的公开邮箱，关闭脚本时仍可阅读。
 - 保留《OpenClaw 开源运营笔记》中的公开邮箱，关闭脚本时仍可阅读。

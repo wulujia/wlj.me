@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>群晖 NAS 勒索事件：漏洞、补丁与处置建议</title>
+<meta name="description" content="群晖 NAS 勒索事件调研：核实零日漏洞争议，区分 QuickConnect、Cloud Sync 与断网建议。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/synology-nas-security/">
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>目录</summary><ul><li><a href="#evidence">已确认的事实与证据分歧</a></li><li><a href="#mechanism">漏洞为何能绕过登录保护</a></li><li class="outline-sub"><a href="#old-dsm">旧版 DSM 的远程代码执行漏洞</a></li><li class="outline-sub"><a href="#september">2026 年 9 月披露的 DSM 漏洞</a></li><li><a href="#zeroday">“最新版中招”与零日漏洞的区别</a></li><li><a href="#php">“没有补丁”还混入了 PHP 风险</a></li><li><a href="#services">QuickConnect 与 Cloud Sync 的不同作用</a></li><li class="outline-sub"><a href="#quickconnect">关闭 QuickConnect：减少远程访问入口</a></li><li class="outline-sub"><a href="#cloudsync">暂停 Cloud Sync：保护云端恢复副本</a></li><li><a href="#response">断网与关机的选择</a></li><li><a href="#actions">设备核查与补丁清单</a></li><li class="outline-sub"><a href="#sequence">未发现入侵迹象时的操作顺序</a></li><li class="outline-sub"><a href="#versions">DSM 最低修复版本</a></li><li class="outline-sub"><a href="#backup">持续运行所需的恢复保护</a></li><li><a href="#inventory">核查自己的 NAS 时需要的信息</a></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+
+<header>
+<p class="eyebrow">安全调研 · 2026-11-02</p>
+<h1>群晖 NAS 勒索事件</h1>
+<p class="lede">漏洞、补丁与处置建议。解释零日漏洞争议，以及关闭 QuickConnect、暂停 Cloud Sync 和断网的不同作用。</p>
+<p class="meta">资料核查截至 2026 年 11 月 2 日。适用对象：群晖 NAS 用户及小团队管理员。</p>
+</header>
+<div class="summary"><p class="label">先说结论</p>
+<p>勒索攻击确实存在，已知入口已有补丁。公开证据尚未证实新版 DSM 存在未修复的零日漏洞。建议先收紧远程访问，再核对系统和套件版本。发现入侵迹象时，应先隔离设备并保护备份。<sup><a href="#src-1">[1]</a><a href="#src-2">[2]</a></sup></p></div>
+<h2 id="evidence">已确认的事实与证据分歧</h2>
+<p>群晖与 360 指向不同漏洞。这是公开材料中的实质分歧。两者可能处理了不同受害设备，也可能存在归因错误。目前不能把两份报告拼成同一条攻击链。</p>
+<div class="tbl"><table><caption>来源、结论与证据边界</caption><thead><tr><th scope="col">来源</th><th scope="col">公开说法</th><th scope="col">能确认什么</th></tr></thead><tbody>
+<tr><th scope="row">群晖，2026-10-29</th><td>攻击者利用 2024 年 12 月已修复的漏洞。声明指向 SA-24:20。</td><td>厂商确认旧漏洞正在遭到利用。声明没有逐案公开入侵证据。[1]</td></tr>
+<tr><th scope="row">360，2026-10-29</th><td>其样本分析指向 CVE-2026-13639 与 CVE-2026-13684。</td><td>该团队将所处理事件归因于已公开漏洞。其结论不能覆盖全部受害者。[2]</td></tr>
+<tr><th scope="row">Solar 相关报道</th><td>受害设备据称运行 DSM 7.4.1-90080 Update 1。</td><td>本次未能读取原始微信文章。版本说法尚未独立核实，不能证明零日漏洞。[12]</td></tr>
+</tbody></table></div>
+<p>360 将样本识别为 C3RB3R 勒索软件。加密文件后缀为 <code>.L0CK3D</code>，其中是数字 0。勒索信文件名为 <code>read-me3.txt</code>。没有这些文件，也不能证明设备未遭入侵。<sup><a href="#src-2">[2]</a></sup></p>
+<h2 id="mechanism">漏洞为何能绕过登录保护</h2>
+<h3 id="old-dsm">旧版 DSM 的远程代码执行漏洞</h3>
+<p>SA-24:20 包含 CVE-2024-10441。该漏洞允许远程攻击者在未登录时执行代码。Rapid7 的原始研究展示了 root 权限攻击。<sup><a href="#src-3">[3]</a><a href="#src-4">[4]</a></sup></p>
+<p>恶意登录输入进入高权限后台服务。分隔符处理错误允许环境变量注入。攻击者随后可以写文件并执行命令。这条路径不要求正确密码。</p>
+<p>因此，强密码和双重验证不能修复此漏洞。更改管理端口也没有消除漏洞。双重验证仍应保留，但不能替代补丁。</p>
+<h3 id="september">2026 年 9 月披露的 DSM 漏洞</h3>
+<p>CVE-2026-13639 涉及登录逻辑的随机性不足。CVE-2026-13684 涉及 SCGI 的输出处理错误。群晖将两者的 CVSS 评分均列为 9.8。它们允许未认证攻击者读写文件。<sup><a href="#src-5">[5]</a></sup></p>
+<p>360 将本轮所处理事件归因于这两个漏洞。群晖的修复公告已发布。因此，这部分证据支持已知漏洞攻击。<sup><a href="#src-2">[2]</a></sup></p>
+<h2 id="zeroday">“最新版中招”与零日漏洞的区别</h2>
+<p>零日漏洞判断需要确认漏洞及利用时的补丁状态。受害设备显示最新版本，不足以完成归因。调查还需要入侵时间、升级时间及入口证据。</p>
+<p>以下路径需要排查，但目前不能当成个案结论：</p>
+<ul><li>攻击者在升级前进入，并保留了访问能力。</li><li>DSM 已更新，但套件或容器应用仍有漏洞。</li><li>攻击者使用了泄露的账号或会话。</li><li>受感染电脑通过共享目录改写 NAS 文件。</li><li>设备恢复或重装后，才显示最新 DSM 版本。</li><li>设备确实存在尚未确认的新漏洞。</li></ul>
+<p>本报告判断：已知漏洞解释部分事件，可信度高。“全部事件均已解释”的证据不足。公开材料也不足以确认新版 DSM 的零日漏洞。</p>
+<h2 id="php">“没有补丁”还混入了 PHP 风险</h2>
+<p>PHP2Shell 是另一项需要处理的风险。SA-26:14 在 2026 年 10 月 31 日更新。公告列出了受影响 PHP、Calendar 和 Mail Station 的修复版本。<sup><a href="#src-6">[6]</a></sup></p>
+<div class="tbl"><table><caption>按当前公告区分套件状态</caption><thead><tr><th scope="col">对象</th><th scope="col">公告状态</th><th scope="col">建议</th></tr></thead><tbody>
+<tr><th scope="row">PHP 7.3</th><td>已结束支持，不提供修复。</td><td>迁移依赖应用，或停用依赖服务。</td></tr>
+<tr><th scope="row">其他列出的 PHP 分支</th><td>公告提供修复版本。</td><td>按 DSM 分支核对套件版本。</td></tr>
+<tr><th scope="row">Calendar、Mail Station</th><td>受影响版本已有修复。</td><td>单独检查套件更新。</td></tr>
+<tr><th scope="row">Hyper Backup</th><td>当前产品表列为“不受影响”。</td><td>不要仅因旧报道就判定该套件有漏洞。</td></tr>
+<tr><th scope="row">DSM 内置 PHP</th><td>群晖称其不暴露于外部攻击面，利用风险很低。</td><td>不要与对外提供服务的 PHP 套件混为一谈。</td></tr>
+</tbody></table></div>
+<p>公告摘要仍提及 Hyper Backup，但产品表写明“不受影响”。阅读时应注意这一差异。本次未找到证据，将 PHP2Shell 确认为整轮攻击的统一入口。</p>
+<h2 id="services">QuickConnect 与 Cloud Sync 的不同作用</h2>
+<h3 id="quickconnect">关闭 QuickConnect：减少远程访问入口</h3>
+<p>QuickConnect 支持直连、网络穿透和中继。没有手动设置端口转发，不代表 NAS 无法远程访问。只关闭中继，也没有关闭全部连接方式。<sup><a href="#src-7">[7]</a></sup></p>
+<p>本次未找到可靠证据，证明 QuickConnect 自身漏洞导致这轮攻击。暂时关闭它，目的是在核查时减少入口。它无法清除已存在的恶意程序，也不会关闭独立的端口转发。</p>
+<h3 id="cloudsync">暂停 Cloud Sync：保护云端恢复副本</h3>
+<p>Cloud Sync 支持双向同步和仅上传本地变更。NAS 上的文件遭加密后，同步可能把损坏扩散到云端。删除操作也可能同步，具体取决于任务设置。<sup><a href="#src-8">[8]</a></sup></p>
+<p>例如，原照片遭改写后，上传任务可能提交损坏版本。云端版本历史能否恢复，取决于保留期和权限。仅下载任务的传播风险不同。但 NAS 遭控制后，云端凭据也需要检查。</p>
+<p>暂停可疑设备的上传任务，是为了保护恢复机会。这不能证明 Cloud Sync 是入侵入口。群晖建议有多版本备份需求时使用 Hyper Backup。<sup><a href="#src-9">[9]</a></sup></p>
+<h2 id="response">断网与关机的选择</h2>
+<div class="tbl"><table><caption>按设备状态选择动作</caption><thead><tr><th scope="col">设备状态</th><th scope="col">建议动作</th><th scope="col">原因</th></tr></thead><tbody>
+<tr><th scope="row">没有异常，但版本和公网暴露不明</th><td>收紧远程访问，核对补丁和备份。</td><td>先减少新入侵机会，无须一律关机。</td></tr>
+<tr><th scope="row">出现勒索信或异常批量改写</th><td>立即断开全部网络接口。</td><td>隔离设备，限制传播与同步。</td></tr>
+<tr><th scope="row">断网后仍在本地加密</th><td>尽快由响应人员停止恶意进程。</td><td>断网不会停止已运行的本地程序。</td></tr>
+<tr><th scope="row">无法及时控制持续加密</th><td>评估关机以保护尚未损坏的数据。</td><td>需接受内存证据丢失和文件系统风险。</td></tr>
+</tbody></table></div>
+<p>CISA 建议优先隔离网络，以保留内存证据。其指南将关机作为无法断网时的措施。上表对持续本地加密的建议属于本报告判断。不要把“保留现场”理解为放任损坏继续。<sup><a href="#src-10">[10]</a></sup></p>
+<p>发现入侵后，不要立即重装或恢复出厂设置。保留日志、勒索信和受影响文件。不要把干净备份接到可疑 NAS。请在干净电脑上保护受影响账号及云端访问权限。</p>
+<h2 id="actions">设备核查与补丁清单</h2>
+<h3 id="sequence">未发现入侵迹象时的操作顺序</h3>
+<ol><li>检查勒索信、异常后缀和批量文件变更。</li><li>检查新增账号及异常登录记录。</li><li>关闭不必要的公网管理入口。</li><li>检查端口转发、UPnP、IPv6、反向代理及远程隧道。</li><li>暂时关闭 QuickConnect。</li><li>通过可信局域网记录完整 DSM 版本。</li><li>按公告核对系统补丁。</li><li>分别核对套件和容器应用版本。</li><li>验证独立备份能够恢复文件。</li></ol>
+<p>发现入侵迹象时，应改用前述隔离流程。单纯升级系统不能清除已有入侵。</p>
+<h3 id="versions">DSM 最低修复版本</h3>
+<div class="tbl"><table><caption>SA-26:13 的最低修复版本；不是当前最新版本清单 [5]</caption><thead><tr><th scope="col">DSM 分支</th><th scope="col">最低修复版本</th></tr></thead><tbody>
+<tr><th scope="row">7.4</th><td class="mono">7.4-90075</td></tr>
+<tr><th scope="row">7.3</th><td class="mono">7.3.2-86009 Update 4</td></tr>
+<tr><th scope="row">7.2.2</th><td class="mono">7.2.2-72806 Update 9</td></tr>
+<tr><th scope="row">7.2.1</th><td class="mono">7.2.1-69057 Update 12</td></tr>
+</tbody></table></div>
+<p>请安装设备型号支持的最新安全更新。旧分支需要单独检查 SA-24:20。未列入上表，不代表旧分支安全。</p>
+<p>不要只看“已是最新版本”的提示。群晖说明，可用更新会随系统配置变化。自动更新也不会自动升级至新的主要版本。请核对完整构建号和 Update 编号。<sup><a href="#src-11">[11]</a></sup></p>
+<h3 id="backup">持续运行所需的恢复保护</h3>
+<p>建议让 DSM 仅向可信网络或受控 VPN 开放。保留双重验证。日常账号只应访问必要目录。</p>
+<p>设备支持时，请启用不可变快照。群晖建议保护期为 7 至 14 天。选择前应检查容量与故障发现时间。不可变保护期内，快照无法正常删除以释放空间。<sup><a href="#src-13">[13]</a></sup></p>
+<p>另保留独立的离线备份或不可变备份。请用实际文件测试恢复。RAID 不能替代这类恢复保护。云端同步目录也不能自动视为独立备份。</p>
+<h2 id="inventory">核查自己的 NAS 时需要的信息</h2>
+<p>记录下列信息，才能判断具体设备风险。无需提供密码、令牌或私密文件内容。</p>
+<ul><li>NAS 型号，以及完整 DSM 构建号和 Update 编号。</li><li>QuickConnect 是否启用。</li><li>路由器端口转发、UPnP 与 IPv6 访问规则。</li><li>对外提供服务的套件、容器应用及其版本。</li><li>Cloud Sync 的同步方向与删除设置。</li><li>备份目的地、版本保留期及最近恢复测试结果。</li><li>是否支持并启用了不可变快照。</li></ul>
+<h2 id="sources">方法与来源</h2>
+<p>本报告整理于 2026 年 11 月 2 日。材料来自厂商公告、研究者论文和应急指南。优先采用原始来源，并比较不同来源的归因范围。</p>
+<p>本次没有检查具体 NAS，也没有取得受害设备日志。Solar 原始微信文章未能读取。相关版本说法仅列为未核实信息。本文不估算受害设备总数，不保证未知入口不存在。</p>
+<p>文中的处置建议是依据公开材料作出的判断。版本表仅对应所注明的安全公告。后续使用时，请重新核对公告修订及型号支持范围。</p>
+<ol class="sources">
+<li id="src-1"><a href="https://www.synology.com/en-global/company/news/article/C3RB3R">群晖：关于旧版 DSM 勒索攻击的声明</a>。2026-10-29，正文及 SA-24:20 引用。</li>
+<li id="src-2"><a href="https://news.safe.360.cn/n/13055.html">360：Cerber 勒索攻击群晖 NAS 事件预警</a>。2026-10-29，入口归因、样本行为及防护建议。</li>
+<li id="src-3"><a href="https://www.synology.com/en-global/security/advisory/Synology_SA_24_20">群晖：Synology-SA-24:20</a>。参见 Detail 与 Affected Products；漏洞修复分批发布。</li>
+<li id="src-4"><a href="https://www.rapid7.com/cdn/assets/bltad0709de42b54e82/689604359f008cdd02f69917/disguise-delimit-whitepaper.pdf">Rapid7：Disguise Delimit</a>。DEF CON 33 论文，第 10 页起的 DSM 漏洞分析。</li>
+<li id="src-5"><a href="https://www.synology.com/en-global/security/advisory/Synology_SA_26_13">群晖：Synology-SA-26:13</a>。2026-09-18，Affected Products 与各 CVE 详情。</li>
+<li id="src-6"><a href="https://www.synology.com/en-global/security/advisory/Synology_SA_26_14">群晖：Synology-SA-26:14 PHP2Shell</a>。2026-10-31 修订，产品表、Mitigation 与 Revision。</li>
+<li id="src-7"><a href="https://kb.synology.com/en-in/WP/Synology_QuickConnect_White_Paper/4">群晖：QuickConnect 白皮书</a>。How QuickConnect Works，连接检测、穿透与中继。</li>
+<li id="src-8"><a href="https://kb.synology.com/en-us/DSM/help/CloudSync/cloudsync?version=6">群晖：Cloud Sync 文档</a>。同步方向、删除设置与版本行为。</li>
+<li id="src-9"><a href="https://kb.synology.com/en-global/DSM/tutorial/How_to_back_up_the_data_on_your_Synology_NAS_with_public_cloud">群晖：使用 Cloud Sync 备份到公有云</a>。Notes 中的多版本备份建议。</li>
+<li id="src-10"><a href="https://www.cisa.gov/sites/default/files/2025-03/StopRansomware-Guide%20508.pdf">CISA：StopRansomware Guide</a>。第 21 页，隔离网络与关机的取舍。</li>
+<li id="src-11"><a href="https://kb.synology.com/sv-se/DSM/help/DSM/AdminCenter/system_dsmupdate?version=7">群晖：DSM System Update</a>。更新兼容性、手动更新及自动更新范围。</li>
+<li id="src-12"><a href="https://www.appinn.com/synology-nas-ransomware-2026/">小众软件：群晖 NAS 遭勒索病毒攻击</a>。2026-10-29，提供 Solar 原文入口；仅用于定位争议。</li>
+<li id="src-13"><a href="https://kb.synology.com/en-us/DSM/help/SnapshotReplication/snapshots">群晖：Snapshot Replication 快照文档</a>。不可变快照及保护期。</li>
+</ol>
+
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

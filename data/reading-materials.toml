@@ -969,3 +969,16 @@ year = "2025"
 description = "Bybit 2025 年失窃事件图解：入侵、演练、执行、资产追索与安全整改。"
 original_url = "https://slf.fish/mirror/25q2/bybit.pdf"
 reading_url = "/reading/bybit-security-investigation/"
+
+[[materials]]
+slug = "synology-nas-security"
+title = "群晖 NAS 勒索事件：漏洞、补丁与处置建议"
+subtitle = ""
+author = "资料整理"
+category = "report"
+tags = ["Security", "Tech"]
+date = "2026-11-02T21:18:12+08:00"
+year = "2026"
+description = "群晖 NAS 勒索事件调研：核实零日漏洞争议，区分 QuickConnect、Cloud Sync 与断网建议。"
+original_url = ""
+reading_url = "/reading/synology-nas-security/"
