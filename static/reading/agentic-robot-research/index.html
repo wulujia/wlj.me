@@ -7,48 +7,119 @@
 <title>Agentic robot 研究报告</title>
 <meta content="自主决策机器人研究：技术实现、商业证据、模型分工与世界模型影响。" name="description"/>
 <!-- Display face only; body text stays on system CJK fonts (a full Chinese webfont is several MB). -->
-<style>
-/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
-:root {
+<style>.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:26px;font-size:13px;color:var(--ink-3);}
+.toolbar{flex-wrap:wrap;}
+.toolbar > span{white-space:nowrap;}
+.toolbar button{white-space:nowrap;}
+.toolbar label{white-space:nowrap;display:flex;align-items:center;gap:8px;}
+select, button{font:inherit;border:1px solid var(--rule-2);color:var(--ink);background:var(--surface);border-radius:4px;padding:5px 9px;}
+.jump-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;margin-bottom:30px;}
+.fig-title{font-size:16px;font-weight:600;margin:0 0 16px;}
+.role-fig{border-block:1px solid var(--rule);padding:24px 0;}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+.role-item{min-width:0;}
+.role-item svg{height:110px;}
+.role-item strong{display:block;margin:8px 0 3px;}
+.role-item p{font-size:14px;color:var(--ink-2);margin:0;}
+.role-item .mini{font-size:12px;color:var(--ink-3);margin-top:4px;}
+.robot-art{fill:none;stroke:var(--ink-2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.robot-art .accent{stroke:var(--acc);}
+.robot-art .wash{fill:var(--acc-wash);}
+.robot-art .fill{fill:var(--acc);stroke:none;}
+.loop{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:12px;padding:22px;border:1px solid var(--rule);background:var(--surface);}
+.loop-step{padding:12px;border:1px solid var(--rule-2);min-width:0;}
+.loop-step b{font-size:15px;display:block;}
+.loop-step small{display:block;color:var(--ink-2);font-size:13px;}
+.loop-arrow{display:flex;align-items:center;justify-content:center;color:var(--acc);font-size:23px;}
+.loop-base{grid-column:1/-1;text-align:center;padding-top:10px;border-top:1px dashed var(--rule-2);font-size:13px;color:var(--ink-2);}
+.photo{padding:0;border:1px solid var(--rule);}
+.photo img{display:block;width:100%;height:auto;}
+.photo figcaption{padding:12px 16px;margin:0;}
+.photo .evidence-label{display:block;font-size:12px;color:var(--acc-ink);font-weight:600;margin-bottom:4px;}
+.bridge{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border-block:1px solid var(--rule);padding:22px 0;}
+.bridge > div{min-width:0;}
+.bridge svg{height:120px;}
+.bridge strong{display:block;font-size:15px;margin:8px 0;}
+.bridge p{font-size:14px;color:var(--ink-2);margin:0;}
+.bridge small{display:block;color:var(--ink-3);font-size:12px;margin-top:8px;}
+.reading-note{font-size:14px;color:var(--ink-2);border-left:2px solid var(--acc);padding-left:16px;margin:24px 0;}
+.interactive{border:1px solid var(--rule);padding:22px;margin:24px 0;background:var(--surface);}
+.interactive label{display:block;font-size:14px;margin-bottom:6px;}
+.interactive input{width:100%;accent-color:var(--acc);}
+.control-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.result{font-family:var(--font-mono);font-size:32px;line-height:1.3;color:var(--acc-ink);margin:18px 0 5px;}
+.result-note{font-size:13px;color:var(--ink-3);}
+.result-bar{height:9px;background:var(--mid);margin-top:10px;}
+.result-bar span{display:block;height:100%;background:var(--acc);width:81.8%;}
+.sources a{overflow-wrap:anywhere;}
+.source-domain{display:block;color:var(--ink-3);font:12px var(--font-mono);margin-top:4px;}
+.review-note{font-size:14px;border:1px solid var(--rule);padding:16px;}
+.review-note p:last-child{margin:0;}
+.scroll-hint{font-size:12px;color:var(--ink-3);}
+@media  (max-width:900px) {.toolbar{margin-bottom:18px;}}
+@media  (max-width:560px) {.role-grid, .bridge{grid-template-columns:1fr;gap:22px;}
+.role-item{display:grid;grid-template-columns:94px minmax(0,1fr);gap:0 16px;align-items:center;}
+.role-item svg{grid-row:1/4;height:auto;}
+.role-item strong{margin:0 0 4px;}
+.role-item p{font-size:14px;}
+.bridge > div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:0 14px;}
+.bridge svg{grid-row:1/4;height:auto;}
+.bridge strong{margin-top:0;}
+.loop{padding:14px;gap:8px;grid-template-columns:1fr 22px 1fr;}
+.loop-step{padding:9px;}
+.loop-step b{font-size:14px;}
+.loop-step small{font-size:12px;}
+.control-grid{grid-template-columns:1fr;gap:14px;}
+.interactive{padding:16px;}
+.stack-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);}
+.stack-table, .stack-table tbody{display:block;}
+.stack-table tr{display:block;padding:12px 0;border-bottom:1px solid var(--rule-2);}
+.stack-table td{display:block;border:0;padding:4px 0;font-size:14px;}
+.stack-table td::before{content:attr(data-label);display:block;font-size:12px;color:var(--ink-3);margin-bottom:2px;}
+.stack-table td:first-child{font-weight:600;color:var(--ink);}
+.stack-table td:first-child::before{display:none;}
+.stack-table caption{display:block;}}
+@media  print {.toolbar, .jump-links, .interactive .control-grid, .scroll-hint{display:none;}
+.role-grid, .bridge{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
+.role-item, .bridge > div{display:block;}
+.role-item svg, .bridge svg{height:70pt;}
+.photo{max-width:145mm;margin-inline:auto;}
+details > *{display:block !important;}}</style>
+<meta content="index,follow" name="robots"/><link href="https://wlj.me/reading/agentic-robot-research/" rel="canonical"/><style id="reading-style">:root {
   color-scheme: light;
-  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
-  --bg: #f3f6f7;
+  --bg: #f5f8f7;
   --surface: #ffffff;
-  --ink: #1c2c31;
-  --ink-2: #3e555f;
-  --ink-3: #51636b;          /* >= 4.5:1 on --bg, safe down to 12px */
-  --rule: #dcdfe2;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
   --rule-2: #b9bfc5;
   --mid: #eceef0;
-  --acc: #176677;            /* 主题色：按题目换 */
-  --acc-ink: #145564;        /* accent dark enough for text */
-  --acc-wash: rgba(23, 102, 119, .07);
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
   --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
-  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-display: var(--font-body);
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #172126; --surface: #202d33; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #a3b5bd;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
     --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #76bbc6; --acc-ink: #a5d4dc; --acc-wash: rgba(118,187,198,.12);
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #172126; --surface: #202d33; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #a3b5bd;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
   --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #76bbc6; --acc-ink: #a5d4dc; --acc-wash: rgba(118,187,198,.12);
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
 
-/* ---------- base ---------- */
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -63,8 +134,7 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-/* ---------- layout: outline + reading column ---------- */
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
@@ -77,7 +147,6 @@ main { min-width: 0; }
 .outline a:hover { color: var(--ink); }
 .outline a.active { color: var(--acc-ink); }
 .outline summary { display: none; }
-/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
 @media (min-width: 901px) {
   .outline details > ul { display: block !important; }
 }
@@ -89,14 +158,12 @@ main { min-width: 0; }
   .outline details:not([open]) ul { display: none; }
 }
 
-/* ---------- header ---------- */
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
 h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
 .lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
 .meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
 .meta span + span::before { content: "·"; margin: 0 8px; }
 
-/* ---------- prose ---------- */
 h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
 h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
 h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
@@ -105,7 +172,6 @@ p { margin: 0 0 1em; }
 ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
 li { margin: 0 0 .35em; }
 strong { font-weight: 600; }
-/* Quotes read by indent and tone alone; a side bar is decoration. */
 blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
 blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
 code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
@@ -115,12 +181,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .muted { color: var(--ink-3); }
 
-/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
 .summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
 .summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
 .summary p:last-child { margin: 0; }
 
-/* ---------- callouts: label is the icon; four kinds only ---------- */
 .note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
 .note { border-color: var(--acc); }
 .warn { border-color: var(--warn); background: var(--warn-wash); }
@@ -129,12 +193,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
 .note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
 
-/* ---------- tables ---------- */
 .tbl { overflow-x: auto; margin: 0 0 1.4em; }
 table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
 caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
-/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
 th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
 th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
 td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
@@ -142,58 +204,48 @@ tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 6
 .compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
 .compare td.pick { background: var(--acc-wash); }
 
-/* ---------- stat row: only when the numbers are the point ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
 .stats > div { background: var(--surface); padding: 12px 14px; }
 .stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
 .stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
 
-/* ---------- kv grid: label / value pairs that read as one object ---------- */
-/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
 .kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
 .kv dt { color: var(--ink-3); margin: 0; }
 .kv dd { margin: 0; overflow-wrap: anywhere; }
 
-/* ---------- timeline: only when order carries information ---------- */
 .timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
 .timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
 .timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
 .timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
 
-/* ---------- figure / chart ---------- */
 figure { margin: 1.6em 0; }
 figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
 figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
 figure details { font-size: 13.5px; margin-top: 6px; }
 figure summary { cursor: pointer; color: var(--ink-3); }
 
-/* ---------- pills / tags ---------- */
 .pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
 .pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
 .pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
 .pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
 
-/* ---------- sources ---------- */
 .sources { font-size: 14px; color: var(--ink-2); }
 .sources li { margin: 0 0 .5em; word-break: break-word; }
 sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 
-/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
-/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
 @page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
 @media print {
   :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
   html { font-size: 11pt; }
-  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
-  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
   th { border-bottom-width: .6pt; }
   td { border-bottom-width: .25pt; }
   tfoot td { border-top-width: .6pt; }
   .layout { display: block; max-width: none; padding: 0; }
   .outline, .skip { display: none; }
   h1, h2, h3, h4 { break-after: avoid; }
-  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
   p, li { orphans: 3; widows: 3; }
   thead { display: table-header-group; }
   tr { break-inside: avoid; }
@@ -202,129 +254,39 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
   *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
-/* Document-specific diagrams and reading controls. */
-body { overflow-wrap: break-word; }
-.layout { max-width: 1120px; grid-template-columns: 216px minmax(0, 760px); gap: 48px; }
-.outline { scrollbar-width: thin; }
-.outline .label { font-size:12px; letter-spacing:0; }
-.outline details > ul > li { margin-bottom:9px; }
-.outline details > ul > li > a { font-weight:600; }
-.outline ul ul a { font-size:12px; }
-.eyebrow { letter-spacing:0; }
-.meta { margin-bottom:24px; }
-h1 { font-size:38px; letter-spacing:0; }
-h2,h3 { scroll-margin-top:24px; }
-th { letter-spacing:0; }
-.toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:26px; font-size:13px; color:var(--ink-3); }
-.toolbar { flex-wrap:wrap; }
-.toolbar > span { white-space:nowrap; }
-.toolbar button { white-space:nowrap; }
-.toolbar label { white-space:nowrap; display:flex; align-items:center; gap:8px; }
-select,button { font:inherit; border:1px solid var(--rule-2); color:var(--ink); background:var(--surface); border-radius:4px; padding:5px 9px; }
-.summary { padding:22px; margin-bottom:26px; border:0; background:var(--acc-wash); }
-.summary .label { letter-spacing:0; font-weight:600; color:var(--acc-ink); }
-.jump-links { display:flex; flex-wrap:wrap; gap:6px 18px; font-size:14px; margin-bottom:30px; }
-.fig-title { font-size:16px; font-weight:600; margin:0 0 16px; }
-.role-fig { border-block:1px solid var(--rule); padding:24px 0; }
-.role-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-.role-item { min-width:0; }
-.role-item svg { height:110px; }
-.role-item strong { display:block; margin:8px 0 3px; }
-.role-item p { font-size:14px; color:var(--ink-2); margin:0; }
-.role-item .mini { font-size:12px; color:var(--ink-3); margin-top:4px; }
-.robot-art { fill:none; stroke:var(--ink-2); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.robot-art .accent { stroke:var(--acc); }
-.robot-art .wash { fill:var(--acc-wash); }
-.robot-art .fill { fill:var(--acc); stroke:none; }
-.loop { display:grid; grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr); gap:12px; padding:22px; border:1px solid var(--rule); background:var(--surface); }
-.loop-step { padding:12px; border:1px solid var(--rule-2); min-width:0; }
-.loop-step b { font-size:15px; display:block; }
-.loop-step small { display:block; color:var(--ink-2); font-size:13px; }
-.loop-arrow { display:flex; align-items:center; justify-content:center; color:var(--acc); font-size:23px; }
-.loop-base { grid-column:1/-1; text-align:center; padding-top:10px; border-top:1px dashed var(--rule-2); font-size:13px; color:var(--ink-2); }
-.photo { padding:0; border:1px solid var(--rule); }
-.photo img { display:block; width:100%; height:auto; }
-.photo figcaption { padding:12px 16px; margin:0; }
-.photo .evidence-label { display:block; font-size:12px; color:var(--acc-ink); font-weight:600; margin-bottom:4px; }
-.bridge { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; border-block:1px solid var(--rule); padding:22px 0; }
-.bridge > div { min-width:0; }
-.bridge svg { height:120px; }
-.bridge strong { display:block; font-size:15px; margin:8px 0; }
-.bridge p { font-size:14px; color:var(--ink-2); margin:0; }
-.bridge small { display:block; color:var(--ink-3); font-size:12px; margin-top:8px; }
-.reading-note { font-size:14px; color:var(--ink-2); border-left:2px solid var(--acc); padding-left:16px; margin:24px 0; }
-.interactive { border:1px solid var(--rule); padding:22px; margin:24px 0; background:var(--surface); }
-.interactive label { display:block; font-size:14px; margin-bottom:6px; }
-.interactive input { width:100%; accent-color:var(--acc); }
-.control-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-.result { font-family:var(--font-mono); font-size:32px; line-height:1.3; color:var(--acc-ink); margin:18px 0 5px; }
-.result-note { font-size:13px; color:var(--ink-3); }
-.result-bar { height:9px; background:var(--mid); margin-top:10px; }
-.result-bar span { display:block; height:100%; background:var(--acc); width:81.8%; }
-.sources { padding-left:1.5em; }
-.sources li { padding:8px 0; border-bottom:1px solid var(--rule); }
-.sources a { overflow-wrap:anywhere; }
-.source-domain { display:block; color:var(--ink-3); font:12px var(--font-mono); margin-top:4px; }
-.review-note { font-size:14px; border:1px solid var(--rule); padding:16px; }
-.review-note p:last-child { margin:0; }
-sup a { padding:1px 3px; }
-.scroll-hint { font-size:12px; color:var(--ink-3); }
-@media (max-width:900px) {
-  .layout { grid-template-columns:1fr; gap:20px; padding:20px 20px 60px; max-width:800px; }
-  .outline { padding:10px 14px; }
-  h1 { font-size:32px; }
-  .toolbar { margin-bottom:18px; }
-}
-@media (max-width:560px) {
-  .layout { padding:16px 18px 48px; }
-  .role-grid,.bridge { grid-template-columns:1fr; gap:22px; }
-  .role-item { display:grid; grid-template-columns:94px minmax(0,1fr); gap:0 16px; align-items:center; }
-  .role-item svg { grid-row:1/4; height:auto; }
-  .role-item strong { margin:0 0 4px; }
-  .role-item p { font-size:14px; }
-  .bridge > div { display:grid; grid-template-columns:88px minmax(0,1fr); gap:0 14px; }
-  .bridge svg { grid-row:1/4; height:auto; }
-  .bridge strong { margin-top:0; }
-  .loop { padding:14px; gap:8px; grid-template-columns:1fr 22px 1fr; }
-  .loop-step { padding:9px; }
-  .loop-step b { font-size:14px; }
-  .loop-step small { font-size:12px; }
-  .summary { padding:18px; }
-  .control-grid { grid-template-columns:1fr; gap:14px; }
-  .interactive { padding:16px; }
-  .stack-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
-  .stack-table,.stack-table tbody { display:block; }
-  .stack-table tr { display:block; padding:12px 0; border-bottom:1px solid var(--rule-2); }
-  .stack-table td { display:block; border:0; padding:4px 0; font-size:14px; }
-  .stack-table td::before { content:attr(data-label); display:block; font-size:12px; color:var(--ink-3); margin-bottom:2px; }
-  .stack-table td:first-child { font-weight:600; color:var(--ink); }
-  .stack-table td:first-child::before { display:none; }
-  .stack-table caption { display:block; }
-  .tbl { margin-bottom:24px; }
-  pre { font-size:12px; }
-  .meta { font-size:12px; }
-  .lede { font-size:17px; }
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
 }
 @media print {
-  :root,:root[data-theme="dark"] { --acc:#176677; --acc-ink:#145564; }
-  .toolbar,.jump-links,.interactive .control-grid,.scroll-hint { display:none; }
-  .layout { display:block; max-width:none; padding:0; }
-  body { font-size:10pt; }
-  h1 { font-size:25pt; }
-  h2 { font-size:17pt; margin-top:24pt; }
-  .role-grid,.bridge { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .role-item,.bridge > div { display:block; }
-  .role-item svg,.bridge svg { height:70pt; }
-  table { font-size:9pt; break-inside:auto; }
-  .tbl { overflow:visible; }
-  figure { break-inside:avoid; }
-  .photo { max-width:145mm; margin-inline:auto; }
-  details > * { display:block !important; }
-  .sources a[href^="http"]::after { overflow-wrap:anywhere; font-size:8pt; }
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
 }
-</style>
-<meta content="index,follow" name="robots"/><link href="https://wlj.me/reading/agentic-robot-research/" rel="canonical"/></head>
-<body><a class="skip" href="#main">跳到正文</a><div class="layout"><nav aria-label="报告目录" class="outline"><p class="label">阅读目录</p><details open=""><summary>目录与章节跳转</summary><ul><li><a href="#section-1">研究结论</a></li><li><a href="#section-2">1. 定义与概念边界</a><ul><li><a href="#section-3">1.1 本文采用的工作定义</a></li><li><a href="#section-4">1.2 相邻概念的区别</a></li><li><a href="#section-5">1.3 传统机器人也可以具有自主性</a></li></ul></li><li><a href="#section-6">2. 它试图解决哪些问题</a><ul><li><a href="#section-7">2.1 一个完整例子：把杯子送到会议室</a></li></ul></li><li><a href="#architecture">3. 系统如何组成</a><ul><li><a href="#section-9">3.1 常见模块</a></li><li><a href="#section-10">3.2 各部分分别做什么</a></li><li><a href="#section-11">3.3 快慢系统如何配合</a></li></ul></li><li><a href="#section-12">4. 四条实现路线</a><ul><li><a href="#section-13">4.1 通用模型选择已有技能</a></li><li><a href="#section-14">4.2 VLA 直接生成动作</a></li><li><a href="#section-15">4.3 Agent 编写、测试和保存控制程序</a></li><li><a href="#section-16">4.4 通用模型更直接地参与动作控制</a></li><li><a href="#section-17">4.5 世界模型的作用</a></li><li><a href="#berkeley">4.6 伯克利课堂补充：代理开发与现场执行</a></li><li><a href="#section-19">4.7 从真实视频到仿真，再回到真机</a></li><li><a href="#section-20">4.8 课堂数字与论文结果的边界</a></li></ul></li><li><a href="#section-21">5. 能力如何训练出来</a><ul><li><a href="#section-22">5.1 数据提供不同种类的知识</a></li><li><a href="#section-23">5.2 模仿学习</a></li><li><a href="#section-24">5.3 强化学习和人工纠正</a></li><li><a href="#section-25">5.4 跨机器人训练</a></li><li><a href="#section-26">5.5 推理时适应不等于重新训练</a></li></ul></li><li><a href="#models">6. 御三家模型与世界模型的影响</a><ul><li><a href="#section-28">6.1 可以使用，但不必使用</a></li><li><a href="#section-29">6.2 通用模型升级能改善什么</a></li><li><a href="#section-30">6.3 接口可以降低集成成本</a></li><li><a href="#section-31">6.4 三家公司的实际作用</a></li><li><a href="#section-32">6.5 Google 的真机示例依赖什么</a></li><li><a href="#genie4">6.6 Genie 4 的已知能力与状态</a></li><li><a href="#section-34">6.7 世界模型如何帮助拿杯子</a></li><li><a href="#section-35">6.8 世界模型与物理仿真器的区别</a></li><li><a href="#section-36">6.9 对行业和产品的影响</a></li></ul></li><li><a href="#evidence">7. 截至 2026 年 10 月的代表性进展</a><ul><li><a href="#section-38">7.1 模型与系统进展</a></li><li><a href="#section-39">7.2 中国团队与开放数据</a></li><li><a href="#section-40">7.3 三组较有解释力的证据</a></li><li><a href="#section-44">7.4 这些证据合起来说明什么</a></li></ul></li><li><a href="#section-45">8. 仍然面临的技术问题</a><ul><li><a href="#section-46">8.1 对环境变化的脆弱性</a></li><li><a href="#section-47">8.2 空间状态和记忆</a></li><li><a href="#reliability">8.3 任务越长，成功条件越多</a></li><li><a href="#section-49">8.4 接触操作与可变形物体</a></li><li><a href="#section-50">8.5 识别成功本身很难</a></li><li><a href="#section-51">8.6 推理延迟和观察过期</a></li><li><a href="#section-52">8.7 数据规模与数据价值不同</a></li><li><a href="#section-53">8.8 硬件寿命与运维</a></li><li><a href="#section-54">8.9 安全与权限</a></li><li><a href="#section-55">8.10 用三类误差定位抓取失败</a></li></ul></li><li><a href="#evaluation">9. 如何评价“已经能用了”</a><ul><li><a href="#section-57">9.1 将证据分成不同层级</a></li><li><a href="#section-58">9.2 必须知道的测试条件</a></li><li><a href="#section-59">9.3 更接近商业使用的指标</a></li></ul></li><li><a href="#section-60">10. 商业价值如何判断</a><ul><li><a href="#section-61">10.1 应比较具体任务的成本</a></li><li><a href="#section-62">10.2 哪些任务更可能先产生价值</a></li><li><a href="#section-63">10.3 人形是否必要</a></li></ul></li><li><a href="#section-64">11. 未来进展应观察什么</a><ul><li><a href="#section-65">11.1 每个新任务需要多少新数据</a></li><li><a href="#section-66">11.2 干预频率是否持续下降</a></li><li><a href="#section-67">11.3 学习能否保留并安全复用</a></li><li><a href="#section-68">11.4 模型服务能否减少现场工程</a></li><li><a href="#section-69">11.5 评测是否计入真实时间和损失</a></li></ul></li><li><a href="#section-70">12. 研究方法与证据限制</a></li><li><a href="#section-71">13. 重点阅读资料</a></li><li><a href="#methods-sources">方法与来源</a></li></ul></details></nav><main id="main"><div class="toolbar"><a href="/reading/">返回阅读资料</a><label for="theme">主题<select id="theme"><option value="system">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select></label><button id="print" type="button">打印</button></div><header><p class="eyebrow">ROBOTICS RESEARCH / 2026-10-28</p><h1>Agentic robot</h1><p class="lede">从自主决策到物理执行。定义、技术路线、部署证据，以及三家模型与世界模型的影响。</p><p class="meta">资料截至 2026 年 10 月 28 日<br/>结合 10 月 22 日伯克利课堂笔记；含世界模型分析。<br/>46 个来源链接。</p></header><div class="summary"><p class="label">核心判断</p><p>代理既可参与现场决策，也可在部署前编写和测试程序。伯克利课堂补充了后一条路线：仿真改进程序，真机失败反过来修正仿真。Genie 4 生成场景的真机收益仍需单独验证。<sup><a aria-label="来源 30" href="#src-30">[30]</a></sup></p></div><div class="jump-links"><a href="#berkeley">伯克利课堂补充</a><a href="#models">三家模型的影响</a><a href="#genie4">Genie 4</a><a href="#architecture">系统如何工作</a><a href="#evidence">部署证据</a></div><figure class="role-fig"><p class="fig-title">三种模型，三种不同的输出</p><div class="role-grid"><div class="role-item"><svg aria-label="推理模型选择步骤的示意图" class="robot-art" role="img" viewbox="0 0 220 125"><rect class="wash" height="83" rx="8" width="166" x="27" y="18"></rect><path d="M49 40h75m-75 18h110m-110 18h62"></path><circle class="accent" cx="159" cy="42" r="12"></circle><path class="accent" d="m154 42 4 4 7-9"></path><path d="M76 102v9h67v-9"></path></svg><strong>推理模型</strong><p>选择步骤、调用技能、检查结果。</p><p class="mini">输出：计划与工具调用</p></div><div class="role-item"><svg aria-label="机械臂根据动作移动夹爪的示意图" class="robot-art" role="img" viewbox="0 0 220 125"><path d="M21 109h180M38 107V92h35v15"></path><path class="wash" d="m48 90 30-50 13 8-31 45z"></path><circle cx="84" cy="42" r="12"></circle><path class="wash" d="m94 37 47 24-7 14-45-23z"></path><circle cx="140" cy="69" r="9"></circle><path d="m146 75 11 11m-8 6 8-6 10 6m-18 0v9m18-9v9"></path><path class="accent" d="M175 88h18v19h-18zm18 3h7v9h-7"></path><path class="accent" d="M162 58q29-18 34 14" stroke-dasharray="3 4"></path><path class="accent" d="m190 67 6 5 3-7"></path></svg><strong>动作模型</strong><p>将观测与指令转换成动作。</p><p class="mini">输出：机器人动作</p></div><div class="role-item"><svg aria-label="世界模型生成环境变化的示意图" class="robot-art" role="img" viewbox="0 0 220 125"><rect height="95" rx="7" width="170" x="25" y="14"></rect><path class="accent" d="m25 87 42-35 42 33 34-44 52 46"></path><path d="M25 87h170M65 87l-18 22m62-22v22m44-22 18 22"></path><circle class="wash" cx="161" cy="35" r="10"></circle><path d="M51 35h39m-8-6 8 6-8 6" stroke-dasharray="3 4"></path></svg><strong>世界模型</strong><p>预测或生成环境的后续变化。</p><p class="mini">输出：未来状态或观测</p></div></div><figcaption>功能示意。一个系统可以组合多种模型；图示不构成性能排名。</figcaption></figure>
+</style></head>
+<body data-reading-version="1"><a class="skip" href="#main">跳到正文</a><div class="layout"><nav aria-label="报告目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#section-1">研究结论</a></li><li><a href="#section-2">1. 定义与概念边界</a></li><li class="outline-sub"><a href="#section-3">1.1 本文采用的工作定义</a></li><li class="outline-sub"><a href="#section-4">1.2 相邻概念的区别</a></li><li class="outline-sub"><a href="#section-5">1.3 传统机器人也可以具有自主性</a></li><li><a href="#section-6">2. 它试图解决哪些问题</a></li><li class="outline-sub"><a href="#section-7">2.1 一个完整例子：把杯子送到会议室</a></li><li><a href="#architecture">3. 系统如何组成</a></li><li class="outline-sub"><a href="#section-9">3.1 常见模块</a></li><li class="outline-sub"><a href="#section-10">3.2 各部分分别做什么</a></li><li class="outline-sub"><a href="#section-11">3.3 快慢系统如何配合</a></li><li><a href="#section-12">4. 四条实现路线</a></li><li class="outline-sub"><a href="#section-13">4.1 通用模型选择已有技能</a></li><li class="outline-sub"><a href="#section-14">4.2 VLA 直接生成动作</a></li><li class="outline-sub"><a href="#section-15">4.3 Agent 编写、测试和保存控制程序</a></li><li class="outline-sub"><a href="#section-16">4.4 通用模型更直接地参与动作控制</a></li><li class="outline-sub"><a href="#section-17">4.5 世界模型的作用</a></li><li class="outline-sub"><a href="#berkeley">4.6 伯克利课堂补充：代理开发与现场执行</a></li><li class="outline-sub"><a href="#section-19">4.7 从真实视频到仿真，再回到真机</a></li><li class="outline-sub"><a href="#section-20">4.8 课堂数字与论文结果的边界</a></li><li><a href="#section-21">5. 能力如何训练出来</a></li><li class="outline-sub"><a href="#section-22">5.1 数据提供不同种类的知识</a></li><li class="outline-sub"><a href="#section-23">5.2 模仿学习</a></li><li class="outline-sub"><a href="#section-24">5.3 强化学习和人工纠正</a></li><li class="outline-sub"><a href="#section-25">5.4 跨机器人训练</a></li><li class="outline-sub"><a href="#section-26">5.5 推理时适应不等于重新训练</a></li><li><a href="#models">6. 御三家模型与世界模型的影响</a></li><li class="outline-sub"><a href="#section-28">6.1 可以使用，但不必使用</a></li><li class="outline-sub"><a href="#section-29">6.2 通用模型升级能改善什么</a></li><li class="outline-sub"><a href="#section-30">6.3 接口可以降低集成成本</a></li><li class="outline-sub"><a href="#section-31">6.4 三家公司的实际作用</a></li><li class="outline-sub"><a href="#section-32">6.5 Google 的真机示例依赖什么</a></li><li class="outline-sub"><a href="#genie4">6.6 Genie 4 的已知能力与状态</a></li><li class="outline-sub"><a href="#section-34">6.7 世界模型如何帮助拿杯子</a></li><li class="outline-sub"><a href="#section-35">6.8 世界模型与物理仿真器的区别</a></li><li class="outline-sub"><a href="#section-36">6.9 对行业和产品的影响</a></li><li><a href="#evidence">7. 截至 2026 年 10 月的代表性进展</a></li><li class="outline-sub"><a href="#section-38">7.1 模型与系统进展</a></li><li class="outline-sub"><a href="#section-39">7.2 中国团队与开放数据</a></li><li class="outline-sub"><a href="#section-40">7.3 三组较有解释力的证据</a></li><li class="outline-sub"><a href="#section-44">7.4 这些证据合起来说明什么</a></li><li><a href="#section-45">8. 仍然面临的技术问题</a></li><li class="outline-sub"><a href="#section-46">8.1 对环境变化的脆弱性</a></li><li class="outline-sub"><a href="#section-47">8.2 空间状态和记忆</a></li><li class="outline-sub"><a href="#reliability">8.3 任务越长，成功条件越多</a></li><li class="outline-sub"><a href="#section-49">8.4 接触操作与可变形物体</a></li><li class="outline-sub"><a href="#section-50">8.5 识别成功本身很难</a></li><li class="outline-sub"><a href="#section-51">8.6 推理延迟和观察过期</a></li><li class="outline-sub"><a href="#section-52">8.7 数据规模与数据价值不同</a></li><li class="outline-sub"><a href="#section-53">8.8 硬件寿命与运维</a></li><li class="outline-sub"><a href="#section-54">8.9 安全与权限</a></li><li class="outline-sub"><a href="#section-55">8.10 用三类误差定位抓取失败</a></li><li><a href="#evaluation">9. 如何评价“已经能用了”</a></li><li class="outline-sub"><a href="#section-57">9.1 将证据分成不同层级</a></li><li class="outline-sub"><a href="#section-58">9.2 必须知道的测试条件</a></li><li class="outline-sub"><a href="#section-59">9.3 更接近商业使用的指标</a></li><li><a href="#section-60">10. 商业价值如何判断</a></li><li class="outline-sub"><a href="#section-61">10.1 应比较具体任务的成本</a></li><li class="outline-sub"><a href="#section-62">10.2 哪些任务更可能先产生价值</a></li><li class="outline-sub"><a href="#section-63">10.3 人形是否必要</a></li><li><a href="#section-64">11. 未来进展应观察什么</a></li><li class="outline-sub"><a href="#section-65">11.1 每个新任务需要多少新数据</a></li><li class="outline-sub"><a href="#section-66">11.2 干预频率是否持续下降</a></li><li class="outline-sub"><a href="#section-67">11.3 学习能否保留并安全复用</a></li><li class="outline-sub"><a href="#section-68">11.4 模型服务能否减少现场工程</a></li><li class="outline-sub"><a href="#section-69">11.5 评测是否计入真实时间和损失</a></li><li><a href="#section-70">12. 研究方法与证据限制</a></li><li><a href="#section-71">13. 重点阅读资料</a></li><li><a href="#methods-sources">方法与来源</a></li></ul></details></nav><main id="main"><div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div><div class="toolbar"><button id="print" type="button">打印</button></div><header><p class="eyebrow">ROBOTICS RESEARCH / 2026-10-28</p><h1>Agentic robot</h1><p class="lede">从自主决策到物理执行。定义、技术路线、部署证据，以及三家模型与世界模型的影响。</p><p class="meta">资料截至 2026 年 10 月 28 日<br/>结合 10 月 22 日伯克利课堂笔记；含世界模型分析。<br/>46 个来源链接。</p></header><div class="summary"><p class="label">核心判断</p><p>代理既可参与现场决策，也可在部署前编写和测试程序。伯克利课堂补充了后一条路线：仿真改进程序，真机失败反过来修正仿真。Genie 4 生成场景的真机收益仍需单独验证。<sup><a aria-label="来源 30" href="#src-30">[30]</a></sup></p></div><div class="jump-links"><a href="#berkeley">伯克利课堂补充</a><a href="#models">三家模型的影响</a><a href="#genie4">Genie 4</a><a href="#architecture">系统如何工作</a><a href="#evidence">部署证据</a></div><figure class="role-fig"><p class="fig-title">三种模型，三种不同的输出</p><div class="role-grid"><div class="role-item"><svg aria-label="推理模型选择步骤的示意图" class="robot-art" role="img" viewbox="0 0 220 125"><rect class="wash" height="83" rx="8" width="166" x="27" y="18"></rect><path d="M49 40h75m-75 18h110m-110 18h62"></path><circle class="accent" cx="159" cy="42" r="12"></circle><path class="accent" d="m154 42 4 4 7-9"></path><path d="M76 102v9h67v-9"></path></svg><strong>推理模型</strong><p>选择步骤、调用技能、检查结果。</p><p class="mini">输出：计划与工具调用</p></div><div class="role-item"><svg aria-label="机械臂根据动作移动夹爪的示意图" class="robot-art" role="img" viewbox="0 0 220 125"><path d="M21 109h180M38 107V92h35v15"></path><path class="wash" d="m48 90 30-50 13 8-31 45z"></path><circle cx="84" cy="42" r="12"></circle><path class="wash" d="m94 37 47 24-7 14-45-23z"></path><circle cx="140" cy="69" r="9"></circle><path d="m146 75 11 11m-8 6 8-6 10 6m-18 0v9m18-9v9"></path><path class="accent" d="M175 88h18v19h-18zm18 3h7v9h-7"></path><path class="accent" d="M162 58q29-18 34 14" stroke-dasharray="3 4"></path><path class="accent" d="m190 67 6 5 3-7"></path></svg><strong>动作模型</strong><p>将观测与指令转换成动作。</p><p class="mini">输出：机器人动作</p></div><div class="role-item"><svg aria-label="世界模型生成环境变化的示意图" class="robot-art" role="img" viewbox="0 0 220 125"><rect height="95" rx="7" width="170" x="25" y="14"></rect><path class="accent" d="m25 87 42-35 42 33 34-44 52 46"></path><path d="M25 87h170M65 87l-18 22m62-22v22m44-22 18 22"></path><circle class="wash" cx="161" cy="35" r="10"></circle><path d="M51 35h39m-8-6 8 6-8 6" stroke-dasharray="3 4"></path></svg><strong>世界模型</strong><p>预测或生成环境的后续变化。</p><p class="mini">输出：未来状态或观测</p></div></div><figcaption>功能示意。一个系统可以组合多种模型；图示不构成性能排名。</figcaption></figure>
 <p>本文研究能自主选择行动的机器人。
 重点包括移动、抓取和多步骤任务。
 工业机械臂、轮式机器人和人形机器人都在范围内。
@@ -1894,7 +1856,7 @@ HTML 版新增图示、来源目录和可靠性计算器。</p>
   syncOutline();
   narrow.addEventListener('change', syncOutline);
   document.querySelectorAll('.outline a').forEach(a => a.addEventListener('click', () => { if (narrow.matches) details.open = false; }));
-  const theme = document.getElementById('theme');
+  const theme = document.getElementById('reading-theme');
   theme.addEventListener('change', () => {
     if (theme.value === 'system') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.dataset.theme = theme.value;
@@ -1916,6 +1878,43 @@ HTML 版新增图示、来源目录和可靠性计算器。</p>
       if (entry.isIntersecting) links.forEach(a => a.classList.toggle('active', a.hash === '#' + entry.target.id));
     }), { rootMargin:'0px 0px -70% 0px' });
     document.querySelectorAll('h2,h3').forEach(h => observer.observe(h));
+  }
+})();
+</script><script id="reading-script">// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
   }
 })();
 </script></body>

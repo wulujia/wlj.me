@@ -1,62 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Mac 入侵日志采集与排查</title>
-<meta name="description" content="企业 Mac 的集中日志采集指南：事件优先级、采集工具、日志保护，以及疑似受入侵设备的检查文件。">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://wlj.me/reading/mac-intrusion-logging-2026-10/">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
-<style>
-/* ---------- tokens ---------- */
-:root {
+<meta content="企业 Mac 的集中日志采集指南：事件优先级、采集工具、日志保护，以及疑似受入侵设备的检查文件。" name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://wlj.me/reading/mac-intrusion-logging-2026-10/" rel="canonical"/>
+
+<style>.summary ul{margin: 0;}
+.summary li:last-child{margin: 0;}
+td code, th code{font-size: .86em;}
+.pill.p0{background: var(--bad-wash);color: var(--bad);box-shadow: inset 0 0 0 1px var(--bad);}
+.pill.p1{background: var(--warn-wash);color: var(--warn);box-shadow: inset 0 0 0 1px var(--warn);}
+.steps{padding-left: 1.6em;}
+.steps li{margin-bottom: .6em;}</style>
+<style id="reading-style">:root {
   color-scheme: light;
-  /* Accent: the slate blue of a selected row in macOS Console. Neutrals lean slightly cool toward it. */
-  --bg: #f6f7f8;
+  --bg: #f5f8f7;
   --surface: #ffffff;
-  --ink: #1a1d21;
-  --ink-2: #474e57;
-  --ink-3: #636d78;
-  --rule: #dadee3;
-  --rule-2: #b6bdc6;
-  --mid: #eaedf0;
-  --acc: #3d5a80;
-  --acc-ink: #2f4868;
-  --acc-wash: rgba(61, 90, 128, .09);
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
   --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
-  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #15181b; --surface: #1d2125; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #939ca6;
-    --rule: #2c3237; --rule-2: #454d55; --mid: #23282d;
-    --acc: #8eaad0; --acc-ink: #aec4e2; --acc-wash: rgba(142,170,208,.14);
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #15181b; --surface: #1d2125; --ink: #eceef0; --ink-2: #bfc5cc; --ink-3: #939ca6;
-  --rule: #2c3237; --rule-2: #454d55; --mid: #23282d;
-  --acc: #8eaad0; --acc-ink: #aec4e2; --acc-wash: rgba(142,170,208,.14);
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
 
-/* ---------- base ---------- */
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
-  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
-  font-kerning: normal; -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
 }
 a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
@@ -64,21 +65,22 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-/* ---------- layout ---------- */
-.layout { display: grid; grid-template-columns: 220px minmax(0, 760px); gap: 56px; max-width: 1080px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
 main { min-width: 0; }
-.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.5; }
-.outline .label { font-size: 11px; letter-spacing: 0; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
 .outline ul { list-style: none; margin: 0; padding: 0; }
-.outline > details > ul > li { margin: 0 0 7px; }
-.outline > details > ul > li > a { font-weight: 600; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
 .outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
 .outline ul ul li { margin: 0 0 2px; }
 .outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
 .outline a:hover { color: var(--ink); }
 .outline a.active { color: var(--acc-ink); }
 .outline summary { display: none; }
-@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
   .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
@@ -87,136 +89,139 @@ main { min-width: 0; }
   .outline details:not([open]) ul { display: none; }
 }
 
-/* ---------- header ---------- */
-.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
-h1 { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 1.2; letter-spacing: 0; margin: 0 0 16px; text-wrap: balance; }
-.lede { font-size: 19px; line-height: 1.55; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
 .meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
 .meta span + span::before { content: "·"; margin: 0 8px; }
 
-/* ---------- prose ---------- */
-h2 { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.3; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
-h3 { font-size: 18px; font-weight: 600; margin: 32px 0 10px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
 p, li { text-wrap: pretty; }
 p { margin: 0 0 1em; }
 ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
 li { margin: 0 0 .35em; }
 strong { font-weight: 600; }
-code { font-family: var(--font-mono); font-size: .84em; background: var(--mid); padding: 1px 5px; border-radius: 3px; overflow-wrap: anywhere; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
 pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
-pre code { background: none; padding: 0; font-size: inherit; overflow-wrap: normal; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
 
-/* ---------- summary ---------- */
 .summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
-.summary .label { font-size: 12px; letter-spacing: 0; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
-.summary ul { margin: 0; }
-.summary li:last-child { margin: 0; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
 
-/* ---------- callouts ---------- */
-.note, .warn, .decision { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
 .note { border-color: var(--acc); }
 .warn { border-color: var(--warn); background: var(--warn-wash); }
 .decision { border-color: var(--good); background: var(--good-wash); }
-.note b:first-child, .warn b:first-child, .decision b:first-child { margin-right: .5em; }
-.note p:last-child, .warn p:last-child, .decision p:last-child { margin: 0; }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
 
-/* ---------- tables ---------- */
 .tbl { overflow-x: auto; margin: 0 0 1.4em; }
-table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.5; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
 caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
-th { font-size: 12.5px; letter-spacing: 0; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
 th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
-td code, th code { font-size: .86em; }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
 
-/* ---------- pills: priority levels ---------- */
-.pill { display: inline-block; font-family: var(--font-mono); font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 7px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); white-space: nowrap; }
-.pill.p0 { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
-.pill.p1 { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
 
-/* ---------- report outline ---------- */
-.steps { padding-left: 1.6em; }
-.steps li { margin-bottom: .6em; }
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
 
-/* ---------- sources ---------- */
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
 .sources { font-size: 14px; color: var(--ink-2); }
 .sources li { margin: 0 0 .5em; word-break: break-word; }
 sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 
-/* ---------- print ---------- */
-@page { size: A4; margin: 20mm 20mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
 @media print {
   :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
-  html { font-size: 10.5pt; }
-  body { background: #fff; color: #000; line-height: 1.45; font-family: Georgia, "Times New Roman", serif; font-size: 10.5pt; }
-  table { font-size: 9pt; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
   th { border-bottom-width: .6pt; }
   td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
   .layout { display: block; max-width: none; padding: 0; }
   .outline, .skip { display: none; }
-  h1, h2, h3 { break-after: avoid; }
-  pre, .note, .warn, .decision, .summary { break-inside: avoid; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
   p, li { orphans: 3; widows: 3; }
   thead { display: table-header-group; }
   tr { break-inside: avoid; }
   a { color: #000; }
-  .sources a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
   *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
-</style>
-</head>
-<body>
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style></head>
+<body data-reading-version="1">
 <a class="skip" href="#main">跳到正文</a>
 <div class="layout">
-
-<nav class="outline" aria-label="目录">
-  <p class="label">目录</p>
-  <details open>
-    <summary>目录</summary>
-    <ul>
-      <li><a href="#forward">将 Mac 日志发送到服务器</a>
-        <ul>
-          <li><a href="#forward-limit">统一日志的限制</a></li>
-          <li><a href="#forward-setups">三种采集方式</a></li>
-          <li><a href="#forward-mdm">MDM 部署工作</a></li>
-          <li><a href="#forward-risks">隐私、法律与数据量</a></li>
-        </ul>
-      </li>
-      <li><a href="#collect">需要采集的事件</a>
-        <ul>
-          <li><a href="#collect-source">主要来源：Endpoint Security</a></li>
-          <li><a href="#collect-priority">采集优先级</a></li>
-          <li><a href="#collect-snapshot">每日状态快照</a></li>
-          <li><a href="#collect-protect">保护日志</a></li>
-          <li><a href="#collect-skip">无需完整采集的内容</a></li>
-        </ul>
-      </li>
-      <li><a href="#priority">优先级的依据</a>
-        <ul>
-          <li><a href="#priority-agree">参考指南的共同重点</a></li>
-          <li><a href="#priority-changes">针对当前威胁的两项调整</a></li>
-        </ul>
-      </li>
-      <li><a href="#tools">工具选择</a>
-        <ul>
-          <li><a href="#tools-continuous">持续采集</a></li>
-          <li><a href="#tools-onetime">单次排查</a></li>
-        </ul>
-      </li>
-      <li><a href="#files">疑似受入侵 Mac 的检查文件</a>
-        <ul>
-          <li><a href="#files-before">检查前的准备</a></li>
-          <li><a href="#files-tier1">第一层：每次都检查</a></li>
-          <li><a href="#files-tier2">第二层：发现线索后继续检查</a></li>
-        </ul>
-      </li>
-      <li><a href="#report">向用户展示排查结果</a></li>
-      <li><a href="#method">方法与来源</a></li>
-    </ul>
-  </details>
-</nav>
-
-<main id="main">
+<nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#forward">将 Mac 日志发送到服务器</a></li><li class="outline-sub"><a href="#forward-limit">统一日志的限制</a></li><li class="outline-sub"><a href="#forward-setups">三种采集方式</a></li><li class="outline-sub"><a href="#forward-mdm">MDM 部署工作</a></li><li class="outline-sub"><a href="#forward-risks">隐私、法律与数据量</a></li><li><a href="#collect">需要采集的事件</a></li><li class="outline-sub"><a href="#collect-source">主要来源：Endpoint Security</a></li><li class="outline-sub"><a href="#collect-priority">采集优先级</a></li><li class="outline-sub"><a href="#collect-snapshot">每日状态快照</a></li><li class="outline-sub"><a href="#collect-protect">保护日志</a></li><li class="outline-sub"><a href="#collect-skip">无需完整采集的内容</a></li><li><a href="#priority">优先级的依据</a></li><li class="outline-sub"><a href="#priority-agree">参考指南的共同重点</a></li><li class="outline-sub"><a href="#priority-changes">针对当前威胁的两项调整</a></li><li><a href="#tools">工具选择</a></li><li class="outline-sub"><a href="#tools-continuous">持续采集</a></li><li class="outline-sub"><a href="#tools-onetime">单次排查</a></li><li><a href="#files">疑似受入侵 Mac 的检查文件</a></li><li class="outline-sub"><a href="#files-before">检查前的准备</a></li><li class="outline-sub"><a href="#files-tier1">第一层：每次都检查</a></li><li class="outline-sub"><a href="#files-tier2">第二层：发现线索后继续检查</a></li><li><a href="#report">向用户展示排查结果</a></li><li><a href="#method">方法与来源</a></li></ul></details></nav>
+<main id="main"><div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
 <header>
 <p class="eyebrow">指南 · 2026-10-11</p>
 <h1>Mac 入侵日志采集与排查</h1>
@@ -390,51 +395,58 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <h2 id="method">方法与来源</h2>
 <p>本文整理自 2026-10-09 至 2026-10-11 的企业 Mac 日志讨论。本文没有在真实设备群上测试。事件名称和 macOS 版本限制按 2026 年中 Apple Endpoint Security 文档整理。部署前，请按设备版本核对。</p>
 <p>保留 90 天是原讨论采用的常见做法，无法律强制含义。原文称信息窃取程序是最常见的 Mac 威胁。该判断参考 2025 至 2026 年公开厂商报告，但原文未列出单一报告。因此，本文保留这一来源限制，不将该判断作为已验证的统计结论。</p>
-  <ol class="sources">
-    <li id="src-es">Apple Developer, Endpoint Security 框架, <a href="https://developer.apple.com/documentation/endpointsecurity" target="_blank" rel="noopener">developer.apple.com/documentation/endpointsecurity</a></li>
-    <li id="src-mitre">MITRE ATT&amp;CK, macOS 矩阵, <a href="https://attack.mitre.org/matrices/enterprise/macos/" target="_blank" rel="noopener">attack.mitre.org/matrices/enterprise/macos</a></li>
-    <li id="src-asd">ASD's ACSC, CISA, FBI, NSA and partners, 事件日志与威胁检测最佳实践, 2024-08-21, <a href="https://www.cisa.gov/resources-tools/resources/best-practices-event-logging-and-threat-detection" target="_blank" rel="noopener">cisa.gov</a>; 新加坡 CSA 安全通告 AD-2024-016, <a href="https://www.csa.gov.sg/alerts-and-advisories/advisories/ad-2024-016/" target="_blank" rel="noopener">csa.gov.sg</a></li>
-    <li id="src-aftermath">Jamf, Aftermath, <a href="https://github.com/jamf/aftermath" target="_blank" rel="noopener">github.com/jamf/aftermath</a></li>
-    <li id="src-osquery">osquery, <a href="https://osquery.io" target="_blank" rel="noopener">osquery.io</a>; Fleet, <a href="https://fleetdm.com" target="_blank" rel="noopener">fleetdm.com</a></li>
-    <li id="src-santa">North Pole Security, Santa, <a href="https://github.com/northpolesec/santa" target="_blank" rel="noopener">github.com/northpolesec/santa</a></li>
-    <li id="src-velo">Velociraptor 文档, <a href="https://docs.velociraptor.app" target="_blank" rel="noopener">docs.velociraptor.app</a></li>
-    <li id="src-macapt">mac_apt, <a href="https://github.com/ydkhatri/mac_apt" target="_blank" rel="noopener">github.com/ydkhatri/mac_apt</a></li>
-    <li id="src-os">Objective-See，工具, <a href="https://objective-see.org/tools.html" target="_blank" rel="noopener">objective-see.org/tools.html</a></li>
-    <li id="src-pdpa">新加坡个人数据保护委员会, <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener">pdpc.gov.sg</a></li>
-  </ol>
-<p><a href="/reading/">返回阅读整理页</a></p>
+<ol class="sources">
+<li id="src-es">Apple Developer, Endpoint Security 框架, <a href="https://developer.apple.com/documentation/endpointsecurity" rel="noopener" target="_blank">developer.apple.com/documentation/endpointsecurity</a></li>
+<li id="src-mitre">MITRE ATT&amp;CK, macOS 矩阵, <a href="https://attack.mitre.org/matrices/enterprise/macos/" rel="noopener" target="_blank">attack.mitre.org/matrices/enterprise/macos</a></li>
+<li id="src-asd">ASD's ACSC, CISA, FBI, NSA and partners, 事件日志与威胁检测最佳实践, 2024-08-21, <a href="https://www.cisa.gov/resources-tools/resources/best-practices-event-logging-and-threat-detection" rel="noopener" target="_blank">cisa.gov</a>; 新加坡 CSA 安全通告 AD-2024-016, <a href="https://www.csa.gov.sg/alerts-and-advisories/advisories/ad-2024-016/" rel="noopener" target="_blank">csa.gov.sg</a></li>
+<li id="src-aftermath">Jamf, Aftermath, <a href="https://github.com/jamf/aftermath" rel="noopener" target="_blank">github.com/jamf/aftermath</a></li>
+<li id="src-osquery">osquery, <a href="https://osquery.io" rel="noopener" target="_blank">osquery.io</a>; Fleet, <a href="https://fleetdm.com" rel="noopener" target="_blank">fleetdm.com</a></li>
+<li id="src-santa">North Pole Security, Santa, <a href="https://github.com/northpolesec/santa" rel="noopener" target="_blank">github.com/northpolesec/santa</a></li>
+<li id="src-velo">Velociraptor 文档, <a href="https://docs.velociraptor.app" rel="noopener" target="_blank">docs.velociraptor.app</a></li>
+<li id="src-macapt">mac_apt, <a href="https://github.com/ydkhatri/mac_apt" rel="noopener" target="_blank">github.com/ydkhatri/mac_apt</a></li>
+<li id="src-os">Objective-See，工具, <a href="https://objective-see.org/tools.html" rel="noopener" target="_blank">objective-see.org/tools.html</a></li>
+<li id="src-pdpa">新加坡个人数据保护委员会, <a href="https://www.pdpc.gov.sg" rel="noopener" target="_blank">pdpc.gov.sg</a></li>
+</ol>
+
 </main>
 </div>
 
-<script>
-// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+<script id="reading-script">// The complete document remains visible without JavaScript.
 (function () {
-  var det = document.querySelector('.outline details');
-  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
-  function syncOutlineOpen() {
-    if (!det || !mq) return;
-    if (mq.matches) det.removeAttribute('open');
-    else det.setAttribute('open', '');
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
   }
-  syncOutlineOpen();
-  if (mq) {
-    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
-    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
   }
-  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
-  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
-  if (!('IntersectionObserver' in window) || !targets.length) return;
-  var current = null;
-  function set(id) {
-    if (current === id) return;
-    current = id;
-    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
   }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
-  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
-  targets.forEach(function (t) { io.observe(t); });
 })();
-</script>
-</body>
+</script></body>
 </html>

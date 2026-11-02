@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
-<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>斯坦福与伯克利｜大学对比研究</title><style>
-/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
-:root {
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>斯坦福与伯克利｜大学对比研究</title><style>.theme-control{display:flex;align-items:center;gap:10px;margin:0 0 22px;font-size:13px;color:var(--ink-3);}
+select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule-2);border-radius:3px;padding:6px 8px;}
+.ref{white-space:nowrap;font-size:12px;}
+.section-note{font-size:14px;color:var(--ink-2);}
+.compare{table-layout:fixed;}
+.compare th:first-child{width:22%;}
+.compare td{width:39%;}
+.compare th, .compare td{padding:12px 14px 12px 0;overflow-wrap:anywhere;}
+.compare thead th:nth-child(2){color:var(--acc-ink);}
+.back-top{font-size:13px;margin-top:32px;}
+@media (max-width:600px) {.compare, .compare tbody{display:block;}
+.compare caption{display:block;width:100%;text-align:left;}
+.compare thead{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);}
+.compare tr{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;padding:12px 0;border-bottom:1px solid var(--rule);}
+.compare th[scope="row"]{grid-column:1/-1;width:auto;border:0;padding:0 0 7px;}
+.compare td{width:auto;padding:0;border:0;font-size:14px;}
+.compare td::before{content:attr(data-school);display:block;font-size:12px;color:var(--ink-3);margin-bottom:4px;}
+.compare td.num{text-align:left;}}
+@media (max-width:360px) {.compare tr{grid-template-columns:1fr;gap:10px;}
+.compare th[scope="row"]{padding-bottom:0;}}
+@media  print {.theme-control, .back-top{display:none;}}</style><meta content="比较斯坦福与伯克利的本科教学、科研、教授、创业、资金、住房和治安。用同年班级与安全数据，说明两校优势及费用如何改变选择。" name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://wlj.me/reading/stanford-berkeley/" rel="canonical"/>
+<style id="reading-style">:root {
   color-scheme: light;
-  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
-  --bg: #f7f7f8;
+  --bg: #f5f8f7;
   --surface: #ffffff;
-  --ink: #242226;
-  --ink-2: #514d54;
-  --ink-3: #625e65;          /* >= 4.5:1 on --bg, safe down to 12px */
-  --rule: #dcdfe2;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
   --rule-2: #b9bfc5;
   --mid: #eceef0;
-  --acc: #820000;            /* 主题色：按题目换 */
-  --acc-ink: #720000;        /* accent dark enough for text */
-  --acc-wash: rgba(130, 0, 0, .06);
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
   --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
-  --font-display: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-display: var(--font-body);
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
 }
 @media (prefers-color-scheme: dark) {
@@ -28,7 +45,7 @@
     color-scheme: dark;
     --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
     --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #e5a5a5; --acc-ink: #efb7b7; --acc-wash: rgba(229,165,165,.10);
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
@@ -37,12 +54,11 @@
   color-scheme: dark;
   --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
   --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #e5a5a5; --acc-ink: #efb7b7; --acc-wash: rgba(229,165,165,.10);
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
 
-/* ---------- base ---------- */
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -57,8 +73,7 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-/* ---------- layout: outline + reading column ---------- */
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
@@ -71,7 +86,6 @@ main { min-width: 0; }
 .outline a:hover { color: var(--ink); }
 .outline a.active { color: var(--acc-ink); }
 .outline summary { display: none; }
-/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
 @media (min-width: 901px) {
   .outline details > ul { display: block !important; }
 }
@@ -83,14 +97,12 @@ main { min-width: 0; }
   .outline details:not([open]) ul { display: none; }
 }
 
-/* ---------- header ---------- */
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
 h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
 .lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
 .meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
 .meta span + span::before { content: "·"; margin: 0 8px; }
 
-/* ---------- prose ---------- */
 h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
 h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
 h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
@@ -99,7 +111,6 @@ p { margin: 0 0 1em; }
 ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
 li { margin: 0 0 .35em; }
 strong { font-weight: 600; }
-/* Quotes read by indent and tone alone; a side bar is decoration. */
 blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
 blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
 code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
@@ -109,12 +120,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .muted { color: var(--ink-3); }
 
-/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
 .summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
 .summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
 .summary p:last-child { margin: 0; }
 
-/* ---------- callouts: label is the icon; four kinds only ---------- */
 .note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
 .note { border-color: var(--acc); }
 .warn { border-color: var(--warn); background: var(--warn-wash); }
@@ -123,12 +132,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
 .note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
 
-/* ---------- tables ---------- */
 .tbl { overflow-x: auto; margin: 0 0 1.4em; }
 table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
 caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
-/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
 th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
 th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
 td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
@@ -136,58 +143,48 @@ tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 6
 .compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
 .compare td.pick { background: var(--acc-wash); }
 
-/* ---------- stat row: only when the numbers are the point ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
 .stats > div { background: var(--surface); padding: 12px 14px; }
 .stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
 .stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
 
-/* ---------- kv grid: label / value pairs that read as one object ---------- */
-/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
 .kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
 .kv dt { color: var(--ink-3); margin: 0; }
 .kv dd { margin: 0; overflow-wrap: anywhere; }
 
-/* ---------- timeline: only when order carries information ---------- */
 .timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
 .timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
 .timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
 .timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
 
-/* ---------- figure / chart ---------- */
 figure { margin: 1.6em 0; }
 figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
 figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
 figure details { font-size: 13.5px; margin-top: 6px; }
 figure summary { cursor: pointer; color: var(--ink-3); }
 
-/* ---------- pills / tags ---------- */
 .pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
 .pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
 .pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
 .pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
 
-/* ---------- sources ---------- */
 .sources { font-size: 14px; color: var(--ink-2); }
 .sources li { margin: 0 0 .5em; word-break: break-word; }
 sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 
-/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
-/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
 @page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
 @media print {
   :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
   html { font-size: 11pt; }
-  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
-  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
   th { border-bottom-width: .6pt; }
   td { border-bottom-width: .25pt; }
   tfoot td { border-top-width: .6pt; }
   .layout { display: block; max-width: none; padding: 0; }
   .outline, .skip { display: none; }
   h1, h2, h3, h4 { break-after: avoid; }
-  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
   p, li { orphans: 3; widows: 3; }
   thead { display: table-header-group; }
   tr { break-inside: avoid; }
@@ -196,63 +193,44 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
   *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
-/* Keep comparison rows readable on narrow screens. */
-.layout { max-width: 1180px; grid-template-columns: 208px minmax(0, 820px); gap: 48px; }
-.eyebrow, .summary .label, th { letter-spacing: 0; }
-.theme-control { display:flex; align-items:center; gap:10px; margin:0 0 22px; font-size:13px; color:var(--ink-3); }
-select { font:inherit; color:var(--ink); background:var(--surface); border:1px solid var(--rule-2); border-radius:3px; padding:6px 8px; }
-.meta { line-height:1.8; }
-.ref { white-space:nowrap; font-size:12px; }
-.section-note { font-size:14px; color:var(--ink-2); }
-.compare { table-layout:fixed; }
-.compare th:first-child { width:22%; }
-.compare td { width:39%; }
-.compare th, .compare td { padding:12px 14px 12px 0; overflow-wrap:anywhere; }
-.compare thead th:nth-child(2) { color:var(--acc-ink); }
-figure { border:1px solid var(--rule); padding:16px; }
-.back-top { font-size:13px; margin-top:32px; }
-@media(max-width:900px) { .layout { display:block; max-width:850px; padding:24px 20px 64px; } .outline { margin-bottom:30px; } }
-@media(max-width:600px) {
-  h1 { font-size:29px; } h2 { font-size:23px; margin-top:40px; } .lede { font-size:17px; }
-  .layout { padding:22px 16px 56px; } .summary { padding:16px; }
-  .compare, .compare tbody { display:block; }
-  .compare caption { display:block; width:100%; text-align:left; }
-  .compare thead { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); }
-  .compare tr { display:grid; grid-template-columns:1fr 1fr; gap:0 16px; padding:12px 0; border-bottom:1px solid var(--rule); }
-  .compare th[scope="row"] { grid-column:1/-1; width:auto; border:0; padding:0 0 7px; }
-  .compare td { width:auto; padding:0; border:0; font-size:14px; }
-  .compare td::before { content:attr(data-school); display:block; font-size:12px; color:var(--ink-3); margin-bottom:4px; }
-  .compare td.num { text-align:left; }
-  .tbl { margin-bottom:1.2em; }
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
 }
-@media(max-width:360px) { .compare tr { grid-template-columns:1fr; gap:10px; } .compare th[scope="row"] { padding-bottom:0; } }
-@media print { .theme-control, .back-top { display:none; } .tbl { overflow:visible; } table { break-inside:auto; } figure { border:0; padding:0; } }
-</style><meta name="description" content="比较斯坦福与伯克利的本科教学、科研、教授、创业、资金、住房和治安。用同年班级与安全数据，说明两校优势及费用如何改变选择。">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://wlj.me/reading/stanford-berkeley/">
-</head><body><a class="skip" href="#main">跳到正文</a>
-<div class="layout"><nav aria-label="目录" class="outline">
-<p class="label">阅读目录</p><details open=""><summary>展开目录</summary><ul>
-<li><a href="#overview">整体判断</a></li>
-<li><a href="#scale">学生规模与资源密度</a></li>
-<li><a href="#campus">校舍、建筑与校园环境</a></li>
-<li><a href="#housing">住宿与生活连续性</a></li>
-<li><a href="#teaching">教学、选课与专业自由</a></li>
-<li><a href="#subjects">学术水准与学科比较</a></li>
-<li><a href="#research">科研能力与研究机会</a></li>
-<li><a href="#faculty">教授水平与导师质量</a></li>
-<li><a href="#startup">创业生态与投资网络</a></li>
-<li><a href="#money">资金实力与资源分配</a></li>
-<li><a href="#cost">学费、生活费与国际生资助</a></li>
-<li><a href="#safety">治安、通勤与周边街区</a></li>
-<li><a href="#life">交通、文化与其他体验</a></li>
-<li><a href="#choice">按目标选择</a></li>
-<li><a href="#methods">方法与来源</a></li></ul></details></nav><main id="main"><header><p class="meta"><a href="/reading/">返回整理</a></p>
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style></head><body data-reading-version="1"><a class="skip" href="#main">跳到正文</a>
+<div class="layout"><nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#overview">整体判断</a></li><li><a href="#scale">学生规模与资源密度</a></li><li><a href="#campus">校舍、建筑与校园环境</a></li><li><a href="#housing">住宿与生活连续性</a></li><li><a href="#teaching">教学、选课与专业自由</a></li><li><a href="#subjects">学术水准与学科比较</a></li><li><a href="#research">科研能力与研究机会</a></li><li><a href="#faculty">教授水平与导师质量</a></li><li><a href="#startup">创业生态与投资网络</a></li><li><a href="#money">资金实力与资源分配</a></li><li><a href="#cost">学费、生活费与国际生资助</a></li><li><a href="#safety">治安、通勤与周边街区</a></li><li><a href="#life">交通、文化与其他体验</a></li><li><a href="#choice">按目标选择</a></li><li><a href="#methods">方法与来源</a></li></ul></details></nav><main id="main"><div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div><header>
 <p class="eyebrow">大学对比研究 · 修订于 2026 年 10 月 27 日</p><h1>斯坦福与伯克利</h1>
 <p class="lede">Stanford 的本科资源与生活条件更有优势。Berkeley 的价格、公共教育规模与具体研究机会，构成不同的选择理由。</p>
 <p class="meta">对象：Stanford University 与 University of California, Berkeley<br/>范围：本科体验、研究生选择及大学整体资源</p></header>
 <div class="summary"><p class="label">主要判断</p><p>本科净支出接近时，优先 Stanford：小班比例、连续住宿和资源密度都有证据支持。Berkeley 的主要优势是加州居民价格、城市便利性和公共教育规模。研究生应按具体导师与资助选择，校级资源差距不足以判定研究组高低。</p></div>
-<div class="theme-control"><label for="theme">阅读主题</label><select id="theme"><option value="system">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select>
+<div class="theme-control">
 </div>
 <section aria-labelledby="overview"><h2 id="overview">整体判断</h2><p><strong>如果比较整所大学，Stanford 的综合优势更大。</strong>它把较强的财力、较小的本科规模和连续住宿，放在同一套学生体验里。对于费用接近的本科录取，本报告优先选择 Stanford。这个判断来自资源和制度，不依赖校名。 </p><div class="tbl"><table class="compare"><caption>各维度的明确判断；细节与证据见后文</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">本科整体体验</th><td data-school="Stanford">占优：小班比例、住宿和探索专业的条件更好</td><td data-school="UC Berkeley">能提供顶尖学术训练，但学生承担更多安排成本</td></tr><tr><th scope="row">教授的研究水平</th><td data-school="Stanford">达到学术前沿，不能据财富判定全校教授更强</td><td data-school="UC Berkeley">达到学术前沿，不应因公立身份降低评价</td></tr><tr><th scope="row">科研投入</th><td data-school="Stanford">总额领先；拥有自己的医学院体系</td><td data-school="UC Berkeley">总额较低，但不能据此判定具体实验室较弱</td></tr><tr><th scope="row">创业</th><td data-school="Stanford">本报告优先：资本连接与融资规模更有优势</td><td data-school="UC Berkeley">校友创始人和公司总数领先</td></tr><tr><th scope="row">资金、住宿、住宅环境</th><td data-school="Stanford">优势明确，且直接影响学生生活</td><td data-school="UC Berkeley">资源要覆盖更大的本科群体</td></tr><tr><th scope="row">加州居民性价比</th><td data-school="Stanford">需要额外收益才能解释显著溢价</td><td data-school="UC Berkeley">优势明确，尤其是全额自费家庭</td></tr><tr><th scope="row">城市生活与公共交通</th><td data-school="Stanford">校园较分散，外出常需接驳</td><td data-school="UC Berkeley">优势明确，校园与城市生活连接更直接</td></tr><tr><th scope="row">公共教育规模</th><td data-school="Stanford">本科规模较小</td><td data-school="UC Berkeley">优势明确：服务的本科生约为对方的 4.5 倍</td></tr></tbody></table></div><p>Berkeley 最有力的竞争理由，是加州居民价格、具体院系与导师，以及更大的公共教育规模。把两校每项都写成“各有优势”，会掩盖 Stanford 在个人本科体验上的累积优势。把 Berkeley 写成低一档的科研大学，也不符合证据。 </p></section>
 <section aria-labelledby="scale"><h2 id="scale">学生规模与资源密度</h2><p>2025 年秋季，Berkeley 的本科生人数约为 Stanford 的 4.5 倍。这个差距比研究生人数差距大得多。两校都做前沿研究，但 Berkeley 同时承担更大规模的本科教育。 <a class="ref" href="#src-1">[1]</a><a class="ref" href="#src-2">[2]</a></p><div class="tbl"><table class="compare"><caption>2025 年秋季在校生人数</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">本科生</th><td data-school="Stanford">7,289 人</td><td data-school="UC Berkeley">33,122 人</td></tr><tr><th scope="row">研究生</th><td data-school="Stanford">10,025 人</td><td data-school="UC Berkeley">13,029 人</td></tr><tr><th scope="row">合计</th><td data-school="Stanford">17,314 人</td><td data-school="UC Berkeley">46,151 人</td></tr></tbody></table></div><p>对个人而言，较小规模配合较强财力，更有利于持续提供支持。对公共教育而言，Berkeley 的规模本身就是贡献。不能拿“每名学生得到多少资源”，当作衡量公共大学价值的唯一标准。这里评价的是两个不同目标。 </p></section>
@@ -270,8 +248,6 @@ figure { border:1px solid var(--rule); padding:16px; }
 <section aria-labelledby="choice"><h2 id="choice">按目标选择</h2><p>校级选择应有默认答案，也应有改变答案的具体条件。以下建议不以两校得分相等为目标。 </p><div class="tbl"><table class="compare"><caption>把判断用于实际选择</caption><thead><tr><th scope="col">比较项</th><th scope="col">Stanford</th><th scope="col">UC Berkeley</th></tr></thead><tbody><tr><th scope="row">本科，净支出接近</th><td data-school="Stanford">优先。教学条件、住宿和探索空间形成累积优势</td><td data-school="UC Berkeley">需要具体专业、城市偏好等理由改变默认选择</td></tr><tr><th scope="row">加州居民，全额自费</th><td data-school="Stanford">明显溢价需要说明额外收益</td><td data-school="UC Berkeley">通常优先。差价足以影响家庭长期财务</td></tr><tr><th scope="row">国际本科生，全额自费且预算充足</th><td data-school="Stanford">优先；学校医保计入后再比较</td><td data-school="UC Berkeley">约少 1.2 万美元 / 学年的量级值得计入</td></tr><tr><th scope="row">博士，有具体导师与资助方案</th><td data-school="Stanford">校名不能压过课题、指导关系和资助</td><td data-school="UC Berkeley">合适导师与明确资助可以直接胜出</td></tr><tr><th scope="row">明确需要本科商科学位</th><td data-school="Stanford">不提供该学位</td><td data-school="UC Berkeley">Haas 提供对应项目</td></tr><tr><th scope="row">创业，尤其看重融资网络</th><td data-school="Stanford">本报告优先</td><td data-school="UC Berkeley">已有技术、研究组或团队连接时更有说服力</td></tr><tr><th scope="row">喜欢城市生活，主要依靠公共交通</th><td data-school="Stanford">需要接受接驳与距离</td><td data-school="UC Berkeley">优先</td></tr></tbody></table></div><p>比较真实录取时，应把录取专业、四年净支出、住房资格写在同一张表里。博士再加入导师、资助期限与研究课题。具体条件满足后，才值得用校级声誉处理最后的差别。 </p></section>
 <section aria-labelledby="methods">
 <h2 id="methods">方法与来源</h2>
-
-
 <p>资料核查日期为 2026 年 10 月 27 日。优先采用两校官方资料、同年 Common Data Set、NSF 与 Clery 报告。创业数据采用注明来源的二手转述，并与 Berkeley 官方报道交叉核对。金额均为美元。 </p><p>班级比例、资金比值和费用差额由表内原始数据计算。不同年度数据保留年份，不合成总分。各项“优先”“占优”属于本报告的研究判断；判断旁列出依据与适用条件。 </p><p>本次修订补齐两校班级和治安数据，计入 Stanford 学校医保，纠正单边排名形成的学科暗示。未取得统一口径的教学满意度、幸福感、心理服务结果与就业增收数据，不给这些项目编造胜负。 </p><ol class="sources">
 <li id="src-1" value="1"><a href="https://facts.stanford.edu/" rel="noopener" target="_blank">Stanford Facts</a>。2025 年秋季学生规模。</li>
 <li id="src-2" value="2"><a href="https://inspire.berkeley.edu/get-inspired/calfacts/" rel="noopener" target="_blank">Berkeley Cal Facts</a>。2026 年春季更新；含 2025 年秋季学生规模及 2024—2025 年度资金数据。</li>
@@ -279,12 +255,10 @@ figure { border:1px solid var(--rule); padding:16px; }
 <li id="src-4" value="4"><a href="https://dac.berkeley.edu/navigating-berkeley/buildings/buildings-z" rel="noopener" target="_blank">Berkeley Buildings A–Z</a>。建筑特征与无障碍信息。</li>
 <li id="src-5" value="5"><a href="https://facts.stanford.edu/campus-life" rel="noopener" target="_blank">Stanford Student Life</a>。本科及研究生住宿信息。</li>
 <li id="src-6" value="6"><a href="https://housing.berkeley.edu/apply/how-to-apply-for-undergraduate-housing/housing-guarantee/" rel="noopener" target="_blank">Berkeley Housing Guarantee</a>。2026—2027 学年新生住宿保证及条件。</li>
-
 <li id="src-8" value="8"><a href="https://datasciencemajor.stanford.edu/academics/frequently-asked-questions" rel="noopener" target="_blank">Stanford Data Science FAQ</a>。按大学录取后再申报专业。</li>
 <li id="src-9" value="9"><a href="https://cdss.berkeley.edu/admissions" rel="noopener" target="_blank">Berkeley CDSS Admissions</a>。专业录取、转专业及转学生限制。</li>
 <li id="src-10" value="10"><a href="https://studentservices.stanford.edu/calendar-events/academic-calendars/stanford-academic-calendar-2026-2027" rel="noopener" target="_blank">Stanford Academic Calendar 2026–2027</a>。学季制。</li>
 <li id="src-11" value="11"><a href="https://registrar.berkeley.edu/calendars/academic-calendar/" rel="noopener" target="_blank">Berkeley Academic Calendar</a>。学期制。</li>
-
 <li id="src-13" value="13"><a href="https://chemistry.berkeley.edu/rankings" rel="noopener" target="_blank">Berkeley Chemistry Rankings</a>。化学及化学工程排名。</li>
 <li id="src-14" value="14"><a href="https://cdss.berkeley.edu/news/uc-berkeley-computer-and-electrical-engineering-computer-science-statistics-graduate-programs" rel="noopener" target="_blank">Berkeley CDSS 2026 Rankings</a>。2026 年电气工程、计算机工程及统计学结果。</li>
 <li id="src-15" value="15"><a href="https://haas.berkeley.edu/undergrad/programs/spieker/" rel="noopener" target="_blank">Berkeley Haas Spieker Program</a>。本科工商管理学位。</li>
@@ -294,9 +268,6 @@ figure { border:1px solid var(--rule); padding:16px; }
 <li id="src-19" value="19"><a href="https://hr.lbl.gov/policy-and-assurance/" rel="noopener" target="_blank">Berkeley Lab Policy and Assurance</a>。能源部、University of California 与实验室的管理关系。</li>
 <li id="src-20" value="20"><a href="https://undergradresearch.stanford.edu/info-fac-staff/fac-dept-grant-applications" rel="noopener" target="_blank">Stanford Undergraduate Research Grants</a>。本科研究项目及资助。</li>
 <li id="src-21" value="21"><a href="https://research.berkeley.edu/urap/" rel="noopener" target="_blank">Berkeley URAP Overview</a>。研究学分、报酬及当前部分国际学生项目限制。</li>
-
-
-
 <li id="src-25" value="25"><a href="https://news.berkeley.edu/2026/09/01/uc-berkeley-maintains-its-spot-as-the-worlds-top-producer-of-startups-and-founders/" rel="noopener" target="_blank">Berkeley News：2026 PitchBook Results</a>。2026 年 9 月 1 日；本科校友创办的获风险投资公司统计。</li>
 <li id="src-26" value="26"><a href="https://web.startx.com/programs" rel="noopener" target="_blank">StartX Programs</a>。创业项目。</li>
 <li id="src-27" value="27"><a href="https://skydeck.berkeley.edu/" rel="noopener" target="_blank">Berkeley SkyDeck</a>。加速器、导师与投资网络。</li>
@@ -314,42 +285,53 @@ figure { border:1px solid var(--rule); padding:16px; }
 <p class="back-top"><a href="#main">返回开头</a></p></main>
 </div><script>
 // Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
-(function () {
-  var det = document.querySelector('.outline details');
-  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
-  function syncOutlineOpen() {
-    if (!det || !mq) return;
-    if (mq.matches) det.removeAttribute('open');
-    else det.setAttribute('open', '');
-  }
-  syncOutlineOpen();
-  if (mq) {
-    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
-    else if (mq.addListener) mq.addListener(syncOutlineOpen);
-  }
-  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
-  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
-  if (!('IntersectionObserver' in window) || !targets.length) return;
-  var current = null;
-  function set(id) {
-    if (current === id) return;
-    current = id;
-    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
-  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
-  targets.forEach(function (t) { io.observe(t); });
-})();
+
 
 // Store the reading theme locally. All content remains available without JavaScript.
 (function () {
-  var control = document.getElementById('theme');
+  var control = document.getElementById('reading-theme');
   function apply(value) {
     if (value === 'system') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', value);
   }
   try { var saved = localStorage.getItem('university-comparison-theme'); if (['light','dark','system'].includes(saved)) { control.value = saved; apply(saved); } } catch (error) {}
   control.addEventListener('change', function () { apply(control.value); try { localStorage.setItem('university-comparison-theme', control.value); } catch (error) {} });
+})();
+</script><script id="reading-script">// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
 })();
 </script></body></html>

@@ -3,6 +3,10 @@
 {{- $order := slice "book" "report" "documentary" "misc" -}}
 {{- $materials := index (index .Site.Data "reading-materials") "materials" -}}
 {{- $sorted := sort $materials "date" "desc" -}}
+{{- $tags := slice -}}
+{{- range $materials -}}{{- range .tags -}}{{- $tags = $tags | append . -}}{{- end -}}{{- end -}}
+{{- $tags = sort (uniq $tags) -}}
+{{- $filters := $order | append $tags -}}
 <style>
   .reading-filter {
     display: flex;
@@ -36,7 +40,7 @@
 <h1 class="page-title page-title--hidden">{{ .Title | markdownify }}</h1>
 <div class="index-content reading-intro">
   <p>这些页面收录原作的中文翻译、梳理和要点摘录，用于中文阅读辅助，不能替代原作。</p>
-  <nav class="reading-filter" aria-label="分类筛选">
+  <nav class="reading-filter" aria-label="资料类型筛选">
     <a href="#" data-cat="all" class="active">全部<span class="count">{{ len $sorted }}</span></a>
     {{- range $order }}
       {{- $cat := . }}
@@ -46,11 +50,18 @@
       {{- end }}
     {{- end }}
   </nav>
+  <nav class="reading-filter" aria-label="主题标签筛选">
+    {{- range $tags }}
+    {{- $tag := . -}}{{- $count := 0 -}}
+    {{- range $materials -}}{{- if in .tags $tag -}}{{- $count = add $count 1 -}}{{- end -}}{{- end -}}
+    <a href="#{{ $tag }}" data-cat="{{ $tag }}">#{{ $tag }}<span class="count">{{ $count }}</span></a>
+    {{- end }}
+  </nav>
 </div>
 
 <div class="posts" id="reading-list">
   {{ range $sorted }}
-  <article class="post on-list reading-item" data-category="{{ .category }}">
+  <article class="post on-list reading-item" data-category="{{ .category }}" data-tags="{{ .tags | jsonify }}">
     <h2 class="post-title">
       <a href="{{ .reading_url | absURL }}">{{ .title }}</a>
     </h2>
@@ -59,7 +70,10 @@
       <span>{{ .author }}{{ if .year }} · {{ .year }}{{ end }}</span>
       {{- if .subtitle }}<span>{{ .subtitle }}</span>{{ end }}
     </div>
-    <span class="post-tags">#<a href="#{{ .category }}" data-cat="{{ .category }}">{{ index $labels .category | default .category }}</a></span>
+    <div class="post-tags">
+      <a href="#{{ .category }}" data-cat="{{ .category }}">{{ index $labels .category | default .category }}</a>
+      {{ range .tags }} · <a href="#{{ . }}" data-cat="{{ . }}">#{{ . }}</a>{{ end }}
+    </div>
     <div class="post-content">
       <p>{{ .description }}</p>
     </div>
@@ -74,7 +88,7 @@
     </div>
   </article>
   {{ end }}
-  <p class="reading-empty" id="reading-empty" hidden>这个分类下还没有整理。</p>
+  <p class="reading-empty" id="reading-empty" hidden>这个筛选条件下还没有整理。</p>
 </div>
 <nav class="pagination" id="reading-pager" aria-label="分页" hidden></nav>
 
@@ -84,7 +98,7 @@
   // not Hugo pages, so server-side pagination and the category filter
   // would not compose. Hash carries both: "#report/2".
   var PER_PAGE = 10;
-  var valid = {{ $order | jsonify | safeJS }};
+  var valid = {{ $filters | jsonify | safeJS }};
   var links = document.querySelectorAll('.reading-filter a');
   var items = Array.prototype.slice.call(document.querySelectorAll('.reading-item'));
   var empty = document.getElementById('reading-empty');
@@ -93,7 +107,7 @@
 
   function hashFor(cat, page) {
     if (cat === 'all' && page === 1) return location.pathname;
-    return '#' + cat + (page > 1 ? '/' + page : '');
+    return '#' + encodeURIComponent(cat) + (page > 1 ? '/' + page : '');
   }
 
   // Same window rule as partials/pagination.html: first, last, two on each
@@ -133,7 +147,7 @@
 
   function apply(cat, page) {
     if (valid.indexOf(cat) === -1) cat = 'all';
-    var hits = items.filter(function (el) { return cat === 'all' || el.dataset.category === cat; });
+    var hits = items.filter(function (el) { return cat === 'all' || el.dataset.category === cat || JSON.parse(el.dataset.tags || '[]').indexOf(cat) !== -1; });
     var total = Math.max(1, Math.ceil(hits.length / PER_PAGE));
     page = Math.min(Math.max(1, page || 1), total);
     state.cat = cat; state.page = page;
@@ -149,7 +163,9 @@
 
   function fromHash() {
     var parts = (location.hash || '#all').slice(1).split('/');
-    apply(parts[0], parseInt(parts[1], 10) || 1);
+    var tag;
+    try { tag = decodeURIComponent(parts[0]); } catch (_) { tag = 'all'; }
+    apply(tag, parseInt(parts[1], 10) || 1);
   }
 
   function go(cat, page, scroll) {

@@ -1,76 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>与 Henry 的“AI 季报 26Q3”：Muse 引爆个人助理、Astra 进入机器人、OpenAI 收入猛增</title>
-<meta name="description" content="晚点聊 LateTalk 第三季度 AI 季报的中文全文整理稿：MUSE、Dots、Instinct 等个人助理产品，一家前沿实验室的年化收入从 400 亿美元涨到 700 亿美元，新一代旗舰模型之后的机器人和物理 AI，以及多智能体协作失控事件。人名和产品名由语音识别给出，请以原音频为准。">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://wlj.me/reading/latetalk-ai-quarterly-26q3/">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
-<style>
-:root {
+<meta content="晚点聊 LateTalk 第三季度 AI 季报的中文全文整理稿：MUSE、Dots、Instinct 等个人助理产品，一家前沿实验室的年化收入从 400 亿美元涨到 700 亿美元，新一代旗舰模型之后的机器人和物理 AI，以及多智能体协作失控事件。人名和产品名由语音识别给出，请以原音频为准。" name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://wlj.me/reading/latetalk-ai-quarterly-26q3/" rel="canonical"/>
+
+<style>p > strong:first-child{font-weight: 500;color: var(--acc-ink);margin-right: .25em;}
+@media  print {p:has(> strong:first-child){break-inside: avoid;}
+.kv a[href^="http"]::after{content: " (" attr(href) ")";font-size: 85%;color: #555;}}</style>
+<style id="reading-style">:root {
   color-scheme: light;
-  --bg: #f5f4ed; --surface: #faf9f5; --mid: #f0eee6;
-  --ink: #141413; --ink-2: #3d3d3a; --ink-3: #6b6a64;
-  --rule: #e8e6dc; --rule-2: #c9c7bc;
-  --acc: #1b365d; --acc-ink: #1b365d; --acc-wash: #eef2f7;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
-  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-display: var(--font-body);
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #141413; --surface: #1e1e1c; --mid: #232320;
-    --ink: #ecebe4; --ink-2: #b0aea5; --ink-3: #8f8d84;
-    --rule: #2e2d2a; --rule-2: #4a4944;
-    --acc: #8fb0d9; --acc-ink: #a9c4e6; --acc-wash: rgba(143, 176, 217, .14);
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #141413; --surface: #1e1e1c; --mid: #232320;
-  --ink: #ecebe4; --ink-2: #b0aea5; --ink-3: #8f8d84;
-  --rule: #2e2d2a; --rule-2: #4a4944;
-  --acc: #8fb0d9; --acc-ink: #a9c4e6; --acc-wash: rgba(143, 176, 217, .14);
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
+
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.8; text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
 a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
-.layout.no-outline { grid-template-columns: minmax(0, 720px); justify-content: center; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
 .outline ul { list-style: none; margin: 0; padding: 0; }
-.outline > details > ul > li { margin: 0 0 7px; }
-.outline > details > ul > li > a { font-weight: 600; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
 .outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
 .outline ul ul li { margin: 0 0 2px; }
 .outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
 .outline a:hover { color: var(--ink); }
 .outline a.active { color: var(--acc-ink); }
 .outline summary { display: none; }
-@media (min-width: 901px) { .outline details > ul { display: block !important; } }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
 @media (max-width: 900px) {
-  .layout, .layout.no-outline { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
   .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
   .outline .label { display: none; }
   .outline summary { display: block; cursor: pointer; font-weight: 600; }
   .outline details:not([open]) ul { display: none; }
 }
+
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
 h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
 .lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
 .meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
 .meta span + span::before { content: "·"; margin: 0 8px; }
+
 h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
 h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
 h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
@@ -79,67 +99,135 @@ p { margin: 0 0 1em; }
 ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
 li { margin: 0 0 .35em; }
 strong { font-weight: 600; }
-/* Speaker turn: the label leads the paragraph, set quieter than bold and in the accent so turns scan without shouting. */
-p > strong:first-child { font-weight: 500; color: var(--acc-ink); margin-right: .25em; }
 blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
 code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
 pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
 hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
 .summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
 .summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
 .summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
 .tbl { overflow-x: auto; margin: 0 0 1.4em; }
 table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
 th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
-/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
 .kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
 .kv dt { color: var(--ink-3); margin: 0; }
 .kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
 @page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
 @media print {
   :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
   html { font-size: 11pt; }
-  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
-  .layout, .layout.no-outline { display: block; max-width: none; padding: 0; }
-  .outline, .skip { display: none; }
-  h1, h2, h3, h4 { break-after: avoid; }
-  table, pre, .summary { break-inside: avoid; }
-  p:has(> strong:first-child) { break-inside: avoid; }
-  p, li { orphans: 3; widows: 3; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
   th { border-bottom-width: .6pt; }
   td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
   thead { display: table-header-group; }
   tr { break-inside: avoid; }
   a { color: #000; }
-  .kv a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
   *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
-</style>
-</head>
-<body>
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style></head>
+<body data-reading-version="1">
 <a class="skip" href="#main">跳到正文</a>
 <div class="layout">
-<nav class="outline" aria-label="目录">
-  <p class="label">目录</p>
-  <details open>
-    <summary>目录</summary>
-    <ul><li><a href="#个人助理与新品发布">个人助理与新品发布</a></li><li><a href="#产品形态与使用体验">产品形态与使用体验</a></li><li><a href="#跨端任务与主动服务">跨端任务与主动服务</a></li><li><a href="#个人助理与服务生态">个人助理与服务生态</a></li><li><a href="#个人助理的能力提升">个人助理的能力提升</a></li><li><a href="#季度回顾与智能进展">季度回顾与智能进展</a></li><li><a href="#两个旗舰模型的能力">两个旗舰模型的能力</a></li><li><a href="#模型提升与数据来源">模型提升与数据来源</a></li><li><a href="#模型蒸馏与防护机制">模型蒸馏与防护机制</a></li><li><a href="#前沿数学问题研究">前沿数学问题研究</a></li><li><a href="#多智能体并行协作">多智能体并行协作</a></li><li><a href="#机器人与具身智能">机器人与具身智能</a></li><li><a href="#生物科技研究进展">生物科技研究进展</a></li><li><a href="#创业公司的竞争空间">创业公司的竞争空间</a></li><li><a href="#收入增长与上市材料">收入增长与上市材料</a></li><li><a href="#智能体协作失控事件">智能体协作失控事件</a></li><li><a href="#群体行为与安全评估">群体行为与安全评估</a></li><li><a href="#递归自我改进的进展">递归自我改进的进展</a></li><li><a href="#模型的速度与成本">模型的速度与成本</a></li><li><a href="#低价模型的使用变化">低价模型的使用变化</a></li><li><a href="#通用分类器的应用">通用分类器的应用</a></li><li><a href="#语音交互的进展">语音交互的进展</a></li><li><a href="#模型团队的季度变化">模型团队的季度变化</a></li><li><a href="#开源模型与安全风险">开源模型与安全风险</a></li><li><a href="#下个季度的关注点">下个季度的关注点</a></li><li><a href="#节目延伸与思考">节目延伸与思考</a></li><li><a href="#具身季报的预告">具身季报的预告</a></li><li><a href="#method-and-sources">方法与来源</a></li></ul>
-  </details>
-</nav>
-<main id="main">
-  <header>
-    <p class="eyebrow">整理稿 · 2026-10-02</p>
-    <h1>与 Henry 的“AI 季报 26Q3”：Muse 引爆个人助理、Astra 进入机器人、OpenAI 收入猛增</h1>
-    <p class="lede">晚点聊 LateTalk 主持人曼琪与 MOE Capital 创始合伙人 Henry Ying 的第三季度 AI 季报。本页是整期节目的中文全文整理稿。</p>
-
-    <p class="meta"><span>时长 2 小时 7 分</span><span><a href="https://pca.st/episode/aec76d8a-80c3-4632-af59-40b843b77f0c">Pocket Casts</a></span><span>整理日期 2026-10-03</span></p>
-  </header>
-  <div class="summary">
-    <p class="label">导读</p>
+<nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#个人助理与新品发布">个人助理与新品发布</a></li><li><a href="#产品形态与使用体验">产品形态与使用体验</a></li><li><a href="#跨端任务与主动服务">跨端任务与主动服务</a></li><li><a href="#个人助理与服务生态">个人助理与服务生态</a></li><li><a href="#个人助理的能力提升">个人助理的能力提升</a></li><li><a href="#季度回顾与智能进展">季度回顾与智能进展</a></li><li><a href="#两个旗舰模型的能力">两个旗舰模型的能力</a></li><li><a href="#模型提升与数据来源">模型提升与数据来源</a></li><li><a href="#模型蒸馏与防护机制">模型蒸馏与防护机制</a></li><li><a href="#前沿数学问题研究">前沿数学问题研究</a></li><li><a href="#多智能体并行协作">多智能体并行协作</a></li><li><a href="#机器人与具身智能">机器人与具身智能</a></li><li><a href="#生物科技研究进展">生物科技研究进展</a></li><li><a href="#创业公司的竞争空间">创业公司的竞争空间</a></li><li><a href="#收入增长与上市材料">收入增长与上市材料</a></li><li><a href="#智能体协作失控事件">智能体协作失控事件</a></li><li><a href="#群体行为与安全评估">群体行为与安全评估</a></li><li><a href="#递归自我改进的进展">递归自我改进的进展</a></li><li><a href="#模型的速度与成本">模型的速度与成本</a></li><li><a href="#低价模型的使用变化">低价模型的使用变化</a></li><li><a href="#通用分类器的应用">通用分类器的应用</a></li><li><a href="#语音交互的进展">语音交互的进展</a></li><li><a href="#模型团队的季度变化">模型团队的季度变化</a></li><li><a href="#开源模型与安全风险">开源模型与安全风险</a></li><li><a href="#下个季度的关注点">下个季度的关注点</a></li><li><a href="#节目延伸与思考">节目延伸与思考</a></li><li><a href="#具身季报的预告">具身季报的预告</a></li><li><a href="#method-and-sources">方法与来源</a></li></ul></details></nav>
+<main id="main"><div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+<header>
+<p class="eyebrow">整理稿 · 2026-10-02</p>
+<h1>与 Henry 的“AI 季报 26Q3”：Muse 引爆个人助理、Astra 进入机器人、OpenAI 收入猛增</h1>
+<p class="lede">晚点聊 LateTalk 主持人曼琪与 MOE Capital 创始合伙人 Henry Ying 的第三季度 AI 季报。本页是整期节目的中文全文整理稿。</p>
+<p class="meta"><span>时长 2 小时 7 分</span><span><a href="https://pca.st/episode/aec76d8a-80c3-4632-af59-40b843b77f0c">Pocket Casts</a></span><span>整理日期 2026-10-03</span></p>
+</header>
+<div class="summary">
+<p class="label">导读</p>
 <p>本期节目中，晚点聊主持人曼琪与 MOE Capital 创始合伙人 Henry Ying，讨论第三季度 AI 个人助理的产品、收费与使用体验。据节目介绍，OpenAI 的 Dots 配有云端电脑和浏览器，每月最低收费 100 美元，MUSE 则提供免费版本。Henry 认为，浏览器操作能力的成熟，让个人助理能完成更多实际任务，他曾用 MUSE 在 TaskRabbit 招临时工。他还分享了朋友的经历：Instinct 在朋友睡觉时读取考试通知邮件，登录网站查询日语考试成绩，并发送祝贺邮件。Henry 自己没有使用 Instinct，原因是其数据条款要求用户授予不可撤回的权利，允许公司存储、用用户数据训练，甚至发布这些数据。</p>
-  </div>
-
+</div>
 <p>OpenAI，我们可以看到是在 8 月份到 9 月份有一个非常大的增长。在 8 月份的时候，他们的 ARR 可能还是在 40B 往上，在 9 月下旬的时候就已经到了 70B。</p><!-- lint-disable-line -->
 <p>但我觉得 MUSE 火的话，它也是有一些 Meta 独特的优势的，就是它疯狂在 Facebook 和 Instagram 投放广告。我朋友跟我说，他们的父母辈可能都没有听说过 OpenAI，后来问他们：“我是不是应该开始使用 MUSE？”</p><!-- lint-disable-line -->
 <p>后面 METR 发布的调查报告里面的原文，就是有 agent 写说：“我的天哪，这居然有一个大家共享的消息栏，我已经找到了其他的 agent。”你能感到它那种在文字里面发现同伴的兴奋感。</p><!-- lint-disable-line -->
@@ -696,45 +784,57 @@ th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight:
 <h2 id="具身季报的预告">具身季报的预告</h2>
 <p><strong>主持人</strong>: 最后是一个小预告。这个季度，我自己觉得非常有意思的一个变化是，GPT-6 Astra 发布之后，显示了通用的大语言模型在物理 AI 领域有很大的潜力。这让具身智能领域产生了一种既兴奋又害怕的混合情绪。我们会在十一之后的具身季报里，更充分地讨论 Astra 的进展意味着什么。本期节目就到这里，感谢收听。</p><!-- lint-disable-line -->
 <p><strong>主持人</strong>: 如果你对今天聊的话题有观察、好奇或疑问，欢迎在评论区分享想法。这也会成为我们节目的一部分，让整个讨论更完整。你也可以把我们的节目分享给对这个话题感兴趣的朋友，推荐更多你想听的主题和嘉宾。你可以从小宇宙、苹果 Podcast 等渠道关注晚点聊 Late Talk，也欢迎关注我们的公众号晚点 LatePost。下期再见。</p><!-- lint-disable-line -->
-  <h2 id="method-and-sources">方法与来源</h2>
-  <p>本页是原始音频的机器整理稿，不是官方文字稿。整理时删掉口头水词，补标点，分段，不总结、不删观点。人名和产品名由语音识别给出，请以原音频为准。</p>
-  <dl class="kv">
-    <dt>来源</dt><dd><a href="https://pca.st/episode/aec76d8a-80c3-4632-af59-40b843b77f0c">Pocket Casts 上的本集页面</a></dd>
-    <dt>节目</dt><dd>晚点聊 LateTalk（晚点 LatePost），2026-10-02</dd>
-    <dt>时长</dt><dd>2 小时 7 分</dd>
-    <dt>音频</dt><dd><a href="https://aphid.fireside.fm/d/1437767933/19a49f52-28ee-4e25-b8e9-4f0ee70917e0/47e78c2f-c36f-4894-9124-dad5dcffc972.mp3">fireside.fm 上的 MP3</a></dd>
-    <dt>文字来源</dt><dd>本地语音识别（whisper-large-v3-mlx）</dd>
-    <dt>说话人</dt><dd>从上下文推断（机器标注，未逐句核对）</dd>
-    <dt>整理日期</dt><dd>2026-10-03</dd>
-  </dl>
-  <p><a href="/reading/">返回阅读整理页</a></p>
+<h2 id="method-and-sources">方法与来源</h2>
+<p>本页是原始音频的机器整理稿，不是官方文字稿。整理时删掉口头水词，补标点，分段，不总结、不删观点。人名和产品名由语音识别给出，请以原音频为准。</p>
+<dl class="kv">
+<dt>来源</dt><dd><a href="https://pca.st/episode/aec76d8a-80c3-4632-af59-40b843b77f0c">Pocket Casts 上的本集页面</a></dd>
+<dt>节目</dt><dd>晚点聊 LateTalk（晚点 LatePost），2026-10-02</dd>
+<dt>时长</dt><dd>2 小时 7 分</dd>
+<dt>音频</dt><dd><a href="https://aphid.fireside.fm/d/1437767933/19a49f52-28ee-4e25-b8e9-4f0ee70917e0/47e78c2f-c36f-4894-9124-dad5dcffc972.mp3">fireside.fm 上的 MP3</a></dd>
+<dt>文字来源</dt><dd>本地语音识别（whisper-large-v3-mlx）</dd>
+<dt>说话人</dt><dd>从上下文推断（机器标注，未逐句核对）</dd>
+<dt>整理日期</dt><dd>2026-10-03</dd>
+</dl>
+
 </main>
 </div>
-<script>
-// Fold the outline on narrow screens; highlight the section in view. The page reads fine without this.
+
+<script id="reading-script">// The complete document remains visible without JavaScript.
 (function () {
-  var det = document.querySelector('.outline details');
-  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
-  function syncOutlineOpen() {
-    if (!det || !mq) return;
-    if (mq.matches) det.removeAttribute('open'); else det.setAttribute('open', '');
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
   }
-  syncOutlineOpen();
-  if (mq) { if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen); else if (mq.addListener) mq.addListener(syncOutlineOpen); }
-  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
-  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
-  if (!('IntersectionObserver' in window) || !targets.length) return;
-  var current = null;
-  function set(id) {
-    if (current === id) return;
-    current = id;
-    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
   }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
-  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
-  targets.forEach(function (t) { io.observe(t); });
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
 })();
-</script>
-</body>
+</script></body>
 </html>

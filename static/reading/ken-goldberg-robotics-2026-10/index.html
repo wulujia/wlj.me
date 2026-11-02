@@ -5,30 +5,63 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>10 Ken Goldberg：机器人、AI 和艺术（图文版）</title>
-<meta name="robots" content="index,follow"/>
-<link rel="canonical" href="https://wlj.me/reading/ken-goldberg-robotics-2026-10/"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://wlj.me/reading/ken-goldberg-robotics-2026-10/" rel="canonical"/>
 <meta content="Ken Goldberg 在伯克利关于机器人、AI 与艺术的课堂笔记，含机器人抓取、手术、农业、智能体机器人及相关背景资料。" name="description"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
-:root {
+
+<style>figure.photo img{width: 100%;height: auto;display: block;border: 1px solid var(--rule);background: var(--surface);}
+figure.photo.narrow{max-width: 300px;}
+.photo-row{display: grid;grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));gap: 14px;margin: 1.6em 0;}
+.photo-row figure{margin: 0;}
+.photo-row img{aspect-ratio: 3 / 4;object-fit: cover;}
+p.vid{font-size: 14px;line-height: 1.7;padding: 8px 12px;border: 1px solid var(--rule);background: var(--surface);}
+p.vid b{margin-right: .6em;color: var(--acc-ink);}
+.dg-box{fill: var(--surface);stroke: var(--rule-2);stroke-width: 1.5;}
+.dg-acc{fill: var(--acc-wash);stroke: var(--acc);stroke-width: 1.5;}
+.dg-t{fill: var(--ink);font-size: 18px;font-weight: 600;}
+.dg-s{fill: var(--ink-3);font-size: 15px;}
+.dg-line{stroke: var(--ink-3);stroke-width: 2;fill: none;}
+.dg-head{fill: var(--ink-3);}
+.dg-axis{stroke: var(--rule-2);stroke-width: 1;}
+.dg-grid{stroke: var(--rule);stroke-width: 1;}
+.dg-bar{fill: var(--acc);}
+.dg-bar2{fill: var(--ink-3);}
+.dg-range{stroke: var(--acc);stroke-width: 3;}
+.dg-dot{fill: var(--acc);stroke: var(--surface);stroke-width: 2;}
+.dg-curve{stroke: var(--acc);stroke-width: 3;fill: none;}
+@media  print {.photo-row, p.vid{break-inside: avoid;}}</style>
+<style>.review-figure{padding:12px;border:1px solid var(--rule);background:var(--bg);}
+.review-figure svg{width:100%;height:auto;display:block;max-width:420px;margin:auto;font-family:var(--font-body);}
+.review-terms{margin:20px 0;}
+.review-terms dt{font-weight:600;color:var(--acc-ink);margin-top:16px;}
+.review-terms dd{margin:4px 0 0;max-width:65ch;}
+.profile-links{margin-top:16px;}
+.review-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:20px 0;font-size:14px;}
+.review-toolbar select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule-2);padding:6px;}
+@media (max-width:600px){.review-figure{padding:0;border:0;}}
+@media  print{.review-toolbar{display:none;}
+.review-figure{break-inside:avoid;}}</style><style>.series-nav{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;margin:0 0 18px;padding:0 0 12px;border-bottom:1px solid var(--rule);}
+.diagram-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;}
+.diagram-scroll svg{display:block;width:100%;height:auto;}
+.diagram-hint{display:none;color:var(--ink-3);font-size:13px;margin-bottom:8px;}
+@media (max-width:700px){.diagram-scroll svg{min-width:var(--diagram-width);max-width:none;}
+.diagram-hint{display:block;}}
+@media  print{.series-nav, .diagram-hint{display:none;}
+.diagram-scroll{overflow:visible;}
+.diagram-scroll svg{min-width:0;max-width:100%;}}</style><style id="reading-style">:root {
   color-scheme: light;
-  /* Neutrals carry a slight hue bias toward the accent. Accent picked per speaker. */
-  --bg: #f7f7f5;
+  --bg: #f5f8f7;
   --surface: #ffffff;
-  --ink: #1b1d1f;
-  --ink-2: #494e52;
-  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
-  --rule: #dcdfe2;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
   --rule-2: #b9bfc5;
   --mid: #eceef0;
-  --acc: #9b2c3b;            
-  --acc-ink: #7a2230;        /* accent dark enough for text */
-  --acc-wash: rgba(155,44,59, .09);
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
   --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
-  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-display: var(--font-body);
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
 }
 @media (prefers-color-scheme: dark) {
@@ -36,7 +69,7 @@
     color-scheme: dark;
     --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
     --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #e79aa5; --acc-ink: #f0bcc4; --acc-wash: rgba(231,154,165,.14);
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
@@ -45,12 +78,11 @@
   color-scheme: dark;
   --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
   --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #e79aa5; --acc-ink: #f0bcc4; --acc-wash: rgba(231,154,165,.14);
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
 
-/* ---------- base ---------- */
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -65,8 +97,7 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-/* ---------- layout: outline + reading column ---------- */
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
@@ -79,7 +110,6 @@ main { min-width: 0; }
 .outline a:hover { color: var(--ink); }
 .outline a.active { color: var(--acc-ink); }
 .outline summary { display: none; }
-/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
 @media (min-width: 901px) {
   .outline details > ul { display: block !important; }
 }
@@ -91,14 +121,12 @@ main { min-width: 0; }
   .outline details:not([open]) ul { display: none; }
 }
 
-/* ---------- header ---------- */
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
 h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
 .lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
 .meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
 .meta span + span::before { content: "·"; margin: 0 8px; }
 
-/* ---------- prose ---------- */
 h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
 h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
 h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
@@ -107,7 +135,6 @@ p { margin: 0 0 1em; }
 ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
 li { margin: 0 0 .35em; }
 strong { font-weight: 600; }
-/* Quotes read by indent and tone alone; a side bar is decoration. */
 blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
 blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
 code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
@@ -117,12 +144,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .muted { color: var(--ink-3); }
 
-/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
 .summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
 .summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
 .summary p:last-child { margin: 0; }
 
-/* ---------- callouts: label is the icon; four kinds only ---------- */
 .note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
 .note { border-color: var(--acc); }
 .warn { border-color: var(--warn); background: var(--warn-wash); }
@@ -131,12 +156,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
 .note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
 
-/* ---------- tables ---------- */
 .tbl { overflow-x: auto; margin: 0 0 1.4em; }
 table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
 caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
-/* Rules stay neutral hairlines: header and total a shade darker, body rows lighter. Never a heavy ink bar. */
 th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
 th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
 td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
@@ -144,81 +167,48 @@ tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 6
 .compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
 .compare td.pick { background: var(--acc-wash); }
 
-/* ---------- stat row: only when the numbers are the point ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
 .stats > div { background: var(--surface); padding: 12px 14px; }
 .stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
 .stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
 
-/* ---------- kv grid: label / value pairs that read as one object ---------- */
-/* minmax(0, 1fr) + overflow-wrap: anywhere so a long URL wraps instead of widening the page on phones. */
 .kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
 .kv dt { color: var(--ink-3); margin: 0; }
 .kv dd { margin: 0; overflow-wrap: anywhere; }
 
-/* ---------- timeline: only when order carries information ---------- */
 .timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
 .timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
 .timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
 .timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
 
-/* ---------- figure / chart ---------- */
 figure { margin: 1.6em 0; }
 figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
 figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
 figure details { font-size: 13.5px; margin-top: 6px; }
 figure summary { cursor: pointer; color: var(--ink-3); }
 
-/* ---------- pills / tags ---------- */
 .pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
 .pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
 .pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
 .pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
 
-/* ---------- sources ---------- */
 .sources { font-size: 14px; color: var(--ink-2); }
 .sources li { margin: 0 0 .5em; word-break: break-word; }
 sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 
-
-/* ---------- illustrated version: photos, diagrams, video links ---------- */
-figure.photo img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: var(--surface); }
-figure.photo.narrow { max-width: 300px; }
-.photo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 1.6em 0; }
-.photo-row figure { margin: 0; }
-.photo-row img { aspect-ratio: 3 / 4; object-fit: cover; }
-p.vid { font-size: 14px; line-height: 1.7; padding: 8px 12px; border: 1px solid var(--rule); background: var(--surface); }
-p.vid b { margin-right: .6em; color: var(--acc-ink); }
-.dg-box { fill: var(--surface); stroke: var(--rule-2); stroke-width: 1.5; }
-.dg-acc { fill: var(--acc-wash); stroke: var(--acc); stroke-width: 1.5; }
-.dg-t { fill: var(--ink); font-size: 18px; font-weight: 600; }
-.dg-s { fill: var(--ink-3); font-size: 15px; }
-.dg-line { stroke: var(--ink-3); stroke-width: 2; fill: none; }
-.dg-head { fill: var(--ink-3); }
-.dg-axis { stroke: var(--rule-2); stroke-width: 1; }
-.dg-grid { stroke: var(--rule); stroke-width: 1; }
-.dg-bar { fill: var(--acc); }
-.dg-bar2 { fill: var(--ink-3); }
-.dg-range { stroke: var(--acc); stroke-width: 3; }
-.dg-dot { fill: var(--acc); stroke: var(--surface); stroke-width: 2; }
-.dg-curve { stroke: var(--acc); stroke-width: 3; fill: none; }
-
-/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
-/* A4 long-document margins; page number in the footer (Chrome 131+ prints margin boxes, older engines ignore them). */
 @page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
 @media print {
   :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
   html { font-size: 11pt; }
-  /* Paper gets a serif body; the screen keeps system sans because phones lack a good CJK serif. */
-  body { background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
   th { border-bottom-width: .6pt; }
   td { border-bottom-width: .25pt; }
   tfoot td { border-top-width: .6pt; }
   .layout { display: block; max-width: none; padding: 0; }
   .outline, .skip { display: none; }
   h1, h2, h3, h4 { break-after: avoid; }
-  figure, .photo-row, p.vid, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
   p, li { orphans: 3; widows: 3; }
   thead { display: table-header-group; }
   tr { break-inside: avoid; }
@@ -226,35 +216,50 @@ p.vid b { margin-right: .6em; color: var(--acc-ink); }
   .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
   *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
-</style>
-<style>
-/* Review figures use the existing light and dark tokens. */
-.review-figure {padding:12px;border:1px solid var(--rule);background:var(--bg);}
-.review-figure svg {width:100%;height:auto;display:block;max-width:420px;margin:auto;font-family:var(--font-body);}
-.review-terms{margin:20px 0}.review-terms dt{font-weight:600;color:var(--acc-ink);margin-top:16px}.review-terms dd{margin:4px 0 0;max-width:65ch}
-.profile-links{margin-top:16px}.review-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:20px 0;font-size:14px}
-.review-toolbar select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule-2);padding:6px}
-@media(max-width:600px){.review-figure{padding:0;border:0}}
-@media print{.review-toolbar{display:none}.review-figure{break-inside:avoid}}
-</style><style>
-.series-nav{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;margin:0 0 18px;padding:0 0 12px;border-bottom:1px solid var(--rule)}
-.diagram-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
-.diagram-scroll svg{display:block;width:100%;height:auto}
-.diagram-hint{display:none;color:var(--ink-3);font-size:13px;margin-bottom:8px}
-@media(max-width:700px){.diagram-scroll svg{min-width:var(--diagram-width);max-width:none}.diagram-hint{display:block}}
-@media print{.series-nav,.diagram-hint{display:none}.diagram-scroll{overflow:visible}.diagram-scroll svg{min-width:0;max-width:100%}}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
 </style></head>
-<body>
+<body data-reading-version="1">
 <a class="skip" href="#main">跳到正文</a>
 <div class="layout">
-<nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#who">讲者是谁</a><ul><li><a href="#social">主页和社交媒体</a></li></ul></li><li><a href="#review-map">复习图解与概念</a></li><li><a href="#notes">课堂笔记</a><ul><li><a href="#n-open">开场：咆哮的 2020 年代</a></li><li><a href="#n-dex">一、灵巧</a></li><li><a href="#n-ecom">二、电商</a></li><li><a href="#n-home">三、家用机器人</a></li><li><a href="#n-surgery">四、手术</a></li><li><a href="#n-agri">五、农业</a></li><li><a href="#n-agentic">六、智能体机器人</a></li><li><a href="#n-qa">问答和收尾</a></li><li><a href="#n-check">和预习资料的对照</a></li></ul></li><li><a href="#basics">背景：先懂 5 个概念</a><ul><li><a href="#b-gap">十万年数据缺口</a></li><li><a href="#b-gofe">传统工程加 AI</a></li><li><a href="#b-grasp">机器人抓取</a></li><li><a href="#b-uncanny">诡异感和恐怖谷</a></li><li><a href="#b-garden">Telegarden 和 AlphaGarden</a></li></ul></li><li><a href="#agentic">背景：VLA 和智能体机器人</a><ul><li><a href="#g-vla">VLA 是什么</a></li><li><a href="#g-vla-progress">VLA 的进展</a></li><li><a href="#g-vla-gap">VLA 用在哪里，还差什么</a></li><li><a href="#g-what">智能体机器人：他怎么定义</a></li><li><a href="#g-limit">他说的限制</a></li><li><a href="#g-libero">LIBERO：VLA 的考卷</a></li><li><a href="#g-gap">GaP：图即策略</a></li><li><a href="#g-gap-two">GaP 的两半：图生成器和图优化器</a></li><li><a href="#g-rss">RoboSimStudio：从手机视频造仿真</a></li><li><a href="#g-rats">Goldberg 组在 LIBERO-PRO 上的成绩</a></li><li><a href="#g-nemoclaw">NemoClaw：给代理套上缰绳</a></li><li><a href="#g-latest">智能体机器人的最新进展</a></li><li><a href="#g-who">主要的实验室和公司</a></li><li><a href="#g-compare">两条路线对照</a></li></ul></li><li><a href="#autolab">背景：AUTOLab 实验室</a><ul><li><a href="#l-who">规模和人员</a></li><li><a href="#l-lines">研究线和代表成果</a></li><li><a href="#l-alumni">博士毕业生和去向</a></li><li><a href="#l-companies">实验室出来的公司</a></li><li><a href="#l-honors">Goldberg 的荣誉</a></li><li><a href="#l-read">怎么看这个实验室</a></li></ul></li><li><a href="#ambi">背景：Ambi Robotics</a><ul><li><a href="#am-basic">公司概况</a></li><li><a href="#am-money">融资</a></li><li><a href="#am-products">产品</a></li><li><a href="#am-milestones">客户和大事记</a></li><li><a href="#am-check">课上说法和公开资料对照</a></li><li><a href="#am-read">怎么看 Ambi</a></li></ul></li><li><a href="#medtech">背景：手术机器人和医疗科技</a><ul><li><a href="#m-market">市场：Intuitive 一家独大</a></li><li><a href="#m-rivals">挑战者：美国三家，中国一家</a></li><li><a href="#m-levels">手术自主的 6 个等级</a></li><li><a href="#m-research">研究前沿：从缝一针到切胆囊</a></li><li><a href="#m-goldberg">Goldberg 的路线：增强灵巧</a></li><li><a href="#m-business">商业上看什么</a></li></ul></li><li><a href="#agri">背景：园艺和农业机器人</a><ul><li><a href="#a-garden">Goldberg 的园艺研究</a></li><li><a href="#a-race">人机种菜比赛</a></li><li><a href="#a-sim">AlphaGardenSim：园艺模拟器</a></li><li><a href="#a-field">大田：看见杂草再动手</a></li><li><a href="#a-laser">Carbon Robotics：激光除草</a></li><li><a href="#a-drone">中国：无人机先铺开</a></li><li><a href="#a-pick">采摘：最难的一步</a></li><li><a href="#a-fail">倒下的公司</a></li><li><a href="#a-pattern">哪些做成了，哪些没有</a></li></ul></li><li><a href="#hands">背景：灵巧手</a><ul><li><a href="#d-why">为什么难</a></li><li><a href="#d-history">历史</a></li><li><a href="#d-routes">技术路线</a></li><li><a href="#d-market">2026 年的产品和市场</a></li><li><a href="#d-data">数据和学习</a></li><li><a href="#d-goldberg">和课上观点对照</a></li></ul></li><li><a href="#rust">背景：ROS 2、Rust 和机器人软件</a><ul><li><a href="#r-ros">ROS 2 是什么</a></li><li><a href="#r-why">为什么适合机器人</a></li><li><a href="#r-eco">生态进展</a></li><li><a href="#r-limit">局限</a></li><li><a href="#r-agent">Rust 和 AI 写代码</a></li></ul></li><li><a href="#companies">背景：机器人公司</a><ul><li><a href="#c-brain">做“大脑”的：机器人基础模型</a></li><li><a href="#c-humanoid">美国人形机器人</a></li><li><a href="#c-china">中国人形机器人</a></li><li><a href="#c-deployed">已经大规模用起来的</a></li><li><a href="#c-berkeley">和伯克利的关系</a></li><li><a href="#c-read">怎么看这些数字</a></li></ul></li><li><a href="#home">背景：机器人进家要多久</a><ul><li><a href="#h-views">各方说法</a></li><li><a href="#h-reasons">分歧在哪</a></li><li><a href="#h-read">怎么看这些说法</a></li></ul></li><li><a href="#videos">视频清单</a></li><li><a href="#read">课前读什么</a></li><li><a href="#ask">课上可以问</a></li><li><a href="#course">讲者和课程</a><ul><li><a href="#intro1">“讲者和课程”部分课：2020 年代的 AI 与机器人</a></li><li><a href="#intro2">“课堂笔记”部分课：未知智能，艺术与机器人</a></li><li><a href="#listen">听课时带着的三个问题</a></li></ul></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
-<main id="main">
-<header><div aria-label="系列笔记导航" class="series-nav"><a href="/reading/">← 返回资料</a></div>
+<nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#who">讲者是谁</a></li><li class="outline-sub"><a href="#social">主页和社交媒体</a></li><li><a href="#review-map">复习图解与概念</a></li><li><a href="#notes">课堂笔记</a></li><li class="outline-sub"><a href="#n-open">开场：咆哮的 2020 年代</a></li><li class="outline-sub"><a href="#n-dex">一、灵巧</a></li><li class="outline-sub"><a href="#n-ecom">二、电商</a></li><li class="outline-sub"><a href="#n-home">三、家用机器人</a></li><li class="outline-sub"><a href="#n-surgery">四、手术</a></li><li class="outline-sub"><a href="#n-agri">五、农业</a></li><li class="outline-sub"><a href="#n-agentic">六、智能体机器人</a></li><li class="outline-sub"><a href="#n-qa">问答和收尾</a></li><li class="outline-sub"><a href="#n-check">和预习资料的对照</a></li><li><a href="#basics">背景：先懂 5 个概念</a></li><li class="outline-sub"><a href="#b-gap">十万年数据缺口</a></li><li class="outline-sub"><a href="#b-gofe">传统工程加 AI</a></li><li class="outline-sub"><a href="#b-grasp">机器人抓取</a></li><li class="outline-sub"><a href="#b-uncanny">诡异感和恐怖谷</a></li><li class="outline-sub"><a href="#b-garden">Telegarden 和 AlphaGarden</a></li><li><a href="#agentic">背景：VLA 和智能体机器人</a></li><li class="outline-sub"><a href="#g-vla">VLA 是什么</a></li><li class="outline-sub"><a href="#g-vla-progress">VLA 的进展</a></li><li class="outline-sub"><a href="#g-vla-gap">VLA 用在哪里，还差什么</a></li><li class="outline-sub"><a href="#g-what">智能体机器人：他怎么定义</a></li><li class="outline-sub"><a href="#g-limit">他说的限制</a></li><li class="outline-sub"><a href="#g-libero">LIBERO：VLA 的考卷</a></li><li class="outline-sub"><a href="#g-gap">GaP：图即策略</a></li><li class="outline-sub"><a href="#g-gap-two">GaP 的两半：图生成器和图优化器</a></li><li class="outline-sub"><a href="#g-rss">RoboSimStudio：从手机视频造仿真</a></li><li class="outline-sub"><a href="#g-rats">Goldberg 组在 LIBERO-PRO 上的成绩</a></li><li class="outline-sub"><a href="#g-nemoclaw">NemoClaw：给代理套上缰绳</a></li><li class="outline-sub"><a href="#g-latest">智能体机器人的最新进展</a></li><li class="outline-sub"><a href="#g-who">主要的实验室和公司</a></li><li class="outline-sub"><a href="#g-compare">两条路线对照</a></li><li><a href="#autolab">背景：AUTOLab 实验室</a></li><li class="outline-sub"><a href="#l-who">规模和人员</a></li><li class="outline-sub"><a href="#l-lines">研究线和代表成果</a></li><li class="outline-sub"><a href="#l-alumni">博士毕业生和去向</a></li><li class="outline-sub"><a href="#l-companies">实验室出来的公司</a></li><li class="outline-sub"><a href="#l-honors">Goldberg 的荣誉</a></li><li class="outline-sub"><a href="#l-read">怎么看这个实验室</a></li><li><a href="#ambi">背景：Ambi Robotics</a></li><li class="outline-sub"><a href="#am-basic">公司概况</a></li><li class="outline-sub"><a href="#am-money">融资</a></li><li class="outline-sub"><a href="#am-products">产品</a></li><li class="outline-sub"><a href="#am-milestones">客户和大事记</a></li><li class="outline-sub"><a href="#am-check">课上说法和公开资料对照</a></li><li class="outline-sub"><a href="#am-read">怎么看 Ambi</a></li><li><a href="#medtech">背景：手术机器人和医疗科技</a></li><li class="outline-sub"><a href="#m-market">市场：Intuitive 一家独大</a></li><li class="outline-sub"><a href="#m-rivals">挑战者：美国三家，中国一家</a></li><li class="outline-sub"><a href="#m-levels">手术自主的 6 个等级</a></li><li class="outline-sub"><a href="#m-research">研究前沿：从缝一针到切胆囊</a></li><li class="outline-sub"><a href="#m-goldberg">Goldberg 的路线：增强灵巧</a></li><li class="outline-sub"><a href="#m-business">商业上看什么</a></li><li><a href="#agri">背景：园艺和农业机器人</a></li><li class="outline-sub"><a href="#a-garden">Goldberg 的园艺研究</a></li><li class="outline-sub"><a href="#a-race">人机种菜比赛</a></li><li class="outline-sub"><a href="#a-sim">AlphaGardenSim：园艺模拟器</a></li><li class="outline-sub"><a href="#a-field">大田：看见杂草再动手</a></li><li class="outline-sub"><a href="#a-laser">Carbon Robotics：激光除草</a></li><li class="outline-sub"><a href="#a-drone">中国：无人机先铺开</a></li><li class="outline-sub"><a href="#a-pick">采摘：最难的一步</a></li><li class="outline-sub"><a href="#a-fail">倒下的公司</a></li><li class="outline-sub"><a href="#a-pattern">哪些做成了，哪些没有</a></li><li><a href="#hands">背景：灵巧手</a></li><li class="outline-sub"><a href="#d-why">为什么难</a></li><li class="outline-sub"><a href="#d-history">历史</a></li><li class="outline-sub"><a href="#d-routes">技术路线</a></li><li class="outline-sub"><a href="#d-market">2026 年的产品和市场</a></li><li class="outline-sub"><a href="#d-data">数据和学习</a></li><li class="outline-sub"><a href="#d-goldberg">和课上观点对照</a></li><li><a href="#rust">背景：ROS 2、Rust 和机器人软件</a></li><li class="outline-sub"><a href="#r-ros">ROS 2 是什么</a></li><li class="outline-sub"><a href="#r-why">为什么适合机器人</a></li><li class="outline-sub"><a href="#r-eco">生态进展</a></li><li class="outline-sub"><a href="#r-limit">局限</a></li><li class="outline-sub"><a href="#r-agent">Rust 和 AI 写代码</a></li><li><a href="#companies">背景：机器人公司</a></li><li class="outline-sub"><a href="#c-brain">做“大脑”的：机器人基础模型</a></li><li class="outline-sub"><a href="#c-humanoid">美国人形机器人</a></li><li class="outline-sub"><a href="#c-china">中国人形机器人</a></li><li class="outline-sub"><a href="#c-deployed">已经大规模用起来的</a></li><li class="outline-sub"><a href="#c-berkeley">和伯克利的关系</a></li><li class="outline-sub"><a href="#c-read">怎么看这些数字</a></li><li><a href="#home">背景：机器人进家要多久</a></li><li class="outline-sub"><a href="#h-views">各方说法</a></li><li class="outline-sub"><a href="#h-reasons">分歧在哪</a></li><li class="outline-sub"><a href="#h-read">怎么看这些说法</a></li><li><a href="#videos">视频清单</a></li><li><a href="#read">课前读什么</a></li><li><a href="#ask">课上可以问</a></li><li><a href="#course">讲者和课程</a></li><li class="outline-sub"><a href="#intro1">“讲者和课程”部分课：2020 年代的 AI 与机器人</a></li><li class="outline-sub"><a href="#intro2">“课堂笔记”部分课：未知智能，艺术与机器人</a></li><li class="outline-sub"><a href="#listen">听课时带着的三个问题</a></li><li><a href="#sources">方法与来源</a></li></ul></details></nav>
+<main id="main"><div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+<header>
 <p class="eyebrow">Notes · 图文版 · 2026-10-22 · 上午 1–2 / 4</p>
 <h1>10 Ken Goldberg：机器人、AI 和艺术</h1>
 <p class="lede">周四上午两节课。讲者与社交媒体在前，随后是图解、课堂笔记与专题背景。图片保留出处与许可说明。</p>
 <p class="meta"><span>08:30–10:00、10:30–12:00</span><span>Chou Hall N400</span><span>资料截至 2026-10-22</span><span>含两段课堂录音转写</span></p>
-<div class="review-toolbar"><label for="review-theme">阅读主题</label><select id="review-theme"><option value="auto">跟随系统</option><option value="light">亮色</option><option value="dark">暗色</option></select></div></header>
+<div class="review-toolbar"></div></header>
 <h2 id="who">讲者是谁</h2><p class="muted">主页与社交媒体见下表。个人主页已于 2026-10-25 核对。</p>
 <dl class="kv">
 <dt>职位</dt><dd>伯克利工业工程与运筹学教授，craigslist 新媒体杰出讲席教授，William S. Floyd 工程杰出讲席；兼任电子工程与计算机系、艺术实践系教职；在 UCSF 医学院做医疗机器人<sup><a href="#src-1">1</a>,<a href="#src-2">2</a></sup></dd>
@@ -1635,50 +1640,61 @@ p.vid b { margin-right: .6em; color: var(--acc-ink); }
 </div>
 <script>
 // Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
-(function () {
-  var det = document.querySelector('.outline details');
-  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
-  function syncOutlineOpen() {
-    if (!det || !mq) return;
-    if (mq.matches) det.removeAttribute('open');
-    else det.setAttribute('open', '');
-  }
-  syncOutlineOpen();
-  if (mq) {
-    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
-    else if (mq.addListener) mq.addListener(syncOutlineOpen);
-  }
-  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
-  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
-  if (!('IntersectionObserver' in window) || !targets.length) return;
-  var current = null;
-  function set(id) {
-    if (current === id) return;
-    current = id;
-    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
-  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
-  targets.forEach(function (t) { io.observe(t); });
-})();
+
 </script>
 <script>
 (function () {
-  var select = document.getElementById('review-theme');
+  var select = document.getElementById('reading-theme');
   function apply(value) {
-    if (value === 'auto') document.documentElement.removeAttribute('data-theme');
+    if (value === 'system') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', value);
   }
-  var value = document.documentElement.getAttribute('data-theme') || 'auto';
+  var value = document.documentElement.getAttribute('data-theme') || 'system';
   try { value = localStorage.getItem('berkeley-notes-theme') || value; } catch (error) {}
-  if (['auto', 'light', 'dark'].indexOf(value) < 0) value = 'auto';
+  if (['system', 'light', 'dark'].indexOf(value) < 0) value = 'system';
   select.value = value;
   apply(value);
   select.addEventListener('change', function () {
     apply(select.value);
     try { localStorage.setItem('berkeley-notes-theme', select.value); } catch (error) {}
   });
+})();
+</script><script id="reading-script">// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
 })();
 </script></body>
 </html>

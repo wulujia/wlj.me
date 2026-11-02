@@ -20,6 +20,7 @@
 #     --noindex                page is noindex; also excluded from sitemap
 #     --update                 replace a page; refresh title and description; keep its date
 #     --dry-run                validate and show the plan, write nothing
+#     --local                  write and build locally without a commit or push
 #   title and description are read from <title> and <meta name="description"> in the HTML.
 #   The HTML must carry robots + canonical for https://wlj.me/reading/<slug>/ and a link back to /reading/.
 #
@@ -162,12 +163,13 @@ html_meta() {
 }
 
 publish_reading() {
-  local input="" slug="" category="" author="" year="" subtitle="" original_url="" post_slug="" changelog_line="" noindex=0 update=0 dry_run=0
+  local input="" slug="" tags="" tags_json="" category="" author="" year="" subtitle="" original_url="" post_slug="" changelog_line="" noindex=0 update=0 dry_run=0 local_only=0
 
   while [ $# -gt 0 ]; do
     case "$1" in
       --slug) slug="$2"; shift 2 ;;
       --category) category="$2"; shift 2 ;;
+      --tags) tags="$2"; shift 2 ;;
       --author) author="$2"; shift 2 ;;
       --year) year="$2"; shift 2 ;;
       --subtitle) subtitle="$2"; shift 2 ;;
@@ -177,6 +179,7 @@ publish_reading() {
       --noindex) noindex=1; shift ;;
       --update) update=1; shift ;;
       --dry-run) dry_run=1; shift ;;
+      --local) local_only=1; shift ;;
       --*) die "未知参数: $1" ;;
       *) [ -z "$input" ] || die "多余的参数: $1"; input="$1"; shift ;;
     esac
@@ -220,6 +223,13 @@ publish_reading() {
   toml="$REPO_DIR/data/reading-materials.toml"
   reading_url="/reading/$slug/"
   canonical="$SITE_URL$reading_url"
+  python3 - "$src_dir" "$target_dir" <<'PYPATHS'
+from pathlib import Path
+import sys
+source, target = (Path(value).resolve() for value in sys.argv[1:])
+if source == target or source in target.parents or target in source.parents:
+    sys.exit("源目录和目标目录不能重叠，请在 /tmp/ 准备整理页。")
+PYPATHS
   if [ "$update" = 1 ]; then
     [ -d "$target_dir" ] || die "要更新的目录不存在: $target_dir"
     grep -q "^slug = \"$slug\"\$" "$toml" || die "reading-materials.toml 里没有 slug: $slug"
@@ -227,6 +237,8 @@ publish_reading() {
     [ ! -e "$target_dir" ] || die "目录已存在: $target_dir"
     ! grep -q "^slug = \"$slug\"\$" "$toml" || die "reading-materials.toml 里已有 slug: $slug"
   fi
+
+  tags_json=$(python3 "$REPO_DIR/scripts/reading_tags.py" resolve "$slug" "$tags") || die "整理页标签检查未通过"
 
   # Title and description come from the HTML head.
   local title description
@@ -245,8 +257,13 @@ publish_reading() {
   grep -q -E 'href="(https://wlj\.me)?/reading/"' "$src_html" || die "HTML 里没有返回整理的链接（href=\"/reading/\"）"
   ! grep -q -E '<img[^>]*alt=""' "$src_html" || die "HTML 里有空 alt 的图片，整理页图片必须写有意义的 alt"
 
-  # luca-html checker: structure, theme, print, outline, AI byline, plus luca-writing prose lint.
-  run_gate "luca-html" "$HTML_CHECK" "$src_html"
+  # Check every page before writing any files, including pages within a report.
+  python3 "$REPO_DIR/scripts/reading_style.py" "$src_dir" --url-prefix "$canonical" \
+    || die "整理页规范检查未通过，请按 templates/reading/index.html 修改。"
+  local child_html
+  while IFS= read -r -d '' child_html; do
+    run_gate "luca-html" "$HTML_CHECK" "$child_html"
+  done < <(find "$src_dir" -type f -name '*.html' -print0)
 
   local date
   date=$(now_iso)
@@ -268,6 +285,7 @@ publish_reading() {
     echo "subtitle = \"$(toml_escape "$subtitle")\""
     echo "author = \"$(toml_escape "$author")\""
     echo "category = \"$category\""
+    echo "tags = $tags_json"
     echo "date = \"$date\""
     echo "year = \"$year\""
     echo "description = \"$(toml_escape "$description")\""
@@ -281,6 +299,7 @@ publish_reading() {
   echo "slug:        $slug"
   echo "title:       $title"
   echo "category:    $category"
+  echo "tags:        $tags_json"
   echo "author:      $author · $year"
   echo "description: $description"
   echo "source:      $src_dir/ -> static/reading/$slug/"
@@ -301,10 +320,20 @@ publish_reading() {
 
   mkdir -p "$REPO_DIR/static/reading"
   if [ "$update" = 1 ]; then
-    find "$target_dir" -mindepth 1 -maxdepth 1 -delete
-    cp -R "$src_dir"/. "$target_dir"/
+    python3 - "$src_dir" "$target_dir" <<'PYCOPY'
+from pathlib import Path
+import shutil
+import sys
+source, target = (Path(value) for value in sys.argv[1:])
+for child in target.iterdir():
+    if child.is_dir() and not child.is_symlink():
+        shutil.rmtree(child)
+    else:
+        child.unlink()
+shutil.copytree(source, target, dirs_exist_ok=True)
+PYCOPY
     # Refresh translated metadata and preserve the publication date.
-    python3 - "$toml" "$slug" "$title" "$description" <<'PYMETA'
+    python3 - "$toml" "$slug" "$title" "$description" "$tags_json" <<'PYMETA'
 import json
 import re
 import sys
@@ -313,8 +342,13 @@ path = Path(sys.argv[1])
 blocks = path.read_text().split("[[materials]]")
 for index, block in enumerate(blocks):
     if re.search(r'^slug = "' + re.escape(sys.argv[2]) + r'"$', block, re.M):
-        for key, value in zip(("title", "description"), sys.argv[3:]):
+        for key, value in zip(("title", "description"), sys.argv[3:5]):
             block = re.sub(r"^" + key + r" = .*?$", lambda match: key + " = " + json.dumps(value, ensure_ascii=False), block, flags=re.M)
+        tag_line = "tags = " + sys.argv[5]
+        if re.search(r"^tags = .*?$", block, re.M):
+            block = re.sub(r"^tags = .*?$", lambda match: tag_line, block, flags=re.M)
+        else:
+            block = re.sub(r"^(category = .*?)$", lambda match: match[0] + "\n" + tag_line, block, flags=re.M)
         blocks[index] = block
         break
 path.write_text("[[materials]]".join(blocks))
@@ -339,6 +373,11 @@ PYMETA
     echo "提示: 本机没有 hugo，跳过本地构建检查" >&2
   fi
 
+  if [ "$local_only" = 1 ]; then
+    echo "已写入本地并完成构建检查，未提交、未推送: $canonical"
+    return 0
+  fi
+
   cd "$REPO_DIR"
   git add "static/reading/$slug" data/reading-materials.toml CHANGELOG.md
   if [ "$update" = 1 ]; then
@@ -353,6 +392,17 @@ PYMETA
 # ---------------------------------------------------------------- dispatch
 
 case "${1:-}" in
+  reading-tags)
+    shift
+    [ -n "${1:-}" ] && [ "${2:-}" = "--local" ] || die "用法: ./publish.sh reading-tags 清单.json --local [--dry-run]"
+    manifest="$1"
+    python3 "$REPO_DIR/scripts/reading_tags.py" batch "$manifest"
+    if [ "${3:-}" != "--dry-run" ]; then
+      python3 "$REPO_DIR/scripts/reading_tags.py" batch "$manifest" --write
+      changelog_add "- 整理页复用文章主题标签，支持标签筛选并保留资料类型。"
+      (cd "$REPO_DIR" && hugo --destination /tmp/wlj-check)
+    fi
+    ;;
   reading) shift; publish_reading "$@" ;;
   post) shift; publish_post "$@" ;;
   update) shift; publish_post "${1:-}" "${2:-}" update ;;

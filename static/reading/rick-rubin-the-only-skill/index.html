@@ -1,55 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>里克·鲁宾谈创作与 AI：中文访谈全文</title>
-<meta name="description" content="The Diary Of A CEO 对音乐制作人 Rick Rubin 的访谈中文全文译稿，按 30 个章节分节，可跳转至原视频对应时间。">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://wlj.me/reading/rick-rubin-the-only-skill/">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap">
-<style>
-/* ---------- tokens: full light set on bare :root, dark redefines tokens only ---------- */
-:root {
+<meta content="The Diary Of A CEO 对音乐制作人 Rick Rubin 的访谈中文全文译稿，按 30 个章节分节，可跳转至原视频对应时间。" name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://wlj.me/reading/rick-rubin-the-only-skill/" rel="canonical"/>
+
+<style>.chap{font-size: 13px;color: var(--ink-3);margin: -6px 0 18px;display: flex;gap: 10px;flex-wrap: wrap;align-items: baseline;}
+.chap a.mono{font-size: 13px;text-decoration: none;padding: 0 6px;box-shadow: inset 0 0 0 1px var(--acc);color: var(--acc-ink);}
+.spk{font-weight: 600;color: var(--acc-ink);}
+.spk::after{content: "：";}
+@media  print {.chap a.mono::after{content: none !important;}}</style>
+<style id="reading-style">:root {
   color-scheme: light;
-  /* Neutrals carry a slight hue bias toward the accent. Re-pick --acc per subject; never ship this default. */
-  --bg: #f8f6f5;
+  --bg: #f5f8f7;
   --surface: #ffffff;
-  --ink: #1e1a1a;
-  --ink-2: #494e52;
-  --ink-3: #66707a;          /* >= 4.5:1 on --bg, safe down to 12px */
-  --rule: #e2dcdb;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
   --rule-2: #b9bfc5;
-  --mid: #efeae9;
-  --acc: #8a2f3c;            /* 主题色：按题目换 */
-  --acc-ink: #74222f;        /* accent dark enough for text */
-  --acc-wash: rgba(138, 47, 60, .08);
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
   --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
-  --font-display: "Noto Serif SC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-display: var(--font-body);
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #191617; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
     --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #d9828f; --acc-ink: #eba9b3; --acc-wash: rgba(217,130,143,.14);
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #191617; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
   --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #d9828f; --acc-ink: #eba9b3; --acc-wash: rgba(217,130,143,.14);
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
 
-/* ---------- base ---------- */
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -64,8 +63,7 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-/* ---------- layout: outline + reading column ---------- */
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
@@ -78,7 +76,6 @@ main { min-width: 0; }
 .outline a:hover { color: var(--ink); }
 .outline a.active { color: var(--acc-ink); }
 .outline summary { display: none; }
-/* Desktop: keep the list visible even if `open` was cleared while the window was narrow. */
 @media (min-width: 901px) {
   .outline details > ul { display: block !important; }
 }
@@ -90,14 +87,12 @@ main { min-width: 0; }
   .outline details:not([open]) ul { display: none; }
 }
 
-/* ---------- header ---------- */
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
 h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
 .lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
 .meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
 .meta span + span::before { content: "·"; margin: 0 8px; }
 
-/* ---------- prose ---------- */
 h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
 h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
 h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
@@ -106,7 +101,7 @@ p { margin: 0 0 1em; }
 ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
 li { margin: 0 0 .35em; }
 strong { font-weight: 600; }
-blockquote { margin: 1.2em 0; padding: 4px 0 4px 16px; border-left: 3px solid var(--rule-2); color: var(--ink-2); }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
 blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
 code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
 pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
@@ -115,12 +110,10 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .muted { color: var(--ink-3); }
 
-/* ---------- summary block: the page's conclusion, first thing after the header ---------- */
 .summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
 .summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
 .summary p:last-child { margin: 0; }
 
-/* ---------- callouts: label is the icon; four kinds only ---------- */
 .note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
 .note { border-color: var(--acc); }
 .warn { border-color: var(--warn); background: var(--warn-wash); }
@@ -129,64 +122,59 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 .note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
 .note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
 
-/* ---------- tables ---------- */
 .tbl { overflow-x: auto; margin: 0 0 1.4em; }
 table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
 caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
 th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
-th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid var(--ink); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
 th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
 td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 600; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
 .compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
 .compare td.pick { background: var(--acc-wash); }
 
-/* ---------- stat row: only when the numbers are the point ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
 .stats > div { background: var(--surface); padding: 12px 14px; }
 .stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
 .stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
 
-/* ---------- kv grid: label / value pairs that read as one object ---------- */
-.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
 .kv dt { color: var(--ink-3); margin: 0; }
-.kv dd { margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
 
-/* ---------- timeline: only when order carries information ---------- */
 .timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
 .timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
 .timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
 .timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
 
-/* ---------- figure / chart ---------- */
 figure { margin: 1.6em 0; }
 figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
 figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
 figure details { font-size: 13.5px; margin-top: 6px; }
 figure summary { cursor: pointer; color: var(--ink-3); }
 
-/* ---------- pills / tags ---------- */
 .pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
 .pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
 .pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
 .pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
 
-/* ---------- sources ---------- */
 .sources { font-size: 14px; color: var(--ink-2); }
 .sources li { margin: 0 0 .5em; word-break: break-word; }
 sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 
-/* ---------- print: force light tokens, drop navigation, keep tables whole ---------- */
-@page { size: A4; margin: 18mm 16mm; }
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
 @media print {
   :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
   html { font-size: 11pt; }
-  body { background: #fff; color: #000; line-height: 1.6; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
   .layout { display: block; max-width: none; padding: 0; }
   .outline, .skip { display: none; }
   h1, h2, h3, h4 { break-after: avoid; }
-  figure, table, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
   p, li { orphans: 3; widows: 3; }
   thead { display: table-header-group; }
   tr { break-inside: avoid; }
@@ -195,68 +183,55 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
   *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
-.chap { font-size: 13px; color: var(--ink-3); margin: -6px 0 18px; display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; }
-.chap a.mono { font-size: 13px; text-decoration: none; padding: 0 6px; box-shadow: inset 0 0 0 1px var(--acc); color: var(--acc-ink); }
-.spk { font-weight: 600; color: var(--acc-ink); }
-.spk::after { content: "："; }
-@media print { .chap a.mono::after { content: none !important; } }
-</style>
-</head>
-<body>
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style></head>
+<body data-reading-version="1">
 <a class="skip" href="#main">跳到正文</a>
 <div class="layout">
-<nav class="outline" aria-label="目录">
-  <p class="label">Outline</p>
-  <details open>
-    <summary>目录</summary>
-    <ul>
-<li><a href="#c01">开场</a></li>
-<li><a href="#c02">鲁宾的“无法辩护”原则</a></li>
-<li><a href="#c03">一张梗图怎么变成了《The Way of Code》</a></li>
-<li><a href="#c04">为什么冒险胜过“老一套”</a></li>
-<li><a href="#c05">Jay-Z 的《99 Problems》是怎么做出来的</a></li>
-<li><a href="#c06">超觉冥想，以及找到你热爱的事</a></li>
-<li><a href="#c07">创造力是天生的吗？</a></li>
-<li><a href="#c08">别再和别人比</a></li>
-<li><a href="#c09">“懒惰的工作狂”与躲开截止日期</a></li>
-<li><a href="#c10">创作的四个阶段</a></li>
-<li><a href="#c11">该不该辞职去追梦？</a></li>
-<li><a href="#c12">鲁宾怎么看出一个艺人会成大器</a></li>
-<li><a href="#c13">觉得被困住了？人生的“重启键”</a></li>
-<li><a href="#c14">广告</a></li>
-<li><a href="#c15">身份是一座牢笼：如何重新开始</a></li>
-<li><a href="#c16">33 岁那次抑郁，以及它教会我的事</a></li>
-<li><a href="#c17">怎样变得更有原创性</a></li>
-<li><a href="#c18">AI 危险吗？</a></li>
-<li><a href="#c19">AI 能有创造力吗？</a></li>
-<li><a href="#c20">AI 时代，什么造就伟大的艺人？</a></li>
-<li><a href="#c21">录音棚里的奇迹</a></li>
-<li><a href="#c22">当世界拒绝你的作品</a></li>
-<li><a href="#c23">黑桃 A 的故事：Jay-Z 为什么离开 Cristal</a></li>
-<li><a href="#c24">广告</a></li>
-<li><a href="#c25">如果你的作品不够好呢？</a></li>
-<li><a href="#c26">Jay-Z 有何不同：他的写作过程</a></li>
-<li><a href="#c27">坎耶的过人之处，以及伟大的艺人是天生的吗？</a></li>
-<li><a href="#c28">改变了鲁宾的那些艺人</a></li>
-<li><a href="#c29">鲁宾为什么拍 Jay-Z 纪录片</a></li>
-<li><a href="#c30">你会感谢谁？</a></li>
-<li><a href="#method">方法与来源</a></li>
-    </ul>
-  </details>
-</nav>
-<main id="main">
-  <header>
-    <p class="eyebrow">译稿 · 2026 年 9 月 21 日</p>
-    <h1>里克·鲁宾：AI 偷不走的那项技能</h1>
-    <p class="lede">音乐制作人里克·鲁宾（Rick Rubin）做客 The Diary Of A CEO，和主持人史蒂文·巴特利特（Steven Bartlett）聊直觉、冒险、身份、抑郁和 AI 时代的创作。本页是整期节目的中文全文译稿。</p>
-    <p class="meta"><span>原视频：<a href="https://www.youtube.com/watch?v=a_GiFiHXJ6g" target="_blank" rel="noopener">YouTube · The Diary Of A CEO</a></span><span>时长 2 小时 46 分</span><span>30 个章节</span></p>
-  </header>
-  <div class="summary">
-    <p class="label">先说结论</p>
-    <p>本期节目中，The Diary Of A CEO 主持人史蒂文·巴特利特与音乐制作人里克·鲁宾聊创作中的直觉、冒险，以及为何不以短期销量决定作品方向。鲁宾回忆，Jay-Z 录制《99 Problems》时没有动笔写歌词，只让伴奏循环播放，在脑中构思了二三十分钟便进录音室录下第一段。鲁宾还讲到，自己的一张照片被网友做成“氛围编程”梗图后，他顺势发了一条玩笑推文，浏览量从平常的一两万次升至一百五十万次，随后放下手头工作，投入一本关于氛围编程的书，尽管当时仍不太清楚它是什么。谈到参与制作坎耶的《Yeezus》，他主张把创作推向连自己都难以用理性辩护的方向，并将作品视为个人日记：忠实表达自己的感受，接受听众可能暂时甚至永远无法理解。</p>
-  </div>
+<nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#c01">开场</a></li><li><a href="#c02">鲁宾的“无法辩护”原则</a></li><li><a href="#c03">一张梗图怎么变成了《The Way of Code》</a></li><li><a href="#c04">为什么冒险胜过“老一套”</a></li><li><a href="#c05">Jay-Z 的《99 Problems》是怎么做出来的</a></li><li><a href="#c06">超觉冥想，以及找到你热爱的事</a></li><li><a href="#c07">创造力是天生的吗？</a></li><li><a href="#c08">别再和别人比</a></li><li><a href="#c09">“懒惰的工作狂”与躲开截止日期</a></li><li><a href="#c10">创作的四个阶段</a></li><li><a href="#c11">该不该辞职去追梦？</a></li><li><a href="#c12">鲁宾怎么看出一个艺人会成大器</a></li><li><a href="#c13">觉得被困住了？人生的“重启键”</a></li><li><a href="#c14">广告</a></li><li><a href="#c15">身份是一座牢笼：如何重新开始</a></li><li><a href="#c16">33 岁那次抑郁，以及它教会我的事</a></li><li><a href="#c17">怎样变得更有原创性</a></li><li><a href="#c18">AI 危险吗？</a></li><li><a href="#c19">AI 能有创造力吗？</a></li><li><a href="#c20">AI 时代，什么造就伟大的艺人？</a></li><li><a href="#c21">录音棚里的奇迹</a></li><li><a href="#c22">当世界拒绝你的作品</a></li><li><a href="#c23">黑桃 A 的故事：Jay-Z 为什么离开 Cristal</a></li><li><a href="#c24">广告</a></li><li><a href="#c25">如果你的作品不够好呢？</a></li><li><a href="#c26">Jay-Z 有何不同：他的写作过程</a></li><li><a href="#c27">坎耶的过人之处，以及伟大的艺人是天生的吗？</a></li><li><a href="#c28">改变了鲁宾的那些艺人</a></li><li><a href="#c29">鲁宾为什么拍 Jay-Z 纪录片</a></li><li><a href="#c30">你会感谢谁？</a></li><li><a href="#method">方法与来源</a></li></ul></details></nav>
+<main id="main"><div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+<header>
+<p class="eyebrow">译稿 · 2026 年 9 月 21 日</p>
+<h1>里克·鲁宾：AI 偷不走的那项技能</h1>
+<p class="lede">音乐制作人里克·鲁宾（Rick Rubin）做客 The Diary Of A CEO，和主持人史蒂文·巴特利特（Steven Bartlett）聊直觉、冒险、身份、抑郁和 AI 时代的创作。本页是整期节目的中文全文译稿。</p>
+<p class="meta"><span>原视频：<a href="https://www.youtube.com/watch?v=a_GiFiHXJ6g" rel="noopener" target="_blank">YouTube · The Diary Of A CEO</a></span><span>时长 2 小时 46 分</span><span>30 个章节</span></p>
+</header>
+<div class="summary">
+<p class="label">先说结论</p>
+<p>本期节目中，The Diary Of A CEO 主持人史蒂文·巴特利特与音乐制作人里克·鲁宾聊创作中的直觉、冒险，以及为何不以短期销量决定作品方向。鲁宾回忆，Jay-Z 录制《99 Problems》时没有动笔写歌词，只让伴奏循环播放，在脑中构思了二三十分钟便进录音室录下第一段。鲁宾还讲到，自己的一张照片被网友做成“氛围编程”梗图后，他顺势发了一条玩笑推文，浏览量从平常的一两万次升至一百五十万次，随后放下手头工作，投入一本关于氛围编程的书，尽管当时仍不太清楚它是什么。谈到参与制作坎耶的《Yeezus》，他主张把创作推向连自己都难以用理性辩护的方向，并将作品视为个人日记：忠实表达自己的感受，接受听众可能暂时甚至永远无法理解。</p>
+</div>
 <h2 id="c01">开场</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=0s" target="_blank" rel="noopener">00:00</a><span lang="en">Intro</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=0s" rel="noopener" target="_blank">00:00</a><span lang="en">Intro</span></p>
 <p><b class="spk">鲁宾</b>Jay-Z 写歌的方式跟谁都不一样。我合作过的其他说唱歌手都会花很多时间写歌词，但我从没见过 Jay 写歌词。我把《99 个问题》（99 Problems）的伴奏放给他听时，他说：“好，就这样一直循环放。”然后他就坐在房间后面。你能听到他在小声念叨，或者哼哼。</p>
 <p>过了二三十分钟，他说：“好了，有了。”他跑进另一个房间，录下了第一段。他大概录了三遍，然后回来听，说：“哦，对，我觉得第二遍不错。”这一切就在他脑子里完成了。</p>
 <p><b class="spk">巴特利特</b>再看跟你合作过的这些人，真是一份让人难以置信的名单。Jay-Z、坎耶（Kanye）、阿黛尔（Adele）、贾斯汀·汀布莱克（Justin Timberlake）、米克·贾格尔（Mick Jagger），还有红辣椒乐队（Red Hot Chili Peppers）。你觉得这些人为什么会找你？</p>
@@ -279,7 +254,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p><b class="spk">鲁宾</b>我会说，我做的事情跟艺术和创造力有关。</p>
 <p><b class="spk">巴特利特</b>那你具体参与艺术和创造力的哪些方面？</p>
 <h2 id="c02">鲁宾的“无法辩护”原则</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=153s" target="_blank" rel="noopener">02:33</a><span lang="en">Rick Rubin’s &quot;Indefensible&quot; Rule</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=153s" rel="noopener" target="_blank">02:33</a><span lang="en">Rick Rubin’s "Indefensible" Rule</span></p>
 <p><b class="spk">鲁宾</b>有时是当教练，有时是当合作者。可能是参与一个电影项目，也可能是有人开了一家初创公司，想聊聊有哪些有创意的解决办法。我们遇到的任何问题，或者想做得更好的任何事情，通常都能找到一条有创意的路径来改善，至少可以试一试，看看有没有其他办法。很多时候，大家公认的前进方式，本身又是一种限制。</p>
 <p><b class="spk">巴特利特</b>我特别好奇，你在寻找解决办法时会遵循什么原则，无论是在商业上，还是在音乐上。我也很想知道，寻找解决办法的过程有没有什么相通之处。因为我是个创业者，应该也算个播客主播。我每天整天都在做投资。我一直在寻找解决问题的办法，可能是人的问题，也可能是创作上的问题。你有没有一些总体原则，不管解决什么类型的问题，都能广泛适用？</p>
 <p><b class="spk">鲁宾</b>我跟你说一个有意思的。我最近一直在想一个词，“无法辩护”。“无法辩护”这个词很有意思，因为它是个贬义很重的词。贬义非常强。如果一件事无法辩护，那就不只是糟糕了。“无法辩护”是很极端的说法。</p>
@@ -287,7 +262,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>所以，我的看法是，在我们做决定的过程中，理性只占很小的一部分。我更倾向于相信直觉，或者某种来自宇宙的指引，敞开自己，接受某种更宏大的力量的指引，接受宇宙创造力的指引。你可以叫它上帝。我叫它上帝。你不一定要这么叫。</p>
 <p><b class="spk">巴特利特</b>你参与创作过的艺术作品里，有没有一些是你在创作当时就觉得无法辩护的？</p>
 <h2 id="c03">一张梗图怎么变成了《The Way of Code》</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=319s" target="_blank" rel="noopener">05:19</a><span lang="en">How a Meme Became Rick Rubin&#x27;s &quot;The Way of Code&quot;</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=319s" rel="noopener" target="_blank">05:19</a><span lang="en">How a Meme Became Rick Rubin's "The Way of Code"</span></p>
 <p><b class="spk">鲁宾</b>一年多前，有个关于氛围编程（vibe coding）的梗。事情是这样开始的：当时出现了一件新鲜事，一个叫安德烈·卡帕西（Andrej Karpathy）的人提出了“氛围编程”这个词。我不知道那是什么。就在他提出这个词、发推文讲这件事的当天，有人放了一张我的照片，照片里我戴着耳机，闭着眼睛，手放在鼠标上。后来，这张照片就跟氛围编程联系在了一起。</p>
 <p>这事跟我完全没关系。我看到了，但不知道是什么意思。接下来几天，朋友们开始给我发这张照片，几百张，配上各种各样跟氛围编程有关的内容。我心想：“嗯。”</p>
 <p>换作以前的我，写《创造力：一生的事》（The Creative Act）之前的我，可能笑一笑，就接着过自己的日子了。我在写《创造力：一生的事》的过程中学到了一件事，书里也经常谈到，就是我们身边一直都有信息传递过来。各种机会、各种邀请，一直都在出现。</p>
@@ -314,7 +289,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p><b class="spk">巴特利特</b>里克，在我看来，有时候那些跟已有的东西差不多的作品，反而会有更好的数据。我想到的是……</p>
 <p><b class="spk">鲁宾</b>也许在一段时间里是这样。</p>
 <h2 id="c04">为什么冒险胜过“老一套”</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=629s" target="_blank" rel="noopener">10:29</a><span lang="en">Why Risk Beats &quot;More of the Same&quot;</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=629s" rel="noopener" target="_blank">10:29</a><span lang="en">Why Risk Beats "More of the Same"</span></p>
 <p><b class="spk">巴特利特</b>我想到两位音乐人。一位是德雷克（Drake），说真的，他的音乐很好，写出了很多热门歌曲。大家都喜欢。歌一出来，我们就在夜店里跟着跳舞，诸如此类。然后我又想到，你应该参与过坎耶的一张专辑，《耶稣降临》（Yeezus）。</p>
 <p><b class="spk">鲁宾</b>嗯。</p>
 <p><b class="spk">巴特利特</b>我还记得第一次听那张专辑时自己在哪儿。我是坎耶的铁杆歌迷，当时我想：“来了，又能听到更多《大学辍学生》（The College Dropout）那样的音乐了，来了。”</p>
@@ -359,7 +334,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p><b class="spk">鲁宾</b>我想，不同艺术家的原因可能不一样。</p>
 <p><b class="spk">巴特利特</b>Jay-Z 为什么找你？</p>
 <h2 id="c05">Jay-Z 的《99 Problems》是怎么做出来的</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=998s" target="_blank" rel="noopener">16:38</a><span lang="en">How Jay-Z&#x27;s 99 Problems Was Made</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=998s" rel="noopener" target="_blank">16:38</a><span lang="en">How Jay-Z's 99 Problems Was Made</span></p>
 <p><b class="spk">鲁宾</b>我第一次见到 Jay 时，他正在做《黑色专辑》（The Black Album），而且准备退休了，这张专辑会是他的告别之作，最后一张专辑。《黑色专辑》当时是 Jay-Z 的最后一张专辑。后来并不是，但当时是这么打算的。他邀请了自己最喜欢的十位制作人，每人跟他合作一首歌。我们那首叫《99 个问题》。制作过程非常有意思。</p>
 <p><b class="spk">巴特利特</b>那真是一首标志性的歌。你在里面做了哪些工作？所有人都知道那首歌。所有人。</p>
 <p><b class="spk">鲁宾</b>对。我们做了伴奏，放给 Jay 听，他很喜欢。然后他写了歌词，在上面说唱。</p>
@@ -383,7 +358,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>我们做出了自己最喜欢的东西。我们把它做到了无法辩护的程度，能走多远就走多远。幸运的是，最后成功了。</p>
 <p>有什么办法能更清楚地知道自己热爱什么吗？这个问题听起来有点奇怪，不过——</p>
 <h2 id="c06">超觉冥想，以及找到你热爱的事</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=1242s" target="_blank" rel="noopener">20:42</a><span lang="en">Transcendental Meditation &amp; Finding What You Love</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=1242s" rel="noopener" target="_blank">20:42</a><span lang="en">Transcendental Meditation &amp; Finding What You Love</span></p>
 <p>冥想。我十四岁就学会了冥想。我觉得，超觉静坐（Transcendental Meditation，简称 TM）给我的生活打下了一个根基——这是我十四岁时学的第一种冥想——它改变了我。我知道这一点，是因为上大学以后，我停止了冥想。后来大学刚毕业，我搬到加利福尼亚州（California），又开始冥想了。</p>
 <p>我心里隐约知道，这是个重要的决定，也隐约知道，会有一个合适的时刻重新开始。停了好几年之后，我又过了几个月，才真正坐下来，做了第一次冥想。就在那次冥想中，我意识到：“哦，这种感觉太熟悉了。它是我很重要的一部分，虽然我已经五年没做了。从小就有机会冥想，这件事深深影响了我看待世界的方式。”</p>
 <p>为了理解冥想让你成为了怎样的人，我想反过来问问你：如果没有冥想，你会是什么样的人？</p>
@@ -419,7 +394,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>所以，这是同一回事？</p>
 <p>就是在所有指标都告诉你行不通的时候，继续在自己相信的事情上加码。这就是亚马逊的故事。</p>
 <h2 id="c07">创造力是天生的吗？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=1735s" target="_blank" rel="noopener">28:55</a><span lang="en">Is Creativity Innate?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=1735s" rel="noopener" target="_blank">28:55</a><span lang="en">Is Creativity Innate?</span></p>
 <p>你觉得，人们在这方面的能力是不是有高低之分——如果先把冥想这样的练习放在一边，纵观历史，似乎有些人就是比其他人更善于培养内心的声音，或者倾听它。当然，我坐在这里采访过一些非常出色的创始人，看起来有些人就是天生比其他人更有创造力。有些人总是在用大脑里负责分析的那一部分，他们需要一加一永远等于二。我想知道，还有没有其他办法，以及你是否认为，人的创造力存在先天差异。</p>
 <p>我觉得，在成长过程中，我们的创造力一点点受到了打压。我们去上学，大人让我们把听到的东西复述回去，让我们整天坐在椅子上。各种制度把我们的心气磨没了。</p>
 <p>没有人教我们自由地、创造性地思考。我们学到的是遵守规则。那些规则的存在，并不是为了帮助我们。那些规则是用来控制我们的。</p>
@@ -435,7 +410,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>我觉得，这是人们试图简化世界的一种方式。世界很复杂，而我认为，我们每个人都可以做任何事。我并不是说，我们每个人都能把每件事都做到自己的极限，还比其他所有人做得更好。这里面很大一部分问题，就在于竞争这个观念。</p>
 <p>如果我想打棒球，我知道自己可以打得更好。这不意味着我觉得自己能练到去纽约大都会队（New York Mets）打球的水平，但我知道自己能进步。我也知道，任何我感兴趣的事，我都可以通过训练，把它做得好得多。可一旦发现自己没能力去大都会队打球，我们就觉得这件事不适合自己，把这条路关掉了。这对自己没有好处。我们没有成为最好的自己，也没有真正发挥出身为一个人的全部潜力。</p>
 <h2 id="c08">别再和别人比</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2026s" target="_blank" rel="noopener">33:46</a><span lang="en">Stop Comparing Yourself</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2026s" rel="noopener" target="_blank">33:46</a><span lang="en">Stop Comparing Yourself</span></p>
 <p>通过比较来理解一样东西的价值，感觉像是人的一种自然本能。我觉得，去餐厅的时候我们就会这样。菜单上有三种牛排。“贵的那种可能有点装腔，便宜的那种可能不太好。我选中间的吧。”</p>
 <p>这似乎是人们省事的一种办法，但我们对自己也这么做。所以，我怎么知道自己做的东西好不好？看看你做的东西，如果我的排名更高，或者我的更漂亮、更值钱，我就觉得自己的好。你是在说，我们应该停止比较吗？</p>
 <p>对，因为在我看来，这永远都是在拿不同的东西硬比。如果你问：“迈克尔·杰克逊（Michael Jackson）和普林斯（Prince），谁更好？”我会说，做迈克尔·杰克逊，迈克尔·杰克逊要强得多。做普林斯，普林斯大概更好。但你没法比较他们两个人做的东西。他们做的是两种不同的东西。</p>
@@ -450,7 +425,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>对。确实如此。</p>
 <p>什么叫懒惰的工作狂？</p>
 <h2 id="c09">“懒惰的工作狂”与躲开截止日期</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2142s" target="_blank" rel="noopener">35:42</a><span lang="en">The &quot;Lazy Workaholic&quot; &amp; Avoiding Deadlines</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2142s" rel="noopener" target="_blank">35:42</a><span lang="en">The "Lazy Workaholic" &amp; Avoiding Deadlines</span></p>
 <p>经常是，大多数日子里，日程上安排的事，我一件都不想做。但那些事是我安排的，我会到场，把该做的事做完。</p>
 <p>你在创作中会将就吗？唱片公司给的截止日期快到了，作品还没做完，那就做到这里，交出去吧？</p>
 <p>我通常不会这样。我通常要等创作推进到某个阶段之后，才会按截止日期来工作。我们第一次定截止日期时，一定是已经找到门道，知道这个东西会是什么样，而且已经看得见了。它可能还没有完全做完，但我们对它是什么、怎么呈现，已经有了很清楚的想法，大概已经完成了百分之九十。这时，我们可能会给最后百分之十的收尾工作定一个截止日期，而这最后的百分之十，大概不会决定整个项目的成败。</p>
@@ -460,7 +435,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>但如果我没有在这里做这个实验，就永远到不了那个更好的东西。这种事一直都在发生。还有的时候，你把它做出来，二十年都不见成效，然后它就成了亚马逊。</p>
 <p>我最近经常在想，给自己设定多长的时间，会怎样改变你做的事。我觉得，你刚才说的也有这层意思。比如你举的那个蓝色雕像的例子，如果你有一个时间限制，就不会有空间去做你描述的那些探索。其实在生活中，我想我们都会给自己设定时间。我们会说：“我的这段职业生涯要用五年。在这五年里，我要实现这些目标。”你怎么看给人生设定时间安排，以及给创作设定时间安排这件事？</p>
 <h2 id="c10">创作的四个阶段</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2298s" target="_blank" rel="noopener">38:18</a><span lang="en">The 4 Phases of Creativity</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2298s" rel="noopener" target="_blank">38:18</a><span lang="en">The 4 Phases of Creativity</span></p>
 <p>我在书里谈到的一点是，创作有不同的阶段。第一个阶段是种子阶段。然后是实验阶段，再是打磨阶段，最后是收尾、完成、编辑的阶段。在这个过程的早期，你没法定时间表。</p>
 <p>在种子阶段，你必须尝试很多东西，该花多长时间，就得花多长时间。到了实验阶段，你拿着这些种子，看看它们想长成什么样，这也需要时间。再到第三个阶段，也就是打磨阶段，仍然需要时间，因为这时你已经有了种子，看见它想长成什么样，给了它孕育的时间，也看见了它怎样生长。现在，在第三个阶段，也就是打磨阶段，你开始修剪它，让它变成你心里看到的样子。</p>
 <p>所有这些都要先发生，之后才能考虑时间表。因为在那之前，你其实并不知道自己在做什么。它只是一个梦。但走过这三个阶段以后，这个东西已经摆在你面前。它可能还没完成，但你能看见它是什么。你看见了，而且觉得它很好。你为它兴奋。</p>
@@ -471,7 +446,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>明天，我看待世界的方式可能会不同。这没关系。但当我把它分享给你的时候，它已经是此时此刻能达到的最好状态。</p>
 <p>我之所以刚才问这个关于</p>
 <h2 id="c11">该不该辞职去追梦？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2459s" target="_blank" rel="noopener">40:59</a><span lang="en">Should You Quit Your Job to Chase Your Dream?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2459s" rel="noopener" target="_blank">40:59</a><span lang="en">Should You Quit Your Job to Chase Your Dream?</span></p>
 <p>世界有时可能不喜欢你拿出来的东西的问题，是因为“失败”这个词。你在书里也谈到了失败，以及如何面对失败。我想，很多人之所以不敢冒险听从自己、追随自己热爱的东西，很大程度上就是因为“风险”这两个字。随之而来的想法就是：“我可能会损失金钱，可能会失去朋友。如果我辞掉这份工作，去追求拉小提琴这个爱好，跑到秘鲁（Peru）去拉小提琴，我会失去朋友，别人会觉得我很奇怪，所以我还是跟大家一样吧。”</p>
 <p>对。而我想说，这些事你都得去做：失去朋友，承担风险。同时我也想说，我并没有说你搬到秘鲁去当小提琴手，就百分之百能成功。</p>
 <p>而且，你在做这件事的时候，可能还需要有一份正经工作来支付日常开销。这没问题。有种想法觉得，这一切必须合在一件事上：“我得做我梦想中的事，而且它必须同时是我的爱好、我的热爱、我的职业、我养活自己的方式。”不一定要这样。</p>
@@ -503,7 +478,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>我经常拿品尝食物来打比方。如果我给你两块披萨，说：“尝尝这两块披萨，告诉我你更喜欢哪块。”这不难回答。你大概会说：“比起这块，我更喜欢那块。”我问你哪块更好吃时，你不会说：“嗯，我觉得那个人会更喜欢这块披萨。”你会说：“我觉得这块更好吃。”</p>
 <p>目标就是达到这种状态。“我觉得这块更好吃。”就这么简单。我们不相信它能有这么简单。可它就是这么简单。</p> <!-- lint-disable-line -->
 <h2 id="c12">鲁宾怎么看出一个艺人会成大器</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2890s" target="_blank" rel="noopener">48:10</a><span lang="en">How Rick Rubin Knows an Artist Will Be Great</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=2890s" rel="noopener" target="_blank">48:10</a><span lang="en">How Rick Rubin Knows an Artist Will Be Great</span></p>
 <p>如果要你押注一个音乐人，认为他会成为你合作过的那些伟大音乐人中的一员，因为他身上有一些特质，或者一种看待事物的方式，或者一种谦逊，而根据你的经验，这些东西有助于产生杰出的作品，那他们有哪些相似的特质？我投过很多创业者，所以我在想，这两者之间会不会也有共同点，因为有些地方听起来很像。</p>
 <p>我相信有。我有个做风险投资的朋友，我问过他，挑选投资项目的时候，看的究竟是这个生意的想法，还是创始人。他说：“永远是创始人。做什么生意不重要。”他说：“如果我相信这个人，我就会支持他。”</p>
 <p>我想，音乐人也是一样。关键是这个音乐人，不能只看“哦，他写了一首好歌”。好歌更像是一个好产品。你会想，也许他还能再做出一个来。但如果你能看到他怎么看待音乐，怎么在自己的作品里创新，那就是个好信号。</p>
@@ -532,7 +507,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>未知。</p>
 <p>这是我们每个人都能做到的，还是因为你如今这么成功，才有这样的特权？</p>
 <h2 id="c13">觉得被困住了？人生的“重启键”</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3250s" target="_blank" rel="noopener">54:10</a><span lang="en">Feeling Boxed In? The “Reset Button&quot; for Your Life</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3250s" rel="noopener" target="_blank">54:10</a><span lang="en">Feeling Boxed In? The “Reset Button" for Your Life</span></p>
 <p>我们在太多方面限制了自己。我记得有一位非常成功的艺术家，当时正在经历一段特别艰难的日子。我们去了马里布的一家餐厅吃晚饭。我记得很清楚是哪一家。我记得自己当时在想：“这个人可能会自杀。”我能感觉到，他整个人的状态非常失衡，充满冲突，他很痛苦。</p>
 <p>我记得自己说：“你不必继续做这些了。你已经做了很多很棒的事，取得了很大的成功。你有条件停下来。只要你愿意，随时都可以说：‘你知道吗？我要搬到世界的另一头，住在海边，吃点好吃的，在水里玩。’</p>
 <p>“你没有义务继续做这些让你的人生充满冲突的事。你已经做得够多了。”</p>
@@ -543,13 +518,13 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>这几乎就像我们在玩一场游戏，一盘国际象棋。你可以站起来，离开棋桌，不再下了，去玩另一个游戏，玩得开心。这个选择一直都在。</p>
 <p>你可以按下一个按钮，让这一切都消失。要做到这一点，并不意味着你必须死去。只需要让那种处境结束。然后你继续往前走，找到一种新的生活。</p>
 <h2 id="c14">广告</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3465s" target="_blank" rel="noopener">57:45</a><span lang="en">Ads</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3465s" rel="noopener" target="_blank">57:45</a><span lang="en">Ads</span></p>
 <p>我在网上也经常看到别人讨论，怎么找到心流（flow）。就是那种一切突然顺畅起来、干扰消失、你一下子进入最佳状态的感觉。但我们大多数人都把心流当成一种随机发生的事。可当你需要拿出最高水平时，就不能全靠运气，至少你不会希望这样。状态不好一天，代价就可能很大，你需要随时都能进入专注状态。这就是我们的赞助商 Ketone IQ 背后的理念。我投资了这家公司，也成了它的共同所有人，因为我亲身体会到了，它对我做播客有多大的帮助。</p>
 <p>有时坐在我面前的是投资人、商人、哲学家，或者是一位来聊更年期的人，什么话题都有可能。我需要让自己的头脑保持敏锐。Ketone IQ 为大脑提供优质的专注能量，让你持续保持头脑清晰、注意力集中。这样，你就能更主动地创造专注工作的条件，不再只是靠运气，因为你最好的表现不该非得等一个碰巧状态好的时刻。现在前往 ketone.com/steven，即可享受七折优惠，或者去 CVS 免费领取你的第一支。没错，Ketone IQ 现在已经在全美各地的 CVS 门店上架。</p>
 <p>眼下，做生意最大的压倒性优势，就是拥有真正懂人工智能（AI）的人，而大企业正在非常迅速地招聘这些人才。美国的人工智能职位招聘信息数量，自 2023 年以来大约翻了一倍，而人工智能副总裁职位的招聘信息则增长了约 600%。如果你经营的是一家小企业，很难直接组建一整个人工智能团队，但你仍然希望拥有和那些大企业一样的优势。这时，我们的赞助商 Fiverr 就能帮上忙。它能帮你找到顶尖的人工智能专家，完成那些通常需要公司内部有深厚专业能力才能做好的战略性工作。</p>
 <p>这可能是开发定制的人工智能工具，可能是将复杂的工作流程自动化，也可能是做出现成软件根本无法实现的东西。因为说到底，仍然要靠人的判断，知道什么值得做，也知道什么才算做得好。所以，如果你想为自己的企业获得这样的助力，请访问 fiverr.com。就是 Fiverr，带两个 R，后面加上 dot com。</p> <!-- lint-disable-line -->
 <h2 id="c15">身份是一座牢笼：如何重新开始</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3582s" target="_blank" rel="noopener">59:42</a><span lang="en">Your Identity Is the Trap: How to Start Over</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=3582s" rel="noopener" target="_blank">59:42</a><span lang="en">Your Identity Is the Trap: How to Start Over</span></p>
 <p>我觉得，你刚才似乎在说，我们给自己造了一座牢笼，让自己感觉无路可走。而这座牢笼，很大一部分就是我们的身份。就是“身份”这个词。“我是曼哈顿（Manhattan）的一名律师，也是一个父亲，还是一个……”我接受了那个身份。这有点像我做了一笔交易。我接受它，就意味着在酒会上，人们会对我刮目相看。</p>
 <p>所以，我们拿一些东西换了另一些东西，如今却困住了。现在，我经常收到这档节目的听众留言。他们觉得自己卡住了。</p>
 <p>对。我们是自由的。我们是自由的。我们只需要选择用好自由这份人类的馈赠，就可以重新开始。我记得那个试图自杀、幸好活下来的好朋友。我去医院看他。</p>
@@ -581,7 +556,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>说到你自己的人生，刚才我们聊到了心理健康，你在三十岁出头的时候，也曾经历过一段抑郁。</p>
 <p>是的。</p>
 <h2 id="c16">33 岁那次抑郁，以及它教会我的事</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=4054s" target="_blank" rel="noopener">1:07:34</a><span lang="en">My Depressive Episode at 33 and What It Taught Me</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=4054s" rel="noopener" target="_blank">1:07:34</a><span lang="en">My Depressive Episode at 33 and What It Taught Me</span></p>
 <p>当时有什么诱因吗？那段经历对你看待世界、艺术和创造力的方式，有多大影响？因为我听你在《新闻日》（Newsday）里说过，它永远改变了你。</p>
 <p>确实如此。</p>
 <p>带我走进你人生的那个阶段吧。那时你三十三岁，跟我现在一样大。</p>
@@ -632,7 +607,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>你可能极有天赋，但如果没有与之相配的勤奋，很可能永远都没人听到你的作品。所以，需要把这几样东西结合起来：真正勤勉的工作态度，愿意尽一切努力，再加上某种有意思的视角，有意思的观点，有意思的看世界的方式，让别人看了觉得：“我以前从没这样看过。”</p>
 <p>你知道有什么办法，能让我的世界观变得更有意思吗？</p>
 <h2 id="c17">怎样变得更有原创性</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=4626s" target="_blank" rel="noopener">1:17:06</a><span lang="en">How to Be More Original</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=4626s" rel="noopener" target="_blank">1:17:06</a><span lang="en">How to Be More Original</span></p>
 <p>听起来，你花了很多时间看商业和自我提升方面的内容。我会建议，也许可以看看这个领域之外的优秀作品，看看它们之间如何呼应，如何产生共鸣，又有什么联系。我们常常会从跟自己真正感兴趣的事毫无关系的东西里，得到很棒的想法。我们会看到一些新的东西。</p>
 <p>我会建议你开始去博物馆。去博物馆，看看艺术品，戴上耳机跟着语音导览走，听听那些故事。读优秀的文学作品。我说的优秀文学作品，并不是某一份固定书单，但你多问问，就会找到。如果有三个人都推荐一本书，就一定要读。去看影史上最伟大的电影。</p>
 <p>这很有意思，因为当别人告诉我们，怎样才能做好某种职业时，建议总是去学习那种职业。想当个好律师，就去学法律。但很多时候，像史蒂夫·乔布斯这样的人，似乎都有一些不太常见的技能组合，比如他对设计和字体排印的热爱。大学里不会有人跟他说：“好，你想成为一名优秀的程序员，那就去学字体排印设计。”</p>
@@ -688,7 +663,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>对。足以让你想一直待在她身边。</p>
 <p>对。我有时觉得，自己多少也在蹭她的这种气场。</p>
 <h2 id="c18">AI 危险吗？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5267s" target="_blank" rel="noopener">1:27:47</a><span lang="en">Is AI Dangerous?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5267s" rel="noopener" target="_blank">1:27:47</a><span lang="en">Is AI Dangerous?</span></p>
 <p>你说到了更高的智慧，也说到了一种孕育生命的力量，这正好带出了当下的大话题，人工智能。也跟你说的氛围编程有点关系。我昨天还在说，有史以来第一次，我收到一个不从事科技行业的朋友发来的消息，他说：“我很担心。我不知道这项技术是什么。它会抢走我们的工作吗？我很担心。”</p>
 <p>对我来说，这就像蝙蝠信号，说明这件事真的已经影响到普通人了。这周，人工智能公司 Anthropic 有位研究员，他之前也在做 ChatGPT 的 OpenAI 工作过。他说，他认为这可能会导致人类灭绝，或者至少有超过 10% 的可能性。人工智能是个很大的话题。你肯定有很多想法。</p>
 <p>对，我觉得它是个强大得惊人的工具，我很好奇它能做什么。跟任何强大的工具一样，它可能非常危险，可以用来做坏事，也可以用来做好事。火烧毁了我的房子，但我不会说我们应该禁火。火能帮我们做饭，能做一些好事，给房子供暖。</p>
@@ -696,7 +671,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>还有印刷机。印刷机出现的时候，教会试图禁止它。他们不想要这个。他们不希望人人都能获取信息。它带来了好事，可能也带来了一些坏事。</p>
 <p>它能有创造力吗？</p>
 <h2 id="c19">AI 能有创造力吗？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5359s" target="_blank" rel="noopener">1:29:19</a><span lang="en">Can AI Be Creative?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5359s" rel="noopener" target="_blank">1:29:19</a><span lang="en">Can AI Be Creative?</span></p>
 <p>我不知道。我很好奇。我不知道。我们今天聊到的所有关于创造力的东西，都跟视角有关。而人工智能没有自己的视角。</p>
 <p>人工智能汇集的是已经存在的想法。它没有一个特定的观察角度。如果你把同一个问题问它好几遍，或者连续几天问它，它每天给你的答案都可能很不一样。所以，你没法说：“这就是它看世界的方式。”</p>
 <p>如果我让人工智能做一千万首曲子，理论上，它是不是总有可能在某个时候做出一首热门歌曲，尽管严格来说，它并没有自己的视角？</p>
@@ -718,7 +693,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>所以我觉得，现在有了提示，任何人都可以给出提示，而且可以通过实验，越来越擅长这件事。所以，一个觉得自己没有创造力的人，要学会怎么给出提示，其实挺容易的。门槛很低。我觉得这是好事。</p>
 <p>在一个创作门槛这么低的世界里，什么会成为区分高下的标准？是什么让一位艺术家出色，让另一位没那么出色？</p>
 <h2 id="c20">AI 时代，什么造就伟大的艺人？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5704s" target="_blank" rel="noopener">1:35:04</a><span lang="en">What Makes a Great Artist in the AI Era?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=5704s" rel="noopener" target="_blank">1:35:04</a><span lang="en">What Makes a Great Artist in the AI Era?</span></p>
 <p>跟现在一样。你之所以喜欢那些艺术家，是因为他们做出的东西改变了你的生活，打动了你。你想听上一百万遍。你想把那部电影看了一遍又一遍。你想读他们的书。</p>
 <p>我不知道人工智能自己能不能写出一本让你想读一遍又一遍的书。我也不知道，真有那一天，会有什么问题。我目前没看到任何迹象表明那会发生。但有更多好作品，听起来不是什么坏事。</p>
 <p>我和在外面的那位商业伙伴 Georgia Gibson，有次在 Spotify 上听到一首歌。我们特别喜欢。大概两个月后，我才发现那是人工智能做的。我之所以会发现，只是因为我想多找些那个歌手的作品来听。一路点进去，才意识到那是人工智能。</p>
@@ -745,7 +720,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>一直都有。</p>
 <p>是什么样的奇迹？能分享一个吗？</p>
 <h2 id="c21">录音棚里的奇迹</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6022s" target="_blank" rel="noopener">1:40:22</a><span lang="en">Studio Miracles</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6022s" rel="noopener" target="_blank">1:40:22</a><span lang="en">Studio Miracles</span></p>
 <p>艾维特兄弟乐队（The Avett Brothers）有首歌，叫《心无芥蒂》（No Hard Feelings）。他们在录音室里演奏，表现还行。还不错，但谈不上特别好。他们演奏了几遍，最后又来了一遍。我甚至不记得，当时我们有没有说过：“换个做法。”可能只是说：“再试一次。”也可能什么都没变。</p>
 <p>但不知道为什么，他们演奏的时候，时间像是停住了。发生了一件不可思议的事。我不知道为什么。在场的每个人都不知道为什么，也不知道是怎么发生的。</p>
 <p>但后来，我记得，大概演奏到一分钟的时候，我心里冒出一种感觉，有点害怕，因为实在太好了。我们不知道怎么会这样，也不知道为什么。我只希望他们能把这首歌演奏完。因为如果没能演奏到最后，我们就没法留下这一遍，而以后也许再也回不到这个状态了。就是这种感觉。</p>
@@ -769,7 +744,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>对，我把它拟人化了。它不会用语言说出来，但意思很清楚。那些信号很清楚。我们得到的反馈是：“我们以为这首歌应该这么快。但听了以后，很明显，太快了。我们得放慢一点。”</p>
 <p>我们以为它会是一首音量很大的电声歌曲，结果它想成为一首很安静的歌。我们之前不知道。</p>
 <h2 id="c22">当世界拒绝你的作品</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6400s" target="_blank" rel="noopener">1:46:40</a><span lang="en">When the World Rejects Your Work</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6400s" rel="noopener" target="_blank">1:46:40</a><span lang="en">When the World Rejects Your Work</span></p>
 <p>有没有过这样的情况，你觉得某个作品简直好得不得了，可等它面世，大家主观上并不觉得它有那么好？</p>
 <p>当然有。可能经常发生。</p>
 <p>那你会怎么理解这件事，你会根据什么……？</p>
@@ -814,7 +789,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>我们聊过，你合作过的一位很棒的艺人是 Jay-Z。</p>
 <p>对。</p>
 <h2 id="c23">黑桃 A 的故事：Jay-Z 为什么离开 Cristal</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6859s" target="_blank" rel="noopener">1:54:19</a><span lang="en">The Ace of Spades Story: Why Jay-Z Walked Away From Cristal</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=6859s" rel="noopener" target="_blank">1:54:19</a><span lang="en">The Ace of Spades Story: Why Jay-Z Walked Away From Cristal</span></p>
 <p>你和 Jay-Z 有一部很精彩的八集纪录片即将上映，我看得特别入迷。它会在九月十八日上线。我看过其中一段片段，刚刚还让人帮忙梳理了一下，讲的是这个品牌的故事。</p>
 <p>啊，对。黑桃 A 香槟（Ace of Spades）。</p>
 <p>Jay-Z 讲的这个黑桃 A 香槟的故事，我觉得特别有意思，原因很多。它也呼应了你刚才谈到的一些事，比如坚守原则、尊重自己的感受。他决定放弃另一个品牌，哪怕短期内要付出代价，不符合自己的短期利益，也要去推出自己的品牌。</p>
@@ -848,14 +823,14 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>有点像你说的，让艺人走出自己的音乐类型，放下自己的音乐类型。</p>
 <p>对。对。</p>
 <h2 id="c24">广告</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7255s" target="_blank" rel="noopener">2:00:55</a><span lang="en">Ads</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7255s" rel="noopener" target="_blank">2:00:55</a><span lang="en">Ads</span></p>
 <p>这是我为你做的东西。我发现，《首席执行官日记》（The Diary Of A CEO）的观众，都是努力进取的人。无论在事业还是健康上，我们都有想要实现的大目标。我学到的一点是，当你瞄准一个很大、很大、很大的目标时，心理上可能会感到特别不适，因为那有点像站在珠穆朗玛峰（Mount Everest）脚下往上看。</p>
 <p>实现目标的方法，就是把它拆成很小、很小的步骤。我们团队把这叫作“1%”。事实上，我们在这里取得的很多成功，都离不开这个理念。所以，为了帮助屏幕前的你实现自己的任何大目标，我们做了这些“1%”日记本（1% diaries）。去年推出后，全部售罄了。</p>
 <p>所以我一遍又一遍地请团队重新推出这些日记本，同时增加一些新颜色，再做些小调整。现在，我们有了更好的款式选择。如果你心里有一个大目标，需要一个框架、一套方法，还有一些动力，我非常推荐你在它们再次售罄之前买一本。你可以在 thediary.com 买到。如果你想找链接，就在下方的简介里。</p>
 <p>这下面应该有一个按钮。如果上面写着“订阅”，你就已经订阅了。如果写着“订阅者”，那就说明你还没有订阅。如果你还没订阅，能不能帮我们一个忙，点一下那个按钮？它对节目的帮助，比你想象的还大。</p>
 <p>根据算法，你是会看我们节目、但还没有点那个按钮的人。非常感谢。</p>
 <h2 id="c25">如果你的作品不够好呢？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7339s" target="_blank" rel="noopener">2:02:19</a><span lang="en">What If Your Art Isn&#x27;t Good?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7339s" rel="noopener" target="_blank">2:02:19</a><span lang="en">What If Your Art Isn't Good?</span></p>
 <p>听说你以前会用这里这种东西做音乐。</p>
 <p>我从来没用过这款设备，不过它看起来很漂亮。</p>
 <p>如果我来找你，瑞克，说：“我很喜欢这个。”</p>
@@ -889,7 +864,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>你很年轻时就联合创办了 Def Jam 唱片公司（Def Jam）。我记得你当时只有二十一岁。</p>
 <p>大概是那个年纪。</p>
 <h2 id="c26">Jay-Z 有何不同：他的写作过程</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7618s" target="_blank" rel="noopener">2:06:58</a><span lang="en">What Made Jay-Z Different: Inside His Writing Process</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=7618s" rel="noopener" target="_blank">2:06:58</a><span lang="en">What Made Jay-Z Different: Inside His Writing Process</span></p>
 <p>在那个过程中，你认识了一些非常了不起的人。我这里有几张你在那段时间制作并发行的专辑。在你的职业生涯里，包括后来，你接触过的其中一个人就是 Jay-Z。Jay 有什么特别之处？</p>
 <p>Jay 的写作方式跟所有人都不一样。跟我合作过的其他说唱歌手，都会花很多时间写歌词，但我从没见过 Jay 写歌词。等到跟他合作时，我亲眼见识到，他真的不用动笔写歌词。我把《99个问题》（99 Problems）的节拍放给他听，他说：“好，就这样循环播放。一直反复放。”</p>
 <p>他坐在房间后面，坐了很久，久到我都快忘了他还在那里，因为我在跟录音师说话，歌就那么一遍遍放着，他在后面一声不吭。偶尔能听见他低声念几句，或者哼几声。过了二十到三十分钟，他说：“好了，有了。”然后跑进另一个房间，把第一段从头到尾唱了出来。什么都没写下来，他就是记住了。</p>
@@ -929,7 +904,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>我喜欢快乐。我不觉得它是一个目标，但我当然更愿意快乐。喜悦是美好的。也许我要说的那个词是平静。达到那样一种状态——因为平静，安住在平静之中，似乎是很好的状态。</p>
 <p>而且我想，如果情绪到了太高的地方，总会有另一面。有时我心情特别好，这种情况确实偶尔会发生，但有时第二天心情就很差。那种感觉几乎让我觉得，也许是体内化学物质在起作用。也许让人感觉良好的化学物质用得太多，第二天就不够了。我不知道。我不知道这是怎么回事，但我觉得，如果一切都挺好，而且能一直这样下去，我就很喜欢。</p>
 <h2 id="c27">坎耶的过人之处，以及伟大的艺人是天生的吗？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=8250s" target="_blank" rel="noopener">2:17:30</a><span lang="en">What Makes Kanye Brilliant + Were Great Artists Born Great?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=8250s" rel="noopener" target="_blank">2:17:30</a><span lang="en">What Makes Kanye Brilliant + Were Great Artists Born Great?</span></p>
 <p>有一位艺人很熟悉这种起起落落，他也是我最喜欢的艺人之一，就是坎耶（Kanye）。你跟坎耶合作过。我想问同样的问题：他有什么不同？在你看来，是什么让他那么出色？</p>
 <p>我跟他说过：在艺术上，我无所畏惧。他在任何时候都无所畏惧。他在生活里也无所畏惧。我在生活里做不到。艺术上，我是很适合他的合作者，因为我无所畏惧，而并非每个人都是如此。</p>
 <p>但他一直都无所畏惧。亲眼看到这一点，真的很了不起。那是一种强大的力量。</p>
@@ -960,7 +935,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>都一样。有一次我看着他的笔记本，问他：“这些全都是为了——”他说：“不，不，不。这些东西有百分之九十九永远不会有人看到。我就是想写得好。我在练习。我想把自己做的事做得更好。”</p>
 <p>他一直在训练。你可以把他想成一个运动员，有些运动员在休赛期也训练，有些就不练。而在休赛期训练的人，通常表现更好，职业生涯也更长。就是这样。</p>
 <h2 id="c28">改变了鲁宾的那些艺人</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=8566s" target="_blank" rel="noopener">2:22:46</a><span lang="en">The Artists Who Changed Rick Rubin</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=8566s" rel="noopener" target="_blank">2:22:46</a><span lang="en">The Artists Who Changed Rick Rubin</span></p>
 <p>我们刚坐下来的时候，你问了我一个问题。你说：“史蒂文，你做这个播客，这些嘉宾改变过你吗？”今天我谈到的很多内容，都在讲你如何以教练、制作人，或者任何你用来定义自己的身份，改变了别人的人生。我想问你，能不能举几个例子，有哪些艺人，不管出于什么原因，从根本上改变了你？</p>
 <p>可以。我第一个要说的是约翰尼·卡什。约翰尼·卡什。因为我有机会跟这样一个人长时间相处：他那么谦逊、安静、聪明，却很少主动说什么。如果你不引着他说，他就什么也不说。但无论你问起什么，他都了解，而且有非常了不起的见解。</p>
 <p>但他并不需要让你知道这一点。那些都在他心里。他在精神上是一个很美好的人，我很爱他。我觉得，能跟这样一个给人启发的人相处那么久，我的人生真的变得更好了。这是一个。</p>
@@ -999,7 +974,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>我觉得我们差不多都聊到了。最主要的意思其实就是，别听别人怎么说。忠于自己，努力去做，永远别放弃，别退出，一直做下去。也别给你的艺术创作施加过多压力。找到一种不会给艺术创作带来压力的生活方式，这样你在创作时才能完全自由，把东西做成自己梦想中的样子。希望到了某一天，这个梦想中的样子能成为你生活的全部，不再只是你热爱的事。</p>
 <p>你为什么会和 Jay-Z 拍这部纪录片？</p>
 <h2 id="c29">鲁宾为什么拍 Jay-Z 纪录片</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=9105s" target="_blank" rel="noopener">2:31:45</a><span lang="en">Why Rick Rubin Made the Jay-Z Documentary</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=9105s" rel="noopener" target="_blank">2:31:45</a><span lang="en">Why Rick Rubin Made the Jay-Z Documentary</span></p>
 <p>几年前，我和保罗·麦卡特尼（Paul McCartney）拍过一部纪录片，一共六集。拍那部片子的原因是，我从没看过一部关于保罗或披头士乐队的纪录片，是在讲他们的演奏功力。那些片子讲的总是歌曲创作，或者披头士狂热（Beatlemania）。我当时想，没有演奏功力，就不会有披头士狂热。没错，歌很重要，但没有演奏功力，你也没法把那些歌呈现出来。</p>
 <p>对。</p>
 <p>所以我觉得，在人们讲述保罗的故事时，这一大块是空缺的。如果要列一份史上最伟大的贝斯手名单，保罗应该排第一，但大多数人甚至不会把他列进去，因为你不会把他当成贝斯手。你想到的是披头士乐队的保罗。</p>
@@ -1052,7 +1027,7 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>哪天尼尔会找到四个章节，然后一声不吭。</p>
 <p>也许吧。也可能他会兴奋地打来电话，说：“我早说你疯了吧。”</p>
 <h2 id="c30">你会感谢谁？</h2>
-<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=9733s" target="_blank" rel="noopener">2:42:13</a><span lang="en">Who Would You Thank?</span></p>
+<p class="chap"><a class="mono" href="https://www.youtube.com/watch?v=a_GiFiHXJ6g&amp;t=9733s" rel="noopener" target="_blank">2:42:13</a><span lang="en">Who Would You Thank?</span></p>
 <p>瑞克，我们在节目结尾有个传统，上一位嘉宾会给下一位嘉宾留一个问题，但不知道会留给谁。如果你能打一个电话，有六十秒，可以打给任何人，但必须是道歉，你会打给谁，说什么，为什么？</p>
 <p>这个问题对我来说很难回答，有几个原因。第一，我几乎从不打电话，我不太喜欢用电话。所以如果我要给谁打电话，那肯定得是什么紧急情况。而且我觉得，我也没什么欠着没道的歉。</p>
 <p>那如果是道谢呢？</p>
@@ -1076,45 +1051,52 @@ sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
 <p>瑞克，谢谢你。</p>
 <p>很高兴能来。</p>
 <p>优兔（YouTube）有个很厉害的新算法，能根据人工智能和你的所有观看行为，准确知道你接下来想看什么视频。这个算法说，这条视频最适合你。现在每个人看到的都不一样。看看这条视频吧。我打赌，你可能会很喜欢。</p>
-  <h2 id="method">方法与来源</h2>
-  <p>原视频没有人工字幕。英文文字由 Whisper（large-v3-turbo）语音识别得到，再由大模型逐段整理成书面稿，要求不总结、不删观点、不改句意，然后译成中文。发言人由模型根据上下文推断，未标注的段落沿用上一位发言人；人名、歌名和专有名词可能有听写错误，以原视频为准。</p>
-  <p>章节标题译自视频自带的章节列表，每节开头的时间链接跳到原视频对应位置。章节与正文按识别文本中的视频时间信息配对，章节交界处可能差一两段。两段“广告”是节目里的口播广告，照原样保留。</p>
-  <ol class="sources">
-    <li>原视频：The Diary Of A CEO，《Rick Rubin: The Only Skill That Matters Now Is The One Thing AI Can Never Steal!》，2026-09-21，<a href="https://www.youtube.com/watch?v=a_GiFiHXJ6g" target="_blank" rel="noopener">youtube.com/watch?v=a_GiFiHXJ6g</a>（短链 <a href="https://youtu.be/a_GiFiHXJ6g" target="_blank" rel="noopener">youtu.be/a_GiFiHXJ6g</a>）</li>
-    
-  </ol>
-  <p><a href="/reading/">返回阅读整理页</a></p>
+<h2 id="method">方法与来源</h2>
+<p>原视频没有人工字幕。英文文字由 Whisper（large-v3-turbo）语音识别得到，再由大模型逐段整理成书面稿，要求不总结、不删观点、不改句意，然后译成中文。发言人由模型根据上下文推断，未标注的段落沿用上一位发言人；人名、歌名和专有名词可能有听写错误，以原视频为准。</p>
+<p>章节标题译自视频自带的章节列表，每节开头的时间链接跳到原视频对应位置。章节与正文按识别文本中的视频时间信息配对，章节交界处可能差一两段。两段“广告”是节目里的口播广告，照原样保留。</p>
+<ol class="sources">
+<li>原视频：The Diary Of A CEO，《Rick Rubin: The Only Skill That Matters Now Is The One Thing AI Can Never Steal!》，2026-09-21，<a href="https://www.youtube.com/watch?v=a_GiFiHXJ6g" rel="noopener" target="_blank">youtube.com/watch?v=a_GiFiHXJ6g</a>（短链 <a href="https://youtu.be/a_GiFiHXJ6g" rel="noopener" target="_blank">youtu.be/a_GiFiHXJ6g</a>）</li>
+</ol>
+
 </main>
 </div>
-<script>
-// Fold the outline on narrow screens; highlight the entry for the section in view. The page reads fine without this.
+
+<script id="reading-script">// The complete document remains visible without JavaScript.
 (function () {
-  var det = document.querySelector('.outline details');
-  var mq = window.matchMedia ? window.matchMedia('(max-width: 900px)') : null;
-  function syncOutlineOpen() {
-    if (!det || !mq) return;
-    if (mq.matches) det.removeAttribute('open');
-    else det.setAttribute('open', '');
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
   }
-  syncOutlineOpen();
-  if (mq) {
-    if (mq.addEventListener) mq.addEventListener('change', syncOutlineOpen);
-    else if (mq.addListener) mq.addListener(syncOutlineOpen);
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
   }
-  var links = Array.prototype.slice.call(document.querySelectorAll('.outline a[href^="#"]'));
-  var targets = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); }).filter(Boolean);
-  if (!('IntersectionObserver' in window) || !targets.length) return;
-  var current = null;
-  function set(id) {
-    if (current === id) return;
-    current = id;
-    links.forEach(function (a) { a.classList.toggle('active', decodeURIComponent(a.getAttribute('href').slice(1)) === id); });
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
   }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.id); });
-  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
-  targets.forEach(function (t) { io.observe(t); });
 })();
-</script>
-</body>
+</script></body>
 </html>
