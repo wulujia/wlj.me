@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-02
+
+- 新增资料页《Bybit 失窃事件》，`static/reading/bybit-security-investigation/index.html`。Bybit 2025 年失窃事件图解：入侵、演练、执行、资产追索与安全整改。
+
 ## 2026-10-31
 
 - 新增资料页《10 Ken Goldberg：机器人、AI 和艺术（图文版）》，`static/reading/ken-goldberg-robotics-2026-10/index.html`。Ken Goldberg 在伯克利关于机器人、AI 与艺术的课堂笔记，含机器人抓取、手术、农业、智能体机器人及相关背景资料。
