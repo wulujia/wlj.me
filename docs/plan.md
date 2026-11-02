@@ -67,7 +67,7 @@
 《Longing for Less》已完成截图和交互检查。
 累计迁移 80 页，全部页面已写入本地。
 部署检查已写入本地工作流。
-全量检查通过后提交部署，再检查线上页面。
+已部署，线上 141 个文件比较通过。
 
 ## 5. 验收
 
@@ -75,7 +75,7 @@
 - [x] 检查亮色、暗色和手机截图。
 - [x] 检查 320px 宽度、打印和无 JavaScript 阅读。
 - [x] 执行 Hugo 构建及 SEO 检查。
-- [ ] 在 eval.md 记录实际结果及尚存限制。
+- [x] 在 eval.md 记录实际结果及尚存限制。
 
 验证命令：`hugo --destination /tmp/wlj-check`。
 检查 robots、LLM 文本、sitemap 和文章 JSON-LD。
