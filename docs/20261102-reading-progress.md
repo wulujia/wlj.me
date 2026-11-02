@@ -651,3 +651,16 @@ HTML 检查为 `0 error, 0 warning`。
 生产发布仍要求本机安装完整检查器。
 新增检查器失败时禁止写入的测试。
 该调整消除 CI 对本机目录的依赖。
+
+## 线上检查与修复
+
+首次部署提交：`3cd0487`。
+工作流：`41429122477`，构建和部署成功。
+线上标签筛选、分页和无脚本列表通过。
+
+首次文件比较：138/141 完全一致。
+三个 HTML 的差异来自 Cloudflare 邮箱混淆。
+公开邮箱被改为依赖脚本的占位文字。
+已使用 `email_off` 标记保护四个公开邮箱。
+三个页面仍通过发布脚本更新。
+依据：https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/

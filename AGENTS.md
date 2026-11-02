@@ -53,3 +53,5 @@
 - 更新时省略 `--tags` 会保留已有标签。
 - 批量改标签须走 `publish.sh reading-tags`。
 - 部署前执行 `python3 scripts/reading_tags.py check`。
+
+- 正文中的公开邮箱须使用 `<!--email_off-->邮箱<!--/email_off-->`，避免 Cloudflare 改成依赖脚本的占位文字。
