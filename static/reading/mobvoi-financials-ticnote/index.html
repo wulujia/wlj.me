@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>出门问问财务与 TicNote 销售分析</title>
+<meta name="description" content="出门问问 2021—2026 年财务变化、现金状况及 TicNote 销售与盈利证据。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/mobvoi-financials-ticnote/">
+<style id="mobvoi-charts">
+.chart-title { font-size:17px; font-weight:600; }
+.legend { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:13px; }
+.legend span::before { content:""; display:inline-block; width:18px; margin-right:6px; border-top:3px solid var(--line); vertical-align:middle; }
+.evidence { font-size:13px; color:var(--ink-3); margin:12px 0 20px; }
+.tbl table { min-width:480px; }
+@media print { .tbl table { min-width:0; font-size:9pt; } }
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>目录</summary><ul><li><a href="#s0">公司财务变化</a></li><li><a href="#s1">最近三个半年的变化</a></li><li><a href="#s2">现金仍有缓冲，但财务资源在减少</a></li><li><a href="#s3">业务从手表、AIGC 转向录音设备和企业软件</a></li><li><a href="#s4">TicNote 销量：有早期需求，规模仍不透明</a></li><li><a href="#s5">TicNote 是否赚钱：公开数据无法单独确认</a></li><li><a href="#s6">数据与来源</a></li></ul></details></nav>
+<main id="main"><div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div><header><p class="eyebrow">公司研究 / 2026-11-02</p><h1>出门问问财务与 TicNote 销售分析</h1><p class="lede">收入、经营利润与现金的变化，以及录音设备销量和盈利证据。</p><p class="meta">财务数据截至 2026-06-30<br>研究日期：2026-11-02　网页日期：2026-11-03<br>金额单位：人民币百万元，另有说明除外。</p></header><div class="summary"><p class="label">结论</p><p>出门问问的收入持续收缩，公司仍未稳定盈利。2025 年削减费用后，亏损明显减少。2026 年上半年，收入再降，亏损扩大。TicNote 已有实际销售，但持续盈利尚无证据，财报没有披露该产品的独立利润。</p></div><p>半年数据与全年数据分开比较。2025 年下半年数据由全年减上半年计算。</p><section aria-labelledby="s0"><h2 id="s0">公司财务变化</h2><p class="evidence">本节依据：<a href="#src-1">[1]</a> <a href="#src-2">[2]</a> <a href="#src-3">[3]</a>。完整文件及页码见来源。</p><figure><p class="chart-title">年度收入</p><p class="muted">单位：人民币百万元</p><svg viewBox="0 0 400 240" role="img" aria-label="年度收入。2023 年后收入连续下降。"><title>年度收入</title><line x1="49" y1="196.0" x2="350" y2="196.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="201.0" text-anchor="end" fill="currentColor" font-size="17">0</text><line x1="49" y1="152.0" x2="350" y2="152.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="157.0" text-anchor="end" fill="currentColor" font-size="17">150</text><line x1="49" y1="108.0" x2="350" y2="108.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="113.0" text-anchor="end" fill="currentColor" font-size="17">300</text><line x1="49" y1="64.0" x2="350" y2="64.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="69.0" text-anchor="end" fill="currentColor" font-size="17">450</text><line x1="49" y1="20.0" x2="350" y2="20.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="25.0" text-anchor="end" fill="currentColor" font-size="17">600</text><text x="49.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">2021</text><text x="124.25" y="224" text-anchor="middle" fill="currentColor" font-size="17">2022</text><text x="199.5" y="224" text-anchor="middle" fill="currentColor" font-size="17">2023</text><text x="274.75" y="224" text-anchor="middle" fill="currentColor" font-size="17">2024</text><text x="350.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">2025</text><polyline points="49.0,79.27856000000001 124.25,49.27642666666665 199.5,47.262400000000014 274.75,81.49792 350.0,101.24365333333333" fill="none" stroke="var(--acc)" stroke-width="2.5"/><circle cx="49.0" cy="79.27856000000001" r="3" fill="var(--acc)"/><circle cx="124.25" cy="49.27642666666665" r="3" fill="var(--acc)"/><circle cx="199.5" cy="47.262400000000014" r="3" fill="var(--acc)"/><circle cx="274.75" cy="81.49792" r="3" fill="var(--acc)"/><circle cx="350.0" cy="101.24365333333333" r="3" fill="var(--acc)"/></svg><div class="legend"><span style="--line:var(--acc)">收入</span></div><figcaption>2023 年后收入连续下降。 来源：<a href="#src-1">[1]</a> <a href="#src-3">[3]</a>。精确数据见本节表格。</figcaption></figure><figure><p class="chart-title">年度经营利润与经营现金流</p><p class="muted">单位：人民币百万元</p><svg viewBox="0 0 400 240" role="img" aria-label="年度经营利润与经营现金流。2025 年亏损收窄，经营现金流仍为负。"><title>年度经营利润与经营现金流</title><line x1="49" y1="196.0" x2="350" y2="196.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="201.0" text-anchor="end" fill="currentColor" font-size="17">-250</text><line x1="49" y1="152.0" x2="350" y2="152.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="157.0" text-anchor="end" fill="currentColor" font-size="17">-150</text><line x1="49" y1="108.0" x2="350" y2="108.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="113.0" text-anchor="end" fill="currentColor" font-size="17">-50</text><line x1="49" y1="64.0" x2="350" y2="64.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="69.0" text-anchor="end" fill="currentColor" font-size="17">50</text><line x1="49" y1="20.0" x2="350" y2="20.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="25.0" text-anchor="end" fill="currentColor" font-size="17">150</text><text x="49.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">2021</text><text x="124.25" y="224" text-anchor="middle" fill="currentColor" font-size="17">2022</text><text x="199.5" y="224" text-anchor="middle" fill="currentColor" font-size="17">2023</text><text x="274.75" y="224" text-anchor="middle" fill="currentColor" font-size="17">2024</text><text x="350.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">2025</text><polyline points="49.0,113.17396000000001 124.25,54.50128000000001 199.5,106.91848 274.75,177.10948 350.0,115.81528" fill="none" stroke="var(--acc)" stroke-width="2.5"/><circle cx="49.0" cy="113.17396000000001" r="3" fill="var(--acc)"/><circle cx="124.25" cy="54.50128000000001" r="3" fill="var(--acc)"/><circle cx="199.5" cy="106.91848" r="3" fill="var(--acc)"/><circle cx="274.75" cy="177.10948" r="3" fill="var(--acc)"/><circle cx="350.0" cy="115.81528" r="3" fill="var(--acc)"/><polyline points="49.0,102.38472 124.25,54.128600000000006 199.5,73.50752 274.75,160.24604 350.0,121.12827999999999" fill="none" stroke="var(--ink-2)" stroke-width="2.5" stroke-dasharray="5 3"/><circle cx="49.0" cy="102.38472" r="3" fill="var(--ink-2)"/><circle cx="124.25" cy="54.128600000000006" r="3" fill="var(--ink-2)"/><circle cx="199.5" cy="73.50752" r="3" fill="var(--ink-2)"/><circle cx="274.75" cy="160.24604" r="3" fill="var(--ink-2)"/><circle cx="350.0" cy="121.12827999999999" r="3" fill="var(--ink-2)"/></svg><div class="legend"><span style="--line:var(--acc)">经营利润</span><span style="--line:var(--ink-2)">经营现金流</span></div><figcaption>2025 年亏损收窄，经营现金流仍为负。 来源：<a href="#src-1">[1]</a> <a href="#src-2">[2]</a> <a href="#src-3">[3]</a>。精确数据见本节表格。</figcaption></figure><div aria-label="公司财务变化数据表" class="tbl" role="region" tabindex="0"><table><caption>公司财务变化（金额：人民币百万元）</caption>
+<thead>
+<tr>
+<th scope="col">年度</th>
+<th scope="col" style="text-align: right;">收入</th>
+<th scope="col" style="text-align: right;">毛利</th>
+<th scope="col" style="text-align: right;">经营利润</th>
+<th scope="col" style="text-align: right;">经营现金流</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2021</th>
+<td class="num" style="text-align: right;">397.9</td>
+<td class="num" style="text-align: right;">149.2</td>
+<td class="num" style="text-align: right;">-61.8</td>
+<td class="num" style="text-align: right;">-37.2</td>
+</tr>
+<tr>
+<th scope="row">2022</th>
+<td class="num" style="text-align: right;">500.2</td>
+<td class="num" style="text-align: right;">336.2</td>
+<td class="num" style="text-align: right;">71.6</td>
+<td class="num" style="text-align: right;">72.4</td>
+</tr>
+<tr>
+<th scope="row">2023</th>
+<td class="num" style="text-align: right;">507.1</td>
+<td class="num" style="text-align: right;">326.1</td>
+<td class="num" style="text-align: right;">-47.5</td>
+<td class="num" style="text-align: right;">28.4</td>
+</tr>
+<tr>
+<th scope="row">2024</th>
+<td class="num" style="text-align: right;">390.3</td>
+<td class="num" style="text-align: right;">203.4</td>
+<td class="num" style="text-align: right;">-207.1</td>
+<td class="num" style="text-align: right;">-168.7</td>
+</tr>
+<tr>
+<th scope="row">2025</th>
+<td class="num" style="text-align: right;">323.0</td>
+<td class="num" style="text-align: right;">161.7</td>
+<td class="num" style="text-align: right;">-67.8</td>
+<td class="num" style="text-align: right;">-79.8</td>
+</tr>
+</tbody>
+</table></div>
+<p>2023 年是这五年的收入高点。2025 年收入较该高点下降 36.3%。2022 年经营盈利，2023 年起再次经营亏损。</p>
+<p>早期收入包含大额汽车知识产权安排收入。2023 年此项收入为 138.8，毛利率接近 100%。这项收入在 2024 年消失，影响收入与毛利。扣除此项，2024 年收入同比增长约 6%。因此，2024 年收入下降不全是客户需求减少。这一解释无法抵消后续业务的继续收缩。</p>
+<p>2024 年净亏损为 721.5，2025 年为 68.9。两年净亏损不能直接代表经营改善幅度。2024 年包含 480.5 的可赎回股份账面值变动。上市后，这类账面值变动不再发生。公司调整后净亏损从 210.3 降至 57.5。调整后数字仍包含其他会影响比较的项目。</p>
+<p>2025 年确实削减了费用。研发、营销和行政费用合计下降约 42%。研发费用从 136.9 降至 77.7。营销费用从 196.0 降至 126.6。行政费用从 88.3 降至 40.0。收入与毛利也同步减少，增长尚未恢复。</p></section><section aria-labelledby="s1"><h2 id="s1">最近三个半年的变化</h2><p class="evidence">本节依据：<a href="#src-3">[3]</a> <a href="#src-4">[4]</a> <a href="#src-5">[5]</a>。完整文件及页码见来源。</p><figure><p class="chart-title">最近三个半年收入</p><p class="muted">单位：人民币百万元</p><svg viewBox="0 0 400 240" role="img" aria-label="最近三个半年收入。2025 下半年为全年减上半年的计算值。"><title>最近三个半年收入</title><line x1="49" y1="196.0" x2="350" y2="196.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="201.0" text-anchor="end" fill="currentColor" font-size="17">0</text><line x1="49" y1="152.0" x2="350" y2="152.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="157.0" text-anchor="end" fill="currentColor" font-size="17">50</text><line x1="49" y1="108.0" x2="350" y2="108.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="113.0" text-anchor="end" fill="currentColor" font-size="17">100</text><line x1="49" y1="64.0" x2="350" y2="64.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="69.0" text-anchor="end" fill="currentColor" font-size="17">150</text><line x1="49" y1="20.0" x2="350" y2="20.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="25.0" text-anchor="end" fill="currentColor" font-size="17">200</text><text x="49.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">25 上半年</text><text x="199.5" y="224" text-anchor="middle" fill="currentColor" font-size="17">25 下半年</text><text x="350.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">26 上半年</text><polyline points="49.0,38.555679999999995 199.5,69.17527999999999 350.0,126.78448" fill="none" stroke="var(--acc)" stroke-width="2.5"/><circle cx="49.0" cy="38.555679999999995" r="3" fill="var(--acc)"/><circle cx="199.5" cy="69.17527999999999" r="3" fill="var(--acc)"/><circle cx="350.0" cy="126.78448" r="3" fill="var(--acc)"/><polyline points="49.0,125.0368 199.5,136.01744000000002 350.0,158.61496" fill="none" stroke="var(--ink-2)" stroke-width="2.5" stroke-dasharray="5 3"/><circle cx="49.0" cy="125.0368" r="3" fill="var(--ink-2)"/><circle cx="199.5" cy="136.01744000000002" r="3" fill="var(--ink-2)"/><circle cx="350.0" cy="158.61496" r="3" fill="var(--ink-2)"/><polyline points="49.0,109.51888 199.5,129.15784000000002 350.0,164.16952" fill="none" stroke="var(--bad)" stroke-width="2.5"/><circle cx="49.0" cy="109.51888" r="3" fill="var(--bad)"/><circle cx="199.5" cy="129.15784000000002" r="3" fill="var(--bad)"/><circle cx="350.0" cy="164.16952" r="3" fill="var(--bad)"/></svg><div class="legend"><span style="--line:var(--acc)">总收入</span><span style="--line:var(--ink-2)">软件</span><span style="--line:var(--bad)">硬件</span></div><figcaption>2025 下半年为全年减上半年的计算值。 来源：<a href="#src-3">[3]</a> <a href="#src-4">[4]</a> <a href="#src-5">[5]</a>。精确数据见本节表格。</figcaption></figure><figure><p class="chart-title">半年经营利润与经营现金流</p><p class="muted">单位：人民币百万元</p><svg viewBox="0 0 400 240" role="img" aria-label="半年经营利润与经营现金流。2025 上半年的接近盈亏平衡没有持续。"><title>半年经营利润与经营现金流</title><line x1="49" y1="196.0" x2="350" y2="196.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="201.0" text-anchor="end" fill="currentColor" font-size="17">-80</text><line x1="49" y1="152.0" x2="350" y2="152.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="157.0" text-anchor="end" fill="currentColor" font-size="17">-60</text><line x1="49" y1="108.0" x2="350" y2="108.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="113.0" text-anchor="end" fill="currentColor" font-size="17">-40</text><line x1="49" y1="64.0" x2="350" y2="64.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="69.0" text-anchor="end" fill="currentColor" font-size="17">-20</text><line x1="49" y1="20.0" x2="350" y2="20.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="25.0" text-anchor="end" fill="currentColor" font-size="17">0</text><text x="49.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">25 上半年</text><text x="199.5" y="224" text-anchor="middle" fill="currentColor" font-size="17">25 下半年</text><text x="350.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">26 上半年</text><polyline points="49.0,24.04140000000001 199.5,165.035 350.0,128.1806" fill="none" stroke="var(--acc)" stroke-width="2.5"/><circle cx="49.0" cy="24.04140000000001" r="3" fill="var(--acc)"/><circle cx="199.5" cy="165.035" r="3" fill="var(--acc)"/><circle cx="350.0" cy="128.1806" r="3" fill="var(--acc)"/><polyline points="49.0,143.552 199.5,72.08940000000003 350.0,104.47560000000001" fill="none" stroke="var(--ink-2)" stroke-width="2.5" stroke-dasharray="5 3"/><circle cx="49.0" cy="143.552" r="3" fill="var(--ink-2)"/><circle cx="199.5" cy="72.08940000000003" r="3" fill="var(--ink-2)"/><circle cx="350.0" cy="104.47560000000001" r="3" fill="var(--ink-2)"/></svg><div class="legend"><span style="--line:var(--acc)">经营利润</span><span style="--line:var(--ink-2)">经营现金流</span></div><figcaption>2025 上半年的接近盈亏平衡没有持续。 来源：<a href="#src-3">[3]</a> <a href="#src-4">[4]</a> <a href="#src-5">[5]</a>。精确数据见本节表格。</figcaption></figure><div aria-label="最近三个半年的变化数据表" class="tbl" role="region" tabindex="0"><table><caption>最近三个半年的变化（金额：人民币百万元）</caption>
+<thead>
+<tr>
+<th scope="col">期间</th>
+<th scope="col" style="text-align: right;">收入</th>
+<th scope="col" style="text-align: right;">软件收入</th>
+<th scope="col" style="text-align: right;">硬件收入</th>
+<th scope="col" style="text-align: right;">经营利润</th>
+<th scope="col" style="text-align: right;">经营现金流</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2025 上半年</th>
+<td class="num" style="text-align: right;">178.9</td>
+<td class="num" style="text-align: right;">80.6</td>
+<td class="num" style="text-align: right;">98.3</td>
+<td class="num" style="text-align: right;">-1.8</td>
+<td class="num" style="text-align: right;">-56.2</td>
+</tr>
+<tr>
+<th scope="row">2025 下半年，计算值</th>
+<td class="num" style="text-align: right;">144.1</td>
+<td class="num" style="text-align: right;">68.2</td>
+<td class="num" style="text-align: right;">76.0</td>
+<td class="num" style="text-align: right;">-65.9</td>
+<td class="num" style="text-align: right;">-23.7</td>
+</tr>
+<tr>
+<th scope="row">2026 上半年</th>
+<td class="num" style="text-align: right;">78.7</td>
+<td class="num" style="text-align: right;">42.5</td>
+<td class="num" style="text-align: right;">36.2</td>
+<td class="num" style="text-align: right;">-49.2</td>
+<td class="num" style="text-align: right;">-38.4</td>
+</tr>
+</tbody>
+</table></div>
+<p>2026 年上半年收入同比下降 56.0%。软件收入下降 47.3%，硬件收入下降 63.2%。调整后净亏损从 1.4 扩大至 44.7。2025 年上半年的接近盈亏平衡没有持续。2026 年经营现金流有所改善，但仍为负数。</p>
+<p>公司称，其主动减少旧业务投入。旧硬件降价清库存，传统 AIGC 产品也收缩。公司将资源转向 TicNote 和 CodeBanana。这些解释来自管理层，不能视为转型成功证据。新业务尚未填补旧业务减少的收入。</p></section><section aria-labelledby="s2"><h2 id="s2">现金仍有缓冲，但财务资源在减少</h2><p class="evidence">本节依据：<a href="#src-3">[3]</a> <a href="#src-5">[5]</a> <a href="#src-9">[9]</a>。完整文件及页码见来源。</p><figure><p class="chart-title">现金与其他财务资源</p><p class="muted">单位：人民币百万元</p><svg viewBox="0 0 400 240" role="img" aria-label="现金与其他财务资源。合计不含受限存款和非上市股权。"><title>现金与其他财务资源</title><line x1="49" y1="196.0" x2="350" y2="196.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="201.0" text-anchor="end" fill="currentColor" font-size="17">0</text><line x1="49" y1="152.0" x2="350" y2="152.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="157.0" text-anchor="end" fill="currentColor" font-size="17">100</text><line x1="49" y1="108.0" x2="350" y2="108.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="113.0" text-anchor="end" fill="currentColor" font-size="17">200</text><line x1="49" y1="64.0" x2="350" y2="64.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="69.0" text-anchor="end" fill="currentColor" font-size="17">300</text><line x1="49" y1="20.0" x2="350" y2="20.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="25.0" text-anchor="end" fill="currentColor" font-size="17">400</text><text x="49.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">2024 年末</text><text x="199.5" y="224" text-anchor="middle" fill="currentColor" font-size="17">2025 年末</text><text x="350.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">2026 年 6 月</text><polyline points="49.0,50.140000000000015 199.5,84.32799999999999 350.0,120.804" fill="none" stroke="var(--acc)" stroke-width="2.5"/><circle cx="49.0" cy="50.140000000000015" r="3" fill="var(--acc)"/><circle cx="199.5" cy="84.32799999999999" r="3" fill="var(--acc)"/><circle cx="350.0" cy="120.804" r="3" fill="var(--acc)"/><polyline points="49.0,127.14 199.5,134.796 350.0,125.24799999999999" fill="none" stroke="var(--ink-2)" stroke-width="2.5" stroke-dasharray="5 3"/><circle cx="49.0" cy="127.14" r="3" fill="var(--ink-2)"/><circle cx="199.5" cy="134.796" r="3" fill="var(--ink-2)"/><circle cx="350.0" cy="125.24799999999999" r="3" fill="var(--ink-2)"/></svg><div class="legend"><span style="--line:var(--acc)">现金、存款证等合计</span><span style="--line:var(--ink-2)">现金及现金等价物</span></div><figcaption>合计不含受限存款和非上市股权。 来源：<a href="#src-3">[3]</a> <a href="#src-5">[5]</a>。精确数据见本节表格。</figcaption></figure><div aria-label="现金仍有缓冲，但财务资源在减少数据表" class="tbl" role="region" tabindex="0"><table><caption>现金仍有缓冲，但财务资源在减少（金额：人民币百万元）</caption>
+<thead>
+<tr>
+<th scope="col">时点</th>
+<th scope="col" style="text-align: right;">现金及现金等价物</th>
+<th scope="col" style="text-align: right;">现金、存款证等合计</th>
+<th scope="col" style="text-align: right;">银行贷款</th>
+<th scope="col" style="text-align: right;">流动资产净值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2024 年末</th>
+<td class="num" style="text-align: right;">156.5</td>
+<td class="num" style="text-align: right;">331.5</td>
+<td class="num" style="text-align: right;">20.0</td>
+<td class="num" style="text-align: right;">309.6</td>
+</tr>
+<tr>
+<th scope="row">2025 年末</th>
+<td class="num" style="text-align: right;">139.1</td>
+<td class="num" style="text-align: right;">253.8</td>
+<td class="num" style="text-align: right;">51.0</td>
+<td class="num" style="text-align: right;">200.7</td>
+</tr>
+<tr>
+<th scope="row">2026 年 6 月末</th>
+<td class="num" style="text-align: right;">160.8</td>
+<td class="num" style="text-align: right;">170.9</td>
+<td class="num" style="text-align: right;">22.0</td>
+<td class="num" style="text-align: right;">153.1</td>
+</tr>
+</tbody>
+</table></div>
+<p>合计包括现金、存款证、理财产品及非受限定期存款。合计不包括受限存款和非上市股权。理财产品有风险，不能全部等同于现金。</p>
+<p>2026 年上半年，现金余额增加 21.7。同期出售金融资产所得为 135.2。购买金融资产支出为 40.6。经营活动消耗现金 38.4。现金增加主要来自金融资产变现。</p>
+<p>更广义的财务资源半年减少约 82.9。其中也包括偿还银行贷款等资金用途。减少额不能全部称为经营烧钱。公司仍有财务缓冲，尚无稳定自我供血能力。仅凭半年现金余额，不能判断实际资金耗尽日期。</p>
+<p>2026 年 10 月另有一项关联交易。公司同意向李志飞提供 1,200 万元贷款。贷款用于个人财务安排，期限为提款后 12 个月。利率采用提款前的一年期 LPR。协议设有公司股份托管及出售偿债安排。公告没有证明截至研究日已提款。</p>
+<p>这笔贷款约等于 6 月末现金的 7.5%。在公司持续消耗现金时，值得关注资金分配。该比例仅作规模比较，不代表 10 月现金余额。</p></section><section aria-labelledby="s3"><h2 id="s3">业务从手表、AIGC 转向录音设备和企业软件</h2><p class="evidence">本节依据：<a href="#src-1">[1]</a> <a href="#src-2">[2]</a> <a href="#src-3">[3]</a> <a href="#src-5">[5]</a>。完整文件及页码见来源。</p><div aria-label="业务从手表、AIGC 转向录音设备和企业软件数据表" class="tbl" role="region" tabindex="0"><table><caption>业务从手表、AIGC 转向录音设备和企业软件（金额：人民币百万元）</caption>
+<thead>
+<tr>
+<th scope="col">年度</th>
+<th scope="col" style="text-align: right;">软件收入</th>
+<th scope="col" style="text-align: right;">其中 AIGC 收入</th>
+<th scope="col" style="text-align: right;">硬件收入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2021</th>
+<td class="num" style="text-align: right;">59.5</td>
+<td class="num" style="text-align: right;">6.8</td>
+<td class="num" style="text-align: right;">338.4</td>
+</tr>
+<tr>
+<th scope="row">2022</th>
+<td class="num" style="text-align: right;">302.9</td>
+<td class="num" style="text-align: right;">39.9</td>
+<td class="num" style="text-align: right;">197.3</td>
+</tr>
+<tr>
+<th scope="row">2023</th>
+<td class="num" style="text-align: right;">343.2</td>
+<td class="num" style="text-align: right;">117.6</td>
+<td class="num" style="text-align: right;">163.8</td>
+</tr>
+<tr>
+<th scope="row">2024</th>
+<td class="num" style="text-align: right;">238.1</td>
+<td class="num" style="text-align: right;">221.7</td>
+<td class="num" style="text-align: right;">152.2</td>
+</tr>
+<tr>
+<th scope="row">2025</th>
+<td class="num" style="text-align: right;">148.8</td>
+<td style="text-align: right;">未单列</td>
+<td class="num" style="text-align: right;">174.2</td>
+</tr>
+</tbody>
+</table></div>
+<p>传统硬件收入从 2021 年起连续下降三年。2025 年硬件收入增长 14.4%，但未持续至次年。AIGC 收入曾在 2024 年增长 88.5%。随后，软件总收入在 2025 年下降 37.5%。公司将原因归于竞争、获客成本和企业采购延迟。</p>
+<p>2026 年报告列出录音卡、录音耳机及录音手表。公司也推出企业微信合作款和 CodeBanana。合作、产品发布和获奖均不能替代收入证据。软件分部高毛利也不能代表 TicNote 订阅毛利。</p></section><section aria-labelledby="s4"><h2 id="s4">TicNote 销量：有早期需求，规模仍不透明</h2><p class="evidence">本节依据：<a href="#src-3">[3]</a> <a href="#src-5">[5]</a> <a href="#src-6">[6]</a> <a href="#src-7">[7]</a> <a href="#src-8">[8]</a>。完整文件及页码见来源。</p><p>用户所指产品应是 TicNote 卡片式录音设备。它与 Plaud 属于同类产品。本分析不对知识产权或模仿关系作认定。</p>
+<div aria-label="TicNote 销量：有早期需求，规模仍不透明数据表" class="tbl" role="region" tabindex="0"><table><caption>TicNote 销量：有早期需求，规模仍不透明</caption>
+<thead>
+<tr>
+<th scope="col">日期或期间</th>
+<th scope="col">公开信息</th>
+<th scope="col">证据限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2025 年 4 月</th>
+<td>TicNote 推出</td>
+<td>公司介绍，经媒体报道</td>
+</tr>
+<tr>
+<th scope="row">截至 2025-08-20</th>
+<td>全球销量超过 3 万台</td>
+<td>管理层披露，经中证网报道</td>
+</tr>
+<tr>
+<th scope="row">2025 年目标</th>
+<td>全年销售 10 万台</td>
+<td>目标，不能当成实际销量</td>
+</tr>
+<tr>
+<th scope="row">2026 年上半年</th>
+<td>销售额较 2025 下半年增长 30%</td>
+<td>媒体转述，未给出绝对金额</td>
+</tr>
+</tbody>
+</table></div>
+<p>本次检索未找到 10 万台目标达成的可靠披露。2025 年报和 2026 中报未单列 TicNote 销量。30% 增长说法来自业绩相关报道。定期报告未列出对应产品收入或核对表。其口径也未明确区分录音卡和其他 TicNote 产品。因此，本分析将其作为补充线索。</p>
+<p>销量超过 3 万台说明产品已有早期需求。这不证明渠道库存已全部卖给终端用户。披露也未提供退货率和净销售口径。不能把硬件分部全部收入归给 TicNote。更不能用零售价乘销量代替公司确认收入。</p></section><section aria-labelledby="s5"><h2 id="s5">TicNote 是否赚钱：公开数据无法单独确认</h2><p class="evidence">本节依据：<a href="#src-3">[3]</a> <a href="#src-4">[4]</a> <a href="#src-5">[5]</a>。完整文件及页码见来源。</p><figure><p class="chart-title">全部硬件毛利率</p><p class="muted">单位：%</p><svg viewBox="0 0 400 240" role="img" aria-label="全部硬件毛利率。这不是 TicNote 单品毛利率。2025 下半年为计算值。"><title>全部硬件毛利率</title><line x1="49" y1="196.0" x2="350" y2="196.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="201.0" text-anchor="end" fill="currentColor" font-size="17">0</text><line x1="49" y1="152.0" x2="350" y2="152.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="157.0" text-anchor="end" fill="currentColor" font-size="17">10</text><line x1="49" y1="108.0" x2="350" y2="108.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="113.0" text-anchor="end" fill="currentColor" font-size="17">20</text><line x1="49" y1="64.0" x2="350" y2="64.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="69.0" text-anchor="end" fill="currentColor" font-size="17">30</text><line x1="49" y1="20.0" x2="350" y2="20.0" stroke="var(--rule-2)" stroke-width="0.7"/><text x="40" y="25.0" text-anchor="end" fill="currentColor" font-size="17">40</text><text x="49.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">25 上半年</text><text x="199.5" y="224" text-anchor="middle" fill="currentColor" font-size="17">25 下半年</text><text x="350.0" y="224" text-anchor="middle" fill="currentColor" font-size="17">26 上半年</text><polyline points="49.0,67.95999999999998 199.5,172.24 350.0,190.28" fill="none" stroke="var(--acc)" stroke-width="2.5"/><circle cx="49.0" cy="67.95999999999998" r="3" fill="var(--acc)"/><circle cx="199.5" cy="172.24" r="3" fill="var(--acc)"/><circle cx="350.0" cy="190.28" r="3" fill="var(--acc)"/></svg><div class="legend"><span style="--line:var(--acc)">全部硬件</span></div><figcaption>这不是 TicNote 单品毛利率。2025 下半年为计算值。 来源：<a href="#src-3">[3]</a> <a href="#src-4">[4]</a> <a href="#src-5">[5]</a>。精确数据见本节表格。</figcaption></figure><div aria-label="TicNote 是否赚钱：公开数据无法单独确认数据表" class="tbl" role="region" tabindex="0"><table><caption>TicNote 是否赚钱：公开数据无法单独确认（金额：人民币百万元）</caption>
+<thead>
+<tr>
+<th scope="col">期间</th>
+<th scope="col" style="text-align: right;">全部硬件收入</th>
+<th scope="col" style="text-align: right;">全部硬件毛利</th>
+<th scope="col" style="text-align: right;">硬件毛利率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2024 全年</th>
+<td class="num" style="text-align: right;">152.248</td>
+<td class="num" style="text-align: right;">1.778</td>
+<td class="num" style="text-align: right;">1.2%</td>
+</tr>
+<tr>
+<th scope="row">2025 上半年</th>
+<td class="num" style="text-align: right;">98.274</td>
+<td class="num" style="text-align: right;">28.628</td>
+<td class="num" style="text-align: right;">29.1%</td>
+</tr>
+<tr>
+<th scope="row">2025 下半年，计算值</th>
+<td class="num" style="text-align: right;">75.957</td>
+<td class="num" style="text-align: right;">4.133</td>
+<td class="num" style="text-align: right;">5.4%</td>
+</tr>
+<tr>
+<th scope="row">2025 全年</th>
+<td class="num" style="text-align: right;">174.231</td>
+<td class="num" style="text-align: right;">32.761</td>
+<td class="num" style="text-align: right;">18.8%</td>
+</tr>
+<tr>
+<th scope="row">2026 上半年</th>
+<td class="num" style="text-align: right;">36.171</td>
+<td class="num" style="text-align: right;">0.476</td>
+<td class="num" style="text-align: right;">1.3%</td>
+</tr>
+</tbody>
+</table></div>
+<p>2026 年上半年，硬件分部毛利仅 47.6 万元。毛利尚未扣除全部研发、营销和行政费用。硬件分部整体对公司费用的覆盖能力很弱。</p>
+<p>旧款手表、耳机降价清库存会拉低分部毛利。因此，1.3% 不能直接视为 TicNote 的毛利率。TicNote 可能有正毛利，旧产品可能拖累平均值。公开报告没有提供拆分，无法验证这个解释。集团亏损也不能直接证明 TicNote 单品亏损。</p>
+<p>目前更合理的判断是：TicNote 有销售基础。它尚未证明能持续赚钱，或支撑公司恢复增长。这一判断对集团层面的把握较高。对 TicNote 单品利润，只能保留判断。</p>
+<p>需要公司披露以下数据，才能改变这一判断：</p>
+<ul>
+<li>每半年净销量、产品收入及平均成交价。</li>
+<li>扣除渠道费用、退货和保修后的硬件毛利。</li>
+<li>付费订阅人数、续费率和每位用户收入。</li>
+<li>扣除模型调用成本后的订阅毛利。</li>
+<li>获客费用、产品研发费用及产品经营利润。</li>
+</ul></section><section aria-labelledby="s6"><h2 id="s6">数据与来源</h2><p>方法与来源</p><p>研究取样日为 2026-11-02。页面转换于 2026-11-03。未更新财务数据。未取得 TicNote 单品利润和续费率。</p>
+<p>页码均指报告印刷页码。曲线采用财报原值计算。年度经营利润来自 2025 年报五年摘要。2021—2023 年收入与现金流采用招股章程数据。半年经营利润与现金流来自各期财务报表。2025 下半年用全年减上半年，未作年化。</p>
+<ol class="sources">
+<li id="src-1"><a href="https://www.hkexnews.hk/listedco/listconews/sehk/2024/0416/2024041600026_c.pdf">招股章程，2024-04-16</a>：概要第 12—18 页，早期分部收入及现金流。</li>
+<li id="src-2"><a href="https://www.hkexnews.hk/listedco/listconews/sehk/2025/0425/2025042501334_c.pdf">2024 年报</a>：第 4、13—17、72、94 页，知识产权收入及经营变化。</li>
+<li id="src-3"><a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0428/2026042803053.pdf">2025 年报</a>：第 4、9—11、63、66、84—86、102 页，年度数据、硬件毛利及财务资源。</li>
+<li id="src-4"><a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2025/0926/2025092601328.pdf">2025 中报</a>：财务报表及分部附注。</li>
+<li id="src-5"><a href="https://www.hkexnews.hk/listedco/listconews/sehk/2026/0918/2026091800532_c.pdf">2026 中报</a>：第 4—10、33—38、40—42、47 页，半年数据及清库存说明。</li>
+<li id="src-6"><a href="https://www.cs.com.cn/ssgs/gsxw/202508/t20250822_6508388.html">中国证券报，2025-08-22</a>：管理层披露 TicNote 全球销量超过 3 万台。</li>
+<li id="src-7"><a href="https://finance.sina.com.cn/roll/2025-08-22/doc-infmwrzy5327905.shtml">华夏时报，2025-08-22，新浪转载</a>：全年 10 万台销售目标。</li>
+<li id="src-8"><a href="https://finance.stockstar.com/IG2026082800042173.shtml">证券之星，2026-08-28</a>：TicNote 销售额半年环比增长 30% 的报道。该数字未在定期报告中单列。</li>
+<li id="src-9"><a href="https://www.hkexnews.hk/listedco/listconews/sehk/2026/1016/2026101601451_c.pdf">贷款协议公告，2026-10-16</a>：向李志飞提供贷款的协议及条款。</li>
+</ol></section></main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

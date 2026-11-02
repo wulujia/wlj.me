@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-03
+
+- 新增资料页《出门问问财务与 TicNote 销售分析》，`static/reading/mobvoi-financials-ticnote/index.html`。出门问问 2021—2026 年财务变化、现金状况及 TicNote 销售与盈利证据。
+
 ## 2026-11-02
 
 - 新增资料页《群晖 NAS 勒索事件：漏洞、补丁与处置建议》，`static/reading/synology-nas-security/index.html`。群晖 NAS 勒索事件调研：核实零日漏洞争议，区分 QuickConnect、Cloud Sync 与断网建议。

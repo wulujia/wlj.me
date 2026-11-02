@@ -982,3 +982,16 @@ year = "2026"
 description = "群晖 NAS 勒索事件调研：核实零日漏洞争议，区分 QuickConnect、Cloud Sync 与断网建议。"
 original_url = ""
 reading_url = "/reading/synology-nas-security/"
+
+[[materials]]
+slug = "mobvoi-financials-ticnote"
+title = "出门问问财务与 TicNote 销售分析"
+subtitle = "2021—2026 年财务变化与录音设备销售证据"
+author = "公开财报分析"
+category = "report"
+tags = ["AI", "Business"]
+date = "2026-11-03T07:04:37+08:00"
+year = "2026"
+description = "出门问问 2021—2026 年财务变化、现金状况及 TicNote 销售与盈利证据。"
+original_url = ""
+reading_url = "/reading/mobvoi-financials-ticnote/"
