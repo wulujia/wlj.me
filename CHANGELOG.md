@@ -2,6 +2,7 @@
 
 ## 2026-11-03
 
+- 新增资料页《深圳房价一年回顾与未来半年预测（2025-10 到 2026-10）》，`static/reading/shenzhen-housing-trend-2026-11/index.html`。用国家统计局 70 城指数和乐有家网签数据回顾深圳 2025 年 10 月到 2026 年 10 月的房价走势，并给出未来 3 到 6 个月的预测。
 - 新增资料页《出门问问财务与 TicNote 销售分析》，`static/reading/mobvoi-financials-ticnote/index.html`。出门问问 2021—2026 年财务变化、现金状况及 TicNote 销售与盈利证据。
 
 ## 2026-11-02

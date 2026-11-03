@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深圳房价一年回顾与未来半年预测（2025-10 到 2026-10）</title>
+<meta name="description" content="用国家统计局 70 城指数和乐有家网签数据回顾深圳 2025 年 10 月到 2026 年 10 月的房价走势，并给出未来 3 到 6 个月的预测。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/shenzhen-housing-trend-2026-11/">
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+    <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#s1">一、数据口径</a></li>
+      <li><a href="#s2">二、过去一年的价格</a>
+        <ul>
+          <li><a href="#s2-1">2.1 官方指数逐月变化</a></li>
+          <li><a href="#s2-2">2.2 累计跌了多少，又回了多少</a></li>
+          <li><a href="#s2-3">2.3 成交均价和挂牌价</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、成交量和市场结构</a>
+        <ul>
+          <li><a href="#s3-1">3.1 二手住宅月度网签</a></li>
+          <li><a href="#s3-2">3.2 议价空间和挂牌量</a></li>
+          <li><a href="#s3-3">3.3 核心区和远郊的分化</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、政策时间线</a></li>
+      <li><a href="#s5">五、最新一个月：2026 年 10 月</a></li>
+      <li><a href="#s6">六、未来 3 到 6 个月的预测</a>
+        <ul>
+          <li><a href="#s6-1">6.1 基准判断</a></li>
+          <li><a href="#s6-2">6.2 同比转正是算术，不是反转</a></li>
+          <li><a href="#s6-3">6.3 三种情景</a></li>
+          <li><a href="#s6-4">6.4 预测的检验点</a></li>
+        </ul>
+      </li>
+      <li><a href="#s7">七、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+
+  <header>
+    <p class="eyebrow">Research notes · 2026 年 11 月 3 日</p>
+    <h1>深圳房价一年回顾与未来半年预测</h1>
+    <p class="lede">把 2025 年 10 月到 2026 年 10 月的官方价格指数、中介网签量、政策节点放在一起看，回答两个问题：过去一年深圳房价怎么走的，接下来 3 到 6 个月大概率怎么走。</p>
+    <p class="meta"><span>数据截至 2026-11-02</span><span>范围：深圳全市住宅</span><span>价格以国家统计局 70 城指数为准</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>深圳二手住宅价格在 2026 年 2 月见底，之后连续 7 个月环比上涨，涨幅都在 0.1% 到 0.6% 之间。按国家统计局环比数据累乘，二手房从 2025 年 9 月到 2026 年 2 月跌了 3.5%，到 2026 年 9 月回了 2.1%，一年净跌 1.5%。成交量从 4 月的 5,644 套回落到 10 月的 4,361 套，低于 5,000 套的荣枯线。未来 3 到 6 个月的基准判断：官方指数环比在 0 到 +0.3% 之间窄幅波动，同比在 2026 年 12 月数据中转正；成交均价因低总价房占比上升而承压；核心区和远郊继续分化。</p>
+  </div>
+
+  <h2 id="s1">一、数据口径</h2>
+  <p>深圳房价有三套常见数字，差别很大，先说清楚用哪一套。</p>
+  <div class="tbl">
+    <table>
+      <caption>三种口径的用途和局限</caption>
+      <thead><tr><th scope="col">口径</th><th scope="col">来源</th><th scope="col">说明</th><th scope="col">本页用途</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">销售价格指数</th><td>国家统计局 70 城月报</td><td>同质可比，剔除成交结构变化。只公布环比和同比，不公布绝对价格</td><td>判断趋势的主依据</td></tr>
+        <tr><th scope="row">成交均价</th><td>乐有家、贝壳、深房中协</td><td>当月成交总额除以面积。低总价房多成交一些，均价就下来，和真实涨跌无关</td><td>看结构，不看趋势</td></tr>
+        <tr><th scope="row">挂牌价</th><td>安居客、乐有家</td><td>业主报价，不是成交价。反映预期，常比成交价高 5% 到 10%</td><td>看业主心态</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>成交量用乐有家研究中心的月度网签数，这是深圳媒体最常引用的一套。深房中协的“录得量”是中介登记数，比网签早 2 到 4 周，数值通常高 15% 到 25%，本页只在注明时使用。</p>
+
+  <h2 id="s2">二、过去一年的价格</h2>
+
+  <h3 id="s2-1">2.1 官方指数逐月变化</h3>
+  <p>2025 年四季度是这一轮下跌最陡的一段，二手住宅每月跌 0.6% 到 1.0%。2026 年 1 月和 2 月跌幅收窄到 0.4% 到 0.6%，3 月转正，之后 7 个月没有再出现负值<sup><a href="#src-1">1</a></sup><sup>,</sup><sup><a href="#src-2">2</a></sup>。</p>
+  <figure>
+    <svg viewBox="0 0 680 240" role="img" aria-label="2025 年 10 月到 2026 年 9 月深圳二手住宅销售价格环比变动柱状图，2026 年 2 月前为负，3 月起转正，最大降幅 1.0%，最大涨幅 0.6%">
+<g stroke="currentColor" stroke-opacity=".25" stroke-width="1" fill="none">
+<line x1="56" y1="184.8" x2="664" y2="184.8" stroke-dasharray="2 4"/>
+<line x1="56" y1="146.9" x2="664" y2="146.9" stroke-dasharray="2 4"/>
+<line x1="56" y1="71.1" x2="664" y2="71.1" stroke-dasharray="2 4"/>
+<line x1="56" y1="33.2" x2="664" y2="33.2" stroke-dasharray="2 4"/>
+<line x1="56" y1="109.0" x2="664" y2="109.0" stroke-opacity=".6"/></g>
+<g font-family="ui-monospace, Menlo, monospace" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="end">
+<text x="48" y="188.8">-1.0%</text>
+<text x="48" y="150.9">-0.5%</text>
+<text x="48" y="113.0">0</text>
+<text x="48" y="75.1">+0.5%</text>
+<text x="48" y="37.2">+1.0%</text>
+</g>
+<rect x="66.1" y="109.0" width="30.4" height="68.2" fill="var(--bad)"/>
+<text x="81.3" y="189.2" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">-0.9</text>
+<text x="81.3" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-10</text>
+<rect x="116.8" y="109.0" width="30.4" height="75.8" fill="var(--bad)"/>
+<text x="132.0" y="196.8" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">-1.0</text>
+<text x="132.0" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-11</text>
+<rect x="167.5" y="109.0" width="30.4" height="45.5" fill="var(--bad)"/>
+<text x="182.7" y="166.5" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">-0.6</text>
+<text x="182.7" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-12</text>
+<rect x="218.1" y="109.0" width="30.4" height="45.5" fill="var(--bad)"/>
+<text x="233.3" y="166.5" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">-0.6</text>
+<text x="233.3" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-01</text>
+<rect x="268.8" y="109.0" width="30.4" height="30.3" fill="var(--bad)"/>
+<text x="284.0" y="151.3" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">-0.4</text>
+<text x="284.0" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-02</text>
+<rect x="319.5" y="78.7" width="30.4" height="30.3" fill="var(--good)"/>
+<text x="334.7" y="74.7" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">+0.4</text>
+<text x="334.7" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-03</text>
+<rect x="370.1" y="86.2" width="30.4" height="22.8" fill="var(--good)"/>
+<text x="385.3" y="82.2" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">+0.3</text>
+<text x="385.3" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-04</text>
+<rect x="420.8" y="63.5" width="30.4" height="45.5" fill="var(--good)"/>
+<text x="436.0" y="59.5" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">+0.6</text>
+<text x="436.0" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-05</text>
+<rect x="471.5" y="86.2" width="30.4" height="22.8" fill="var(--good)"/>
+<text x="486.7" y="82.2" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">+0.3</text>
+<text x="486.7" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-06</text>
+<rect x="522.1" y="93.8" width="30.4" height="15.2" fill="var(--good)"/>
+<text x="537.3" y="89.8" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">+0.2</text>
+<text x="537.3" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-07</text>
+<rect x="572.8" y="101.4" width="30.4" height="7.6" fill="var(--good)"/>
+<text x="588.0" y="97.4" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">+0.1</text>
+<text x="588.0" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-08</text>
+<rect x="623.5" y="93.8" width="30.4" height="15.2" fill="var(--good)"/>
+<text x="638.7" y="89.8" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" text-anchor="middle">+0.2</text>
+<text x="638.7" y="226" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-09</text>
+</svg>
+    <figcaption>深圳二手住宅销售价格环比，2025 年 10 月到 2026 年 9 月。2 月是最后一个负值月，5 月涨幅最大。来源：国家统计局各月解读稿<sup><a href="#src-1">1</a></sup>到<sup><a href="#src-8">8</a></sup>。</figcaption>
+  </figure>
+  <div class="tbl">
+    <table>
+      <caption>国家统计局深圳商品住宅销售价格变动，单位：%</caption>
+      <thead><tr><th scope="col">月份</th><th scope="col" class="num">新房环比</th><th scope="col" class="num">新房同比</th><th scope="col" class="num">二手环比</th><th scope="col" class="num">二手同比</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2025-10</th><td class="num">-0.7</td><td class="num">-2.6</td><td class="num">-0.9</td><td class="num">-3.3</td></tr>
+        <tr><th scope="row">2025-11</th><td class="num">-0.9</td><td class="num">-3.7</td><td class="num">-1.0</td><td class="num">-4.8</td></tr>
+        <tr><th scope="row">2025-12</th><td class="num">-0.5</td><td class="num">-4.4</td><td class="num">-0.6</td><td class="num">-5.4</td></tr>
+        <tr><th scope="row">2026-01</th><td class="num">-0.4</td><td class="num">-4.9</td><td class="num">-0.6</td><td class="num">-6.5</td></tr>
+        <tr><th scope="row">2026-02</th><td class="num">-0.3</td><td class="num">-5.5</td><td class="num">-0.4</td><td class="num">-7.1</td></tr>
+        <tr><th scope="row">2026-03</th><td class="num">+0.2</td><td class="num">-5.5</td><td class="num">+0.4</td><td class="num">-7.0</td></tr>
+        <tr><th scope="row">2026-04</th><td class="num">+0.1</td><td class="num">-5.3</td><td class="num">+0.3</td><td class="num">-6.5</td></tr>
+        <tr><th scope="row">2026-05</th><td class="num">+0.4</td><td class="num">-4.5</td><td class="num">+0.6</td><td class="num">-5.5</td></tr>
+        <tr><th scope="row">2026-06</th><td class="num">+0.3</td><td class="num">-3.6</td><td class="num">+0.3</td><td class="num">-4.7</td></tr>
+        <tr><th scope="row">2026-07</th><td class="num">+0.2</td><td class="num">-2.9</td><td class="num">+0.2</td><td class="num">-3.6</td></tr>
+        <tr><th scope="row">2026-08</th><td class="num">+0.2</td><td class="num">-2.3</td><td class="num">+0.1</td><td class="num">-2.7</td></tr>
+        <tr><th scope="row">2026-09</th><td class="num">+0.3</td><td class="num">-1.0</td><td class="num">+0.2</td><td class="num">-1.5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>两点值得单独说。第一，深圳 9 月新房环比 +0.3%，是四个一线城市里最高的<sup><a href="#src-1">1</a></sup>。第二，二手同比从 2 月的 -7.1% 收窄到 9 月的 -1.5%，7 个月收窄 5.6 个百分点，收窄速度比北京和广州都快。</p>
+
+  <h3 id="s2-2">2.2 累计跌了多少，又回了多少</h3>
+  <p>把每月环比累乘，以 2025 年 9 月为 100，可以看到一条清楚的 V 形底。二手住宅 2026 年 2 月最低 96.6，9 月回到 98.6。新房的底更浅，2 月 97.2，9 月 98.9。两条线 3 月之后几乎平行上行，斜率大约每月 0.2% 到 0.3%。</p>
+  <figure>
+    <svg viewBox="0 0 680 260" role="img" aria-label="深圳新建商品住宅和二手住宅价格累计指数折线图，2025 年 9 月为 100，二手住宅 2026 年 2 月最低 96.6，2026 年 9 月回到 98.6；新建商品住宅 2 月最低 97.2，9 月 98.9">
+<g stroke="currentColor" stroke-opacity=".25" stroke-width="1" fill="none">
+<line x1="52" y1="199.8" x2="664" y2="199.8" stroke-dasharray="2 4"/>
+<line x1="52" y1="159.4" x2="664" y2="159.4" stroke-dasharray="2 4"/>
+<line x1="52" y1="119.0" x2="664" y2="119.0" stroke-dasharray="2 4"/>
+<line x1="52" y1="78.6" x2="664" y2="78.6" stroke-dasharray="2 4"/>
+<line x1="52" y1="38.2" x2="664" y2="38.2" stroke-dasharray="2 4"/>
+</g>
+<g font-family="ui-monospace, Menlo, monospace" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="end">
+<text x="44" y="203.8">96</text>
+<text x="44" y="163.4">97</text>
+<text x="44" y="123.0">98</text>
+<text x="44" y="82.6">99</text>
+<text x="44" y="42.2">100</text>
+</g>
+<text x="52.0" y="246" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-09</text>
+<text x="154.0" y="246" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-11</text>
+<text x="256.0" y="246" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-01</text>
+<text x="358.0" y="246" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-03</text>
+<text x="460.0" y="246" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-05</text>
+<text x="562.0" y="246" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-07</text>
+<text x="664.0" y="246" font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-09</text>
+<polyline points="52.0,38.2 103.0,66.5 154.0,102.4 205.0,122.6 256.0,138.4 307.0,150.1 358.0,142.4 409.0,138.4 460.0,122.6 511.0,110.5 562.0,102.8 613.0,94.8 664.0,83.0" fill="none" stroke="var(--ink-3)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 4"/>
+<polyline points="52.0,38.2 103.0,74.6 154.0,114.6 205.0,138.4 256.0,161.8 307.0,177.6 358.0,162.2 409.0,150.5 460.0,126.7 511.0,115.0 562.0,106.9 613.0,102.8 664.0,95.2" fill="none" stroke="var(--acc)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="38.2" r="2.6" fill="var(--acc)"/>
+<circle cx="103.0" cy="74.6" r="2.6" fill="var(--acc)"/>
+<circle cx="154.0" cy="114.6" r="2.6" fill="var(--acc)"/>
+<circle cx="205.0" cy="138.4" r="2.6" fill="var(--acc)"/>
+<circle cx="256.0" cy="161.8" r="2.6" fill="var(--acc)"/>
+<circle cx="307.0" cy="177.6" r="2.6" fill="var(--acc)"/>
+<circle cx="358.0" cy="162.2" r="2.6" fill="var(--acc)"/>
+<circle cx="409.0" cy="150.5" r="2.6" fill="var(--acc)"/>
+<circle cx="460.0" cy="126.7" r="2.6" fill="var(--acc)"/>
+<circle cx="511.0" cy="115.0" r="2.6" fill="var(--acc)"/>
+<circle cx="562.0" cy="106.9" r="2.6" fill="var(--acc)"/>
+<circle cx="613.0" cy="102.8" r="2.6" fill="var(--acc)"/>
+<circle cx="664.0" cy="95.2" r="2.6" fill="var(--acc)"/>
+<text x="658.0" y="86.2" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="var(--acc-ink)" text-anchor="end">二手 98.6</text>
+<text x="658.0" y="74.0" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="currentColor" fill-opacity=".75" text-anchor="end">新房 98.9</text>
+<text x="307.0" y="193.6" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="var(--acc-ink)" text-anchor="middle">低点 96.5</text>
+</svg>
+    <figcaption>深圳住宅价格累计指数，2025 年 9 月 = 100。实线为二手住宅，虚线为新建商品住宅。由国家统计局逐月环比累乘得到，不是官方发布的定基指数。</figcaption>
+    <details><summary>数据表</summary>
+      <div class="tbl"><table>
+        <thead><tr><th scope="col">月份</th><th scope="col" class="num">二手累计指数</th><th scope="col" class="num">新房累计指数</th></tr></thead>
+        <tbody>
+          <tr><td>2025-09</td><td class="num">100.0</td><td class="num">100.0</td></tr>
+          <tr><td>2025-10</td><td class="num">99.1</td><td class="num">99.3</td></tr>
+          <tr><td>2025-11</td><td class="num">98.1</td><td class="num">98.4</td></tr>
+          <tr><td>2025-12</td><td class="num">97.5</td><td class="num">97.9</td></tr>
+          <tr><td>2026-01</td><td class="num">96.9</td><td class="num">97.5</td></tr>
+          <tr><td>2026-02</td><td class="num">96.6</td><td class="num">97.2</td></tr>
+          <tr><td>2026-03</td><td class="num">96.9</td><td class="num">97.4</td></tr>
+          <tr><td>2026-04</td><td class="num">97.2</td><td class="num">97.5</td></tr>
+          <tr><td>2026-05</td><td class="num">97.8</td><td class="num">97.9</td></tr>
+          <tr><td>2026-06</td><td class="num">98.1</td><td class="num">98.2</td></tr>
+          <tr><td>2026-07</td><td class="num">98.3</td><td class="num">98.4</td></tr>
+          <tr><td>2026-08</td><td class="num">98.4</td><td class="num">98.6</td></tr>
+          <tr><td>2026-09</td><td class="num">98.6</td><td class="num">98.9</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </figure>
+  <p>换成更长的尺度看：2024 年和 2025 年深圳二手房价各跌了约 10%，2026 年前 9 个月累计基本持平<sup><a href="#src-20">20</a></sup>。这一轮下跌从 2021 年高点算起，二手房价已经回到 2017 年前后的水平。2026 年的修复幅度放在这个背景下很小，更准确的描述是“止跌”，还谈不上“回升”。</p>
+
+  <h3 id="s2-3">2.3 成交均价和挂牌价</h3>
+  <p>成交均价的波动比指数大得多，因为它受当月卖了什么房影响。2026 年 2 月深圳二手住宅成交均价 6.2 万元/㎡，5 月 6.08 万元，8 月 5.78 万元，10 月 5.64 万元<sup><a href="#src-9">9</a></sup><sup>,</sup><sup><a href="#src-10">10</a></sup><sup>,</sup><sup><a href="#src-11">11</a></sup>。10 月均价环比跌 3.3%，同一个月官方指数却在涨，原因是贴息政策把 150 万元以下的低总价房推到了前面，拉低了平均数。</p>
+  <div class="tbl">
+    <table>
+      <caption>三种价格口径的最新读数</caption>
+      <thead><tr><th scope="col">口径</th><th scope="col" class="num">读数（万元/㎡）</th><th scope="col">时点</th><th scope="col">变化</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">二手成交均价（乐有家）</th><td class="num">5.64</td><td>2026-10</td><td>环比 -3.3%，结构性下跌</td></tr>
+        <tr><th scope="row">业主挂牌报价（乐有家）</th><td class="num">5.77</td><td>2026-10</td><td>连续 7 个月低于 6 万元，持续走低<sup><a href="#src-12">12</a></sup></td></tr>
+        <tr><th scope="row">二手挂牌均价（安居客）</th><td class="num">5.03</td><td>2026-11</td><td>同比 -6.3%，样本偏远郊<sup><a href="#src-13">13</a></sup></td></tr>
+        <tr><th scope="row">2025 年全年二手成交均价（乐有家）</th><td class="num">5.90</td><td>2025 年</td><td>同比 -6.3%<sup><a href="#src-14">14</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>挂牌价仍在往下走，说明业主端没有涨价预期。官方指数在涨，说明同一套房的成交价在小幅回升。两者并存的解释是：愿意让价的业主在成交，不让价的业主在挂着。</p>
+
+  <h2 id="s3">三、成交量和市场结构</h2>
+
+  <h3 id="s3-1">3.1 二手住宅月度网签</h3>
+  <p>深圳中介行业把每月 5,000 套二手住宅网签当作荣枯线。过去 13 个月，只有 3 月到 6 月这四个月站上这条线，和 4 月 29 日核心区松绑政策的窗口期重合。7 月之后逐月回落，10 月 4,361 套，环比 -2%，同比 +4%<sup><a href="#src-10">10</a></sup>。</p>
+  <figure>
+    <svg viewBox="0 0 680 250" role="img" aria-label="2025 年 10 月到 2026 年 10 月深圳二手住宅月度网签套数柱状图，4 月最高 5,644 套，2 月最低 2,339 套，10 月 4,361 套；2025 年 11 月到 2026 年 1 月为估算值">
+<g stroke="currentColor" stroke-opacity=".25" stroke-width="1" fill="none">
+<line x1="56" y1="146.0" x2="664" y2="146.0" stroke-dasharray="2 4"/>
+<line x1="56" y1="82.0" x2="664" y2="82.0" stroke-dasharray="2 4"/>
+<line x1="56" y1="18.0" x2="664" y2="18.0" stroke-dasharray="2 4"/>
+<line x1="56" y1="210.0" x2="664" y2="210.0" stroke-opacity=".6"/>
+<line x1="56" y1="50.0" x2="664" y2="50.0" stroke="var(--warn)" stroke-opacity="1" stroke-width="1.4"/>
+</g>
+<text x="660" y="45.0" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="var(--warn)" text-anchor="end">荣枯线 5,000 套</text>
+<g font-family="ui-monospace, Menlo, monospace" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="end">
+<text x="48" y="214.0">0</text>
+<text x="48" y="150.0">2,000</text>
+<text x="48" y="86.0">4,000</text>
+<text x="48" y="22.0">6,000</text>
+</g>
+<rect x="64.9" y="75.7" width="29.0" height="134.3" fill="var(--acc)"/>
+<text x="79.4" y="71.7" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">4,196</text>
+<text x="79.4" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-10</text>
+<rect x="111.7" y="62.8" width="29.0" height="147.2" fill="var(--acc)" fill-opacity=".35"/>
+<text x="126.2" y="58.8" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">约4.6k</text>
+<text x="126.2" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-11</text>
+<rect x="158.4" y="43.6" width="29.0" height="166.4" fill="var(--acc)" fill-opacity=".35"/>
+<text x="172.9" y="39.6" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">约5.2k</text>
+<text x="172.9" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">25-12</text>
+<rect x="205.2" y="40.4" width="29.0" height="169.6" fill="var(--acc)" fill-opacity=".35"/>
+<text x="219.7" y="36.4" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">约5.3k</text>
+<text x="219.7" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-01</text>
+<rect x="252.0" y="135.2" width="29.0" height="74.8" fill="var(--acc)"/>
+<text x="266.5" y="131.2" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">2,339</text>
+<text x="266.5" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-02</text>
+<rect x="298.7" y="47.7" width="29.0" height="162.3" fill="var(--acc)"/>
+<text x="313.2" y="43.7" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">5,071</text>
+<text x="313.2" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-03</text>
+<rect x="345.5" y="29.4" width="29.0" height="180.6" fill="var(--acc)"/>
+<text x="360.0" y="25.4" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">5,644</text>
+<text x="360.0" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-04</text>
+<rect x="392.3" y="32.9" width="29.0" height="177.1" fill="var(--acc)"/>
+<text x="406.8" y="28.9" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">5,534</text>
+<text x="406.8" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-05</text>
+<rect x="439.0" y="47.0" width="29.0" height="163.0" fill="var(--acc)"/>
+<text x="453.5" y="43.0" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">5,093</text>
+<text x="453.5" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-06</text>
+<rect x="485.8" y="56.6" width="29.0" height="153.4" fill="var(--acc)"/>
+<text x="500.3" y="52.6" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">4,795</text>
+<text x="500.3" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-07</text>
+<rect x="532.6" y="73.2" width="29.0" height="136.8" fill="var(--acc)"/>
+<text x="547.1" y="69.2" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">4,275</text>
+<text x="547.1" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-08</text>
+<rect x="579.3" y="67.4" width="29.0" height="142.6" fill="var(--acc)"/>
+<text x="593.8" y="63.4" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">4,455</text>
+<text x="593.8" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-09</text>
+<rect x="626.1" y="70.4" width="29.0" height="139.6" fill="var(--acc)"/>
+<text x="640.6" y="66.4" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="currentColor" text-anchor="middle">4,361</text>
+<text x="640.6" y="236" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="currentColor" fill-opacity=".75" text-anchor="middle">26-10</text>
+</svg>
+    <figcaption>深圳二手住宅月度网签套数，2025 年 10 月到 2026 年 10 月。浅色柱为估算值。来源：乐有家研究中心各月报告<sup><a href="#src-9">9</a></sup>到<sup><a href="#src-11">11</a></sup>、<sup><a href="#src-15">15</a></sup>到<sup><a href="#src-18">18</a></sup>。</figcaption>
+    <details><summary>数据表</summary>
+      <div class="tbl"><table>
+        <thead><tr><th scope="col">月份</th><th scope="col" class="num">二手住宅网签（套）</th><th scope="col">说明</th></tr></thead>
+        <tbody>
+          <tr><td>2025-10</td><td class="num">4,196</td><td>环比 -7.7%，同比 -31.4%</td></tr>
+          <tr><td>2025-11</td><td class="num">约 4,600</td><td>估算，见方法</td></tr>
+          <tr><td>2025-12</td><td class="num">约 5,200</td><td>估算，12 月有翘尾</td></tr>
+          <tr><td>2026-01</td><td class="num">约 5,300</td><td>由 2 月环比 -56% 倒推</td></tr>
+          <tr><td>2026-02</td><td class="num">2,339</td><td>春节月</td></tr>
+          <tr><td>2026-03</td><td class="num">5,071</td><td>环比 +117%</td></tr>
+          <tr><td>2026-04</td><td class="num">5,644</td><td>13 个月最高</td></tr>
+          <tr><td>2026-05</td><td class="num">5,534</td><td>同比 +21%</td></tr>
+          <tr><td>2026-06</td><td class="num">5,093</td><td>同比 +13%</td></tr>
+          <tr><td>2026-07</td><td class="num">4,795</td><td>近六年同期最高</td></tr>
+          <tr><td>2026-08</td><td class="num">4,275</td><td>环比 -11%</td></tr>
+          <tr><td>2026-09</td><td class="num">4,455</td><td>金九，环比 +4%</td></tr>
+          <tr><td>2026-10</td><td class="num">4,361</td><td>环比 -2%，同比 +4%</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </figure>
+  <p>2025 年全年二手住宅网签 56,217 套，同比 +3.2%；一手住宅 37,879 套，同比 -22%。二手成交占比首次超过 60%<sup><a href="#src-14">14</a></sup>。2026 年上半年二手住宅网签 28,962 套，环比上半年 +7%<sup><a href="#src-16">16</a></sup>。按下半年前四个月的节奏推算，2026 年全年二手网签在 5.6 万到 5.8 万套之间，和 2025 年基本持平。</p>
+  <p>新房这边，9 月商品住宅可售库存约 20,613 套，去化周期约 14.6 个月<sup><a href="#src-19">19</a></sup>。四季度计划入市 27 个项目、6,251 套，其中住宅 5,880 套，集中在南山和宝安核心区<sup><a href="#src-21">21</a></sup>。</p>
+
+  <h3 id="s3-2">3.2 议价空间和挂牌量</h3>
+  <p>议价空间指成交价比挂牌价低多少，是判断买卖双方力量的直接指标。乐有家的数据是 7 月 9.12%，8 月 8.91%，9 月上半月 8.81%，创年内新低<sup><a href="#src-22">22</a></sup>。贝壳同期的读数是 9.3%。两家口径都在收窄，说明买家砍价的空间在缩小。</p>
+  <p>挂牌量的两个来源方向相反。深房中协监测的在售量接近 5.8 万套，创历史新高<sup><a href="#src-12">12</a></sup>。普睿数智的统计是 9 月末挂牌量比 4 月末减少 0.65 万套，回落 7.8%，撤盘力度在一线城市里最大<sup><a href="#src-12">12</a></sup>。两个数并不矛盾：前者是绝对量，后者是变化量。合理的解读是挂牌总量仍在高位，但新增挂牌在减少，部分业主选择撤牌等待。</p>
+
+  <h3 id="s3-3">3.3 核心区和远郊的分化</h3>
+  <p>全市平均数掩盖了两个方向相反的市场。2026 年 7 月，总价 500 万元以下的二手房成交均价约 38,798 元/㎡，环比再跌 1.3%；千万元以上的二手房成交均价 101,504 元/㎡，环比涨 5.7%<sup><a href="#src-23">23</a></sup>。南山二手挂牌均价约 7.9 万元/㎡，福田约 6.8 万元；坪山新房去化周期约 60 个月，大鹏新区超过 77 个月<sup><a href="#src-23">23</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>2026 年 10 月二手住宅分区网签和总价结构</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col" class="num">数值</th><th scope="col">说明</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">龙岗</th><td class="num">1,048 套</td><td>全市第一，刚需为主</td></tr>
+        <tr><th scope="row">福田</th><td class="num">707 套</td><td></td></tr>
+        <tr><th scope="row">南山</th><td class="num">672 套</td><td></td></tr>
+        <tr><th scope="row">罗湖</th><td class="num">654 套</td><td></td></tr>
+        <tr><th scope="row">总价 300 万元以下占比</th><td class="num">31.6%</td><td>连续两月超过 31%</td></tr>
+        <tr><th scope="row">总价 300 万到 500 万元占比</th><td class="num">31.3%</td><td>环比 +1.3 个百分点</td></tr>
+        <tr><th scope="row">总价 150 万元以内成交占比</th><td class="num">21.6%</td><td>挂牌占比只有 7.4%，贴息所致</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：乐有家研究院、深圳贝壳研究院<sup><a href="#src-10">10</a></sup><sup>,</sup><sup><a href="#src-12">12</a></sup>。</p>
+
+  <h2 id="s4">四、政策时间线</h2>
+  <p>过去一年影响深圳楼市的政策有五个节点，其中 4 月 29 日的核心区松绑对成交量的拉动最直接。</p>
+  <ol class="timeline">
+    <li><time>2025-09</time><div><strong>分区限购</strong>。罗湖、宝安（不含新安）、龙岗、龙华、坪山、光明对深户不限购；盐田和大鹏取消购房资格审核。房贷利率不再分首套二套<sup><a href="#src-24">24</a></sup>。</div></li>
+    <li><time>2026-04-29</time><div><strong>核心区松绑</strong>。福田、南山、宝安新安街道，深户家庭可购 3 套，社保满 1 年的非深户可购 2 套，持居住证的非深户可购 1 套。公积金个人贷款额度从 60 万元提到 70 万元，家庭从 110 万元提到 130 万元，首套上浮比例从 40% 提到 60%<sup><a href="#src-24">24</a></sup><sup>,</sup><sup><a href="#src-25">25</a></sup>。5 月一二手住宅网签 10,077 套，时隔 13 个月再次破万<sup><a href="#src-15">15</a></sup>。</div></li>
+    <li><time>2026-08-28</time><div><strong>国家商品房销售制度调整</strong>。新出让土地优先现房销售，8 月 28 日后取得预售证的项目竣工备案后才能放贷。深圳 10 月 15 日发布落地细则<sup><a href="#src-26">26</a></sup>。</div></li>
+    <li><time>2026-10-01</time><div><strong>购房贷款贴息</strong>。财政部、央行、金融监管总局联合发文，首套商业贷款贴息 1 个百分点，最长 5 年，贴息贷款上限 100 万元。条件是建筑面积 120 ㎡以内、总价 150 万元以内，暂定实施 1 年<sup><a href="#src-27">27</a></sup>。深圳符合条件的房源很少，主要是远郊和老旧小户型。</div></li>
+    <li><time>2026-10-15</time><div><strong>深圳现房销售细则</strong>。已拿地未取工规证的项目可延至 2027 年底前按老预售条件申请预售；现房销售定金不超过房价 3%<sup><a href="#src-26">26</a></sup>。</div></li>
+  </ol>
+
+  <h2 id="s5">五、最新一个月：2026 年 10 月</h2>
+  <p>10 月是贴息政策落地的第一个月，也是“金九银十”的后半段。数据的整体感觉是平稳，没有出现政策催生的放量<sup><a href="#src-10">10</a></sup><sup>,</sup><sup><a href="#src-11">11</a></sup>。</p>
+  <div class="stats">
+    <div><b>6,957</b><span>一二手住宅合计网签（套）</span><i>同比 +2%，环比 -1%</i></div>
+    <div><b>4,361</b><span>二手住宅网签（套）</span><i>同比 +4%，环比 -2%</i></div>
+    <div><b>2,596</b><span>一手住宅网签（套）</span><i>现售占 44.9%</i></div>
+    <div><b>5.64</b><span>二手成交均价（万元/㎡）</span><i>环比 -3.3%</i></div>
+  </div>
+  <p>中介门店的数据比网签热一些。乐有家门店 10 月二手签约量同比 +23%，一二手合计签约量是近 7 年同期第二高，仅次于 2024 年 10 月<sup><a href="#src-10">10</a></sup>。贝壳深圳合作门店二手签约量同比 +14.4%，环比 +2.7%<sup><a href="#src-11">11</a></sup>。10 月 24 日单日二手网签 220 套，深圳链家研究院院长肖小平认为这可能是今年的峰值<sup><a href="#src-12">12</a></sup>。</p>
+  <p>门店签约领先网签 2 到 4 周，所以 11 月网签数有可能比 10 月略好。但贴息对深圳的作用有限：150 万元以内的房源只占挂牌的 7.4%，这类需求释放一轮之后就没有后续。</p>
+  <div class="note"><b>说明</b>10 月官方价格指数在 11 月中旬发布，本页撰写时尚未公布。按门店议价率和成交结构判断，10 月二手环比大概率仍在 0 到 +0.3% 之间。</div>
+
+  <h2 id="s6">六、未来 3 到 6 个月的预测</h2>
+  <p>预测窗口是 2026 年 11 月到 2027 年 4 月。判断基于三条线索：官方指数已连续 7 个月环比正值且斜率稳定；成交量回落但仍在 4,000 套以上；去年同期的基数很低。</p>
+
+  <h3 id="s6-1">6.1 基准判断</h3>
+  <div class="tbl">
+    <table>
+      <caption>基准情景下的逐项预测</caption>
+      <thead><tr><th scope="col">指标</th><th scope="col">未来 3 个月（11 月到 1 月）</th><th scope="col">未来 6 个月（到 4 月）</th><th scope="col">把握</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">二手住宅指数环比</th><td>每月 0 到 +0.3%，可能出现 1 到 2 个月持平或 -0.1%</td><td>6 个月累计 0 到 +1.0%</td><td>较高</td></tr>
+        <tr><th scope="row">二手住宅指数同比</th><td>12 月数据转正，约 +1%</td><td>2027 年 3 月约 +1.5% 到 +2%</td><td>高，见 6.2</td></tr>
+        <tr><th scope="row">新房指数</th><td>与二手同向，环比 +0.1% 到 +0.3%</td><td>核心区新盘推高指数</td><td>较高</td></tr>
+        <tr><th scope="row">二手网签量</th><td>11 月 4,200 到 4,800 套，12 月翘尾 4,800 到 5,500 套，1 月回落</td><td>2 月春节（2027-02-06）低点 2,500 到 3,500 套；3 月到 4 月回到 4,800 到 5,500 套</td><td>中</td></tr>
+        <tr><th scope="row">二手成交均价</th><td>5.5 万到 5.9 万元/㎡，受低总价成交占比压制</td><td>贴息效应减弱后回到 5.8 万到 6.1 万元</td><td>低，口径噪声大</td></tr>
+        <tr><th scope="row">议价空间</th><td>8.5% 到 9.5%</td><td>维持在 9% 上下</td><td>中</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>一句话概括基准情景：指数小涨，成交平稳，均价不涨。深圳楼市在 2026 年完成的是止跌，2027 年上半年大概率延续这个状态，不会出现 2024 年四季度那种放量上涨。</p>
+
+  <h3 id="s6-2">6.2 同比转正是算术，不是反转</h3>
+  <p>2025 年 10 月、11 月、12 月二手指数环比分别是 -0.9%、-1.0%、-0.6%，三个月累计 -2.5%。只要 2026 年同期环比持平，12 月的同比就会从 9 月的 -1.5% 变成约 +1.0%。如果每月涨 0.1%，12 月同比约 +1.3%。再往后，2026 年 1 月和 2 月的基数也是负的，2027 年 3 月同比会到 +1.5% 到 +2%。</p>
+  <p>这意味着 2027 年 1 月中旬国家统计局发布 12 月数据时，媒体标题大概率是“深圳二手房价同比转涨”。这个转正的全部来源是去年基数低，不代表市场加速。读新闻时要看环比，不要看同比。</p>
+
+  <h3 id="s6-3">6.3 三种情景</h3>
+  <div class="tbl">
+    <table class="compare">
+      <thead><tr><th scope="col">项目</th><th scope="col">偏弱</th><th scope="col" class="pick">基准</th><th scope="col">偏强</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">概率</th><td>25%</td><td class="pick">55%</td><td>20%</td></tr>
+        <tr><th scope="row">触发条件</th><td>挂牌量继续创新高，远郊新房降价传导到二手；宏观收入预期转弱</td><td class="pick">政策不再加码，核心区供给有限，刚需靠贴息和公积金维持</td><td>全市取消限购或下调房贷利率；核心区新盘“日光”带动预期</td></tr>
+        <tr><th scope="row">二手指数 6 个月累计</th><td>-1% 到 0</td><td class="pick">0 到 +1%</td><td>+1% 到 +2.5%</td></tr>
+        <tr><th scope="row">月度二手网签</th><td>3,500 到 4,300 套</td><td class="pick">4,200 到 5,500 套</td><td>5,500 套以上，重回荣枯线</td></tr>
+        <tr><th scope="row">分化</th><td>远郊加速下跌，核心区持平</td><td class="pick">核心区小涨，远郊小跌</td><td>核心区涨幅扩大，远郊止跌</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>偏弱情景的主要风险是供给。5.8 万套二手挂牌加上四季度 5,880 套新房住宅，以每月 4,400 套的二手去化速度，二手存量要 13 个月才能消化一遍。约 70% 片区的业主仍在降价换成交<sup><a href="#src-22">22</a></sup>。只要成交量掉到 4,000 套以下，让价的业主会增加，指数就会重新走平或微跌。</p>
+  <p>偏强情景需要新的政策。深圳目前核心区仍有限购，是四个一线城市中放开程度最低的。摩根大通 10 月底的专家会议预计深圳二手房价 2026 年底基本见底，一手成交量 2027 年因供应收缩再降 10% 到 15%，二手成交量持平<sup><a href="#src-20">20</a></sup>。中指研究院对四季度的判断是“量价延续筑底”<sup><a href="#src-28">28</a></sup>。两家机构都没有给出上行情景。</p>
+
+  <h3 id="s6-4">6.4 预测的检验点</h3>
+  <p>以下四个数字在未来半年可以逐一核对，任何一个偏离基准区间，上面的判断就要修正。</p>
+  <ul>
+    <li>2026 年 11 月中旬发布的 10 月二手指数环比：基准区间 0 到 +0.3%。低于 0 说明贴息带来的低价成交已经压到了指数。</li>
+    <li>2026 年 12 月二手网签：基准区间 4,800 到 5,500 套。低于 4,500 套偏弱情景概率上调到 40%。</li>
+    <li>2027 年 1 月中旬发布的 12 月二手同比：基准约 +1%。这个数几乎必然转正，偏离主要来自环比。</li>
+    <li>2027 年 3 月二手网签：基准 4,800 到 5,500 套。春节后的“小阳春”是全年最重要的信号，低于 4,500 套意味着 2027 年全年成交量会低于 2026 年。</li>
+  </ul>
+
+  <h2 id="s7">七、方法与来源</h2>
+  <p>价格趋势全部使用国家统计局 70 个大中城市商品住宅销售价格月报中的深圳数据，取自每月解读稿，共 12 期（2025 年 10 月到 2026 年 9 月）。累计指数由逐月环比累乘得到，起点 2025 年 9 月设为 100，与官方同比的差异在 0.1 个百分点以内。成交量使用乐有家研究中心各月网签报告，取样日 2026 年 11 月 2 日。</p>
+  <p>三个月的成交量是估算值。2025 年 11 月和 12 月没有找到乐有家月报原文，按 2026 年上半年 28,962 套“环比上半年 +7%”倒推 2025 年下半年约 27,000 套，扣除已知的 7 月到 10 月后分摊，12 月按“翘尾”多给。2026 年 1 月由 2 月 2,339 套“环比 -56%”倒推。9 月二手网签各媒体口径在 4,455 到 4,565 套之间，本页取 4,455 套，与 10 月“环比 -2%”一致。</p>
+  <p>没有拿到的数据：10 月官方价格指数（11 月中旬发布）；分区的官方价格指数（国家统计局不公布）；10 月全月议价率。预测中的概率和区间是本页作者基于上述数据的判断，不是任何机构的发布。</p>
+  <ol class="sources">
+    <li id="src-1">国家统计局，《杨彩芳解读 2026 年 9 月份商品住宅销售价格变动情况》，2026-10-19，<a href="https://www.stats.gov.cn/sj/sjjd/202610/t20261019_1965610.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-2">国家统计局，《杨彩芳解读 2026 年 8 月份商品住宅销售价格变动情况》，2026-09-15，<a href="https://www.stats.gov.cn/sj/sjjd/202609/t20260915_1965303.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-3">国家统计局，《杨彩芳解读 2026 年 7 月份商品住宅销售价格变动情况》，2026-08-17，<a href="https://www.stats.gov.cn/sj/zxfbhjd/202608/t20260817_1965046.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-4">国家统计局，《杨彩芳解读 2026 年 6 月份商品住宅销售价格变动情况》，2026-07-15，<a href="https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964114.html" target="_blank" rel="noopener">stats.gov.cn</a>；5 月：<a href="https://www.stats.gov.cn/sj/zxfbhjd/202606/t20260616_1963945.html" target="_blank" rel="noopener">stats.gov.cn</a>；4 月：<a href="https://www.stats.gov.cn/sj/sjjd/202605/t20260518_1963721.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-5">国家统计局，《王中华解读 2026 年 3 月份商品住宅销售价格变动情况》，2026-04-16，<a href="https://www.stats.gov.cn/sj/sjjd/202604/t20260416_1963319.html" target="_blank" rel="noopener">stats.gov.cn</a>；2 月：<a href="https://www.stats.gov.cn/sj/zxfbhjd/202603/t20260316_1962771.html" target="_blank" rel="noopener">stats.gov.cn</a>；1 月：<a href="https://www.stats.gov.cn/sj/zxfbhjd/202602/t20260213_1962616.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-6">国家统计局，《2025 年 12 月份商品住宅销售价格变动情况解读》，2026-01-19，<a href="https://www.stats.gov.cn/xxgk/jd/sjjd2020/202601/t20260119_1962317.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-7">国家统计局，《王中华解读 2025 年 11 月份商品住宅销售价格变动情况》，2025-12-15，<a href="https://www.stats.gov.cn/sj/sjjd/202512/t20251215_1962068.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-8">国家统计局，《王中华解读 2025 年 10 月份商品住宅销售价格变动情况》，2025-11-14，<a href="https://www.stats.gov.cn/sj/sjjd/202511/t20251114_1961849.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li id="src-9">21 财经，《8 月深圳一二手住宅成交量同比增长 8.5%，二手房议价空间减小》，2026-09-03，<a href="https://m.21jingji.com/article/20260903/herald/574aae832a77d6d8ab91b423bfd7c6ed.html" target="_blank" rel="noopener">21jingji.com</a></li>
+    <li id="src-10">21 财经，《深圳楼市“银十”平稳收官 一二手住宅成交同比保持增长》，2026-11-02，<a href="https://m.21jingji.com/article/20261102/herald/8f120e301ee2eb258715a6721e95ff4b.html" target="_blank" rel="noopener">21jingji.com</a></li>
+    <li id="src-11">21 财经，《楼市“银十”收官：重点 18 城二手住宅成交同比增长 17.5%》，2026-11-03，<a href="https://www.21jingji.com/article/20261103/herald/bed98d93efcd04504c2561c583c6f973.html" target="_blank" rel="noopener">21jingji.com</a></li>
+    <li id="src-12">网易 / 深圳梦，《10 月深圳楼市成交单出炉，市场给出这三个信号》，2026-11-02，<a href="https://www.163.com/dy/article/LAO1P4OB05568W0A.html" target="_blank" rel="noopener">163.com</a>；《深圳二手房 5.8 万套挂牌压顶》，2026-10-27，<a href="https://www.163.com/dy/article/LA7B94NC0511HMV0.html" target="_blank" rel="noopener">163.com</a></li>
+    <li id="src-13">安居客，《2026 年深圳房价走势图》，取样 2026-11-02，<a href="https://anjuke.com/fangjia/shenzhen2026/" target="_blank" rel="noopener">anjuke.com</a></li>
+    <li id="src-14">新浪财经，《机构：2025 年深圳一二手住宅共成交 94096 套 同比降 9%》，2026-01-01，<a href="https://finance.sina.com.cn/stock/bxjj/2026-01-01/doc-inheumpq8479099.shtml" target="_blank" rel="noopener">sina.com.cn</a></li>
+    <li id="src-15">21 财经，《深圳住宅网签时隔 14 个月再破万套》，2026-06-02，<a href="https://m.21jingji.com/article/20260602/herald/b72ec671d9a2d037cff0e16a7628503c.html" target="_blank" rel="noopener">21jingji.com</a>；财联社，《机构：4 月深圳一二手网签量超 9000 套》，<a href="https://www.cls.cn/detail/2361709" target="_blank" rel="noopener">cls.cn</a></li>
+    <li id="src-16">网易，《机构：上半年深圳一二手网签超 4.7 万套》，2026-07，<a href="https://www.163.com/dy/article/L0OH1E2M0530OLSK.html" target="_blank" rel="noopener">163.com</a></li>
+    <li id="src-17">新浪财经，《2 月深圳一二手住宅网签 3636 套》，2026-03-01，<a href="https://finance.sina.com.cn/roll/2026-03-01/doc-inhpnwmn6016092.shtml" target="_blank" rel="noopener">sina.com.cn</a>；虎嗅，《深圳 3 月一二手住宅网签总量 7898 套》，<a href="https://www.huxiu.com/moment/1232151.html" target="_blank" rel="noopener">huxiu.com</a></li>
+    <li id="src-18">财联社，《深圳 10 月一二手住宅总网签 6847 套 环比降 10.3%》，2025-11-01，<a href="https://www.cls.cn/detail/2188548" target="_blank" rel="noopener">cls.cn</a>；中国房地产报 9 月数据见 <a href="https://www.163.com/dy/article/LA19I9UL05568W0A.html" target="_blank" rel="noopener">163.com</a></li>
+    <li id="src-19">网易，《9 月深圳住宅热度榜 TOP10 出炉》，2026-10，<a href="https://www.163.com/dy/article/LA19I9UL05568W0A.html" target="_blank" rel="noopener">163.com</a></li>
+    <li id="src-20">富途资讯转摩根大通，《中国房地产：深圳市场专家会议要点》，2026-10，<a href="https://news.futunn.com/post/1002654721/china-real-estate-key-takeaways-from-the-shenzhen-market-expert" target="_blank" rel="noopener">futunn.com</a></li>
+    <li id="src-21">21 财经，《深圳四季度 6251 套商品房入市，南山、宝安核心区放量》，2026-10-08，<a href="https://m.21jingji.com/article/20261008/herald/c4c0a3332ec4982f05395a54f6b711d3.html" target="_blank" rel="noopener">21jingji.com</a></li>
+    <li id="src-22">新浪财经，《业主让价少了，买家出手快了！深圳二手房议价持续收窄》，2026-09-18，<a href="https://finance.sina.cn/2026-09-18/detail-inisfyex3439341.d.html" target="_blank" rel="noopener">sina.cn</a>；搜狐，《深圳“金九”前 20 天：一二手网签双增，七成片区报价下调》，<a href="https://www.sohu.com/a/1079402623_121010226" target="_blank" rel="noopener">sohu.com</a></li>
+    <li id="src-23">腾讯新闻，《2026 年 10 月深圳房价大变局》，2026-10-21，<a href="https://news.qq.com/rain/a/20261021A05NT800" target="_blank" rel="noopener">qq.com</a>；《2026 深圳房价有多离谱？》，2026-09-19，<a href="https://news.qq.com/rain/a/20260919A03QFY00" target="_blank" rel="noopener">qq.com</a></li>
+    <li id="src-24">深圳市人民政府，《深圳进一步优化调整房地产相关政策》，2026-04-29，<a href="https://www.sz.gov.cn/cn/xxgk/zfxxgj/zwdt/content/post_12761018.html" target="_blank" rel="noopener">sz.gov.cn</a>；深圳本地宝，《2026 年深圳买房限购最新政策》，<a href="http://bsy.sz.bendibao.com/bsyDetail/623973.html" target="_blank" rel="noopener">bendibao.com</a></li>
+    <li id="src-25">央广网，《深圳新政落地：居住证购房、公积金提额》，2026-04-30，<a href="https://house.cnr.cn/sl/20260430/t20260430_527606467.shtml" target="_blank" rel="noopener">cnr.cn</a></li>
+    <li id="src-26">21 财经，《深圳贴息满月：低总价二手房先动，新房仍在等风》，2026-10-27，<a href="https://m.21jingji.com/article/20261027/herald/59c3d6b3f7ce57ada755896e66d0255e.html" target="_blank" rel="noopener">21jingji.com</a>；央广网，《新政后深圳楼市现三大变化》，2026-10-07，<a href="https://www.cnr.cn/rdjj/house/kcb/20261007/t20261007_527835476.shtml" target="_blank" rel="noopener">cnr.cn</a></li>
+    <li id="src-27">深圳本地宝，《2026 至 2027 年居民购房贷款贴息政策》，2026-09-29，<a href="https://sz.bendibao.com/news/2026929/1014265.htm" target="_blank" rel="noopener">bendibao.com</a>；新浪新闻，《买房利息能省 1%，最高 100 万，10 月 1 日起实施》，<a href="https://www.sina.cn/news/detail/5348558530153794.html" target="_blank" rel="noopener">sina.cn</a></li>
+    <li id="src-28">深圳房地产信息网转中指研究院，《2026 年三季度中国房地产市场总结与趋势展望》，2026-10，<a href="http://news.szhome.com/394159.html" target="_blank" rel="noopener">szhome.com</a></li>
+  </ol>
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

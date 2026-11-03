@@ -995,3 +995,16 @@ year = "2026"
 description = "出门问问 2021—2026 年财务变化、现金状况及 TicNote 销售与盈利证据。"
 original_url = ""
 reading_url = "/reading/mobvoi-financials-ticnote/"
+
+[[materials]]
+slug = "shenzhen-housing-trend-2026-11"
+title = "深圳房价一年回顾与未来半年预测（2025-10 到 2026-10）"
+subtitle = ""
+author = "Luca"
+category = "report"
+tags = ["Investment", "Business"]
+date = "2026-11-03T17:27:08+08:00"
+year = "2026"
+description = "用国家统计局 70 城指数和乐有家网签数据回顾深圳 2025 年 10 月到 2026 年 10 月的房价走势，并给出未来 3 到 6 个月的预测。"
+original_url = ""
+reading_url = "/reading/shenzhen-housing-trend-2026-11/"
