@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05
+
+- 新增资料页《Mac 上装 Mac 虚拟机：安装、隔离与备份》，`static/reading/mac-vm-isolation/index.html`。在 M 系列 Mac 上用 UTM 安装 macOS 虚拟机：UTM 简介和上手难度，IPSW 下载与 ipsw.me，物理机被入侵时虚拟机为什么保不住，八条隔离规则，以及用 AES-256 加密 DMG 做离线备份的设置。资料查阅日 2026 年 11 月 5 日。
+
 ## 2026-11-03
 
 - 新增资料页《深圳房价一年回顾与未来半年预测（2025-10 到 2026-10）》，`static/reading/shenzhen-housing-trend-2026-11/index.html`。用国家统计局 70 城指数和乐有家网签数据回顾深圳 2025 年 10 月到 2026 年 10 月的房价走势，并给出未来 3 到 6 个月的预测。

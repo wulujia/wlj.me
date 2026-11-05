@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mac 上装 Mac 虚拟机：安装、隔离与备份</title>
+<meta name="description" content="在 M 系列 Mac 上用 UTM 安装 macOS 虚拟机：UTM 简介和上手难度，IPSW 下载与 ipsw.me，物理机被入侵时虚拟机为什么保不住，八条隔离规则，以及用 AES-256 加密 DMG 做离线备份的设置。资料查阅日 2026 年 11 月 5 日。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/mac-vm-isolation/">
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+<details open>
+<summary>目录</summary>
+<ul>
+      <li><a href="#s0">一、UTM 是什么</a>
+        <ul>
+          <li><a href="#s0-1">1.1 简介</a></li>
+          <li><a href="#s0-2">1.2 UTM 对非技术人员顺不顺手</a></li>
+        </ul>
+      </li>
+      <li><a href="#s2">二、安装包与 IPSW</a>
+        <ul>
+          <li><a href="#s2-1">2.1 softwareupdate 下载的安装器在哪</a></li>
+          <li><a href="#s2-2">2.2 怎么拿到 IPSW</a></li>
+          <li><a href="#s2-3">2.3 ipsw.me 是什么网站</a></li>
+          <li><a href="#s2-4">2.4 公司批量部署要不要分别装</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">三、虚拟机与物理机的隔离</a>
+        <ul>
+          <li><a href="#s3-1">3.1 装完为什么还要本机密码</a></li>
+          <li><a href="#s3-2">3.2 Apple 账号与访问物理机</a></li>
+          <li><a href="#s3-3">3.3 物理机被入侵，虚拟机保不住</a></li>
+          <li><a href="#s3-4">3.4 仍然值得做的八条规则</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">四、不常用文件的备份</a>
+        <ul>
+          <li><a href="#s4-1">4.1 加密 DMG 的设置</a></li>
+        </ul>
+      </li>
+      <li><a href="#s1">五、其他虚拟化软件情况</a>
+        <ul>
+          <li><a href="#s1-1">5.1 VMware 不行，别的可以</a></li>
+          <li><a href="#s1-2">5.2 macOS 27 的支持情况</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">六、方法与来源</a></li>
+    </ul>
+</details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+<header>
+        <h1>Mac 上装 Mac 虚拟机：安装、隔离与备份</h1>
+    <p class="lede">这页整理 2026 年 11 月 4 日到 5 日一轮问答。问题从“VMware 里能不能装 Mac 虚拟机”开始，落到“物理机被入侵时虚拟机能不能独善其身”和“加密 DMG 够不够当备份”。</p>
+    <p class="meta">问答整理 · 2026-11-05 · 范围：M 系列 Mac、UTM、macOS 27</p>
+  </header>
+
+  <section class="summary" aria-label="摘要">
+    <p>UTM 可以自动下载安装镜像，不必手动找 IPSW。虚拟机挡的是“虚拟机里出事波及物理机”，挡不住“物理机被入侵后虚拟机被读写”，因为虚拟机的内存和磁盘都在物理机手里。重要文件的备份用 AES-256 加密的 DMG 存到两份离线介质上，比放进虚拟机更合适。M 系列 Mac 可以用 UTM、Parallels Desktop 或 Tart 装 macOS 虚拟机，VMware Fusion 不行。</p>
+  </section>
+
+  <h2 id="s0">一、UTM 是什么</h2>
+
+  <h3 id="s0-1">1.1 简介</h3>
+  <p>UTM 是一个 Mac 上的虚拟机软件，官网版本免费<sup><a href="#src-7">7</a></sup>。在 macOS 12 或更新的 M 系列 Mac 上，它用 Apple 的虚拟化框架跑 macOS 客户机，新建虚拟机时能自动下载兼容的 macOS 安装镜像<sup><a href="#src-4">4</a></sup>。本页后面的安装、隔离和备份讨论都以它为准。</p>
+  <p>几个和日常使用有关的限制，来自 UTM 的 macOS 客户机文档<sup><a href="#src-4">4</a></sup>和剪贴板文档<sup><a href="#src-19">19</a></sup>：</p>
+  <ul>
+    <li>共享目录要宿主机和客户机都是 macOS 13 或更新，挂载用终端命令。另一条路是宿主机开 macOS 的网络文件共享。</li>
+    <li>剪贴板共享要两边都是 macOS 15 或更新，并在客户机里装 UTM 的客户机工具。</li>
+    <li>USB 共享在 macOS 27 之前的客户机上不支持。</li>
+    <li>窗口之间直接拖放文件不支持。</li>
+  </ul>
+
+  <h3 id="s0-2">1.2 UTM 对非技术人员顺不顺手</h3>
+  <p>有人先把虚拟机准备好，非技术人员可以用 UTM。安装和文件共享两步会比较吃力。下表来自它的文档；2026 年 11 月 4 日在 M4 MacBook Pro 上实际装过一台 macOS 27 虚拟机，装得起来。</p>
+  <div class="tbl">
+    <table>
+      <caption>UTM 各项操作的预期体验</caption>
+      <thead><tr><th scope="col">操作</th><th scope="col">预期体验</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">安装 macOS</th><td>向导引导安装，能下载兼容的 macOS 安装器。</td></tr>
+        <tr><th scope="row">启动虚拟机</th><td>在界面里选中虚拟机，点启动。</td></tr>
+        <tr><th scope="row">在里面用软件</th><td>基本熟悉：窗口里是另一个 Mac 桌面。</td></tr>
+        <tr><th scope="row">两边复制文字</th><td>需要一个设置和客户机工具。两边都要 macOS 15 或更新。</td></tr>
+        <tr><th scope="row">共享文件夹</th><td>偏技术。文档里的方法是终端命令或网络共享。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：UTM 的安装和共享文档<sup><a href="#src-4">4</a></sup>，虚拟机操作文档<sup><a href="#src-10">10</a></sup>。偶尔测试，推荐它。要频繁传文件、又希望不用人帮忙，先把初始配置做好。</p>
+
+  <h2 id="s2">二、安装包与 IPSW</h2>
+
+  <h3 id="s2-1">2.1 softwareupdate 下载的安装器在哪</h3>
+  <p>运行下面这条命令后，安装器在 <code>/Applications</code>，不在 <code>~/Downloads</code>。</p>
+<pre lang="en"><code>softwareupdate --fetch-full-installer --full-installer-version 27.2</code></pre>
+  <p>找名字是 <code>Install macOS … .app</code> 的应用。要看确切名字，运行：</p>
+<pre lang="en"><code>find /Applications -maxdepth 1 -name 'Install macOS*.app'</code></pre>
+  <p>这是一个安装器应用。UTM 装 macOS 虚拟机用的是 <code>.ipsw</code> 恢复镜像，两者不是一回事。</p>
+
+  <h3 id="s2-2">2.2 怎么拿到 IPSW</h3>
+  <p>最省事的方法是让 UTM 自己下载：</p>
+  <ol>
+    <li>在 UTM 里新建虚拟机。</li>
+    <li>选 Virtualize，再选 macOS 12+。</li>
+    <li>IPSW 文件留空，不选。</li>
+    <li>继续安装。</li>
+  </ol>
+  <p>UTM 会自动下载最新的兼容 macOS 恢复镜像<sup><a href="#src-4">4</a></sup>。</p>
+  <p>一定要 27.2 这个版本时：</p>
+  <ol>
+    <li>打开 IPSW Downloads 的 Mac 页面<sup><a href="#src-11">11</a></sup>。</li>
+    <li>选要跑 UTM 的那台 Mac 的型号。</li>
+    <li>有 macOS 27.2 就选它。</li>
+    <li>点 Download。</li>
+    <li>在 UTM 里选中下载好的 <code>.ipsw</code> 文件。</li>
+  </ol>
+  <p>IPSW Downloads 提供的是指向 Apple 服务器的链接，它自己不存安装文件。</p>
+
+  <h3 id="s2-3">2.3 ipsw.me 是什么网站</h3>
+  <p>IPSW.me 是一个独立的 Apple 固件下载链接目录，不是 Apple 的网站。它声明下载直接来自 Apple 的服务器，自己不托管文件副本<sup><a href="#src-12">12</a></sup>。</p>
+  <p>用它的链接本身不等于下载盗版软件。但一个 Apple 下载链接不等于无限制的使用权。Apple 的软件受版权保护，许可协议管着安装、复制和使用<sup><a href="#src-13">13</a></sup>。装 Mac 虚拟机时：</p>
+  <ul>
+    <li>从 Apple 服务器下载原版 IPSW。</li>
+    <li>遵守那个 macOS 版本附带的许可协议。</li>
+    <li>别把“能免费下载”当成“能再分发”或“任何商业用途都行”。</li>
+  </ul>
+  <p>它算一个合理的下载目录。整个网站的法律状态无法认证。UTM 的自动下载仍然是更简单的选择，UTM 也推荐这个方法<sup><a href="#src-4">4</a></sup>。</p>
+
+  <h3 id="s2-4">2.4 公司批量部署要不要分别装</h3>
+  <p>不同型号的 Mac 不自动需要不同的 IPSW。前面让按 Mac 型号选文件的说法过于严格。Apple Silicon Mac 上，一个 macOS 版本通常有一个 Universal IPSW，支持多个 Mac 型号。兼容性仍取决于硬件和 macOS 版本。</p>
+  <div class="tbl">
+    <table>
+      <caption>公司部署各种情况下要做的事</caption>
+      <thead><tr><th scope="col">情况</th><th scope="col">要做什么</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">员工用的是不同的 M 系列 Mac</th><td>一个兼容的 IPSW 通常够所有这些 Mac 用。</td></tr>
+        <tr><th scope="row">每个员工要一台独立虚拟机</th><td>在每台 Mac 上建一台虚拟机。安装器可以复用。</td></tr>
+        <tr><th scope="row">员工升级了物理机的 macOS</th><td>通常保留现有虚拟机。一般不需要重装。</td></tr>
+        <tr><th scope="row">员工升级虚拟机里的 macOS</th><td>在那台虚拟机里用“软件更新”。</td></tr>
+        <tr><th scope="row">员工换了物理 Mac</th><td>把虚拟机迁过去，再检查兼容性。可能不需要重装。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>把 IPSW 当作安装源。装好的虚拟机有自己的磁盘和设置，物理机变了不需要重装。公司里先用一套标准虚拟机配置，在用到的各个 Mac 型号上测一遍，再部署。</p>
+  <div class="warn"><b>注意</b>全公司使用必须符合 Apple 的 macOS 许可协议。许可的用途有区别：开发、测试，还是普通办公。</div>
+
+  <h2 id="s3">三、虚拟机与物理机的隔离</h2>
+
+  <h3 id="s3-1">3.1 装完为什么还要本机密码</h3>
+  <p>要密码不一定表示虚拟机能访问本机文件。看提示出现在哪。</p>
+  <div class="tbl">
+    <table>
+      <caption>密码提示出现的位置与含义</caption>
+      <thead><tr><th scope="col">提示出现在</th><th scope="col">通常表示</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">虚拟 Mac 的账户设置页</th><td>给虚拟 Mac 建一个新密码。它可以和物理 Mac 的密码不同。</td></tr>
+        <tr><th scope="row">写着 UTM 的 macOS 权限对话框</th><td>UTM 请求在物理 Mac 上做某个操作。先读清操作再批准。</td></tr>
+        <tr><th scope="row">Apple 账号登录页</th><td>这是在接入 Apple 服务。安装阶段通常可以跳过。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>虚拟机提供隔离，但 UTM 仍然跑在物理 Mac 上。共享文件夹、剪贴板共享和网络访问都会影响这层隔离。做法：虚拟机里用一个独立密码；共享文件夹和剪贴板共享保持关闭；安装时跳过个人 Apple 账号。当时请对方发提示的截图或原文（隐去个人信息，不发密码），好判断它要的是哪个密码。</p>
+
+  <h3 id="s3-2">3.2 Apple 账号与访问物理机</h3>
+  <p>问题是：虚拟机里要不要用另一个 Apple ID？要不要允许虚拟机访问物理机？当时的设想是把虚拟机当安全设备，把重要文件备份进去。</p>
+  <p>重要文件的备份，不建议把同一台 Mac 上的虚拟机当主要保护。它仍然依赖那台 Mac。虚拟磁盘是物理 Mac 上的一个文件，磁盘故障或失窃会一起带走两份。有足够权限的恶意软件可以删除或加密这个虚拟磁盘。</p>
+  <p>Apple 账号：虚拟机只存文件就不登录。需要 iCloud 就用一个独立账号，独立密码加双重认证。这样减少账号重叠，但挡不住被入侵的物理机。登录后虚拟机里就能用 iCloud 服务<sup><a href="#src-14">14</a></sup>。</p>
+  <p>访问物理机：共享文件夹和剪贴板共享默认关闭。要传文件时，临时只共享一个专用文件夹，不共享主目录或整块磁盘。UTM 支持文件夹共享和网络共享，这些连接都要刻意配置<sup><a href="#src-4">4</a></sup>。</p>
+  <p>备份这个目标，当时给的方案：</p>
+  <ol>
+    <li>工作文件留在 Mac 上。</li>
+    <li>外置磁盘上放一份加密备份。</li>
+    <li>每次备份后断开那块磁盘。</li>
+    <li>另一个地点再放一份，带版本历史或防删除保护。</li>
+    <li>定期测试文件恢复。</li>
+  </ol>
+  <p>离线加密备份加恢复测试是标准的勒索软件防护措施<sup><a href="#src-15">15</a></sup>。虚拟机更合适的角色是跑不信任的软件，并限制它的访问。重要备份放在这个环境之外。</p>
+
+  <h3 id="s3-3">3.3 物理机被入侵，虚拟机保不住</h3>
+  <p>目标是“物理机被入侵，虚拟机不受影响”。这个目标做不到。虚拟机监控程序（hypervisor）跑在物理 Mac 上，对虚拟机的内存和磁盘有完整的读写权。标准威胁模型里，宿主机被攻破等于它上面每台客户机都被攻破<sup><a href="#src-16">16</a></sup><sup><a href="#src-17">17</a></sup>。</p>
+  <p>保护是反方向的。隔离挡的是被攻破的客户机去碰宿主机。就算这个方向，也要靠虚拟机监控程序没有漏洞，而漏洞是存在的。2025 到 2026 年有一例 ESXi 的虚拟机逃逸在野外被利用：攻击者从客户机内部拿到了整个 hypervisor 的控制权<sup><a href="#src-18">18</a></sup>。</p>
+  <p>所以把虚拟机当作跑高风险工作的沙箱，不当作放重要文件的保险箱。</p>
+
+  <h3 id="s3-4">3.4 仍然值得做的八条规则</h3>
+  <p>这些规则限制的是常见情形的损失：某个软件权限过大、某个会话被盗、恶意软件还没拿到完整 root 权限。</p>
+  <div class="tbl">
+    <table>
+      <caption>物理机与虚拟机之间的隔离规则</caption>
+      <thead><tr><th scope="col">规则</th><th scope="col">原因</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">虚拟机里用不同的密码</th><td>一边被截获的密码打不开另一边。</td></tr>
+        <tr><th scope="row">不设共享目录。必须传文件时，共享一个空文件夹，传完就取消</td><td>共享文件夹是恶意软件双向通行的直路<sup><a href="#src-4">4</a></sup>。</td></tr>
+        <tr><th scope="row">剪贴板共享保持关闭</th><td>剪贴板会把密码和令牌带到另一边<sup><a href="#src-19">19</a></sup>。</td></tr>
+        <tr><th scope="row">客户机里不登 Apple 账号，或只用一个专给客户机的账号</th><td>共用账号会把钥匙串、iCloud 云盘和信息同步进客户机。macOS 15 及以后的客户机能登录，并拿到自己的设备身份<sup><a href="#src-20">20</a></sup>。</td></tr>
+        <tr><th scope="row">宿主机不为客户机开 macOS 文件共享</th><td>和共享目录一样的风险，只是走网络。</td></tr>
+        <tr><th scope="row">宿主机开 FileVault，客户机里也开</td><td>保护的是物理 Mac 关机或失窃时的虚拟磁盘文件。宿主机开着且已被入侵时没用。</td></tr>
+        <tr><th scope="row">宿主机和客户机都保持更新</th><td>hypervisor 的漏洞靠这个修。</td></tr>
+        <tr><th scope="row">宿主机的密码不存进客户机，反过来也一样</th><td>一处失守不变成两处。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s4">四、不常用文件的备份</h2>
+  <p>问题是：不常用的文件，做成带强密码的 DMG，备份到别的介质，够不够？</p>
+  <p>够，而且比放进虚拟机更合适。</p>
+
+  <h3 id="s4-1">4.1 加密 DMG 的设置</h3>
+  <ul>
+    <li>用 AES-256 创建镜像。磁盘工具和 <code>hdiutil</code> 都有这个选项<sup><a href="#src-21">21</a></sup><sup><a href="#src-22">22</a></sup>。</li>
+    <li>用长口令。四个以上随机单词，或密码管理器生成的 20 位以上密码。加密本身很强，口令才是弱点。</li>
+    <li>不把口令存进宿主机的钥匙串。磁盘工具会提议存，拒绝它。</li>
+    <li>只在信任的 Mac 上创建和挂载镜像。镜像挂载期间，里面的文件对那台 Mac 是明文。</li>
+    <li>两份副本放两个介质，一份保持断开。例如家里一块外置 SSD，另一个地方再放一块。</li>
+    <li>口令记在离线的地方。口令丢了文件就丢了，没有重置。</li>
+    <li>每份副本每年打开一次，确认文件能正常读。</li>
+  </ul>
+
+  <h2 id="s1">五、其他虚拟化软件情况</h2>
+  <p>这一节回答最早的几个问题：VMware 能不能装，别的软件行不行，macOS 27 支持到什么程度。</p>
+
+  <h3 id="s1-1">5.1 VMware 不行，别的可以</h3>
+  <p>VMware 能不能装 macOS 虚拟机，看电脑是哪种。</p>
+  <div class="tbl">
+    <table>
+      <caption>VMware 对 macOS 虚拟机的支持</caption>
+      <thead><tr><th scope="col">电脑</th><th scope="col">VMware 里装 macOS</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Apple Silicon Mac（M 系列）</th><td>不行。Fusion 不支持 macOS 虚拟机<sup><a href="#src-1">1</a></sup>。</td></tr>
+        <tr><th scope="row">Intel Mac</th><td>部分旧版 macOS 可以。取决于 Fusion 和 macOS 的版本<sup><a href="#src-2">2</a></sup>。</td></tr>
+        <tr><th scope="row">Windows / Linux PC</th><td>VMware Workstation 不正式支持 macOS 虚拟机<sup><a href="#src-3">3</a></sup>。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>M 系列 Mac 换别的软件就能装。三个选项：</p>
+  <div class="tbl">
+    <table>
+      <caption>M 系列 Mac 上能装 macOS 虚拟机的软件</caption>
+      <thead><tr><th scope="col">软件</th><th scope="col">适合</th><th scope="col">macOS 支持</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">UTM</th><td>日常使用和测试</td><td>在 macOS 12 或更新的 M 系列 Mac 上支持 macOS 客户机<sup><a href="#src-4">4</a></sup>。</td></tr>
+        <tr><th scope="row">Parallels Desktop</th><td>有向导的安装</td><td>通过界面下载并安装 macOS 12 或更新版本<sup><a href="#src-5">5</a></sup>。</td></tr>
+        <tr><th scope="row">Tart</th><td>开发和自动化</td><td>用命令行运行 macOS 虚拟机<sup><a href="#src-6">6</a></sup>。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>做一个独立的 Mac 测试环境，推荐 UTM。官网版本免费<sup><a href="#src-7">7</a></sup>。这三个方案都要求物理机是 M 系列 Mac，在 Windows PC 上做不出 M 系列 Mac 环境。</p>
+
+  <h3 id="s1-2">5.2 macOS 27 的支持情况</h3>
+  <p>macOS 27 可以在 M 系列 Mac 的虚拟机里跑。三个软件的支持程度不同：</p>
+  <ul>
+    <li>Tart：当前代码明确支持 macOS 27 客户机，包括自动创建账号<sup><a href="#src-8">8</a></sup>。</li>
+    <li>UTM：文档描述了 macOS 客户机和 macOS 27 的功能，能自动下载兼容的安装器<sup><a href="#src-4">4</a></sup>。</li>
+    <li>Parallels Desktop 27：物理机支持 macOS 27，但官方客户机列表目前到 macOS 26 为止。macOS 27 作为客户机的官方支持未能确认<sup><a href="#src-9">9</a></sup>。</li>
+  </ul>
+  <p>物理机的 macOS 版本也影响安装兼容性。</p>
+
+  <h2 id="s5">六、方法与来源</h2>
+  <p>本页内容来自 2026 年 11 月 4 日到 5 日的一轮对话，每个回答当时都查了软件文档和公开资料。VMware、UTM、Parallels、Tart 的支持情况取自各自官方文档和代码仓库，查阅日 2026 年 11 月 4 日。隔离与备份部分的资料查阅日是 2026 年 11 月 5 日。UTM 的安装流程在 2026 年 11 月 4 日于 M4 MacBook Pro 上实际跑过一遍，第 1.2 节的操作体验表仍取自文档。加密 DMG 的密钥派生参数（迭代次数等）没有查到一手资料，本页没有引用。</p>
+  <ol class="sources">
+    <li id="src-1">Broadcom 知识库，《Compatibility considerations for ARM guest》，<a href="https://knowledge.broadcom.com/external/article/315602/compatibility-considerations-for-arm-guest.html" target="_blank" rel="noopener">knowledge.broadcom.com/external/article/315602</a></li>
+    <li id="src-2">Broadcom 知识库，《VMware discontinuation of latest macOS as guest》，<a href="https://knowledge.broadcom.com/external/article/301109/vmware-discontinuation-of-latest-macos-a.html" target="_blank" rel="noopener">knowledge.broadcom.com/external/article/301109</a></li>
+    <li id="src-3">Broadcom 社区，《Read this before buying a new app》，<a href="https://community.broadcom.com/vmware-cloud-foundation/viewdocument/read-this-before-buying-a-new-app" target="_blank" rel="noopener">community.broadcom.com</a></li>
+    <li id="src-4">UTM 文档，《macOS guest support》，<a href="https://docs.getutm.app/guest-support/macos/" target="_blank" rel="noopener">docs.getutm.app/guest-support/macos</a></li>
+    <li id="src-5">Parallels 知识库，《Install macOS in a virtual machine》，<a href="https://kb.parallels.com/en/125561" target="_blank" rel="noopener">kb.parallels.com/en/125561</a></li>
+    <li id="src-6">Tart，《FAQ》，<a href="https://tart.run/faq/" target="_blank" rel="noopener">tart.run/faq</a></li>
+    <li id="src-7">UTM 官网 Mac 版，<a href="https://mac.getutm.app/" target="_blank" rel="noopener">mac.getutm.app</a></li>
+    <li id="src-8">Tart 源码，Run.swift，<a href="https://github.com/openai/tart/blob/main/Sources/tart/Commands/Run.swift" target="_blank" rel="noopener">github.com/openai/tart</a></li>
+    <li id="src-9">Parallels 知识库，《Supported guest operating systems》，<a href="https://kb.parallels.com/en/124223" target="_blank" rel="noopener">kb.parallels.com/en/124223</a></li>
+    <li id="src-10">UTM 文档，《Virtual machine actions》，<a href="https://docs.getutm.app/basics/actions/" target="_blank" rel="noopener">docs.getutm.app/basics/actions</a></li>
+    <li id="src-11">IPSW Downloads，Mac 固件页，<a href="https://ipsw.me/product/Mac/" target="_blank" rel="noopener">ipsw.me/product/Mac</a></li>
+    <li id="src-12">IPSW Downloads，《About》，<a href="https://ipsw.me/about/" target="_blank" rel="noopener">ipsw.me/about</a></li>
+    <li id="src-13">Apple，《Software License Agreements》，<a href="https://www.apple.com/legal/sla/" target="_blank" rel="noopener">apple.com/legal/sla</a></li>
+    <li id="src-14">Apple 支持，《Using iCloud with macOS virtual machines》，<a href="https://support.apple.com/en-ca/120468" target="_blank" rel="noopener">support.apple.com/en-ca/120468</a></li>
+    <li id="src-15">CISA 与 MS-ISAC，《Ransomware Guide》，<a href="https://www.cisa.gov/sites/default/files/publications/CISA_MS-ISAC_Ransomware%20Guide_S508C_.pdf" target="_blank" rel="noopener">cisa.gov（PDF）</a></li>
+    <li id="src-16">华盛顿大学圣路易斯分校，《A Survey on the Security of Virtual Machines》，<a href="https://www.cse.wustl.edu/~jain/cse571-09/ftp/vmsec/index.html" target="_blank" rel="noopener">cse.wustl.edu</a></li>
+    <li id="src-17">arXiv 2609.16675，《From Hypervisor to Container: Cloud Security Vulnerabilities, Defense Mechanisms, and Open Challenges》，<a href="https://arxiv.org/html/2609.16675v1" target="_blank" rel="noopener">arxiv.org/html/2609.16675v1</a></li>
+    <li id="src-18">Huntress，《The Great VM Escape: ESXi Exploitation in the Wild》，<a href="https://www.huntress.com/blog/esxi-vm-escape-exploit" target="_blank" rel="noopener">huntress.com</a></li>
+    <li id="src-19">UTM 文档，《Clipboard》，<a href="https://docs.getutm.app/guest-support/sharing/clipboard/" target="_blank" rel="noopener">docs.getutm.app/guest-support/sharing/clipboard</a></li>
+    <li id="src-20">Apple 开发者论坛，《AppleID Login failing in virtualized OS》，<a href="https://developer.apple.com/forums/thread/707682" target="_blank" rel="noopener">developer.apple.com/forums/thread/707682</a></li>
+    <li id="src-21">Eclectic Light，《Q&amp;A: Security of encryption》，2015-06-21，<a href="https://eclecticlight.co/2015/06/21/qa-security-of-encryption/" target="_blank" rel="noopener">eclecticlight.co</a></li>
+    <li id="src-22">爱丁堡大学信息安全，《Creating an encrypted disk image on a Mac》，<a href="https://infosec.ed.ac.uk/how-to-protect/encrypting/encrypted-containers/mac-create-disk-image" target="_blank" rel="noopener">infosec.ed.ac.uk</a></li>
+  </ol>
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>
