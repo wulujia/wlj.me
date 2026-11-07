@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>币安热钱包安全事件：入侵经过、链上授权、资金流与证据边界</title>
+<meta name="description" content="2026 年 10 月币安热钱包安全事件研究：官方初步报告所述的入侵经过、EIP-7702 委托、冻结与洗钱进展，以及仍待查明的证据缺口。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/binance-hot-wallet-incident-2026-10/">
+<style>
+.diagram{border:1px solid var(--rule);padding:20px;background:var(--surface)}.flow{display:grid;gap:0;max-width:540px;margin:auto}.node{padding:14px 18px;border:1px solid var(--rule-2)}.node strong{display:block;font-size:17px}.node p{font-size:14px;margin:4px 0 0;color:var(--ink-2)}.node.unknown{border-style:dashed}.arrow{text-align:center;color:var(--acc-ink);font-size:14px;padding:9px}.branches{display:grid;grid-template-columns:1fr 1fr;gap:14px}.branches .node{height:100%}.legend{font-size:13px;color:var(--ink-2)}.evidence{display:inline-block;font-size:12px;padding:2px 6px;background:var(--mid);margin-bottom:6px}.timeline li{grid-template-columns:9ch 1fr}.address{overflow-wrap:anywhere;word-break:break-all}.fund-row{margin:16px 0}.fund-label{display:flex;justify-content:space-between;font-size:14px;gap:10px}.track{height:12px;background:var(--mid);margin-top:5px}.bar{height:100%;background:var(--acc)}.bar.frozen{background:var(--good)}.source-note{font-size:13px;color:var(--ink-3)}h2,h3{scroll-margin-top:20px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}.pair p{font-size:14px}.pair svg{width:100%;max-height:120px}.diagram svg{max-width:400px;margin:auto}.tight{margin-bottom:0}
+@media(max-width:600px){.branches,.pair{grid-template-columns:1fr}.diagram{padding:14px}.timeline li{grid-template-columns:1fr;gap:2px}.fund-label{display:block}.tbl table{font-size:13px}th,td{padding-right:10px}.node{padding:12px}}
+@media print{.diagram,.node{break-inside:avoid}.bar{background:#222}.bar.frozen{background:#2c7a3a}}
+
+.glossary{margin:18px 0 28px}.glossary dt{font-size:16px;font-weight:600;border-top:1px solid var(--rule);padding-top:14px;scroll-margin-top:24px}.glossary dd{margin:5px 0 18px;color:var(--ink-2);font-size:15px;line-height:1.8}
+@media print{.glossary dt{break-after:avoid}.glossary dd{break-inside:avoid}}
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+<details open>
+<summary>目录</summary>
+<ul>
+<li><a href="#status">最新进展</a></li><li><a href="#official-report">币安官方初步报告（11 月 3 日）</a></li><li class="outline-sub"><a href="#report-summary">报告摘要</a></li><li class="outline-sub"><a href="#report-oct29">10 月 29 日的经过</a></li><li class="outline-sub"><a href="#report-containment">暂停提现为何没有止住转移</a></li><li class="outline-sub"><a href="#report-prep">攻击准备：四个阶段</a></li><li class="outline-sub"><a href="#report-actions">已完成的处置与后续行动</a></li><li><a href="#report-analysis">报告揭示的控制缺口</a></li><li><a href="#timeline">完整时间线</a></li><li class="outline-sub"><a href="#prep-times">攻击准备（6 月至 10 月 30 日凌晨）</a></li><li class="outline-sub"><a href="#event-times">转移与处置（10 月 30 日）</a></li><li class="outline-sub"><a href="#recovery-times">恢复与追踪（10 月 31 日至 11 月 6 日）</a></li><li class="outline-sub"><a href="#disclosure-times">披露与统计时点</a></li><li><a href="#control">钱包控制如何失守</a></li><li class="outline-sub"><a href="#entry">签名从哪里来：私钥假设已排除</a></li><li class="outline-sub"><a href="#delegation">EIP-7702 授权接管</a></li><li class="outline-sub"><a href="#spread">关联钱包与持续入账</a></li><li><a href="#risk">风控为什么没有阻止转移</a></li><li><a href="#money">资产转换与冻结</a></li><li class="outline-sub"><a href="#conversion">可见的转换路径</a></li><li class="outline-sub"><a href="#arbitrum-action">Arbitrum 的紧急处置</a></li><li class="outline-sub"><a href="#laundering">洗钱进展（10 月 31 日至 11 月 6 日）</a></li><li class="outline-sub"><a href="#amounts">金额不能混为一谈</a></li><li><a href="#attribution">攻击者归因</a></li><li class="outline-sub"><a href="#trm-attribution">TRM Labs 的高置信度归因</a></li><li class="outline-sub"><a href="#fbi-attribution">FBI 的官方归因</a></li><li><a href="#evidence">公开证据的边界</a></li><li><a href="#gaps">完整复盘仍缺哪些证据</a></li><li><a href="#appendix-money">附录一：冻结、处置与变现</a></li><li class="outline-sub"><a href="#q-freeze">问一：为什么有的币能冻结，有的不能</a></li><li class="outline-sub"><a href="#q-moves">问二：拿到这些币之后，攻击者做什么</a></li><li class="outline-sub"><a href="#q-cashout">问三：链上可追踪，赃款怎么变现</a></li><li><a href="#glossary">附录二：名词与角色速查</a></li><li class="outline-sub"><a href="#people-terms">作者、网站与安全机构</a></li><li class="outline-sub"><a href="#wallet-terms">钱包、地址与权限</a></li><li class="outline-sub"><a href="#protocol-terms">授权机制与资产</a></li><li><a href="#sources">方法与来源</a></li>
+</ul>
+</details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+<header><p class="eyebrow">事件研究 · 2026-10-30 起持续更新</p><h1>币安热钱包安全事件</h1><p class="lede">从假招聘到签名服务，再到链上授权与资金转移：币安官方报告与链上证据能还原哪些过程，又留下哪些空白。</p><p class="meta"><span>资料取样：2026 年 11 月 7 日 10:00</span><span>时间：新加坡 UTC+8，另注 UTC 处除外</span><span>状态：官方初步报告已发布，调查进行中</span></p></header>
+<div class="summary"><p class="label">先说结论</p><p>币安 11 月 3 日的初步报告确认：攻击者没有拿到私钥，而是控制了内部钱包签名服务。入口是一场持续数月的定向攻击：6 月的假 Homebrew 安装包暴露了钱包团队名单，9 月的假招聘面试让恶意代码进入工程师电脑，10 月 20 日攻击者借内部 AI 工具控制了另外两名工程师的电脑。<sup><a href="#src-26">[26]</a></sup></p><p>10 月 29 日，攻击者用窃取的容器部署凭据部署容器，让签名服务签发正常提现流程之外的交易。以太坊上，50 笔签名交易建立了 EIP-7702 委托。委托已经上链，暂停提现无法撤销它。热钱包使用多方计算（MPC），币安需要临时设计撤销流程，委托约 4 小时后才清除。<sup><a href="#src-26">[26]</a></sup></p><p>受影响资产约 63.4 亿美元，冻结或拦截约 28.5 亿美元。币安称已用自有资金补足 98%。FBI 于 10 月 31 日将攻击归于朝鲜 TraderTraitor。截至 11 月 6 日，攻击者已经通过 Relay、THORChain 等跨链服务转移数亿美元，并把约 1.24 亿美元的币换成 BTC。<sup><a href="#src-26">[26]</a></sup><sup><a href="#src-27">[27]</a></sup><sup><a href="#src-34">[34]</a></sup></p></div>
+<h2 id="status">最新进展</h2>
+<p class="source-note">核查截至 2026 年 11 月 7 日 10:00，新加坡时间。</p>
+<div class="tbl"><table><caption>截至本次核查的处置状态</caption><thead><tr><th scope="col">项目</th><th scope="col">已披露进展</th><th scope="col">仍待确认</th></tr></thead><tbody>
+<tr><th scope="row">技术调查</th><td>11 月 3 日发布初步报告，说明入侵经过与处置措施。部分技术细节保密。独立安全公司将复核。<sup><a href="#src-26">[26]</a></sup></td><td>完整技术复盘、签名策略细节、独立复核结论。</td></tr>
+<tr><th scope="row">资金</th><td>受影响约 63.4 亿美元；冻结或拦截约 28.5 亿美元，仍待对账，并受价格波动影响。<sup><a href="#src-26">[26]</a></sup></td><td>冻结资产的返还进度。Arbitrum 冻结的资产需要治理投票。<sup><a href="#src-34">[34]</a></sup></td></tr>
+<tr><th scope="row">损失承担</th><td>币安称已预留超过 100% 的所需资金；截至 10 月 31 日，98% 的受影响代币已补足，可在储备证明页面核对。剩余流动性差的资产仍在买入。<sup><a href="#src-26">[26]</a></sup></td><td>补足来自公司资金，不等于追回被盗资产。</td></tr>
+<tr><th scope="row">提现服务</th><td>11 月 1 日起分批恢复。币安计划在下周末前恢复 HYPE、INJ、APT、PLASMA、NEAR、LTC 等资产的提现。<sup><a href="#src-36">[36]</a></sup><sup><a href="#src-34">[34]</a></sup></td><td>全部网络与资产恢复的完成时间。</td></tr>
+<tr><th scope="row">归因</th><td>FBI 10 月 31 日认定朝鲜 TraderTraitor 负责，公布 608 个 Ethereum 地址、19 个 Bitcoin 地址和 1 个 Solana 地址。<sup><a href="#src-27">[27]</a></sup><sup><a href="#src-28">[28]</a></sup></td><td>币安报告引用 FBI 结论，没有给出自己的归因证据。</td></tr>
+<tr><th scope="row">洗钱</th><td>TRON 上约 2.42 亿美元经跨链服务转出；约 48.7 万 SOL 换成 BTC；约 1.24 亿美元的其他币换成约 1,650 BTC。<sup><a href="#src-31">[31]</a></sup><sup><a href="#src-32">[32]</a></sup><sup><a href="#src-34">[34]</a></sup></td><td>18,270 BTC 与 ETH 主仓位的后续动向。</td></tr>
+</tbody></table></div>
+<h2 id="official-report">币安官方初步报告（11 月 3 日）</h2>
+<p class="source-note">报告标题为“29 October Binance Security Incident: Initial Findings and Response Update”，以 X 长文形式发布于 2026 年 11 月 3 日 14:33 UTC，即新加坡时间 22:33。下文按报告结构完整转述，时间保留报告原用的 UTC。研究判断单独标注。<sup><a href="#src-26">[26]</a></sup></p>
+<h3 id="report-summary">报告摘要</h3>
+<p>报告开头称，10 月 29 日币安遭遇“严重且高度复杂”的安全事件。币安表示“这本不应发生”，并向用户、合作方和行业致歉。</p>
+<p>币安承诺由公司承担被盗资金的损失，不由用户承担。公司已预留超过 100% 的所需资金。截至 10 月 31 日，98% 的受影响代币资产已补足，用户可在储备证明页面核对。剩余部分是流动性较差的资产，仍在买入。</p>
+<p>受影响的数字资产约为 63.4 亿美元。截至报告发布，约 28.5 亿美元已冻结或拦截。该数字仍需对账，也受市场价格波动影响。</p>
+<p>报告称，攻击使用的入口已经关闭。攻击路径涉及的系统已重建或替换。币安收紧了设备管控，加强了钱包服务的风控，扩大了基于 AI 的行为异常检测。</p>
+<p>报告自称“初步报告”，只覆盖目前已知的情况和已完成的改进。调查仍在进行，结论将接受独立复核。部分技术细节保密，以防被他人用于策划攻击。报告引用 FBI 的最新信息，称朝鲜应对此事负责。</p>
+<h3 id="report-oct29">10 月 29 日的经过</h3>
+<p>报告称攻击在多个网络上快速展开。核心事实是：攻击者未经授权访问了一个内部钱包签名服务，并借它发起“正常提现流程之外”的交易。</p>
+<div class="tbl"><table><caption>币安报告列出的 10 月 29 日事件顺序（UTC）</caption><thead><tr><th scope="col">时间（UTC）</th><th scope="col">报告所述事件</th></tr></thead><tbody>
+<tr><th scope="row">20:05～20:09</th><td>五个币安热钱包向攻击者地址转出 2.3346 亿 XRP。</td></tr>
+<tr><th scope="row">随后</th><td>Solana 与 Optimism 上的热钱包转出约 970,500 SOL 和 4,420 万 OP。</td></tr>
+<tr><th scope="row">随后</th><td>币安收到大额转账的内部告警，立即开始调查。</td></tr>
+<tr><th scope="row">随后</th><td>一个币安热钱包向攻击者地址转出 18,270 BTC。</td></tr>
+<tr><th scope="row">随后</th><td>攻击者借签名服务利用 EIP-7702，让攻击者控制的合约取得一个币安热钱包的部分执行权。</td></tr>
+<tr><th scope="row">23:56</th><td>最后一笔未授权转账 2,961.9 ETH 上链。该交易此前已广播，处于待确认状态。此后未见新的未授权转账。</td></tr>
+<tr><th scope="row">10 月 30 日 00:10</th><td>币安从 Binance14 热钱包签发新的授权，指向零地址，清除 EIP-7702 委托代码。</td></tr>
+</tbody></table></div>
+<p>报告没有给出告警、BTC 转出和委托建立的精确时间。Bitquery 的链上记录可以补上：Solana 转移始于 20:10，BTC 转移与 EIP-7702 授权在 20:20 前后。<sup><a href="#src-19">[19]</a></sup> 因此，内部告警落在 20:10 至 20:20 之间。</p>
+<p>研究判断：告警出现时，金额最大的 BTC 与 ETH 转移尚未发生。告警本身来得不算晚。损失扩大的原因，在于告警之后的处置没能阻止已上链的授权。下一节说明这一点。</p>
+<h3 id="report-containment">暂停提现为何没有止住转移</h3>
+<p>报告列出的处置包括：暂停提现以限制流出，联系合作方冻结相关代币，撤销未授权的权限。这些措施合计冻结 28.5 亿美元资产。</p>
+<p>报告承认，仅暂停提现无法止住全部转移，原因有三点。</p>
+<ol><li><strong>授权在链上，不在币安系统内。</strong>恶意 EIP-7702 授权已经写入 Ethereum，独立于币安的提现系统运行。关闭热钱包服务，不会让已上链的授权失效。</li><li><strong>攻击者预先准备了 50 笔签名交易。</strong>报告称，这些交易用于“操纵账户 nonce”并建立恶意委托。授权一旦生效，攻击者无需再经过币安的提现系统。撤销它需要币安另行发出交易。</li><li><strong>MPC 钱包没有单一私钥。</strong>多方计算钱包把签名能力拆给多个系统，没有一把私钥能立即签发撤销授权。团队临时设计并执行了一套专门流程，耗时更长。</li></ol>
+<figure class="diagram"><div class="flow"><div class="node"><strong>20:20 前后：委托上链</strong><p>Binance14 开始执行攻击者合约的代码。</p></div><div class="arrow">↓ 币安暂停提现、关闭热钱包服务</div><div class="node"><strong>委托仍然有效</strong><p>链上授权不依赖币安的提现系统。攻击者继续调用转移逻辑。</p></div><div class="arrow">↓ MPC 钱包需要专门的撤销流程</div><div class="node"><strong>23:56：最后一笔转账上链</strong><p>2,961.9 ETH，交易此前已广播。</p></div><div class="arrow">↓</div><div class="node"><strong>00:10：委托指向零地址，清除完成</strong><p>距委托建立约 3 小时 50 分钟。</p></div></div><figcaption>图 1：链上授权与币安内部处置的时间差。委托建立时间来自 Bitquery，其余来自币安报告（UTC）。<sup><a href="#src-19">[19]</a></sup><sup><a href="#src-26">[26]</a></sup></figcaption></figure>
+<p>报告称，币安正在复查事件响应流程、签名策略的覆盖范围和热钱包控制。Bloomberg 引述币安发言人的说法：新措施包括更严格的委托类交易策略、行为监测、逐笔交易控制和紧急撤销流程。<sup><a href="#src-35">[35]</a></sup></p>
+<p>Bloomberg 与 Blockaid 的分析补充了规模：建立委托的交易只付了约 15 美元手续费。约 3.5 分钟后，一笔交易转走约 25 亿美元。Elliptic 统计，同一委托权限累计转走约 36 亿美元。<sup><a href="#src-35">[35]</a></sup></p>
+<h3 id="report-prep">攻击准备：四个阶段</h3>
+<p>报告称，这是一场多阶段的复杂行动，不是一次孤立的入侵，也不是简单的钓鱼。攻击者组合了假招聘面试、恶意软件下载、被控制的内部 AI 工具、终端入侵和一种“高级的交易授权方法”。报告用 A、B、C 指代三名工程师。</p>
+<figure class="diagram"><div class="flow">
+<div class="node"><span class="evidence">2026 年 6 月 · 供应链攻击</span><strong>工程师 A 安装了被篡改的 Homebrew</strong><p>A 属于钱包 DevOps 团队。他在搜索引擎上找一款热门 AI 编程工具，下载了被篡改的 Homebrew 安装包。安全团队发现异常，更换设备并轮换全部相关凭据。但 A 的岗位和钱包基础设施团队的同事名单已经暴露。</p></div>
+<div class="arrow">↓ 攻击者据此选择下一个目标</div>
+<div class="node"><span class="evidence">2026 年 9 月 · 社会工程</span><strong>工程师 B 参加假招聘面试</strong><p>B 的求职资料写有币安工作经历。冒充项目总监的人通过正规求职平台联系他，安排了两轮面试。第二轮结束前，B 被要求把“作业”代码库下载到工作电脑。</p></div>
+<div class="arrow">↓ 恶意代码在安装过程中执行</div>
+<div class="node"><span class="evidence">10 月 20 日 · 横向移动</span><strong>借内部 AI 工具控制 A 与 C 的电脑</strong><p>攻击者从 B 的电脑出发，利用内部 AI 工具控制了钱包 DevOps 工程师 A 和钱包软件工程师 C 的电脑。随后发现 A 的电脑上有一个容器部署权限令牌。</p></div>
+<div class="arrow">↓ 九天后</div>
+<div class="node"><span class="evidence">10 月 29 日 17:15～19:56</span><strong>从 C 的电脑，用 A 的凭据部署容器</strong><p>攻击者登录 C 的电脑，使用从 A 处窃取的凭据部署容器，触发恶意脚本，开始攻击。约 9 分钟后，第一笔 XRP 转出。</p></div>
+</div><figcaption>图 2：币安报告所述的四个准备阶段。报告未标注 17:15～19:56 的时区，按全文时间理解为 UTC，即新加坡时间 10 月 30 日 01:15～03:56。<sup><a href="#src-26">[26]</a></sup></figcaption></figure>
+<p><strong>两轮面试的细节。</strong>第一轮由自称人事代表的人做视频面试。对方向 B 分享了一个社交媒体账号，里面有个人照片和视频，用来建立信任。报告称，这比以往见过的社会工程手法更高级、更具欺骗性。第二轮在一款流行聊天软件上进行，面试官自称一家虚构公司的 CEO。</p>
+<p><strong>恶意代码做了什么。</strong>代码在“作业”的安装过程中执行。它用混淆和规避手段，把一个正常开发工具的组件换成恶意版本。恶意版本能执行命令，并连接攻击者控制的外部服务器。报告称这是 0-day 恶意软件，当时的终端安全工具没有检出。攻击者还隐藏活动、清除痕迹，增加了检测和调查的难度。</p>
+<p>报告公开了脚本对文件系统的操作。被替换的是 pyenv，一款常用的 Python 版本管理工具。开发者经常在终端调用它，替换后，每次调用都会执行恶意代码。</p>
+<pre><code>CREATE  /opt/homebrew/Cellar/pyenv/2.8.0/libexec/pyenv_
+MODIFY  pyenv_ → 3,414 B
+DELETE  .../libexec/pyenv  (3,344 B)      ← 删除正常的 pyenv
+RENAME  pyenv_ → pyenv  (3,414 B)         ← 换成恶意版本
+DELETE  /opt/homebrew/bin/pyenv  (3,414 B)
+ln  （新建符号链接） +  spawn zsh</code></pre>
+<p class="source-note">代码块按报告原样转录，箭头后的注释译为中文。</p>
+<p><strong>攻击者的长期投入。</strong>报告称，2026 年币安安全团队已发现并拦截 57 起疑似朝鲜关联的攻击。手法包括假招聘面试、伪装成热门开发工具的恶意软件、被篡改的软件包和浏览器扩展、假视频会议软件，以及窃取凭据或植入远程控制软件的社会工程。</p>
+<p>报告为 6 月的事件附上了 SANS 互联网风暴中心的一篇分析。该文记录了 2026 年 4 月的一次攻击：搜索广告把用户引向仿冒的 Homebrew 页面，页面推送窃密软件 MacSync Stealer。<sup><a href="#src-29">[29]</a></sup> 报告没有说明 A 遇到的就是这次攻击。</p>
+<h3 id="report-actions">已完成的处置与后续行动</h3>
+<p>截至 11 月 3 日，币安列出的已完成措施如下：</p>
+<ul><li>在新环境中重建受影响的钱包系统。</li><li>重建受影响的内部 AI 工具及其访问控制。</li><li>更换受影响的设备。</li><li>停用相关工程师的凭据和令牌。</li><li>对全体员工设备完成加强扫描。</li><li>加强基于 AI 的行为异常检测。</li><li>加强钱包服务的风控。</li><li>与执法机构、区块链情报公司和行业伙伴合作，追踪并冻结资产。</li></ul>
+<p>报告列出三项后续行动：聘请独立第三方安全专家全面复核事件，验证结论并提出改进；增加 AI 检测、终端防护、开发环境安全和行为异常监测的投入；与 AI 公司、行业伙伴和安全公司设立安全研究基金，研究区块链环境中的 AI 安全。</p>
+<p>报告称，另有一些已实施或正在实施的安全措施不公开。</p>
+<h2 id="report-analysis">报告揭示的控制缺口</h2>
+<p>以下是本页对报告的分析，不是币安的结论。每一行先写报告事实，再写由此推出的控制问题。</p>
+<div class="tbl"><table><caption>报告事实与对应的控制缺口</caption><thead><tr><th scope="col">环节</th><th scope="col">报告事实</th><th scope="col">研究判断</th></tr></thead><tbody>
+<tr><th scope="row">6 月事件的处置</th><td>更换设备、轮换凭据，但团队名单已暴露。</td><td>技术处置能清除设备上的风险，收不回泄露的组织信息。名单暴露后，团队成员应被视为重点攻击目标。</td></tr>
+<tr><th scope="row">工作电脑运行外部代码</th><td>B 把面试“作业”下载到工作电脑执行。</td><td>工作电脑能运行陌生代码库，开发环境就成了入口。隔离的沙箱或专用设备可以挡住这一步。</td></tr>
+<tr><th scope="row">内部 AI 工具</th><td>攻击者借它“取得了”A 与 C 电脑的控制。</td><td>报告没说明机制。若该工具能在员工电脑上执行操作，它的权限就等于一条远程管理通道，需要按特权系统管控。</td></tr>
+<tr><th scope="row">部署令牌的存放</th><td>A 的电脑上有容器部署权限令牌。</td><td>能改动生产钱包服务的凭据存在个人电脑上，一台电脑失陷就足以部署代码。</td></tr>
+<tr><th scope="row">凭据与设备绑定</th><td>攻击者在 C 的电脑上使用 A 的凭据。</td><td>凭据在另一人的设备上可用，说明凭据没有与设备或使用者绑定。这与腾锐“不只是一名工程师的权限”的说法一致。<sup><a href="#src-30">[30]</a></sup></td></tr>
+<tr><th scope="row">签名策略的覆盖</th><td>签名服务签发了“正常提现流程之外”的交易，包括 50 笔委托授权。</td><td>签名服务没有拒绝流程之外的请求，也没有专门审查委托类交易。币安的新措施正好针对这一点。<sup><a href="#src-35">[35]</a></sup></td></tr>
+<tr><th scope="row">撤销能力</th><td>MPC 钱包没有现成的撤销流程，需要临时设计。</td><td>紧急撤销没有事先演练。委托从建立到清除约 3 小时 50 分钟。</td></tr>
+</tbody></table></div>
+<p>10 月 30 日，联席 CEO 腾锐（Richard Teng）称，攻击者“并非只用了一名工程师的权限”，也不是“一键”完成。约 70 分钟后，币安更新称调查发现了“其他入侵点”。<sup><a href="#src-30">[30]</a></sup><sup><a href="#src-25">[25]</a></sup> 初步报告的四阶段经过，与这两句话吻合：入侵涉及 A、B、C 三台电脑和一个内部 AI 工具。</p>
+<div class="warn"><p>报告仍未回答一个关键问题：签名服务为何接受容器发来的请求。报告没有说明签名策略、审批或 MPC 多方签名的门槛如何设置，也没有说明这些控制为何未生效。</p></div>
+<h2 id="timeline">完整时间线</h2><p class="source-note">时间均为新加坡时间（UTC+8）。币安报告原用 UTC，已换算。区间事件按开始时间排列，部分操作并行发生。秒级时间来自所引分析，非本次独立重放。</p>
+<h3 id="prep-times">攻击准备（6 月至 10 月 30 日凌晨）</h3><ol class="timeline">
+<li><time>6 月</time><div><strong>假 Homebrew 安装包</strong><br>钱包 DevOps 工程师 A 搜索 AI 编程工具时中招。设备被更换，但团队名单暴露。<sup><a href="#src-26">[26]</a></sup></div></li>
+<li><time>9 月</time><div><strong>假招聘面试</strong><br>工程师 B 在工作电脑上运行面试“作业”，0-day 恶意软件替换了 pyenv。<sup><a href="#src-26">[26]</a></sup></div></li>
+<li><time>10-20</time><div><strong>借内部 AI 工具横向移动</strong><br>攻击者控制工程师 A 与 C 的电脑，发现 A 电脑上的容器部署令牌。<sup><a href="#src-26">[26]</a></sup></div></li>
+<li><time>10-28～29</time><div><strong>准备链上资金</strong><br>攻击地址从 Tornado Cash 取出手续费资金，部署合约，并以小额资产测试。<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-19">[19]</a></sup></div></li>
+<li><time>10-30 01:15～03:56</time><div><strong>部署恶意容器</strong><br>攻击者登录 C 的电脑，用 A 的凭据部署容器，触发恶意脚本。<sup><a href="#src-26">[26]</a></sup></div></li>
+</ol>
+<h3 id="event-times">转移与处置（10 月 30 日）</h3><ol class="timeline">
+<li><time>04:05～04:09</time><div><strong>XRP 最先转出</strong><br>五个热钱包转出 2.3346 亿 XRP。<sup><a href="#src-26">[26]</a></sup></div></li>
+<li><time>04:10 起</time><div><strong>Solana 与 Optimism</strong><br>转出约 970,500 SOL 和 4,420 万 OP。随后币安收到大额转账告警。<sup><a href="#src-26">[26]</a></sup><sup><a href="#src-19">[19]</a></sup></div></li>
+<li><time>04:20 前后</time><div><strong>BTC 与 TRON</strong><br>Bitcoin 热钱包一次转出 18,270 BTC；TRON 热钱包转出约 6.13 亿 USDT。<sup><a href="#src-26">[26]</a></sup><sup><a href="#src-19">[19]</a></sup></div></li>
+<li><time>04:20:59</time><div><strong>Ethereum 委托授权</strong><br>针对 Binance 14 的 50 笔授权上链。<sup><a href="#src-19">[19]</a></sup><sup><a href="#src-26">[26]</a></sup></div></li>
+<li><time>04:24:23</time><div><strong>Ethereum 批量转移</strong><br>Binance 14 转出约 167,464 ETH 和 60 多种代币，USDT 约 16 亿枚。这一笔约 25 亿美元。<sup><a href="#src-19">[19]</a></sup><sup><a href="#src-35">[35]</a></sup></div></li>
+<li><time>04:24:47</time><div><strong>另一钱包转账</strong><br>Binance 16 向同一地址转入约 28,006 ETH 等资产。<sup><a href="#src-4">[4]</a></sup></div></li>
+<li><time>04:41</time><div><strong>关联钱包转移</strong><br>Hot Wallet 34 转出 7.8 亿 USDC。04:59 左右再转出 4,300 万 USDC。<sup><a href="#src-4">[4]</a></sup></div></li>
+<li><time>04:58～05:01</time><div><strong>抵押借款</strong><br>关联地址向 Aave 存入 6,000 万 USDT，借出 19,762 WETH。<sup><a href="#src-5">[5]</a></sup></div></li>
+<li><time>05:01 起</time><div><strong>发行方冻结</strong><br>Tether 首次冻结；三分钟后 Circle 冻结 8.23 亿 USDC。<sup><a href="#src-19">[19]</a></sup></div></li>
+<li><time>05:42～07:04</time><div><strong>借贷市场响应</strong><br>Aave 限制新增存入和借款。<sup><a href="#src-5">[5]</a></sup></div></li>
+<li><time>06:15 前后</time><div><strong>暂停提现</strong><br>媒体报道的时间在 06:15 至 06:33 之间。委托仍在链上生效。<sup><a href="#src-19">[19]</a></sup></div></li>
+<li><time>07:28～12:17</time><div><strong>抛售小市值代币</strong><br>一个关联钱包转入 7.149 亿 FUN，随后卖出。FUN 在 Uniswap 池内跌超 90%。<sup><a href="#src-21">[21]</a></sup></div></li>
+<li><time>07:56</time><div><strong>最后一笔未授权转账</strong><br>2,961.9 ETH 上链。该交易此前已广播。<sup><a href="#src-26">[26]</a></sup></div></li>
+<li><time>08:08</time><div><strong>Arbitrum 紧急处置</strong><br>安全委员会转移并冻结 8,425 ETH 与约 7,456 万 ARB。<sup><a href="#src-16">[16]</a></sup></div></li>
+<li><time>08:10</time><div><strong>清除委托</strong><br>币安从 Binance14 签发指向零地址的授权，清除委托代码。<sup><a href="#src-26">[26]</a></sup></div></li>
+</ol>
+<h3 id="recovery-times">恢复与追踪（10 月 31 日至 11 月 6 日）</h3><ol class="timeline">
+<li><time>10-31</time><div><strong>THORChain 意外暂停</strong><br>一次 Ethereum 区块重组引发重复退款，THORChain 自动暂停 10 条网络的兑换。此前它已向 170 个地址支付 17,019 ETH。<sup><a href="#src-33">[33]</a></sup></div></li>
+<li><time>11-01 06:36</time><div><strong>FBI 公开归因</strong><br>FBI 发布警报（美国时间 10 月 31 日），认定朝鲜 TraderTraitor 负责，并公布涉案地址。<sup><a href="#src-27">[27]</a></sup><sup><a href="#src-28">[28]</a></sup></div></li>
+<li><time>11-01 14:00</time><div><strong>提现分批恢复</strong><br>第一批提现窗口为 14:00 至 17:00。<sup><a href="#src-36">[36]</a></sup></div></li>
+<li><time>11-01～02</time><div><strong>TRON 资金跨链转出</strong><br>约 2.42 亿美元经 Relay、THORChain、Chainflip 和 Symbiosis 转出。<sup><a href="#src-31">[31]</a></sup></div></li>
+<li><time>11-02</time><div><strong>SOL 换成 BTC</strong><br>约 486,970 SOL 经 Relay 换成 BTC。Gate 冻结两个关联账户。<sup><a href="#src-32">[32]</a></sup></div></li>
+<li><time>11-03 22:33</time><div><strong>币安发布初步报告</strong><br>公开四阶段入侵经过与处置措施。<sup><a href="#src-26">[26]</a></sup></div></li>
+<li><time>11-06</time><div><strong>换币加速</strong><br>Elliptic 称约 1.24 亿美元的其他币已换成约 1,650 BTC，约为前一日的两倍。<sup><a href="#src-34">[34]</a></sup></div></li>
+</ol>
+<h3 id="disclosure-times">披露与统计时点</h3><p>报告发布时间不能当作入侵时间。没有可靠时区的发布时间，不换算成精确小时。</p><div class="tbl"><table><caption>公开披露的日期与统计边界</caption><thead><tr><th scope="col">时点</th><th scope="col">类型</th><th scope="col">披露内容</th></tr></thead><tbody>
+<tr><th scope="row">10-30 08:30</th><td>TRM 数据快照</td><td>十条网络约 63.6 亿美元流出。<sup><a href="#src-15">[15]</a></sup></td></tr>
+<tr><th scope="row">10-30 10:25</th><td>币安首份调查说明</td><td>指向 DevOps 工程师笔记本失陷；未发现私钥泄露证据。<sup><a href="#src-14">[14]</a></sup></td></tr>
+<tr><th scope="row">10-30 12:17</th><td>服务恢复计划</td><td>何一称充值正常，预计 48 小时内开始恢复提现。<sup><a href="#src-18">[18]</a></sup></td></tr>
+<tr><th scope="row">10-30 15:37</th><td>腾锐的说明</td><td>攻击者并非只用了一名工程师的权限，也不是“一键”完成。<sup><a href="#src-30">[30]</a></sup></td></tr>
+<tr><th scope="row">10-30 16:47</th><td>币安调查更新</td><td>发现笔记本之外的其他入侵点；提现预计 45 小时内恢复。<sup><a href="#src-25">[25]</a></sup></td></tr>
+<tr><th scope="row">11-01 06:36</th><td>FBI 警报</td><td>认定朝鲜 TraderTraitor；公布 628 个地址。<sup><a href="#src-27">[27]</a></sup><sup><a href="#src-28">[28]</a></sup></td></tr>
+<tr><th scope="row">11-03 22:33</th><td>币安初步报告</td><td>63.4 亿美元受影响，28.5 亿美元冻结或拦截；公开入侵经过。<sup><a href="#src-26">[26]</a></sup></td></tr>
+<tr><th scope="row">11-07 10:00</th><td>本页核查快照</td><td>完整技术复盘与独立复核结论尚未发布。</td></tr>
+</tbody></table></div>
+<h2 id="control">钱包控制如何失守</h2>
+<h3 id="entry">签名从哪里来：私钥假设已排除</h3>
+<p>事件初期有两种解释。一是私钥泄露，攻击者自己生成签名。二是签名系统遭利用，私钥留在原处，系统替攻击者签名。Blockaid 的早期报告用了密钥失陷的说法，其 CEO 随后倾向第二种。<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-10">[10]</a></sup></p>
+<div class="pair"><div><svg viewBox="0 0 280 110" role="img" aria-label="假设一：攻击者获得私钥，已排除"><g fill="none" stroke="var(--ink-3)" stroke-width="3" stroke-dasharray="6 5"><circle cx="78" cy="53" r="22"/><path d="M100 53H210M180 53V72M198 53V67"/></g><text x="140" y="104" text-anchor="middle" fill="currentColor" font-size="15">假设一：私钥泄露（已排除）</text></svg><p>币安报告称未发现私钥泄露。热钱包使用 MPC，本来就没有单一私钥。</p></div><div><svg viewBox="0 0 280 110" role="img" aria-label="假设二：签名系统遭利用，已确认"><g fill="none" stroke="var(--acc)" stroke-width="3"><rect x="105" y="20" width="90" height="60"/><path d="M30 50H95M80 40L95 50L80 60M195 50H245"/></g><text x="140" y="104" text-anchor="middle" fill="currentColor" font-size="15">假设二：签名服务遭利用（已确认）</text></svg><p>攻击者部署的容器调用内部签名服务，让它签发正常提现流程之外的交易。</p></div></div>
+<p>币安 11 月 3 日的报告支持第二种解释。<sup><a href="#src-26">[26]</a></sup> 这也解释了 Bitquery 的观察：17 个热钱包的每笔转出都带有效签名，但交易的构造方式与币安平时的提现不同。例如 Bitcoin 转账的手续费约为平时的两倍。签名来自币安，发起签名请求的软件来自攻击者。<sup><a href="#src-19">[19]</a></sup></p>
+<h3 id="delegation">EIP-7702 授权接管</h3>
+<p>EIP 是 Ethereum Improvement Proposal 的缩写，即以太坊改进提案。7702 是提案编号。这项规则允许普通账户委托执行智能合约代码。智能合约是按链上规则运行的程序。账户必须提供有效签名。其他地址可以提交授权，并支付手续费。委托会持续生效，直到替换或撤销。<sup><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<figure class="diagram"><div class="flow">
+<div class="node"><span class="evidence">币安报告</span><strong>签名服务签发授权</strong><p>攻击者部署的容器调用内部签名服务。</p></div>
+<div class="arrow">↓ 提交授权</div>
+<div class="node"><span class="evidence">公开交易解码</span><strong>50 项 EIP-7702 授权</strong><p>授权覆盖连续的 nonce（账户计数值）。一项匹配当时状态。</p></div>
+<div class="arrow">↓ 账户开始执行指定代码</div>
+<div class="node"><strong>Binance 14 → 攻击者合约</strong><p>委托赋予执行权限，不只是一次转账。</p></div>
+<div class="arrow">↓ 批量转移</div>
+<div class="node"><strong>ETH 与数十种代币转入接收地址</strong><p>委托仍然存在，后续入账也面临转移风险。</p></div>
+</div><figcaption>图 3：签名授权到资产转移。签名环节来自币安报告，其余环节来自协议规范及公开分析。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup> <sup><a href="#src-2" aria-label="来源 2">[2]</a></sup> <sup><a href="#src-3" aria-label="来源 3">[3]</a></sup></figcaption></figure>
+<p>nonce 在本文指账户的交易与授权计数值。系统用它核对顺序，防止旧授权重复执行。例如，账户要求编号 100 时，编号 99 的旧授权不能再次使用。这个数字只是说明机制，不是本次交易数据。Binance 14 持续处理正常交易，计数器也持续变化。攻击者提交连续授权，增加了匹配的机会。<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<p>808bits 是本文引用的技术分析网站。该站文章作者解码了授权交易。作者将这种批量签名解读为签名服务存在延迟。这只是依据链上状态作出的推断。币安报告证实，这 50 笔交易用于操纵账户 nonce、建立委托。<sup><a href="#src-26">[26]</a></sup><sup><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<h3 id="spread">关联钱包与持续入账</h3>
+<p>drk 是所引交易分析文章的作者署名。文章发表于 drk.vc，不能视作币安官方结论。</p><p>其交易重建指出，Binance 14 能操作 Hot Wallet 34。Hot Wallet 34 是另一个币安钱包的公开标签。攻击者利用这项权限转出 USDC。Binance 16 是第三个钱包的公开标签。该钱包直接向接收地址转账。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></p>
+<figure class="diagram"><div class="flow"><div class="node"><strong>Binance 14</strong><p>账户委托受到攻击者控制。</p></div><div class="arrow">↓ 两条资产路径</div><div class="branches"><div class="node"><strong>已有余额与新入账</strong><p>攻击者反复调用转移逻辑。</p></div><div class="node"><strong>Hot Wallet 34</strong><p>攻击者借用原有操作权限转出 USDC。</p></div></div><div class="arrow">↓ 汇入攻击者接收地址</div><div class="node"><strong>资产再分散与兑换</strong><p>并行的其他网络转账需要另行解释。</p></div></div><figcaption>图 4：单个钱包的权限可影响关联钱包。此图仅呈现 Ethereum 路径，不能解释全部网络。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></figcaption></figure>
+<p>交易重建还记录了后续转移。05:44 左右，约 2.0039 亿 USDT 与 370 ETH 再次转出。研究者将其与币安继续汇入资金联系起来。<sup><a href="#src-4" aria-label="来源 4">[4]</a></sup></p>
+<h2 id="risk">风控为什么没有阻止转移</h2>
+<p>币安报告确认了三件事：签名服务签发了正常提现流程之外的交易；暂停提现无法撤销已上链的授权；MPC 钱包缺少现成的撤销流程。<sup><a href="#src-26">[26]</a></sup> 报告没有披露签名策略和审批规则。下表区分已确认的事实与仍待证实的推断。</p>
+<div class="tbl"><table><caption>风险边界与证据状态</caption><thead><tr><th scope="col">边界</th><th scope="col">已确认</th><th scope="col">仍不能断言</th></tr></thead><tbody>
+<tr><th scope="row">签名来源</th><td>签名服务被利用，未发现私钥泄露。<sup><a href="#src-26">[26]</a></sup></td><td>MPC 各方当时是否都参与了签名。</td></tr>
+<tr><th scope="row">流程之外的交易</th><td>签名服务接受了提现流程之外的请求。<sup><a href="#src-26">[26]</a></sup></td><td>签名服务对请求做了哪些检查。</td></tr>
+<tr><th scope="row">委托类交易</th><td>50 笔交易建立了 EIP-7702 委托。新措施包含委托类交易策略。<sup><a href="#src-26">[26]</a></sup><sup><a href="#src-35">[35]</a></sup></td><td>此前是否完全没有委托类交易的规则。</td></tr>
+<tr><th scope="row">客户提现限制</th><td>攻击绕开了正常提现流程。<sup><a href="#src-26">[26]</a></sup></td><td>客户的双重验证遭逐个破解。</td></tr>
+<tr><th scope="row">告警与响应</th><td>XRP、SOL、OP 转出后出现内部告警。<sup><a href="#src-26">[26]</a></sup></td><td>告警后为何约 4 小时才清除委托。</td></tr>
+<tr><th scope="row">多网络范围</th><td>同一签名服务影响多条网络的 17 个热钱包。<sup><a href="#src-19">[19]</a></sup></td><td>各网络签名权限的隔离如何设计。</td></tr>
+</tbody></table></div>
+<p>客户密码、提现额度与双重验证属于客户操作流程。签名服务属于底层资产控制。攻击者控制后者时，前者覆盖不到攻击路径。</p>
+<div class="warn"><p>EIP-7702 只解释了 Ethereum 上的部分损失。Bitcoin、TRON、XRP、Solana 等网络没有同类委托机制。那些网络的转出都是签名服务签发的普通转账。<sup><a href="#src-19">[19]</a></sup></p></div>
+<h2 id="money">资产转换与冻结</h2>
+<p>攻击者的处置步骤、混币器原理与变现路径，见附录一。</p>
+<h3 id="conversion">可见的转换路径</h3>
+<figure class="diagram"><div class="flow"><div class="node"><strong>攻击者持有的资产</strong><p>包含稳定币、ETH 和其他代币。</p></div><div class="arrow">↓ 分散转账后，出现两种转换</div><div class="branches"><div class="node"><strong>兑换</strong><p>通过去中心化交易平台，将代币换成 ETH。</p></div><div class="node"><strong>抵押借款</strong><p>存入 6,000 万 USDT，借出 19,762 WETH。</p></div></div><div class="arrow">↓ 资产形态发生变化</div><div class="node"><strong>获得 ETH / WETH 等资产</strong><p>借款当时估值约为 4,460 万美元。</p></div><div class="arrow">↓ 未找到可验证的后续证据</div><div class="node unknown"><strong>法币到账或场外套现</strong><p>目前无法确认收款银行、商户或最终受益人。</p></div></div><figcaption>图 5：兑换与借款均不等于完成法币套现。借贷数据来自 LlamaRisk，截至 10 月 30 日的响应记录。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></figcaption></figure>
+<p>LlamaRisk 是为 Aave 提供风险分析的服务方。Aave 通过智能合约处理抵押借款。LlamaRisk 记录了超过 20 个关联钱包。部分地址出售 UNI、LINK、AAVE 等代币，换取 ETH。该机构还确认了图中的 Aave 借款。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></p>
+<p>抵押借款让攻击者保留稳定币抵押品，同时获得另一种资产。这个结果降低了其对直接持有 USDT 的依赖。它不证明攻击者已经完成洗钱。</p>
+<p>Aave 随后冻结新增存入和借款。用户仍可还款、提取，清算也继续运行。LlamaRisk 当时称，关联头寸仍保持超额抵押。<sup><a href="#src-5" aria-label="来源 5">[5]</a></sup></p>
+<h3 id="arbitrum-action">Arbitrum 的紧急处置</h3>
+<p>Arbitrum 安全委员会称，08:08 执行了紧急操作。它冻结了 8,425 ETH 与 74,559,805.2 ARB。委员会临时升级系统合约，转移资产后恢复原实现。后续移动这些资产需要 ArbitrumDAO 治理投票。<sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></p>
+<figure class="diagram"><div class="flow"><div class="node"><strong>Arbitrum One 上的涉案地址</strong><p>资产位于该网络，需按该网络权限分析。</p></div><div class="arrow">↓ 安全委员会执行紧急操作</div><div class="node"><strong>资产转入 0x000…0DA0</strong><p>官方公告将此描述为冻结措施。</p></div><div class="arrow">↓ 后续移动须经治理投票</div><div class="node"><strong>资产处置尚未完成</strong><p>转入受控地址不等于已返还币安。</p></div></div><figcaption>Arbitrum 官方披露的资产处置路径。<sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></figcaption></figure>
+<p>这项处置修正了“ETH 无法冻结”的笼统表述。Arbitrum 上的 ETH 受该网络控制机制影响。Ethereum 主网与 Arbitrum 的权限边界不同。</p>
+<p>若地址标签显示“Kelp DAO Hacker”，不能只凭标签认定攻击者合作。本次转入上述地址的动作，已有官方处置说明。TRM 的攻击归因与地址标签判断也需分别核对。</p>
+<h3 id="laundering">洗钱进展（10 月 31 日至 11 月 6 日）</h3>
+<p>事发第一天，几乎没有资金进入交易所、混币器或跨链桥。<sup><a href="#src-20">[20]</a></sup> 从 10 月 31 日起，攻击者开始转移资金。顺序与附录一的分析一致：先动 TRON 和 Solana 上的仓位，BTC 与 ETH 主仓位仍在等待。</p>
+<div class="tbl"><table><caption>已观察到的洗钱路径</caption><thead><tr><th scope="col">路径</th><th scope="col">金额</th><th scope="col">来源</th></tr></thead><tbody>
+<tr><th scope="row">TRON → Relay</th><td>约 4,800 万美元</td><td>SomaXBT，经 Crypto Times<sup><a href="#src-31">[31]</a></sup></td></tr>
+<tr><th scope="row">TRON → THORChain</th><td>约 4,400 万美元</td><td>同上<sup><a href="#src-31">[31]</a></sup></td></tr>
+<tr><th scope="row">TRON → Chainflip</th><td>约 3,210 万美元</td><td>同上<sup><a href="#src-31">[31]</a></sup></td></tr>
+<tr><th scope="row">TRON → Symbiosis</th><td>约 1,600 万美元</td><td>同上<sup><a href="#src-31">[31]</a></sup></td></tr>
+<tr><th scope="row">手续费、滑点与价格损耗</th><td>约 2,200 万美元</td><td>同上<sup><a href="#src-31">[31]</a></sup></td></tr>
+<tr><th scope="row">SOL → BTC（经 Relay）</th><td>486,970 SOL，约 4,640 万美元</td><td>Lookonchain，经 Cointelegraph<sup><a href="#src-32">[32]</a></sup></td></tr>
+<tr><th scope="row">其他币 → BTC</th><td>约 1.24 亿美元，约 1,650 BTC</td><td>Elliptic，经 The Block<sup><a href="#src-34">[34]</a></sup></td></tr>
+</tbody></table></div>
+<p>TRON 上合计约 2.42 亿美元离开持有钱包。Chainalysis 给出约 5 亿美元，但该数字包含钱包之间的重复转账。Chainalysis 还观察到短时间内数千笔交易，资金常被转回早先的地址。它判断攻击者可能在用自动化程序扰乱追踪。<sup><a href="#src-32">[32]</a></sup></p>
+<p>THORChain 在 10 月 31 日意外暂停。一次 Ethereum 区块重组导致 10 ETH 被重复退款，触发了自动紧急暂停。暂停前，它已向 170 个地址支付 17,019 ETH，向 20 个地址支付 53.25 BTC。11 月 2 日，Ethereum、Bitcoin 和 Solana 的兑换仍未恢复。<sup><a href="#src-33">[33]</a></sup></p>
+<p>交易所开始拦截。Gate 在收到约 25 万美元关联存款后，冻结了两个账户。<sup><a href="#src-32">[32]</a></sup> FBI 公布的地址清单，要求 THORChain 节点、即时兑换服务和交易所拒绝相关交易。<sup><a href="#src-28">[28]</a></sup></p>
+<p>研究判断：跨链兑换服务成为主要通道，与 2025 年 Bybit 案的路径相同。这些服务没有账户实名环节，也难以拦截单笔兑换。18,270 BTC 的 19 个地址尚未动用。<sup><a href="#src-19">[19]</a></sup><sup><a href="#src-34">[34]</a></sup></p>
+<h3 id="amounts">金额不能混为一谈</h3><p>各机构的网络范围、地址归属和统计时点不同。下列金额不能相加。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<figure class="diagram"><div class="fund-row"><div class="fund-label"><span>Blockaid：初步转出估计</span><span class="mono">55 亿美元</span></div><div class="track"><div class="bar" style="width:87.6%"></div></div></div><div class="fund-row"><div class="fund-label"><span>Arkham：关联地址组估值</span><span class="mono">57.8 亿美元</span></div><div class="track"><div class="bar" style="width:92%"></div></div></div><div class="fund-row"><div class="fund-label"><span>Dickson：八条网络统计</span><span class="mono">62.8 亿美元</span></div><div class="track"><div class="bar" style="width:100%"></div></div></div><div class="fund-row"><div class="fund-label"><span>币安初步报告：冻结或拦截</span><span class="mono">约 28.5 亿美元</span></div><div class="track"><div class="bar frozen" style="width:45.4%"></div></div></div><figcaption>图 6：截至 11 月 3 日的不同口径。条形共用美元尺度，但不表示可相加或相减。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup> <sup><a href="#src-6" aria-label="来源 6">[6]</a></sup> <sup><a href="#src-8" aria-label="来源 8">[8]</a></sup> <sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></figcaption></figure>
+<div class="tbl"><table><caption>图 6 数据与其他统计口径</caption><thead><tr><th scope="col">来源</th><th scope="col">金额</th><th scope="col">限制</th></tr></thead><tbody><tr><th scope="row">Blockaid <sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></th><td>约 55 亿美元</td><td>早期跨网络统计；事件仍在变化</td></tr><tr><th scope="row">Arkham，经媒体引用 <sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></th><td>约 57.8 亿美元</td><td>关联地址持仓估值，非经审计损失</td></tr><tr><th scope="row">Dickson，经 TechFlow 编译 <sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></th><td>约 62.8 亿美元</td><td>八条网络统计，币安未确认最终数额</td></tr><tr><th scope="row">Bitquery <sup><a href="#src-19">[19]</a></sup></th><td>约 63.2 亿美元</td><td>九条网络，按转出时价格；冻结约 27 亿美元</td></tr><tr><th scope="row">Elliptic <sup><a href="#src-20">[20]</a></sup></th><td>约 64.3 亿美元</td><td>不含暂停提现后流出的 1.69 亿美元；核实冻结 28.4 亿美元</td></tr><tr><th scope="row">TRM Labs <sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></th><td>约 63.6 亿美元</td><td>十条网络，按转出时价格估值；快照截至 08:30</td></tr><tr><th scope="row">币安初步报告 <sup><a href="#src-26">[26]</a></sup></th><td>约 63.4 亿美元受影响；约 28.5 亿美元冻结或拦截</td><td>官方口径；冻结数仍待对账，受价格波动影响</td></tr><tr><th scope="row">币安早期说法，经 Reuters 报道 <sup><a href="#src-6" aria-label="来源 6">[6]</a></sup></th><td>约 30 亿美元</td><td>冻结规模，不等于已返还规模</td></tr></tbody></table></div>
+<p>价格、网络范围和地址归属会改变估值。被冻结的资产仍需处置与返还。用最高转出估计减去冻结总额，不能得出可靠的净损失。</p>
+<h2 id="attribution">攻击者归因</h2>
+<h3 id="trm-attribution">TRM Labs 的高置信度归因</h3>
+<p>区块链情报公司 TRM Labs 将攻击归因于 TraderTraitor。该公司将其描述为朝鲜黑客组织，判断置信度为高。依据包括链上数据与链下情报。这是研究机构的结论。FBI 随后作出相同认定。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<p>TRM 按转移当时的价格，估算流出约 63.6 亿美元。统计覆盖十条区块链，快照截至新加坡时间 08:30。该数字不等于扣除冻结与追回后的净损失。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<p>TRM 将最早转移定位于 XRP Ledger。时间是 10 月 30 日 04:05 至 04:09。Ethereum 上的批量转移发生得更晚。此前只看 Binance 14，会漏掉攻击的开端。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></p>
+<h3 id="fbi-attribution">FBI 的官方归因</h3>
+<p>FBI 于美国时间 10 月 31 日发布警报，认定朝鲜在 10 月 29 日前后从币安窃取超过 60 亿美元。FBI 将攻击归于 TraderTraitor，该组织又名 Jade Sleet、UNC4899、Slow Pisces。2025 年 2 月的 Bybit 案也由 FBI 归于该组织。<sup><a href="#src-27">[27]</a></sup><sup><a href="#src-28">[28]</a></sup></p>
+<p>警报列出 608 个 Ethereum 地址、19 个 Bitcoin 地址和 1 个 Solana 地址。这些地址持有或曾经持有赃款。FBI、特勤局和国税局刑事调查部观察到，攻击者主要把资产换成 ETH，预计将经去中心化金融和即时兑换服务继续洗钱。<sup><a href="#src-28">[28]</a></sup></p>
+<p>FBI 警报覆盖盗窃与洗钱活动，不涉及恶意软件和币安的内部控制。币安报告引用了 FBI 的结论，自身没有公布归因证据。<sup><a href="#src-26">[26]</a></sup></p>
+<h2 id="evidence">公开证据的边界</h2>
+<p>币安初步报告补上了入侵经过，但它仍是公司自述，尚未经过独立复核。下表按问题列出证据来源。</p>
+<div class="tbl"><table><caption>证据状态与尚未解答的问题</caption><thead><tr><th scope="col">问题</th><th scope="col">当前证据</th><th scope="col">仍然缺少什么</th></tr></thead><tbody>
+<tr><th scope="row">如何进入币安系统</th><td>官方报告：假 Homebrew、假招聘、内部 AI 工具、窃取的部署令牌。<sup><a href="#src-26">[26]</a></sup></td><td>AI 工具的利用方式、求职平台与聊天软件名称、恶意软件样本。</td></tr>
+<tr><th scope="row">签名为何被签发</th><td>官方报告：签名服务签发了流程之外的交易。<sup><a href="#src-26">[26]</a></sup></td><td>签名策略、审批与 MPC 门槛的设置。</td></tr>
+<tr><th scope="row">如何转走资产</th><td>官方报告与 Bitquery、Elliptic 的链上重建。<sup><a href="#src-19">[19]</a></sup><sup><a href="#src-20">[20]</a></sup><sup><a href="#src-26">[26]</a></sup></td><td>逐笔请求与链上交易的对应记录。</td></tr>
+<tr><th scope="row">如何转换与洗钱</th><td>兑换、借款、跨链服务均有链上记录。<sup><a href="#src-31">[31]</a></sup><sup><a href="#src-32">[32]</a></sup><sup><a href="#src-34">[34]</a></sup></td><td>完整的跨平台资金核对。</td></tr>
+<tr><th scope="row">是否完成法币变现</th><td>尚无公开证据。</td><td>场外经纪商、交易平台或银行记录。</td></tr>
+<tr><th scope="row">攻击者是谁</th><td>FBI 认定 TraderTraitor。<sup><a href="#src-27">[27]</a></sup></td><td>FBI 未公开全部归因依据。</td></tr>
+</tbody></table></div>
+<p>本页的“链上分析”指研究者公布的交易重建。本次整理没有独立重放交易。</p>
+<h2 id="gaps">完整复盘仍缺哪些证据</h2>
+<ol><li>内部 AI 工具：攻击者如何借它控制其他员工的电脑，它有哪些权限。</li><li>签名服务：为何接受新部署容器的请求，签名策略检查了什么。</li><li>MPC 门槛：多方签名各方是否独立校验交易内容。</li><li>凭据管理：部署令牌为何存在个人电脑上，为何能在他人设备上使用。</li><li>响应时间：告警的精确时刻，以及从告警到暂停提现、清除委托的每一步。</li><li>6 月事件的后续：团队名单暴露后，是否对相关成员加强了防护。</li><li>资金核对：转出、冻结、返还与净损失的逐笔对应。</li><li>变现证据：最终收款平台、法币账户及受益人。</li></ol>
+<p>币安承诺由独立安全公司复核。复核结论是检验上述问题的下一份关键材料。<sup><a href="#src-26">[26]</a></sup></p>
+<h2 id="appendix-money">附录一：冻结、处置与变现</h2>
+<p>本附录回答三个延伸问题。顺序按资金流向排列：先看哪些资产能冻结，再看攻击者如何处置，最后看如何变现。正文的数字在这里只作例子。</p>
+<h3 id="q-freeze">问一：为什么有的币能冻结，有的不能</h3>
+<p>“去中心化”描述的是网络，不担保网络上的每种资产。能否冻结，取决于一个问题：代码里有没有一方握着冻结权限。</p>
+<div class="tbl"><table><caption>四类资产的冻结权限</caption><thead><tr><th scope="col">资产类型</th><th scope="col">谁能冻结</th><th scope="col">本次例子</th></tr></thead><tbody>
+<tr><th scope="row">网络原生资产</th><td>没有单一一方。规则由全体节点执行，没有冻结开关。</td><td>BTC、主网 ETH、XRP、SOL。18,270 BTC 至今无人能冻。<sup><a href="#src-20">[20]</a></sup></td></tr>
+<tr><th scope="row">发行方代币</th><td>发行公司。合约内置黑名单函数，发行方可锁定某个地址。</td><td>Tether、Circle、Ripple、World Liberty、Paxos 等都已冻结。<sup><a href="#src-19">[19]</a></sup></td></tr>
+<tr><th scope="row">保留紧急权限的网络</th><td>网络治理机构。例如安全委员会可升级系统合约。</td><td>Arbitrum 转移并冻结 8,425 ETH 与约 7,456 万 ARB。<sup><a href="#src-16">[16]</a></sup></td></tr>
+<tr><th scope="row">中心化平台账户</th><td>平台本身。余额只是平台内部账本，不在链上。</td><td>赃款一旦存入合规交易所，平台可冻结账户。</td></tr>
+</tbody></table></div>
+<p>稳定币能冻结，原因在于它的设计。USDT 背后是 Tether 公司持有的美元储备。公司受监管约束，也在合约里保留了管理权限。所以 USDT 的“去中心化”只到转账层，所有权最终由发行方确认。</p>
+<p>BTC 和主网 ETH 没有发行公司。改变某个地址的余额，需要多数节点接受一套新规则。这等于分叉整个网络，代价远高于一次盗窃的损失。</p>
+<p>冻结也是一场赛跑。Tether 的首次冻结在主转账后 37 分钟。它冻结的 11 个钱包中，有 6 个已经转空。最终约 71% 的被盗 USDT 被锁定，其余已换成 ETH 和 TRX。<sup><a href="#src-19">[19]</a></sup> 换成原生资产之后，冻结权限就不再存在。</p>
+<figure class="diagram"><div class="flow"><div class="node"><strong>被盗 USDT（Ethereum 与 TRON）</strong><p>合计约 24.88 亿枚，发行方可冻结。</p></div><div class="arrow">↓ 冻结落地之前，攻击者抢先兑换</div><div class="branches"><div class="node"><strong>被 Tether 锁定</strong><p>约 17.59 亿枚，约占 71%。</p></div><div class="node"><strong>先一步换走</strong><p>约 4.95 亿枚换 ETH，约 2.34 亿枚换 TRX。</p></div></div><div class="arrow">↓ 换出的部分</div><div class="node"><strong>ETH 与 TRX 没有发行方</strong><p>不能再由发行方冻结。</p></div></div><figcaption>图 7：可冻结资产与冻结赛跑。数据来自 Bitquery，链上读数截至 10 月 30 日 14:43。<sup><a href="#src-19">[19]</a></sup></figcaption></figure>
+<h3 id="q-moves">问二：拿到这些币之后，攻击者做什么</h3>
+<p>攻击者的操作有先后。目标是把可冻结的资产换掉，再切断资金来源与去向的联系。下表按本次链上记录排列。</p>
+<div class="tbl"><table><caption>本次已观察到的处置步骤</caption><thead><tr><th scope="col">步骤</th><th scope="col">做法</th><th scope="col">本次证据</th></tr></thead><tbody>
+<tr><th scope="row">1. 抢换稳定币</th><td>在冻结前把 USDT、USDC 换成 ETH 或 TRX。宁可多付价格。</td><td>Ethereum 上 4.34 亿 USDT 换得 160,451 ETH。比市价多付 12% 至 26%。<sup><a href="#src-20">[20]</a></sup></td></tr>
+<tr><th scope="row">2. 抵押借款</th><td>把稳定币押进借贷协议，借出 ETH。</td><td>Aave 上存入约 6,000 万 USDT，借出 19,762 ETH。<sup><a href="#src-5">[5]</a></sup></td></tr>
+<tr><th scope="row">3. 抛售小币</th><td>把流动性差的代币低价卖成 ETH。</td><td>约 150 种其他代币在去中心化交易平台卖出。<sup><a href="#src-20">[20]</a></sup></td></tr>
+<tr><th scope="row">4. 归集与拆分</th><td>ETH 汇入少数新钱包；BTC 拆成整数份。</td><td>7 个 ETH 钱包从未转出；BTC 分在 19 个地址，多数各 1,000 枚。<sup><a href="#src-19">[19]</a></sup></td></tr>
+<tr><th scope="row">5. 静置</th><td>不动无法冻结的资产，等待关注下降。</td><td>XRP、SOL 和 NEAR 约 4.45 亿美元未动。<sup><a href="#src-20">[20]</a></sup></td></tr>
+<tr><th scope="row">6. 分层转移</th><td>多跳转账、跨链兑换、混币，拉长追踪链条。</td><td>少量 TRX 经约 28 跳，再经 THORChain 与 Hyperlane 转到 Ethereum。<sup><a href="#src-20">[20]</a></sup></td></tr>
+</tbody></table></div>
+<p><strong>抛售小币为什么会砸盘。</strong>去中心化交易平台常用资金池定价。池里放着两种资产，价格由两者的数量比决定。卖入的币越多，池里该币越多，价格越低。池子越小，同样的卖量压价越狠。</p>
+<p>FUN 是 2017 年发行的小币。它在 Uniswap 的主池只有约 1.6 万美元流动性。攻击者卖出 1.341 亿枚，只换回 111.5 ETH，约 25 万美元。池内价格下跌超过 90%。按此前估值，这批币约值 117 万美元，攻击者只拿到约 21%。<sup><a href="#src-21">[21]</a></sup></p>
+<p>研究判断：攻击者愿意亏本卖，是因为这些代币风险更高。项目方可能冻结或增发替换，交易所也会拉黑来源。先换成 ETH，损失确定，但资产安全。</p>
+<p><strong>混币器是什么。</strong>混币器是一个公共资金池。很多人存入同样面额的币，之后各自取到新地址。取款时用零知识证明，只证明“我存过一笔”，不暴露是哪一笔。旁观者看到的是“钱进了池子，又从池子出来”，无法一一对应。</p>
+<figure class="diagram"><div class="flow"><div class="branches"><div class="node"><strong>地址 A 存入 10 ETH</strong><p>链上可见。</p></div><div class="node"><strong>地址 B、C、D…… 各存 10 ETH</strong><p>链上可见。</p></div></div><div class="arrow">↓ 资金在同一合约内混合</div><div class="node"><strong>混币池</strong><p>只记录“有一笔存款可取”，不记录对应关系。</p></div><div class="arrow">↓ 一段时间后，凭证明取款</div><div class="node unknown"><strong>新地址 X 取出 10 ETH</strong><p>X 来自 A、B、C 还是 D，链上无法直接判断。</p></div></div><figcaption>图 8：混币器的基本原理。以 Tornado Cash 的固定面额池为例，金额仅作说明。</figcaption></figure>
+<p>混币器有两个限制。第一，匿名程度取决于池子大小。几十亿美元远超池子容量，大额存入本身就是线索。第二，存取的时间和金额也会泄露关联。所以大额洗钱更多依赖跨链兑换和场外经纪，混币只是其中一环。<sup><a href="#src-22">[22]</a></sup></p>
+<p>本次的 Tornado Cash 用在反方向。攻击者从池中取出约 1 ETH，作为手续费资金。这样，攻击钱包的启动资金查不到来源。<sup><a href="#src-19">[19]</a></sup></p>
+<p><strong>其他常见手法。</strong>剥离链指每跳转出一小部分，余额继续转给新地址。跨链兑换指在一条链存入，在另一条链取出另一种资产。THORChain 是去中心化跨链兑换协议，没有账户实名环节。追踪仍可做到，但每跨一次链，都要重新匹配两条链的记录。</p>
+<h3 id="q-cashout">问三：链上可追踪，赃款怎么变现</h3>
+<p>先修正一个前提。实名和冻结只发生在少数节点：交易所、银行和稳定币发行方。链上地址本身不实名。攻击者避开这些节点，资金就只能被看见，不能被拦下。</p>
+<p>追踪的极限也在这里。链上只记录地址之间的转账，不记录谁控制地址。追踪能跟到资金进入某个服务，例如交易所或经纪商。之后的流向，在对方的内部账本里。执法机构要拿到账本，需要对方所在司法辖区配合。</p>
+<p><strong>主要出口是场外经纪商。</strong>经纪商收下加密资产，再用自己的银行账户付出法币。法币来自其他想买币的客户，例如需要跨境转钱的人。赃款转给买家，法币付给攻击者指定的人。两笔钱在链上没有交点。</p>
+<figure class="diagram"><div class="flow"><div class="node"><strong>攻击者</strong><p>ETH、BTC 已分层转移多次。</p></div><div class="arrow">↓ 链上转给经纪商（链上可见）</div><div class="node"><strong>场外经纪商</strong><p>在多个交易所和银行开有账户。</p></div><div class="branches"><div class="node"><strong>加密资产 → 买币客户</strong><p>客户付法币买币，未必知道来源。</p></div><div class="node unknown"><strong>法币 → 攻击者指定账户</strong><p>走银行或地下钱庄，不上链。</p></div></div></div><figcaption>图 9：场外经纪的对冲结构。链上记录止于经纪商。此图依据 TRM 与 Lawfare 对既往案件的描述，不是本次已观察到的路径。<sup><a href="#src-22">[22]</a></sup><sup><a href="#src-23">[23]</a></sup></figcaption></figure>
+<p>Lawfare 描述了这种模式：中国场外经纪商借助交易所和银行账户，把非法加密资产换成法币。大量正常交易为它们提供掩护。2023 年，美国起诉了朝鲜银行人员 Sim Hyon-Sop 和三名中国场外经纪商。罪名是为朝鲜黑客的赃款洗钱。<sup><a href="#src-23">[23]</a></sup></p>
+<p><strong>谁敢接这笔钱。</strong>研究判断有三类原因。一是经纪商身处执法薄弱或不配合的地区。二是收益可观，赃款常以折价出手。三是风险被拆散：每笔金额不大，经手人很多，最终买家多不知情。被抓的通常是经纪商和账户持有人，若归因成立，攻击者身处朝鲜，各国执法难以触及。</p>
+<p><strong>变现需要时间，也要承受损耗。</strong>2025 年 Bybit 被盗约 15 亿美元，FBI 认定攻击者是 TraderTraitor，即 TRM 本次指认的组织。攻击者把约 36.1 万 ETH 经 THORChain 换成 BTC。约两个月后，Bybit CEO 称约 20% 的资金已无法追踪。<sup><a href="#src-24">[24]</a></sup> 那次的流程可作参照：先换成 BTC，再经混币与场外经纪分批出货。</p>
+<p><strong>事发当天的状态。</strong>10 月 30 日 16:00 前，几乎没有资金进入交易所、混币器或跨链桥。例外是约 190 万美元的 TRX，其中一部分经过 THORChain。<sup><a href="#src-20">[20]</a></sup> 一个接收地址也收过 9 月 Bitget 被盗资金。Elliptic 认为这说明双方共用洗钱网络，不一定是同一攻击者。<sup><a href="#src-20">[20]</a></sup></p>
+<p>尚无可冻结属性的资产约 32 亿至 33 亿美元，主要是 BTC 和 ETH。<sup><a href="#src-19">[19]</a></sup><sup><a href="#src-20">[20]</a></sup> 这部分的去向，取决于后续出口能否被识别和配合。交易所的地址监控、发行方冻结和跨国执法，是剩下的三道拦截。</p>
+<p>此后的进展见正文“洗钱进展”一节。10 月 31 日起，TRON 与 Solana 上的资金已经开始经跨链服务转出，部分换成 BTC。</p>
+<h2 id="glossary">附录二：名词与角色速查</h2><p>钱包标签标识资产地址；作者和公司提供分析。协议规定交易如何执行，代币则是转移的资产。下列说明区分这些角色。</p><h3 id="people-terms">作者、网站与安全机构</h3><dl class="glossary"><dt id="term-trm">TRM Labs / TraderTraitor</dt><dd>TRM Labs 是区块链情报公司。TraderTraitor 是其在本次事件中指认的攻击组织名称。公司与攻击组织是两种角色。<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></dd><dt id="term-arbitrum">Arbitrum One / 安全委员会</dt><dd>Arbitrum One 是以太坊扩展网络。安全委员会拥有特定紧急处置权限。ArbitrumDAO 通过治理投票决定相关事项。<sup><a href="#src-16" aria-label="来源 16">[16]</a></sup></dd><dt id="term-drk">drk</dt><dd>所引文章的作者署名，发布网站是 drk.vc。本文只采用其公开交易分析。其现实身份与专业资质未独立核实。<sup><a href="#src-4">[4]</a></sup></dd><dt id="term-808bits">808bits</dt><dd>技术分析网站，本文引用其授权交易解码文章。名称不是钱包，也不是代币。作者对签名来源的解释属于推断。<sup><a href="#src-3">[3]</a></sup></dd><dt id="term-blockaid">Blockaid</dt><dd>区块链安全公司，提供交易检测和链上监测。它在本次事件中发布分析。其结论不能替代币安内部取证。<sup><a href="#src-11">[11]</a></sup></dd><dt id="term-arkham">Arkham</dt><dd>区块链数据分析平台。本文引用媒体报道的关联地址组估值。地址归组和价格会影响该数字。<sup><a href="#src-8">[8]</a></sup></dd><dt id="term-dickson">Dickson / TechFlow</dt><dd>Dickson 是所引链上统计的作者。TechFlow 是编译并发布该分析的媒体。两者的角色不同。<sup><a href="#src-9">[9]</a></sup></dd><dt id="term-llama">LlamaRisk</dt><dd>Aave 的风险分析服务方。本文引用其事件响应记录。它说明了借贷头寸和市场冻结。<sup><a href="#src-5">[5]</a></sup></dd></dl><h3 id="wallet-terms">钱包、地址与权限</h3><dl class="glossary"><dt id="term-hot">热钱包 / Hot Wallet</dt><dd>用于在线收付款的钱包，签名系统可在线使用。交易平台可用多个热钱包处理日常业务。钱包是管理资产权限的工具，资产记录在区块链上。</dd><dt id="term-binance14">Binance 14</dt><dd>公开资料为一个币安 Ethereum 热钱包使用的标签。完整地址见文末。数字 14 用于区分标签；不能据此推断内部架构。<sup><a href="#src-1">[1]</a></sup></dd><dt id="term-wallet34">Hot Wallet 34</dt><dd>另一个币安钱包的公开标签。所引分析称 Binance 14 拥有操作它的权限。因此，前者失守会影响后者。<sup><a href="#src-4">[4]</a></sup></dd><dt id="term-binance16">Binance 16</dt><dd>又一个币安钱包标签。所引分析记录了它向攻击者地址直接转账。它与 Binance 14 是不同的地址。<sup><a href="#src-4">[4]</a></sup></dd><dt id="term-address">地址、私钥与签名</dt><dd>地址是公开的收付款标识。私钥是生成授权签名的秘密数据。签名可证明授权来自对应密钥，无法证明操作者的真实意图。<sup><a href="#src-12">[12]</a></sup></dd><dt id="term-contract">智能合约</dt><dd>部署在区块链上的程序，按代码规则执行操作。本文的攻击者合约包含批量转移资产的逻辑。<sup><a href="#src-1">[1]</a></sup></dd></dl><h3 id="protocol-terms">授权机制与资产</h3><dl class="glossary"><dt id="term-eip">EIP-7702</dt><dd>以太坊的一项协议规则，编号为 7702。它允许普通账户通过签名，指定执行某个合约的代码。恶意代码由此取得账户权限。规则本身不等于漏洞。<sup><a href="#src-2">[2]</a></sup></dd><dt id="term-nonce">nonce</dt><dd>本文指账户的交易与授权计数值。授权必须匹配执行时的值。正常交易会改变它，攻击者因而准备连续编号的授权。这里不是签名算法内部的随机数。<sup><a href="#src-2">[2]</a></sup><sup><a href="#src-12">[12]</a></sup></dd><dt id="term-delegation">委托与撤销</dt><dd>委托让账户执行指定合约代码。它会持续存在。账户需通过新的有效授权替换或撤销委托。一次转账完成，不会自动终止委托。<sup><a href="#src-2">[2]</a></sup></dd><dt id="term-eth">Ethereum、ETH 与 WETH</dt><dd>Ethereum 是区块链网络，ETH 是其原生资产。WETH 是 ETH 的封装代币形式，便于合约统一处理。它不是美元稳定币。<sup><a href="#src-13">[13]</a></sup></dd><dt id="term-stable">USDT、USDC 与稳定币</dt><dd>稳定币以维持参考价格为目标。USDT 由 Tether 发行，USDC 由 Circle 发行。两者以美元为参考。发行方可限制特定地址转移其代币。<sup><a href="#src-6">[6]</a></sup><sup><a href="#src-8">[8]</a></sup></dd><dt id="term-aave">Aave 与抵押借款</dt><dd>Aave 是链上借贷协议。用户存入资产作抵押，再借出其他资产。超额抵押表示抵押品估值高于借款。清算指按规则处置抵押品来偿债。<sup><a href="#src-13">[13]</a></sup></dd><dt id="term-tokens">UNI、LINK 与 AAVE</dt><dd>它们是不同项目的代币名称。本文提及它们，是因为响应记录报告了卖出换取 ETH 的行为。AAVE 代币与 Aave 借贷协议不是同一概念。<sup><a href="#src-5">[5]</a></sup></dd><dt id="term-tornado">Tornado Cash</dt><dd>用于降低存款与提款关联可见性的混币协议。本文仅记录攻击准备资金来自该协议。不能因此认定赃款后来也流入它。<sup><a href="#src-1">[1]</a></sup></dd><dt id="term-cve">CVE</dt><dd>公开披露的软件漏洞编号体系。提到 CVE，只是在说明尚未锁定具体软件漏洞。</dd></dl>
+<h2 id="sources">方法与来源</h2>
+<p>2026-11-07 更新：币安初步报告是本页最详实的一手材料。原帖需要登录，本次通过公开的 fxtwitter 接口取得长文全文，并逐段转述。FBI 警报原页有访问验证，未直接打开，数量经 SecurityWeek 核对。洗钱金额来自链上分析机构，各家口径不同。</p>
+<p>本页整理于 2026 年 10 月 30 日。材料包括协议规范、研究者交易分析、项目响应和媒体报道。最新服务状态核查截至当日 14:45，新加坡时间。历史数据保留各自快照，不代表实时更新。</p>
+<p>部分 X 原帖及区块浏览器页面无法直接访问。本次使用可访问页面与搜索索引中的正文。新增 TRM 与 Arbitrum 内容采用官方报告的索引正文。未独立重放交易，也未取得币安内部日志。新增公告采用官方页面的搜索索引正文，并与 Binance News 官方账号交叉核对；本次直接请求公告未返回正文。</p>
+<p>来源存在版本差异。Blockaid 的技术分析和其 CEO 的采访，不能合并为已确认的私钥泄露结论。金额及冻结时点也按各自统计范围保留。</p>
+<dl class="kv"><dt>源钱包</dt><dd class="address mono">0x28C6c06298d514Db089934071355E5743bf21d60</dd><dt>主要接收地址</dt><dd class="address mono">0x5227f603C1eE34CE3C06eFe6477003BDfCCB2f8c</dd><dt>地址归属依据</dt><dd>公开分析与媒体引用的浏览器标签。<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup> <sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></dd></dl>
+<ol class="sources"><li id="src-1"><a href="https://blockaid.io/blog/binance-55b-hack-using-advanced-ai-models-blockaid-detects-the-biggest-theft-in-crypto-history" target="_blank" rel="noopener">Blockaid</a>：事件分析、授权机制与资金追踪。</li><li id="src-2"><a href="https://eips.ethereum.org/EIPS/eip-7702" target="_blank" rel="noopener">Ethereum EIP-7702</a>：账户代码委托的协议规范。</li><li id="src-3"><a href="https://808bits.com/articles/binance-hot-wallet-eip-7702-delegations/" target="_blank" rel="noopener">808bits</a>：50 项授权的原始交易解码与推断。</li><li id="src-4"><a href="https://drk.vc/news/binance-14-eip-7702-drain" target="_blank" rel="noopener">drk</a>：Binance 14、Hot Wallet 34 与资金流重建。</li><li id="src-5"><a href="https://governance.aave.com/t/binance-hot-wallet-exploit-aaves-response/25954" target="_blank" rel="noopener">LlamaRisk / Aave</a>：借贷头寸及市场冻结的一手响应记录。</li><li id="src-6"><a href="https://ca.investing.com/news/stock-market-news/binances-possible-hack-triggers-3-billion-freeze-in-crypto-assets-4916103" target="_blank" rel="noopener">Reuters / Investing.com</a>：约 30 亿美元资产冻结的后续报道。</li><li id="src-7"><a href="https://apnews.com/article/39cda8ceb8095e036334a18549d3d20d" target="_blank" rel="noopener">Associated Press</a>：币安回应与充值、提现暂停。</li><li id="src-8"><a href="https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/" target="_blank" rel="noopener">BleepingComputer</a>：Arkham 地址组估值及接收地址标签。</li><li id="src-9"><a href="https://www.techflowpost.com/article/34982" target="_blank" rel="noopener">TechFlow / Dickson</a>：八条网络的链上统计，非官方最终损失。</li><li id="src-10"><a href="https://ct.com/news/binance-hack-may-involve-private-key-misuse-not-theft-blockaid-ceo" target="_blank" rel="noopener">Cointelegraph</a>：Blockaid CEO 关于签名系统的初步判断。</li><li id="src-11"><a href="https://blockaid.io/" target="_blank" rel="noopener">Blockaid 官网</a>：公司与产品角色。</li><li id="src-12"><a href="https://ethereum.org/developers/docs/accounts/" target="_blank" rel="noopener">Ethereum 账户文档</a>：地址、密钥、签名与 nonce。</li><li id="src-13"><a href="https://aave.com/docs/aave-v3/overview" target="_blank" rel="noopener">Aave 官方文档</a>：借贷机制及封装资产接口。</li><li id="src-14"><a href="https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7" target="_blank" rel="noopener">Binance：Security Incident Update</a>：2026-10-30 初步调查公告。<a href="https://www.binance.com/en/square/post/382713552517337" target="_blank" rel="noopener">Binance News 官方账号复述</a>。</li><li id="src-15"><a href="https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history" target="_blank" rel="noopener">TRM Labs：事件归因与十网络资金统计</a>：报告标注快照截至 2026-10-30 00:30 UTC，即新加坡时间 08:30。</li><li id="src-16"><a href="https://forum.arbitrum.foundation/t/security-council-emergency-action-30-10-2026/31625" target="_blank" rel="noopener">Arbitrum：Security Council Emergency Action – 30/10/2026</a>：官方紧急处置记录，事件时间为 08:08 HKT，与新加坡同为 UTC+8。</li><li id="src-17"><a href="https://www.binance.com/en/square/post/10-30-2026-binance-says-deposits-normal-withdrawals-paused-for-security-revamp-eyes-48-hour-restoration-382748430882486" target="_blank" rel="noopener">Binance News：服务状态更新</a>：官方账号的搜索索引正文。充值正常、提现暂停及 48 小时恢复计划。</li><li id="src-18"><a href="https://financefeeds.com/binance-withdrawals-resume-48-hours/" target="_blank" rel="noopener">FinanceFeeds：提现恢复计划</a>：记载何一更新的发布时间为 2026-10-30 04:17 UTC。该时间来自媒体，未直接核验 X 原帖。</li><li id="src-19"><a href="https://bitquery.io/investigations/binance-hack" target="_blank" rel="noopener">Bitquery：Binance hack 调查</a>：九条网络转出、冻结时序、兑换与持仓。链上读数截至 2026-10-30 06:43 UTC。</li><li id="src-20"><a href="https://www.elliptic.co/insights/binance-largest-hack-in-history/" target="_blank" rel="noopener">Elliptic：The largest theft in history</a>：被盗与冻结金额、兑换成本、THORChain 路径与 Bitget 关联。更新于 2026-10-30 08:00 UTC。</li><li id="src-21"><a href="https://www.coindesk.com/markets/2026/10/30/binance-hacker-dumps-a-little-known-2017-token-and-it-crashes-90" target="_blank" rel="noopener">CoinDesk：FUN 代币抛售</a>：卖出数量、所得、资金池规模与价格跌幅。</li><li id="src-22"><a href="https://www.trmlabs.com/reports-and-whitepapers/shadow-bankers" target="_blank" rel="noopener">TRM Labs：Shadow Bankers</a>：大型盗窃后的分层转移与场外经纪变现模式。</li><li id="src-23"><a href="https://www.lawfaremedia.org/article/the-world-s-underground-bankers" target="_blank" rel="noopener">Lawfare：The World’s Underground Bankers</a>：中国场外经纪商的运作方式及 2023 年起诉案。</li><li id="src-24"><a href="https://cointelegraph.com/news/bybit-hack-280m-untraceable-1b-trackable-thorchain-okx-exch" target="_blank" rel="noopener">Cointelegraph：Bybit 被盗资金追踪</a>：经 THORChain 兑换的 ETH 数量及无法追踪的比例。</li><li id="src-25"><a href="https://x.com/binance/status/2116089661408108712" target="_blank" rel="noopener">Binance：Investigation update</a>：08:47 UTC 发布，即新加坡时间 16:47。称发现其他入侵点，提现预计 45 小时内恢复。正文来自搜索索引与 AFP 转述。</li><li id="src-26"><a href="https://x.com/binance/status/2117626126214504729" target="_blank" rel="noopener">Binance：29 October Binance Security Incident: Initial Findings and Response Update</a>：官方初步报告，X 长文，2026-11-03 14:33 UTC。正文经 fxtwitter 接口取得完整文本。</li><li id="src-27"><a href="https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack" target="_blank" rel="noopener">FBI：North Korea Responsible for $6 Billion Binance Attack</a>：2026-10-31 警报。原页有访问验证，本次未直接打开，内容经下一条核对。</li><li id="src-28"><a href="https://www.securityweek.com/fbi-flags-over-600-addresses-tied-to-north-koreas-binance-heist/" target="_blank" rel="noopener">SecurityWeek：FBI 公布 600 多个涉案地址</a>：FBI 警报的地址数量与拦截要求。</li><li id="src-29"><a href="https://isc.sans.edu/diary/32942" target="_blank" rel="noopener">SANS ISC：Malicious Ad for Homebrew Leads to MacSync Stealer</a>：币安报告附带的仿冒 Homebrew 攻击示例，2026-05-01。</li><li id="src-30"><a href="https://x.com/_RichardTeng/status/2116072080525656150" target="_blank" rel="noopener">Richard Teng（腾锐）X 帖</a>：2026-10-30 07:37 UTC 的说明。</li><li id="src-31"><a href="https://www.cryptotimes.io/2026/11/02/binance-hack-north-korean-hackers-move-242m-in-two-days/" target="_blank" rel="noopener">Crypto Times：两天转出 2.42 亿美元</a>：引用 SomaXBT 的分服务统计。</li><li id="src-32"><a href="https://cointelegraph.com/news/binance-hackers-solana-new-phase-laundering-chainalysis" target="_blank" rel="noopener">Cointelegraph：洗钱扩展到 Solana</a>：SOL 换 BTC、Chainalysis 观察与 Gate 冻结，2026-11-02。</li><li id="src-33"><a href="https://crypto.news/thorchain-halts-swaps-ethereum-reorg-binance-hackers/" target="_blank" rel="noopener">crypto.news：THORChain 暂停兑换</a>：区块重组引发的自动暂停及暂停前支付数量。</li><li id="src-34"><a href="https://www.theblock.co/news/markets/2026-11-06-binance-hackers-swap-stolen-tokens-124-million-bitcoin-exchange-plans-withdrawal-reopenings-435930" target="_blank" rel="noopener">The Block：攻击者换得 1.24 亿美元 BTC</a>：引用 Elliptic，2026-11-06；含提现恢复计划与 Arbitrum 返还请求。</li><li id="src-35"><a href="https://www.moneyweb.co.za/news-fast-news/hackers-paid-15-to-drain-2-5bn-from-binance-in-one-hit/" target="_blank" rel="noopener">Moneyweb 转载 Bloomberg：15 美元手续费转走 25 亿美元</a>：Blockaid 与 Elliptic 的分析及币安发言人的新措施。</li><li id="src-36"><a href="https://hivesecurity.gitlab.io/blog/binance-devops-laptop-signing-boundary/" target="_blank" rel="noopener">Hive Security：恢复不等于修复</a>：汇总币安 Recovery Update #3、#4 的补足比例与提现恢复时间。</li></ol>
+<p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

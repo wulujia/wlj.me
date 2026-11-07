@@ -1034,3 +1034,16 @@ year = "2026"
 description = "小鹅通第二次递表港交所后的进展、公司基本面、港股市场环境、2025 年以来的上市规则变化，上市成功几率估算，以及招股书里的现金、负债、现金流和 2026 年财报预测。数据截至 2026 年 11 月 6 日。"
 original_url = ""
 reading_url = "/reading/xiaoe-hk-ipo-2026-11/"
+
+[[materials]]
+slug = "binance-hot-wallet-incident-2026-10"
+title = "币安热钱包安全事件：入侵经过、链上授权、资金流与证据边界"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Security", "Tech", "Business"]
+date = "2026-11-07T16:43:27+08:00"
+year = "2026"
+description = "2026 年 10 月币安热钱包安全事件研究：官方初步报告所述的入侵经过、EIP-7702 委托、冻结与洗钱进展，以及仍待查明的证据缺口。"
+original_url = ""
+reading_url = "/reading/binance-hot-wallet-incident-2026-10/"
