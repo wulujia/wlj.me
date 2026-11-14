@@ -1060,3 +1060,16 @@ year = "2026"
 description = "西湖大学从 2015 年建议书到 2026 年的创校史、理念、关键人物、治理与资金、人才、科研成果、同行比较、影响与争议。"
 original_url = ""
 reading_url = "/reading/westlake-university/"
+
+[[materials]]
+slug = "brainco-2026-11"
+title = "BrainCo 强脑科技调研"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Tech", "Business", "Investment"]
+date = "2026-11-14T11:31:45+08:00"
+year = "2026"
+description = "强脑科技的业务、产品、融资、财务口径、港股上市进展、争议与竞争格局，资料截至 2026 年 11 月。"
+original_url = ""
+reading_url = "/reading/brainco-2026-11/"

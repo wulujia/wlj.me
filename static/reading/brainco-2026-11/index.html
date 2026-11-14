@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrainCo 强脑科技调研</title>
+<meta name="description" content="强脑科技的业务、产品、融资、财务口径、港股上市进展、争议与竞争格局，资料截至 2026 年 11 月。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/brainco-2026-11/">
+<style>
+/* Separate adjacent footnote marks. */
+sup + sup::before { content: ","; font-size: 11px; }
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+<details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#profile">公司概况</a>
+        <ul>
+          <li><a href="#basics">基本信息</a></li>
+          <li><a href="#founder">创始人韩璧丞</a></li>
+        </ul>
+      </li>
+      <li><a href="#history">发展时间线</a></li>
+      <li><a href="#products">产品线</a>
+        <ul>
+          <li><a href="#catalog">产品全景</a></li>
+          <li><a href="#prosthetics">智能仿生手</a></li>
+          <li><a href="#hand-control">仿生手怎么控制</a></li>
+          <li><a href="#leg">仿生腿 Revolimb</a></li>
+          <li><a href="#revo">Revo 灵巧手与机器人数据</a></li>
+          <li><a href="#headbands">脑电头环与消费健康</a></li>
+          <li><a href="#medical">医疗与康复产品</a></li>
+          <li><a href="#research-edu">科研与教育产品</a></li>
+        </ul>
+      </li>
+      <li><a href="#market">市场份额与销售</a>
+        <ul>
+          <li><a href="#market-prosthetics">仿生手：用户数远小于“10 万台”</a></li>
+          <li><a href="#market-hands">灵巧手：国内出货前三</a></li>
+          <li><a href="#market-consumer">消费头环：销量十万级</a></li>
+          <li><a href="#market-region">销售地区与渠道</a></li>
+        </ul>
+      </li>
+      <li><a href="#reviews">用户评价</a>
+        <ul>
+          <li><a href="#reviews-limb">仿生手与仿生腿</a></li>
+          <li><a href="#reviews-sleep">安睡仪</a></li>
+          <li><a href="#reviews-headband">FocusCalm 与 OxyZen</a></li>
+          <li><a href="#reviews-revo">Revo 灵巧手（开发者）</a></li>
+          <li><a href="#reviews-summary">评价小结</a></li>
+        </ul>
+      </li>
+      <li><a href="#tech">技术路线</a></li>
+      <li><a href="#eeg">脑电反馈靠不靠谱</a>
+        <ul>
+          <li><a href="#eeg-signal">头环能测到什么</a></li>
+          <li><a href="#eeg-car">展厅里的脑控小车</a></li>
+          <li><a href="#eeg-test">现场自测方法</a></li>
+          <li><a href="#eeg-health">健康用途的证据</a></li>
+        </ul>
+      </li>
+      <li><a href="#brainbot">脑控机器人平台</a>
+        <ul>
+          <li><a href="#brainbot-what">它是什么，有没有量产</a></li>
+          <li><a href="#brainbot-tech">技术细节</a></li>
+          <li><a href="#brainbot-reliable">靠不靠谱</a></li>
+          <li><a href="#brainbot-reviews">用户与外界评价</a></li>
+        </ul>
+      </li>
+      <li><a href="#bci-devices">脑控轮椅、无人机与打字</a>
+        <ul>
+          <li><a href="#bci-devices-brainco">强脑的情况</a></li>
+          <li><a href="#bci-devices-status">行业现状与效果</a></li>
+        </ul>
+      </li>
+      <li><a href="#brainai">BrainAI 教育产品与赛事</a>
+        <ul>
+          <li><a href="#brainai-what">BrainAI 是什么</a></li>
+          <li><a href="#brainai-contest">赛事怎么比</a></li>
+          <li><a href="#brainai-whitelist">白名单与升学说法</a></li>
+          <li><a href="#brainai-focus">能不能提高专注力</a></li>
+          <li><a href="#brainai-reviews">用户评价</a></li>
+        </ul>
+      </li>
+      <li><a href="#autism">孤独症与开星果</a>
+        <ul>
+          <li><a href="#autism-what">孤独症是什么</a></li>
+          <li><a href="#autism-product">开星果怎么用</a></li>
+          <li><a href="#autism-evidence">临床证据</a></li>
+        </ul>
+      </li>
+      <li><a href="#funding">融资与股东</a></li>
+      <li><a href="#financials">经营数据</a></li>
+      <li><a href="#ipo">上市进展</a></li>
+      <li><a href="#risks">争议与风险</a>
+        <ul>
+          <li><a href="#risk-school">2019 年课堂头环事件</a></li>
+          <li><a href="#risk-hunterbrook">Hunterbrook 调查与美国国会</a></li>
+          <li><a href="#risk-sleep">安睡仪的监管口径</a></li>
+          <li><a href="#risk-market">上市窗口与估值</a></li>
+        </ul>
+      </li>
+      <li><a href="#peers">竞争格局</a>
+        <ul>
+          <li><a href="#peers-bci">脑机接口同行</a></li>
+          <li><a href="#peers-hand">灵巧手同行</a></li>
+        </ul>
+      </li>
+      <li><a href="#visit">2026-11-13 展厅讲解</a>
+        <ul>
+          <li><a href="#visit-intro">技术路径与市场</a></li>
+          <li><a href="#visit-limb">仿生手、仿生腿与公益</a></li>
+          <li><a href="#visit-hand">灵巧手</a></li>
+          <li><a href="#visit-brainbot">脑控机器人</a></li>
+          <li><a href="#visit-neuro">神经反馈、睡眠与教育</a></li>
+          <li><a href="#visit-data">具身数据采集</a></li>
+          <li><a href="#visit-qa-sleep">问答：睡眠</a></li>
+          <li><a href="#visit-qa-autism">问答：孤独症与多动症</a></li>
+          <li><a href="#visit-qa-gripper">问答：夹爪还是灵巧手</a></li>
+          <li><a href="#visit-check">讲解说法与调研对照</a></li>
+        </ul>
+      </li>
+      <li><a href="#judgment">研究判断</a></li>
+      <li><a href="#method">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+
+  <header>
+    <p class="eyebrow">公司调研 · 2026 年 11 月 13 日</p>
+    <h1>BrainCo 强脑科技调研</h1>
+    <p class="lede">强脑科技做什么、钱从哪来、赚不赚钱、上市走到哪一步、有哪些争议。给想了解这家公司的投资人、从业者和普通读者。</p>
+    <p class="meta"><span>资料截至 2026-11-13</span><span>招股书未公开，财务数字均为二手口径</span><span>含 2026-11-13 展厅讲解整理</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>强脑科技是一家非侵入式神经信号硬件公司，不做开颅植入。它卖三类东西：智能仿生手和仿生腿，给人形机器人用的 Revo 灵巧手，脑电头环类消费健康产品。头环的信号是真的，但只能测专注、放松、眨眼这类粗状态；展厅里的“脑控小车”本质是一个开关。量产仿生手靠残肢肌电控制，不读脑电。脑控机器人平台是 2026 年 7 月发布的科研工具，没有量产。BrainAI 学生赛事规模大，但“提高专注力”没有独立证据。孤独症训练系统开星果有一项小型随机对照试验，可作辅助，不能替代行为干预。</p>
+    <p>2026 年 1 月，公司完成约 20 亿元人民币融资，投后估值超过 13 亿美元，同月以保密形式向港交所递表，保荐人是中金公司和瑞银。截至 2026 年 9 月 30 日仍未公开招股；本文写作时没有查到通过聆讯或挂牌的消息。</p>
+    <p>公司 2023 年称残障仿生手用户“上千名”；能查到的销量里，灵巧手和安睡仪规模最大。独立用户评价很少，媒体上的正面案例多来自公司关联人员。财务数据没有公开来源可核对。公司称 2025 年首次全年盈利，媒体估算 2025 年营收约 8 亿元。网上流传的“营收 1.08 亿元、亏损 2.3 亿元”属于另一家公司博睿康，不是强脑。</p>
+    <p>主要风险有三项：美国媒体和国会对其数据与政府背景的质疑，消费产品在医疗器械边界上的口径问题，港股硬科技新股破发带来的估值下调压力。增长最快的业务是卖给人形机器人厂商的灵巧手。</p>
+    <p>2026-11-13 的展厅讲解补充了几项新信息：仿生下肢国内市场价 18.8 万元，公益项目按每条 5 万元供货、残障人士免费安装，孤独症产品只有头环拿了医疗器械证、软件没有。讲解人承认脑控机器人只完成了“从 0 到 1”，灵巧手的自主操作“现阶段真的不行”。讲解中引用的摩根士丹利“非侵入式占 86%”与原报告口径不符。</p>
+  </div>
+
+  <h2 id="profile">公司概况</h2>
+  <h3 id="basics">基本信息</h3>
+  <dl class="kv">
+    <dt>中文主体</dt><dd>浙江强脑科技有限公司<sup><a href="#src-5">5</a></sup></dd>
+    <dt>英文品牌</dt><dd>BrainCo；仿生手子品牌 BrainRobotics<sup><a href="#src-10">10</a></sup></dd>
+    <dt>成立</dt><dd>2015 年，美国马萨诸塞州 Somerville，在哈佛创新实验室（Harvard Innovation Labs）孵化<sup><a href="#src-7">7</a></sup><sup><a href="#src-10">10</a></sup></dd>
+    <dt>总部</dt><dd>2018 年迁到浙江杭州余杭；Somerville 办公室保留；2025 年 9 月在香港数码港设亚太总部<sup><a href="#src-10">10</a></sup></dd>
+    <dt>创始人 / CEO</dt><dd>韩璧丞</dd>
+    <dt>标签</dt><dd>“杭州六小龙”之一（另五家为宇树科技、深度求索、游戏科学、云深处、群核科技）</dd>
+    <dt>专利</dt><dd>授权专利 500 余项（2026 年 7 月报道）；2025 年 11 月报道为 480 余项<sup><a href="#src-8">8</a></sup><sup><a href="#src-21">21</a></sup></dd>
+    <dt>员工数</dt><dd>待确认，公开报道未给出</dd>
+  </dl>
+
+  <h3 id="founder">创始人韩璧丞</h3>
+  <p>韩璧丞是黑龙江人，媒体称其为 85 后，一说 1987 年出生。本科在韩国科学技术院（KAIST）读机械工程，之后在美国西雅图的癌症研究中心做药物和神经科学研究，2014 年前后进入哈佛脑科学中心读博<sup><a href="#src-27">27</a></sup>。他说读博期间看了 20 多例开颅手术，因此选了非侵入式路线<sup><a href="#src-27">27</a></sup>。</p>
+  <p>Beijing Review 记录了他创业第一年的细节：为了采到干净的脑电信号，团队要用导电膏，他一年洗头 800 多次<sup><a href="#src-11">11</a></sup>。他给公司定的目标是 5 到 10 年内帮助 100 万肢体残障者，改善 1000 万脑疾病患者（阿尔茨海默病、孤独症、失眠）的状况<sup><a href="#src-11">11</a></sup>。</p>
+  <div class="warn"><b>学位</b>公司早年称他为“韩博士”。Hunterbrook 2025 年 9 月的调查称他没有完成哈佛博士学位；公司回应称他是“博士候选人”，并在 2025 年 9 月 5 日改掉了官网上的相关表述<sup><a href="#src-17">17</a></sup>。</div>
+
+  <h2 id="history">发展时间线</h2>
+  <ol class="timeline">
+    <li><time>2015</time><div>在哈佛创新实验室成立。36 氪称工商成立时间为 2015 年 2 月<sup><a href="#src-7">7</a></sup>。</div></li>
+    <li><time>2016</time><div>天使轮（翰潭投资）和 550 万美元 Pre-A 轮。第一款产品 Focus 1 脑电头环在 CES 现场演示失败，2017 年 CES 再次演示成功<sup><a href="#src-10">10</a></sup><sup><a href="#src-26">26</a></sup>。</div></li>
+    <li><time>2017</time><div>1500 万美元融资，由德迅投资和中国电子（CEC）领投<sup><a href="#src-17">17</a></sup>。</div></li>
+    <li><time>2018</time><div>中国运营主体迁到杭州，享受税收减免和租金补贴<sup><a href="#src-17">17</a></sup>。</div></li>
+    <li><time>2019</time><div>1 月 A 轮，光大控股、德迅投资、中国电子参投，估值 4 亿美元<sup><a href="#src-26">26</a></sup>。仿生手入选《时代》2019 年度百佳发明<sup><a href="#src-10">10</a></sup>。10 月底，金华一所小学的头环使用被叫停<sup><a href="#src-19">19</a></sup>。</div></li>
+    <li><time>2020</time><div>仿生手量产版在 CES 发布并获创新奖。同年获德国“老大哥奖”（Big Brother Award，隐私领域的批评性奖项）<sup><a href="#src-10">10</a></sup>。</div></li>
+    <li><time>2021</time><div>Focus 头环改名 FocusCalm；展示仿生腿<sup><a href="#src-10">10</a></sup>。</div></li>
+    <li><time>2022</time><div>11 月发布 Easleep 安睡仪。中文媒体报道仿生手在这一年获美国 FDA 准入<sup><a href="#src-12">12</a></sup>。</div></li>
+    <li><time>2023</time><div>杭州亚残运会开幕式，左前臂缺失的游泳运动员徐佳玲戴强脑仿生手点燃主火炬<sup><a href="#src-11">11</a></sup>。</div></li>
+    <li><time>2024</time><div>推出面向人形机器人的灵巧手产品线；10 月发布 OxyZen<sup><a href="#src-10">10</a></sup><sup><a href="#src-15">15</a></sup>。浙江省产业基金投资 2 亿元<sup><a href="#src-17">17</a></sup>。</div></li>
+    <li><time>2025</time><div>7 月发布 Revo2 灵巧手；8 月传以超 13 亿美元估值做 Pre-IPO 融资；9 月 Hunterbrook 发布调查；11 月三七互娱投资 2000 万美元<sup><a href="#src-3">3</a></sup><sup><a href="#src-17">17</a></sup><sup><a href="#src-21">21</a></sup>。</div></li>
+    <li><time>2026-01</time><div>约 20 亿元融资落地；保密递表港交所；31 日发布 ADHD 干预产品“专注欣”医疗版<sup><a href="#src-1">1</a></sup><sup><a href="#src-24">24</a></sup><sup><a href="#src-25">25</a></sup>。</div></li>
+    <li><time>2026-04</time><div>10 日发布 Revo3 灵巧手；27 日韩璧丞称 2025 年已盈利<sup><a href="#src-4">4</a></sup><sup><a href="#src-15">15</a></sup>。</div></li>
+    <li><time>2026-05</time><div>与香港理工大学启动两年试点，为 60 名截肢者装配智能假肢，由香港创新科技基金出资<sup><a href="#src-10">10</a></sup>。</div></li>
+    <li><time>2026-06</time><div>彭博报道其灵巧手销量因人形机器人需求大增<sup><a href="#src-13">13</a></sup>。</div></li>
+    <li><time>2026-07</time><div>在世界人工智能大会（WAIC）发布脑控机器人科研平台，称从解码到发出机器人指令不到 200 毫秒<sup><a href="#src-16">16</a></sup>。</div></li>
+    <li><time>2026-09</time><div>截至 9 月 30 日仍未公开招股<sup><a href="#src-9">9</a></sup>。</div></li>
+  </ol>
+
+  <h2 id="products">产品线</h2>
+  <p>公司产品分四组：残障人士用的仿生肢体，给机器人用的灵巧手和数据采集设备，脑电头环类消费健康产品，以及医疗、科研和教育产品。各产品用的信号不同，只有头环类真正读脑电。</p>
+
+  <h3 id="catalog">产品全景</h3>
+  <div class="tbl">
+    <table>
+      <caption>强脑科技全部已知产品（截至 2026-11-13）</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">推出</th><th scope="col">用的信号或技术</th><th scope="col">价格</th><th scope="col">已知规模</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">智能仿生手（BrainRobotics）</th><td>2020 量产；2026-03 加仿生皮肤；2026-07 新一代更小更轻</td><td>残肢表面肌电为主</td><td>国内十余万元到 16.8 万元</td><td>见“市场份额与销售”</td></tr>
+        <tr><th scope="row">智能仿生腿 Revolimb M2 / M3（轻凌）</th><td>2021 首次展示</td><td>陀螺仪、霍尔传感器，液压阻尼，不用脑电</td><td>个案报道十余万元</td><td>待确认</td></tr>
+        <tr><th scope="row">Revo1 灵巧手</th><td>2024</td><td>电机驱动，面向机器人</td><td>待确认</td><td>待确认</td></tr>
+        <tr><th scope="row">Revo2 灵巧手</th><td>2025-07</td><td>11 个自由度，Touch 版带触觉</td><td>国内整套约 5 万元起；美国经销商约 3400 美元起</td><td>宇树、乐聚、逐际动力等几十家客户</td></tr>
+        <tr><th scope="row">Revo3 灵巧手</th><td>2026-04-10</td><td>21 个自由度全直驱，全掌触觉加指尖视触觉</td><td>待确认</td><td>待确认</td></tr>
+        <tr><th scope="row">RevoHuman 数采手套、灵巧操作数采矩阵</th><td>2026-07</td><td>外骨骼手套采手部姿态、触觉和第一视角画面，给机器人训练用</td><td>待确认</td><td>待确认</td></tr>
+        <tr><th scope="row">脑控机器人训练平台</th><td>2026-07</td><td>32 通道脑电帽，SSVEP 和运动想象，解码后控制机械臂、机器狗等</td><td>未公开</td><td>未量产，未公开客户</td></tr>
+        <tr><th scope="row">Easleep 深海豚安睡仪</th><td>2022-11</td><td>脑电睡眠分期，加经颅微电流刺激（CES）和双耳节拍声音</td><td>1899 到 1999 元</td><td>2023 年称超 10 万台；京东 4 万件以上</td></tr>
+        <tr><th scope="row">FocusCalm</th><td>2021（前身 Focus 1，2016）</td><td>脑电神经反馈，面向运动员和上班族</td><td>待确认</td><td>主要在海外销售</td></tr>
+        <tr><th scope="row">OxyZen</th><td>2024-10</td><td>脑电加 PPG（心率、血氧），冥想指数 0 到 100</td><td>待确认</td><td>待确认</td></tr>
+        <tr><th scope="row">专注欣医疗版</th><td>2026-01-31</td><td>脑电神经反馈，用于儿童 ADHD</td><td>待确认</td><td>上海儿童医学中心、杭州儿童医院做多中心研究</td></tr>
+        <tr><th scope="row">开星果</th><td>2020 年起研发</td><td>脑电神经反馈，用于孤独症和发育迟缓儿童</td><td>未公开</td><td>深圳成长中心、上海辅具目录；未获医疗器械证</td></tr>
+        <tr><th scope="row">Focus EDU 课堂头环</th><td>2016 到 2019</td><td>脑电专注度</td><td>不再销售</td><td>2019 年停用</td></tr>
+        <tr><th scope="row">BrainAI / NeuroMaker 教育套件与赛事</th><td>2022 年起办赛</td><td>可拼装仿生手、脑电和肌电传感器，图形化编程</td><td>未公开</td><td>赛事称累计 5 万多支队伍；美国称 200 多个学区和项目</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">来源：BrainCo 官网，36 氪，新华网，什么值得买，Startup Fortune，RobotToday<sup><a href="#src-12">12</a></sup><sup><a href="#src-15">15</a></sup><sup><a href="#src-34">34</a></sup><sup><a href="#src-35">35</a></sup><sup><a href="#src-36">36</a></sup><sup><a href="#src-37">37</a></sup><sup><a href="#src-39">39</a></sup>。</p>
+  <p>认证方面，36 氪 2026 年 4 月的报道称公司拿到美国 FDA、欧盟 CE 和中国 NMPA 二类医疗器械认证，并有首张头戴式脑机接口医疗器械证<sup><a href="#src-35">35</a></sup>。哪一款产品拿到哪一张证，报道没有列明，待确认。</p>
+
+  <h3 id="prosthetics">智能仿生手</h3>
+  <p>仿生手是公司知名度最高的产品，2020 年第一代量产<sup><a href="#src-35">35</a></sup>，2019 年入选《时代》年度百佳发明<sup><a href="#src-41">41</a></sup>。官网列出十几种预设手势：握拳、捏取、侧捏、握笔、托盘、握鼠标、比 “OK” 和数字等，每种手势配有使用说明，比如“避免捏太重的物体”<sup><a href="#src-34">34</a></sup>。2024 年的报道称国内在售版本有 10 个活动关节、20 多种手势<sup><a href="#src-40">40</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>智能仿生手关键信息</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">数据</th><th scope="col">口径</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">国内售价</th><td>16.8 万元 / 台（2026 年 4 月）；2025 年报道为“十余万元”；更早同类进口产品 70 万到 100 万元</td><td>韩璧丞自述；媒体<sup><a href="#src-22">22</a></sup><sup><a href="#src-23">23</a></sup><sup><a href="#src-35">35</a></sup></td></tr>
+        <tr><th scope="row">对比海外</th><td>国内价约为海外同类产品的 1/5 到 1/7；海外按竞品价格卖</td><td>韩璧丞自述，未注明对比型号<sup><a href="#src-4">4</a></sup></td></tr>
+        <tr><th scope="row">重量、握力</th><td>383 g，握力 50 N 以上</td><td>多见于自媒体，未见官方参数表<sup><a href="#src-22">22</a></sup></td></tr>
+        <tr><th scope="row">海外准入</th><td>美国 FDA、欧盟 CE</td><td>中文媒体称“FDA 认证”；36 氪英文版写作 FDA listing。是登记列名还是 510(k) 待确认<sup><a href="#src-7">7</a></sup><sup><a href="#src-12">12</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>需求端，中国约 2400 万肢体残疾人，其中手或脚截肢接近 500 万人<sup><a href="#src-11">11</a></sup><sup><a href="#src-35">35</a></sup>。2025 年国家医保局把“非侵入式脑机接口适配费”纳入价格项目<sup><a href="#src-23">23</a></sup>。浙江省财政把智能仿生大腿假肢的补贴上限提到每人 5 万元，省医保局把智能假肢纳入长期护理保险<sup><a href="#src-35">35</a></sup>。</p>
+
+  <h3 id="hand-control">仿生手怎么控制</h3>
+  <p>量产版仿生手读的是残肢肌肉的电信号（肌电），不是脑电。工作过程是：</p>
+  <ol>
+    <li>使用者想“握拳”，和截肢前一样</li>
+    <li>大脑沿神经把指令传到前臂，残留的前臂肌肉轻微收缩</li>
+    <li>接受腔里贴着皮肤的传感器采到肌电信号。《时代》2019 年的介绍写的是 8 个肌电传感器<sup><a href="#src-41">41</a></sup></li>
+    <li>软件把信号模式对应到一个预设手势，手执行动作</li>
+  </ol>
+  <p>科技日报、残障辅具数据库 EASTIN 的描述都是采集肌电<sup><a href="#src-30">30</a></sup><sup><a href="#src-44">44</a></sup>。官网的说法是“检测使用者的神经和肌肉信号”来识别动作意图<sup><a href="#src-34">34</a></sup>，部分中文报道写作“脑电加肌电”<sup><a href="#src-22">22</a></sup>，但公开技术资料里没有显示量产手带脑电传感器。</p>
+  <p>“意念控制”这个说法对一半：控制确实从使用者的意图出发，不用按钮也不用手机；但信号来自手臂肌肉。这类产品叫肌电假肢，1960 年代就有，奥托博克（Ottobock）、奥索（Össur）都卖同原理的产品。2023 年亚残运会点火用的也是这种控制方式。</p>
+  <div class="note"><b>使用限制</b>
+    <ul>
+      <li>需要残肢里有能用的肌肉，前臂截肢效果最好；截肢位置更高或先天缺失的人，往往需要额外的神经移植手术，否则控制效果差</li>
+      <li>手势是预设模式，在模式之间切换；官网称五指可以独立运动<sup><a href="#src-34">34</a></sup>，但日常控制仍是选手势，不是像真手那样随意动每根手指</li>
+      <li>出汗、接受腔移位、肌肉疲劳都会导致误动作</li>
+      <li>日常使用前需要训练和校准。本文没有查到公司公开的适配条件和训练流程</li>
+      <li>没有真正的触觉回传。2026 年 3 月的“仿生皮肤”版加了传感器，本文没有查到它向使用者反馈触觉的证据</li>
+    </ul>
+  </div>
+  <p>它的实际优势在价格（国内价约为进口产品的 1/5 到 1/7）、手势识别软件和量产能力。</p>
+
+  <h3 id="leg">仿生腿 Revolimb</h3>
+  <p>仿生腿是智能膝关节假肢，国内型号叫轻凌，官网英文名 Revolimb。它不用脑电也不用肌电：膝关节里的陀螺仪和霍尔传感器以最高 1000 Hz 采集步态数据，算法据此实时调节液压阻尼，上下坡和下楼梯时提供支撑<sup><a href="#src-34">34</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>Revolimb 两代对比（官网）</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">M2</th><th scope="col">M3</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">运动模式</th><td>待确认</td><td>5 种，可交替下楼梯、下坡，从走到慢跑连续切换</td></tr>
+        <tr><th scope="row">安全</th><td>异常检测、紧急停止</td><td>异常检测、紧急停止，可手动锁定</td></tr>
+        <tr><th scope="row">续航</th><td>待确认</td><td>充电 4 小时，每天 5000 步可用 4 天以上</td></tr>
+        <tr><th scope="row">外壳</th><td>待确认</td><td>碳纤维</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>同类产品有奥托博克、奥索、德林、宝泰欧的智能膝关节，进口产品国内价格多在 10 万元以上<sup><a href="#src-43">43</a></sup>。仿生腿的销量和份额没有公开数据。</p>
+
+  <h3 id="revo">Revo 灵巧手与机器人数据</h3>
+  <p>灵巧手是仿生手技术的工业版本，卖给人形机器人公司。2026 年 6 月 2 日，公司合伙人 Nyx He 对彭博说，几十家中国大陆机器人公司在买，包括宇树科技和乐聚机器人；客户还有逐际动力<sup><a href="#src-13">13</a></sup><sup><a href="#src-14">14</a></sup>。宇树 G1-D 的美国经销商把 Revo2 列为可选手部<sup><a href="#src-12">12</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>Revo 系列规格</caption>
+      <thead><tr><th scope="col">型号</th><th scope="col">发布</th><th scope="col">自由度</th><th scope="col">重量 / 力</th><th scope="col">其他</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Revo1</th><td>2024</td><td>待确认</td><td>待确认</td><td>首代</td></tr>
+        <tr><th scope="row">Revo2</th><td>2025-07</td><td>11 个自由度，6 个主动关节</td><td>383 g；整手握力 50 N</td><td>Basic / Pro / Touch 三版，Touch 带触觉；支持 Linux、Windows、ROS</td></tr>
+        <tr><th scope="row">Revo3</th><td>2026-04-10</td><td>21 个</td><td>指尖捏力 20 N</td><td>全掌加指尖触觉，直驱可反驱，33 种抓握，开源</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">来源：Startup Fortune、RobotToday<sup><a href="#src-12">12</a></sup><sup><a href="#src-15">15</a></sup>。美国经销商挂价 Revo2 Basic 约 3400 美元，Touch 版 5900 到 15000 美元不等，运费关税另计。</p>
+  <p>官网的工业灵巧手页面另给了一组参数：单手握力 6 kg，负载 30 kg，精度 0.1 mm，开合 0.8 秒，控制周期不超过 10 ms；指尖触觉能测压力、摩擦、受力方向、接近距离和表面材质，最小感知 1 克力；接口为 RS-485 和 CAN（Modbus-RTU），提供 Python 和 C SDK 及 ROS 仿真<sup><a href="#src-34">34</a></sup>。页面没有写明对应哪个型号。</p>
+  <p>2026 年 7 月 WAIC 上，公司又发布了 RevoHuman 外骨骼数采手套和“灵巧操作数采矩阵”，把真人示教、真机执行、仿真生成三类数据放在一起，卖给训练机器人的团队<sup><a href="#src-36">36</a></sup>。这说明公司在把灵巧手业务延伸到机器人训练数据。</p>
+
+  <h3 id="headbands">脑电头环与消费健康</h3>
+  <div class="tbl">
+    <table>
+      <caption>消费级头环</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">技术</th><th scope="col">硬件</th><th scope="col">已知数据</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Easleep 深海豚安睡仪</th><td>脑电判断睡眠阶段；经颅微电流刺激（CES）；随脑状态变化的助眠音乐、双耳节拍、白噪声</td><td>眼罩款、绑带款，莱卡面料</td><td>京东 1899 到 1999 元；新华网 2023 年称销量超 10 万台；京东 4 万件以上（2025 年 11 月）</td></tr>
+        <tr><th scope="row">FocusCalm</th><td>脑电神经反馈，训练专注和放松</td><td>头环</td><td>Formula Medicine 用于职业运动员训练</td></tr>
+        <tr><th scope="row">OxyZen</th><td>脑电加 PPG，AI 把冥想状态换算成正念、平静、觉察三个 0 到 100 的指数，用声音变化做反馈</td><td>主机 26 g，总重 57 g，磁吸主机配布质头带</td><td>待确认</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">来源：BrainCo 官网、新华网、财中社、什么值得买、Hunterbrook<sup><a href="#src-17">17</a></sup><sup><a href="#src-21">21</a></sup><sup><a href="#src-34">34</a></sup><sup><a href="#src-37">37</a></sup><sup><a href="#src-39">39</a></sup>。</p>
+  <p>2025 年乌镇世界互联网大会上，公司公布路线：2026 年出第二代睡眠产品，2027 年出体重管理产品<sup><a href="#src-21">21</a></sup>。凤凰网 2026 年 1 月援引知情人士说，消费类产品是 2025 年的重要收入来源<sup><a href="#src-27">27</a></sup>。</p>
+
+  <h3 id="medical">医疗与康复产品</h3>
+  <p>2026 年 1 月 31 日，公司发布 ADHD（注意缺陷与多动障碍）干预产品“专注欣”医疗版。它的康复训练软件和脑电采集器都拿到了医疗器械注册证<sup><a href="#src-24">24</a></sup>。注册证编号和类别在公开报道里没有给出，待确认。公司正和上海儿童医学中心、杭州儿童医院做多中心临床研究<sup><a href="#src-35">35</a></sup>。</p>
+  <p>开星果是面向孤独症谱系和发育迟缓儿童的脑电神经反馈训练系统。2020 年底，中国康复研究中心国家孤独症康复研究中心和强脑启动“孤独症儿童可穿戴脑电波康复系统研发”项目<sup><a href="#src-42">42</a></sup>。开星果的落地机构数和收费没有公开数据，证据见下文“孤独症与开星果”。</p>
+
+  <h3 id="research-edu">科研与教育产品</h3>
+  <p>脑控机器人训练平台在 2026 年 WAIC 首发：使用者戴脑电帽，平台识别与任务相关的脑电模式，转成指令发给人形机器人、机械臂或机器狗。公司称没有脑机接口背景的研发人员 10 分钟内就能上手<sup><a href="#src-36">36</a></sup>。现场演示的是机械臂抓水杯、抓苹果。BrainAI 是可拼装的仿生手套件，面向中小学 STEM 教育<sup><a href="#src-34">34</a></sup>，详见下文“BrainAI 教育产品与赛事”。</p>
+
+  <h2 id="market">市场份额与销售</h2>
+  <p>强脑没有公开任何产品的市场份额。下面按业务列出能找到的规模数据，每条都标了口径。最大的发现是：按公司 2023 年的说法，残障用仿生手的用户是千级，和常被引用的“10 万”差两个数量级。</p>
+
+  <h3 id="market-prosthetics">仿生手：用户数远小于“10 万台”</h3>
+  <div class="tbl">
+    <table>
+      <caption>仿生肢体规模数据</caption>
+      <thead><tr><th scope="col">时间</th><th scope="col">数据</th><th scope="col">口径</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2022</th><td>“智能仿生手 10 万台量产”</td><td><span class="pill warn">媒体转述</span> 是产能、生产还是销售不清楚<sup><a href="#src-14">14</a></sup><sup><a href="#src-35">35</a></sup></td></tr>
+        <tr><th scope="row">2023-11</th><td>“大约有上千名残疾人朋友使用了我们的应用方案”</td><td><span class="pill">公司人员接受新华网采访</span><sup><a href="#src-37">37</a></sup></td></tr>
+        <tr><th scope="row">2025-07</th><td>浙江公益项目为近 400 名肢体缺失者装上假肢</td><td><span class="pill">媒体</span><sup><a href="#src-22">22</a></sup></td></tr>
+        <tr><th scope="row">2025</th><td>浙江全省装配智能假肢 2046 人，品牌构成未披露</td><td><span class="pill">36 氪</span><sup><a href="#src-35">35</a></sup></td></tr>
+        <tr><th scope="row">2026 Q1</th><td>咨询和采购询价是上年同期的 5 倍</td><td><span class="pill">公司自述</span><sup><a href="#src-35">35</a></sup></td></tr>
+        <tr><th scope="row">2026</th><td>零跑汽车捐 500 万元为 100 人装假肢；白象食品请强脑为约 3000 名残障员工做筛查</td><td><span class="pill">36 氪</span><sup><a href="#src-35">35</a></sup></td></tr>
+        <tr><th scope="row">未注明</th><td>“服务超 10 万名肢体残障人士”</td><td><span class="pill bad">财经自媒体，无出处</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>2023 年公司自己说的是“上千名”用户。按 16.8 万元单价、千人规模算，到 2023 年残障仿生手的累计收入不到 2 亿元，早期价格更低、还有公益赠送，实际更少。“10 万台”和公司自述的用户数差两个数量级，不能当作残障用户数引用；它指的是产能、生产量还是含灵巧手的总数，待确认。</p>
+  <p>对比同行：傲意科技（OYMotion）的仿生手官方售价 12 万到 16 万元，补贴后个人支付可降到 10 万元以内；2025 年国内销售额约 700 万元，俄罗斯市场营业额约 3000 万到 4000 万元<sup><a href="#src-38">38</a></sup>。国内高端肌电假肢整体是一个年销售额以千万元计的小市场。全球智能假肢市场 2023 年约 152 亿美元，预计 2030 年超过 380 亿美元，由奥托博克和奥索两家主导<sup><a href="#src-38">38</a></sup>。强脑在全球市场的份额没有数据，从规模看占比很小。</p>
+
+  <h3 id="market-hands">灵巧手：国内出货前三</h3>
+  <p>高工产研（GGII）统计 2025 年中国灵巧手出货 1.92 万只，同比增 236%；因时机器人超 1 万只排第一，强脑与灵心巧手并列第二<sup><a href="#src-29">29</a></sup>。按这个数推算，因时之外的出货合计不到 9200 只，强脑和灵心巧手并列，强脑最多约 4600 只，份额不超过约四分之一。另有报道称强脑 2025 年给人形机器人的灵巧手只卖了几百只，全年不足 1000 只<sup><a href="#src-29">29</a></sup>。两种说法相差几倍，口径没有公开，本文无法判断哪个准确。傲意科技也自称国内灵巧手出货量最大<sup><a href="#src-38">38</a></sup>。公司称年产能 3 万只以上。</p>
+  <p>按国内整套约 5 万元起计，4600 只灵巧手对应的收入最多 2 亿元出头。这和“2025 年营收约 8 亿元”的媒体估算在量级上能对得上，但没有招股书无法核实。GGII 预测中国灵巧手销量 2030 年超过 43 万只<sup><a href="#src-14">14</a></sup>。</p>
+
+  <h3 id="market-consumer">消费头环：销量十万级</h3>
+  <p>安睡仪是能查到销量最多的产品：新华网 2023 年 11 月报道销量超过 10 万台<sup><a href="#src-37">37</a></sup>，京东单店销量 4 万件以上（2025 年 11 月）<sup><a href="#src-21">21</a></sup>。按 1900 元左右的单价，10 万台对应约 2 亿元累计销售额。FocusCalm 和 OxyZen 没有公开销量。国内消费级脑电设备没有公开的份额统计。</p>
+
+  <h3 id="market-region">销售地区与渠道</h3>
+  <ul>
+    <li>地区：2025 年海外收入占近 30%<sup><a href="#src-14">14</a></sup>，另有报道称海外仿生手收入占近一半。海外按竞品价格卖，利润率较高<sup><a href="#src-4">4</a></sup></li>
+    <li>仿生肢体：残联补贴、医保和长期护理保险、企业捐赠、公益项目，香港理工大学试点<sup><a href="#src-10">10</a></sup><sup><a href="#src-35">35</a></sup></li>
+    <li>灵巧手：直销给人形机器人公司，海外经由经销商销售</li>
+    <li>消费头环：京东、天猫等电商旗舰店，海外官网和应用</li>
+  </ul>
+
+  <h2 id="reviews">用户评价</h2>
+  <p>本节只收录能找到出处的用户原话。检索覆盖新闻报道、什么值得买、App Store、Trustpilot、科技评测站和经销商页面；知乎、小红书、京东评论区和 Reddit 无法直接读取，只能经由二手文章转引，标为“转引”。</p>
+  <div class="warn"><b>先看可信度</b>媒体上出镜最多的两位仿生手用户都和公司有关：古月在 2026 年 1 月的活动上被介绍为“仿生手受益人、假肢售后负责人”<sup><a href="#src-48">48</a></sup>；周键（Jian）是公司“体验官”，公司新闻稿说他后来加入了强脑<sup><a href="#src-46">46</a></sup>。安睡仪的多篇“真实测评”带推广标签，只有好评<sup><a href="#src-47">47</a></sup>。独立、长期的负面评价很少，这本身是一个信息缺口。</div>
+
+  <h3 id="reviews-limb">仿生手与仿生腿</h3>
+  <div class="tbl">
+    <table>
+      <caption>仿生肢体用户反馈</caption>
+      <thead><tr><th scope="col">谁</th><th scope="col">原话或反馈</th><th scope="col">与公司关系</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">古月，左手缺失</th><td>“我不再介意别人提到我的手”；传统假手“需要我不断学习和适应，而不是适应我的需求”<sup><a href="#src-45">45</a></sup>。活动现场举 10 公斤哑铃、弹钢琴<sup><a href="#src-48">48</a></sup></td><td>假肢售后负责人</td></tr>
+        <tr><th scope="row">周键，12 岁失去右手</th><td>“它没有赋予我超能力，却让我终于从容地活在阳光下”；弹钢琴、攀岩、冲浪<sup><a href="#src-49">49</a></sup></td><td>公司体验官，后入职</td></tr>
+        <tr><th scope="row">早期用户（未具名）</th><td>为减重改用塑料手指后，“只能提不超过 5 公斤的重物”；改用金属后每根手指重约 4 克，可提 20 到 30 公斤。古月转述用户的意见：“用户觉得耐用更重要”<sup><a href="#src-45">45</a></sup></td><td>经济观察报转述</td></tr>
+        <tr><th scope="row">早期用户（未具名）</th><td>要随身带“类似大箱子的控制盒”，后来逐步缩小<sup><a href="#src-45">45</a></sup></td><td>经济观察报转述</td></tr>
+        <tr><th scope="row">林韵，仿生腿用户</th><td>穿传统假肢“就像拄着一条不稳的拐杖，走平地都会摔倒”；换仿生腿后赶公交被绊倒，传感器“当场碎裂”；仿生腿最大角度上不了陡坡，后来加了紧急避险功能<sup><a href="#src-45">45</a></sup></td><td>经济观察报采访，参与产品反馈</td></tr>
+        <tr><th scope="row">截肢十个月后装机的用户</th><td>“它确实能起到一些辅助作用，但和原生手还是有差距的，动作需要训练才能熟练掌握，有些功能也还在适应中”</td><td><span class="pill warn">转引</span> 小红书训练记录，经什么值得买 AI 汇总文章转述<sup><a href="#src-49">49</a></sup></td></tr>
+        <tr><th scope="row">微博科技博主，2026-10-13</th><td>“强脑 2019 年就开始宣传了，到现在 7 年了，你日常生活里看到有多少残疾人在用？”</td><td><span class="pill warn">转引</span><sup><a href="#src-50">50</a></sup></td></tr>
+        <tr><th scope="row">演示视频评论区</th><td>点赞靠前的问题：“有力反馈吗”“出汗怎么办”“拿重东西稳不稳”“多少钱”，以及装上后幻肢痛还在不在、先天缺手能不能用</td><td><span class="pill warn">转引</span><sup><a href="#src-49">49</a></sup><sup><a href="#src-50">50</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>归纳下来，用户提到最多的收益是心理层面：敢把手放到桌面上，不再用袖口遮断腕，能拧瓶盖、端杯子、写名字。问题集中在五处：没有触觉，冷热软硬要靠眼睛看；要长期训练；出汗和接受腔合不合身影响天天戴；十几万元多数要自费；维修网络待建。有康复专家说“很多人装上后，慢慢就不戴了”<sup><a href="#src-50">50</a></sup>，公司自己引用的传统假手弃用率是 20%<sup><a href="#src-49">49</a></sup>。强脑仿生手的长期佩戴率没有公开数据。</p>
+
+  <h3 id="reviews-sleep">安睡仪</h3>
+  <div class="tbl">
+    <table>
+      <caption>安睡仪用户反馈</caption>
+      <thead><tr><th scope="col">来源</th><th scope="col">反馈</th><th scope="col">说明</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">App Store 中国区“深海豚 Easleep”</th><td>4.8 分，24 个评分。可见评论如“用了三次以后，明显感觉入睡快了”“每天中午都用，带着开个 15 分钟助眠模式，整个下午精力充沛”<sup><a href="#src-51">51</a></sup></td><td>评分人数少，可见评论都在 2022 年 7 到 12 月，即上市前后</td></tr>
+        <tr><th scope="row">京东评价</th><td>两极：部分用户称助眠有效，部分用户称“智商税”<sup><a href="#src-21">21</a></sup></td><td>财中社 2025-11 转述</td></tr>
+        <tr><th scope="row">官网展示的用户评价</th><td>“我用最高档，有刺痛感，效果挺好”（官网英文用户评价的回译）<sup><a href="#src-34">34</a></sup></td><td>官网挑选的评价</td></tr>
+        <tr><th scope="row">知乎用户，转引</th><td>用了约 10 天，“爸妈反馈说戴上睡眠仪没多久就能入睡”；另有回答认为“如果你心理对睡眠仪相信……它就是有效的”</td><td><span class="pill warn">转引</span> 知乎原帖无法直接读取，经搜索摘要转引<sup><a href="#src-58">58</a></sup></td></tr>
+        <tr><th scope="row">第三方 App 评论汇总</th><td>批评点：界面陈旧、不能即时看脑电波、功能少</td><td><span class="pill warn">转引</span> apptail.io，样本规模不明</td></tr>
+        <tr><th scope="row">“真实用户反馈”类文章</th><td>只有好评，如“使用第一个月，我就明显感觉到入睡变得容易了”<sup><a href="#src-47">47</a></sup></td><td>带“#电商启航计划”标签，含 AI 生成内容，按推广处理</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>公司宣传的临床数据是“超 90% 的受试者入睡速度明显提升，平均每日多睡 30 分钟”，知乎上流传的研究样本为 60 人、14 天；本文没有找到这项研究的论文或注册记录。睡眠类产品的主观评价受安慰剂效应影响大，没有假刺激对照的好评不能说明电刺激本身有效。</p>
+
+  <h3 id="reviews-headband">FocusCalm 与 OxyZen</h3>
+  <ul>
+    <li>FocusCalm 美国区 App Store 3.9 分，54 个评分。好评：“FocusCalm is a 10/10”，“charges quickly, connects to Bluetooth almost immediately”。差评：“the app is not saving data/results for most of the exercises… 50% disappointed”（2023-06）；“You can’t simply do a timed meditation, you have to use their goofy games”（2024-01）<sup><a href="#src-52">52</a></sup></li>
+    <li>FocusCalm 在 Trustpilot 上没有任何评价<sup><a href="#src-53">53</a></sup>。第三方汇总站 Biohacker Atlas 引用的 Trustpilot 分数为 4.1 分（300 条），并指出产品没有 FDA 许可或 CE 标识<sup><a href="#src-54">54</a></sup></li>
+    <li>The Gadgeteer 的 FocusCalm 评测使用厂商送测样机，结论正面，缺点是头环两端夹头，需要换软垫<sup><a href="#src-54">54</a></sup></li>
+    <li>The Gadgeteer 的 OxyZen 评测（2024-10，送测样机）：“really shines when it comes to helping you relax and focus”；缺点是连续使用只有约 8 小时，侧睡的人用不了睡眠监测，“you'll need to be a back sleeper”；售价 299 美元起<sup><a href="#src-55">55</a></sup></li>
+  </ul>
+  <p>英文评测几乎都来自送测样机，没有找到独立的长期使用评测。</p>
+
+  <h3 id="reviews-revo">Revo 灵巧手（开发者）</h3>
+  <p>没有找到开发者公开的故障报告。能看到的反馈集中在集成：宇树 G1 通过串口控制，厂商提供 C 和 Python SDK，需要一个转换程序把串口消息转成宇树 SDK 用的 DDS 消息，左右手分别用设备号 126 和 127<sup><a href="#src-56">56</a></sup>。一家集成商在把 Revo2 装到睿尔曼 RM65B 机械臂上时发现，Revo2 用自有的腕部接口和螺孔布局，和工业标准法兰对不上，只能 3D 打印转接件<sup><a href="#src-57">57</a></sup>。经销商把 Revo2 按机器人型号（G1、H2、R1）和版本（Basic、Touch、Pro）分成很多个 SKU，买错型号的风险不小<sup><a href="#src-56">56</a></sup>。</p>
+
+  <h3 id="reviews-summary">评价小结</h3>
+  <div class="tbl">
+    <table>
+      <caption>各产品口碑与证据质量</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">用户说得最多的好处</th><th scope="col">用户说得最多的问题</th><th scope="col">证据质量</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">仿生手</th><td>敢出门、能做日常单手难做的事、比进口便宜</td><td>无触觉、要训练、出汗、贵、早期不耐用</td><td><span class="pill warn">弱</span> 正面案例多来自关联人员</td></tr>
+        <tr><th scope="row">仿生腿</th><td>比机械假肢稳</td><td>摔倒时传感器易坏、陡坡角度不够（已改进）</td><td><span class="pill warn">弱</span> 一位用户</td></tr>
+        <tr><th scope="row">安睡仪</th><td>入睡变快、午睡好用</td><td>“智商税”、电刺激有刺痛、App 简陋</td><td><span class="pill warn">弱</span> 推广文多，独立差评难取</td></tr>
+        <tr><th scope="row">FocusCalm</th><td>做工好、连接快</td><td>数据不保存、只能玩内置游戏</td><td><span class="pill">中</span> 54 个评分，有好有坏</td></tr>
+        <tr><th scope="row">OxyZen</th><td>帮助放松</td><td>续航 8 小时、侧睡不能监测</td><td><span class="pill warn">弱</span> 一篇送测评测</td></tr>
+        <tr><th scope="row">Revo 灵巧手</th><td>宇树生态有现成集成</td><td>腕部接口非标准、型号多</td><td><span class="pill warn">弱</span> 集成文档和一篇集成商博客</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="tech">技术路线</h2>
+  <p>脑机接口按是否开颅分三类。强脑只做最外层的非侵入式。</p>
+  <div class="tbl">
+    <table class="compare">
+      <caption>三条脑机接口路线</caption>
+      <thead><tr><th scope="col">标准</th><th scope="col" class="pick">非侵入式（强脑）</th><th scope="col">半侵入式</th><th scope="col">侵入式</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">传感器位置</th><td class="pick">头皮、残肢皮肤表面</td><td>颅骨下、硬膜外</td><td>插入大脑皮层</td></tr>
+        <tr><th scope="row">是否开颅</th><td class="pick">否</td><td>是</td><td>是</td></tr>
+        <tr><th scope="row">信号精度</th><td class="pick">低，适合状态识别和粗粒度意图</td><td>中</td><td>高</td></tr>
+        <tr><th scope="row">监管</th><td class="pick">消费电子或二类医疗器械</td><td>三类医疗器械，需临床试验</td><td>三类医疗器械，需临床试验</td></tr>
+        <tr><th scope="row">代表公司</th><td class="pick">强脑科技</td><td>博睿康（NEO）、Synchron</td><td>Neuralink、脑虎科技、阶梯医疗</td></tr>
+        <tr><th scope="row">能否现在大规模卖</th><td class="pick">能</td><td>否，2026 年刚开始获批</td><td>否，仍在临床</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>韩璧丞把公司十年来的核心工作概括为做一个监测神经信号的“超级传感器”<sup><a href="#src-11">11</a></sup>。早年的湿电极需要导电膏，消费产品要做成干电极才能日常戴。2026 年 WAIC 发布的脑控机器人平台，面向的是科研和开发者，把脑电解码和机器人控制做成图形化工具<sup><a href="#src-16">16</a></sup>。</p>
+  <p>这条路线的取舍很清楚：能马上卖、能上量，但头皮脑电信噪比低，只能读出专注、放松、睡眠这类状态，读不出精细的运动意图。所以它的“意念控制”假肢实际主要靠肌电，它的商业价值更多在传感器、电机、量产和渠道上。</p>
+
+  <h2 id="eeg">脑电反馈靠不靠谱</h2>
+  <p>结论：信号可靠，用途有限。头皮脑电能稳定区分几种粗状态，可以当一个或两个开关用；读不出“左转”“加速”这类具体意图。健康功效的证据比宣传弱。</p>
+
+  <h3 id="eeg-signal">头环能测到什么</h3>
+  <p>头环贴在额头，测的是隔着颅骨和头皮传出来的微伏级电信号。颅骨会把信号抹平，额头的干电极还会混入大量肌肉电。下表按可靠程度排列。</p>
+  <div class="tbl">
+    <table>
+      <caption>额头干电极脑电的能力边界</caption>
+      <thead><tr><th scope="col">能测什么</th><th scope="col">可靠程度</th><th scope="col">说明</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">眨眼、眼动、咬牙、皱眉</th><td><span class="pill good">很可靠</span></td><td>这些是肌电和眼电，比脑电强得多，是额头传感器最容易捕到的信号</td></tr>
+        <tr><th scope="row">放松与紧张（α 波强弱）</th><td><span class="pill good">可靠</span></td><td>闭眼、放松时 α 波明显增强，个人之间差异大</td></tr>
+        <tr><th scope="row">睡眠分期</th><td><span class="pill">较可靠</span></td><td>整夜佩戴、离线分析时效果尚可，精度低于医院多导睡眠图</td></tr>
+        <tr><th scope="row">“专注度”分数</th><td><span class="pill warn">粗略</span></td><td>由厂商算法把多个频段合成一个 0 到 100 的数，算法不公开，易受肌肉动作干扰</td></tr>
+        <tr><th scope="row">具体动作意图（左转、抓取）</th><td><span class="pill bad">做不到</span></td><td>需要植入电极或运动想象加长时间训练，额头单点头环达不到</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="eeg-car">展厅里的脑控小车</h3>
+  <p>展厅演示的具体算法公司没有公开，待确认。这类演示的常见做法是：软件把脑电换算成一个“专注”或“放松”分数，分数超过设定值，小车前进；低于设定值，小车停下。它是一个开关，响应要几秒，没有方向盘。</p>
+  <p>同样的演示 2009 年就有玩具在卖。美泰（Mattel）当年推出 Mindflex，用 NeuroSky 的头环控制风扇，把泡沫球吹过障碍，售价 79.99 美元；改装爱好者发现头环只输出“专注”和“冥想”两个数值，也有人称不戴头环也能过关<sup><a href="#src-33">33</a></sup>。强脑 2026 年 WAIC 宣传的“200 毫秒以内”指的是延迟<sup><a href="#src-16">16</a></sup>，说明不了它能区分几个指令、准确率多少。</p>
+
+  <h3 id="eeg-test">现场自测方法</h3>
+  <p>在展厅戴上头环，按下面的顺序试，看小车的反应：</p>
+  <ol>
+    <li>放空，什么都不想，保持面部不动，记下小车状态</li>
+    <li>用力皱眉或咬紧牙关，不改变想法</li>
+    <li>瞪眼不眨，或快速连续眨眼</li>
+    <li>闭眼放松十秒</li>
+  </ol>
+  <p>如果第 2、3 步也能让小车动，说明“脑控”里有相当部分是肌肉信号。第 4 步能让小车变化是正常的，α 波确实会随闭眼放松增强。</p>
+
+  <h3 id="eeg-health">健康用途的证据</h3>
+  <div class="tbl">
+    <table>
+      <caption>脑电相关用途的证据强度</caption>
+      <thead><tr><th scope="col">用途</th><th scope="col">信号是否真实</th><th scope="col">功效是否证实</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">专注 / 放松打分</th><td>是，粗略</td><td>它只是测量，不是治疗</td></tr>
+        <tr><th scope="row">ADHD 神经反馈训练</th><td>是</td><td>证据不一致。2021 年一项双盲对照试验（美国两个中心，7 到 10 岁儿童约 144 人）显示，真训练组和假训练组的注意力评分都明显改善，主要指标没有差别（结束时 d = 0.01，13 个月随访 d = 0.23，均不显著）。次要指标上，真训练组缓解率 39.7%，对照组 18.5%，随访期用药更少<sup><a href="#src-32">32</a></sup>。强脑“专注欣”医疗版已获注册证，本文没有查到它公开的临床试验数据</td></tr>
+        <tr><th scope="row">安睡仪助眠</th><td>睡眠监测可信</td><td>未在药监局注册为医疗器械，客服称其为电子产品<sup><a href="#src-21">21</a></sup></td></tr>
+        <tr><th scope="row">智能仿生手</th><td>是</td><td>能用，但主要靠残肢肌电控制，不是脑电<sup><a href="#src-30">30</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>那项 ADHD 试验的作者认为，结果不支持“刻意训练脑电比值”有特定疗效，但提示存在较强的非特异效应，也就是戴设备、做训练、被关注本身带来的改善<sup><a href="#src-32">32</a></sup>。这对强脑的含义是：它的医疗类脑电产品要拿出带假训练对照的数据，才能说明功效来自脑电反馈本身。</p>
+
+  <h2 id="brainbot">脑控机器人平台</h2>
+  <p>结论：没有量产。2026 年 7 月发布的是一套给科研和开发团队用的工具，截至 2026-11-13 没有公开价格、交付时间、客户名单和准确率。量产并卖给几百家客户的是 Revo 灵巧手，那些手由机器人自己的程序控制，不由脑电控制。</p>
+
+  <h3 id="brainbot-what">它是什么，有没有量产</h3>
+  <ol class="timeline">
+    <li><time>2026-07-17</time><div>WAIC 上海首发“BrainCo 脑控机器人训练平台”，现场用机械臂抓水杯和苹果<sup><a href="#src-16">16</a></sup><sup><a href="#src-36">36</a></sup>。</div></li>
+    <li><time>2026-08</time><div>北京世界机器人大会（WRC）上，第一次用人形机器人做执行端公开演示：使用者戴脑电帽站在机器人旁，不动不说话，机器人按解码后的指令动作<sup><a href="#src-59">59</a></sup>。</div></li>
+    <li><time>2026-11-13</time><div>本文没有查到售价、发货、客户或量产的公开信息。公司新闻稿也没有提量产<sup><a href="#src-16">16</a></sup>。</div></li>
+  </ol>
+  <p>公司对它的定位是“一体化脑控机器人 AI 科研平台”，让没有脑机接口背景的研发人员 10 分钟内上手<sup><a href="#src-36">36</a></sup>。用户是实验室和机器人公司的研发人员，不是普通消费者，也不是残障人士。</p>
+  <p>要分清两件事。2026 年 8 月，公司具身智能事业部总经理张知阁介绍，灵巧手业务已有“数百家客户”，包括宇树和乐聚<sup><a href="#src-59">59</a></sup>。这些客户买的是机器人的手，由机器人自己的控制程序驱动，和脑控平台是两个产品。媒体报道里“强脑的手卖给了几百家机器人公司”和“强脑能用意念控制机器人”常被放在一起说，容易让人以为脑控机器人已经大规模落地。</p>
+
+  <h3 id="brainbot-tech">技术细节</h3>
+  <div class="tbl">
+    <table>
+      <caption>脑控机器人平台已公开参数</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">内容</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">脑电采集</th><td>BrainCo 智能脑电传感系统，32 通道，兼容湿电极和干电极，采样率 250 / 500 / 1000 Hz 三档，WiFi 6 实时传输<sup><a href="#src-60">60</a></sup></td></tr>
+        <tr><th scope="row">范式</th><td>内置 SSVEP（注视闪烁目标）和运动想象两类，研究者可接入自己的算法<sup><a href="#src-60">60</a></sup></td></tr>
+        <tr><th scope="row">指令映射</th><td>研究者自定义，例如“注视 7 Hz 闪烁 = 抓取”“想象左手运动 = 左转”<sup><a href="#src-60">60</a></sup></td></tr>
+        <tr><th scope="row">延迟</th><td>采集、解码到发出指令不到 200 毫秒（公司说法）<sup><a href="#src-16">16</a></sup></td></tr>
+        <tr><th scope="row">可接设备</th><td>人形机器人、机械臂、机器狗，无线或有线接入；具体型号未列出<sup><a href="#src-16">16</a></sup><sup><a href="#src-60">60</a></sup></td></tr>
+        <tr><th scope="row">指令数、准确率</th><td>未公开；平台能算“离线准确率”，但没有公布数值</td></tr>
+        <tr><th scope="row">价格、交付、客户</th><td>未公开</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>这套平台用的 32 通道脑电帽，和消费头环（额头一到几个电极）不是一个级别的设备，更接近实验室脑电系统。所以它能做的事比展厅小车多，但仍然受头皮脑电的上限约束。</p>
+
+  <h3 id="brainbot-reliable">靠不靠谱</h3>
+  <p>靠谱的部分：它用的两种范式都是学术界做了二十多年的成熟方法。一项 2019 年的公开数据研究让 54 名受试者在同一套设备上做三种范式，平均准确率分别是：SSVEP 95.1%，ERP 96.7%，运动想象 71.1%；达不到可用水平的人分别占 10.2%、11.1%、53.7%<sup><a href="#src-61">61</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <caption>两种范式在实际使用中的含义</caption>
+      <thead><tr><th scope="col">范式</th><th scope="col">使用者要做什么</th><th scope="col">准确率</th><th scope="col">代价</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">SSVEP</th><td>盯着屏幕上以不同频率闪烁的按钮，盯哪个就选哪个</td><td>高，约 95%</td><td>要一直看屏幕，眼睛累；本质是“用眼神按按钮”</td></tr>
+        <tr><th scope="row">运动想象</th><td>想象左手或右手在动</td><td>中，约 71%，约一半人用不好</td><td>需要训练，每个人效果差别大，指令只有两三个</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>现场演示里的“抓水杯”，脑电只负责发一个“抓”的选择，伸手、对准、握力这些动作由机械臂自己的程序和视觉完成。这符合公司说的分工：脑机接口负责意图，AI 拆解任务，机器人负责执行<sup><a href="#src-16">16</a></sup>。所以它能可靠地做的是：从几个预设动作里选一个，每次选择要几秒。它做不到用脑电连续、精细地操纵机器人。</p>
+  <p>“10 分钟上手”对 SSVEP 可信，因为 SSVEP 几乎不需要训练；对运动想象不可信，按上面的数据，约一半人短时间内达不到可用准确率。公司没有说明 10 分钟指的是哪种范式。</p>
+  <p>新的部分在于工程整合：把脑电采集、算法训练、指令映射和多种机器人接口做进一个图形界面，省掉实验室自己搭系统的几周到几个月。这对高校和机器人研发团队有用，对普通人没有直接用处。</p>
+
+  <h3 id="brainbot-reviews">用户与外界评价</h3>
+  <ul>
+    <li>真实用户评价：本文没有找到。平台发布不到四个月，没有公开客户，也没有找到研究人员的使用反馈或论文</li>
+    <li>媒体报道：中文报道多为发布会通稿和自媒体分析，没有记者亲自上手的记录<sup><a href="#src-36">36</a></sup><sup><a href="#src-60">60</a></sup></li>
+    <li>英文科技媒体 The Next Web 的分析认为，发布会演示是配合度高的使用者在受控环境下完成的，抓苹果离日常可靠使用还很远；脑控抓物体在实验室里已经演示了多年，新意在于工作流和数据采集<sup><a href="#src-62">62</a></sup></li>
+    <li>Notebookcheck 的报道以“边吃薯片边装电脑”作标题，属于娱乐化宣传<sup><a href="#src-62">62</a></sup></li>
+  </ul>
+  <p>判断：这是一款面向科研的工具，技术路线可靠但不新，商业规模未知。本文判断它在商业上主要起两个作用：支撑公司“脑机接口加具身智能”的定位，给灵巧手和数采手套业务带来科研客户。要验证它，需要看到三样东西：公开价格和销售渠道，第三方论文里的准确率和指令速度，以及有名有姓的科研客户。</p>
+
+  <h2 id="bci-devices">脑控轮椅、无人机与打字</h2>
+  <p>结论：强脑没有在售的脑控轮椅、脑控无人机或意念打字产品。整个行业里，这三类在非侵入式路线上都停留在演示、比赛和研究阶段，没有大众化量产。</p>
+
+  <h3 id="bci-devices-brainco">强脑的情况</h3>
+  <p>本文没有查到强脑的脑控轮椅或无人机产品。意念打字是公司的未来目标：2026 年 3 月中国发展高层论坛上，韩璧丞说未来“有望”用意念打字，脑机接口“可能成为下一代的键盘”，同时承认产品“还不完美”，处在“非常早期的形态”<sup><a href="#src-70">70</a></sup>。他还说公司此前以非侵入式为主，“不会局限于这一路线”，并认为帮助失明人群需要侵入式方案<sup><a href="#src-70">70</a></sup>。</p>
+  <p>媒体上常见的“意念开轮椅、遥控无人机”画面，多来自 2026 年 9 月 21 日在杭州举办的“全球脑机接口 × 医保创新场景大赛”决赛。大赛由国家医保局和浙江省政府主办，设无人机、运动轮椅、机械臂、机器狗、脑控打字、赛车游戏等比赛项目，415 支团队报名，251 个项目进决赛；报道没有提到强脑参赛<sup><a href="#src-71">71</a></sup>。</p>
+
+  <h3 id="bci-devices-status">行业现状与效果</h3>
+  <div class="tbl">
+    <table>
+      <caption>三类脑控设备的状态（截至 2026-11）</caption>
+      <thead><tr><th scope="col">设备</th><th scope="col">状态</th><th scope="col">实际效果</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">脑控轮椅</th><td>演示和早期试验。燕山大学在 2026 年 8 月世界机器人大会上演示<sup><a href="#src-72">72</a></sup>；广州一家公司的头环轮椅 2025 年 12 月在全国残运会上使用；美国 Synaptrix 在做早期可行性研究<sup><a href="#src-73">73</a></sup></td><td>没有公开的速度和准确率。常见做法是脑电从前进、左转、右转、停止几个指令里选一个，避障靠轮椅自己的传感器；慢，安全性限制了实际使用</td></tr>
+        <tr><th scope="row">脑控无人机</th><td>爱好者产品和实验室项目。EEGSmart 的 UDrone 2019 年评测“能用但不完美”，它的头环同时读眼电和面部肌电<sup><a href="#src-74">74</a></sup></td><td>起飞、前进、转向、降落几个简单指令，不能用于真正的飞行任务</td></tr>
+        <tr><th scope="row">非侵入式打字</th><td>研究阶段</td><td>最好成绩约每分钟 60 个字符（2015 年，注视闪烁字母，依赖眼睛）<sup><a href="#src-75">75</a></sup>；运动想象打字每分钟 2 到 8 个字符；2025 年一项想象手写的中文拼音系统约每分钟 10 个汉字<sup><a href="#src-76">76</a></sup>。综述认为它对日常发消息太慢<sup><a href="#src-76">76</a></sup></td></tr>
+        <tr><th scope="row">植入式打字</th><td>临床试验</td><td>速度快得多，但需要开颅手术，没有产品化</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>演示比现实好看，原因有三个：演示者配合度高、环境安静、指令只有几个；脑电通常只负责从菜单里选一项，开车和飞行由机器自己的传感器和程序完成；速度快的非侵入式方法要盯着闪烁目标，部分靠的是眼睛。对还能动眼睛的人，眼动追踪打字已经比脑电更快，并且有商用产品。脑控轮椅和打字真正的用户是重度瘫痪、连眼睛都难以控制的人，这部分需求目前主要靠植入式研究推进。</p>
+
+  <h2 id="brainai">BrainAI 教育产品与赛事</h2>
+  <p>结论：BrainAI 是一套面向中小学的脑电编程教具和配套赛事，赛事规模真实、背书真实，但“提高专注力”没有独立证据。比赛考的是“让头环上的专注力分数越过一条线”，这是一项可练的技巧，不等于学习时的注意力变好了。</p>
+
+  <h3 id="brainai-what">BrainAI 是什么</h3>
+  <p>BrainAI 是强脑的教育品牌，海外叫 NeuroMaker，是公司三个事业部中的教育部门<sup><a href="#src-68">68</a></sup>。产品是可拼装的仿生手和生物传感器套件，学生用它读脑电、肌电和手部动作，在图形化编程软件里用“积木块”写程序控制机械结构。NeuroMaker Hand 2.0 和 BioSensor Kit 获得过 iF 设计奖；公司称三年内被美国 200 多个学区、学校和项目采用<sup><a href="#src-68">68</a></sup>。国内的赛事版使用“自主研发的民用级脑电采集与分析系统”，具体型号和价格未公开<sup><a href="#src-63">63</a></sup>。</p>
+  <p>它和 2019 年停用的 Focus EDU 课堂头环面向同一个市场：学校。区别是，Focus EDU 在课堂上给学生的专注度打分排名，引发监控争议；BrainAI 把脑电放进编程课和比赛，学生主动去“玩”自己的脑电数据。</p>
+
+  <h3 id="brainai-contest">赛事怎么比</h3>
+  <p>赛事全名“BrainAI 脑科学人工智能挑战赛”（原名 NeuroMaster），是世界机器人大赛（WRC）下的系列赛，由中国电子学会和浙江强脑科技联合主办<sup><a href="#src-63">63</a></sup>。中国电子学会是工程师学术团体，和投资强脑的中国电子（CEC）是两家单位。主办方称，赛事已在全国 20 多个省市办了一百多场，累计 5 万多支队伍参加，线上覆盖 50 多万人次<sup><a href="#src-63">63</a></sup>。2026 年有辽宁、云南、北京等地的选拔赛；北京站 7 月 19 日有 170 多名中小学生、63 支队伍参加<sup><a href="#src-66">66</a></sup><sup><a href="#src-69">69</a></sup>。</p>
+  <p>以 2025 年“未来之城·脑智启能”赛项为例（规则 V5.6）<sup><a href="#src-64">64</a></sup>：</p>
+  <div class="tbl">
+    <table>
+      <caption>“未来之城·脑智启能”赛项规则要点</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">规则</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">组别与人数</th><td>小学组、中学组；每队不超过 4 名学生、2 名指导老师</td></tr>
+        <tr><th scope="row">形式</th><td>两队 1 对 1 对抗。先是自动阶段，小车按程序巡线运东西；再是 2 分钟“脑智控制阶段”，手柄遥控小车，脑电控制投石器</td></tr>
+        <tr><th scope="row">脑电怎么用</th><td>赛前抽签决定“专注力阈值”：低（专注力值低于 25）或高（专注力值不低于 75）。专注力值符合阈值时投石器发射一次，不符合时必须停止</td></tr>
+        <tr><th scope="row">脑电设备要求</th><td>不限品牌，但要有明显指示灯，至少 3 个电极，在图形化编程软件里有对应积木块</td></tr>
+        <tr><th scope="row">禁止事项</th><td>不能手动或遥控发射；不能摘头环或换手；不能用手机、书本、玩具等帮助提升专注力</td></tr>
+        <tr><th scope="row">中学组门槛</th><td>赛前提交 4 到 5 分钟工程记录视频，评分达标才能参赛</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>规则里有两个细节值得注意。一是阈值有一半概率抽到“低”，选手要让专注力分数降到 25 以下才能发射，这考的是控制分数高低的能力，而不是保持专注。二是“专注力值”是厂商算法给出的 0 到 100 的数，算法不公开；前文说过，额头电极上的这个分数会受眨眼、皱眉等肌肉动作影响。比赛里能真正学到的是机械搭建、巡线编程和团队配合，脑电部分是一个由分数触发的开关。</p>
+
+  <h3 id="brainai-whitelist">白名单与升学说法</h3>
+  <p>辽宁站的报道称 BrainAI 系列赛是“经教育部审核通过的全国中小学生竞赛白名单赛事”，成绩“纳入中小学生综合素质评价体系”<sup><a href="#src-63">63</a></sup>。也有报道称它是白名单里的“核心 A 类赛项”。</p>
+  <p>核对教育部公布的《2025—2028 学年面向中小学生的全国性竞赛活动名单》（共 47 项）：名单里有“世界机器人大会青少年机器人设计与信息素养大赛”，主办单位是中国电子学会<sup><a href="#src-67">67</a></sup>。名单以整项赛事列出，没有单列 BrainAI 赛项，也没有“A 类”的分级。BrainAI 是否算在这项白名单赛事的赛项范围内，本文没有查到教育部或中国电子学会的赛项清单，待确认。“纳入综合素质评价”在各地做法不同，报道没有给出文件依据。</p>
+  <div class="warn"><b>给家长</b>报名前向学校或当地教育部门确认两件事：这个赛项的成绩是否算白名单赛事成绩，本地综合素质评价是否认可。不要只看机构宣传。设备和培训费用在公开报道里都没有披露，报名前要问清楚。</div>
+
+  <h3 id="brainai-focus">能不能提高专注力</h3>
+  <p>赛事规则写着该赛项“可以全面提升大脑的专注力等底层能力”<sup><a href="#src-64">64</a></sup>。本文没有找到支持这句话的研究：没有公开的对照试验，没有比较参赛学生和未参赛学生的学习注意力。</p>
+  <p>2022 年 WRC 另一个脑电赛项“超脑竞速”的规则文件自己写道：神经反馈方法“依旧存在低复现性的问题”，“该方法对注意力提升的有效性也存在一定的争议”<sup><a href="#src-65">65</a></sup>。前文“健康用途的证据”一节的 ADHD 双盲试验也显示，真训练和假训练在主要指标上没有差别<sup><a href="#src-32">32</a></sup>。学会让头环分数变高，和上课时更专心，是两件不同的事；目前没有证据说明前者能迁移到后者。</p>
+
+  <h3 id="brainai-reviews">用户评价</h3>
+  <ul>
+    <li>北京站银牌学生：“我第一次知道，原来我的专注力真的可以控制机器。这种感觉太神奇了，我想继续学下去”<sup><a href="#src-66">66</a></sup></li>
+    <li>主办方强脑创新解决方案中心主任陈丽娜：“选手可通过调节脑电状态实现‘意念控制’”<sup><a href="#src-63">63</a></sup></li>
+    <li>老师和家长的公开评价、独立测评、投诉：本文都没有找到</li>
+  </ul>
+  <p>判断：作为科普和编程课，BrainAI 能让学生接触脑电和机器人，参赛规模和学会背书都是真的。作为“提高专注力”的工具，它没有证据。公司借赛事把教具卖进学校和培训机构，回到了 2019 年退出的教育市场。</p>
+
+  <h2 id="autism">孤独症与开星果</h2>
+  <p>结论：开星果有一项小规模随机对照试验支持，证据比强脑多数消费产品强；但它只在两项指标上比假训练多一点进步，是行为干预之外的辅助手段，不能替代正规干预，也没有拿到医疗器械注册证。</p>
+
+  <h3 id="autism-what">孤独症是什么</h3>
+  <p>孤独症（也叫自闭症，医学名称“孤独症谱系障碍”）是大脑发育方式的终身差异，不是后天“得上”的精神病，也不是家长教养方式造成的。表现通常在 3 岁前出现，分两类：</p>
+  <ul>
+    <li>社交沟通：眼神接触少，说话晚或方式特别，难以你来我往地玩，不会用手指去分享兴趣（专业上叫“共同注意”）</li>
+    <li>重复行为和狭窄兴趣：重复动作，强烈依赖固定程序，对某些事物极度专注，对声音、光线、触碰过度敏感或反应迟钝</li>
+  </ul>
+  <p>它是一个“谱系”：有人一整天都需要帮助，有人能独立生活和工作。目前没有药物能治疗核心症状。证据最强的是早期、高强度的行为干预（如 ABA、早期丹佛模式 ESDM），加上言语治疗和家长培训，越早开始越好。</p>
+
+  <h3 id="autism-product">开星果怎么用</h3>
+  <p>开星果是强脑的脑机接口社交沟通训练系统，面向孤独症谱系和发育迟缓儿童<sup><a href="#src-42">42</a></sup>。孩子戴脑电头环做训练，脑电朝目标模式变化时，游戏或视频继续；偏离时暂停，借此训练大脑向目标模式靠拢。它和常规行为训练一起使用。</p>
+  <p>落地情况：2023 年 3 月，深圳市脑机融合孤独症研究中心及附属“BrainCo 开星果儿童成长中心”揭牌<sup><a href="#src-77">77</a></sup>；开星果被纳入上海市残疾人辅助器具电动类产品目录<sup><a href="#src-78">78</a></sup>；江苏靖江等地的儿童康复中心引入。进入辅具目录和取得医疗器械注册证是两回事。2023 年的报道称合作机构在筹备多中心大样本临床试验，目标是拿到国内首个孤独症干预数字疗法医疗器械证<sup><a href="#src-79">79</a></sup>；本文没有查到它已获证。价格未公开。</p>
+
+  <h3 id="autism-evidence">临床证据</h3>
+  <div class="tbl">
+    <table>
+      <caption>开星果随机对照试验（Current Medical Science，2024）</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">内容</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">执行方</th><td>中国康复研究中心国家孤独症康复研究中心（强脑的合作方）<sup><a href="#src-80">80</a></sup></td></tr>
+        <tr><th scope="row">受试者</th><td>60 名 3 到 6 岁孤独症儿童，两个干预点（中文摘要；全文样本量待核对）</td></tr>
+        <tr><th scope="row">设计</th><td>随机分组，真设备组对比假设备组，单盲；两组都接受同等行为训练</td></tr>
+        <tr><th scope="row">训练量</th><td>60 次，每次 30 分钟</td></tr>
+        <tr><th scope="row">结果</th><td>两组在语言、社交等多个方面都明显进步。组间比较，真设备组在语言表达（P = 0.013）和认知觉察（含共同注意，P = 0.003）上进步更大<sup><a href="#src-80">80</a></sup></td></tr>
+        <tr><th scope="row">随访</th><td>本文没有查到长期随访数据</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>这项试验的局限：样本小，只有一项；由公司合作方完成；单盲意味着部分参与者知道分组；两组的大部分进步来自共同接受的行为训练。宣传材料里“言语表达有效率 88.2%”的说法，本文没有找到原始出处。</p>
+  <p>放到整个领域看，2020 年的一篇系统综述认为，神经反馈用于孤独症儿童的证据“质量低”：结果大多正面，但各研究的改善项目不一致，有的研究指标还下降了，随机对照试验很少，只有两项研究看了 6 个月后的维持效果<sup><a href="#src-81">81</a></sup>。另一家公司的同类设备 Mente 在 2018 年做过 83 人的随机假设备对照试验<sup><a href="#src-82">82</a></sup>。</p>
+  <div class="note"><b>给家长</b>时间和钱有限时，先保证行为干预和言语治疗。如果康复机构把开星果作为常规训练的一部分、额外费用不高，可以试；不要因为“高有效率”之类的宣传付大笔费用，也不要用它替代正规干预。</div>
+
+  <h2 id="funding">融资与股东</h2>
+  <div class="tbl">
+    <table>
+      <caption>已知融资轮次（金额以报道为准）</caption>
+      <thead><tr><th scope="col">时间</th><th scope="col">轮次</th><th scope="col" class="num">金额</th><th scope="col">投资方</th><th scope="col">估值</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2016-03</th><td>天使</td><td class="num">未披露</td><td>翰潭投资</td><td></td></tr>
+        <tr><th scope="row">2016-06</th><td>Pre-A</td><td class="num">550 万美元</td><td>未披露</td><td></td></tr>
+        <tr><th scope="row">2017</th><td></td><td class="num">1500 万美元</td><td>德迅投资、中国电子领投</td><td></td></tr>
+        <tr><th scope="row">2019-01</th><td>A</td><td class="num">未披露</td><td>光大控股、德迅投资、中国电子</td><td>4 亿美元</td></tr>
+        <tr><th scope="row">2024</th><td></td><td class="num">2 亿元</td><td>浙江省产业基金（另配 4 亿元社会资本）</td><td>胡润 2024 榜 85 亿元</td></tr>
+        <tr><th scope="row">2025</th><td>Pre-B</td><td class="num">3000 万美元</td><td>道氏技术香港子公司</td><td>超 13 亿美元</td></tr>
+        <tr><th scope="row">2025-11</th><td>B（三七互娱称 Pre-B）</td><td class="num">2000 万美元</td><td>三七互娱</td><td></td></tr>
+        <tr><th scope="row">2026-01</th><td>Pre-IPO</td><td class="num">约 20 亿元</td><td>IDG 资本、华登国际联合领投；蓝思科技、韦尔股份、领益智造、润泽科技、翔宇医疗、华住、好未来等</td><td>投后超 13 亿美元，约 92 亿元</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">来源：腾讯新闻、Hunterbrook、36 氪、凤凰网、财中社<sup><a href="#src-6">6</a></sup><sup><a href="#src-9">9</a></sup><sup><a href="#src-17">17</a></sup><sup><a href="#src-21">21</a></sup><sup><a href="#src-26">26</a></sup>。鼎晖投资、光大、华大（CE Huada）也在股东名单中，入股时间待确认。</p>
+  <p>累计融资额约 5 亿美元<sup><a href="#src-6">6</a></sup>。2026 年 1 月这一轮被媒体称为全球脑机接口领域仅次于 Neuralink 的单笔融资<sup><a href="#src-8">8</a></sup>。股东结构有两个特点：一是地方和央企背景资金入场早，中国电子从 2017 年起就在；二是 2025 年后进来的多是 A 股上市公司，蓝思、韦尔、领益是消费电子供应链，三七互娱是游戏公司，翔宇医疗做康复器械。领益智造持股约 5.9%<sup><a href="#src-6">6</a></sup>。创始人持股比例待招股书披露。</p>
+
+  <h2 id="financials">经营数据</h2>
+  <p>招股书没有公开，下表每一行都标了口径。没有一项数据来自经审计的报表。</p>
+  <div class="tbl">
+    <table>
+      <caption>2025 年经营数据与口径</caption>
+      <thead><tr><th scope="col">指标</th><th scope="col">数据</th><th scope="col">口径</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">是否盈利</th><td>2025 年首次全年盈利</td><td><span class="pill">公司自述</span> 韩璧丞，2026-04-27<sup><a href="#src-4">4</a></sup></td></tr>
+        <tr><th scope="row">营收</th><td>约 8 亿元，同比增速超 100%</td><td><span class="pill warn">媒体估算</span><sup><a href="#src-28">28</a></sup></td></tr>
+        <tr><th scope="row">净利润</th><td>约 1.2 亿元</td><td><span class="pill warn">媒体估算</span><sup><a href="#src-28">28</a></sup></td></tr>
+        <tr><th scope="row">海外收入占比</th><td>近 30%；另有报道称海外仿生手收入占近一半</td><td><span class="pill warn">媒体转述，两说矛盾</span><sup><a href="#src-14">14</a></sup></td></tr>
+        <tr><th scope="row">毛利率</th><td>未知</td><td><span class="pill bad">无数据</span></td></tr>
+        <tr><th scope="row">收入构成</th><td>未知</td><td><span class="pill bad">无数据</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn"><b>别引错</b>多篇文章把“2023 到 2025 年营收 7521 万、6597 万、1.08 亿元，2025 年净亏损 2.30 亿元”算到强脑头上。这组数字出自博睿康（Neuracle）科创板招股书<sup><a href="#src-6">6</a></sup>。博睿康的上海子公司英文名也被机器翻译成 “BrainCo Medical Technology”，2026 年 3 月获批的植入式脑机接口产品属于博睿康，不属于强脑。</div>
+
+  <h2 id="ipo">上市进展</h2>
+  <ol class="timeline">
+    <li><time>2025-08</time><div>彭博报道公司以超 13 亿美元估值做 Pre-IPO 融资，考虑香港或内地上市<sup><a href="#src-3">3</a></sup>。</div></li>
+    <li><time>2026-01</time><div>经港交所“科企专线”保密递表，中金和瑞银联席保荐，计划募资数亿美元。递表日期有 1 月 2 日和 1 月 12 日两种说法<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup>。</div></li>
+    <li><time>2026-04</time><div>韩璧丞称申请在审核中，有望成为第二家上市的“杭州六小龙”<sup><a href="#src-4">4</a></sup>。</div></li>
+    <li><time>2026-06</time><div>竞争对手博睿康公开科创板招股书；强脑仍未披露招股书和聆讯日期<sup><a href="#src-5">5</a></sup>。</div></li>
+    <li><time>2026-09</time><div>凤凰网称截至 9 月底仍未公开招股，上市节奏明显延后；市场曾传 IPO 目标估值 120 亿元<sup><a href="#src-9">9</a></sup>。</div></li>
+  </ol>
+  <div class="todo"><b>待确认</b>港股递表自递交日起 6 个月有效。1 月递表若未在 7 月前完成聆讯，申请会失效，需要重新递交。本文没有查到失效、重递或通过聆讯的公开消息。截至 2026-11-13 的状态，请以港交所披露易为准。</div>
+
+  <h2 id="risks">争议与风险</h2>
+  <h3 id="risk-school">2019 年课堂头环事件</h3>
+  <p>2019 年，浙江金华孝顺镇中心小学让学生戴 Focus 头环上课，老师端屏幕显示每个学生的专注度，课后把排名发给家长。《华尔街日报》9 月报道后舆论强烈反对，10 月 31 日当地教育部门要求暂停使用<sup><a href="#src-19">19</a></sup>。韩璧丞对第一财经说，产品用于帮助学习，不是监控<sup><a href="#src-20">20</a></sup>。这件事让公司在教育场景基本退出，后续产品转向个人消费者和医疗。</p>
+
+  <h3 id="risk-hunterbrook">Hunterbrook 调查与美国国会</h3>
+  <p>2025 年 9 月 16 日，Hunterbrook Media 和记者 Pablo Torre 发布了一份为期六个月的调查<sup><a href="#src-17">17</a></sup>。主要指控：</p>
+  <ul>
+    <li>资金：中国电子从 2017 年起投资强脑，美国国防部 2025 年 1 月把它列为“在美运营的中国军事企业”；浙江省产业基金 2024 年投了 2 亿元</li>
+    <li>数据：意大利运动医学机构 Formula Medicine 用 FocusCalm 训练辛纳（Jannik Sinner）、勒克莱尔（Charles Leclerc）等运动员，数据上传云端；韩璧丞 2019 年接受采访时说采集了 5 万多人的脑电数据</li>
+    <li>合作方：与华为 2024 年签机器人合作，与至少三所“国防七子”高校合作，给宇树供货</li>
+    <li>哈佛背景：韩璧丞称能用哈佛“最大的脑电数据库”，哈佛表示不知道有这样的数据库；哈佛称 2019 和 2020 年发现过商标违规</li>
+  </ul>
+  <p>强脑回应称脑电数据留在用户设备里、每次使用后清除，否认与军方合作，称报道含“未经证实的猜测”和“虚假信息”；对华为、宇树、国防承包商和专利问题没有回答<sup><a href="#src-17">17</a></sup>。之后，美国众议院能源和商务委员会的共和党主席写信给司法部长，要求调查这家公司<sup><a href="#src-18">18</a></sup>。调查结果待确认。</p>
+  <p>对上市的影响：这类指控在港股审核中不是硬障碍，但会压缩它在美国的消费业务和海外投资人基础。公司称海外收入占比约三成，FocusCalm 的美国用户是最容易受影响的部分。</p>
+
+  <h3 id="risk-sleep">安睡仪的监管口径</h3>
+  <p>财中社 2025 年 11 月 18 日报道：睡眠治疗仪在国家目录里属于二类医疗器械，但在国家药监局网站查不到安睡仪的注册或备案；京东旗舰店客服说它“不属于医疗器械，属于电子产品”。而公司官网写明安睡仪带经颅微电流刺激（CES），用微弱电流让大脑平静<sup><a href="#src-34">34</a></sup>，这正是医疗器械目录里睡眠治疗类产品常用的技术。同时，品牌宣传里又引用临床试验结果<sup><a href="#src-21">21</a></sup>。该报道称京东评价两极：部分用户称助眠有效，部分用户称其为“智商税”<sup><a href="#src-21">21</a></sup>。</p>
+
+  <h3 id="risk-market">上市窗口与估值</h3>
+  <p>凤凰网 2026 年 9 月 30 日的报道列出了港股硬科技新股的处境：群核科技市值大幅缩水，宇树科技股价从高点回撤超过 50%，罗博特科 H 股折价近三成发行仍首日破发<sup><a href="#src-9">9</a></sup>。行业判断强脑大概率面临发行估值下调、募资缩减、招股延后。投后约 92 亿元的估值，按媒体估算的 1.2 亿元净利润算，市盈率约 77 倍；如果估算偏高，倍数会更高。</p>
+
+  <h2 id="peers">竞争格局</h2>
+  <h3 id="peers-bci">脑机接口同行</h3>
+  <div class="tbl">
+    <table>
+      <caption>主要脑机接口公司</caption>
+      <thead><tr><th scope="col">公司</th><th scope="col">路线</th><th scope="col">商业化</th><th scope="col">资本</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">强脑科技</th><td>非侵入式</td><td>仿生肢体、灵巧手、消费头环已量产</td><td>累计约 5 亿美元；港股递表</td></tr>
+        <tr><th scope="row">博睿康</th><td>科研脑电设备加半侵入式 NEO</td><td>2025 年营收 1.08 亿元，净亏损 2.30 亿元；NEO 已植入 32 例</td><td>科创板，2026 年 6 月披露招股书</td></tr>
+        <tr><th scope="row">Neuralink</th><td>侵入式</td><td>临床试验</td><td>二级市场估值约 420 亿美元（2026 年 7 月报道）</td></tr>
+        <tr><th scope="row">Synchron、Precision、Paradromics</th><td>半侵入式或侵入式</td><td>临床阶段</td><td>美国一级市场</td></tr>
+        <tr><th scope="row">脑虎科技、阶梯医疗、智冉医疗</th><td>侵入式为主</td><td>临床阶段</td><td>中国一级市场</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">来源：36 氪、钛媒体、财联社<sup><a href="#src-5">5</a></sup><sup><a href="#src-6">6</a></sup><sup><a href="#src-7">7</a></sup><sup><a href="#src-8">8</a></sup>。</p>
+  <p>强脑和侵入式公司做的不是同一种生意。侵入式公司的收入要等三类器械获批，强脑已经有收入。拿它和 Neuralink 比估值，比的是“脑机接口”这个题材，不是业务。</p>
+
+  <h3 id="peers-hand">灵巧手同行</h3>
+  <p>2025 到 2026 年，做灵巧手的公司大量增加。GGII 数据里，因时机器人 2025 年出货超 1 万只排第一，灵心巧手和强脑并列第二<sup><a href="#src-29">29</a></sup>。灵心巧手传出 400 亿元估值<sup><a href="#src-29">29</a></sup>。宇树科技 2026 年发布 22 自由度的 Dex5-S，3.99 万元起<sup><a href="#src-31">31</a></sup>，客户同时成了对手，价格战已经开始。GGII 预测中国灵巧手销量从 2025 年 1.92 万只增到 2030 年 43 万只以上<sup><a href="#src-14">14</a></sup>。</p>
+  <p>强脑在这里的优势是仿生手积累下的小型电机、触觉传感和量产经验，Revo3 走直驱和开源。劣势是它不是机器人整机厂，议价权在宇树这类客户手里。</p>
+
+  <h2 id="visit">2026-11-13 展厅讲解</h2>
+  <p>2026 年 11 月 13 日，强脑在杭州总部给一批企业家参访者做了约 26 分钟讲解，之后有约 16 分钟问答。讲解人是强脑负责政府和企业合作的一位高管（转写中身份不清，待确认）。下面按讲解顺序整理，最后把讲解里的说法和本页前文的调研对照。</p>
+
+  <h3 id="visit-intro">技术路径与市场</h3>
+  <p>讲解人说，展厅里所有产品都已商业化，不是测试品。拿医疗证的脑机接口，定义上必须既有输出又有回传。技术路径分侵入式和非侵入式，半侵入式这两年提得少了。两者没有好坏，适用场景不同：失明、瘫痪等用户需要侵入式；强脑做的是穿戴式，难点在颅外读取脑电信号。</p>
+  <p>讲解人说 2024 年是脑机接口一百周年，起点是 1924 年“Hess”拿自己做实验。讲解人引用摩根士丹利 2024 年的数据：未来 10 年美国医疗市场的脑机接口空间约 4000 亿美元，其中很多是情绪类问题，适合非侵入式解决，非侵入式占 86%。讲解人把强脑和 Neuralink 并称为全球融资规模最大的两家脑机接口公司。</p>
+  <p>强脑的布局：杭州总部；深圳办公室负责部分硬件；香港数码港新设办公室；波士顿保留了在哈佛孵化时的办公室；奥斯汀办公室主要做下肢。讲解人说仿生下肢 2024 年在美国拿到 FDA，去年在欧洲拿到 CE；在美国进入了商业保险，用户 4 到 5 年可以免费换一条腿。在国内，仿生上下肢算智能辅具，不是医疗器械，进不了医保。强脑的核心技术是传感器和算法。</p>
+
+  <h3 id="visit-limb">仿生手、仿生腿与公益</h3>
+  <p>讲解人播放了仿生手视频。视频说手可以脱离身体在桌上爬行，握力超过 50 牛顿，重 383 克，几乎零延迟。讲解人说手不是声控的，靠手臂上的 8 通道传感器控制。2015 年第一代交互机器人还用头带式设备，现在传感器直接放在手臂上。</p>
+  <p>价格：上肢市场价 16.8 万元，下肢 18.8 万元。讲解人坦言很多残障人士负担不起。强脑和残联、民政、慈善总会、公益基金会及企业合作，按每条 5 万元的价格供货，强脑负责后续安装和服务，残障人士免费安装。讲解人说去年浙江省财政出资，为 2046 人装了上肢和下肢。</p>
+  <p>仿生腿的安装仍靠线下装配机构。膝关节是标准件，接受腔要由师傅按断肢的粗细、长短取模制作，用户要在装配机构待一周左右做步态训练。接受腔用真空吸附，内有传感器，可以涉水。今年新出智能脚踝，膝关节和脚踝配合后走楼梯和常人一样，能做“亚洲蹲”；只有膝关节时做不到。</p>
+
+  <h3 id="visit-hand">灵巧手</h3>
+  <p>具身智能火起来后，很多机器人整机厂来买强脑的手。讲解人的解释是：手的开发工程量和做本体一样大，整机厂会先做本体，再买手。讲解人说强脑灵巧手出货量全国第二，宇树等都是客户。</p>
+  <p>三代手 21 个自由度，人手是 22 个。三代手每个关节一个电机，用直驱，体积大，但比腱绳驱动更稳、不容易坏，主要用于工业场景，人戴太重。一代手 500 多克，二代手 300 多克，人可以佩戴。</p>
+
+  <h3 id="visit-brainbot">脑控机器人</h3>
+  <p>今年新推出的脑控机器人：被试戴强脑自研的脑电帽，用两种范式发指令，一是运动想象（想象左手动、右手动或静息），二是 SSVEP（盯住屏幕上按特定频率闪烁的选项）。系统解析脑电后驱动机器人递水杯、递苹果、倒水、比手势。讲解人说这只完成了从 0 到 1，“并没有那么神奇”，目前和医院、高校合作做二次开发。</p>
+
+  <h3 id="visit-neuro">神经反馈、睡眠与教育</h3>
+  <p>神经反馈训练系列：头环采集数据，软件做训练，用于孤独症干预、多动症干预和认知训练。医疗版软硬件拿了二类医疗器械证，能进医院做正式训练。场景有特殊学校、医院、养老院、社区，也有国外运动员做专注力训练。</p>
+  <p>睡眠仪是一代产品，原理是前额的经颅电刺激（CES）。讲解人强调核心技术是采集人体生物电，可以和睡眠、汽车等很多行业结合。</p>
+  <p>儿童方面有 BrainAI 赛事，是桌面赛，参赛和训练都要戴头环；讲解人称这是教育部白名单赛事。学校和高校实训室可以采购全套软硬件，从科普到二次开发都能合作。</p>
+
+  <h3 id="visit-data">具身数据采集</h3>
+  <p>讲解人说具身行业现在的问题是数据不能泛化：一个机器人的数据用不到另一个机器人，一家设备采的数据用不到另一家。强脑有全套采集设备，包括真人数据和真机数据。讲解人认为人形机器人对采数据用处不大，主要靠双臂和手套，所以强脑做的是轮式双臂机器人。自研的柔性数据手套带外骨骼，手套本身软，两侧加设备采数据，讲解人称市面上没有竞品。肌电手环也能绑定动作，用来关窗帘、关灯。</p>
+
+  <h3 id="visit-qa-sleep">问答：睡眠</h3>
+  <p>一位做医疗音频的参访者问强脑在睡眠管理上有没有更深的研究。讲解人说睡眠不好的原因很多，强脑针对的是压力大、身体躺下但脑子停不下来的人群。睡眠仪用 CES 促进内源性褪黑素分泌，同时配白噪音和音乐，记录哪种对用户效果最好，逐步调整成自适应方案。讲解人说要连续用两周才看得出效果，“并不是说戴上我就睡着了”。</p>
+
+  <h3 id="visit-qa-autism">问答：孤独症与多动症</h3>
+  <p>复旦儿科背景的朱博士问孤独症的数据。讲解人说孤独症和多动症是两套产品，针对不同脑电波段：孤独症针对社交指数，多动症针对专注力。讲解人给的流行率：美国 35 个孩子里有 1 个；国内很多家长不愿筛查，怕拿残疾证被贴标签，很多地方残联 6 岁前不发证。</p>
+  <p>多动症产品拿了二类证，有双盲对照的评分数据。孤独症产品只有头环拿了证，软件没拿；和上海的医学中心做过临床，讲解人说和传统疗法比，语言功能改善最明显。</p>
+  <p>朱博士补充了几点：多动症是注意力缺陷，是脑发育滞后的表现，前额叶发育可以持续到 22 岁，家长越着急越重；孤独症约一半由基因导致，6 岁后干预效果差，越早越好。朱博士问对照组是否和用药对比，讲解人说做了多组对照。朱博士表示有大量合作伙伴，愿意在数据有效的前提下合作。讲解人说孤独症最佳干预期在 8 岁以前，专注力产品到 12 岁之前都可以做。</p>
+
+  <h3 id="visit-qa-gripper">问答：夹爪还是灵巧手</h3>
+  <p>一位参访者转述做仓储机器人的人的观点：工业场景用夹爪就够了，灵巧手的电机和控制消耗太大。讲解人举了杭州滨江的国家级具身智能中试基地：申报国家项目时列了 15 到 18 个场景，强脑逐个分析后，60% 多的场景用夹爪就够，约 40% 用灵巧手更好或必须用。例子是解纽扣、服装厂叠衣服装袋、药厂叠药盒，这些夹爪做不到。</p>
+  <p>灵巧手现在靠深度编程加遥控，自己做不了事。原因是数据没有标准化、不能泛化，每个动作可能要几万小时的数据才有可能训练出有效模型。讲解人说这几年大量本体公司在做数据，效果“并没有很好”，但居家养老等需求会推动这件事，“现阶段真的不行”。</p>
+  <p>力反馈方面，现在主要靠视觉。三代手只有指尖有触觉，能感知冷热、软硬，分不出 50 度还是 60 度；软硬的程度最难。二代手能捏豆腐、拿花瓣，需要反馈才能做到。具体数据讲解人说给不出。</p>
+
+  <h3 id="visit-check">讲解说法与调研对照</h3>
+  <div class="tbl">
+    <table>
+      <caption>讲解说法与本页调研</caption>
+      <thead><tr><th scope="col">讲解说法</th><th scope="col">调研或公开记录</th><th scope="col">状态</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">仿生上肢 16.8 万元</th><td>与前文“国内售价 16.8 万元 / 台（2026 年 4 月）”一致</td><td><span class="pill good">一致</span></td></tr>
+        <tr><th scope="row">仿生下肢 18.8 万元</th><td>前文没有下肢价格，这是新信息</td><td><span class="pill">新增</span></td></tr>
+        <tr><th scope="row">公益价每条 5 万元，残障人士免费</th><td>与前文浙江省每人 5 万元补贴上限吻合</td><td><span class="pill good">吻合</span></td></tr>
+        <tr><th scope="row">浙江省财政出资为 2046 人装假肢</th><td>前文没有这个数字</td><td><span class="pill">待确认</span></td></tr>
+        <tr><th scope="row">灵巧手出货全国第二</th><td>GGII 数据里强脑与灵心巧手并列第二<sup><a href="#src-29">29</a></sup></td><td><span class="pill good">一致</span></td></tr>
+        <tr><th scope="row">仿生手 383 克、握力超 50 牛</th><td>前文这两个数字属于 Revo2 灵巧手；视频把它们用在神经仿生手上。两款手是否同一平台，待确认</td><td><span class="pill warn">口径不清</span></td></tr>
+        <tr><th scope="row">三代手 21 自由度，直驱</th><td>与 Revo3 公开参数一致<sup><a href="#src-15">15</a></sup></td><td><span class="pill good">一致</span></td></tr>
+        <tr><th scope="row">下肢 2024 年拿到美国 FDA</th><td>前文写明 FDA 准入类型（登记列名还是 510(k)）待确认</td><td><span class="pill">待确认</span></td></tr>
+        <tr><th scope="row">孤独症产品只有头环拿证，软件没拿</th><td>与前文“开星果没有拿到医疗器械注册证”相符；“语言功能改善最明显”与 2024 年随机对照试验结果相符<sup><a href="#src-80">80</a></sup></td><td><span class="pill good">吻合</span></td></tr>
+        <tr><th scope="row">摩根士丹利：美国 4000 亿美元，非侵入式占 86%</th><td>4000 亿美元确有其数，但媒体转述都说这个估算基于需要手术植入的设备，没有查到“非侵入式占 86%”<sup><a href="#src-83">83</a></sup></td><td><span class="pill bad">与原报告不符</span></td></tr>
+        <tr><th scope="row">1924 年 Hess 拿自己做实验</th><td>1924 年首次记录人脑电的是德国医生 Hans Berger；“Hess”应是口误或转写错误，“拿自己做实验”待确认</td><td><span class="pill warn">人名有误</span></td></tr>
+        <tr><th scope="row">美国孤独症 35 个孩子里 1 个</th><td>CDC 2025 年报告（2022 年数据）为 31 个里 1 个，上一版是 36 个里 1 个<sup><a href="#src-84">84</a></sup></td><td><span class="pill warn">数字偏旧</span></td></tr>
+        <tr><th scope="row">BrainAI 是教育部白名单赛事</th><td>前文查到的白名单以整项赛事列出，没有单列 BrainAI 赛项，待确认</td><td><span class="pill">待确认</span></td></tr>
+        <tr><th scope="row">美国商保覆盖，4 到 5 年免费换腿</th><td>没有查到公开来源</td><td><span class="pill">自述</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>讲解人在两处直接说了局限：脑控机器人“只完成了从 0 到 1”，灵巧手靠数据训练“现阶段真的不行”。这和前文对脑控平台、灵巧手自主能力的判断一致。讲解人用摩根士丹利的数字支撑非侵入式的市场空间，这一处用错了原报告的口径。</p>
+
+  <h2 id="judgment">研究判断</h2>
+  <p>以下是基于上述材料的判断，每条都写明可以用什么证据推翻。</p>
+  <div class="tbl">
+    <table>
+      <caption>五条判断</caption>
+      <thead><tr><th scope="col">判断</th><th scope="col">依据</th><th scope="col">什么会推翻它</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">强脑的本质是神经信号传感器加精密执行器的硬件公司</th><td>收入来自假肢、灵巧手、头环；假肢主要靠肌电；没有植入产品</td><td>招股书显示脑电解码软件或数据服务收入占比显著</td></tr>
+        <tr><th scope="row">未来两年增长主要来自灵巧手</th><td>彭博报道销量大增；GGII 预测五年二十倍市场；Revo3 专为机器人设计</td><td>招股书显示灵巧手收入占比低于 20%，或宇树等客户转向自研</td></tr>
+        <tr><th scope="row">“2025 年盈利”可信度中等</th><td>只有创始人自述和媒体估算，无审计报表</td><td>招股书公开的 2025 年净利润</td></tr>
+        <tr><th scope="row">上市会以低于 120 亿元的估值完成，或推迟到 2027 年</th><td>9 月底仍未招股；港股硬科技新股破发；6 个月递表有效期</td><td>2026 年底前以 120 亿元以上估值挂牌</td></tr>
+        <tr><th scope="row">美国消费业务会收缩</th><td>Hunterbrook 调查、国会要求调查、美国对中国数据设备的审查趋严</td><td>招股书显示美国收入在 2025 到 2026 年仍在增长</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>跟踪这家公司，下一个关键文件是港交所披露易上的招股书或聆讯后资料集。拿到之后，先核对四项：2025 年营收和净利润，收入按产品拆分，海外收入占比，中国电子等国资股东的持股比例。</p>
+
+  <h2 id="method">方法与来源</h2>
+  <p>取样日 2026-11-13。资料来自网络检索：彭博、36 氪、财联社、钛媒体、凤凰网等财经媒体，Hunterbrook 调查原文，维基百科，经销商产品页，以及一篇 ADHD 神经反馈临床试验论文。产品清单和参数取自 BrainCo 官网的前端代码文本（网站是单页应用，正文写在脚本里）。所有财务数字都是公司自述或媒体估算，没有经审计的报表可核对。</p>
+  <p>“2026-11-13 展厅讲解”一节来自飞书妙记“强脑科技脑机接口产品分享”（2026-11-13 17:00，42 分 10 秒）的自动转写，按转写改写，未回听原音。讲解人身份在转写中不清；视频旁白和现场讲解混在一起，已按上下文区分。</p>
+  <p>用户评价部分：知乎、小红书、京东评论区和 Reddit 无法直接读取，相关内容来自二手文章转引。没拿到的：招股书（未公开），任何产品的市场份额，员工数，创始人持股，各产品收入构成，毛利率，Revo1 和仿生腿规格，FDA 准入的具体类型，“专注欣”注册证编号，2026 年 10 月以后的上市进展。各来源矛盾的地方（递表日期、三七互娱轮次、海外收入占比、灵巧手出货量）已在正文标出。</p>
+  <ol class="sources">
+    <li id="src-1">Bloomberg，‘Hangzhou Six’ Tech Startup BrainCo Is Said to File for Hong Kong IPO，2026-01-12，<a href="https://www.bloomberg.com/news/articles/2026-01-12/-hangzhou-six-tech-startup-brainco-is-said-to-file-for-hong-kong-ipo" target="_blank" rel="noopener">bloomberg.com</a></li>
+    <li id="src-2">TechNode，Chinese Neuralink Rival BrainCo Files for Hong Kong IPO，2026-01-13，<a href="https://technode.com/2026/01/13/chinese-neuralink-rival-brainco-files-for-hong-kong-ipo-sources-say/" target="_blank" rel="noopener">technode.com</a></li>
+    <li id="src-3">The Standard，BrainCo eyes US$1.3 bln valuation before IPO，2025-08，<a href="https://www.thestandard.com.hk/innovation/article/308282/BrainCo-eyes-US13-bln-valuation-before-IPO" target="_blank" rel="noopener">thestandard.com.hk</a></li>
+    <li id="src-4">财联社 / 科创板日报，《强脑科技韩璧丞：脑机接口相关产品国外销售良好 公司去年已实现盈利》，2026-04-27，<a href="https://www.cls.cn/detail/2356469" target="_blank" rel="noopener">cls.cn</a></li>
+    <li id="src-5">财联社，《博睿康火速披露招股书 强脑科技今年初递表港交所》，2026-06-13，<a href="https://www.cls.cn/detail/2399139" target="_blank" rel="noopener">cls.cn</a></li>
+    <li id="src-6">36Kr Europe，Which Company Will Win the Title of “The First Brain-Computer Interface Stock”，2026-06-15，<a href="https://eu.36kr.com/en/p/3853890963772422" target="_blank" rel="noopener">eu.36kr.com</a></li>
+    <li id="src-7">36Kr Europe，BrainCo: Racing Towards Becoming the First Brain-Computer Interface Stock，2026-02-06，<a href="https://eu.36kr.com/en/p/3671128673821320" target="_blank" rel="noopener">eu.36kr.com</a></li>
+    <li id="src-8">钛媒体 / 融中财经，《“脑机接口第一股”，IPO 倒计时》，2026-07-24，<a href="https://www.tmtpost.com/8078394.html" target="_blank" rel="noopener">tmtpost.com</a></li>
+    <li id="src-9">凤凰网财经，《角逐脑机接口第一股：博睿康、强脑科技 IPO 面临多重考验》，2026-09-30，<a href="https://finance.ifeng.com/c/8wrRmlmJSha" target="_blank" rel="noopener">finance.ifeng.com</a></li>
+    <li id="src-10">Wikipedia，BrainCo，取样日 2026-11-13，<a href="https://en.wikipedia.org/wiki/BrainCo" target="_blank" rel="noopener">en.wikipedia.org</a></li>
+    <li id="src-11">Beijing Review，BrainCo 创始人访谈，2026-01，<a href="https://www.bjreview.com/China/202601/t20260119_800428409.html" target="_blank" rel="noopener">bjreview.com</a></li>
+    <li id="src-12">Startup Fortune，BrainCo's Bionic Hands Are Selling to Robot Makers, Not Just Amputees，2026-07-21，<a href="https://startupfortune.com/braincos-bionic-hands-are-selling-to-robot-makers-not-just-amputees/" target="_blank" rel="noopener">startupfortune.com</a></li>
+    <li id="src-13">Bloomberg，China's BrainCo Sees Bionic Hand Sales Boom From Robot Makers，2026-06-02，<a href="https://www.bloomberg.com/news/articles/2026-06-02/chinese-bionic-hand-maker-sees-humanoid-robot-led-sales-boom" target="_blank" rel="noopener">bloomberg.com</a></li>
+    <li id="src-14">The Asia Business Daily，“Dozens Ready to Buy”: Robotic Hand Maker Thrives Amid Humanoid Boom，2026-06-02，<a href="https://www.asiae.co.kr/en/article/2026060215575547869" target="_blank" rel="noopener">asiae.co.kr</a></li>
+    <li id="src-15">RobotToday，BrainCo Unveils Revo 3: A 21-DOF Dexterous Hand Built to Feel，2026-04，<a href="https://robottoday.com/article/brain-co-unveils-revo-3-a-21-dof-dexterous-hand-built-to-feel" target="_blank" rel="noopener">robottoday.com</a></li>
+    <li id="src-16">PR Newswire，BrainCo Debuts World's First Integrated Brain-to-Robot AI R&amp;D Platform at WAIC 2026，2026-07，<a href="https://www.prnewswire.com/news-releases/brainco-debuts-worlds-first-integrated-brain-to-robot-ai-rd-platform-at-waic-2026-302828515.html" target="_blank" rel="noopener">prnewswire.com</a></li>
+    <li id="src-17">Hunterbrook Media，The “Harvard” Startup That Became A “Little Dragon” in China，2025-09-16，<a href="https://newsletter.hntrbrk.com/p/the-harvard-startup-that-became-a" target="_blank" rel="noopener">newsletter.hntrbrk.com</a></li>
+    <li id="src-18">美国众议院能源和商务委员会，Chairmen Guthrie, Bilirakis and Joyce Request Investigation into China-Backed Company，2025，<a href="https://republicans-energycommerce.house.gov/posts/chairmen-guthrie-bilirakis-and-joyce-request-investigation-into-china-backed-company-collecting-brain-wave-data-on-elite-american-athletes" target="_blank" rel="noopener">energycommerce.house.gov</a></li>
+    <li id="src-19">South China Morning Post，Chinese primary school stops using headbands to study pupils，2019-11，<a href="https://www.scmp.com/news/china/society/article/3035983/chinese-primary-school-stops-using-headbands-study-pupils" target="_blank" rel="noopener">scmp.com</a></li>
+    <li id="src-20">Yicai Global，BrainCo Boss Says Neuro Headgear Is for Helping Kids Learn, Not Surveillance，2019，<a href="https://www.yicaiglobal.com/news/brainco-boss-says-neurotherapy-headband-is-for-education-not-surveillance" target="_blank" rel="noopener">yicaiglobal.com</a></li>
+    <li id="src-21">财中社 / 瑞财经，《脑机接口“鸡汤”味：强脑科技安睡仪“左右逢源”》，2025-11-18，<a href="https://m.rccaijing.com/news-7396506462619104534.html" target="_blank" rel="noopener">rccaijing.com</a></li>
+    <li id="src-22">什么值得买，《热搜说中国公司超越美国智能假肢公司：超越了什么，又夸大了什么》，2026，<a href="https://post.smzdm.com/p/a26xopn7/" target="_blank" rel="noopener">smzdm.com</a></li>
+    <li id="src-23">新浪财经，《从大几十万降到十余万，中国脑机企业将仿生假肢价格打下来了》，2025-02-15，<a href="https://finance.sina.com.cn/jjxw/2025-02-15/doc-inekqqcy5403313.shtml" target="_blank" rel="noopener">finance.sina.com.cn</a></li>
+    <li id="src-24">中华网科技，强脑科技“专注欣”医疗版发布，2026-02-03，<a href="https://m.tech.china.com/articles/20260203/202602031807572.html" target="_blank" rel="noopener">tech.china.com</a></li>
+    <li id="src-25">新浪财经，《强脑科技，据报完成新一轮融资 20 亿元人民币》，2026-01-07，<a href="https://finance.sina.com.cn/stock/relnews/cn/2026-01-07/doc-inhfmycs5203422.shtml" target="_blank" rel="noopener">finance.sina.com.cn</a></li>
+    <li id="src-26">腾讯新闻，《融资 20 亿，强脑科技传赴港上市，杭州六小龙已有四家冲上市》，2026-01-29，<a href="https://news.qq.com/rain/a/20260129A05IYI00" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-27">凤凰网科技，《80 后哈佛学霸带出的 90 亿独角兽 拿下 20 亿融资》，2026-01，<a href="https://tech.ifeng.com/c/8psbg4g5ooA" target="_blank" rel="noopener">tech.ifeng.com</a></li>
+    <li id="src-28">BigGo Finance，BrainCo Accelerates Toward Hong Kong IPO，2026，<a href="https://finance.biggo.com/news/EBubuZsBXdIeighI1d8J" target="_blank" rel="noopener">finance.biggo.com</a></li>
+    <li id="src-29">虎嗅，《人形机器人灵巧手行业爆发：技术路线未定，资本与混沌并存》，2026，<a href="https://m.huxiu.com/article/4882124.html" target="_blank" rel="noopener">huxiu.com</a>；钛媒体，《要价 400 亿的灵心巧手，估值比市场规模还大》，<a href="https://www.tmtpost.com/8063375.html" target="_blank" rel="noopener">tmtpost.com</a></li>
+    <li id="src-30">EASTIN / Rehadat 辅具数据库，BrainRobotics 仿生手条目，<a href="https://www.eastin.eu/en/searches/products/detail/database-rehadat/id-tec_135110.0" target="_blank" rel="noopener">eastin.eu</a></li>
+    <li id="src-31">BigGo Finance，Unitree Robotics unveils Dex5-S dexterous hand，2026，<a href="https://finance.biggo.com/news/d76eda54-729d-4638-9a19-4ecfc14edf9c" target="_blank" rel="noopener">finance.biggo.com</a></li>
+    <li id="src-32">Arnold LE 等，Double-Blind Placebo-Controlled Randomized Clinical Trial of Neurofeedback for Attention-Deficit/Hyperactivity Disorder With 13-Month Follow-up，Journal of the American Academy of Child &amp; Adolescent Psychiatry 60(7):841–855，2021，<a href="https://pubmed.ncbi.nlm.nih.gov/32853703/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a></li>
+    <li id="src-33">Wikipedia，Mindflex，取样日 2026-11-13，<a href="https://en.wikipedia.org/wiki/Mindflex" target="_blank" rel="noopener">en.wikipedia.org</a>；Hackaday，The Complicated Legacy of Mind-Controlled Toys，2026-02-17，<a href="https://hackaday.com/2026/02/17/the-complicated-legacy-of-mind-controlled-toys" target="_blank" rel="noopener">hackaday.com</a></li>
+    <li id="src-34">BrainCo 官网产品页（仿生手、Revolimb、工业灵巧手、Easleep、OxyZen、FocusCalm、BrainAI），取样日 2026-11-13，<a href="https://www.brainco.tech/" target="_blank" rel="noopener">brainco.tech</a></li>
+    <li id="src-35">36 氪 / 铅笔道，强脑科技实地探访，2026-04-23，<a href="https://eu.36kr.com/zh/p/3779332614263813" target="_blank" rel="noopener">eu.36kr.com</a></li>
+    <li id="src-36">36 氪 / 未来一氪，强脑科技 WAIC 2026 发布，2026-07-20，<a href="https://eu.36kr.com/zh/p/3903423054890889" target="_blank" rel="noopener">eu.36kr.com</a></li>
+    <li id="src-37">新华网，《“心想事成” 脑机接口“连接”产业新空间》，2023-11-15，<a href="http://www.news.cn/tech/20231115/4ca9390bf81d4b80824719543a8ee35e/c.html" target="_blank" rel="noopener">news.cn</a></li>
+    <li id="src-38">腾讯新闻，《科创001 | 国产仿生手 全球“掰手腕”》，2026-06-04，<a href="https://news.qq.com/rain/a/20260604A057YR00" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-39">什么值得买，Easleep 深海豚安睡仪京东双 11 报价页，<a href="https://www.smzdm.com/p/130665444/" target="_blank" rel="noopener">smzdm.com</a></li>
+    <li id="src-40">新浪新闻，强脑智能仿生手报道，2024-03-26，<a href="https://news.sina.com.cn/sx/2024-03-26/detail-inaprmtv6713760.shtml" target="_blank" rel="noopener">news.sina.com.cn</a></li>
+    <li id="src-41">TIME，A More Lifelike Prosthetic（Best Inventions 2019），<a href="https://time.com/collection-post/5733081/brainrobotics-ai-prosthetic-hand" target="_blank" rel="noopener">time.com</a></li>
+    <li id="src-42">澎湃新闻，国家孤独症康复研究中心与强脑科技启动脑电康复系统研发，2020，<a href="https://www.thepaper.cn/newsDetail_forward_10613435" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-43">网易号，《2026 年智能假肢 TOP5 盘点》，2026-09-30（自媒体，疑似软文，只取价格区间），<a href="https://www.163.com/dy/article/L83B42SN0556O7TH.html" target="_blank" rel="noopener">163.com</a></li>
+    <li id="src-44">国家科技传播中心 / 科技日报，智能仿生手报道，2021-12-21，<a href="https://www.ncsti.gov.cn/kjdt/ztbd/xydrgzn/cy/znjk/202112/t20211221_53690.html" target="_blank" rel="noopener">ncsti.gov.cn</a></li>
+    <li id="src-45">经济观察报 / 腾讯新闻，《杭州“六小龙”强脑科技：让残障者有尊严地活着》，2025-03-01，<a href="https://news.qq.com/rain/a/20250301A03PER00" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-46">PR Newswire，BrainCo Helps Amputee Showcase Technology at WAIC 2025，2025-09，<a href="https://www.prnewswire.com/news-releases/brainco-helps-amputee-showcase-technology-at-waic-2025-302549037.html" target="_blank" rel="noopener">prnewswire.com</a></li>
+    <li id="src-47">搜狐 / 好物种草官，《BrainCo 深海豚 Easleep 睡眠仪评测：真实用户反馈与购买指南》，2026-09-27（推广文），<a href="https://www.sohu.com/a/1081235665_122471764" target="_blank" rel="noopener">sohu.com</a></li>
+    <li id="src-48">新浪财经，《强脑科技古月现场演示脑机接口仿生手》，2026-01-29，<a href="https://finance.sina.com.cn/hy/hyjz/2026-01-29/doc-inhiyrwf4228907.shtml" target="_blank" rel="noopener">finance.sina.com.cn</a></li>
+    <li id="src-49">什么值得买，《中国仿生手“废掉美国对手”冲上热搜之后，截肢者的生活变了什么、没变什么》，2026-10-12（平台标注 AI 生成，汇总微博、小红书等），<a href="https://post.smzdm.com/p/agg5xer7/" target="_blank" rel="noopener">smzdm.com</a></li>
+    <li id="src-50">什么值得买，《从第一代到新一代无创仿生手，普通人最在意的变化是“敢不敢戴出门”》，2026-11-03（平台标注 AI 生成），<a href="https://post.smzdm.com/p/a5rp5l8k/" target="_blank" rel="noopener">smzdm.com</a></li>
+    <li id="src-51">App Store 中国区，深海豚 Easleep，取样日 2026-11-13，<a href="https://apps.apple.com/cn/app/id1629555686" target="_blank" rel="noopener">apps.apple.com</a></li>
+    <li id="src-52">App Store 美国区，FocusCalm - Brain Training，取样日 2026-11-13，<a href="https://apps.apple.com/us/app/focuscalm-brain-training/id1512564491" target="_blank" rel="noopener">apps.apple.com</a></li>
+    <li id="src-53">Trustpilot，focuscalm.com，取样日 2026-11-13，<a href="https://www.trustpilot.com/review/focuscalm.com" target="_blank" rel="noopener">trustpilot.com</a></li>
+    <li id="src-54">Biohacker Atlas，FocusCalm 条目，<a href="https://biohacker-atlas.pages.dev/eeg-headbands/focuscalm/" target="_blank" rel="noopener">biohacker-atlas.pages.dev</a>；The Gadgeteer，FocusCalm review，2021-06-21，<a href="https://the-gadgeteer.com/2021/06/21/focuscalm-review-a-gadget-that-will-help-you-relax-and-destress/" target="_blank" rel="noopener">the-gadgeteer.com</a></li>
+    <li id="src-55">The Gadgeteer，BrainCo OxyZen smart meditation headband review，2024-10-11，<a href="https://the-gadgeteer.com/2024/10/11/brainco-oxyzen-smart-meditation-headband-review-a-wearable-that-helps-you-relax-focus-and-more/" target="_blank" rel="noopener">the-gadgeteer.com</a></li>
+    <li id="src-56">宇树 G1 开发者文档（BrainCo 灵巧手）与 RobotShop 产品页，<a href="https://www.robotshop.com/products/revo2-basic-hand-for-unitree-h2-pair" target="_blank" rel="noopener">robotshop.com</a></li>
+    <li id="src-57">OpenELAB，Hardware hacking the RealMan RM65B and BrainCo Revo 2 integration with 3D printing，<a href="https://openelab.io/blogs/robotics/don-t-let-a-5-adapter-stall-a-20-000-system-hardware-hacking-the-realman-rm65b-and-brainco-revo-2-integration-with-3d-printing" target="_blank" rel="noopener">openelab.io</a></li>
+    <li id="src-58">知乎问题《大家如何评价 BrainCo 新推出的深海豚脑机智能安睡仪？》与《睡不着用深海豚睡眠仪有效吗？》，<a href="https://www.zhihu.com/question/561692238" target="_blank" rel="noopener">zhihu.com/question/561692238</a>，<a href="https://www.zhihu.com/question/561955137" target="_blank" rel="noopener">zhihu.com/question/561955137</a></li>
+    <li id="src-59">中国财富网 / 腾讯新闻，“数智中国”栏目强脑科技报道，2026-08-26，<a href="https://news.qq.com/rain/a/20260826A0CY4900" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-60">脑极体 / 网易号，《WAIC 现场：脑机接口走到十字路口，强脑科技选择搭一座桥》，2026-07-17，<a href="https://www.163.com/dy/article/L225KB300511FMIQ.html" target="_blank" rel="noopener">163.com</a></li>
+    <li id="src-61">Lee M-H 等，EEG dataset and OpenBMI toolbox for three BCI paradigms: an investigation into BCI illiteracy，GigaScience，2019，<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6501944/" target="_blank" rel="noopener">ncbi.nlm.nih.gov</a></li>
+    <li id="src-62">The Next Web，China’s BrainCo showed a platform that lets you control robots with your mind，2026-07，<a href="https://thenextweb.com/news/brainco-brain-to-robot-platform-waic" target="_blank" rel="noopener">thenextweb.com</a>；Notebookcheck，BrainCo unveils brain-controlled robot AI platform，2026-07，<a href="https://www.notebookcheck.net/BrainCo-unveils-brain-controlled-robot-AI-platform-The-future-of-eating-Cheetos-while-building-PCs-hands-free-with-just-a-thought.1346280.0.html" target="_blank" rel="noopener">notebookcheck.net</a></li>
+    <li id="src-63">中国日报网辽宁频道，《2026 WRC 世界机器人大赛 BrainAI 脑科学系列赛辽宁省选拔赛正式启动》，2026-05-24，<a href="https://ln.chinadaily.com.cn/a/202605/24/WS6a12d52aa310942cc49adf64.html" target="_blank" rel="noopener">ln.chinadaily.com.cn</a></li>
+    <li id="src-64">NeuroMaster 组委会，《2025 NeuroMaster BrainAI Competition 未来之城·脑智启能赛项规则》V5.6，2025-03，<a href="https://www.worldrobotconference.com/static/upload/file/20251031/1761888354721810.pdf" target="_blank" rel="noopener">worldrobotconference.com</a></li>
+    <li id="src-65">世界机器人大会，《超脑竞速赛项规则介绍》，2022-06，<a href="https://www.worldrobotconference.com/uploads/admin/202206/62a0ca252b41b.pdf" target="_blank" rel="noopener">worldrobotconference.com</a></li>
+    <li id="src-66">教育头条 / 网易号，《赛场意念控物背后：脑科学赛事撬动基础教育变革》，2026-07-21，<a href="https://www.163.com/dy/article/L2C94JP305169L98.html" target="_blank" rel="noopener">163.com</a></li>
+    <li id="src-67">教育部办公厅，《关于公布 2025—2028 学年面向中小学生的全国性竞赛活动的通知》，承德市教育局转载，2025，<a href="https://jyj.chengde.gov.cn/art/2025/10/29/art_504_1089268.html" target="_blank" rel="noopener">jyj.chengde.gov.cn</a>；中国教育在线名单页，<a href="https://www.eol.cn/e_html/2024/jingsai/index.shtml" target="_blank" rel="noopener">eol.cn</a></li>
+    <li id="src-68">Boston Tech Mom，NeuroMaker STEM Kit Teaches Students Biomedical Engineering in the Classroom，<a href="https://www.bostontechmom.com/neuromaker-stem-kit-teaches-students-biomedical-engineering-in-the-classroom/" target="_blank" rel="noopener">bostontechmom.com</a>；iF Design Award，BrainAI-NeuroMaker Hand BioSensor Kit for STEM，<a href="https://ifdesign.com/en/winner-ranking/project/brainai-neuromaker-hand-biosensor-kit-for-stem/625924" target="_blank" rel="noopener">ifdesign.com</a></li>
+    <li id="src-69">云南网，《“意念”控机械照进现实，BrainAI 脑科学人工智能挑战赛落地云南》，2026-05-18，<a href="https://yn.yunnan.cn/system/2026/05/18/034013091.shtml" target="_blank" rel="noopener">yunnan.cn</a></li>
+    <li id="src-70">新浪财经，《强脑科技韩璧丞：感谢马斯克与奥特曼 未来残疾人可以用意念打字》，2026-03-22，<a href="https://finance.sina.com.cn/hy/hyjz/2026-03-22/doc-inhrvxau2119904.shtml" target="_blank" rel="noopener">finance.sina.com.cn</a></li>
+    <li id="src-71">腾讯新闻，《意念能开轮椅、遥控无人机了 这场大赛把脑机接口的未来演给你看》，2026-09-21，<a href="https://news.qq.com/rain/a/20260921A0B2RC00" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-72">CGTN，Your brainwaves can move this wheelchair，2026-08-24，<a href="https://news.cgtn.com/news/2026-08-24/Your-brainwaves-can-move-this-wheelchair-1PRLKy3JepO/p.html" target="_blank" rel="noopener">news.cgtn.com</a></li>
+    <li id="src-73">Hyper.ai，Synaptrix Unveils Portable EEG Cap for Mind-Controlled Wheelchairs，<a href="https://hyper.ai/en/stories/fe6d955dd60057f8ba6e060efa2a1d6b" target="_blank" rel="noopener">hyper.ai</a>；Streamline Feed，China's Brainwave Wheelchair Turns Thought Into Motion，<a href="https://streamlinefeed.co.ke/news/chinas-brainwave-wheelchair-turns-thought-into-motion" target="_blank" rel="noopener">streamlinefeed.co.ke</a></li>
+    <li id="src-74">New Atlas，Review: Hands-free flight with EEGSmart's mind-controlled UDrone，2019，<a href="https://newatlas.com/udrone-mind-controlled-drone-umind-review/58791/" target="_blank" rel="noopener">newatlas.com</a></li>
+    <li id="src-75">Chen X 等，High-speed spelling with a noninvasive brain–computer interface，PNAS，2015，<a href="https://www.pnas.org/doi/10.1073/pnas.1508080112" target="_blank" rel="noopener">pnas.org</a></li>
+    <li id="src-76">Non-invasive EEG-based BCI spellers from the beginning to today: a mini-review，2023，<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10480564/" target="_blank" rel="noopener">ncbi.nlm.nih.gov</a>；Mind-pinyin speller，Expert Systems with Applications，2025，<a href="https://www.sciencedirect.com/science/article/abs/pii/S0957417425036140" target="_blank" rel="noopener">sciencedirect.com</a></li>
+    <li id="src-77">新浪，深圳市脑机融合孤独症研究中心及附属 BrainCo 开星果儿童成长中心揭牌，2023-03-31，<a href="https://news.sina.cn/sx/2023-03-31/detail-imynuhay7646000.d.html" target="_blank" rel="noopener">news.sina.cn</a></li>
+    <li id="src-78">知乎专栏，《“开星果”纳入上海市残疾人辅助器具电动类产品目录》，<a href="https://zhuanlan.zhihu.com/p/10640270239" target="_blank" rel="noopener">zhuanlan.zhihu.com</a></li>
+    <li id="src-79">新浪，BrainCo“开星果脑机接口社交训练系统”及案例登《辅具情报研究》期刊，2023-05-10，<a href="https://news.sina.cn/sx/2023-05-10/detail-imytfzpz7863960.d.html" target="_blank" rel="noopener">news.sina.cn</a></li>
+    <li id="src-80">Wang 等，Wearable EEG Neurofeedback Based-on Machine Learning Algorithms for Children with Autism: a Randomized, Placebo-Controlled Study，Current Medical Science，2024，<a href="https://journal.hep.com.cn/currmedsci/EN/10.1007/s11596-024-2938-3" target="_blank" rel="noopener">journal.hep.com.cn</a>；国家孤独症康复研究中心有效性报告，2022-04-02，<a href="https://app.brainco.cn/focus-autism/assets/zhongkang4.2.pdf" target="_blank" rel="noopener">app.brainco.cn</a></li>
+    <li id="src-81">The Effectiveness of Neurofeedback Therapy as an Alternative Treatment for Autism Spectrum Disorders in Children（系统综述），2020，<a href="https://pure.eur.nl/en/publications/the-effectiveness-of-neurofeedback-therapy-as-an-alternative-trea/" target="_blank" rel="noopener">pure.eur.nl</a></li>
+    <li id="src-82">Carrick FR 等，Frontiers in Neurology，2018，<a href="https://www.frontiersin.org/articles/10.3389/fneur.2018.00537/full" target="_blank" rel="noopener">frontiersin.org</a></li>
+    <li id="src-83">MassDevice，Analysts see $400B BCI opportunity（摩根士丹利报告转述），2024，<a href="https://www.massdevice.com/analysts-see-400b-bci-opportunity/" target="_blank" rel="noopener">massdevice.com</a>；Neurotechnology substack，400 billion BCI，<a href="https://neurotechnology.substack.com/p/400-billion-bci" target="_blank" rel="noopener">neurotechnology.substack.com</a></li>
+    <li id="src-84">ABC News，Estimated 1 in 31 children have autism as diagnosis rates increase in the US: CDC，2025-04，<a href="https://abc7.com/post/estimated-1-31-children-have-autism-diagnosis-rates-increase-us-cdc/16179092/" target="_blank" rel="noopener">abc7.com</a></li>
+  </ol>
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>
