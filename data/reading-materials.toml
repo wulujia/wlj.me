@@ -1086,3 +1086,16 @@ year = "2026"
 description = "Cursor 2026 年 11 月 13 日安全事件更新的中文全文，并整理供应商、安全研究者和其他受影响公司的后续信息。"
 original_url = "https://cursor.com/blog/security-incident-update"
 reading_url = "/reading/cursor-security-incident-2026-11/"
+
+[[materials]]
+slug = "building-always-on-agents-2026-11"
+title = "构建常驻 agent（中文译文）"
+subtitle = "常驻 agent 的五个原语：事件收件箱、定时器、记忆、权限、发件箱"
+author = "William Hu"
+category = "misc"
+tags = ["AI", "Tech"]
+date = "2026-11-14T14:13:04+08:00"
+year = "2026"
+description = "《Building always-on agents》中文全文译文：事件收件箱、定时器、记忆、权限、发件箱五个原语。"
+original_url = "https://claude.com/resources/articles/building-always-on-agents"
+reading_url = "/reading/building-always-on-agents-2026-11/"
