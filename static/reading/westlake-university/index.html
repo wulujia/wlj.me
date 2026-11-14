@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>西湖大学深度调研：从一封建议书到建校第八年</title>
+<meta name="description" content="西湖大学从 2015 年建议书到 2026 年的创校史、理念、关键人物、治理与资金、人才、科研成果、同行比较、影响与争议。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/westlake-university/">
+<style>
+/* Full dates need more room than the shared seven-character column. */
+.timeline li { grid-template-columns: 11ch 1fr; }
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#history">一、从建议书到第八年</a>
+        <ul>
+          <li><a href="#history-pre">1.1 创校前：2008 至 2015</a></li>
+          <li><a href="#history-build">1.2 筹建：2015 至 2018</a></li>
+          <li><a href="#history-run">1.3 建校以后：2018 至 2026</a></li>
+        </ul>
+      </li>
+      <li><a href="#values">二、理念与价值观</a>
+        <ul>
+          <li><a href="#values-nine">2.1 九个字的定位</a></li>
+          <li><a href="#values-eval">2.2 科研评价</a></li>
+          <li><a href="#values-teach">2.3 人才培养</a></li>
+          <li><a href="#values-missing">2.4 没有写下来的东西</a></li>
+        </ul>
+      </li>
+      <li><a href="#influences">三、影响西湖的人、事、物</a>
+        <ul>
+          <li><a href="#inf-seven">3.1 七位倡议人</a></li>
+          <li><a href="#inf-donors">3.2 捐赠人</a></li>
+          <li><a href="#inf-gov">3.3 政府</a></li>
+          <li><a href="#inf-models">3.4 参照的学校</a></li>
+          <li><a href="#inf-policy">3.5 政策节点</a></li>
+        </ul>
+      </li>
+      <li><a href="#money">四、治理与钱</a>
+        <ul>
+          <li><a href="#money-gov">4.1 治理结构</a></li>
+          <li><a href="#money-donate">4.2 捐赠和基金</a></li>
+          <li><a href="#money-gap">4.3 资金缺口</a></li>
+        </ul>
+      </li>
+      <li><a href="#talent">五、人才</a>
+        <ul>
+          <li><a href="#talent-pi">5.1 教师</a></li>
+          <li><a href="#talent-stu">5.2 学生</a></li>
+        </ul>
+      </li>
+      <li><a href="#research">六、科研成果</a>
+        <ul>
+          <li><a href="#res-ni">6.1 自然指数</a></li>
+          <li><a href="#res-cns">6.2 顶刊论文</a></li>
+          <li><a href="#res-key">6.3 代表性成果</a></li>
+          <li><a href="#res-trans">6.4 成果转化</a></li>
+        </ul>
+      </li>
+      <li><a href="#peers">七、同行</a>
+        <ul>
+          <li><a href="#peers-cn">7.1 国内新型研究型大学</a></li>
+          <li><a href="#peers-world">7.2 国际参照</a></li>
+          <li><a href="#peers-past">7.3 民国私立大学先例</a></li>
+        </ul>
+      </li>
+      <li><a href="#impact">八、影响</a>
+        <ul>
+          <li><a href="#impact-cn">8.1 对中国</a></li>
+          <li><a href="#impact-world">8.2 对世界</a></li>
+          <li><a href="#impact-edu">8.3 对教育</a></li>
+        </ul>
+      </li>
+      <li><a href="#risks">九、争议与风险</a></li>
+      <li><a href="#watch">十、判断与待观察</a></li>
+      <li><a href="#method">十一、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+
+  <header>
+    <p class="eyebrow">调研 · 2026 年 11 月 14 日</p>
+    <h1>西湖大学：从一封建议书到建校第八年</h1>
+    <p class="lede">这份调研从 2008 年施一公回国写起，到 2026 年首届本科生毕业为止。内容包括理念、关键人物、治理与资金、人才、科研成果、同行比较、影响和争议。</p>
+    <p class="meta"><span>数据截至 2026-11-14</span><span>范围：西湖大学及其举办方西湖教育基金会</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>科研产出已经站住。按自然指数 2026 年榜（统计 2025 年论文），西湖的 Share 为 191.12，中国第 62、全球第 115；在新型研究型大学里，它只排在南方科技大学（507.54）之后。按导师人数折算，每位导师约 0.75 个 Share，与 KAUST 相当，略低于加州理工的约 0.87。</p>
+    <p>钱是最大的短板。2024 年末，基金会净资产 71.39 亿元，不到自定 200 亿至 250 亿元留本基金目标的一半。启动资金、1495 亩校园用地和附属医院都来自浙江省和杭州市。“民办”在这里的准确含义是：社会捐赠负担日常运行，地方政府提供底座。</p>
+    <p>最大的外部影响在办学体制。2025 年，教育部批准福耀科技大学、宁波东方理工大学、大湾区大学，三校都用“高起点、小而精、研究型”这套定位；东方理工的首任校长陈十一，正是 2015 年西湖建议书的七位倡议人之一。</p>
+    <p>本科培养还没有结论。首届 60 人在 2026 年 7 月毕业，学校没有公布去向统计。</p>
+  </div>
+
+  <h2 id="history">一、从建议书到第八年</h2>
+  <p>西湖大学的正式成立日是 2018 年 10 月 20 日，但它的筹建从 2015 年就开始了，前身浙江西湖高等研究院在 2016 年已经招人做研究。下面三段按时间排。</p>
+
+  <h3 id="history-pre">1.1 创校前：2008 至 2015</h3>
+  <ol class="timeline">
+    <li><time>2008-02</time><div>施一公辞去普林斯顿大学终身教职，全职回清华任教，当时 40 岁。报道称他同时放弃了霍华德·休斯医学研究所研究员的邀请<sup><a href="#src-1">1</a></sup>。</div></li>
+    <li><time>2015-03-11</time><div>施一公、陈十一、潘建伟、饶毅、钱颖一、张辉、王坚七人，递交《关于试点创建新型民办研究型大学的建议》。施一公在成立大会致辞中说，建议书递交给习近平总书记并获“积极批示”<sup><a href="#src-2">2</a>,<a href="#src-3">3</a></sup>。建议书原文没有公开。</div></li>
+    <li><time>2015-06</time><div>签署“西湖大学（筹）”战略合作框架协议，校名公布<sup><a href="#src-2">2</a></sup>。</div></li>
+    <li><time>2015-07</time><div>浙江省民政厅批准设立杭州市西湖教育基金会，类型为非公募基金会<sup><a href="#src-7">7</a></sup>。</div></li>
+    <li><time>2015-10-24</time><div>国务院印发“双一流”总体方案，指出以往重点建设存在“身份固化、竞争缺失、重复交叉”等问题<sup><a href="#src-14">14</a></sup>。</div></li>
+    <li><time>2015-12-01</time><div>浙江西湖高等研究院注册成立<sup><a href="#src-2">2</a></sup>。</div></li>
+  </ol>
+  <p>施一公在 2018 年的演讲中回顾：1949 年全国有私立高校 69 所，50 年代初全部转为公立；此后约 30 年没有民办高等教育，80 年代以后出现的民办高校多数做职业教育<sup><a href="#src-4">4</a></sup>。西湖要填的是这个空档：一所由社会力量举办、以研究为主的大学。</p>
+
+  <h3 id="history-build">1.2 筹建：2015 至 2018</h3>
+  <ol class="timeline">
+    <li><time>2016-11-07</time><div>全国人大常委会修改《民办教育促进法》，确立营利与非营利分类管理；非营利学校的结余必须全部用于办学<sup><a href="#src-15">15</a></sup>。</div></li>
+    <li><time>2016-12-10</time><div>高研院举行成立大会，公布首批 6 位创始捐赠人：王东辉、王健林、邓锋、葛航、黄昌华、马化腾<sup><a href="#src-2">2</a></sup>。下设四个研究所，由施一公、饶毅、潘建伟、陈十一领衔<sup><a href="#src-40">40</a></sup>。</div></li>
+    <li><time>2017-03-19</time><div>云栖校区启用<sup><a href="#src-2">2</a></sup>。</div></li>
+    <li><time>2017-09</time><div>首批 19 名博士生入学，学位由复旦大学联合培养授予<sup><a href="#src-3">3</a></sup>。</div></li>
+    <li><time>2018-01</time><div>施一公请辞清华副校长。他说继续兼任“既是对母校的不负责任，也不利于为西湖大学的教职团队做出榜样”<sup><a href="#src-6">6</a></sup>。</div></li>
+    <li><time>2018-02-14</time><div>教育部批准设立西湖大学，4 月 2 日在官网公布批准函<sup><a href="#src-3">3</a></sup>。</div></li>
+    <li><time>2018-04-16</time><div>创校董事会第一次会议：钱颖一任主席，施一公任首任校长，杨振宁任名誉主席<sup><a href="#src-2">2</a></sup>。</div></li>
+    <li><time>2018-10-20</time><div>成立大会。施一公致辞题为《磨砺以须，倍道而进》<sup><a href="#src-3">3</a></sup>。</div></li>
+  </ol>
+
+  <h3 id="history-run">1.3 建校以后：2018 至 2026</h3>
+  <ol class="timeline">
+    <li><time>2020-07-17</time><div>西湖实验室（生命科学和生物医学浙江省实验室）首批授牌，首任主任于洪涛<sup><a href="#src-54">54</a></sup>。</div></li>
+    <li><time>2021-10-23</time><div>云谷校区一期、二期启用<sup><a href="#src-48">48</a></sup>。</div></li>
+    <li><time>2022</time><div>学校开始独立招收博士生<sup><a href="#src-63">63</a></sup>。4 月第二届董事会：钱颖一连任主席，秦英林任副主席<sup><a href="#src-11">11</a></sup>。</div></li>
+    <li><time>2022-07-31</time><div>首届本科生 60 人入学，全部来自浙江<sup><a href="#src-64">64</a></sup>。</div></li>
+    <li><time>2023-07-01</time><div>首届博士毕业典礼<sup><a href="#src-48">48</a></sup>。</div></li>
+    <li><time>2023-11-06</time><div>杭州市第一人民医院成为西湖大学医学院附属医院，医学院启动建设<sup><a href="#src-55">55</a></sup>。</div></li>
+    <li><time>2025-04</time><div>本科招生首次走出浙江，进入沪、苏、豫、粤、渝<sup><a href="#src-48">48</a></sup>。</div></li>
+    <li><time>2025-06</time><div>云谷校区三期完工<sup><a href="#src-41">41</a></sup>。</div></li>
+    <li><time>2025-08-12</time><div>生命科学开放联盟宣布创办期刊 Vita，施一公任主编之一<sup><a href="#src-33">33</a></sup>。</div></li>
+    <li><time>2025-10-18</time><div>董事会名誉主席杨振宁去世<sup><a href="#src-12">12</a></sup>。同日学校成立天文系。</div></li>
+    <li><time>2025-10-31</time><div>牧原股份公告向基金会捐赠 1 亿元，公告写明秦英林为基金会理事长<sup><a href="#src-10">10</a></sup>。</div></li>
+    <li><time>2026-07</time><div>首届本科生毕业<sup><a href="#src-22">22</a></sup>。</div></li>
+    <li><time>2026-08-08</time><div>2026 级本科开学，录取约 250 人，其中国际学生 20 人，来自 15 个国家<sup><a href="#src-21">21</a></sup>。</div></li>
+    <li><time>2026-10</time><div>“西湖系”孵化企业达 66 家，对外融资超过 30 亿元<sup><a href="#src-31">31</a></sup>。</div></li>
+  </ol>
+  <p>截至 2026-11-14，施一公仍任校长，钱颖一仍任董事会主席。按四年一届推算，第三届董事会应在 2026 年前后组建，本次没有查到相关报道。</p>
+
+  <h2 id="values">二、理念与价值观</h2>
+
+  <h3 id="values-nine">2.1 九个字的定位</h3>
+  <p>西湖从筹建到 2026 年一直用同一句话描述自己：“高起点、小而精、研究型”<sup><a href="#src-3">3</a>,<a href="#src-61">61</a></sup>。成立致辞列了四个目标：中国高等教育改革的探索者、拔尖创新人才培养的摇篮、世界前沿科学技术的引领者、国际化的高等学府<sup><a href="#src-3">3</a></sup>。</p>
+  <p>“小”有具体数字。2018 年施一公说，十年后西湖约 300 位教师，“基本达到加州理工的规模”<sup><a href="#src-4">4</a></sup>。学校章程写明学生上限约 5000 人<sup><a href="#src-13">13</a></sup>。2025 年 12 月他再次说“小而精”要长期坚持，2030 至 2035 年全校学生约 5000 人，其中博士生约 3000、本科生约 2000<sup><a href="#src-25">25</a></sup>。</p>
+  <blockquote>In 15 years, every indicator of our university will be on a par with that of Caltech.<cite>施一公对财新英文版说，2018-05-21<sup><a href="#src-5">5</a></sup></cite></blockquote>
+  <p>这句“15 年比肩加州理工”是西湖对外最常被引用的目标。到 2026 年过去了 8 年，第七节用自然指数检验它。</p>
+
+  <h3 id="values-eval">2.2 科研评价</h3>
+  <p>学校从一开始就说不以论文数、引用率、影响因子作主要考核指标<sup><a href="#src-3">3</a></sup>。2026 年施一公的说法更具体：“摒弃四唯、放弃科研量化指标、不设任何形式的科研奖励”<sup><a href="#src-61">61</a></sup>。他对科研环境的描述是：</p>
+  <blockquote>一群长期坚持学术品位的科学家，一个科学合理的评价体系，一个鼓励创新、包容失败的科研环境，一定会在基础研究中发挥越来越重要的作用。<cite>人民日报，2026-08-11<sup><a href="#src-24">24</a></sup></cite></blockquote>
+  <p>2025 年西湖牵头创办期刊 Vita。联盟成员承诺，在 PI 考核中让 Vita 与同领域国际顶刊“同质等效”<sup><a href="#src-33">33</a></sup>。这是想自己定评价标准，而不只是在既有标准里不看数字。</p>
+  <p>学校内部的治理口号是“教授治学，行政理校，学术导向决定行政服务”<sup><a href="#src-3">3</a></sup>。</p>
+
+  <h3 id="values-teach">2.3 人才培养</h3>
+  <p>西湖先办研究生院，后办本科。2017 至 2021 年只招博士生，2022 年起小规模招本科<sup><a href="#src-3">3</a></sup>。本科的做法是：</p>
+  <ul>
+    <li>大二末之前不定专业（临床医学除外）<sup><a href="#src-22">22</a></sup>。</li>
+    <li>书院制加学术导师制，平均每位导师带 2 名学生<sup><a href="#src-22">22</a></sup>。</li>
+    <li>浙江用“三位一体”综合评价录取，计分为高考 60%、校测 30%、学考 10%；外省多数走普通批<sup><a href="#src-38">38</a></sup>。</li>
+    <li>国内本科学费每年 6000 元，每人一间卧室<sup><a href="#src-23">23</a></sup>。</li>
+  </ul>
+  <p>施一公在 2026 级本科开学典礼上说，西湖的本科教育没有统一模板，也没有唯一标准答案<sup><a href="#src-21">21</a></sup>。</p>
+
+  <h3 id="values-missing">2.4 没有写下来的东西</h3>
+  <p>西湖没有官方公布的校训。章程里没有校训、校徽、校歌条款<sup><a href="#src-13">13</a></sup>。成立致辞中的“求知、探索、厚德、担当”是对师生的寄语，不是校训<sup><a href="#src-3">3</a></sup>。网上流传的“求是创新”属于浙江大学。</p>
+  <p>本次也没有找到西湖把之江大学、求是书院或民国私立大学当作样板的说法。施一公引用的只有 1949 年 69 所私立高校这一个数字<sup><a href="#src-4">4</a></sup>。</p>
+
+  <h2 id="influences">三、影响西湖的人、事、物</h2>
+
+  <h3 id="inf-seven">3.1 七位倡议人</h3>
+  <div class="tbl">
+    <table>
+      <caption>2015 年建议书的七位倡议人与后来的角色</caption>
+      <thead><tr><th scope="col">人</th><th scope="col">2015 年身份</th><th scope="col">与西湖的关系</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">施一公</th><td>清华大学教授、结构生物学家</td><td>首任校长，至今在任；领衔高研院生物所</td></tr>
+        <tr><th scope="row">钱颖一</th><td>清华经管学院院长、经济学家</td><td>董事会主席（2018 起，2022 连任）</td></tr>
+        <tr><th scope="row">陈十一</th><td>南方科技大学校长、力学家</td><td>领衔高研院所；基金会理事；2025 年任宁波东方理工大学首任校长</td></tr>
+        <tr><th scope="row">潘建伟</th><td>中国科大教授、量子物理学家</td><td>领衔高研院所；基金会理事</td></tr>
+        <tr><th scope="row">饶毅</th><td>北京大学教授、神经生物学家</td><td>领衔高研院所；基金会理事</td></tr>
+        <tr><th scope="row">张辉</th><td>北京大学教授（时任）</td><td>基金会理事</td></tr>
+        <tr><th scope="row">王坚</th><td>阿里云创始人</td><td>倡议人；本次没有查到他在捐赠人名单中</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：倡议人名单<sup><a href="#src-2">2</a></sup>，研究所领衔人<sup><a href="#src-40">40</a></sup>，基金会理事会<sup><a href="#src-8">8</a></sup>。七人中有六位是科学家或教授，只有王坚来自企业。这个组成决定了西湖从一开始就按科学家的标准招人。</p>
+  <p>另外两个人影响很大。杨振宁从 2018 年起任董事会名誉主席，到 2025 年去世<sup><a href="#src-12">12</a></sup>。陈越光原任敦和基金会秘书长，2024 年前任西湖教育基金会理事长，他在早期说过“西湖大学当然有可能失败”<sup><a href="#src-7">7</a></sup>。</p>
+
+  <h3 id="inf-donors">3.2 捐赠人</h3>
+  <p>创始捐赠人每人承诺至少 1 亿元。2016 年首批 6 位之后，名单陆续加入高瓴的张磊、牧原的秦英林和钱瑛等<sup><a href="#src-2">2</a></sup>。2018 年 5 月的 28 位创始捐赠人里有 9 位来自河南<sup><a href="#src-2">2</a></sup>，2024 年捐款的主要来源地依次是北京、河南、上海、浙江<sup><a href="#src-8">8</a></sup>。</p>
+  <p>秦英林是影响最大的单个捐赠人。媒体报道他 2019 年个人捐 1 亿元、次年再捐 8 亿元<sup><a href="#src-62">62</a></sup>（官方没有确认金额）。他 2022 年任董事会副主席<sup><a href="#src-11">11</a></sup>，2025 年任基金会理事长<sup><a href="#src-10">10</a></sup>。这意味着基金会的领导从公益界人士（陈越光）换成了最大的企业捐赠人。</p>
+
+  <h3 id="inf-gov">3.3 政府</h3>
+  <ul>
+    <li>杭州市和西湖区免费提供高研院约 10 万平方米办公用房<sup><a href="#src-2">2</a></sup>。</li>
+    <li>云谷校区约 1495 亩土地无偿划拨<sup><a href="#src-2">2</a></sup>。</li>
+    <li>地方政府提供 4 亿元启动资金。出资方说法不一：财新写浙江省，THE 写杭州市<sup><a href="#src-5">5</a>,<a href="#src-34">34</a></sup>。</li>
+    <li>4 个团队各获杭州顶尖人才项目 1 亿元<sup><a href="#src-2">2</a></sup>。</li>
+    <li>杭州市第一人民医院划为附属医院<sup><a href="#src-55">55</a></sup>。</li>
+  </ul>
+  <p>每年的财政补助金额没有公开。</p>
+
+  <h3 id="inf-models">3.4 参照的学校</h3>
+  <p>西湖明确引用的对象是两所美国私立学校。施一公 2018 年的演讲里，加州理工是规模参照（约 300 位教师），洛克菲勒大学是“小也能出成果”的证据：“成立于 1901 年……产生过 25 位诺奖获得者，从来没有超过 100 位教师”<sup><a href="#src-4">4</a></sup>。他同时说西湖“不是模仿加州理工建的，更不是模仿普林斯顿或斯坦福”<sup><a href="#src-60">60</a></sup>。副校长许田的说法是“我们不会来复制耶鲁大学”，“人是最核心的”<sup><a href="#src-2">2</a></sup>。</p>
+  <p>Weizmann、KAUST、OIST、ISTA、Janelia 常被媒体拿来比较，但本次没有找到西湖把它们当作模板的一手原话。</p>
+
+  <h3 id="inf-policy">3.5 政策节点</h3>
+  <p>三件事决定了西湖能在 2018 年出现。“双一流”方案在 2015 年承认了旧体系的身份固化问题<sup><a href="#src-14">14</a></sup>；2016 年《民办教育促进法》修订给了非营利民办学校明确的法律地位<sup><a href="#src-15">15</a></sup>；建议书得到中央批示<sup><a href="#src-3">3</a></sup>。前两件给了制度空间，第三件给了政治许可。没有第三件，浙江省和杭州市很难拿出土地和资金。</p>
+
+  <h2 id="money">四、治理与钱</h2>
+
+  <h3 id="money-gov">4.1 治理结构</h3>
+  <dl class="kv">
+    <dt>举办方</dt><dd>杭州市西湖教育基金会（非公募）<sup><a href="#src-8">8</a></sup></dd>
+    <dt>性质</dt><dd>“社会力量举办、国家重点支持”的非营利性民办研究型大学<sup><a href="#src-3">3</a></sup></dd>
+    <dt>领导体制</dt><dd>董事会领导下的校长负责制，另设党委<sup><a href="#src-13">13</a></sup></dd>
+    <dt>董事会主席</dt><dd>钱颖一（2018 起）<sup><a href="#src-11">11</a></sup></dd>
+    <dt>校长</dt><dd>施一公（2018 起）</dd>
+    <dt>基金会理事长</dt><dd>陈越光（至 2024 年报）；秦英林（2025 起）<sup><a href="#src-8">8</a>,<a href="#src-10">10</a></sup></dd>
+  </dl>
+  <p>章程规定：举办方决定董事会的规模和组成；校长由董事会任命，不得兼任董事会主席；罢免校长需要全体董事三分之二同意<sup><a href="#src-13">13</a></sup>。基金会可以提名至少三分之一董事<sup><a href="#src-7">7</a></sup>。这套结构对校长的保护较强，在中国大学里少见。</p>
+
+  <h3 id="money-donate">4.2 捐赠和基金</h3>
+  <div class="tbl">
+    <table>
+      <caption>西湖教育基金会的捐赠与资产</caption>
+      <thead><tr><th scope="col">时间</th><th scope="col">指标</th><th scope="col" class="num">数值</th><th scope="col">来源</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2016</th><td>协议捐赠 / 到账</td><td class="num">4 亿 / 0.2 亿元</td><td><a href="#src-7">7</a></td></tr>
+        <tr><th scope="row">2017 年底</th><td>协议捐赠 / 到账</td><td class="num">约 23 亿 / 近 8 亿元</td><td><a href="#src-7">7</a></td></tr>
+        <tr><th scope="row">2018 年底</th><td>协议捐赠 / 到账</td><td class="num">超 43 亿 / 超 15 亿元</td><td><a href="#src-7">7</a></td></tr>
+        <tr><th scope="row">2018 年底</th><td>创始捐赠人（每人 ≥1 亿元）</td><td class="num">36 位</td><td><a href="#src-7">7</a></td></tr>
+        <tr><th scope="row">2018 至 2024</th><td>基金会累计收入</td><td class="num">80.2 亿元</td><td><a href="#src-9">9</a></td></tr>
+        <tr><th scope="row">2024</th><td>当年接受捐赠</td><td class="num">约 8.88 亿元</td><td><a href="#src-8">8</a></td></tr>
+        <tr><th scope="row">2024</th><td>投资收益 / 收益率</td><td class="num">1.75 亿元 / 2.45%</td><td><a href="#src-9">9</a></td></tr>
+        <tr><th scope="row">2024 年末</th><td>净资产（全国高校基金会第 4）</td><td class="num">71.39 亿元</td><td><a href="#src-9">9</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="money-gap">4.3 资金缺口</h3>
+  <p>西湖自己算过账。2018 年基金会和施一公的说法是：学校全面运行后每年需要 10 亿至 12 亿元，需要 200 亿至 250 亿元的留本基金才能靠收益维持<sup><a href="#src-5">5</a>,<a href="#src-7">7</a></sup>。</p>
+  <p>对照 2024 年的数字：71.39 亿元净资产按 2.45% 的收益率，一年收益约 1.75 亿元，只够成熟期年支出的六分之一左右。2024 年当年 8.88 亿元的新捐款，大致与一年运行费用同量级。也就是说，西湖每年都要靠当年募款和政府支持来运转，留本基金还没有成为主要收入来源。</p>
+  <p>外部环境在变。2024 年中国高校收到 1000 万元以上大额捐赠共 121.7 亿元，是 2023 年的约 2.3 倍；第一名是宁波东方理工大学的 43.3 亿元（主要是虞仁荣捐的股票），报道没有提到西湖<sup><a href="#src-39">39</a></sup>。新的民办研究型大学正在和西湖争同一批富豪的钱。</p>
+  <div class="warn"><b>未公开</b>西湖没有公开学校层面的年度财务报告。政府补助占比、生均成本、2019 年以后的累计协议捐赠总额都查不到。网上流传的“每年财政 15 亿”“政府占 20% 至 30%”等数字都没有出处，本页不采用。</div>
+
+  <h2 id="talent">五、人才</h2>
+
+  <h3 id="talent-pi">5.1 教师</h3>
+  <div class="tbl">
+    <table>
+      <caption>独立 PI（博士生导师）人数</caption>
+      <thead><tr><th scope="col">时间</th><th scope="col" class="num">人数</th><th scope="col">口径</th><th scope="col">来源</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2018-11</th><td class="num">68</td><td>8 轮全球招聘选聘数</td><td><a href="#src-46">46</a></td></tr>
+        <tr><th scope="row">2024</th><td class="num">240</td><td>在岗学术人才，含讲席教授 36 位</td><td><a href="#src-8">8</a></td></tr>
+        <tr><th scope="row">2025-12</th><td class="num">273</td><td>博导</td><td><a href="#src-18">18</a></td></tr>
+        <tr><th scope="row">2026-11</th><td class="num">≤302</td><td>官网英文师资名录去重条目，可能含非常规岗位，是上限</td><td><a href="#src-17">17</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>2026 年的名录按学院分：工学院 97、理学院 86、生命科学学院 78、医学院 41<sup><a href="#src-17">17</a></sup>。截至 2026-08-31，全校教职工 2390 人，来自 30 多个国家和地区<sup><a href="#src-16">16</a></sup>。“十年 300 位教师”的目标在第八年基本达到。</p>
+  <p>教师来源以海外为主。理学院介绍称所有教授都有海外一流大学或研究机构的经历；2025 年第三季度入职的 19 位 PI，之前在 Cornell、Princeton、Harvard、Caltech、ETH Zurich、东京大学等机构<sup><a href="#src-45">45</a></sup>。近年的资深引进包括柴继杰（2023 年从清华加入）、林文斌（2025 年从芝加哥大学加入）<sup><a href="#src-50">50</a></sup>。学校还有“90 后”博导约 20 位，最年轻 28 岁<sup><a href="#src-47">47</a></sup>。</p>
+  <p>院士名单零散：中科院院士有施一公、董晨（副校长、医学院院长）；欧洲科学院院士有仇旻、裴端卿；德国工程院院士曾安平<sup><a href="#src-47">47</a></sup>。学校没有公布院士总数。</p>
+
+  <h3 id="talent-stu">5.2 学生</h3>
+  <div class="tbl">
+    <table>
+      <caption>每年新生人数</caption>
+      <thead><tr><th scope="col">年份</th><th scope="col" class="num">博士新生</th><th scope="col" class="num">本科新生</th><th scope="col">说明</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2017</th><td class="num">19</td><td class="num">无</td><td>与复旦联合培养</td></tr>
+        <tr><th scope="row">2018</th><td class="num">120</td><td class="num">无</td><td></td></tr>
+        <tr><th scope="row">2019</th><td class="num">195</td><td class="num">无</td><td></td></tr>
+        <tr><th scope="row">2020</th><td class="num">274</td><td class="num">无</td><td></td></tr>
+        <tr><th scope="row">2021</th><td class="num">313</td><td class="num">无</td><td></td></tr>
+        <tr><th scope="row">2022</th><td class="num">352</td><td class="num">60</td><td>本科只招浙江</td></tr>
+        <tr><th scope="row">2023</th><td class="num">380</td><td class="num">93</td><td></td></tr>
+        <tr><th scope="row">2024</th><td class="num">537</td><td class="num">98</td><td></td></tr>
+        <tr><th scope="row">2025</th><td class="num">609</td><td class="num">236</td><td>本科走出浙江，进 6 省市；官网合计图写 784，与 845 不符</td></tr>
+        <tr><th scope="row">2026</th><td class="num">742</td><td class="num">约 250</td><td>本科 9 省市，含国际生 20 人</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：2017 至 2024 年博士数取自维基百科，并与官网趋势图核对一致<sup><a href="#src-48">48</a>,<a href="#src-16">16</a></sup>；2025 年<sup><a href="#src-19">19</a></sup>；2026 年<sup><a href="#src-20">20</a>,<a href="#src-21">21</a></sup>。官网写截至 2026-08-31 学生共 4038 人，本科 677 人<sup><a href="#src-16">16</a></sup>。按约 300 位 PI 估算，生师比约 13:1。</p>
+  <p>2026 级博士生中，64% 是本科直博，生源包括西湖本校、浙大、武大、国科大、NUS、UCL、Imperial<sup><a href="#src-20">20</a></sup>。2026 年各省录取线：河南 670 分（位次 1483）、重庆 670 分（518）、安徽 675 分（1370）、江西 669 分（772）<sup><a href="#src-38">38</a></sup>。</p>
+  <p>首届本科 60 人毕业后，自媒体称约九成继续深造、约一半留校读博，个别人去了斯坦福和伯克利<sup><a href="#src-22">22</a></sup>。学校没有公布官方去向统计；首届博士毕业生的去向也没有汇总数据。</p>
+
+  <h2 id="research">六、科研成果</h2>
+
+  <h3 id="res-ni">6.1 自然指数</h3>
+  <p>自然指数（Nature Index）统计一所机构在一组自然科学期刊上的论文贡献，Share 是按作者比例折算后的论文份额。榜单年份统计的是前一年的论文。</p>
+  <figure>
+    <svg viewBox="0 0 640 220" role="img" aria-label="西湖大学自然指数 Share 柱状图：2021 年 18.41，2022 年 33.89，2023 年 58.95，2024 年 85.91，2025 年 144.49，2026 年 191.12">
+      <g fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="1">
+        <line x1="60" y1="20" x2="60" y2="180"/><line x1="60" y1="180" x2="620" y2="180"/>
+        <line x1="60" y1="100" x2="620" y2="100"/><line x1="60" y1="20" x2="620" y2="20"/>
+      </g>
+      <g font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".7">
+        <text x="52" y="184" text-anchor="end">0</text><text x="52" y="104" text-anchor="end">100</text><text x="52" y="24" text-anchor="end">200</text>
+      </g>
+      <g fill="var(--acc)">
+        <rect x="79" y="165.3" width="56" height="14.7"/>
+        <rect x="172" y="152.9" width="56" height="27.1"/>
+        <rect x="265" y="132.8" width="56" height="47.2"/>
+        <rect x="359" y="111.3" width="56" height="68.7"/>
+        <rect x="452" y="64.4" width="56" height="115.6"/>
+        <rect x="545" y="27.1" width="56" height="152.9"/>
+      </g>
+      <g font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">
+        <text x="107" y="200">2021</text><text x="200" y="200">2022</text><text x="293" y="200">2023</text><text x="387" y="200">2024</text><text x="480" y="200">2025</text><text x="573" y="200">2026</text>
+        <text x="480" y="57">144.49</text><text x="573" y="20">191.12</text>
+      </g>
+    </svg>
+    <figcaption>西湖的 Share 五年涨了约十倍。2025 和 2026 两个榜单按新口径计算（期刊从 82 种扩到约 178 种），与前四年不能直接比。来源：Nature Index，取样日 2026-11-14<sup><a href="#src-26">26</a>,<a href="#src-28">28</a></sup>。</figcaption>
+    <details><summary>数据表</summary>
+      <div class="tbl"><table><thead><tr><th scope="col">榜单年份</th><th scope="col" class="num">Share</th><th scope="col" class="num">Count</th><th scope="col" class="num">中国排名</th><th scope="col" class="num">全球排名</th></tr></thead>
+      <tbody>
+        <tr><td>2021</td><td class="num">18.41</td><td class="num">82</td><td class="num">116</td><td class="num">无</td></tr>
+        <tr><td>2022</td><td class="num">33.89</td><td class="num">126</td><td class="num">93</td><td class="num">无</td></tr>
+        <tr><td>2023</td><td class="num">58.95</td><td class="num">168</td><td class="num">75</td><td class="num">无</td></tr>
+        <tr><td>2024</td><td class="num">85.91</td><td class="num">241</td><td class="num">62</td><td class="num">193</td></tr>
+        <tr><td>2025（新口径重算）</td><td class="num">144.49</td><td class="num">366</td><td class="num">69</td><td class="num">154</td></tr>
+        <tr><td>2026</td><td class="num">191.12</td><td class="num">513</td><td class="num">62</td><td class="num">115</td></tr>
+      </tbody></table></div>
+    </details>
+  </figure>
+  <p>2026 年榜的分项里，西湖在 Nature 和 Science 两刊子榜排中国第 8（Count 24）<sup><a href="#src-26">26</a></sup>。最近 12 个月窗口（2025-07-01 至 2026-06-30）的 Share 为 206.05，全球第 117<sup><a href="#src-27">27</a></sup>。</p>
+  <div class="note"><b>口径</b>2025 年榜初版曾显示西湖全球第 124、中国第 52，维基百科沿用了这组数字；榜单按新期刊范围重算后，现行页面是第 154 和第 69。两组都来自 Nature Index，取哪组取决于口径。</div>
+
+  <h3 id="res-cns">6.2 顶刊论文</h3>
+  <div class="tbl">
+    <table>
+      <caption>含西湖署名的 Nature、Science、Cell 论文数（OpenAlex，type=article）</caption>
+      <thead><tr><th scope="col">期刊</th><th scope="col" class="num">2018</th><th scope="col" class="num">2019</th><th scope="col" class="num">2020</th><th scope="col" class="num">2021</th><th scope="col" class="num">2022</th><th scope="col" class="num">2023</th><th scope="col" class="num">2024</th><th scope="col" class="num">2025</th><th scope="col" class="num">2026*</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Nature</th><td class="num">1</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">5</td><td class="num">7</td><td class="num">14</td><td class="num">22</td><td class="num">14</td></tr>
+        <tr><th scope="row">Science</th><td class="num">3</td><td class="num">4</td><td class="num">7</td><td class="num">3</td><td class="num">6</td><td class="num">3</td><td class="num">8</td><td class="num">5</td><td class="num">16</td></tr>
+        <tr><th scope="row">Cell</th><td class="num">0</td><td class="num">1</td><td class="num">4</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">5</td><td class="num">8</td><td class="num">12</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>* 2026 年截至 11 月。2017 至 2026 年合计约 169 篇，含所有西湖署名，不只是通讯作者；OpenAlex 可能把少量评论计入。全部论文数从 2019 年的 295 篇增长到 2025 年的 3102 篇，累计 14543 篇，总被引 89.3 万次<sup><a href="#src-29">29</a></sup>。</p>
+
+  <h3 id="res-key">6.3 代表性成果</h3>
+  <div class="tbl">
+    <table>
+      <caption>按领域选出的代表性成果（被引次数取自 OpenAlex，2026-11-14）</caption>
+      <thead><tr><th scope="col">团队</th><th scope="col">成果</th><th scope="col">期刊与时间</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">周强</th><td>全长 ACE2 与新冠病毒 RBD 复合物的冷冻电镜结构；被引 5049 次，西湖被引最高的论文</td><td>Science，2020-03</td></tr>
+        <tr><th scope="row">郭天南</th><td>新冠患者血清蛋白质组与代谢组；被引 1499 次</td><td>Cell，2020</td></tr>
+        <tr><th scope="row">蔡尚</th><td>肿瘤内菌群促进乳腺癌转移；被引 1031 次</td><td>Cell，2022-04</td></tr>
+        <tr><th scope="row">施一公</th><td>人源剪接体系列结构；IgE–FcεRI 结构；2026 年 U12 型稀有剪接体催化态结构</td><td>Science 2018；Nature 2024-10<sup><a href="#src-30">30</a></sup></td></tr>
+        <tr><th scope="row">柴继杰</th><td>植物 NLR 抗病小体</td><td>Science 2024-02；Nature 2024-03、2025-02</td></tr>
+        <tr><th scope="row">王睿</th><td>钙钛矿光伏</td><td>Nature 2023-06、2024-07；Science 2024-10</td></tr>
+        <tr><th scope="row">卢培龙</th><td>从头设计跨膜荧光蛋白；从头设计电压门控阴离子通道</td><td>Nature 2025-02；Cell 2025-10</td></tr>
+        <tr><th scope="row">杨剑</th><td>gsMap 空间细胞与性状图谱</td><td>Nature，2025-03</td></tr>
+        <tr><th scope="row">何睿华</th><td>非共线反铁磁体中的自旋劈裂</td><td>Nature，2024-02</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：OpenAlex 机构记录<sup><a href="#src-29">29</a></sup>。人民日报称建校以来有“50 多项世界首次”<sup><a href="#src-24">24</a></sup>，没有列出清单。成果集中在结构生物学和生命科学，这是施一公本人的领域，也是最早一批 PI 的来源；材料、物理、化学在 2023 年以后才开始出现顶刊成果。</p>
+
+  <h3 id="res-trans">6.4 成果转化</h3>
+  <div class="tbl">
+    <table>
+      <caption>“西湖系”孵化企业</caption>
+      <thead><tr><th scope="col">时间</th><th scope="col" class="num">企业数</th><th scope="col" class="num">对外融资</th><th scope="col" class="num">估值</th><th scope="col">来源</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2025-07</th><td class="num">51 家</td><td class="num">25 亿元</td><td class="num">近 200 亿元</td><td><a href="#src-44">44</a></td></tr>
+        <tr><th scope="row">2026-10</th><td class="num">66 家</td><td class="num">超 30 亿元</td><td class="num">超 200 亿元</td><td><a href="#src-31">31</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li>西湖制药的 3CLpro 抑制剂“艾普司韦”附条件获批上市，学校称这是它第一个自主研发的 1 类新药，从立项到获批 3.5 年<sup><a href="#src-31">31</a>,<a href="#src-32">32</a></sup>。获批日期两个来源不一致。</li>
+    <li>西湖欧米（郭天南，蛋白质组学）：2022 年完成数亿元 Pre-A 轮，高瓴创投领投<sup><a href="#src-43">43</a></sup>。</li>
+    <li>西湖心辰（蓝振忠，AI）：2021 年成立，2026-08 完成数亿元 B+ 轮<sup><a href="#src-43">43</a></sup>。</li>
+    <li>2024 年在紫金港科技城设立成果转化基地，首批入驻施一公、许田、于洪涛等 5 个科学家工作室<sup><a href="#src-53">53</a></sup>。</li>
+  </ul>
+  <p>“西湖与杭州六小龙有关联”的说法本次没有找到证据。中国证券报 2025 年的文章只写了期待“西湖大学等将会贡献一系列‘小龙’”<sup><a href="#src-52">52</a></sup>。</p>
+
+  <h2 id="peers">七、同行</h2>
+
+  <h3 id="peers-cn">7.1 国内新型研究型大学</h3>
+  <div class="tbl">
+    <table class="compare">
+      <caption>西湖与国内同类学校（自然指数为 2026 年榜，统计 2025 年论文）</caption>
+      <thead><tr><th scope="col">学校</th><th scope="col">设立</th><th scope="col">举办方</th><th scope="col">首任校长</th><th scope="col" class="num">Share / 中国排名</th><th scope="col">本科年招生</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" class="pick">西湖大学</th><td class="pick">2018</td><td class="pick">西湖教育基金会（民办）</td><td class="pick">施一公</td><td class="num pick">191.12 / 62</td><td class="pick">约 250（2026）</td></tr>
+        <tr><th scope="row">南方科技大学</th><td>2012</td><td>深圳市（公办）</td><td>朱清时</td><td class="num">507.54 / 22</td><td>本科在校 5600+（2026-05）</td></tr>
+        <tr><th scope="row">上海科技大学</th><td>2013</td><td>上海市与中科院（公办）</td><td>江绵恒</td><td class="num">180.26 / 68</td><td>待确认</td></tr>
+        <tr><th scope="row">港中大（深圳）</th><td>2014</td><td>中外合作</td><td>徐扬生</td><td class="num">53.08 / 164</td><td>学生约 1.3 万（2024）</td></tr>
+        <tr><th scope="row">深圳理工大学</th><td>2024</td><td>深圳市与中科院深圳先进院（公办）</td><td>樊建平</td><td class="num">未进前 500</td><td>120（2024）</td></tr>
+        <tr><th scope="row">福耀科技大学</th><td>2025</td><td>河仁慈善基金会（民办）</td><td>王树国</td><td class="num">无</td><td>50（2025）、100（2026）</td></tr>
+        <tr><th scope="row">宁波东方理工大学</th><td>2025</td><td>虞仁荣教育基金会（民办）</td><td>陈十一</td><td class="num">无</td><td>74（2025）</td></tr>
+        <tr><th scope="row">大湾区大学</th><td>2025</td><td>广东省与东莞市（公办）</td><td>田刚</td><td class="num">无</td><td>80（2025）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：自然指数<sup><a href="#src-26">26</a></sup>；南科大<sup><a href="#src-42">42</a></sup>；福耀<sup><a href="#src-58">58</a></sup>；东方理工<sup><a href="#src-59">59</a></sup>；三校获批<sup><a href="#src-40">40</a></sup>。</p>
+  <p>南科大的科研总量是西湖的约 2.7 倍，但它是公办学校，有深圳市财政长期拨款，学生规模也大得多。西湖和上科大的总量接近，2026 年榜西湖略高。在民办学校里，西湖 2017 年就招了第一批博士生，福耀和东方理工到 2025 年才招第一届学生。</p>
+
+  <h3 id="peers-world">7.2 国际参照</h3>
+  <div class="tbl">
+    <table>
+      <caption>西湖与国际小型研究型机构（自然指数 2025-07 至 2026-06 窗口）</caption>
+      <thead><tr><th scope="col">机构</th><th scope="col">创立</th><th scope="col">资金</th><th scope="col">教师规模</th><th scope="col" class="num">Share</th><th scope="col" class="num">Share ÷ 教师</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">西湖大学</th><td>2018</td><td>捐赠 + 地方政府</td><td>273 位博导</td><td class="num">206.05</td><td class="num">≈0.75</td></tr>
+        <tr><th scope="row">Caltech</th><td>1891</td><td>私立，捐赠基金 43.2 亿美元</td><td>约 300 位教授</td><td class="num">262.40</td><td class="num">≈0.87</td></tr>
+        <tr><th scope="row">Rockefeller</th><td>1901</td><td>私立，捐赠基金 26.1 亿美元</td><td>79 位（2020）</td><td class="num">67.20</td><td class="num">≈0.85</td></tr>
+        <tr><th scope="row">KAUST</th><td>2009</td><td>沙特国家出资</td><td>184 位</td><td class="num">137.23</td><td class="num">≈0.75</td></tr>
+        <tr><th scope="row">POSTECH</th><td>1986</td><td>浦项钢铁出资</td><td>294 位</td><td class="num">149.03</td><td class="num">≈0.51</td></tr>
+        <tr><th scope="row">OIST</th><td>2011</td><td>日本政府为主</td><td>96 位</td><td class="num">46.43</td><td class="num">≈0.48</td></tr>
+        <tr><th scope="row">ISTA</th><td>2009</td><td>奥地利联邦与州拨款，协议保障到 2036</td><td>86 位</td><td class="num">36.92</td><td class="num">≈0.43</td></tr>
+        <tr><th scope="row">HKUST</th><td>1991</td><td>香港公立</td><td>973 位</td><td class="num">269.01</td><td class="num">≈0.28</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：自然指数机构页<sup><a href="#src-27">27</a></sup>；ISTA<sup><a href="#src-56">56</a></sup>；OIST<sup><a href="#src-57">57</a></sup>；KAUST<sup><a href="#src-65">65</a></sup>；其余捐赠基金与教师数取自维基百科信息框。各校教师口径不同，人均值只能看量级；自然指数不统计数学和计算机，ISTA 和 OIST 的这部分产出被低估。</p>
+  <p>按人均自然科学论文份额看，西湖已经进入加州理工、洛克菲勒、KAUST 这一档，“15 年比肩加州理工”在这个指标上接近达成。差距在别处：加州理工有百年积累的 43.2 亿美元捐赠基金，ISTA 有写进协议的国家拨款到 2036 年，西湖两样都没有。</p>
+
+  <h3 id="peers-past">7.3 民国私立大学先例</h3>
+  <div class="tbl">
+    <table>
+      <caption>与西湖常被并提的民国私立大学</caption>
+      <thead><tr><th scope="col">学校</th><th scope="col">创办</th><th scope="col">结局</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">南开</th><td>1919 年开学，严修、张伯苓创办</td><td>1946 年改为国立</td></tr>
+        <tr><th scope="row">厦门大学</th><td>1921 年陈嘉庚创办并持续出资</td><td>1934 年陈嘉庚公司收盘，靠募捐维持；1937 年应他本人请求改为国立</td></tr>
+        <tr><th scope="row">燕京大学</th><td>1919 年由教会大学合并而成</td><td>1952 年院系调整中拆分</td></tr>
+        <tr><th scope="row">之江大学（杭州）</th><td>源头是 1845 年宁波的教会学校</td><td>1952 年大部分并入浙大</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>来源：厦大<sup><a href="#src-49">49</a></sup>，其余见方法与来源。评论文章常用“南开、厦大最初都是私立”支持私立大学回归<sup><a href="#src-37">37</a></sup>。厦大的经历更值得西湖对照：创办人的资金一断，学校只能交给国家。这也是第四节资金缺口的历史版本。</p>
+
+  <h2 id="impact">八、影响</h2>
+
+  <h3 id="impact-cn">8.1 对中国</h3>
+  <p>办学体制上，1950 年代初私立高校全部转为公立以后，西湖是第一所获批的民办研究型大学<sup><a href="#src-35">35</a></sup>。2025 年教育部批准的福耀科技大学、宁波东方理工大学、大湾区大学，统一定位为“高起点、小而精、研究型、国际化”<sup><a href="#src-40">40</a></sup>，只比西湖多了“国际化”三个字。福耀和东方理工都由企业家的基金会举办，走的是西湖开出的路。THE 2026 年的报道统计，这类小型理工研究型大学已有 8 所<sup><a href="#src-36">36</a></sup>。</p>
+  <p>捐赠文化上，西湖的 36 位亿元级创始捐赠人（截至 2018 年底）<sup><a href="#src-7">7</a></sup>，让“给一所新大学捐一亿”变成了可以复制的行为。到 2024 年，高校大额捐赠里民办学校已占 42%<sup><a href="#src-39">39</a></sup>。</p>
+  <p>地方创新上，西湖牵头建设西湖实验室，并拥有“遗传物质表达与重建”全国重点实验室、白马湖实验室和 9 个省级重点实验室<sup><a href="#src-41">41</a></sup>，加上 66 家孵化企业<sup><a href="#src-31">31</a></sup>，已经是杭州城西科创大走廊的一部分。</p>
+  <p>科研评价上，西湖用 Vita 期刊尝试建立自己的评价标准<sup><a href="#src-33">33</a></sup>。这件事刚开始，效果要几年后才看得到。</p>
+
+  <h3 id="impact-world">8.2 对世界</h3>
+  <p>国际媒体从一开始就关注西湖。Science 在 2018 年 2 月发了报道《Biologist unveils China's first private research university》<sup><a href="#src-35">35</a></sup>。同年波士顿学院的 Philip Altbach 称“15 年比肩加州理工”的时间表“amazingly optimistic”，并怀疑政府会不会给真正的自主<sup><a href="#src-34">34</a></sup>。</p>
+  <p>2023 年以后，报道焦点转向人才流动。SCMP 连续报道在美华人学者全职加入西湖，包括芝加哥大学的林文斌、生化学家管坤良和多位数学、AI 学者<sup><a href="#src-50">50</a></sup>。RealClearScience 在 2026-07 把林文斌的加入放进“美国科学人才流失”的讨论里<sup><a href="#src-51">51</a></sup>。对世界而言，西湖目前最可见的作用是：在中美科研环境变化时，给海外华人科学家一个不必进入传统体制的回国选项。</p>
+  <p>排名上，西湖在软科世界大学学术排名中从 2024 年的 501–600 升到 2025 年的 301–400<sup><a href="#src-48">48</a></sup>。2026 级本科有 20 名国际学生，来自 15 个国家<sup><a href="#src-21">21</a></sup>，国际化规模还很小。</p>
+
+  <h3 id="impact-edu">8.3 对教育</h3>
+  <p>西湖本科的规模小到不足以改变高考格局：2026 年全国只招约 250 人。它的影响在于示范一种做法：大二末再定专业、每位导师带两名学生、综合评价录取。</p>
+  <p>对这种做法的评价还停在争论阶段。21 世纪教育研究院的熊丙奇认为分数波动正常，“不能据此判断学校热度或质量发生变化”；中国教科院的储朝晖提醒“民办学校缺乏相应保障，风险更高”；大湾区大学校长田刚认为这类学校缺少顶层设计和制度支撑<sup><a href="#src-38">38</a></sup>。中国科学报 2026 年的评论把西湖视为民办高等教育的“样本”，呼吁“不能用一种标准评价所有高校”<sup><a href="#src-37">37</a></sup>。</p>
+
+  <h2 id="risks">九、争议与风险</h2>
+  <div class="tbl">
+    <table>
+      <caption>主要争议与风险</caption>
+      <thead><tr><th scope="col">问题</th><th scope="col">已知事实</th><th scope="col">程度</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">资金可持续</th><td>净资产 71.39 亿元，目标 200 亿至 250 亿元；没有公开学校财报<sup><a href="#src-9">9</a></sup></td><td><span class="pill bad">高</span></td></tr>
+        <tr><th scope="row">“民办”与公共投入</th><td>土地、启动资金、附属医院来自政府。2018 年人民大学周光礼质疑董事会治理能否融入现行体制<sup><a href="#src-5">5</a></sup></td><td><span class="pill warn">中</span></td></tr>
+        <tr><th scope="row">“小而精”能否守住</th><td>学生上限 5000 人，但 2026 年中国科学报写到 2030 年目标 7200 人（口径不清）<sup><a href="#src-22">22</a></sup>；本科从 60 人扩到约 250 人</td><td><span class="pill warn">中</span></td></tr>
+        <tr><th scope="row">学科集中</th><td>代表性成果多在生命科学；2022 年网上质疑本科专业集中在“生化环材”</td><td><span class="pill warn">中</span></td></tr>
+        <tr><th scope="row">利益冲突</th><td>施一公任 Vita 主编，2026-10 他的团队在 Vita 发表论文<sup><a href="#src-33">33</a></sup>；本次没有查到公开质疑</td><td><span class="pill">低</span></td></tr>
+        <tr><th scope="row">医学院认证</th><td>英文维基称临床医学尚未列入《世界医学院名录》<sup><a href="#src-48">48</a></sup>（单一来源）</td><td><span class="pill">低</span></td></tr>
+        <tr><th scope="row">学术不端</th><td>本次没有查到西湖教师论文被撤稿或被正式调查的可靠报道</td><td><span class="pill good">未见</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>早期还有两个已经过去的争议：2018 年有人质疑施一公同时兼任清华副校长和西湖筹建负责人，他在 2018 年 1 月辞去副校长<sup><a href="#src-6">6</a></sup>；2017 至 2021 年博士学位由复旦、浙大代授，2022 年起学校独立招生<sup><a href="#src-63">63</a></sup>。另外，自媒体流传的“5 年超过清华”没有出处，有出处的只有“15 年比肩加州理工”。</p>
+
+  <h2 id="watch">十、判断与待观察</h2>
+  <p>八年里西湖兑现了科研上的承诺：导师规模到了 300 人左右，人均自然科学产出进入国际小型研究型大学的第一档。这部分靠的是一次性的条件：施一公的号召力、2015 至 2020 年海外华人学者回流的窗口、浙江省和杭州市的土地和资金。</p>
+  <p>下一个八年的难点在钱和规模。留本基金只有目标的三分之一左右，新的民办大学在争同一批捐赠人，而学校在扩大本科。西湖接下来要回答的问题是：没有国家长期拨款，一所研究型大学能不能持续运转。</p>
+  <div class="tbl">
+    <table>
+      <caption>接下来值得看的信号</caption>
+      <thead><tr><th scope="col">信号</th><th scope="col">为什么</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">学校是否公开年度财务报告</th><td>这是判断“民办”含义的唯一硬证据</td></tr>
+        <tr><th scope="row">基金会净资产能否在 2030 年前过 100 亿元</th><td>决定留本基金能否成为主要收入</td></tr>
+        <tr><th scope="row">首届本科生的官方去向统计</th><td>检验本科模式的第一份数据</td></tr>
+        <tr><th scope="row">第三届董事会人选和施一公之后的校长</th><td>检验学校能否脱离创始人运转</td></tr>
+        <tr><th scope="row">Vita 是否被联盟外的单位认可</th><td>检验自定评价标准能否走出西湖</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="method">十一、方法与来源</h2>
+  <p>2026-11-14 用网络检索完成。资料分四组收集：创校史与治理、人才与科研、同行比较、影响与争议，每条事实都对照至少一个可打开的来源。自然指数数据直接读取 nature.com 榜单和机构页；论文数与被引次数查询 OpenAlex 接口；在校生和教职工人数读取西湖大学官网“学校概况”（数据截至 2026-08-31）。</p>
+  <p>没拿到的：西湖大学年度财务报告和政府补助金额；2019 年以后的累计协议捐赠；首届本科生和博士生的官方去向；院士总数；国家自然科学基金立项数；专利数。SCMP、Science 正文和部分 Nature Index 文章受付费墙限制，只读到标题或摘要。基金会 2024 年报 PDF 只提取到前几页。自媒体来源（外滩教育、搜狐号）的数字在正文里已标明。每位导师的 Share 是本页按公开数字计算的，不是官方数据。</p>
+  <ol class="sources">
+    <li id="src-1">清华新闻，施一公专访，<a href="https://www.tsinghua.edu.cn/info/1182/38365.htm" target="_blank" rel="noopener">tsinghua.edu.cn</a></li>
+    <li id="src-2">澎湃新闻，《奔跑的西湖大学｜创民办研究型大学先河，争世界一流不靠复制》，2018-10-20，<a href="https://www.thepaper.cn/newsDetail_forward_2546706" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-3">西湖大学官网，施一公成立大会致辞《磨砺以须 倍道而进》，2018-10-20，<a href="https://www.westlake.edu.cn/about/message_from_president/202005/t20200513_3208.shtml" target="_blank" rel="noopener">westlake.edu.cn</a></li>
+    <li id="src-4">爱思想转载科技日报，施一公《中国高等教育变迁与西湖大学的未来》，2018-05-30，<a href="https://www.aisixiang.com/data/110222.html" target="_blank" rel="noopener">aisixiang.com</a></li>
+    <li id="src-5">Caixin Global, “China's Westlake University Aims to Match Caltech”, 2018-05-21，<a href="https://www.caixinglobal.com/2018-05-21/chinas-westlake-university-aims-to-match-caltech-101253182.html" target="_blank" rel="noopener">caixinglobal.com</a></li>
+    <li id="src-6">中国新闻周刊（杭州网转载），《施一公请辞清华大学副校长 全职执掌西湖大学》，2018-01-10，<a href="https://hznews.hangzhou.com.cn/chengshi/content/2018-01/10/content_6769130.htm" target="_blank" rel="noopener">hangzhou.com.cn</a></li>
+    <li id="src-7">公益时报（澎湃转载），《从15亿到200亿 西湖教育基金会如何跨过筹资关？》，2019-04-15，<a href="https://www.thepaper.cn/newsDetail_forward_3301456" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-8">西湖教育基金会，《2024 年报》，2025-09-05，<a href="https://www.wefoundation.org.cn/Uploads/file/20250905//68ba7d5d4c45f.pdf" target="_blank" rel="noopener">wefoundation.org.cn</a></li>
+    <li id="src-9">北京大学中国教育财政科学研究所，《冰山之下——捐赠基金视角下中美高校隐形财务实力比较》，2026-07-09，<a href="https://ciefr.pku.edu.cn/cbw/kyjb/17f495c80e7049e9a19ddf9c9753ae5a.htm" target="_blank" rel="noopener">ciefr.pku.edu.cn</a></li>
+    <li id="src-10">牧原股份公告 2025-101《关于对外捐赠的公告》，2025-10-31，<a href="https://disc.static.szse.cn/download/disc/disk03/finalpage/2025-10-31/dbd19e73-ad80-4b0b-82a4-011dba682974.PDF" target="_blank" rel="noopener">szse.cn</a></li>
+    <li id="src-11">西湖大学官网，《西湖大学第二届董事会第一次会议召开》，2022-04-19，<a href="https://www.westlake.edu.cn/news_events/westlakenews/UniversityNews/202204/t20220419_19905.shtml" target="_blank" rel="noopener">westlake.edu.cn</a></li>
+    <li id="src-12">澎湃新闻，西湖大学悼念董事会名誉主席杨振宁，2025-10，<a href="https://m.thepaper.cn/newsDetail_forward_31806438" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-13">芥末堆，《独家解读：〈章程〉里的西湖大学》，2018-04-08，<a href="https://www.jiemodui.com/N/92746.html" target="_blank" rel="noopener">jiemodui.com</a></li>
+    <li id="src-14">国务院，《统筹推进世界一流大学和一流学科建设总体方案》国发〔2015〕64号，<a href="https://www.gov.cn/zhengce/content/2015-11/05/content_10269.htm" target="_blank" rel="noopener">gov.cn</a></li>
+    <li id="src-15">浙江在线，《民办教育促进法》修改，2016-11-08，<a href="https://china.zjol.com.cn/gnxw/201611/t20161108_2054897.shtml" target="_blank" rel="noopener">zjol.com.cn</a></li>
+    <li id="src-16">西湖大学官网，学校概况（数据截至 2026-08-31），<a href="https://www.westlake.edu.cn/about/facts_history/" target="_blank" rel="noopener">westlake.edu.cn</a></li>
+    <li id="src-17">西湖大学英文官网，Faculty 名录，取样日 2026-11-14，<a href="https://en.westlake.edu.cn/about/faculty" target="_blank" rel="noopener">en.westlake.edu.cn</a></li>
+    <li id="src-18">青岛早报（新浪转载），西湖大学 2026 年首次在山东招生，2025-12-03，<a href="https://finance.sina.cn/2025-12-03/detail-infznzqk9543183.d.html" target="_blank" rel="noopener">sina.cn</a></li>
+    <li id="src-19">腾讯新闻，西湖大学 2025 级开学，2025-08-24，<a href="https://news.qq.com/rain/a/20250824A0699Z00" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-20">西湖大学（腾讯号），2026 级博士开学典礼，2026-08-22，<a href="https://news.qq.com/rain/a/20260822A09OT000" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-21">中国青年网，西湖大学 2026 级本科开学典礼，2026-08-09，<a href="https://txs.youth.cn/xw/202608/t20260809_16806328.htm" target="_blank" rel="noopener">youth.cn</a></li>
+    <li id="src-22">中国科学报（新浪转载），《一群“头上长犄角”的本科生毕业了》，2026-11-10，<a href="https://finance.sina.com.cn/tech/roll/2026-11-10/doc-iniyexvm2823239.shtml" target="_blank" rel="noopener">sina.com.cn</a></li>
+    <li id="src-23">科学网，西湖大学 2026 年本科招生新增省份，2026-02-14，<a href="https://news.sciencenet.cn/htmlnews/2026/2/560260.shtm" target="_blank" rel="noopener">sciencenet.cn</a></li>
+    <li id="src-24">人民日报，西湖大学报道，2026-08-11，<a href="https://www.peopleapp.com/column/30052900337-500007644866" target="_blank" rel="noopener">peopleapp.com</a></li>
+    <li id="src-25">澎湃新闻，《施一公：大学之“大”，重在青年创造力之大》，2025-12-01，<a href="https://www.thepaper.cn/newsDetail_forward_32075821" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-26">Nature Index 2026 Research Leaders，中国学术机构榜，取样日 2026-11-14，<a href="https://www.nature.com/nature-index/research-leaders/2026/institution/academic/all/countries-China" target="_blank" rel="noopener">nature.com</a></li>
+    <li id="src-27">Nature Index，Westlake University 机构页（2025-07-01 至 2026-06-30），<a href="https://www.nature.com/nature-index/institution-outputs/China/Westlake%20University/5a781ee3b9e86b8cec30169d" target="_blank" rel="noopener">nature.com</a></li>
+    <li id="src-28">Nature Index 年度表 2021 至 2024（更换网址年份即可），<a href="https://www.nature.com/nature-index/annual-tables/2024/institution/academic/all/countries-China" target="_blank" rel="noopener">nature.com</a></li>
+    <li id="src-29">OpenAlex，西湖大学机构 I3133055985 的论文记录，取样日 2026-11-14，<a href="https://api.openalex.org/works?filter=institutions.id:I3133055985" target="_blank" rel="noopener">openalex.org</a></li>
+    <li id="src-30">科技日报，人源 U12 型稀有剪接体结构，2026-07-28，<a href="https://www.stdaily.com/web/gdxw/2026-07/28/content_554931.html" target="_blank" rel="noopener">stdaily.com</a></li>
+    <li id="src-31">杭州网（都市快报），“西湖系”企业，2026-10-21，<a href="https://hznews.hangzhou.com.cn/jingji/content/2026-10/21/content_9348515.htm" target="_blank" rel="noopener">hangzhou.com.cn</a></li>
+    <li id="src-32">科技日报，艾普司韦获批，2026-09-06，<a href="https://www.stdaily.com/web/gdxw/2026-09/06/content_575957.html" target="_blank" rel="noopener">stdaily.com</a></li>
+    <li id="src-33">澎湃新闻，Vita 期刊首批论文上线，2026-03-14，<a href="https://m.thepaper.cn/newsDetail_forward_32759922" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-34">Inside Higher Ed / Times Higher Education, John Morgan, “Backers have high hopes for new Chinese science university governed privately”, 2018-04-11，<a href="https://www.insidehighered.com/news/2018/04/12/backers-have-high-hopes-new-chinese-science-university-governed-privately" target="_blank" rel="noopener">insidehighered.com</a></li>
+    <li id="src-35">Science, Dennis Normile, “Biologist unveils China's first private research university”, 359(6378):856, 2018-02，<a href="https://www.science.org/doi/10.1126/science.359.6378.856" target="_blank" rel="noopener">science.org</a></li>
+    <li id="src-36">Times Higher Education, “China's ‘start-up universities’ come of age”, 2026-07-24，<a href="https://www.timeshighereducation.com/node/744082" target="_blank" rel="noopener">timeshighereducation.com</a></li>
+    <li id="src-37">中国科学报（科学网），王一涛《民办高等教育的典型“样本”》，2026-07-15，<a href="https://news.sciencenet.cn/htmlnews/2026/7/568254.shtm" target="_blank" rel="noopener">sciencenet.cn</a>；新浪，《西湖大学办学模式能否复制？》，2020-08-10，<a href="https://news.sina.cn/2020-08-10/detail-iivhvpwy0289295.d.html" target="_blank" rel="noopener">sina.cn</a></li>
+    <li id="src-38">腾讯新闻（橡树实验室），西湖大学 2026 年录取分数与评论，2026-08-07，<a href="https://news.qq.com/rain/a/20260807A0A3NA00" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-39">Caixin Global, “Mega donations push China's university fundraising to historic high”, 2026-05-06，<a href="https://www.caixinglobal.com/2026-05-06/mega-donations-push-chinas-university-fundraising-to-historic-high-102440807.html" target="_blank" rel="noopener">caixinglobal.com</a></li>
+    <li id="src-40">第一财经，福耀科技大学等三校获批，2025，<a href="https://www.yicai.com/news/102656667.html" target="_blank" rel="noopener">yicai.com</a>；36 氪，西湖高研院与东方理工，<a href="https://www.36kr.com/p/2001155016635139" target="_blank" rel="noopener">36kr.com</a></li>
+    <li id="src-41">第一财经，西湖大学报道，2025-11-12，<a href="https://www.yicai.com/news/102908316.html" target="_blank" rel="noopener">yicai.com</a></li>
+    <li id="src-42">南方科技大学宣传册（数据截至 2026-05），<a href="https://twww.sustech.edu.cn/uploads/files/2026/08/27103336_33502.pdf" target="_blank" rel="noopener">sustech.edu.cn</a></li>
+    <li id="src-43">投资界，西湖欧米 Pre-A 轮，2022-01，<a href="https://news.pedaily.cn/202201/485047.shtml" target="_blank" rel="noopener">pedaily.cn</a>；西湖心辰 B+ 轮，2026-08，<a href="https://news.pedaily.cn/202608/567588.shtml" target="_blank" rel="noopener">pedaily.cn</a></li>
+    <li id="src-44">中国科学报（科学网），西湖大学孵化 51 家企业，2025-07-07，<a href="https://news.sciencenet.cn/sbhtmlnews/2025/7/385349.shtm" target="_blank" rel="noopener">sciencenet.cn</a></li>
+    <li id="src-45">西湖大学“新人驾到”，2025 年第三季度 19 位 PI，2025-10-10，<a href="https://news.qq.com/rain/a/20251010A01USH00" target="_blank" rel="noopener">news.qq.com</a></li>
+    <li id="src-46">科技日报（大学生版），2018-11-01，<a href="https://digitalpaper.stdaily.com/http_www.kjrb.com/dxsb/images/2018-11/01/06/dxsb2018110106.pdf" target="_blank" rel="noopener">stdaily.com</a></li>
+    <li id="src-47">新民周刊，2025-11-17，<a href="https://img1.xinmin.cn/xmzk/2025-11-17/681117.pdf" target="_blank" rel="noopener">xinmin.cn</a>；艾思科蓝，欧洲科学院院士，2025-07-14，<a href="https://www.ais.cn/news/college_hotspot/32705" target="_blank" rel="noopener">ais.cn</a>；科学网，曾安平加入，2022-03，<a href="https://news.sciencenet.cn/htmlnews/2022/3/475553.shtm" target="_blank" rel="noopener">sciencenet.cn</a></li>
+    <li id="src-48">维基百科，“西湖大学”与“Westlake University”，取样日 2026-11-14，<a href="https://zh.wikipedia.org/zh-hans/西湖大学" target="_blank" rel="noopener">zh.wikipedia.org</a>；<a href="https://en.wikipedia.org/wiki/Westlake_University" target="_blank" rel="noopener">en.wikipedia.org</a></li>
+    <li id="src-49">共产党员网，陈嘉庚与厦门大学，2019-07-31，<a href="https://www.12371.cn/2019/07/31/ARTI1564529457382802.shtml" target="_blank" rel="noopener">12371.cn</a>；南开校史，<a href="https://lib.nankai.edu.cn/_upload/article/files/e5/6a/ba4eee634525a60cae2876073a68/45e13b55-55cc-42af-afb9-477eaf627b11.pdf" target="_blank" rel="noopener">nankai.edu.cn</a>；燕京大学，<a href="https://www.aisixiang.com/data/8279.html" target="_blank" rel="noopener">aisixiang.com</a>；之江大学，<a href="https://en.wikipedia.org/wiki/Hangchow_University" target="_blank" rel="noopener">en.wikipedia.org</a></li>
+    <li id="src-50">澎湃新闻，林文斌加入西湖大学，2025-11-05，<a href="https://www.thepaper.cn/newsDetail_forward_31901265" target="_blank" rel="noopener">thepaper.cn</a>；SCMP 西湖大学专题，<a href="https://www.scmp.com/topics/westlake-university" target="_blank" rel="noopener">scmp.com</a></li>
+    <li id="src-51">RealClearScience, “America's scientific brain drain is no longer hypothetical”, 2026-07-14，<a href="https://www.realclearscience.com/articles/2026/07/14/americas_scientific_brain_drain_is_no_longer_hypothetical_1194182.html" target="_blank" rel="noopener">realclearscience.com</a></li>
+    <li id="src-52">中国证券报（新浪转载），2025-02-25，<a href="https://finance.sina.com.cn/roll/2025-02-25/doc-inemrzsm4702384.shtml" target="_blank" rel="noopener">sina.com.cn</a></li>
+    <li id="src-53">杭州政协网，西湖大学成果转化基地揭牌，2024-04-19，<a href="https://www.hzzx.gov.cn/cshz/content/2024-04/19/content_8718003.htm" target="_blank" rel="noopener">hzzx.gov.cn</a></li>
+    <li id="src-54">杭州网，西湖实验室授牌，2020-07-18，<a href="https://hznews.hangzhou.com.cn/chengshi/content/2020-07/18/content_7776502.htm" target="_blank" rel="noopener">hangzhou.com.cn</a></li>
+    <li id="src-55">西湖大学官网，附属杭州市第一人民医院揭牌，2023-11-06，<a href="https://www.westlake.edu.cn/news_events/westlakenews/UniversityNews/202311/t20231106_35052.shtml" target="_blank" rel="noopener">westlake.edu.cn</a></li>
+    <li id="src-56">ISTA, Annual Report 2025，<a href="https://ista.ac.at/wp-content/uploads/2026/05/ISTA_Annual_Report_2025_WEB.pdf" target="_blank" rel="noopener">ista.ac.at</a></li>
+    <li id="src-57">OIST, Facts and Figures（2026-09），<a href="https://www.oist.jp/node/2135" target="_blank" rel="noopener">oist.jp</a></li>
+    <li id="src-58">扬子晚报，福耀科技大学开学，2025-09-09，<a href="https://www.yzwb.net/news/sh/202509/t20250909_261255.html" target="_blank" rel="noopener">yzwb.net</a></li>
+    <li id="src-59">中国教育在线，宁波东方理工大学获批，2025-06-22，<a href="https://www.eol.cn/news/dongtai/202506/t20250622_2676199.shtml" target="_blank" rel="noopener">eol.cn</a></li>
+    <li id="src-60">澎湃新闻，《施一公谈西湖大学使命与愿景》，2018-05-29，<a href="https://www.thepaper.cn/newsDetail_forward_2159031" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-61">ZAKER，新基石论坛施一公发言，2026-09，<a href="https://app.myzaker.com/article/6aaf62df8e9f092a5d47c9c0" target="_blank" rel="noopener">myzaker.com</a></li>
+    <li id="src-62">投资界，秦英林捐赠报道，2023-08-26，<a href="https://news.pedaily.cn/202308/520528.shtml" target="_blank" rel="noopener">pedaily.cn</a></li>
+    <li id="src-63">西湖大学 2022 年博士招生简章，2021-08-20，<a href="https://www.westlake.edu.cn/admissions_aid/graduate/zsdt1/202108/t20210820_12000.shtml" target="_blank" rel="noopener">westlake.edu.cn</a></li>
+    <li id="src-64">澎湃新闻，西湖大学首届本科生开学，2022-08，<a href="https://m.thepaper.cn/newsDetail_forward_19253261" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-65">KAUST, About KAUST 2025，<a href="https://thelens.kaust.edu.sa/wp-content/uploads/2025/12/About-KAUST-2.5_EN.pdf" target="_blank" rel="noopener">kaust.edu.sa</a></li>
+  </ol>
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

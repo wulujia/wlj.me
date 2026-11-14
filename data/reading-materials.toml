@@ -1047,3 +1047,16 @@ year = "2026"
 description = "2026 年 10 月币安热钱包安全事件研究：官方初步报告所述的入侵经过、EIP-7702 委托、冻结与洗钱进展，以及仍待查明的证据缺口。"
 original_url = ""
 reading_url = "/reading/binance-hot-wallet-incident-2026-10/"
+
+[[materials]]
+slug = "westlake-university"
+title = "西湖大学深度调研：从一封建议书到建校第八年"
+subtitle = "从 2015 年建议书到 2026 年的创校史、人才、科研与资金"
+author = "公开资料整理"
+category = "report"
+tags = ["Education", "Startup", "Reading"]
+date = "2026-11-14T11:04:16+08:00"
+year = "2026"
+description = "西湖大学从 2015 年建议书到 2026 年的创校史、理念、关键人物、治理与资金、人才、科研成果、同行比较、影响与争议。"
+original_url = ""
+reading_url = "/reading/westlake-university/"
