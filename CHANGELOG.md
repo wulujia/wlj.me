@@ -2,6 +2,7 @@
 
 ## 2026-11-14
 
+- 新增资料页《Cursor 安全事件更新：中文全文与后续报道》，`static/reading/cursor-security-incident-2026-11/index.html`。Cursor 2026 年 11 月 13 日安全事件更新的中文全文，并整理供应商、安全研究者和其他受影响公司的后续信息。
 - 新增资料页《BrainCo 强脑科技调研》，`static/reading/brainco-2026-11/index.html`。强脑科技的业务、产品、融资、财务口径、港股上市进展、争议与竞争格局，资料截至 2026 年 11 月。
 - 新增资料页《西湖大学深度调研：从一封建议书到建校第八年》，`static/reading/westlake-university/index.html`。西湖大学从 2015 年建议书到 2026 年的创校史、理念、关键人物、治理与资金、人才、科研成果、同行比较、影响与争议。
 

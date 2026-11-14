@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cursor 安全事件更新：中文全文与后续报道</title>
+<meta name="description" content="Cursor 2026 年 11 月 13 日安全事件更新的中文全文，并整理供应商、安全研究者和其他受影响公司的后续信息。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wlj.me/reading/cursor-security-incident-2026-11/">
+<style>
+/* Numbered attack-chain steps and wrapping indicator values. */
+.chain { counter-reset: c; list-style: none; padding: 0; }
+.chain li { counter-increment: c; position: relative; padding-left: 2.2em; }
+.chain li::before { content: counter(c); position: absolute; left: 0; top: .1em; font-family: var(--font-mono); font-size: 13px; color: var(--acc-ink); }
+.ioc { overflow-wrap: anywhere; }
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+<details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#translation">一、Cursor 原文中文译文</a>
+        <ul>
+          <li><a href="#t-what-happened">发生了什么</a></li>
+          <li><a href="#t-not-affected">没有受影响的部分</a></li>
+          <li><a href="#t-done">我们已经做的事</a></li>
+          <li><a href="#t-next">接下来</a></li>
+        </ul>
+      </li>
+      <li><a href="#chain">二、攻击链和时间线</a>
+        <ul>
+          <li><a href="#chain-steps">攻击链五步</a></li>
+          <li><a href="#chain-timeline">合并时间线</a></li>
+        </ul>
+      </li>
+      <li><a href="#others">三、其他来源补充的信息</a>
+        <ul>
+          <li><a href="#o-fireworks">Fireworks 的两份公告</a></li>
+          <li><a href="#o-payload">恶意扩展的技术细节</a></li>
+          <li><a href="#o-anthropic">Anthropic 的回应</a></li>
+          <li><a href="#o-openvsx">分发渠道的更正</a></li>
+          <li><a href="#o-notion">Notion 也受 Fireworks 牵连</a></li>
+          <li><a href="#o-comments">评论者的看法</a></li>
+        </ul>
+      </li>
+      <li><a href="#gaps">四、仍未说清的问题</a></li>
+      <li><a href="#check">五、自查方法</a></li>
+      <li><a href="#sources">六、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/reading/">返回整理</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+<header>
+    <p class="eyebrow">Incident notes · 2026 年 11 月 14 日</p>
+    <h1>Cursor 安全事件更新：中文全文与后续报道</h1>
+    <p class="lede">Cursor 在 2026 年 11 月 13 日发布调查更新，说明 10 月底安全事件的起因和影响范围。本页给出原文中文全文，并整理 Fireworks、Anthropic、Microsoft、Notion 和安全研究者的后续信息。</p>
+    <p class="meta"><span>原文：cursor.com/blog/security-incident-update</span><span>资料截至 2026-11-14</span></p>
+  </header>
+
+  <div class="summary">
+    <p class="label">先说结论</p>
+    <p>据 Cursor 说，攻击的起点是 Cursor 发给推理服务商 Fireworks 的一把访问密钥，这把密钥在 Fireworks 一侧泄露。攻击者先拷走一批 2025 年为主的 agent 记录，再用其中没有脱敏的凭据进入 Cursor 的 SaaS 工具，最后在 10 月 29 日把带 SSH 后门的 Claude Code 扩展放进 Cursor 扩展市场的缓存，约 11 小时，最多 5,000 名用户可能装到。</p>
+    <p>Fireworks 在 10 月 6 日和 10 月 24 日各有一次入侵，同一时期 Notion 也因为 Fireworks 泄露了部分 AI 对话记录。Fireworks 的公告没有点名 Cursor，Cursor 也没有说密钥是在哪一次入侵中泄露的。</p>
+  </div>
+
+  <h2 id="translation">一、Cursor 原文中文译文</h2>
+  <p class="muted">原题：An update on our recent security incident。作者：Cursor Team。发布：2026 年 11 月 13 日。Cursor 官方账号 2026 年 11 月 14 日 01:13 UTC 在 X 上转发了这篇文章。</p>
+
+  <p>10 月 29 日，我们<a href="https://cursor.com/blog/claude-code-extension-security-notice" target="_blank" rel="noopener">发布通告</a>：我们正在调查一起安全事件，Cursor VS Code 扩展市场里出现了 Anthropic Claude Code 扩展的一个恶意、未经授权的副本。过去两周我们做了深入调查，现在说明这次攻击的更多背景和相关影响。</p>
+  <p>绝大多数客户没有受到影响。每一位受影响的客户，我们都已经直接联系，并告知适用于他们的细节。</p>
+  <p>保护客户数据安全是我们认真对待的核心优先事项。这次事件涉及我们存储和共享的数据、我们签发的凭据，以及我们运营的系统。我们正在处理这些影响，并根据这次的教训加强安全措施。</p>
+
+  <h3 id="t-what-happened">发生了什么</h3>
+  <p>调查拼出了下面这幅图景：</p>
+  <ul>
+    <li><strong>起点在 Fireworks。</strong>攻击者拿到了我们发给 Fireworks 的一把访问密钥。这把密钥<a href="https://fireworks.ai/security/bulletins" target="_blank" rel="noopener">由 Fireworks 泄露</a>，攻击者用它从一个只读存储桶里拷贝数据。这个存储桶是我们和 Fireworks 共享数据用的，里面有少量 coding agent 记录（trace），大多来自 2025 年，来自没有开启隐私模式（Privacy Mode）的会话，我们获准把这些数据用于模型训练。其中少数记录含有没有脱敏的凭据；不到 0.01% 的客户有 API 凭据暴露。攻击者从这些凭据出发，进入了 Cursor 使用的部分 SaaS 工具。通过这些工具，攻击者访问了：部分已归档、非生产环境的 Cursor 源代码仓库（有些含有商务联系信息）；有限的客户支持数据和邮件往来；产品使用指标和联系方式；部分 coding agent 对话的摘要；以及一些用户发给 Cursor 支持团队的凭据。</li>
+    <li><strong>我们的监控系统发现了未经授权的活动。</strong>发现后，我们停用了这家供应商的密钥，启动了事件响应，开始吊销和轮换凭据，并排查是否还有其他未经授权的访问。每发现一处新的访问，我们就切断它。出于谨慎，我们临时停用的内部服务和产品服务远超证据所需的范围，这让部分 Cursor 功能短暂中断。每项服务在确认安全后都已恢复。</li>
+    <li><strong>攻击者发布了一个恶意扩展。</strong>10 月 29 日，攻击者用从我们内部系统泄露数据中偷到的一个凭据，把 Anthropic Claude Code 扩展的恶意、未经授权副本直接放进了为 Cursor VS Code 扩展市场提供服务的缓存。这个副本不是 Anthropic 发布的，也不是 Anthropic 产品的漏洞。扩展市场的源头 Open VSX 从来没有这个恶意软件。10 月 29 日请求了特定缓存版本的用户中，最多 5,000 人可能收到了恶意版本。它在线约 11 小时后被我们移除。我们下架了它，让扩展市场整体下线，并和托管攻击者服务器的云服务商合作，关停了那台服务器。</li>
+    <li><strong>我们通知了客户。</strong>10 月 30 日，我们在博客和 X 上发布安全通告，给出入侵指标、修复步骤和检查系统用的脚本，并开始通过应用内通知和邮件通知受影响的用户和团队管理员。凡有凭据暴露，我们都给团队管理员发邮件，列出需要轮换的具体密钥，并请签发这些凭据的第三方服务吊销它们。凡可能涉及客户支持数据或商务数据，我们都直接通知了客户。如果你在暴露窗口内从 Cursor VS Code 扩展市场安装或更新到了被篡改的 Anthropic.claude-code 2.1.312 或 2.1.313，请按<a href="https://cursor.com/blog/claude-code-extension-security-notice" target="_blank" rel="noopener">安全通告</a>里的步骤处理。只卸载扩展可能不够。</li>
+    <li><strong>我们认为事件已经得到控制。</strong>我们看到的攻击者最后一次活动在 11 月 1 日，且已被拦截。我们会继续监控系统里的异常活动，继续加强安全控制。如果发现影响客户的新信息，我们会直接联系客户。</li>
+  </ul>
+
+  <h3 id="t-not-affected">没有受影响的部分</h3>
+  <ul>
+    <li>如果你开启了隐私模式，你的提示词和代码不受影响。</li>
+    <li>没有开启隐私模式的用户中，coding agent 记录被暴露的不到 0.05%。我们已经找出这些用户，并逐一直接通知。没有收到通知，就说明你的数据不在这些记录里。</li>
+    <li>你现在发给 Cursor 的任何数据或实时流量不受影响。暴露的记录数据只限于用于历史离线分析的存储。</li>
+    <li>运行 Cursor 的生产系统和基础设施不受影响。</li>
+    <li>Cursor 应用及其官方更新、我们发到客户端和云服务的代码不受影响。我们从一个独立的代码托管系统发布 Cursor，攻击者从未访问过它，发布签名密钥也没有暴露。</li>
+    <li>我们的其他产品不受影响，包括面向客户团队的 Cloud Agents、Grok Bot 和其他所有 SpaceX SI 产品。</li>
+    <li>扩展市场里的其他扩展不受影响。我们验证了其他所有扩展都是正版，并审查、重建了扩展商店。</li>
+    <li>进行中的推理请求没有暴露。出于预防，我们把所有推理都从这家第三方训练和推理供应商迁走了。</li>
+    <li>从 <a href="https://cursor.com/marketplace" target="_blank" rel="noopener">Cursor Marketplace</a> 下载的插件不受影响。</li>
+    <li>客户的代码仓库不受影响。</li>
+  </ul>
+
+  <h3 id="t-done">我们已经做的事</h3>
+  <ul>
+    <li>把所有推理流量从 Fireworks 迁走，停用发给它的密钥，切断它对我们共享的所有数据集的访问。</li>
+    <li>按风险从高到低，轮换了找到的每一个暴露的 Cursor 凭据；出于预防，还轮换了内部系统里在用的所有凭据，包括没有暴露证据的。</li>
+    <li>验证扩展市场里其他所有扩展都是正版，审查并重建了 VS Code 扩展市场。</li>
+    <li>在可行的地方，扩大对各服务商的网络访问限制，让被盗的凭据离开预定位置就无法使用。</li>
+    <li>给所有代码仓库加上密钥扫描和防护，并把扫描扩展到其他内部数据源。</li>
+    <li>出于预防，重新部署全部生产基础设施和服务；每个内部服务恢复前都经过审查。</li>
+    <li>请外部取证专家协助调查。</li>
+    <li>联系了所有受影响的人。</li>
+  </ul>
+
+  <h3 id="t-next">接下来</h3>
+  <p>我们向受这次事件影响的人道歉。隐私和安全是最高优先级，我们能做得更好，也必须做得更好。我们正在用这次的教训让 Cursor 更安全。如果有重要变化，我们会更新这篇文章。</p>
+  <p>有问题请发邮件到 <a href="mailto:security@cursor.com">security@cursor.com</a>。</p>
+
+  <h2 id="chain">二、攻击链和时间线</h2>
+  <h3 id="chain-steps">攻击链五步</h3>
+  <p>下面按 Cursor 的说法整理。每一步都依赖上一步拿到的东西。</p>
+  <ol class="chain">
+    <li>Cursor 发给 Fireworks 一把访问密钥，用来读取一个共享存储桶。密钥在 Fireworks 一侧泄露。</li>
+    <li>攻击者用密钥拷走存储桶里的 agent 记录。这些记录来自没开隐私模式的会话，大多是 2025 年的。</li>
+    <li>少数记录里有没脱敏的凭据。攻击者用这些凭据进入 Cursor 用的 SaaS 工具，拿到归档代码、客服数据、使用指标、对话摘要和用户发给客服的凭据。</li>
+    <li>从这些内部数据里，攻击者又偷到一个能写入扩展市场缓存的凭据。</li>
+    <li>10 月 29 日，攻击者把带后门的 Claude Code 2.1.312 和 2.1.313 放进缓存。最多 5,000 名 Cursor 用户可能装到。</li>
+  </ol>
+
+  <h3 id="chain-timeline">合并时间线</h3>
+  <p>时间来自各方公告。没有注明时区的，按原文日期。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">日期</th><th scope="col">事件</th><th scope="col">来源</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2025</th><td>被拷走的 agent 记录大多产生于这一年</td><td>Cursor 更新<sup><a href="#src-1">1</a></sup></td></tr>
+        <tr><th scope="row">10-06</th><td>Fireworks 发现第一次入侵：攻击者用 Fireworks 内部凭据读取部分客户评测任务的环境变量，里面有 API 密钥和令牌</td><td>Fireworks 公告<sup><a href="#src-3">3</a></sup></td></tr>
+        <tr><th scope="row">10-09</th><td>Fireworks 发布第一份公告</td><td>Fireworks 公告<sup><a href="#src-3">3</a></sup></td></tr>
+        <tr><th scope="row">10-23</th><td>托管 Fireworks 研发机器的第三方云服务商发生安全事件</td><td>Fireworks 更新<sup><a href="#src-4">4</a></sup></td></tr>
+        <tr><th scope="row">10-24</th><td>攻击者借此进入 Fireworks 开发机，运行未授权任务，造成更多客户数据暴露；Fireworks 当天发现</td><td>Fireworks 更新<sup><a href="#src-4">4</a></sup></td></tr>
+        <tr><th scope="row">10-29</th><td>太平洋时间约 02:27 到 13:35，恶意扩展在 Cursor 扩展市场缓存里可下载；Cursor 发布安全通告</td><td>Cursor 通告<sup><a href="#src-2">2</a></sup></td></tr>
+        <tr><th scope="row">10-30</th><td>Phorion 05:30 UTC 发布分析，Hacker News 讨论帖到 1,014 分、553 条评论；Anthropic 的 Felix Rieseberg 说 Anthropic 系统没有被入侵；Microsoft、Socket 发布分析；Anthropic 在 npm 发布 2.1.314</td><td><sup><a href="#src-5">5</a> <a href="#src-6">6</a> <a href="#src-7">7</a> <a href="#src-8">8</a> <a href="#src-9">9</a></sup></td></tr>
+        <tr><th scope="row">10-30</th><td>Cursor 太平洋时间 11:30 更新通告，补充入侵指标，把受影响版本扩大到 2.1.312</td><td>Cursor 通告<sup><a href="#src-2">2</a></sup></td></tr>
+        <tr><th scope="row">11-01</th><td>Cursor 看到的攻击者最后一次活动，已被拦截</td><td>Cursor 更新<sup><a href="#src-1">1</a></sup></td></tr>
+        <tr><th scope="row">11-02</th><td>Google 威胁情报组和 Mandiant 发文介绍 LLMJacking；同一晚 Fireworks 通知 Notion 有数据被访问</td><td><sup><a href="#src-12">12</a> <a href="#src-11">11</a></sup></td></tr>
+        <tr><th scope="row">11-03</th><td>Notion 切断与 Fireworks 的连接，删除 Fireworks 系统里的数据</td><td>Notion 公告<sup><a href="#src-11">11</a></sup></td></tr>
+        <tr><th scope="row">11-08</th><td>Fireworks 向 Notion 确认一批含真实对话记录的数据被访问</td><td>Notion 公告<sup><a href="#src-11">11</a></sup></td></tr>
+        <tr><th scope="row">11-09</th><td>Fireworks 发布更新公告；Notion 发布安全通告</td><td><sup><a href="#src-4">4</a> <a href="#src-11">11</a></sup></td></tr>
+        <tr><th scope="row">11-12</th><td>Quinn Batten 发文，认为 Notion 违反了自己的数据不留存政策</td><td><sup><a href="#src-14">14</a></sup></td></tr>
+        <tr><th scope="row">11-13</th><td>Cursor 发布本页翻译的调查更新</td><td>Cursor 更新<sup><a href="#src-1">1</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="others">三、其他来源补充的信息</h2>
+
+  <h3 id="o-fireworks">Fireworks 的两份公告</h3>
+  <p>Fireworks 一共发了两份公告，两份都没有提到 Cursor，也没有提到“发给 Fireworks 的客户存储密钥”。</p>
+  <ul>
+    <li>10 月 9 日第一份：攻击者用 Fireworks 内部凭据，读取了“少量客户账户”评测任务里的环境变量，其中有作为密钥存储的 API 密钥和令牌。Fireworks 提醒客户：只删除存储的密钥不会让底层凭据失效，要到签发方那里轮换<sup><a href="#src-3">3</a></sup>。</li>
+    <li>11 月 9 日更新：第三方云服务商 10 月 23 日出事，攻击者 10 月 24 日借此进入 Fireworks 开发机。被访问的数据包括资源元数据、账单信息，以及部分客户的未完成模型权重和数据集。Fireworks 说证据指向一个以 LLMJacking 牟利的犯罪团伙，即盗用大模型访问额度再转卖。Fireworks 请了 Palo Alto Networks Unit 42 协助取证，并暂停了批量推理和数据集训练的自助上传下载<sup><a href="#src-4">4</a></sup>。</li>
+  </ul>
+  <p>Cursor 原文里“由 Fireworks 泄露”的链接指向 Fireworks 公告列表页，没有指向具体哪一份。</p>
+
+  <h3 id="o-payload">恶意扩展的技术细节</h3>
+  <p>Phorion 的 Calum Hall 最早公开分析这个扩展，Microsoft 安全团队第二天补充了检测方法。两份分析的主要内容如下<sup><a href="#src-6">6</a> <a href="#src-7">7</a></sup>：</p>
+  <ul>
+    <li>恶意代码插在压缩后的 <code>extension.js</code> 开头，Node 加载文件时立即执行，早于扩展自己的 <code>activate</code>，不需要用户操作。</li>
+    <li>它把注释为 <code>svc-telemetry</code> 的攻击者公钥写进 <code>~/.ssh/authorized_keys</code>，尝试开启本机 SSH，再用内置私钥向 134.209.82.225 建立反向隧道，每 60 秒重试。</li>
+    <li>它通过明文 HTTP 向攻击者 8099 端口发一次信标，内容有主机名、用户名、系统、Git 邮箱、公网 IP，以及名字里带 KEY、TOKEN、SECRET 的环境变量名（最多 40 个，只发名字不发值）。</li>
+    <li>它会写入持久化脚本：macOS 用伪装成 <code>com.apple.sysmond</code> 的 LaunchAgent，Linux 用 crontab 的 <code>@reboot</code>，Windows 用名为 SysMon 的计划任务。</li>
+    <li>Phorion 指出代码有几处错误：macOS 上没有管理员权限时，检查 SSH 状态的命令输出报错但返回 0，脚本因此不会执行开启命令；Linux 上检查 crontab 的写法可能清掉已有任务。Microsoft 提醒，错误被静默吞掉，所以看到残留文件不等于攻击成功，没看到也要按指标排查。</li>
+  </ul>
+
+  <h3 id="o-anthropic">Anthropic 的回应</h3>
+  <p>10 月 30 日，Anthropic 技术人员 Felix Rieseberg 在 Hacker News 和 X 上回应：</p>
+  <blockquote>We’re working with Cursor on this incident, but it wasn’t a compromise of Anthropic’s systems or employee laptops. A malicious actor used access to Cursor’s marketplace to publish a tampered copy of the Claude Code extension, which we didn’t build or publish.<cite>Felix Rieseberg，Hacker News 评论，2026-10-30</cite></blockquote>
+  <p>Microsoft 的分析也写道：Anthropic 告诉 Microsoft 其系统没有被入侵；恶意包从未出现在 Visual Studio Marketplace 和 npm 的 <code>@anthropic-ai/claude-code</code> 上<sup><a href="#src-7">7</a></sup>。Cursor 11 月 13 日的更新与这一说法一致。</p>
+
+  <h3 id="o-openvsx">分发渠道的更正</h3>
+  <p>事件刚曝光时，多篇报道说恶意版本出现在 Open VSX 上，后来都改了：</p>
+  <ul>
+    <li>Phorion 在 10 月 30 日 09:13 UTC 把受影响的市场更正为 Cursor，10 月 31 日把 2.1.312 加进受影响版本<sup><a href="#src-6">6</a></sup>。</li>
+    <li>Socket 检查了 Open VSX 的变更记录：2.1.312 和 2.1.314 各有 8 个平台的发布记录，2.1.313 没有任何发布或删除记录；npm 上也没有 2.1.313。Socket 还指出，最早流传的那张“2.1.313 发布于 3 小时前”的截图，文件大小和正版 2.1.314 一致，疑似经过编辑，原发布者后来删掉了它<sup><a href="#src-8">8</a></sup>。</li>
+    <li>Cursor 11 月 13 日的更新说，恶意副本放在 Cursor 自己的缓存里，源头 Open VSX 从没有过这个恶意软件<sup><a href="#src-1">1</a></sup>。</li>
+  </ul>
+
+  <h3 id="o-notion">Notion 也受 Fireworks 牵连</h3>
+  <p>Notion 在 11 月 9 日发布通告。Fireworks 先在 11 月 2 日说被访问的只是合成测试数据，11 月 6 日改口说可能涉及客户数据，11 月 8 日确认了一批 Notion AI 对话记录，用于 Insights 功能。Notion 说受影响的不到 1% 的工作区，大部分记录没有作者和工作区标识。Notion 已关闭 Insights，不再通过 Fireworks 提供开源权重模型<sup><a href="#src-11">11</a></sup>。Hacker News 上这条通告的讨论有 166 分、66 条评论。</p>
+  <p>有报道把 Cursor、Notion、Harvey 都列为 Fireworks 第二次入侵的受害客户<sup><a href="#src-15">15</a></sup>，但 Fireworks 公告没有点名任何客户，这份名单待确认。</p>
+
+  <h3 id="o-comments">评论者的看法</h3>
+  <ul>
+    <li>Quinn Batten（11 月 12 日）认为 Notion 走的是 Fireworks 的批量推理接口，而 Fireworks 文档写明这个接口不支持数据不留存；多名企业管理员说 Insights 默认开启，没有找到“强制不留存”的开关。文中引用了一位 Fireworks 联合创始人的公开帖子，说是 Notion 选择了批量接口。作者也承认部分来源匿名、部分结论是推断<sup><a href="#src-14">14</a></sup>。这篇讲的是 Notion，但问题同样适用于 Cursor：拿去做训练的记录放在供应商可读的存储里，就要承担供应商的安全水平。</li>
+    <li>DEV Community 上的一篇解读把教训写成一句：“供应商密钥就是爆炸半径的决定”，入侵不是从 Cursor 自己的基础设施开始的<sup><a href="#src-13">13</a></sup>。这是短评，没有新事实。</li>
+    <li>CIO.com 的文章主张把 Claude Code、Codex、Cursor 这类工具当作有特权的供应商来管，连同它们的插件、连接的服务器和模型提供商一起审查<sup><a href="#src-16">16</a></sup>。</li>
+    <li>Hacker News 讨论里，用户 orlp 指出 VS Code 的“自动更新延迟”对 Microsoft、GitHub、OpenAI 等受信任发布者不生效，用户也不能自己设定受信任名单<sup><a href="#src-5">5</a></sup>。另一位用户 anon-3988 说，用 Claude Code、Codex 的人每天都在运行一段能执行任意命令的程序。</li>
+  </ul>
+
+  <h2 id="gaps">四、仍未说清的问题</h2>
+  <ul>
+    <li><strong>密钥在哪次入侵中泄露。</strong>Fireworks 有 10 月 6 日和 10 月 24 日两次事件。Cursor 没有说是哪一次，也没有说密钥什么时候泄露、Cursor 什么时候发现。待确认。</li>
+    <li><strong>为什么记录里有没脱敏的凭据。</strong>Cursor 只说“少数记录”含凭据，没有说送给供应商前做过什么过滤。改进措施里有“扩展密钥扫描到其他内部数据源”，可以推测之前这些记录没有经过密钥扫描，但原文没有明说。</li>
+    <li><strong>写入扩展缓存的凭据是什么。</strong>原文只说是“从内部系统泄露数据中偷到的一个凭据”，没有说它属于哪个系统、为什么能直接改写缓存。</li>
+    <li><strong>5,000 这个数字怎么算的。</strong>原文说“最多 5,000 名请求了特定缓存版本的用户可能收到”，没有给出实际装上并运行的人数。</li>
+    <li><strong>受影响用户有没有被真正登录。</strong>Cursor 10 月 29 日的通告说大多数 macOS 和 Windows 机器上开启 SSH 会失败。Microsoft 提醒 Linux 路径不同，结果取决于主机权限和 SSH 配置。</li>
+  </ul>
+
+  <h2 id="check">五、自查方法</h2>
+  <p>只在 2026 年 10 月 29 日从 Cursor 扩展市场安装或更新过 Anthropic.claude-code 2.1.312 或 2.1.313 的机器需要查。以下命令照抄自 Cursor 10 月 29 日通告<sup><a href="#src-2">2</a></sup>。</p>
+  <p>macOS：</p>
+  <pre><code>grep -qs svc-telemetry ~/.ssh/authorized_keys &amp;&amp; echo "svc-telemetry key found" || echo "No key found; machine not impacted"</code></pre>
+  <p>Windows PowerShell：</p>
+  <pre><code>$files = "$HOME\.ssh\authorized_keys", "C:\ProgramData\ssh\administrators_authorized_keys" | Where-Object { Test-Path $_ }
+if ($files -and (Select-String svc-telemetry $files)) { "svc-telemetry key found" } else { "No key found; machine not impacted" }</code></pre>
+  <p>找到这把密钥，就按通告运行 <a href="https://cursor.com/static/security/claude-code-extension/remediate-macos.sh" target="_blank" rel="noopener">remediate-macos.sh</a>（以受影响用户身份运行，不用 root）或 <a href="https://cursor.com/static/security/claude-code-extension/remediate-windows.ps1" target="_blank" rel="noopener">remediate-windows.ps1</a>（以管理员身份运行），再从一台可信的机器上轮换这台机器能访问的凭据。</p>
+  <p>其他入侵指标：</p>
+  <dl class="kv">
+    <dt>攻击者地址</dt><dd class="mono">134.209.82.225（SSH 22 端口，HTTP 8099 端口 /beacon）</dd>
+    <dt>公钥指纹</dt><dd class="mono ioc">SHA256:0Z6R+DF64Do2nwQic8a7kkfDLNNk4IiK+2U2Rci4htk</dd>
+    <dt>恶意 extension.js</dt><dd class="mono ioc">SHA-256 ecb58cb29078d9646ad1dcdbe51526f2d9cfea06be5fb2ab183e8ecc3ab6bf15</dd>
+    <dt>macOS 持久化</dt><dd class="mono ioc">~/Library/LaunchAgents/com.apple.sysmond.plist、~/.config/.smt、~/.config/.smtk</dd>
+    <dt>Linux 持久化</dt><dd class="mono ioc">crontab @reboot 运行 ~/.config/.smt；/tmp/.stk_ 开头的文件</dd>
+    <dt>Windows 持久化</dt><dd class="mono ioc">计划任务 SysMon；Startup 目录下的 sysmon.cmd；%USERPROFILE%\.config\smt.cmd</dd>
+  </dl>
+
+  <h2 id="sources">六、方法与来源</h2>
+  <p>译文根据 2026 年 11 月 14 日抓取的 Cursor 博客原文翻译，没有删减。推文数据通过 fxtwitter 接口读取：取样时浏览 110,814 次、点赞 960 次、回复 91 条。补充信息来自网页搜索和直接抓取原文，Hacker News 数据来自 Algolia 接口。Dark Reading、The Hacker News、eSecurityPlanet 的文章拒绝抓取，没有用作来源。没有找到 Cursor 或 Fireworks 对“密钥在哪次入侵中泄露”的说明。</p>
+  <ol class="sources">
+    <li id="src-1">Cursor，《An update on our recent security incident》，2026-11-13，<a href="https://cursor.com/blog/security-incident-update" target="_blank" rel="noopener">cursor.com/blog/security-incident-update</a>；X 转发：<a href="https://x.com/cursor_ai/status/2121411147714970092" target="_blank" rel="noopener">x.com/cursor_ai</a></li>
+    <li id="src-2">Cursor，《Security notice — malicious version of Anthropic.claude-code》，2026-10-29，10-30 更新，<a href="https://cursor.com/blog/claude-code-extension-security-notice" target="_blank" rel="noopener">cursor.com/blog/claude-code-extension-security-notice</a></li>
+    <li id="src-3">Fireworks AI，《Fireworks October 2026 security incident》，2026-10-10 更新，<a href="https://fireworks.ai/security/bulletins/october-2026-security-incident" target="_blank" rel="noopener">fireworks.ai/security/bulletins</a></li>
+    <li id="src-4">Fireworks AI，《Update on October 2026 security incident》，2026-11-09，<a href="https://fireworks.ai/security/bulletins/october-2026-security-incident-update" target="_blank" rel="noopener">fireworks.ai/security/bulletins</a></li>
+    <li id="src-5">Hacker News，《Backdoor in Claude Code for VS Code extension on the Cursor Marketplace》讨论帖，2026-10-30，<a href="https://news.ycombinator.com/item?id=50300683" target="_blank" rel="noopener">news.ycombinator.com</a></li>
+    <li id="src-6">Phorion，Calum Hall，《Official Claude Code VSX compromise》，2026-10-30，10-31 更新，<a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" target="_blank" rel="noopener">phorion.io</a></li>
+    <li id="src-7">Microsoft Security Blog，《Inside malicious Claude Code-branded Cursor extension》，2026-10-30，<a href="https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/" target="_blank" rel="noopener">microsoft.com/security/blog</a></li>
+    <li id="src-8">Socket，《Cursor Removes Malicious Claude Code 2.1.313 Extension From Its Marketplace》，2026-10-30，<a href="https://socket.dev/blog/claude-code-extension-compromise" target="_blank" rel="noopener">socket.dev</a></li>
+    <li id="src-9">The Register，Anthropic 否认系统被入侵的报道，2026-10-30，<a href="https://www.theregister.com/a/5306682" target="_blank" rel="noopener">theregister.com</a></li>
+    <li id="src-10">Implicator，Anthropic 声明报道，2026-10-31，<a href="https://www.implicator.ai/anthropic-says-malicious-actor-used-access-cursors/" target="_blank" rel="noopener">implicator.ai</a></li>
+    <li id="src-11">Notion，《Security incident involving a third-party AI vendor》，2026-11-09，<a href="https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor-nov9" target="_blank" rel="noopener">notion.com/security/advisories</a></li>
+    <li id="src-12">Google Cloud Blog，GTIG 与 Mandiant，《The Rise of LLMJacking》，2026-11-02，<a href="https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models" target="_blank" rel="noopener">cloud.google.com/blog</a></li>
+    <li id="src-13">DEV Community，《Cursor's Security Incident, Explained》，<a href="https://dev.to/tin_thnhbnh_6d6c9102d/cursors-security-incident-explained-a-leaked-vendor-key-a-poisoned-extension-and-5000-users-47h4" target="_blank" rel="noopener">dev.to</a></li>
+    <li id="src-14">Quinn Batten，《Notion violated their own security policy》，2026-11-12，<a href="https://www.quinnbatten.com/notebook/notion_fireworks_breach/" target="_blank" rel="noopener">quinnbatten.com</a></li>
+    <li id="src-15">Tech Insider，Fireworks 第二次入侵报道（客户名单未经 Fireworks 证实），<a href="https://tech-insider.org/fireworks-ai-second-hack-notion-cursor-cloud-provider-breach-2026/" target="_blank" rel="noopener">tech-insider.org</a></li>
+    <li id="src-16">CIO.com，《Claude Code, Codex and Cursor have become part of your software supply chain》，<a href="https://www.cio.com/article/4245820/claude-code-codex-and-cursor-have-become-part-of-your-software-supply-chain-without-approval.html" target="_blank" rel="noopener">cio.com</a></li>
+    <li id="src-17">BleepingComputer，《Fireworks AI discloses new breach after cloud provider hack》，2026-11-10，<a href="https://bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack" target="_blank" rel="noopener">bleepingcomputer.com</a></li>
+  </ol>
+<p><a href="/reading/">返回阅读整理页</a></p>
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

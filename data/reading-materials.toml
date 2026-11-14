@@ -1073,3 +1073,16 @@ year = "2026"
 description = "强脑科技的业务、产品、融资、财务口径、港股上市进展、争议与竞争格局，资料截至 2026 年 11 月。"
 original_url = ""
 reading_url = "/reading/brainco-2026-11/"
+
+[[materials]]
+slug = "cursor-security-incident-2026-11"
+title = "Cursor 安全事件更新：中文全文与后续报道"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Security", "AI", "Tech"]
+date = "2026-11-14T14:12:14+08:00"
+year = "2026"
+description = "Cursor 2026 年 11 月 13 日安全事件更新的中文全文，并整理供应商、安全研究者和其他受影响公司的后续信息。"
+original_url = "https://cursor.com/blog/security-incident-update"
+reading_url = "/reading/cursor-security-incident-2026-11/"
