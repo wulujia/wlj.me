@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-20
+
+- 新增资料页《非全日制博士项目与导师指南》，`static/reading/part-time-doctoral-study/index.html`。比较中国大陆、新加坡与香港博士项目，区分非全日制、全日制与待确认路径，并列出院系、导师成就、代表论文、招生证据与申请限制。
+
 ## 2026-11-14
 
 - 新增资料页《构建常驻 agent（中文译文）》，`static/reading/building-always-on-agents-2026-11/index.html`。《Building always-on agents》中文全文译文：事件收件箱、定时器、记忆、权限、发件箱五个原语。
