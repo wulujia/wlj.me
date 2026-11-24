@@ -16,17 +16,19 @@
 .thread details p{margin: 6px 0 0;}
 @media  print {details{display: block;}
 details > summary{display: none;}}</style>
-<style id="reading-style">:root {
+<style id="reading-style">
+:root {
   color-scheme: light;
-  --bg: #f5f8f7;
-  --surface: #ffffff;
-  --ink: #192b26;
-  --ink-2: #40564d;
-  --ink-3: #52655e;          --rule: #dcdfe2;
-  --rule-2: #b9bfc5;
-  --mid: #eceef0;
-  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
-  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
   --font-display: var(--font-body);
@@ -35,18 +37,18 @@ details > summary{display: none;}}</style>
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
-    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
-  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
@@ -65,7 +67,7 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
@@ -192,8 +194,24 @@ main iframe, main video { max-width: 100%; }
 main > *, .layout > * { min-width: 0; }
 [id] { scroll-margin-top: 24px; }
 .reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
-.reading-toolbar label { color: var(--ink-3); }
-.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; text-decoration: none; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
 .outline .outline-sub { padding-left: 14px; font-weight: 400; }
 @media (max-width: 900px) {
   h1 { font-size: 28px; }
@@ -203,7 +221,7 @@ main > *, .layout > * { min-width: 0; }
 }
 @media print {
   :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
-  .reading-toolbar { display: none; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
   .tbl, pre { overflow: visible; }
   pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   table { break-inside: auto; }
@@ -211,16 +229,23 @@ main > *, .layout > * { min-width: 0; }
 </style></head>
 <body data-reading-version="1">
 <a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+</ul></nav>
+</header>
 <div class="layout">
 <nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#s1">一、这件事是什么</a></li><li><a href="#s2">二、攻击链的八环</a></li><li class="outline-sub"><a href="#s2-1">2.1 一张表看完整条链</a></li><li class="outline-sub"><a href="#s2-2">2.2 这条链的特点：每一环单看都不致命</a></li><li><a href="#s3">三、第一个洞：libheif 堆溢出</a></li><li class="outline-sub"><a href="#s3-1">3.1 一张 HEIC 为什么能碰到解码器</a></li><li class="outline-sub"><a href="#s3-2">3.2 补丁在上游，但没人知道它是安全补丁</a></li><li class="outline-sub"><a href="#s3-3">3.3 从越界读写到执行命令</a></li><li><a href="#s4">四、第二个洞：OpenAI 的单点登录</a></li><li class="outline-sub"><a href="#s4-1">4.1 论坛的控制权怎么换成别人的身份</a></li><li class="outline-sub"><a href="#s4-2">4.2 爆炸半径在连接器上</a></li><li class="outline-sub"><a href="#s4-3">4.3 公开信息里还缺什么</a></li><li><a href="#s5">五、怎么证明的：一个无害的 PR</a></li><li><a href="#s6">六、AI 在这次里干了多少活</a></li><li class="outline-sub"><a href="#s6-1">6.1 Opus 4.8 卡住，Opus 5 当天做出来</a></li><li class="outline-sub"><a href="#s6-2">6.2 把自己的靶机包装成 CTF</a></li><li class="outline-sub"><a href="#s6-3">6.3 花了多少钱</a></li><li class="outline-sub"><a href="#s6-4">6.4 几乎没人发现</a></li><li><a href="#s7">七、完整时间线</a></li><li><a href="#s8">八、争议：6,500 美元</a></li><li><a href="#s9">九、可以抄走的防守清单</a></li><li class="outline-sub"><a href="#s9-1">9.1 你自建了 Discourse</a></li><li class="outline-sub"><a href="#s9-2">9.2 你的产品收用户上传的图片</a></li><li class="outline-sub"><a href="#s9-3">9.3 你在做单点登录</a></li><li class="outline-sub"><a href="#s9-4">9.4 你接了 AI 连接器</a></li><li class="outline-sub"><a href="#s9-5">9.5 你负责监测</a></li><li><a href="#s10">十、作者 X 串全文</a></li><li><a href="#s11">十一、方法与来源</a></li></ul></details></nav>
 <main id="main"><div class="reading-toolbar">
 <a href="/research/">返回研究</a>
-<label for="reading-theme">主题</label>
-<select id="reading-theme">
-<option value="system">跟随系统</option>
-<option value="light">亮色</option>
-<option value="dark">暗色</option>
-</select>
 </div>
 <header>
 <p class="eyebrow"> · 安全事件拆解 · 2026 年 9 月 19 日</p>
@@ -419,15 +444,27 @@ git pull
 </main>
 </div>
 
-<script id="reading-script">// The complete document remains visible without JavaScript.
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
 (function () {
   const root = document.documentElement;
-  const theme = document.getElementById('reading-theme');
-  if (theme) {
-    theme.value = root.getAttribute('data-theme') || 'system';
-    theme.addEventListener('change', function () {
-      if (theme.value === 'system') root.removeAttribute('data-theme');
-      else root.setAttribute('data-theme', theme.value);
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
     });
   }
   const outline = document.querySelector('.outline details');

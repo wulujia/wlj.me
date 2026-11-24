@@ -258,7 +258,9 @@ PYPATHS
   ! grep -q -E '<img[^>]*alt=""' "$src_html" || die "HTML 里有空 alt 的图片，研究页图片必须写有意义的 alt"
 
   # Check every page before writing any files, including pages within a report.
-  python3 "$REPO_DIR/scripts/research_style.py" "$src_dir" --url-prefix "$canonical" \
+  # --sync first writes the current shared CSS, script, site header and footer into the source pages,
+  # so a page made from an older template gets the current site design.
+  python3 "$REPO_DIR/scripts/research_style.py" "$src_dir" --sync --url-prefix "$canonical" \
     || die "研究页规范检查未通过，请按 templates/research/index.html 修改。"
   local child_html
   while IFS= read -r -d '' child_html; do

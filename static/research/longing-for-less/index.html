@@ -55,17 +55,19 @@ mark{background:var(--warn-wash);color:inherit;border-radius:2px;}
 @media  print{.searchwrap{display:none!important;}}
 @media print{.cats,#q,#count,#toTop{display:none!important;}}
 #bar{position:static;background:var(--bg);margin:18px 0;} .bar-in{padding:8px 0;flex-wrap:wrap;} #bar .brand{display:none;} .top-inner{display:flex;flex-wrap:wrap;gap:12px;} .top-inner h1{flex-basis:100%;}</style>
-<style id="reading-style">:root {
+<style id="reading-style">
+:root {
   color-scheme: light;
-  --bg: #f5f8f7;
-  --surface: #ffffff;
-  --ink: #192b26;
-  --ink-2: #40564d;
-  --ink-3: #52655e;          --rule: #dcdfe2;
-  --rule-2: #b9bfc5;
-  --mid: #eceef0;
-  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
-  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
   --font-display: var(--font-body);
@@ -74,18 +76,18 @@ mark{background:var(--warn-wash);color:inherit;border-radius:2px;}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
-    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
-  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
@@ -104,7 +106,7 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
@@ -231,8 +233,24 @@ main iframe, main video { max-width: 100%; }
 main > *, .layout > * { min-width: 0; }
 [id] { scroll-margin-top: 24px; }
 .reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
-.reading-toolbar label { color: var(--ink-3); }
-.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; text-decoration: none; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
 .outline .outline-sub { padding-left: 14px; font-weight: 400; }
 @media (max-width: 900px) {
   h1 { font-size: 28px; }
@@ -242,25 +260,32 @@ main > *, .layout > * { min-width: 0; }
 }
 @media print {
   :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
-  .reading-toolbar { display: none; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
   .tbl, pre { overflow: visible; }
   pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   table { break-inside: auto; }
 }
 </style></head>
 <body data-reading-version="1"><a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+</ul></nav>
+</header>
 
 
 
 
 <div class="layout"><nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#reading-section-1">§ 01这是一本什么书</a></li><li class="outline-sub"><a href="#reading-section-2">作者</a></li><li class="outline-sub"><a href="#reading-section-3">它要回答的问题</a></li><li class="outline-sub"><a href="#reading-section-4">一句话总结</a></li><li class="outline-sub"><a href="#reading-section-5">体量</a></li><li><a href="#reading-section-6">§ 02核心论点</a></li><li class="outline-sub"><a href="#reading-section-7">两个 minimalism</a></li><li class="outline-sub"><a href="#reading-section-8">「对少的渴望」是什么</a></li><li class="outline-sub"><a href="#reading-section-9">四个论证支点</a></li><li><a href="#reading-section-10">§ 03全书结构地图</a></li><li class="outline-sub"><a href="#reading-section-11">结构本身就是内容</a></li><li><a href="#reading-section-12">§ 04第一章 · 减法 Reduction</a></li><li class="outline-sub"><a href="#reading-section-13">入口：Sonrisa Andersen</a></li><li class="outline-sub"><a href="#reading-section-14">两千年的谱系</a></li><li class="outline-sub"><a href="#reading-section-15">近藤麻理惠这一节</a></li><li class="outline-sub"><a href="#reading-section-16">乔布斯那张照片</a></li><li class="outline-sub"><a href="#reading-section-17">收尾：Agnes Martin</a></li><li><a href="#reading-section-18">§ 05第二章 · 空 Emptiness</a></li><li class="outline-sub"><a href="#reading-section-19">Philip Johnson 与玻璃屋（1949）</a></li><li class="outline-sub"><a href="#reading-section-20">Donald Judd</a></li><li class="outline-sub"><a href="#reading-section-21">101 Spring Street 与马尔法</a></li><li class="outline-sub"><a href="#reading-section-22">空如何被卖掉</a></li><li class="outline-sub"><a href="#reading-section-23">纽约地球屋（1977 至今）</a></li><li><a href="#reading-section-24">§ 06第三章 · 静 Silence</a></li><li class="outline-sub"><a href="#reading-section-25">作者自己的实验：漂浮舱</a></li><li class="outline-sub"><a href="#reading-section-26">四个作曲家，四种静</a></li><li class="outline-sub"><a href="#reading-section-27">Julius Eastman：这一章真正的重点</a></li><li class="outline-sub"><a href="#reading-section-28">另一条线索：深度聆听</a></li><li><a href="#reading-section-29">§ 07第四章 · 影 Shadow</a></li><li class="outline-sub"><a href="#reading-section-30">破题：为什么是日本</a></li><li class="outline-sub"><a href="#reading-section-31">《枕草子》与《源氏物语》（约 1000 年）</a></li><li class="outline-sub"><a href="#reading-section-32">谷崎润一郎《阴翳礼赞》（1933）</a></li><li class="outline-sub"><a href="#reading-section-33">九鬼周造与「粋」（iki）</a></li><li class="outline-sub"><a href="#reading-section-34">西谷启治论花道（1953）</a></li><li class="outline-sub"><a href="#reading-section-35">收尾：龙安寺（十六世纪）</a></li><li><a href="#reading-section-36">§ 08人物索引</a></li><li><a href="#reading-section-37">§ 09关键概念</a></li><li><a href="#reading-section-38">§ 10时间线</a></li><li><a href="#reading-section-39">§ 11反复出现的四个母题</a></li><li class="outline-sub"><a href="#reading-section-40">① 抹掉自己的来历</a></li><li class="outline-sub"><a href="#reading-section-41">② 从别处进口纯粹</a></li><li class="outline-sub"><a href="#reading-section-42">③ 简约的外表要靠昂贵的后台</a></li><li class="outline-sub"><a href="#reading-section-43">④ 危机之后，极简回来一次</a></li><li class="outline-sub"><a href="#reading-section-44">第五个，也是作者最在意的一个：极简的政治风险</a></li><li><a href="#reading-section-45">§ 12批判性阅读提示</a></li><li><a href="#reading-section-46">§ 13三种读法</a></li><li class="outline-sub"><a href="#reading-section-47">90 分钟版</a></li><li class="outline-sub"><a href="#reading-section-48">按人物读</a></li><li class="outline-sub"><a href="#reading-section-49">顺读，但换个问题</a></li><li class="outline-sub"><a href="#reading-section-50">适合谁</a></li><li class="outline-sub"><a href="#reading-section-51">延伸</a></li></ul></details></nav><main id="main"><div class="reading-toolbar">
 <a href="/research/">返回研究</a>
-<label for="reading-theme">主题</label>
-<select id="reading-theme">
-<option value="system">跟随系统</option>
-<option value="light">亮色</option>
-<option value="dark">暗色</option>
-</select>
 </div><header class="top">
 <div class="top-inner">
 <h1>The Longing for Less · <em>断舍离的前世今生</em></h1>
@@ -816,15 +841,27 @@ main > *, .layout > * { min-width: 0; }
 </script>
 
 
-<script>const back=document.getElementById('top'); if(back){ addEventListener('scroll',()=>{back.style.display=scrollY>innerHeight?'block':'none';},{passive:true}); back.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));}</script><script id="reading-script">// The complete document remains visible without JavaScript.
+<script>const back=document.getElementById('top'); if(back){ addEventListener('scroll',()=>{back.style.display=scrollY>innerHeight?'block':'none';},{passive:true}); back.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));}</script><footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
 (function () {
   const root = document.documentElement;
-  const theme = document.getElementById('reading-theme');
-  if (theme) {
-    theme.value = root.getAttribute('data-theme') || 'system';
-    theme.addEventListener('change', function () {
-      if (theme.value === 'system') root.removeAttribute('data-theme');
-      else root.setAttribute('data-theme', theme.value);
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
     });
   }
   const outline = document.querySelector('.outline details');

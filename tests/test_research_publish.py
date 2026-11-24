@@ -18,6 +18,7 @@ class ReadingPublishTests(unittest.TestCase):
         self.repo = self.work / 'repo'
         self.repo.mkdir()
         shutil.copy(ROOT / 'publish.sh', self.repo)
+        shutil.copy(ROOT / 'hugo.toml', self.repo)  # The site header in each page comes from the menu here.
         for folder in ('scripts', 'templates/research', 'data', 'static/research', 'content/posts', 'bin'):
             (self.repo / folder).mkdir(parents=True)
         shutil.copy(ROOT / 'scripts/research_style.py', self.repo / 'scripts')

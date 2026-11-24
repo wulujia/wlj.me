@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Check or synchronize the embedded reading-page assets."""
+"""Check or synchronize the embedded research-page assets, site header and footer."""
 
 import argparse
 from collections import Counter
+from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
 import re
+import tomllib
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,6 +52,34 @@ class Page(HTMLParser):
         for node in self.stack:
             if node['tag'] in ('style', 'script', 'a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
                 node['text'] += data
+
+
+SKIP_LINK = '<a class="skip" href="#main">跳到正文</a>'
+HEADER_RE = r'<header class="site-header" id="site-header">.*?</header>'
+FOOTER_RE = r'<footer class="site-footer" id="site-footer">.*?</footer>'
+OLD_THEME_RE = r'\s*<label for="reading-theme">主题</label>\s*<select id="reading-theme">.*?</select>'
+
+
+def site_chrome():
+    """Build the site header and footer from hugo.toml, the same source as the Hugo pages."""
+    config = tomllib.loads((ROOT / 'hugo.toml').read_text())
+    logo = config['params']['Logo']['logoText']
+    items = sorted(config['menu']['main'], key=lambda item: item.get('weight', 0))
+    links = []
+    for item in items:
+        current = ' aria-current="page"' if item['url'] == '/research/' else ''
+        links.append(f'<li><a href="{escape(item["url"])}"{current}>{escape(item["name"])}</a></li>')
+    header = ('<header class="site-header" id="site-header">\n'
+              f'<div class="site-logo-bar"><a href="/"><span class="site-logo">{escape(logo)}</span></a></div>\n'
+              '<nav class="site-menu" aria-label="站点导航"><ul>\n' + '\n'.join(links) + '\n</ul></nav>\n</header>')
+    # No year in the footer, so the pages do not go out of date every January.
+    footer = ('<footer class="site-footer" id="site-footer">\n'
+              '<span>Powered by <a href="https://gohugo.io">Hugo</a></span>\n'
+              '<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>\n'
+              '<span>:: <a href="/index.xml">RSS</a></span>\n'
+              '<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>\n'
+              '</footer>')
+    return header, footer
 
 
 def normalized(text):
@@ -115,11 +145,13 @@ def check(html, canonical=None):
     for href in ('/research/', '#main'):
         if not any(n['tag'] == 'a' and n['attrs'].get('href') == href for n in page.nodes):
             errors.append(f'Missing navigation link: {href}')
-    themes = [n for n in page.nodes if n['tag'] == 'select' and n['attrs'].get('id') == 'reading-theme']
-    if len(themes) != 1:
-        errors.append('Missing shared theme control')
-    if not any(n['tag'] == 'label' and n['attrs'].get('for') == 'reading-theme' for n in page.nodes):
-        errors.append('Missing theme control label')
+    header, footer = site_chrome()
+    if html.count(header) != 1:
+        errors.append('Site header is missing or out of date; run research_style.py --sync')
+    if html.count(footer) != 1:
+        errors.append('Site footer is missing or out of date; run research_style.py --sync')
+    if any(n['attrs'].get('id') == 'reading-theme' for n in page.nodes):
+        errors.append('Remove the old theme menu; the footer button switches the theme')
     if canonical:
         urls = [n['attrs'].get('href') for n in page.nodes if n['tag'] == 'link' and n['attrs'].get('rel') == 'canonical']
         if urls != [canonical]:
@@ -143,6 +175,19 @@ def sync(html):
         html, count = re.subn(pattern, lambda match: block, html, flags=re.S)
         if count != 1:
             raise ValueError(f'Expected one {name} block or marker')
+    header, footer = site_chrome()
+    html = re.sub(OLD_THEME_RE, '', html, flags=re.S)
+    html, count = re.subn(HEADER_RE, lambda match: header, html, flags=re.S)
+    if count == 0:
+        if html.count(SKIP_LINK) != 1:
+            raise ValueError('Expected one skip link to place the site header after')
+        html = html.replace(SKIP_LINK, SKIP_LINK + '\n' + header)
+    html, count = re.subn(FOOTER_RE, lambda match: footer, html, flags=re.S)
+    if count == 0:
+        marker = '<script id="reading-script">'
+        if html.count(marker) != 1:
+            raise ValueError('Expected one reading-script block to place the site footer before')
+        html = html.replace(marker, footer + '\n' + marker)
     return html
 
 
@@ -159,7 +204,13 @@ def main():
     for path in paths:
         html = path.read_text()
         if args.sync:
-            html = sync(html)
+            try:
+                html = sync(html)
+            except ValueError as error:
+                failed += 1
+                print(path)
+                print(f'  ERROR: {error}')
+                continue
             path.write_text(html)
         canonical = None
         base = args.path if args.path.is_dir() else args.path.parent

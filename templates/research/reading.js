@@ -1,12 +1,17 @@
 // The complete document remains visible without JavaScript.
 (function () {
   const root = document.documentElement;
-  const theme = document.getElementById('reading-theme');
-  if (theme) {
-    theme.value = root.getAttribute('data-theme') || 'system';
-    theme.addEventListener('change', function () {
-      if (theme.value === 'system') root.removeAttribute('data-theme');
-      else root.setAttribute('data-theme', theme.value);
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
     });
   }
   const outline = document.querySelector('.outline details');

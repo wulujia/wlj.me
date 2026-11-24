@@ -43,7 +43,8 @@ publish.sh 自动处理：先跑 luca-writing 的检查器（`~/Github/luca-writ
 
 先读 `docs/spec.md`。新页面从 `templates/research/index.html` 起稿。
 复制模板后，替换标题、摘要、日期、canonical 和正文。
-保留统一样式、主题控件、返回链接和目录结构。
+保留统一样式、站点页眉和页脚、返回链接和目录结构。
+`publish.sh research` 发布前自动同步共用样式、脚本、页眉和页脚。改了 `hugo.toml` 的菜单或站名后，运行 `python3 scripts/research_style.py static/research --sync` 更新全部研究页。
 目录按顺序列出全部 `h2`、`h3`，文字必须与标题一致。
 每个标题有独立 id。
 

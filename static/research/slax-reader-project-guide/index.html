@@ -45,17 +45,19 @@
 .map, .two{grid-template-columns:1fr;}
 .lead{font-size:17px;}}
 .sectionhead{display:block;} .sectionhead p{color:var(--ink-2);} .search{color:var(--ink);} .card{box-shadow:none;}</style>
-<style id="reading-style">:root {
+<style id="reading-style">
+:root {
   color-scheme: light;
-  --bg: #f5f8f7;
-  --surface: #ffffff;
-  --ink: #192b26;
-  --ink-2: #40564d;
-  --ink-3: #52655e;          --rule: #dcdfe2;
-  --rule-2: #b9bfc5;
-  --mid: #eceef0;
-  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
-  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
   --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
   --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
   --font-display: var(--font-body);
@@ -64,18 +66,18 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
-    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
     --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
     --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
-  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
-  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
   --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
   --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
 }
@@ -94,7 +96,7 @@ a:hover { text-decoration-thickness: 2px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
 .skip:focus { left: 8px; z-index: 10; }
 
-.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
 main { min-width: 0; }
 .outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
 .outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
@@ -221,8 +223,24 @@ main iframe, main video { max-width: 100%; }
 main > *, .layout > * { min-width: 0; }
 [id] { scroll-margin-top: 24px; }
 .reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
-.reading-toolbar label { color: var(--ink-3); }
-.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; text-decoration: none; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
 .outline .outline-sub { padding-left: 14px; font-weight: 400; }
 @media (max-width: 900px) {
   h1 { font-size: 28px; }
@@ -232,24 +250,31 @@ main > *, .layout > * { min-width: 0; }
 }
 @media print {
   :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
-  .reading-toolbar { display: none; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
   .tbl, pre { overflow: visible; }
   pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   table { break-inside: auto; }
 }
 </style></head>
 <body data-reading-version="1"><a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+</ul></nav>
+</header>
 
 
 
 <div class="layout"><nav aria-label="目录" class="outline"><details open=""><summary>目录</summary><ul><li><a href="#reading-section-1">项目地图</a></li><li><a href="#reading-section-2">从哪里开始</a></li><li><a href="#reading-section-3">环境怎么搭</a></li><li class="outline-sub"><a href="#reading-section-4">slax-reader-web</a></li><li class="outline-sub"><a href="#reading-section-5">slax-reader-api</a></li><li class="outline-sub"><a href="#reading-section-6">slax-reader-client</a></li><li class="outline-sub"><a href="#reading-section-7">slax-reader-cli</a></li><li class="outline-sub"><a href="#reading-section-8">readability · jieba</a></li><li class="outline-sub"><a href="#reading-section-9">slax-home</a></li><li><a href="#reading-section-10">如何提交代码</a></li><li class="outline-sub"><a href="#reading-section-11">标准 PR 路径</a></li><li class="outline-sub"><a href="#reading-section-12">内部变更路径</a></li><li><a href="#reading-section-13">开发与测试矩阵</a></li><li><a href="#reading-section-14">本地仓库索引</a></li><li class="outline-sub"><a href="#reading-section-15">先看这 8 个</a></li><li class="outline-sub"><a href="#reading-section-16">内部仓库</a></li></ul></details></nav><main id="main"><div class="reading-toolbar">
 <a href="/research/">返回研究</a>
-<label for="reading-theme">主题</label>
-<select id="reading-theme">
-<option value="system">跟随系统</option>
-<option value="light">亮色</option>
-<option value="dark">暗色</option>
-</select>
 </div><header class="hero"><div class="eyebrow">Slax Reader / local field guide / 2026-09-03</div><h1>先看懂，再动手。</h1><p class="lead">这不是一个仓库。Reader 是一组互相配合的产品、服务和基础组件。下面的地图把“我该改哪里、怎么跑、怎么测、怎样提交”放在同一页。</p><div class="meta"><span class="pill">24 个团队仓库</span><span class="pill">~/Github/reader</span><span class="pill">公开代码 + 闭源代码</span></div></header>
 <section class="section" id="map"><div class="sectionhead"><div><div class="eyebrow">01 / orientation</div><h2 id="reading-section-1">项目地图</h2></div><p>产品入口在 Web、移动端和 CLI；主要业务流程是 Web / App → API → 内容解析、搜索、AI 与通知。</p></div><div class="map"><div class="node"><span class="tag">用户入口</span><strong>slax-reader-web</strong><small>Nuxt monorepo：Web 应用 + 浏览器扩展；包含共享的 types / utils。</small><div class="arrow">↓</div><strong>slax-reader-client</strong><small>Kotlin Multiplatform：Android、iOS、Desktop。</small></div><div class="node"><span class="tag">业务核心</span><strong>slax-reader-api</strong><small>Cloudflare Worker + TypeScript + Prisma；用户、书签、同步、AI、搜索、通知。</small><div class="arrow">↙　↓　↘</div><strong>readability · jieba · liveproxy</strong><small>网页正文提取、中文分词、代理与浏览器侧辅助能力。</small></div><div class="node"><span class="tag">开发体验</span><strong>slax-reader-cli</strong><small>Node CLI，可保存、浏览和管理书签，也提供 AI Agent skill。</small></div><div class="node"><span class="tag private">闭源 / 生产线</span><strong>unnoo/*</strong><small>前端 fork、后端 fork、App、研究 demo、beta 与内部工具。先确认任务和权限，再动手。</small></div></div><div class="notice" style="margin-top:16px"><strong>两个前端要分清：</strong> <code>slax-lab/slax-reader-web</code> 是公开基础版；<code>unnoo/slax_reader_frontend</code> 和 <code>frontend_beta</code> 是 fork + upstream layer，内部版本的增量主要在 fork 层，<code>upstream/</code> 是只读子模块。</div></section>
 <section class="section" id="start"><div class="sectionhead"><div><div class="eyebrow">02 / first steps</div><h2 id="reading-section-2">从哪里开始</h2></div><p>先做一个最短、可验证的流程，不要一上来读完 24 个仓库。</p></div><div class="steps"><div class="step"><div><strong>先读公开总览</strong><p>打开 <a href="https://github.com/slax-lab/slax-reader">slax-reader</a> 的 README，再读 <a href="https://github.com/slax-lab/slax-reader-web/blob/main/public/DEVELOPMENT-DOCUMENT-EN.md">Web 开发文档</a>。它们说明产品边界和 monorepo 结构。</p></div></div><div class="step"><div><strong>按任务选仓库</strong><p>页面、交互、扩展 → <code>slax-reader-web</code>；接口、数据、AI、搜索 → <code>slax-reader-api</code>；移动端 → <code>slax-reader-client</code>；命令行 → <code>slax-reader-cli</code>；正文提取 → <code>readability</code> / <code>slax_readability</code>。</p></div></div><div class="step"><div><strong>先跑一项检查</strong><p>Web 先跑 <code>pnpm install</code> 和 <code>pnpm run test:dweb</code>；API 先跑 <code>pnpm install</code>、<code>pnpm test</code>；其他仓库按下方矩阵。</p></div></div><div class="step"><div><strong>用一个小问题建立上下文</strong><p>推荐从一个 <code>good first issue</code>、一个已有测试的 bug，或一处文档修正开始。改动范围小，能完整走一遍分支、检查、PR。</p></div></div></div></section>
@@ -295,15 +320,27 @@ git push -u origin feat/short-description<button class="copy">复制</button></d
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{const c=b.parentElement.innerText.replace('复制','').trim();navigator.clipboard?.writeText(c);const t=b.textContent;b.textContent='已复制';setTimeout(()=>b.textContent=t,1200)}));
 const input=document.querySelector('#repoSearch'),rows=[...document.querySelectorAll('.repo')],count=document.querySelector('#repoCount');function filter(){const q=input.value.toLowerCase().trim();let n=0;rows.forEach(r=>{const show=!q||r.dataset.search.includes(q)||r.innerText.toLowerCase().includes(q);r.dataset.hidden=!show;if(show)n++});count.textContent='显示 '+n+' / '+rows.length}input.addEventListener('input',filter);filter();
 </script>
-<script id="reading-script">// The complete document remains visible without JavaScript.
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
 (function () {
   const root = document.documentElement;
-  const theme = document.getElementById('reading-theme');
-  if (theme) {
-    theme.value = root.getAttribute('data-theme') || 'system';
-    theme.addEventListener('change', function () {
-      if (theme.value === 'system') root.removeAttribute('data-theme');
-      else root.setAttribute('data-theme', theme.value);
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
     });
   }
   const outline = document.querySelector('.outline details');
