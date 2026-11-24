@@ -2,7 +2,7 @@
 
 Hugo 博客，Cloudflare Pages 托管（推送 main 后自动构建），Terminal 主题。
 
-构建命令在 Cloudflare Pages 项目 wlj-me 的设置里：先跑研究页测试和检查，再 `hugo --gc --minify`，最后 `npx -y pagefind@1.6.0 --site public` 生成站内搜索索引。只有带 `data-pagefind-body` 的页面进入搜索。wlj.me 整站 301 到 wulujia.com（Cloudflare Page Rules）。
+构建命令在 Cloudflare Pages 项目 wlj-me 的设置里：先跑研究页测试和检查，再 `hugo --gc --minify`，最后 `npx -y pagefind@1.6.0 --site public --force-language zh` 生成站内搜索索引（`--force-language zh` 把 zh、zh-CN 等页面合成一个索引，否则研究页搜不到）。只有带 `data-pagefind-body` 的页面进入搜索。wlj.me 整站 301 到 wulujia.com（Cloudflare Page Rules）。
 
 ## 写文章前必读（强制）
 
