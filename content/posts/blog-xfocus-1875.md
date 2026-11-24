@@ -8,7 +8,7 @@ slug: "blog-xfocus-1875"
 
 killer 贴了个图：
 
-![](/images/blog-xfocus/6D30E680-EC36-42CA-8C7C-7B89D199AE43.jpg)
+![到处都是流氓 配图](/images/blog-xfocus/6D30E680-EC36-42CA-8C7C-7B89D199AE43.jpg)
 
 有个家伙，做了个木马到处散布，中招者 word 文档被隐藏起来，硬盘上留下这么个文件。一般的受害者就只能老老实实地汇款，或者坐视文档荡然无存。
 

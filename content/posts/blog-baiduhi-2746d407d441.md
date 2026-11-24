@@ -36,4 +36,4 @@ slug: "blog-baiduhi-2746d407d441"
 
       如下图所示：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/cba60a46ce3fdc146b63e5cf.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/cba60a46ce3fdc146b63e5cf.jpg)
+[![IE 7.0 漏洞临时解决方案(zz) 配图](http://hiphotos.baidu.com/wulujia/abpic/item/cba60a46ce3fdc146b63e5cf.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/cba60a46ce3fdc146b63e5cf.jpg)

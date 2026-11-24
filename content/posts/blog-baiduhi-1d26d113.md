@@ -24,4 +24,4 @@ slug: "blog-baiduhi-1d26d113"
 
 第二个视频中，记者 zakaria 问了一些很敏感的问题，其中包括了 GFW，温总理的回答，还是很好的。
 
-![](http://hiphotos.baidu.com/wulujia/pic/item/46496b6025c8fd5eeaf8f8e7.jpg)
+![从中国的 Skype 开始搜索 配图](http://hiphotos.baidu.com/wulujia/pic/item/46496b6025c8fd5eeaf8f8e7.jpg)

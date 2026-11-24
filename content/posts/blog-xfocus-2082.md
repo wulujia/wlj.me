@@ -20,7 +20,7 @@ slug: "blog-xfocus-2082"
 
 说了半天，这些还都属于“高智商犯罪”，突然想起，xiaoxing前几天推荐了一个[IQ测试的网站](http://www.iqtest.dk/main.swf)给我，40分钟时间，需要完成39道类似的“选择题”：
 
-![](/images/blog-xfocus/EAB727D0-0CB8-4805-8981-66A2C6B52063.jpg)
+![骗子、小偷和IQ测试 配图](/images/blog-xfocus/EAB727D0-0CB8-4805-8981-66A2C6B52063.jpg)
 
 我坚持完成了所有题目，得了一个据说是她朋友圈里测试的最低分数，104，让xiaoxing着实欣慰了一把，总算有人帮他老公垫底了 :D
 

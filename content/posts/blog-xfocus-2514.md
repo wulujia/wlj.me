@@ -11,4 +11,4 @@ slug: "blog-xfocus-2514"
 多谢mrcool 😁
 回头去东北的时候，给哈尔滨的兄弟们捎上 :)
 
-> ![](/images/blog-xfocus/EA314B97-EA3D-4E9B-A0B1-CA4A594ABDF3.jpg)
+> ![神秘礼物 :) 配图](/images/blog-xfocus/EA314B97-EA3D-4E9B-A0B1-CA4A594ABDF3.jpg)

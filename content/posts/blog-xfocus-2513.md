@@ -6,4 +6,4 @@ draft: false
 slug: "blog-xfocus-2513"
 ---
 
-![](/images/blog-xfocus/39C401D8-708C-4B37-B36A-465F187EC600.jpg) [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2513&blogId=1)
+![规划中的公司新主页 配图](/images/blog-xfocus/39C401D8-708C-4B37-B36A-465F187EC600.jpg) [查看全文](http://blog.xfocus.net/index.php?op=ViewArticle&articleId=2513&blogId=1)

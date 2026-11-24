@@ -10,7 +10,7 @@ Office 2007 Beta版默认的文档格式已经不是原来的二进制的doc、x
 
 OFFICE 2007 版本中的文件格式容器如下图所示：
 
-![](/images/blog-xfocus/A2DD22D5-335D-4F60-B2B0-AA43A375ECC3.gif)
+![铁卷兼容最新的Office 2007 配图](/images/blog-xfocus/A2DD22D5-335D-4F60-B2B0-AA43A375ECC3.gif)
 
 铁卷针对Office 2007进行了优化，目前能够完全兼容Office 2007的电子表格、电子文档及演示文稿。
 

@@ -78,7 +78,7 @@ OK，让我们开始吧……
 
 - RPC: 我们从2000年4月1日对RPC服务进行了观察，总共用了180天时间，在第61至68天之间，发现图表中的查询次数有明显上升趋势，终于在第68天，一次利用rpc.statd的攻击发生了。另一次是在第153到170天之间，有大量的请求111端口的数据，而后就是在第177天时的一次对rpc.statd的成功溢出攻击。下面是一个对这期间活动的模型图表，X座标是天，Y座标是指发生次数。
 
-![](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/rpc-timeline.jpg)
+![了解你的敌人：统计 配图 1](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/rpc-timeline.jpg)
 
 - DNS/named: 从第81-85天看起来不正常地活跃，有许多异样的请求发送到name server。在第85天，named服务受到了一次不成功的攻击。 **Validation through Regression Analysis and
 ARIMA:**
@@ -87,7 +87,7 @@ ARIMA:**
 
 从下面的图表模型中我们可以看出，利用rpc.statd进行攻击的行为其实早几天就能被发现。横座标表示日期，在这里是从1-180天，向下的曲线通常表明有一些重要的事件发生，这能够预报一些攻击行为，比如在第68天我们受到攻击之前的10天内，就出现了这样的行为，而在其后又有三次向下的曲线，紧接着就是一次同样的rpc攻击发生在第177天。这里我也不太了解向上的曲线代表什么，但通常处在这种情况下，是一个平稳时期，没有太多的意外情况发生。
 
-![](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/whacked.jpg)
+![了解你的敌人：统计 配图 2](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/whacked.jpg)
 
 需要说明的是，在这些分析模型中肯定会存在一些错误，我们需要更多的数据，以及对这些分析预测模型更完善的利用方式，这样才能够有效地得出攻击预警的一些思路。
 
@@ -95,13 +95,13 @@ ARIMA:**
 
 另一个研究的领域是识别出某些类型的攻击或者扫描存在着的特征，这两个事例都来自于我们Honeynet小组成员的“每月扫描”中，下面的图形描述了在一个月中我们遭受的端口扫描的数量。这里我们很乐于回答的另一个问题是对于不同的扫描及准备攻击的行为：“在一段时期内的数据收集之后，我们想要观察什么呢？”在这个简单的ARIMA(回归滑动平均模型,Auto Regression Integrated with Moving Averages)案例中，是直接按捕获的数据资料进行分析的，ARIMA是一个可以用在对一定时期内搜集的数据进行深度分析的基本模型，下面的图表表明了在九月份我们遭受的端口扫描的频繁程度。
 
-![](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/imageBRP.jpg) ![](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/image9RB.jpg)
+![了解你的敌人：统计 配图 3](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/imageBRP.jpg) ![了解你的敌人：统计 配图 4](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/image9RB.jpg)
 
-![](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/imageB9B.jpg)
+![了解你的敌人：统计 配图 5](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/imageB9B.jpg)
 
 ARIMA模型的结果以下面表格的形式表示，这个表格显示说明了端口扫描是这些攻击中看起来较有代表性的，它先是向上拉起一个高峰，然后由其它类型的行为如预攻击等等终止。我们成员中的统计学专家还建议，三天的移动平均数计算在这样的时期内可能是太过粗糙的，对于这种类型的攻击，两天可能是一个相对合适的取值。
 
-![](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/imageTP3.jpg)
+![了解你的敌人：统计 配图 6](https://web.archive.org/web/20021009045406im_/http://www.xfocus.net/honeynet/papers/stats/imageTP3.jpg)
 
 在上面的两种分析中，我们的分析结果都受到了数据量不足的制约。但它还是给我们带来很多的经验，分析大量的数据，应该能够带来更多并非琐碎的，而是对我们从攻击本身建立起对攻击的预警体系，很有帮助的一件事。对于将来的测试以及改进这些理论，我们打算在下面做一些工作：
 

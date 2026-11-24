@@ -19,11 +19,11 @@ slug: "security-company-seculert"
 - Traffic Log Analysis
 - Protection API
 
-![](/img/seculert/Diagram_Screen-412x450.png)
+![安全公司：Seculert 配图 1](/img/seculert/Diagram_Screen-412x450.png)
 
 他们对APT生命周期的分析如下：
 
-![](/img/seculert/seculert_01.jpg)
+![安全公司：Seculert 配图 2](/img/seculert/seculert_01.jpg)
 
 # 融资情况
 

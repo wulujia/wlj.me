@@ -16,19 +16,19 @@ hxxp://www.qqvotem.cn（盗号网站，请勿在该网站输入任何帐号信�
 
 这类网站通常以投票、中奖为诱饵，欺骗用户输入个人信息、帐号信息，并且有各种假冒的“中奖信息”来加强网站的真实感：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/2746d407f5679ae17a894753.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/2746d407f5679ae17a894753.jpg)
+[![开心偷菜热 黑客盗号忙 配图 1](http://hiphotos.baidu.com/wulujia/abpic/item/2746d407f5679ae17a894753.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/2746d407f5679ae17a894753.jpg)
 
 图一：免费送QQ开心农场狗粮的诱饵
 
 用户点击参与投票，该网站就弹出一个登陆窗口，该窗口伪装成QQ游戏中心：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/8597e6cdb917e27d0eb3455c.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/8597e6cdb917e27d0eb3455c.jpg)
+[![开心偷菜热 黑客盗号忙 配图 2](http://hiphotos.baidu.com/wulujia/abpic/item/8597e6cdb917e27d0eb3455c.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/8597e6cdb917e27d0eb3455c.jpg)
 
 图二：未知成QQ游戏中心的盗号页面
 
 无论你输入什么QQ号码、密码和验证码，点击登陆后，都会提示：恭喜您，您已获得QQ开心农场狗粮5+2礼包一份……
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/0acccd11d6143b3cb8127b5d.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/0acccd11d6143b3cb8127b5d.jpg)
+[![开心偷菜热 黑客盗号忙 配图 3](http://hiphotos.baidu.com/wulujia/abpic/item/0acccd11d6143b3cb8127b5d.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/0acccd11d6143b3cb8127b5d.jpg)
 
 图三：中奖提示
 
@@ -42,7 +42,7 @@ hxxp://www.qqvotem.cn（盗号网站，请勿在该网站输入任何帐号信�
 
 2、如果自己对这类信息缺乏判断，可以考虑安装反钓鱼类型的软件，如畅游精灵（前身名为畅游巡警），可以有效拦截挂马、钓鱼、欺诈信息。比如上面提到的欺诈网站，如果使用了畅游精灵，则会出现类似下面的提示框，并且自动跳转到官方网站上：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/25a7d1c83f26b53b7e3e6f5e.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/25a7d1c83f26b53b7e3e6f5e.jpg)
+[![开心偷菜热 黑客盗号忙 配图 4](http://hiphotos.baidu.com/wulujia/abpic/item/25a7d1c83f26b53b7e3e6f5e.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/25a7d1c83f26b53b7e3e6f5e.jpg)
 
 图四：畅游精灵安全提示
 

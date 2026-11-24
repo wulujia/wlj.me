@@ -11,4 +11,4 @@ slug: "blog-xfocus-2421"
 
 强烈建议这位指责俺们欺骗网民，诋毁同行的造谣者，也用一下代理😁 另外，我用[tombkeeper](http://hi.baidu.com/tombkeeper/blog)的恶毒心灵揣摩一下原因，估计是超级巡警打破了某些人的创业梦想，哈哈。
 
-![](/images/blog-xfocus/23368179-4ADE-40F0-A0B6-E55244AA1A03.png)
+![建议造谣的家伙挂代理 配图](/images/blog-xfocus/23368179-4ADE-40F0-A0B6-E55244AA1A03.png)

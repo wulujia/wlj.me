@@ -10,4 +10,4 @@ slug: "blog-xfocus-1332"
 
 前者太烦，后者有被暴力猜解口令的可能性。Google 则是常规情况下无须验证，一旦登陆错误次数超过 10 次，便弹出验证图片，挺好的。
 
-![](/images/blog-xfocus/gmai_anticrack.jpg)
+![Google 的登陆验证码 配图](/images/blog-xfocus/gmai_anticrack.jpg)

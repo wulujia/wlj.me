@@ -42,4 +42,4 @@ slug: "blog-baiduhi-9e1e8bd4"
 
 对全盘进行加密，方案支持Windows、MacOS、Linux，有很多企业在使用——甚至包括全球500强的企业。它的原理图如下： 
 
-![](http://hiphotos.baidu.com/wulujia/pic/item/f93909239566e254925807de.jpg)
+![CIO面临的新挑战：旧设备数据泄露 配图](http://hiphotos.baidu.com/wulujia/pic/item/f93909239566e254925807de.jpg)

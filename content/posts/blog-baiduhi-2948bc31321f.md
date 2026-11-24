@@ -20,13 +20,13 @@ TSP文件锁恰好就能解决上面的全部问题，它的核心功能是：
 
 能设置文件的过期时间、阅读次数，还能给文件设置文件水印。
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/e48a36d1962d9a6c9b5027a1.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/e48a36d1962d9a6c9b5027a1.jpg)
+[![用TSP给你的文件加把锁 配图 1](http://hiphotos.baidu.com/wulujia/abpic/item/e48a36d1962d9a6c9b5027a1.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/e48a36d1962d9a6c9b5027a1.jpg)
 
 图1：TSP文件锁安全设置
 
 对文件进行安全设置后，再将文件对外发送——你就再也不用担心出现泄密、非授权传播这类事情了。对方接收到文件之后，下载TSP阅读器，在“受控”情况下阅读文档：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/1129ad34fc8491e3d0a2d3ac.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/1129ad34fc8491e3d0a2d3ac.jpg)
+[![用TSP给你的文件加把锁 配图 2](http://hiphotos.baidu.com/wulujia/abpic/item/1129ad34fc8491e3d0a2d3ac.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/1129ad34fc8491e3d0a2d3ac.jpg)
 
 图2：TSP安全阅读器
 

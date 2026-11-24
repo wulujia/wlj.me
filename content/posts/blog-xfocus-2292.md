@@ -8,4 +8,4 @@ slug: "blog-xfocus-2292"
 
 可怜的glacier，又让人给卖了 🏅
 
-![](/images/blog-xfocus/00603DED-A1AF-41B2-B920-68B357912A2F.jpg)
+![都是名片惹的祸 配图](/images/blog-xfocus/00603DED-A1AF-41B2-B920-68B357912A2F.jpg)

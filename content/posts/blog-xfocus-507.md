@@ -8,4 +8,4 @@ slug: "blog-xfocus-507"
 
 网络安全里的铁腕啥时候出现？ ;)
 
-![](/images/blog-xfocus/metro_security.JPG)
+![铁腕 ;) 配图](/images/blog-xfocus/metro_security.JPG)

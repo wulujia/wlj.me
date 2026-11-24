@@ -12,4 +12,4 @@ slug: "blog-xfocus-2508"
 
 不过，还是往后再慢慢回忆吧，我还是干活先 :)
 
-![](/images/blog-xfocus/F78E60E4-0DAC-4F84-8B7E-D9B0D443250D.jpg)
+![爸爸翻出来的篆刻稿 配图](/images/blog-xfocus/F78E60E4-0DAC-4F84-8B7E-D9B0D443250D.jpg)

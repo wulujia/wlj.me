@@ -12,7 +12,7 @@ slug: "enterprise-cloud-disk-security"
 
 企业相关的主要功能点有：
 
-<img src="/img/enterprise-cloud-disk-security/dropbox_01.png" style="width: 70%; height: 70%"/>
+<img alt="企业云盘的安全特性 配图 1" src="/img/enterprise-cloud-disk-security/dropbox_01.png" style="width: 70%; height: 70%"/>
 
 我所关心的部分安全功能/特性有：
 
@@ -32,11 +32,11 @@ slug: "enterprise-cloud-disk-security"
 
 相比Dropbox，[Box](http://www.box.com)更专注企业市场，个人市场方面份额相对小一些。Box在页面上的「怎么保障安全」部分画了一张图：
 
-<img src="/img/enterprise-cloud-disk-security/box_01.png" style="width: 70%; height: 70%"/>
+<img alt="企业云盘的安全特性 配图 2" src="/img/enterprise-cloud-disk-security/box_01.png" style="width: 70%; height: 70%"/>
 
 Box宣传的安全特性有：
 
-<img src="/img/enterprise-cloud-disk-security/box_02.png" style="width: 70%; height: 70%"/>
+<img alt="企业云盘的安全特性 配图 3" src="/img/enterprise-cloud-disk-security/box_02.png" style="width: 70%; height: 70%"/>
 
 # Spideroak
 

@@ -12,19 +12,19 @@ slug: "security-company-shapesecurity"
 
 ShapeShifter是硬件网站安全防御产品，主打理念是「代码变形」，每个用户每次看到的界面一样，但是程序代码自动变形，简单原理图如下：
 
-![](/img/shape-security/shape_03.png)
+![安全公司：ShapeSecurity 配图 1](/img/shape-security/shape_03.png)
 
 无需用户更改代码，透明接入网络，可以多台设备通过负载均衡挂载：
 
-![](/img/shape-security/network_diagram.svg)
+![安全公司：ShapeSecurity 配图 2](/img/shape-security/network_diagram.svg)
 
 看起来，应该是盒子做了个反向代理，并在这个反向代理中做变形、防入侵等工作。网站上的产品外观如下：
 
-![](/img/shape-security/shape_02.png)
+![安全公司：ShapeSecurity 配图 3](/img/shape-security/shape_02.png)
 
 视频里声称能解决的问题有：
 
-![](/img/shape-security/shape_01.png)
+![安全公司：ShapeSecurity 配图 4](/img/shape-security/shape_01.png)
 
 我的困惑在于，有了[Cloudflare](https://www.cloudflare.com/)，如果CloudFlare同时提供公有云和私有云解决方案，那Shape的方案还有价值吗？
 

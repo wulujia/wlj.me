@@ -18,21 +18,21 @@ CipherCloud的创始人兼CEO Kothari还是ArcSight的联合创始人。
 
 CipherCloud的产品主要有针对Salesforce、Office365、Box、Gmail、Amazon、数据库甚至任意web app（可能需要适当定制）。
 
-![](/img/ciphercloud/ciphercloud_01.png)
+![安全公司：CipherCloud 配图 1](/img/ciphercloud/ciphercloud_01.png)
 
 ## CipherCloud for Salesforce
 
 图是从[Complete Cloud Security Solution](http://www.youtube.com/watch?v=x3w_y4w2Sco)截下来的，可以看到地址栏的地址不同，走了CipherCloud的反向代理：
 
-![](/img/ciphercloud/salesforce_01.png)
-![](/img/ciphercloud/salesforce_02.png)
+![安全公司：CipherCloud 配图 2](/img/ciphercloud/salesforce_01.png)
+![安全公司：CipherCloud 配图 3](/img/ciphercloud/salesforce_02.png)
 
 ## CipherCloud for Database
 
 无需修改代码、数据库结构即可加密数据库中的关键字段，听起来还是很诱人的，不是么？
 
-![](/img/ciphercloud/Database-3D-flow-1.png)
-![](/img/ciphercloud/Database-architecture-diagram-1.png)
+![安全公司：CipherCloud 配图 4](/img/ciphercloud/Database-3D-flow-1.png)
+![安全公司：CipherCloud 配图 5](/img/ciphercloud/Database-architecture-diagram-1.png)
 
 ## CipherCloud for Gmail
 
@@ -40,18 +40,18 @@ CipherCloud的产品主要有针对Salesforce、Office365、Box、Gmail、Amazon
 
 贴一些图：
 
-![](/img/ciphercloud/Gmail-screen-shot-1.png)
-![](/img/ciphercloud/Gmail-screen-shot-2.png)
-![](/img/ciphercloud/Gmail-screen-shot-3.png)
-![](/img/ciphercloud/Gmail-screen-shot-4.png)
-![](/img/ciphercloud/Gmail-screen-shot-5.png)
+![安全公司：CipherCloud 配图 6](/img/ciphercloud/Gmail-screen-shot-1.png)
+![安全公司：CipherCloud 配图 7](/img/ciphercloud/Gmail-screen-shot-2.png)
+![安全公司：CipherCloud 配图 8](/img/ciphercloud/Gmail-screen-shot-3.png)
+![安全公司：CipherCloud 配图 9](/img/ciphercloud/Gmail-screen-shot-4.png)
+![安全公司：CipherCloud 配图 10](/img/ciphercloud/Gmail-screen-shot-5.png)
 
 # 关键技术
 
 - 反向代理
 - 可检索的加密（SEARCHABLE STRONG ENCRYPTION）
 
-![](/img/ciphercloud/SSE-Graphic-1.png)
+![安全公司：CipherCloud 配图 11](/img/ciphercloud/SSE-Graphic-1.png)
 
 # 融资情况
 

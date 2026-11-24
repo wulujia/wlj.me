@@ -12,4 +12,4 @@ slug: "blog-baiduhi-a5a336d3"
 
 贴图：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/0374ebc4a39300b48326ac05.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/0374ebc4a39300b48326ac05.jpg)
+[![360 的 SNS 配图](http://hiphotos.baidu.com/wulujia/abpic/item/0374ebc4a39300b48326ac05.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/0374ebc4a39300b48326ac05.jpg)

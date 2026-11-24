@@ -22,56 +22,56 @@ CloudLock的主要产品是为云服务（如Google app、Salesforce）提供额
 
 可以在Google的Marketplace购买：
 
-![](/img/cloudlock/Installs-in-Seconds.png)
+![安全公司：CloudLock 配图 1](/img/cloudlock/Installs-in-Seconds.png)
 
 - Full Control and Visibility for All Google Docs
 
-![](/img/cloudlock/Dashboard.png)
+![安全公司：CloudLock 配图 2](/img/cloudlock/Dashboard.png)
 
 - Security Policy Engine
 
-![](/img/cloudlock/ProductTour_Security_Policy_Engine-452x432.png)
+![安全公司：CloudLock 配图 3](/img/cloudlock/ProductTour_Security_Policy_Engine-452x432.png)
 
 - Compliance Scan
 
-![](/img/cloudlock/Compliance_Scan_Tour-535x432.png)
+![安全公司：CloudLock 配图 4](/img/cloudlock/Compliance_Scan_Tour-535x432.png)
 
 - Privileged View of Documents for Auditing and Compliance
 
-![](/img/cloudlock/Auditor-Privileged-view-of-Documents.png)
+![安全公司：CloudLock 配图 5](/img/cloudlock/Auditor-Privileged-view-of-Documents.png)
 
 - Administrative Role-based Access Controls
 
-![](/img/cloudlock/Administrative-Role-Base-Access-Controls.png)
+![安全公司：CloudLock 配图 6](/img/cloudlock/Administrative-Role-Base-Access-Controls.png)
 
 - Document Exposure Summary for End Users
 
-![](/img/cloudlock/ProductTour_EndUserEnablement-565x432.png)
+![安全公司：CloudLock 配图 7](/img/cloudlock/ProductTour_EndUserEnablement-565x432.png)
 
 - Full Audit Trail
 
-![](/img/cloudlock/ProductTour_AuditTrail.png)
+![安全公司：CloudLock 配图 8](/img/cloudlock/ProductTour_AuditTrail.png)
 
 - Fix Access Rights
 
-![](/img/cloudlock/Fix-Access-Rights.png)
+![安全公司：CloudLock 配图 9](/img/cloudlock/Fix-Access-Rights.png)
 
 - Content Search
 
-![](/img/cloudlock/Content-Search-591x432.png)
+![安全公司：CloudLock 配图 10](/img/cloudlock/Content-Search-591x432.png)
 
 - Bulk Operations
 
-![](/img/cloudlock/ProductTour_Bulk_Operations.png)
+![安全公司：CloudLock 配图 11](/img/cloudlock/ProductTour_Bulk_Operations.png)
 
 - Transfer Document Ownership
 
-![](/img/cloudlock/transfer-ownership.png)
+![安全公司：CloudLock 配图 12](/img/cloudlock/transfer-ownership.png)
 
 - Internal Collaboration Analytics
 
-![](/img/cloudlock/Internal-Collaboration-Analytics-569x432.png)
+![安全公司：CloudLock 配图 13](/img/cloudlock/Internal-Collaboration-Analytics-569x432.png)
 
 - External Collaboration & Exposure Analytics
 
-![](/img/cloudlock/External-Collaboration-and-Exposure-Analytics-600x420.png)
+![安全公司：CloudLock 配图 14](/img/cloudlock/External-Collaboration-and-Exposure-Analytics-600x420.png)

@@ -30,14 +30,14 @@ slug: "cloud-disk-encrypt"
 
 界面如下：
 
-<img src="/img/cloud-disk-encrypt/cryptsync_1.png" style="width: 50%; height: 50%"/>
-<img src="/img/cloud-disk-encrypt/cryptsync_2.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 1" src="/img/cloud-disk-encrypt/cryptsync_1.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 2" src="/img/cloud-disk-encrypt/cryptsync_2.png" style="width: 50%; height: 50%"/>
 
 ## Cloudfogger
 
 [Cloudfogger](http://www.cloudfogger.com/)其实有点类似CryptSync，与云盘无关，它安装完毕后指定某些目录加密——这时就可以选择云盘目录，加密后云端和本地都是密文，本地可以透明使用。
 
-<img src="/img/cloud-disk-encrypt/cloudfogger_1.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 3" src="/img/cloud-disk-encrypt/cloudfogger_1.png" style="width: 50%; height: 50%"/>
 
 ## Safemonk
 
@@ -57,9 +57,9 @@ slug: "cloud-disk-encrypt"
 
 [Viivo](http://www.viivo.com/)的宣传语是「cloud in confidence」——可信云。将vovo目录与云盘内的某一目录关联后，拷入vovo目录的文件会自动加密。
 
-<img src="/img/cloud-disk-encrypt/viivo_1.png" style="width: 50%; height: 50%"/>
-<img src="/img/cloud-disk-encrypt/viivo_2.png" style="width: 50%; height: 50%"/>
-<img src="/img/cloud-disk-encrypt/viivo_3.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 4" src="/img/cloud-disk-encrypt/viivo_1.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 5" src="/img/cloud-disk-encrypt/viivo_2.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 6" src="/img/cloud-disk-encrypt/viivo_3.png" style="width: 50%; height: 50%"/>
 
 参考：
 
@@ -85,8 +85,8 @@ Boxcryptor的密钥管理中有这么几种密钥：
 4. Group key
 5. Company keys
 
-<img src="/img/cloud-disk-encrypt/boxcryptor_1.png" style="width: 50%; height: 50%"/>
-<img src="/img/cloud-disk-encrypt/boxcryptor_2.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 7" src="/img/cloud-disk-encrypt/boxcryptor_1.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 8" src="/img/cloud-disk-encrypt/boxcryptor_2.png" style="width: 50%; height: 50%"/>
 
 参考链接：
 
@@ -108,18 +108,18 @@ Boxcryptor的密钥管理中有这么几种密钥：
 
 ## Boxcryptor
 
-<img src="/img/cloud-disk-encrypt/boxcryptor_3.png" style="width: 50%; height: 50%"/>
-<img src="/img/cloud-disk-encrypt/boxcryptor_4.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 9" src="/img/cloud-disk-encrypt/boxcryptor_3.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 10" src="/img/cloud-disk-encrypt/boxcryptor_4.png" style="width: 50%; height: 50%"/>
 
 ## Viivo
 
-<img src="/img/cloud-disk-encrypt/viivo_4.png" style="width: 50%; height: 50%"/>
-<img src="/img/cloud-disk-encrypt/viivo_5.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 11" src="/img/cloud-disk-encrypt/viivo_4.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 12" src="/img/cloud-disk-encrypt/viivo_5.png" style="width: 50%; height: 50%"/>
 
 ## Safemonk
 
-<img src="/img/cloud-disk-encrypt/safemonk_1.png" style="width: 50%; height: 50%"/>
-<img src="/img/cloud-disk-encrypt/safemonk_2.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 13" src="/img/cloud-disk-encrypt/safemonk_1.png" style="width: 50%; height: 50%"/>
+<img alt="云盘数据安全保障 配图 14" src="/img/cloud-disk-encrypt/safemonk_2.png" style="width: 50%; height: 50%"/>
 
 # 云盘加密需要思考的问题
 

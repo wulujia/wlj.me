@@ -16,4 +16,4 @@ slug: "blog-baiduhi-2746d407682f"
 
 俯瞰：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/509399254290aa7a35a80f4e.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/509399254290aa7a35a80f4e.jpg)
+[![充实的一天 配图](http://hiphotos.baidu.com/wulujia/abpic/item/509399254290aa7a35a80f4e.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/509399254290aa7a35a80f4e.jpg)

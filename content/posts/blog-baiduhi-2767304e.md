@@ -29,7 +29,7 @@ slug: "blog-baiduhi-2767304e"
 
 通过这种方式，有效保障敏感信息不被非授权泄露，可以参考下图：
 
-[![](http://blog.unnoo.com/wp-content/uploads/2011/04/AntiLeakGateway-300x225.png)](http://blog.unnoo.com/wp-content/uploads/2011/04/AntiLeakGateway.png)
+[![用防泄密网关 保服务器数据 配图](http://blog.unnoo.com/wp-content/uploads/2011/04/AntiLeakGateway-300x225.png)](http://blog.unnoo.com/wp-content/uploads/2011/04/AntiLeakGateway.png)
 
 图：铁卷防泄密网关的实现机理
 

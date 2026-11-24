@@ -16,23 +16,23 @@ slug: "blog-xfocus-2070"
 > 
 >   到县城后没有班车，只能租一辆农用车继续前行，道路崎岖难行，还有几座小桥：
 > 
->   ![](/images/blog-xfocus/825CEC95-EF0D-4850-9733-547914F5E4D7.jpg)
+>   ![山里的孩子 配图 1](/images/blog-xfocus/825CEC95-EF0D-4850-9733-547914F5E4D7.jpg)
 > 
 >   大概再走一个半小时，抵达群山包围中的小二地，远处望去，群山掩映的地方有所白房子，那就是我们此行的目标小二地小学，至少是砖瓦房：
 > 
->   ![](/images/blog-xfocus/D43C84BC-09CA-4510-A9FD-6FDE26B937B5.jpg)
+>   ![山里的孩子 配图 2](/images/blog-xfocus/D43C84BC-09CA-4510-A9FD-6FDE26B937B5.jpg)
 > 
 >   下面图片里的，是村里较好和较差的房子：
 > 
->   ![](/images/blog-xfocus/2EE48BA9-F8FC-4A45-915B-A4BB13B7D6D8.jpg)
+>   ![山里的孩子 配图 3](/images/blog-xfocus/2EE48BA9-F8FC-4A45-915B-A4BB13B7D6D8.jpg)
 > 
 >   2月份时，flier拍下的校舍地址，以及当时孩子们用来当作教室的木屋，flier说，虽然来之前做好了充分的思想准备，但看到这样简陋的教学设置，心里还是感觉堵得慌……
 > 
->   ![](/images/blog-xfocus/95F798FF-D1EA-4DC3-A166-D16CA2F82499.jpg)
+>   ![山里的孩子 配图 4](/images/blog-xfocus/95F798FF-D1EA-4DC3-A166-D16CA2F82499.jpg)
 > 
 >   在网络安全焦点网友们的支持下，新近落成的小二地小学：
 > 
->   ![](/images/blog-xfocus/A658EAD1-83FD-458C-946F-03904185BB01.jpg)
+>   ![山里的孩子 配图 5](/images/blog-xfocus/A658EAD1-83FD-458C-946F-03904185BB01.jpg)
 > 
 >   
 > 

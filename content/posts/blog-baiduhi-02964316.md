@@ -16,7 +16,7 @@ slug: "blog-baiduhi-02964316"
 
 由于铁卷防泄密网关近期要在大用户环境下部署，因此希望测试出其能承载的压力情况，测试环境如下：
 
-[![](http://hiphotos.baidu.com/wulujia/pic/item/1d595982c8829fc20df4d267.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/bridge.png)
+[![铁卷防泄密网关部份压力测试数据 配图 1](http://hiphotos.baidu.com/wulujia/pic/item/1d595982c8829fc20df4d267.jpg)](https://web.archive.org/web/20120626035805im_/http://blog.unnoo.com/wp-content/uploads/2011/05/bridge.png)
 
 后台web服务器：dell 2950双核，8G内存，千兆网卡
 
@@ -31,27 +31,27 @@ slug: "blog-baiduhi-02964316"
 在3000用户同时并发访问的情况下，铁卷防泄密网关仍然能够稳定地提供服务，所有连接都能够成功建立，并且铁卷防泄密网关本身系统资源占用不超过25%。
 
 部份截图如下，下图是没有并发压力情况下的铁卷防泄密网关资源占用情况，服务器CPU占用为0.7%，网关进程tfgfilter资源占用为零：
-[![](http://hiphotos.baidu.com/wulujia/pic/item/a9b5bc3e08007c9a838b1367.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/0.png)
+[![铁卷防泄密网关部份压力测试数据 配图 2](http://hiphotos.baidu.com/wulujia/pic/item/a9b5bc3e08007c9a838b1367.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/0.png)
 
 1000用户时铁卷网关资源占用情况，CPU占用20.7%，其中tfgfilter占了15%：
-[![](http://hiphotos.baidu.com/wulujia/pic/item/32e6a61e15e6b27f40341767.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/1000.png)
+[![铁卷防泄密网关部份压力测试数据 配图 3](http://hiphotos.baidu.com/wulujia/pic/item/32e6a61e15e6b27f40341767.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/1000.png)
 
 3000用户时铁卷网关资源占用情况，CPU占用22%，其中tfgfilter占了17%：
-[![](http://hiphotos.baidu.com/wulujia/pic/item/f159970af17b6a7f94ca6b67.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/3000.png)
+[![铁卷防泄密网关部份压力测试数据 配图 4](http://hiphotos.baidu.com/wulujia/pic/item/f159970af17b6a7f94ca6b67.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/3000.png)
 
 从LoadRunner的测试情况看，所有的连接请求都成功建立，即便在3000用户并发访问的情况下，也没有到达性能瓶颈：
 
-[![](http://hiphotos.baidu.com/wulujia/pic/item/17ebc917b80b2869c83d6d67.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/loadrunner.png)
+[![铁卷防泄密网关部份压力测试数据 配图 5](http://hiphotos.baidu.com/wulujia/pic/item/17ebc917b80b2869c83d6d67.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/loadrunner.png)
 
 三、某用户处稳定运行超过3个月的铁卷防泄密网关
 
 最近一个月的网络流量监测图，流出峰值曾达到36Mbps：
 
-[![](http://hiphotos.baidu.com/wulujia/pic/item/cf53670900083faf3ac76367.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/network.png)
+[![铁卷防泄密网关部份压力测试数据 配图 6](http://hiphotos.baidu.com/wulujia/pic/item/cf53670900083faf3ac76367.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/network.png)
 
 最近一个月的CPU性能监测图，CPU负载一直在0.15以下：
 
-[![](http://hiphotos.baidu.com/wulujia/pic/item/7b827609cb03e3cf2fddd467.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/load.png)
+[![铁卷防泄密网关部份压力测试数据 配图 7](http://hiphotos.baidu.com/wulujia/pic/item/7b827609cb03e3cf2fddd467.jpg)](http://blog.unnoo.com/wp-content/uploads/2011/05/load.png)
 
 相关文章：
 

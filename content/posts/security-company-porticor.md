@@ -10,7 +10,7 @@ slug: "security-company-porticor"
 
 [Porticor](http://www.porticor.com/)是一家致力云中数据安全保障的企业。Porticor的核心技术应该是「分离密钥」和「同态加密」。
 
-![](/img/porticor/porticor_01.jpg)
+![安全公司：Porticor 配图 1](/img/porticor/porticor_01.jpg)
 
 前者应该就是公私钥体系，后者的维基百科描述是：同态加密是一种加密形式，它允许人们对密文进行特定的代数运算得到仍然是加密的结果，与对明文进行同样的运算再将结果加密一样。换言之，这项技术令人们可以在加密的数据中进行诸如检索、比较等操作，得出正确的结果，而在整个处理过程中无需对数据进行解密。其意义在于，真正从根本上解决将数据及其操作委托给第三方时的保密问题，例如对于各种云计算的应用。
 
@@ -21,7 +21,7 @@ slug: "security-company-porticor"
 
 产品界面：
 
-![](/img/porticor/porticor_02.png)
+![安全公司：Porticor 配图 2](/img/porticor/porticor_02.png)
 
 # 资本情况
 

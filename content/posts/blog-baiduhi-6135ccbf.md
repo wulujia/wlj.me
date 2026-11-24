@@ -8,7 +8,7 @@ slug: "blog-baiduhi-6135ccbf"
 
 [http://search.51job.com/jobsearch/co_all_job.php?58198&coid=1260357](http://search.51job.com/jobsearch/co_all_job.php?58198&coid=1260357)
 
-如果您愿意和我们一起创业，欢迎来聊聊 ![](http://img.baidu.com/hi/jd/j_0044.gif)
+如果您愿意和我们一起创业，欢迎来聊聊 ![大成天下招聘 配图](http://img.baidu.com/hi/jd/j_0044.gif)
 
 **反病毒产品运营总监**
 

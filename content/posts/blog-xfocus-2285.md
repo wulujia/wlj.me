@@ -12,4 +12,4 @@ slug: "blog-xfocus-2285"
 
 在《[Loose Lips Sink Ships: Messaging Information Leak Prevention Matters](http://www.i170.com/Attach/E15DA4E4-019B-4E33-8B78-6053D96BC13E)》这份研究报告简报中，指出了[通讯信息泄漏防护](http://www.unnoo.com/)(Messaging Information Leak Prevention)方案应该考虑的因素，并对各厂商产品作出了如下的比较：
 
-![](/images/blog-xfocus/FD2E5D57-F19A-4EBE-9371-56EB6AD08543.jpg)
+![Aberdeen Group关于信息泄漏防护产品的测评 配图](/images/blog-xfocus/FD2E5D57-F19A-4EBE-9371-56EB6AD08543.jpg)

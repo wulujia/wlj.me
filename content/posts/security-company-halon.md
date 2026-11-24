@@ -12,10 +12,10 @@ Halon提供的产品有：
 
 - 邮件安全网关
 
-![](/img/halon/halon_01.png)
+![安全公司：Halon 配图 1](/img/halon/halon_01.png)
 
 - 安全路由器 & 负载均衡
 
-![](/img/halon/halon_02.png)
+![安全公司：Halon 配图 2](/img/halon/halon_02.png)
 
 最大的特色应该是所有产品都可以支持主流的虚拟化平台（VMware, KVM, Xen, Hyper-V等），当然，也可以是部署在硬件主机上。

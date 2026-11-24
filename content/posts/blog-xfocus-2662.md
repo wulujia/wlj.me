@@ -9,4 +9,4 @@ slug: "blog-xfocus-2662"
 周末，加上昨天一觉睡了十二个小时，今天精力超级充沛，所以，安装日文版windows
 XP中，大家猜猜是准备干嘛使的 😁
 
-![](/images/blog-xfocus/FE2C0058-F32A-4F62-95B4-2657072CC16A.png)
+![日文版Windows XP安装中…… 配图](/images/blog-xfocus/FE2C0058-F32A-4F62-95B4-2657072CC16A.png)

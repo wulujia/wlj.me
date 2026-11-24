@@ -34,12 +34,12 @@ Bromium支持各种基于Intel CPU，可以运行在32/64位的Windows 7、苹�
 
 - vSentry：微虚拟机终端产品
 
-![](/img/bromium/vsentry_01.png)
+![安全公司：Bromium 配图 1](/img/bromium/vsentry_01.png)
 
 - Live Attack Visualization and Analysis (LAVA)：实时分析与呈现攻击
 
-![](/img/bromium/lava_01.png)
-![](/img/bromium/lava_02.png)
+![安全公司：Bromium 配图 2](/img/bromium/lava_01.png)
+![安全公司：Bromium 配图 3](/img/bromium/lava_02.png)
 
 # 融资情况
 

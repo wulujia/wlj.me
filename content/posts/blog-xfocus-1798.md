@@ -44,7 +44,7 @@ Date,Edit Right,Save Right 等设置；
 
 为了方便理解，贴两张图，第一张是 MarkAny Document Safer 的基本功能：
 
-![](/images/blog-xfocus/6EF7BCF0-43D2-4BC3-B9FB-17B4DF47DCE8.jpg)
+![铁卷竞争产品介绍 2：MarkAny 配图](/images/blog-xfocus/6EF7BCF0-43D2-4BC3-B9FB-17B4DF47DCE8.jpg)
 
 第二张是加密文档的分发模式及流程说明：
 

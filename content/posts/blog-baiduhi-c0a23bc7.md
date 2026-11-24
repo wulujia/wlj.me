@@ -8,4 +8,4 @@ slug: "blog-baiduhi-c0a23bc7"
 
 点击下载：[超级巡警帮助文件](http://www.unnoo.com/uploads/docs/sucop_help.rar)
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/8aeae95065dcaf451138c219.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/8aeae95065dcaf451138c219.jpg)
+[![超级巡警的帮助文件 配图](http://hiphotos.baidu.com/wulujia/abpic/item/8aeae95065dcaf451138c219.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/8aeae95065dcaf451138c219.jpg)

@@ -16,4 +16,4 @@ slug: "blog-baiduhi-08637becc249"
 
 对了，遛了半天的狗，得给他照照像，让大伙儿看看传说中的吴小白：
 
-[![](http://hiphotos.baidu.com/wulujia/abpic/item/55b0e711614f85daa6ef3f4f.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/55b0e711614f85daa6ef3f4f.jpg)
+[![遛狗卖瓶子 配图](http://hiphotos.baidu.com/wulujia/abpic/item/55b0e711614f85daa6ef3f4f.jpg)](http://hiphotos.baidu.com/wulujia/pic/item/55b0e711614f85daa6ef3f4f.jpg)
