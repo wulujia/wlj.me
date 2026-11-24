@@ -1,6 +1,7 @@
 <a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}">
   <div class="logo">
-    <img class="logo__avatar" src="/favicon.png" alt="Luca 的头像" width="24" height="24">
+    {{- /* Inline style: the theme gives every img a margin, border and padding, and the avatar needs none of them. */ -}}
+    <img class="logo__avatar" src="/favicon.png" alt="Luca 的头像" width="24" height="24" style="display:block;width:24px;height:24px;margin:0 8px 0 0;padding:0;border:0;border-radius:50%;flex:0 0 auto">
     {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
   </div>
 </a>
