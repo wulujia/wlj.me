@@ -2,6 +2,7 @@
 
 ## 2026-11-24
 
+- 新增资料页《深圳及珠三角墨水屏设备采购调研》，`static/research/prd-epaper-suppliers/index.html`。比较深圳及珠三角墨水屏设备、开发套件与小批量采购，附联网限制、样机预算和验收计划。
 - 首页改为五个板块，按顺序是精选、日志、研究、笔记、创业笔记。每块有“全部”链接，列最新几条，一行一条（日期和标题）：精选 10 篇（`data/featured.toml` 的 home 列表）、日志 8 篇、研究 6 篇（按 `research-materials.toml` 的日期，跳过 noindex）、笔记 5 条、创业笔记 5 篇（按笔记编号）。首页不再列带摘要的分页文章，`/page/N/` 301 到 `/posts/page/N/`（两边都是每页 10 篇，页码对应）。样式在 `static/style.css` 末尾的 `.home-section`、`.home-list`。
 - 精选页（`/featured/`）去掉每篇文章下面的简介，只留标题和年月。`layouts/_default/featured.html` 删掉 `featured-desc` 一行。
 - 研究页跟随站点主题：共用样式 `templates/research/reading.css` 改用站点的 Solarized 配色（亮色底 `#fdf6e3`、暗色底 `#002b36`，正文和链接加深到 4.5:1 以上），每页顶部加站点的站名条和菜单，底部加站点页脚。页眉和页脚由 `scripts/research_style.py` 按 `hugo.toml` 的菜单和站名生成，`--sync` 写入，检查时内容不一致就报错。原来的“主题”下拉菜单换成页脚的 `[dark/light]` 按钮，与文章页共用 `localStorage` 的 `theme`。页脚不写年份，避免每年一月全部页面过期。`publish.sh research` 发布前先运行 `--sync`。92 个研究页已同步。测试新增 3 个（页眉被改、页脚缺失、同步补齐页眉页脚并去掉旧菜单）。

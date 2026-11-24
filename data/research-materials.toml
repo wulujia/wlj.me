@@ -1125,3 +1125,16 @@ year = "2026"
 description = "美图公司 2008–2026 年做过的产品、上线时间和现状，AI 时代赚钱的产品和失败的项目，以及年报里的收获和教训。"
 original_url = ""
 research_url = "/research/meitu-product-history/"
+
+[[materials]]
+slug = "prd-epaper-suppliers"
+title = "深圳及珠三角墨水屏设备采购调研"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Tech", "Product", "AI"]
+date = "2026-11-24T15:44:54+08:00"
+year = "2026"
+description = "比较深圳及珠三角墨水屏设备、开发套件与小批量采购，附联网限制、样机预算和验收计划。"
+original_url = ""
+research_url = "/research/prd-epaper-suppliers/"

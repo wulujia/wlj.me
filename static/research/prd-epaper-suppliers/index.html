@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深圳及珠三角墨水屏设备采购调研</title>
+<meta name="description" content="比较深圳及珠三角墨水屏设备、开发套件与小批量采购，附联网限制、样机预算和验收计划。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wulujia.com/research/prd-epaper-suppliers/">
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; text-decoration: none; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+</ul></nav>
+</header>
+<div class="layout">
+<nav class="outline" aria-label="目录"><p class="label">目录</p><details open><summary>目录</summary><ul><li><a href="#section-1">采购建议</a></li><li><a href="#section-2">厂家筛选结果</a></li><li><a href="#section-3">值得购买的设备</a><ul><li><a href="#section-4">1. Seeed reTerminal E1001：桌面 Agent 信息终端首选</a></li><li><a href="#section-5">2. Seeed TRMNL 7.5&quot; (OG) DIY Kit：用于开发自有外形</a></li><li><a href="#section-6">3. BOOX Go 7：Android 应用开发首选</a></li><li><a href="#section-7">4. BOOX Palma 2 Pro：成品蜂窝联网测试首选</a></li><li><a href="#section-8">5. LILYGO T-Deck Pro 4G：开放蜂窝硬件实验</a></li><li><a href="#section-9">6. Waveshare 7.5inch e-Paper HAT：Linux 原型与硬件扩展</a></li></ul></li><li><a href="#section-10">暂不作为首批主力的厂家与型号</a><ul><li><a href="#section-11">M5Stack：开放程度好，需先解决供货与稳定性问题</a></li><li><a href="#section-12">Elecrow：低成本开发备选</a></li><li><a href="#section-13">LILYGO T5 E-Paper S3 Pro：用户评价不支持优先推荐</a></li><li><a href="#section-14">SEEKINK：适合后续制造合作</a></li><li><a href="#section-15">Bigme、Good Display 与大批量电子价签厂家</a></li></ul></li><li><a href="#section-16">“稳定、好评、出货量大”的证据</a></li><li><a href="#section-17">Agent 与 eSIM 的开发边界</a><ul><li><a href="#section-18">先确定 Agent 在哪里运行</a></li><li><a href="#section-19">内置 eSIM 需要单独验证</a></li></ul></li><li><a href="#section-20">首批 8—10 台采购安排</a></li><li><a href="#section-21">联系顺序与询价内容</a></li><li><a href="#section-22">样机验收计划</a></li><li><a href="#section-23">调研记录</a></li><li><a href="#methods">方法与来源</a></li></ul></details></nav>
+<main id="main">
+<div class="reading-toolbar"><a href="/research/">返回研究</a></div>
+<header>
+<p class="eyebrow">采购调研 / 2026-10-26</p>
+<h1>深圳及珠三角墨水屏设备采购调研</h1>
+<p class="lede">采购 8—10 台设备，开发定制功能，验证 Agent 与联网产品。</p>
+<p class="meta">价格与库存取样于 2026 年 10 月 26 日，发布时未重新询价。<br>调研日期：2026 年 10 月 26 日。范围：设备、开发套件与制造合作。</p>
+</header>
+<div class="summary"><p class="label">采购建议</p><p>优先联系 Seeed Studio（矽递科技）。它在深圳，销售带外壳的墨水屏设备，也提供开发套件。现有产品允许开发者烧录自己的固件。小批量可以从标准商品采购开始。</p></div>
+<h2 id="section-1">采购建议</h2>
+
+<p>桌面信息终端优先购买 reTerminal E1001。需要触控时，先测试 reTerminal E1003。需要 Android 应用时，选择广州 BOOX 的 Go 7。需要直接测试蜂窝网络时，选择 BOOX Palma 2 Pro，或深圳 LILYGO 的 T-Deck Pro 4G。</p>
+<p>这些建议有一个限制：公开证据没有证明任何单一型号，同时满足“开放开发、可靠性经过验证、用户评价好、出货量大、内置 eSIM”全部条件。这里的产品值得购买做开发测试。它们还不能直接作为量产方案。</p>
+<p>本次把“开发套件”理解为两类：可烧录固件的硬件套件，以及配有官方 SDK 的成品设备。两类分别标明。若要求开放主板、操作系统和底层驱动，BOOX 的公开应用 SDK 不够。</p>
+<p>本次按公司或服务机构所在地筛选。工厂所在地、生产资质和自制比例仍需核实。表中多数公司提供设备设计、组装或开发硬件，并不生产电子墨水材料。</p>
+<h2 id="section-2">厂家筛选结果</h2>
+<div class="tbl" role="region" aria-label="可横向滚动的比较表" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">厂家</th>
+<th scope="col">地区及供应角色</th>
+<th scope="col">设备与开发资源</th>
+<th scope="col">8—10 台采购证据</th>
+<th scope="col">本次判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seeed Studio／矽递科技</td>
+<td>深圳南山；硬件设计与制造服务</td>
+<td>reTerminal E 系列、TRMNL DIY Kit；Arduino、ESP-IDF 等</td>
+<td>官网零售；TRMNL Kit 明列 10 台档位</td>
+<td>首选联系</td>
+</tr>
+<tr>
+<td>Waveshare／微雪电子</td>
+<td>深圳；开发板与显示模块供应商</td>
+<td>墨水屏 HAT、ESP32 驱动板、蜂窝开发板；示例与原理图</td>
+<td>标准商品零售；屏幕有 10 台档位</td>
+<td>适合硬件原型；需组装</td>
+</tr>
+<tr>
+<td>LILYGO</td>
+<td>深圳龙岗；开发硬件供应商</td>
+<td>T-Deck Pro 4G、T5 系列；官方源码与硬件资料</td>
+<td>官网按件零售；10 台同批库存需确认</td>
+<td>适合联网实验</td>
+</tr>
+<tr>
+<td>M5Stack</td>
+<td>深圳宝安；开发设备供应商</td>
+<td>PaperMono；官方固件、库与结构资料</td>
+<td>标准商品零售；同批数量需确认</td>
+<td>暂缓批量购买</td>
+</tr>
+<tr>
+<td>Elecrow／易科诺</td>
+<td>深圳；开发硬件与制造服务</td>
+<td>CrowPanel E-Paper；示例、原理图、PCB 资料</td>
+<td>标准商品零售；批次与交期需确认</td>
+<td>低成本备选</td>
+</tr>
+<tr>
+<td>BOOX／文石</td>
+<td>广州；成品设备品牌</td>
+<td>Android 阅读器与平板；官方 Android SDK</td>
+<td>成品可以零售；SDK 无需定制硬件订单</td>
+<td>应用开发首选；硬件定制另谈</td>
+</tr>
+<tr>
+<td>SEEKINK／兴泰</td>
+<td>总部江西；深圳有服务机构</td>
+<td>模组、成品、演示套件、OEM／ODM</td>
+<td>官网标准 MOQ 高于 10；样品另议</td>
+<td>后续量产候选</td>
+</tr>
+<tr>
+<td>Bigme</td>
+<td>深圳；成品设备品牌</td>
+<td>墨水屏阅读器、平板等</td>
+<td>成品零售可行；官方公开 SDK 未核实</td>
+<td>不进入本轮开发采购名单</td>
+</tr>
+</tbody>
+</table></div>
+<p>Seeed 的深圳地址可从 <a href="https://www.ti.com/partner/SEEED">TI 合作伙伴资料</a>核对。LILYGO 的地址见<a href="https://lilygo.cc/en-us">官网</a>。M5Stack 的地址见<a href="https://docs.m5stack.com/en/core/PaperMono">官方设备文档</a>。Elecrow 的企业身份见 <a href="https://files.seeedstudio.com/wiki/wiki-platform/Maker-Faire-Shenzhen-2024_CN.pdf">Maker Faire Shenzhen 官方资料</a>。微雪的深圳主体可从<a href="https://fcc.report/FCC-ID/2BHC7-WAVESHAREN001/7484006.pdf">设备认证文件</a>核对。</p>
+<h2 id="section-3">值得购买的设备</h2>
+<h3 id="section-4">1. Seeed reTerminal E1001：桌面 Agent 信息终端首选</h3>
+<p>这是带外壳、电池和支架的设备。官方商品页本次显示 US$69，有货。页面显示 42 条评价，评分为 91.83%。这是卖家网站的评价样本，不能代表全体用户。<a href="https://www.seeedstudio.com/reTerminal-E1001-p-6534.html">官方商品页</a></p>
+<p>它采用 7.5 英寸黑白屏，分辨率为 800 × 480。它没有触控。ESP32-S3 配有 8 MB PSRAM。设备支持 Wi-Fi 和蓝牙，电池容量为 2000 mAh。官方列有 UART、I²C、GPIO 扩展接口。<a href="https://wiki.seeedstudio.com/reterminal_e10xx_main_page/">系列规格</a></p>
+<p>开发者可以使用 Arduino 和显示库，烧录自己的界面。官方教程包含文字、图形、图片和灰度示例。开发流程不要求使用厂商云平台。<a href="https://wiki.seeedstudio.com/reterminal_e10xx_with_arduino/">官方开发教程</a></p>
+<p>建议用途：日程、任务、提醒、Agent 结果卡片。服务器运行 Agent，设备接收结果。设备也可以接受按键输入。ESP32 的资源不适合直接运行常见的完整 Python／Node.js Agent 环境，更不适合本地运行通用大语言模型。这是根据处理器与内存作出的工程判断。</p>
+<p>CNX Software 拆机并测试了该设备。测试覆盖 SenseCraft 与 Home Assistant。评测认为黑白型号刷新更快，低频更新更有利于续航。样品由 Seeed 提供，因此这项测试不能替代独立采购后的可靠性测试。<a href="https://www.cnx-software.com/2025/12/15/reterminal-e1001-e1002-review-bw-and-color-epaper-displays-tested-with-sensecraft-hmi-and-home-assistant/">评测原文</a></p>
+<p>购买前需确认：10 台是否使用相同屏幕与主板版本；是否提供对应的生产固件；麦克风在该批次是否安装并开放。官方不同文档对麦克风的表述不一致。首轮方案应按实际样机测试结果开发。</p>
+<h3 id="section-5">2. Seeed TRMNL 7.5" (OG) DIY Kit：用于开发自有外形</h3>
+<p>套件包含 800 × 480 黑白屏、XIAO ESP32-S3 Plus 驱动板、2000 mAh 电池和延长排线。本次商品页显示 US$47.99，有货，10 台档位也是 US$47.99。页面显示 67 条评价，评分为 92.46%。<a href="https://www.seeedstudio.com/TRMNL-7-5-Inch-OG-DIY-Kit-p-6481.html">官方商品页</a></p>
+<p>它适合测试自己的外壳和布局。它与 E1001 的差别主要在交付形态。购买时应核对包装是否包含外壳。官方最初发布的套件没有外壳，并提供外壳参考设计。<a href="https://www.seeedstudio.com/blog/2025/07/21/it-is-here-introducing-the-trmnl-7-5-og-diy-kit/">官方发布说明</a></p>
+<p>TRMNL 的名称不代表必须购买其云服务。自有固件可以使用自己的服务器。若使用 TRMNL 的服务，则需单独核对设备许可与服务费用。开发原型时，应直接保存自己的固件与服务接口。</p>
+<p>本次没有找到该型号可核实的累计出货量。67 条评价只能说明存在用户反馈。</p>
+<h3 id="section-6">3. BOOX Go 7：Android 应用开发首选</h3>
+<p>Go 7 使用 7 英寸 Carta 1300 黑白屏。它配有 4 GB 内存、64 GB 存储和 Android 13。设备有前光，支持安装 Android 应用。它没有内置蜂窝网络。<a href="https://shop.boox.com/products/go7">官方规格与商品页</a></p>
+<p>本次官方商品数据列出：香港仓标准套装 US$249.99，美国仓 US$269.99。对应选项显示可购买。仓库价格与配送地区有关，不能当作深圳交货报价。</p>
+<p>BOOX 提供官方 Android SDK 示例。示例覆盖墨水屏刷新、前光、手写和屏保等功能。<a href="https://github.com/onyx-intl/OnyxAndroidDemo">官方 SDK 仓库</a></p>
+<p>它适合先验证自己的 Android 应用。例如，应用接收用户输入，再调用服务器上的 Agent。若需要本地运行少量任务调度，也应使用 Android 支持的运行方式。现有桌面 Agent 程序能否直接运行，需要单独测试。</p>
+<p>TechRadar 给 Go 7 的整体评价为 4／5。评测肯定屏幕，也指出界面学习成本和电池消耗。<a href="https://www.techradar.com/tablets/ereaders/onyx-boox-go-7-review">评测原文</a></p>
+<p>应用 SDK 不包含系统签名授权或主板设计。默认启动自有桌面、设备锁定、后台常驻、静默安装和系统升级控制，都应逐项验证。官方仓库中仍有依赖下载与设备兼容问题的报告。<a href="https://github.com/onyx-intl/OnyxAndroidDemo/issues">SDK 问题记录</a></p>
+<h3 id="section-7">4. BOOX Palma 2 Pro：成品蜂窝联网测试首选</h3>
+<p>它采用 6.13 英寸 Kaleido 3 彩色屏。它配有 8 GB 内存、128 GB 存储和 Android 15。官方列有蜂窝数据功能和混合 SIM 卡槽。本次官方商品数据列出：香港仓标准套装 US$379.99，美国仓 US$399.99，均显示可购买。<a href="https://shop.boox.com/products/palma2pro">官方商品页</a></p>
+<p>它适合验证便携 Agent 的界面与联网流程。它比开发板更接近用户使用的成品。不过，公开资料未证实它提供原生内置 eSIM。采购时应按实体 SIM 方案安排测试。官方把 SIM 功能定位为数据连接，语音通话不应列为已确认能力。</p>
+<p>TechRadar 测试肯定了 Android 应用表现，也指出彩色屏底色更暗，文字表现和价格存在取舍。<a href="https://www.techradar.com/tablets/ereaders/onyx-boox-palma-2-pro-review">评测原文</a></p>
+<p>若产品只需要文字卡片，彩色屏未必能提高使用体验。若蜂窝网络是首轮必须验证的功能，Palma 2 Pro 比 Go 7 更方便。它的硬件定制权限仍需单独商谈。</p>
+<h3 id="section-8">5. LILYGO T-Deck Pro 4G：开放蜂窝硬件实验</h3>
+<p>必须选择 A7682E 4G 版本。PCM5102A 版本的功能不同。设备使用 ESP32-S3，配有 3.1 英寸、320 × 240 墨水屏，以及实体键盘。官方列有 Wi-Fi、蓝牙、LoRa、GPS 和 1400 mAh 电池。<a href="https://lilygo.cc/products/t-deck-pro">官方商品页</a></p>
+<p>本次官方商品数据中，中国仓 A7682E 普通天线版本为 US$94.68，显示可购买。部分其他仓库与预装固件选项不可购买。商品数据没有证明同一选项能立即交付 10 台。</p>
+<p>它适合验证“键盘输入→蜂窝上传→Agent 返回→屏幕显示”的完整流程。屏幕分辨率较低，长文本和复杂界面需要分页。它仍是开发设备，应用功能需要自行开发。</p>
+<p>开发资料从<a href="https://lilygo.cc/products/t-deck-pro">商品页的技术支持入口</a>进入。采购时应要求厂商固定源码版本，并提供该批硬件的烧录示例。</p>
+<p>A7682E 是 LTE Cat 1 模组。官方列出的 LTE-FDD 频段为 B1／B3／B5／B7／B8／B20。该模组没有覆盖所有地区的全部频段。中国与新加坡测试需使用目标运营商的实际 SIM 卡验证。<a href="https://cn.simcom.com/product/A7682E.html">SIMCom 官方规格</a></p>
+<p>它没有经过本次调研确认的内置 eSIM。LoRa 也不能直接代替蜂窝互联网。该型号缺少可核实的大规模出货数据，因此只建议先买 1—2 台。</p>
+<h3 id="section-9">6. Waveshare 7.5inch e-Paper HAT：Linux 原型与硬件扩展</h3>
+<p>这是一套屏幕与驱动板，主机需另购。官方列出的黑白屏为 800 × 480。页面标价为 US$56.99，另列有数量价格。官方提供 Raspberry Pi、Arduino、STM32 等示例。<a href="https://www.waveshare.com/product/ai/displays/e-paper/7.5inch-e-paper-hat.htm">官方商品页</a></p>
+<p>若希望运行现有 Python 或 Node.js Agent，可配 Linux 主机。若需要蜂窝网络，再连接兼容的蜂窝模组。这样更接近普通软件开发环境。代价是外壳、电源、启动时间和续航需要自行处理。</p>
+<p>微雪也销售 ESP32-S3-SIM7670G-4G 开发板。官方页面列价 US$48.99。该板可用于测试 4G，再接适配的显示屏。它本身不包含本报告推荐的 7.5 英寸屏。<a href="https://www.waveshare.com/product/esp32-s3-sim7670g-4g.htm">蜂窝开发板</a></p>
+<p>屏幕版本必须固定。官方区分 V1、V2，以及不同销售时间对应的程序。不能只凭“7.5 英寸”选择驱动。采购清单应写明屏幕版本与对应程序。<a href="https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_Manual">官方版本说明</a></p>
+<p>本次没有核实该型号的累计出货量与统一用户评分。公开驱动和长期销售记录可以降低开发风险，不能证明每台设备的质量。</p>
+<h2 id="section-10">暂不作为首批主力的厂家与型号</h2>
+<h3 id="section-11">M5Stack：开放程度好，需先解决供货与稳定性问题</h3>
+<p>PaperS3 的官方商品页明确标注 EOL，表示产品生命周期结束。它有用户好评，页面有 24 条评价，但不适合开始一个依赖后续补货的项目。<a href="https://shop.m5stack.com/products/m5papers3-esp32s3-development-kit">PaperS3 官方状态</a></p>
+<p>PaperMono 是新的替代候选。它有 3.97 英寸触控黑白屏、前光、Wi-Fi，部分版本含 NFC 与 LoRa。不过，官方文档明确提示 M5GFX 中的屏幕驱动波形不稳定，并建议使用屏幕厂商的 OTP 示例。文档还列出充电芯片相关的 I²C 稳定性注意事项。<a href="https://docs.m5stack.com/en/core/PaperMono">PaperMono 官方文档</a></p>
+<p>建议只购买 1 台作触控产品比较。先确认厂商建议的固件路径，再做长时间测试。暂不建议按“稳定可靠”的前提购买 10 台。</p>
+<h3 id="section-12">Elecrow：低成本开发备选</h3>
+<p>CrowPanel 4.2 英寸 E-Paper 有 400 × 300 黑白屏。主控是 ESP32-S3，配有按键、旋钮、扩展接口和亚克力保护结构。官方提供 Arduino 等开发资源，以及原理图与 PCB 文件。<a href="https://media-cdn.elecrow.com/wiki/CrowPanel_ESP32_E-paper_4.2-inch_HMI_Display.html">官方文档</a></p>
+<p>文档同时提供 V1.0 与 V1.2 显示程序。文档提示：一个程序无法点亮屏幕时，尝试另一个程序。采购时必须要求同一批次。官方代码库可以用于核对资料完整性。<a href="https://github.com/Elecrow-RD/CrowPanel-ESP32-4.2-E-paper-HMI-Display-with-400-300">官方代码库</a></p>
+<p>本次没有取得稳定的直销报价，也没有找到足够的型号级销量与评价数据。它可以进入报价比较，采购优先级低于 Seeed。</p>
+<h3 id="section-13">LILYGO T5 E-Paper S3 Pro：用户评价不支持优先推荐</h3>
+<p>本次官方页面显示 3.25／5，共 12 条评价。部分低分涉及固件支持与用户预期，也有功耗反馈。这些评价不能全部归为硬件故障，但不支持把它列为“用户评价好”的首选。<a href="https://lilygo.cc/products/t5-e-paper-s3-pro">官方商品与评价</a></p>
+<h3 id="section-14">SEEKINK：适合后续制造合作</h3>
+<p>SEEKINK 在深圳有服务机构，总部和制造主体在江西。官网明确提供样品与演示套件。它也提供模组、带控制板的套件和 OEM／ODM 服务。<a href="https://www.seekink.com/contact-us/">官方联系页</a>、<a href="https://www.seekink.com/blog/seekink-unveils-diverse-epaper-product-portfolio-at-iote-2026-shenzhen-pioneering-new-aiot-application-scenarios/">产品合作方式</a></p>
+<p>官网标准 MOQ 分别列为：TAG 1000 台、Harmo 500 台、SHINE 100 台、EPD 模组 3000 片。它允许按项目调整，但这不构成接收 8—10 台订单的承诺。<a href="https://www.seekink.com/">官方 FAQ</a></p>
+<p>建议在确定屏幕、外形和联网方案后联系。询价应明确要求“10 台标准样机＋开发资料”。报价中需单列开发费与后续量产 MOQ。</p>
+<h3 id="section-15">Bigme、Good Display 与大批量电子价签厂家</h3>
+<p>Bigme 的官方联系地址在深圳。它有多类成品设备，但本次没有核实官方公开 SDK 及对应开发套件。仅能安装 Android 应用，不能证明厂商开放屏幕底层控制。<a href="https://store.bigme.vip/policies/contact-information">Bigme 官方联系页</a></p>
+<p>Good Display／佳显有屏幕和开发套件。不过，其官方主体在大连，不符合本次地区首选。它可以作为区域外的屏幕供应商备选。<a href="https://www.good-display.cn/">佳显官网</a></p>
+<p>电子价签的大批量出货不代表适合 Agent 设备。采购前必须核对：能否烧录自有程序、是否开放无线协议、是否依赖基站，以及是否能直接联网。没有这些资料，不应因出货量大就购买。</p>
+<h2 id="section-16">“稳定、好评、出货量大”的证据</h2>
+<p>这三个条件需要分别证明。认证资料不等于现场故障率。用户评分不等于销量。公司的总销量也不等于所选型号的销量。</p>
+<div class="tbl" role="region" aria-label="可横向滚动的比较表" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">本次取得的正面证据</th>
+<th scope="col">仍缺少的证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reTerminal E1001</td>
+<td>卖家站内 42 条评价，91.83%；有拆机与使用测试</td>
+<td>型号累计销量、退货率、批次故障率</td>
+</tr>
+<tr>
+<td>TRMNL OG DIY Kit</td>
+<td>卖家站内 67 条评价，92.46%；明确小批量零售</td>
+<td>型号累计销量、长期故障数据</td>
+</tr>
+<tr>
+<td>BOOX Go 7</td>
+<td>TechRadar 整体 4／5；有官方应用 SDK</td>
+<td>型号销量、定制使用场景的稳定性</td>
+</tr>
+<tr>
+<td>Palma 2 Pro</td>
+<td>有公开使用评测；成品蜂窝数据方案</td>
+<td>型号销量、后台 Agent 与 eSIM 验证</td>
+</tr>
+<tr>
+<td>Waveshare</td>
+<td>显示驱动与版本资料完整；可按件采购</td>
+<td>型号销量、统一评价样本、整机可靠性</td>
+</tr>
+<tr>
+<td>LILYGO T-Deck Pro</td>
+<td>集成蜂窝网络与键盘；可烧录开发程序</td>
+<td>足够的好评样本、销量、长时间联网日志</td>
+</tr>
+</tbody>
+</table></div>
+<p>BOOX 的规模证据相对较强。公开报道根据其申报资料指出：2024 年生产力平板销量为 21.6 万台。这个数字仅涵盖一类产品，不能当作 Go 7 或 Palma 2 Pro 的销量。<a href="https://www.nbd.com.cn/articles/2026-01-21/4229886.html">《每日经济新闻》报道</a>、<a href="https://finance.sina.com.cn/roll/2026-01-23/doc-inhihsrw2083597.shtml">销量数字报道</a></p>
+<p>本次没有直接复核完整申报文件，因此该数字按媒体转述处理。其余开发设备没有足够公开资料证明“出货量大”。本报告没有把它们标为已满足这一条件。</p>
+<p>厂商提供的产能也不能作为出货量。例如，SEEKINK 公布了产线与产能信息。这只能用于安排供应商调查，不能证明某一款设备的销量。</p>
+<h2 id="section-17">Agent 与 eSIM 的开发边界</h2>
+<h3 id="section-18">先确定 Agent 在哪里运行</h3>
+<div class="tbl" role="region" aria-label="可横向滚动的比较表" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">实际功能</th>
+<th scope="col">适合的平台</th>
+<th scope="col">对设备的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>显示 Agent 整理的日程、提醒与摘要</td>
+<td>ESP32＋服务器</td>
+<td>开发简单；便于休眠；依赖网络</td>
+</tr>
+<tr>
+<td>输入问题、接收结果、保存少量状态</td>
+<td>ESP32＋服务器，或 Android</td>
+<td>需设计按键、键盘、触控或语音输入</td>
+</tr>
+<tr>
+<td>在设备运行 Android 应用与任务逻辑</td>
+<td>BOOX</td>
+<td>自有应用可开发；后台权限需验证</td>
+</tr>
+<tr>
+<td>运行现有 Python／Node.js 程序</td>
+<td>Linux 主机＋墨水屏</td>
+<td>软件迁移更直接；电源与结构需开发</td>
+</tr>
+<tr>
+<td>在设备离线运行大语言模型</td>
+<td>另选算力平台并测试</td>
+<td>本轮推荐设备没有可交付性能证据</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些是平台选择建议。设备参数不能替代实际 Agent 的测试结果。</p>
+<p>对于首轮产品，建议让服务器完成模型调用和工具执行。设备保存最后一份可读结果。网络中断时，屏幕显示数据时间。用户需要立即响应的操作，应先显示接收状态，再等待结果。</p>
+<p>文字应按句子或卡片更新。逐字刷新会增加闪烁和残影。不同屏幕的局部刷新能力差异很大。应使用该型号支持的刷新方式。</p>
+<h3 id="section-19">内置 eSIM 需要单独验证</h3>
+<p>本轮主推设备没有已核实的原生内置 eSIM。T-Deck Pro 和 Palma 2 Pro 的实体 SIM 方案，可以先验证蜂窝联网需求。若“出厂内置 eSIM”是硬条件，则需定制或寻找另一个已确认的型号。</p>
+<p>eSIM 方案需要兼容的蜂窝模组、eUICC，以及号码配置下载与管理方式。GSMA 的 IoT 架构包含设备侧配置助手与远程管理组件。实际方案由模组、eUICC 和连接服务商共同决定。<a href="https://www.gsma.com/solutions-and-impact/technologies/esim/about/">GSMA 架构说明</a></p>
+<p>Quectel 的 EG915U 官方资料列有 eSIM 应用说明。它可以作为定制模组调查对象。不能据此认定任何 EG915U 开发板都包含 eUICC，或已开放相关固件功能。<a href="https://www.quectel.com/product/lte-cat-1-bis-eg915u-series/">Quectel 官方资料</a></p>
+<p>向供应商索取以下结果：</p>
+<ol>
+<li>提供模组与 eUICC 的完整型号。</li>
+<li>提供对应固件与开发说明。</li>
+<li>演示首次联网与号码配置下载。</li>
+<li>演示切换连接服务商后的联网。</li>
+<li>提供中国与新加坡的实测记录。</li>
+<li>单列流量、管理平台和号码配置费用。</li>
+</ol>
+<p>设备静态显示省电，不能保证联网整机省电。持续收听语音、保持蜂窝在线和频繁更新，都需要单独测量。标称几个月续航通常不适用于持续交互的 Agent。</p>
+<h2 id="section-20">首批 8—10 台采购安排</h2>
+<p>当前尚未确定产品形态。建议先比较成品显示、Android 和蜂窝开发三类。以下价格均为美元，按本次取得的商品数据计算。</p>
+<div class="tbl" role="region" aria-label="可横向滚动的比较表" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">采购内容</th>
+<th style="text-align: right;">数量</th>
+<th style="text-align: right;">参考单价</th>
+<th style="text-align: right;">小计</th>
+<th scope="col">测试目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reTerminal E1001</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">69.00</td>
+<td style="text-align: right;">276.00</td>
+<td>桌面信息卡片、唤醒、刷新与续航</td>
+</tr>
+<tr>
+<td>BOOX Palma 2 Pro，香港仓标准套装</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">379.99</td>
+<td style="text-align: right;">759.98</td>
+<td>Android 应用、蜂窝联网、后台任务</td>
+</tr>
+<tr>
+<td>LILYGO T-Deck Pro A7682E，中国仓</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">94.68</td>
+<td style="text-align: right;">189.36</td>
+<td>键盘输入、自有固件与蜂窝通信</td>
+</tr>
+<tr>
+<td>8 台合计</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">1225.34</td>
+<td>比较三个开发方向</td>
+</tr>
+<tr>
+<td>可增加 TRMNL OG DIY Kit</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">47.99</td>
+<td style="text-align: right;">95.98</td>
+<td>自有外壳与结构实验</td>
+</tr>
+<tr>
+<td>10 台合计</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">1321.32</td>
+<td>含结构实验</td>
+</tr>
+</tbody>
+</table></div>
+<p>以上不含运费、税费、SIM 卡、流量和开发工时。零售页面可购买，不代表同型号有 10 台现货。下单前需确认交付地、批次、库存和售后。</p>
+<p>若产品已确定为桌面信息终端，直接测试同批 8—10 台 E1001 更有效。按 US$69 计算，设备费为 US$552—690。可另向 Seeed 索取 10 台报价。</p>
+<p>若产品已确定为 Android 便携设备，应集中测试同一个 BOOX 型号。混合买多个平台会增加开发工作，无法替代同批可靠性测试。</p>
+<h2 id="section-21">联系顺序与询价内容</h2>
+<div class="tbl" role="region" aria-label="可横向滚动的比较表" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">顺序</th>
+<th scope="col">联系对象</th>
+<th scope="col">官方入口</th>
+<th scope="col">需要得到的明确答复</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Seeed，深圳南山</td>
+<td><a href="https://www.seeedstudio.com/contacts">联系页面</a></td>
+<td>E1001／E1003 同批 10 台、固件开发、结构资料、后续定制</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BOOX，广州</td>
+<td><a href="https://shop.boox.com/">官网商店</a>、<a href="https://github.com/onyx-intl/OnyxAndroidDemo">SDK</a></td>
+<td>指定型号 SDK 兼容、后台任务、启动界面、企业定制权限</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LILYGO，深圳龙岗坂田</td>
+<td><!--email_off-->orders@lilygo.cc<!--/email_off-->；<!--email_off-->info@lilygo.cc<!--/email_off-->；<a href="https://lilygo.cc/en-us">官网入口</a></td>
+<td>A7682E 版本 10 台、频段、源码版本、联网示例</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Waveshare，深圳</td>
+<td><a href="https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_Manual">产品及开发资料</a></td>
+<td>指定屏幕版本、主控与蜂窝板配套、整套报价</td>
+</tr>
+<tr>
+<td>5</td>
+<td>M5Stack，深圳宝安福海</td>
+<td><!--email_off-->support@m5stack.com<!--/email_off-->；<a href="https://docs.m5stack.com/en/core/PaperMono">官方文档</a></td>
+<td>PaperMono 稳定固件、OTP 驱动、供货期限</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SEEKINK，深圳南山机构</td>
+<td><!--email_off-->enquiries@seekink.com<!--/email_off-->；+86 755 3639 1512；<a href="https://www.seekink.com/contact-us/">官方联系页</a></td>
+<td>10 台样机、可交付开发包、开发费、量产 MOQ</td>
+</tr>
+</tbody>
+</table></div>
+<p>询价文本：</p>
+<blockquote>
+<p>我们计划开发自有墨水屏产品。首批采购 10 台标准设备，用于开发与用户测试。</p>
+<p>请提供指定型号的含税报价、库存、交期和批次。</p>
+<p>请说明我们能否烧录自有固件或安装自有应用。
+请提供对应开发包、示例、原理图和结构尺寸。
+Android 设备请单列 SDK、系统权限和系统定制范围。</p>
+<p>我们需要 Wi-Fi，后续考虑蜂窝网络与内置 eSIM。
+请分别报价标准设备、蜂窝方案和 eSIM 定制方案。
+请提供目标地区的联网测试记录。</p>
+<p>请说明后续 100 台和 1000 台的价格与最小订单量。
+请说明屏幕替换、固件兼容、停产通知和售后条件。</p>
+</blockquote>
+<p>本次未向厂家发送询价，也未代为下单。厂家接受定制、样品数量和交期，均需书面答复。</p>
+<h2 id="section-22">样机验收计划</h2>
+<p>以下是建议执行的测试，尚未执行。8—10 台只能验证开发路径与明显问题，不能给出可信的量产故障率。</p>
+<div class="tbl" role="region" aria-label="可横向滚动的比较表" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">测试</th>
+<th scope="col">建议做法</th>
+<th scope="col">记录内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>到货一致性</td>
+<td>核对全部设备与包装标签</td>
+<td>主板、屏幕、固件、批次、坏点与结构缺陷</td>
+</tr>
+<tr>
+<td>开发环境</td>
+<td>从干净环境构建官方示例</td>
+<td>依赖、构建命令、固件版本、烧录结果</td>
+</tr>
+<tr>
+<td>自有功能</td>
+<td>显示中文卡片并提交一次任务</td>
+<td>字体、输入、刷新、任务结果、错误提示</td>
+</tr>
+<tr>
+<td>连续使用</td>
+<td>按目标负载运行 72 小时</td>
+<td>崩溃、死机、断线、残影、恢复操作</td>
+</tr>
+<tr>
+<td>唤醒与联网</td>
+<td>自动重复唤醒和联网 100 次</td>
+<td>成功率、连接时间、失败后恢复</td>
+</tr>
+<tr>
+<td>网络中断</td>
+<td>关闭 Wi-Fi 或蜂窝连接后恢复</td>
+<td>缓存、数据时间、重试、任务是否重复</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>测试升级中断与恢复</td>
+<td>旧版本恢复、配置保留、无法启动情况</td>
+</tr>
+<tr>
+<td>电池</td>
+<td>测量休眠、联网和刷新的耗电</td>
+<td>电流、每次任务耗电、实际刷新频率</td>
+</tr>
+<tr>
+<td>用户使用</td>
+<td>交给少量目标用户连续使用</td>
+<td>阅读、输入、刷新、配网与充电问题</td>
+</tr>
+</tbody>
+</table></div>
+<p>蜂窝测试还应覆盖弱信号和断线恢复。eSIM 样机应额外测试号码配置下载中断，以及切换后的连接恢复。测试必须使用准备交付的固件与电源方案。</p>
+<h2 id="section-23">调研记录</h2>
+<ul>
+<li>2026-10-26：建立采购调研。区分成品、开发套件与量产供应商。记录公开证据、未确认条件和建议测试。</li>
+<li>价格、库存和评价为本次读取的页面数据。部分检索缓存与直接读取结果不同，优先采用直接读取结果。BOOX 与 T-Deck 的选项价格来自官方商品数据。</li>
+<li>本报告没有样机实测或工厂审核。可靠性建议基于开发资料、公开评测与采购条件。</li>
+</ul>
+<h2 id="methods">方法与来源</h2>
+<p>本页由同名 Markdown 调研报告转换。调研取样日期为 2026 年 10 月 26 日。正文保留原报告的采购建议、证据限制和外部链接。</p>
+<p>资料来自厂商商品页、开发文档、代码库及公开评测。价格、库存与评价会变化。本次没有样机实测、工厂审核或供应商询价。</p>
+<p class="muted">2026-10-26：生成 HTML 阅读版，增加目录、主题选择与打印样式。</p>
+<ol class="sources"><li><a href="https://www.ti.com/partner/SEEED">www.ti.com · SEEED</a></li>
+<li><a href="https://lilygo.cc/en-us">lilygo.cc · en-us</a></li>
+<li><a href="https://docs.m5stack.com/en/core/PaperMono">docs.m5stack.com · PaperMono</a></li>
+<li><a href="https://files.seeedstudio.com/wiki/wiki-platform/Maker-Faire-Shenzhen-2024_CN.pdf">files.seeedstudio.com · Maker-Faire-Shenzhen-2024_CN.pdf</a></li>
+<li><a href="https://fcc.report/FCC-ID/2BHC7-WAVESHAREN001/7484006.pdf">fcc.report · 7484006.pdf</a></li>
+<li><a href="https://www.seeedstudio.com/reTerminal-E1001-p-6534.html">www.seeedstudio.com · reTerminal-E1001-p-6534.html</a></li>
+<li><a href="https://wiki.seeedstudio.com/reterminal_e10xx_main_page/">wiki.seeedstudio.com · reterminal_e10xx_main_page</a></li>
+<li><a href="https://wiki.seeedstudio.com/reterminal_e10xx_with_arduino/">wiki.seeedstudio.com · reterminal_e10xx_with_arduino</a></li>
+<li><a href="https://www.cnx-software.com/2025/12/15/reterminal-e1001-e1002-review-bw-and-color-epaper-displays-tested-with-sensecraft-hmi-and-home-assistant/">www.cnx-software.com · reterminal-e1001-e1002-review-bw-and-color-epaper-displays-tested-with-sensecraft-hmi-and-home-assistant</a></li>
+<li><a href="https://www.seeedstudio.com/TRMNL-7-5-Inch-OG-DIY-Kit-p-6481.html">www.seeedstudio.com · TRMNL-7-5-Inch-OG-DIY-Kit-p-6481.html</a></li>
+<li><a href="https://www.seeedstudio.com/blog/2025/07/21/it-is-here-introducing-the-trmnl-7-5-og-diy-kit/">www.seeedstudio.com · it-is-here-introducing-the-trmnl-7-5-og-diy-kit</a></li>
+<li><a href="https://shop.boox.com/products/go7">shop.boox.com · go7</a></li>
+<li><a href="https://github.com/onyx-intl/OnyxAndroidDemo">github.com · OnyxAndroidDemo</a></li>
+<li><a href="https://www.techradar.com/tablets/ereaders/onyx-boox-go-7-review">www.techradar.com · onyx-boox-go-7-review</a></li>
+<li><a href="https://github.com/onyx-intl/OnyxAndroidDemo/issues">github.com · issues</a></li>
+<li><a href="https://shop.boox.com/products/palma2pro">shop.boox.com · palma2pro</a></li>
+<li><a href="https://www.techradar.com/tablets/ereaders/onyx-boox-palma-2-pro-review">www.techradar.com · onyx-boox-palma-2-pro-review</a></li>
+<li><a href="https://lilygo.cc/products/t-deck-pro">lilygo.cc · t-deck-pro</a></li>
+<li><a href="https://cn.simcom.com/product/A7682E.html">cn.simcom.com · A7682E.html</a></li>
+<li><a href="https://www.waveshare.com/product/ai/displays/e-paper/7.5inch-e-paper-hat.htm">www.waveshare.com · 7.5inch-e-paper-hat.htm</a></li>
+<li><a href="https://www.waveshare.com/product/esp32-s3-sim7670g-4g.htm">www.waveshare.com · esp32-s3-sim7670g-4g.htm</a></li>
+<li><a href="https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_Manual">www.waveshare.com · 7.5inch_e-Paper_HAT_Manual</a></li>
+<li><a href="https://shop.m5stack.com/products/m5papers3-esp32s3-development-kit">shop.m5stack.com · m5papers3-esp32s3-development-kit</a></li>
+<li><a href="https://media-cdn.elecrow.com/wiki/CrowPanel_ESP32_E-paper_4.2-inch_HMI_Display.html">media-cdn.elecrow.com · CrowPanel_ESP32_E-paper_4.2-inch_HMI_Display.html</a></li>
+<li><a href="https://github.com/Elecrow-RD/CrowPanel-ESP32-4.2-E-paper-HMI-Display-with-400-300">github.com · CrowPanel-ESP32-4.2-E-paper-HMI-Display-with-400-300</a></li>
+<li><a href="https://lilygo.cc/products/t5-e-paper-s3-pro">lilygo.cc · t5-e-paper-s3-pro</a></li>
+<li><a href="https://www.seekink.com/contact-us/">www.seekink.com · contact-us</a></li>
+<li><a href="https://www.seekink.com/blog/seekink-unveils-diverse-epaper-product-portfolio-at-iote-2026-shenzhen-pioneering-new-aiot-application-scenarios/">www.seekink.com · seekink-unveils-diverse-epaper-product-portfolio-at-iote-2026-shenzhen-pioneering-new-aiot-application-scenarios</a></li>
+<li><a href="https://www.seekink.com/">www.seekink.com · 官网</a></li>
+<li><a href="https://store.bigme.vip/policies/contact-information">store.bigme.vip · contact-information</a></li>
+<li><a href="https://www.good-display.cn/">www.good-display.cn · 官网</a></li>
+<li><a href="https://www.nbd.com.cn/articles/2026-01-21/4229886.html">www.nbd.com.cn · 4229886.html</a></li>
+<li><a href="https://finance.sina.com.cn/roll/2026-01-23/doc-inhihsrw2083597.shtml">finance.sina.com.cn · doc-inhihsrw2083597.shtml</a></li>
+<li><a href="https://www.gsma.com/solutions-and-impact/technologies/esim/about/">www.gsma.com · about</a></li>
+<li><a href="https://www.quectel.com/product/lte-cat-1-bis-eg915u-series/">www.quectel.com · lte-cat-1-bis-eg915u-series</a></li>
+<li><a href="https://www.seeedstudio.com/contacts">www.seeedstudio.com · contacts</a></li>
+<li><a href="https://shop.boox.com/">shop.boox.com · 官网</a></li></ol>
+</main>
+</div>
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>
