@@ -1112,3 +1112,16 @@ year = "2026"
 description = "比较中国大陆、新加坡与香港博士项目，区分非全日制、全日制与待确认路径，并列出院系、导师成就、代表论文、招生证据与申请限制。"
 original_url = ""
 reading_url = "/reading/part-time-doctoral-study/"
+
+[[materials]]
+slug = "meitu-product-history"
+title = "美图公司产品发展调研（2008–2026）"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Business", "Investment", "Product", "AI"]
+date = "2026-11-24T09:27:48+08:00"
+year = "2026"
+description = "美图公司 2008–2026 年做过的产品、上线时间和现状，AI 时代赚钱的产品和失败的项目，以及年报里的收获和教训。"
+original_url = ""
+reading_url = "/reading/meitu-product-history/"
