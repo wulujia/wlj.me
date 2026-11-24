@@ -8,9 +8,9 @@ slug: "amodei-altman-ai-risk"
 
 来源
 
-- 达里奥·阿莫代公开信与访谈: https://wlj.me/reading/dario-amodei-pace-the-frontier-2026-09/
+- 达里奥·阿莫代公开信与访谈: https://wulujia.com/research/dario-amodei-pace-the-frontier-2026-09/
 
-- Fortune × 萨姆·奥特曼访谈: https://wlj.me/reading/sam-altman-fortune-titans-2026-09/
+- Fortune × 萨姆·奥特曼访谈: https://wulujia.com/research/sam-altman-fortune-titans-2026-09/
 
 达里奥·阿莫代（Dario Amodei）的观点
 
