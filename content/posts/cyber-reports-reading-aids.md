@@ -20,7 +20,7 @@ slug: "cyber-reports-reading-aids"
 
 每份报告我都做了中文阅读辅助页：不是翻译，是梳理结构、提炼论点、标注局限和跨报告核对。
 
-- [Before Vegas](https://wlj.me/reading/before-vegas-red-hackers/)
-- [Crash (exploit) and burn](https://wlj.me/reading/crash-exploit-and-burn/)
-- [Mobilizing Cyber Power](https://wlj.me/reading/mobilizing-cyber-power/)
-- [Mythical Beasts](https://wlj.me/reading/mythical-beasts-spyware-market/)
+- [Before Vegas](/research/before-vegas-red-hackers/)
+- [Crash (exploit) and burn](/research/crash-exploit-and-burn/)
+- [Mobilizing Cyber Power](/research/mobilizing-cyber-power/)
+- [Mythical Beasts](/research/mythical-beasts-spyware-market/)

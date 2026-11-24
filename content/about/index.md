@@ -8,8 +8,6 @@ Luca，产品经理，连续创业者。
 
 关注产品设计、技术工具和创业。
 
-- Homepage: [wulujia.com](https://wulujia.com)
-- Blog: [wlj.me](https://wlj.me)
 - GitHub: [wulujia](https://github.com/wulujia)
 - Twitter/X: [@wulujia](https://x.com/wulujia)
 - 知识星球: [zsxq.com](https://www.zsxq.com/)

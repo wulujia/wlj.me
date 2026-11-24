@@ -1,5 +1,5 @@
 #!/bin/bash
-# publish.sh — publish content to wlj.me
+# publish.sh — publish content to wulujia.com
 #
 # Posts:
 #   ./publish.sh input.md [tag1,tag2,...]
@@ -8,8 +8,8 @@
 #   First-line "# Title" becomes the title, the rest is the body.
 #   slug = input file name without .md
 #
-# Reading (整理) pages:
-#   ./publish.sh reading <dir-or-index.html> --category <book|report|documentary|misc> --author "<name>" [options]
+# Research (研究) pages:
+#   ./publish.sh research <dir-or-index.html> --category <book|report|documentary|misc> --author "<name>" [options]
 #   Options:
 #     --slug <slug>            default: input directory name
 #     --year <yyyy>            default: current year
@@ -22,7 +22,7 @@
 #     --dry-run                validate and show the plan, write nothing
 #     --local                  write and build locally without a commit or push
 #   title and description are read from <title> and <meta name="description"> in the HTML.
-#   The HTML must carry robots + canonical for https://wlj.me/reading/<slug>/ and a link back to /reading/.
+#   The HTML must carry robots + canonical for https://wulujia.com/research/<slug>/ and a link back to /research/.
 #
 # Gates (no way around them from the command line):
 #   posts   must pass luca-writing:  python3 ~/Github/luca-writing/scripts/lint_ai_flavor.py input.md
@@ -32,7 +32,7 @@
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-SITE_URL="https://wlj.me"
+SITE_URL="https://wulujia.com"
 WRITING_LINT="$HOME/Github/luca-writing/scripts/lint_ai_flavor.py"
 HTML_CHECK="$HOME/Github/luca-html/scripts/check_html.py"
 LINT_MARKER="<!-- lint-disable-line -->"
@@ -144,7 +144,7 @@ publish_post() {
   echo "已发布: $slug"
 }
 
-# ---------------------------------------------------------------- reading
+# ---------------------------------------------------------------- research
 
 html_unescape() {
   sed -e 's/&amp;/\&/g' -e 's/&lt;/</g' -e 's/&gt;/>/g' -e 's/&quot;/"/g' -e "s/&#39;/'/g" -e "s/&#x27;/'/g"
@@ -162,7 +162,7 @@ html_meta() {
     | sed -n 's/.*content="\([^"]*\)".*/\1/p' | html_unescape
 }
 
-publish_reading() {
+publish_research() {
   local input="" slug="" tags="" tags_json="" category="" author="" year="" subtitle="" original_url="" post_slug="" changelog_line="" noindex=0 update=0 dry_run=0 local_only=0
 
   while [ $# -gt 0 ]; do
@@ -185,7 +185,7 @@ publish_reading() {
     esac
   done
 
-  [ -n "$input" ] || die "用法: ./publish.sh reading <dir-or-index.html> --category <book|report|documentary|misc> --author <name> [options]"
+  [ -n "$input" ] || die "用法: ./publish.sh research <dir-or-index.html> --category <book|report|documentary|misc> --author <name> [options]"
 
   # Resolve the source directory and its index.html.
   local src_dir src_html
@@ -218,48 +218,48 @@ publish_reading() {
   fi
 
   # New targets must be free. Updates must already exist in both locations.
-  local target_dir toml reading_url canonical
-  target_dir="$REPO_DIR/static/reading/$slug"
-  toml="$REPO_DIR/data/reading-materials.toml"
-  reading_url="/reading/$slug/"
-  canonical="$SITE_URL$reading_url"
+  local target_dir toml research_url canonical
+  target_dir="$REPO_DIR/static/research/$slug"
+  toml="$REPO_DIR/data/research-materials.toml"
+  research_url="/research/$slug/"
+  canonical="$SITE_URL$research_url"
   python3 - "$src_dir" "$target_dir" <<'PYPATHS'
 from pathlib import Path
 import sys
 source, target = (Path(value).resolve() for value in sys.argv[1:])
 if source == target or source in target.parents or target in source.parents:
-    sys.exit("源目录和目标目录不能重叠，请在 /tmp/ 准备整理页。")
+    sys.exit("源目录和目标目录不能重叠，请在 /tmp/ 准备研究页。")
 PYPATHS
   if [ "$update" = 1 ]; then
     [ -d "$target_dir" ] || die "要更新的目录不存在: $target_dir"
-    grep -q "^slug = \"$slug\"\$" "$toml" || die "reading-materials.toml 里没有 slug: $slug"
+    grep -q "^slug = \"$slug\"\$" "$toml" || die "research-materials.toml 里没有 slug: $slug"
   else
     [ ! -e "$target_dir" ] || die "目录已存在: $target_dir"
-    ! grep -q "^slug = \"$slug\"\$" "$toml" || die "reading-materials.toml 里已有 slug: $slug"
+    ! grep -q "^slug = \"$slug\"\$" "$toml" || die "research-materials.toml 里已有 slug: $slug"
   fi
 
-  tags_json=$(python3 "$REPO_DIR/scripts/reading_tags.py" resolve "$slug" "$tags") || die "整理页标签检查未通过"
+  tags_json=$(python3 "$REPO_DIR/scripts/research_tags.py" resolve "$slug" "$tags") || die "研究页标签检查未通过"
 
   # Title and description come from the HTML head.
   local title description
   title=$(grep -o -i '<title>[^<]*</title>' "$src_html" | head -1 | sed -e 's/^<[Tt][Ii][Tt][Ll][Ee]>//' -e 's/<\/[Tt][Ii][Tt][Ll][Ee]>$//' | html_unescape)
   [ -n "$title" ] || die "HTML 里找不到 <title>"
   description=$(html_meta "$src_html" "description")
-  [ -n "$description" ] || die "HTML 里找不到 <meta name=\"description\">，整理页必须手写 description"
+  [ -n "$description" ] || die "HTML 里找不到 <meta name=\"description\">，研究页必须手写 description"
 
-  # SEO checks: robots, canonical, and a way back to /reading/.
+  # SEO checks: robots, canonical, and a way back to /research/.
   local robots expected_robots found_canonical
   robots=$(html_meta "$src_html" "robots")
   if [ "$noindex" = 1 ]; then expected_robots="noindex,follow"; else expected_robots="index,follow"; fi
   [ "$robots" = "$expected_robots" ] || die "robots 应为 \"$expected_robots\"（当前: \"${robots:-无}\"）。用 --noindex 发布不索引的页面"
   found_canonical=$(grep -o -i '<link[^>]*rel="canonical"[^>]*>' "$src_html" | head -1 | sed -n 's/.*href="\([^"]*\)".*/\1/p')
   [ "$found_canonical" = "$canonical" ] || die "canonical 应为 $canonical（当前: ${found_canonical:-无}）"
-  grep -q -E 'href="(https://wlj\.me)?/reading/"' "$src_html" || die "HTML 里没有返回整理的链接（href=\"/reading/\"）"
-  ! grep -q -E '<img[^>]*alt=""' "$src_html" || die "HTML 里有空 alt 的图片，整理页图片必须写有意义的 alt"
+  grep -q -E 'href="(https://wulujia\.com)?/research/"' "$src_html" || die "HTML 里没有返回研究的链接（href=\"/research/\"）"
+  ! grep -q -E '<img[^>]*alt=""' "$src_html" || die "HTML 里有空 alt 的图片，研究页图片必须写有意义的 alt"
 
   # Check every page before writing any files, including pages within a report.
-  python3 "$REPO_DIR/scripts/reading_style.py" "$src_dir" --url-prefix "$canonical" \
-    || die "整理页规范检查未通过，请按 templates/reading/index.html 修改。"
+  python3 "$REPO_DIR/scripts/research_style.py" "$src_dir" --url-prefix "$canonical" \
+    || die "研究页规范检查未通过，请按 templates/research/index.html 修改。"
   local child_html
   while IFS= read -r -d '' child_html; do
     run_gate "luca-html" "$HTML_CHECK" "$child_html"
@@ -270,9 +270,9 @@ PYPATHS
 
   if [ -z "$changelog_line" ]; then
     if [ "$update" = 1 ]; then
-      changelog_line="- 更新资料页《${title}》，\`static/reading/$slug/index.html\`。"
+      changelog_line="- 更新资料页《${title}》，\`static/research/$slug/index.html\`。"
     else
-      changelog_line="- 新增资料页《${title}》，\`static/reading/$slug/index.html\`。${description}"
+      changelog_line="- 新增资料页《${title}》，\`static/research/$slug/index.html\`。${description}"
     fi
   fi
 
@@ -290,7 +290,7 @@ PYPATHS
     echo "year = \"$year\""
     echo "description = \"$(toml_escape "$description")\""
     echo "original_url = \"$(toml_escape "$original_url")\""
-    echo "reading_url = \"$reading_url\""
+    echo "research_url = \"$research_url\""
     [ -n "$post_slug" ] && echo "post_slug = \"$post_slug\""
     [ "$noindex" = 1 ] && echo "noindex = true"
     true
@@ -302,15 +302,15 @@ PYPATHS
   echo "tags:        $tags_json"
   echo "author:      $author · $year"
   echo "description: $description"
-  echo "source:      $src_dir/ -> static/reading/$slug/"
+  echo "source:      $src_dir/ -> static/research/$slug/"
   echo "changelog:   $changelog_line"
 
   if [ "$dry_run" = 1 ]; then
     echo ""
     if [ "$update" = 1 ]; then
-      echo "[dry-run] 将替换现有整理页，更新列表标题和摘要，保留日期"
+      echo "[dry-run] 将替换现有研究页，更新列表标题和摘要，保留日期"
     else
-      echo "[dry-run] 将追加到 data/reading-materials.toml:"
+      echo "[dry-run] 将追加到 data/research-materials.toml:"
       echo "$entry"
     fi
     echo ""
@@ -318,7 +318,7 @@ PYPATHS
     return 0
   fi
 
-  mkdir -p "$REPO_DIR/static/reading"
+  mkdir -p "$REPO_DIR/static/research"
   if [ "$update" = 1 ]; then
     python3 - "$src_dir" "$target_dir" <<'PYCOPY'
 from pathlib import Path
@@ -366,9 +366,9 @@ PYMETA
     if [ "$noindex" = 1 ]; then
       ! grep -q "<loc>$canonical</loc>" "$out/sitemap.xml" || die "noindex 页面出现在 sitemap 里，检查 layouts/sitemap.xml"
     else
-      grep -q "<loc>$canonical</loc>" "$out/sitemap.xml" || die "sitemap 里没有 $canonical，检查 data/reading-materials.toml"
+      grep -q "<loc>$canonical</loc>" "$out/sitemap.xml" || die "sitemap 里没有 $canonical，检查 data/research-materials.toml"
     fi
-    [ -f "$out/reading/$slug/index.html" ] || die "构建产物里没有 reading/$slug/index.html"
+    [ -f "$out/research/$slug/index.html" ] || die "构建产物里没有 reading/$slug/index.html"
   else
     echo "提示: 本机没有 hugo，跳过本地构建检查" >&2
   fi
@@ -379,11 +379,11 @@ PYMETA
   fi
 
   cd "$REPO_DIR"
-  git add "static/reading/$slug" data/reading-materials.toml CHANGELOG.md
+  git add "static/research/$slug" data/research-materials.toml CHANGELOG.md
   if [ "$update" = 1 ]; then
-    git commit -m "Update $title in Reading" -m "Replace /reading/$slug/ after the reading-page checks pass."
+    git commit -m "Update $title in Research" -m "Replace /research/$slug/ after the reading-page checks pass."
   else
-    git commit -m "Publish $title in Reading" -m "Add /reading/$slug/ and list it in reading-materials.toml."
+    git commit -m "Publish $title in Research" -m "Add /research/$slug/ and list it in research-materials.toml."
   fi
   git_push_default
   echo "已发布: $canonical"
@@ -392,18 +392,19 @@ PYMETA
 # ---------------------------------------------------------------- dispatch
 
 case "${1:-}" in
-  reading-tags)
+  # "reading" and "reading-tags" are the old names; keep them so older notes and agents still work.
+  research-tags|reading-tags)
     shift
-    [ -n "${1:-}" ] && [ "${2:-}" = "--local" ] || die "用法: ./publish.sh reading-tags 清单.json --local [--dry-run]"
+    [ -n "${1:-}" ] && [ "${2:-}" = "--local" ] || die "用法: ./publish.sh research-tags 清单.json --local [--dry-run]"
     manifest="$1"
-    python3 "$REPO_DIR/scripts/reading_tags.py" batch "$manifest"
+    python3 "$REPO_DIR/scripts/research_tags.py" batch "$manifest"
     if [ "${3:-}" != "--dry-run" ]; then
-      python3 "$REPO_DIR/scripts/reading_tags.py" batch "$manifest" --write
-      changelog_add "- 整理页复用文章主题标签，支持标签筛选并保留资料类型。"
+      python3 "$REPO_DIR/scripts/research_tags.py" batch "$manifest" --write
+      changelog_add "- 研究页复用文章主题标签，支持标签筛选并保留资料类型。"
       (cd "$REPO_DIR" && hugo --destination /tmp/wlj-check)
     fi
     ;;
-  reading) shift; publish_reading "$@" ;;
+  research|reading) shift; publish_research "$@" ;;
   post) shift; publish_post "$@" ;;
   update) shift; publish_post "${1:-}" "${2:-}" update ;;
   -h|--help|"") awk 'NR == 1 { next } /^#/ { sub(/^# ?/, ""); print; next } { exit }' "$0"; exit 0 ;;

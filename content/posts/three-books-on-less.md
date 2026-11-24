@@ -18,6 +18,6 @@ slug: "three-books-on-less"
 
 三份中文阅读辅助都做好了：
 
-- [The Longing for Less 阅读指南](https://wlj.me/reading/longing-for-less/)
-- [Digital Minimalism 阅读指南](https://wlj.me/reading/digital-minimalism/)
-- [Decluttering at the Speed of Life 操作指南](https://wlj.me/reading/decluttering-at-the-speed-of-life/)
+- [The Longing for Less 阅读指南](/research/longing-for-less/)
+- [Digital Minimalism 阅读指南](/research/digital-minimalism/)
+- [Decluttering at the Speed of Life 操作指南](/research/decluttering-at-the-speed-of-life/)

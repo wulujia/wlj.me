@@ -14,4 +14,4 @@ slug: "science-new-golden-age-reading-aid"
 
 我做了份中文阅读指南，包含逐章精读、关键数据速查、术语表、人物索引、时间线，以及判断这份报告「哪些会真发生」的线索。
 
-[打开指南](https://wlj.me/reading/science-new-golden-age/)
+[打开指南](/research/science-new-golden-age/)

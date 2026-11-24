@@ -12,4 +12,4 @@ Robert Caro 的《The Power Broker》得了普利策奖，写的是 Robert Moses
 
 这本书 1200 页，英文。我用 AI 做了一份中文速查页，包含：Moses 的权力增长图表、五十章逐章概述、人物索引（按阵营标色）、年表，以及卡罗和摩西本人的隔空交锋。
 
-[打开速查](https://wlj.me/reading/the-power-broker/)
+[打开速查](/research/the-power-broker/)

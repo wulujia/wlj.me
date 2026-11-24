@@ -2,7 +2,7 @@
 
 Luca 的个人博客，基于 [Hugo](https://gohugo.io/) 构建，使用 [terminal](https://github.com/panr/hugo-theme-terminal) 主题，由 Cloudflare Pages 在推送 main 后自动构建和部署。GitHub Actions 只跑检查，不部署。
 
-网站地址：https://wlj.me/
+网站地址：https://wulujia.com/
 
 ## 目录结构
 
@@ -30,18 +30,18 @@ slug: "url-slug"
 正文内容
 ```
 
-## 发布整理页
+## 发布研究页
 
-整理页是 `static/reading/<slug>/index.html` 下的自包含 HTML。用脚本发布，脚本会校验 head 里的 title、description、robots、canonical，复制目录，追加 `data/reading-materials.toml` 条目和 CHANGELOG 行，然后 commit、push：
+研究页是 `static/research/<slug>/index.html` 下的自包含 HTML。用脚本发布，脚本会校验 head 里的 title、description、robots、canonical，复制目录，追加 `data/research-materials.toml` 条目和 CHANGELOG 行，然后 commit、push：
 
 ```bash
-./publish.sh reading /tmp/slug-name --category misc --author "作者" --dry-run   # 先看校验结果
-./publish.sh reading /tmp/slug-name --category misc --author "作者"
+./publish.sh research /tmp/slug-name --category misc --author "作者" --dry-run   # 先看校验结果
+./publish.sh research /tmp/slug-name --category misc --author "作者"
 ```
 
 完整参数见 `./publish.sh --help`。
 
-发布前脚本会跑检查器：文章过 `~/Github/luca-writing/scripts/lint_ai_flavor.py`，整理页过 `~/Github/luca-html/scripts/check_html.py`。检查没过不会写入任何文件。
+发布前脚本会跑检查器：文章过 `~/Github/luca-writing/scripts/lint_ai_flavor.py`，研究页过 `~/Github/luca-html/scripts/check_html.py`。检查没过不会写入任何文件。
 
 ## 发布笔记
 

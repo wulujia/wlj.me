@@ -1,0 +1,194 @@
+{{ define "main" }}
+{{- $labels := dict "book" "书" "report" "研究报告" "documentary" "纪录片" "misc" "杂项" -}}
+{{- $order := slice "book" "report" "documentary" "misc" -}}
+{{- $materials := index (index .Site.Data "research-materials") "materials" -}}
+{{- $sorted := sort $materials "date" "desc" -}}
+{{- $tags := slice -}}
+{{- range $materials -}}{{- range .tags -}}{{- $tags = $tags | append . -}}{{- end -}}{{- end -}}
+{{- $tags = sort (uniq $tags) -}}
+{{- $filters := $order | append $tags -}}
+<style>
+  .reading-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 0;
+  }
+  .reading-filter a {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: var(--accent);
+    line-height: 1.5;
+  }
+  .reading-filter a.active {
+    background: var(--accent);
+    color: var(--background);
+  }
+  .reading-filter a .count {
+    opacity: 0.7;
+    margin-left: 4px;
+  }
+  .reading-item[hidden] { display: none; }
+  .reading-empty { padding: 30px 0; opacity: 0.7; }
+  .post-tags a { text-decoration: none; }
+</style>
+
+<h1 class="page-title page-title--hidden">{{ .Title | markdownify }}</h1>
+<div class="index-content reading-intro">
+  <p>这些页面收录原作的中文翻译、梳理和要点摘录，用于中文阅读辅助，不能替代原作。</p>
+  <nav class="reading-filter" aria-label="资料类型筛选">
+    <a href="#" data-cat="all" class="active">全部<span class="count">{{ len $sorted }}</span></a>
+    {{- range $order }}
+      {{- $cat := . }}
+      {{- $n := len (where $sorted "category" $cat) }}
+      {{- if gt $n 0 }}
+    <a href="#{{ $cat }}" data-cat="{{ $cat }}">{{ index $labels $cat }}<span class="count">{{ $n }}</span></a>
+      {{- end }}
+    {{- end }}
+  </nav>
+  <nav class="reading-filter" aria-label="主题标签筛选">
+    {{- range $tags }}
+    {{- $tag := . -}}{{- $count := 0 -}}
+    {{- range $materials -}}{{- if in .tags $tag -}}{{- $count = add $count 1 -}}{{- end -}}{{- end -}}
+    <a href="#{{ $tag }}" data-cat="{{ $tag }}">#{{ $tag }}<span class="count">{{ $count }}</span></a>
+    {{- end }}
+  </nav>
+</div>
+
+<div class="posts" id="reading-list">
+  {{ range $sorted }}
+  <article class="post on-list reading-item" data-category="{{ .category }}" data-tags="{{ .tags | jsonify }}">
+    <h2 class="post-title">
+      <a href="{{ .research_url | absURL }}">{{ .title }}</a>
+    </h2>
+    <div class="post-meta">
+      <time class="post-date" datetime="{{ .date }}">{{ (time .date) | time.Format "2006-01-02" }}</time>
+      <span>{{ .author }}{{ if .year }} · {{ .year }}{{ end }}</span>
+      {{- if .subtitle }}<span>{{ .subtitle }}</span>{{ end }}
+    </div>
+    <div class="post-tags">
+      <a href="#{{ .category }}" data-cat="{{ .category }}">{{ index $labels .category | default .category }}</a>
+      {{ range .tags }} · <a href="#{{ . }}" data-cat="{{ . }}">#{{ . }}</a>{{ end }}
+    </div>
+    <div class="post-content">
+      <p>{{ .description }}</p>
+    </div>
+    <div>
+      <a class="read-more button inline" href="{{ .research_url | absURL }}">[打开]</a>
+      {{- if .original_url }}
+      <a class="read-more button inline" href="{{ .original_url }}" target="_blank" rel="noopener">[原文]</a>
+      {{- end }}
+      {{- if .post_slug }}
+      <a class="read-more button inline" href="{{ printf "/posts/%s/" .post_slug | absURL }}">[相关文章]</a>
+      {{- end }}
+    </div>
+  </article>
+  {{ end }}
+  <p class="reading-empty" id="reading-empty" hidden>这个筛选条件下还没有研究页。</p>
+</div>
+<nav class="pagination" id="reading-pager" aria-label="分页" hidden></nav>
+
+<script>
+(function () {
+  // Filter and paginate in the browser: the list comes from a data file,
+  // not Hugo pages, so server-side pagination and the category filter
+  // would not compose. Hash carries both: "#report/2".
+  var PER_PAGE = 10;
+  var valid = {{ $filters | jsonify | safeJS }};
+  var links = document.querySelectorAll('.reading-filter a');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.reading-item'));
+  var empty = document.getElementById('reading-empty');
+  var pager = document.getElementById('reading-pager');
+  var state = { cat: 'all', page: 1 };
+
+  function hashFor(cat, page) {
+    if (cat === 'all' && page === 1) return location.pathname;
+    return '#' + encodeURIComponent(cat) + (page > 1 ? '/' + page : '');
+  }
+
+  // Same window rule as partials/pagination.html: first, last, two on each
+  // side of current, and a single-page gap shown as the page itself.
+  function pageList(cur, total) {
+    var out = [], gap = false;
+    for (var n = 1; n <= total; n++) {
+      var near = Math.abs(n - cur) <= 2;
+      var edge = n === 1 || n === total;
+      var fill = (n === 2 && cur <= 5) || (n === total - 1 && cur >= total - 4);
+      if (near || edge || fill) { out.push(n); gap = false; }
+      else if (!gap) { out.push('…'); gap = true; }
+    }
+    return out;
+  }
+
+  function renderPager(cur, total) {
+    if (total <= 1) { pager.hidden = true; pager.innerHTML = ''; return; }
+    var h = '<div class="pagination__buttons">';
+    h += cur > 1
+      ? '<a href="' + hashFor(state.cat, cur - 1) + '" class="button inline prev" data-page="' + (cur - 1) + '">&lt; 上一页</a>'
+      : '<span class="pagination__disabled">&lt; 上一页</span>';
+    h += '<ol class="pagination__pages">';
+    pageList(cur, total).forEach(function (n) {
+      if (n === '…') h += '<li><span class="pagination__gap" aria-hidden="true">…</span></li>';
+      else if (n === cur) h += '<li><span class="pagination__page is-current" aria-current="page">' + n + '</span></li>';
+      else h += '<li><a class="pagination__page" href="' + hashFor(state.cat, n) + '" data-page="' + n + '">' + n + '</a></li>';
+    });
+    h += '</ol>';
+    h += cur < total
+      ? '<a href="' + hashFor(state.cat, cur + 1) + '" class="button inline next" data-page="' + (cur + 1) + '">下一页 &gt;</a>'
+      : '<span class="pagination__disabled">下一页 &gt;</span>';
+    h += '</div><p class="pagination__status">第 ' + cur + ' / ' + total + ' 页</p>';
+    pager.innerHTML = h;
+    pager.hidden = false;
+  }
+
+  function apply(cat, page) {
+    if (valid.indexOf(cat) === -1) cat = 'all';
+    var hits = items.filter(function (el) { return cat === 'all' || el.dataset.category === cat || JSON.parse(el.dataset.tags || '[]').indexOf(cat) !== -1; });
+    var total = Math.max(1, Math.ceil(hits.length / PER_PAGE));
+    page = Math.min(Math.max(1, page || 1), total);
+    state.cat = cat; state.page = page;
+    var from = (page - 1) * PER_PAGE;
+    items.forEach(function (el) { el.hidden = true; });
+    hits.slice(from, from + PER_PAGE).forEach(function (el) { el.hidden = false; });
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.dataset.cat === cat);
+    });
+    empty.hidden = hits.length > 0;
+    renderPager(page, total);
+  }
+
+  function fromHash() {
+    var parts = (location.hash || '#all').slice(1).split('/');
+    var tag;
+    try { tag = decodeURIComponent(parts[0]); } catch (_) { tag = 'all'; }
+    apply(tag, parseInt(parts[1], 10) || 1);
+  }
+
+  function go(cat, page, scroll) {
+    history.replaceState(null, '', hashFor(cat, page));
+    apply(cat, page);
+    if (scroll) {
+      document.getElementById('reading-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-cat], #reading-pager a[data-page]');
+    if (!a) return;
+    e.preventDefault();
+    if (a.dataset.page) {
+      go(state.cat, parseInt(a.dataset.page, 10), true);
+    } else {
+      go(a.dataset.cat, 1, !!a.closest('.post-tags'));
+    }
+  });
+
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+{{ end }}
