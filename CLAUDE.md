@@ -1,6 +1,6 @@
 # wlj.me
 
-Hugo 博客，GitHub Pages 托管，Terminal 主题。
+Hugo 博客，Cloudflare Pages 托管（推送 main 后自动构建），Terminal 主题。
 
 ## 写文章前必读（强制）
 
@@ -75,7 +75,7 @@ publish.sh 自动处理：校验上面的 head 要求、跑 luca-html 的检查�
 - 先跑 `--dry-run` 看校验结果和将写入的条目，再正式发布
 - 更新页面加 `--update`。只写本地加 `--local`，脚本仍检查和构建，但不提交、不推送
 - 发布前递归检查全部 HTML 子页。任一子页失败时，不写入目标目录
-- 部署前运行整理页测试和 `python3 scripts/reading_style.py static/reading`。任一步失败时，工作流停止构建和部署
+- 推送后 GitHub Actions 运行整理页测试、`python3 scripts/reading_style.py static/reading` 和一次 Hugo 构建，失败时提交显示红叉。这个工作流不部署；要让检查拦住上线，Cloudflare Pages 的构建命令须先跑同样的检查
 - 引文或专业术语确属误报时，逐行核对并记录到 `docs/20261102-reading-lint-reviews.md`。不得整页豁免；修改标记行时必须重新核对。
 - 页面按 luca-html skill 从模板起稿，正文按 luca-writing 写。检查器没过就改页面，不要手动复制目录绕过脚本
 

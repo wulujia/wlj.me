@@ -2,6 +2,8 @@
 
 ## 2026-11-24
 
+- 站名条文字从 “wlj's terminal” 改成 “Luca's Blog”（`hugo.toml` 的 `logoText`）。
+- 停用 GitHub Pages：`.github/workflows/hugo.yml` 改名为 “Check site”，只跑整理页测试、标签检查、样式检查和一次 Hugo 构建，去掉上传和部署两步及 Pages 权限；删除 `static/CNAME`（只有 GitHub Pages 读它）。线上一直由 Cloudflare Pages 项目 wlj-me 构建和服务，访客看到的内容不变。README、CLAUDE.md 的托管说明同步改。
 - 补齐从 wulujia.com 迁移时漏掉的内容：`static/img/` 新增 53 个图片文件（cloud-disk-encrypt、data-leak-prevention、osmocombb-guide、zsxq 等 10 个目录），`static/attachments/porticor/` 新增 2 份 PDF。其中 38 个图片和 2 份 PDF 被现有文章引用，线上原来是 404；另外 15 个图片保留旧站地址，供合并域名后的旧链接使用。新增两篇文章《知识星球的星星之火》：`content/posts/zsxq-spark-2018.md`（2018-07-09）和 `zsxq-spark-2020.md`（2020-02-03），保留原日期，按 2026-04-05 迁移提交的格式直接导入，不走 publish.sh（脚本只能写当前时间）。2018 版里用 Tab 缩进的引文改成 `>` 引用（旧站把它们显示成代码块），文字不变。
 - 精选重选：`data/featured.toml` 从 55 篇减到 36 篇。标准是本人写的、现在还成立的文章优先，同一题目不重复；编译和意译的文章只留 5 篇，单列一组“读别人的公司”。新增一组“安全与早年”（《绿盟往事》《一个信息安全研究团队的五年》《关系万千重》等 6 篇），“AI 与产品”和“工具与实录”合并为“AI 与工具”。首页顶部的 10 篇全部换成本人写的文章。菜单里“精选”移到第一项（`hugo.toml` 的 weight 50 → 5）。
 - 精选页新增 8 篇原 wulujia.com 首页列出的文章：`data/featured.toml` 的“创业与小而美”加《20 岁的小公司》《与创作者、学习者在一起的七年》《七年知识星球经验，剖析付费社群本质》，“生活与阅读”加《十年十二问：2025》《每年十二问：2024》《重新思考价值观》《喜欢，长期，简单》《我学习摄影的一些体会》。原因：两站合并后旧首页的 28 篇列表消失，这些文章在 1,385 篇里没有入口。首页顶部的 10 篇不变。

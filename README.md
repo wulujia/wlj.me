@@ -1,6 +1,6 @@
 # wlj.me
 
-Luca 的个人博客，基于 [Hugo](https://gohugo.io/) 构建，使用 [terminal](https://github.com/panr/hugo-theme-terminal) 主题，通过 GitHub Actions 自动部署到 GitHub Pages。
+Luca 的个人博客，基于 [Hugo](https://gohugo.io/) 构建，使用 [terminal](https://github.com/panr/hugo-theme-terminal) 主题，由 Cloudflare Pages 在推送 main 后自动构建和部署。GitHub Actions 只跑检查，不部署。
 
 网站地址：https://wlj.me/
 
@@ -79,7 +79,7 @@ git commit -m "新增内容"
 git push
 ```
 
-推送后 GitHub Actions 自动构建部署，约 35 秒上线。
+推送后 Cloudflare Pages 自动构建部署，约 1 分钟上线。
 
 ## 注意事项
 

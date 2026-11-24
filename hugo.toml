@@ -39,7 +39,7 @@ enableRobotsTXT = true
   keywords = "产品, 技术, 创业, 写作, AI, 安全, 阅读"
   images = ["og-image.png"]
   [params.Logo]
-    logoText = "wlj's terminal"
+    logoText = "Luca's Blog"
   [params.author]
     name = "Luca Wu"
     displayName = "Luca"
