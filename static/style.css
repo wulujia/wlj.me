@@ -22,20 +22,23 @@
 /* Dark mode (default) — Solarized Dark */
 :root {
   --background: #002b36;
-  --foreground: #839496;
+  --foreground: #d2dbdb;
   --accent: #2aa198;
+  --link: #5cc8bf;
+  --muted: #93a1a1;
+  --heading: #e3eaea;
   --code-border: #073642;
 }
 
 /* Brighter headings */
 h1, h2, h3, h4, h5, h6,
 .header__logo a {
-  color: #93a1a1 !important;
+  color: var(--heading) !important;
 }
 
 /* Subtle links */
 a {
-  color: var(--accent);
+  color: var(--link);
 }
 
 a:hover {
@@ -74,8 +77,11 @@ blockquote::before {
 /* Light mode — Solarized Light */
 [data-theme="light"] {
   --background: #fdf6e3;
-  --foreground: #657b83;
+  --foreground: #28383d;
   --accent: #2aa198;
+  --link: #17635d;
+  --muted: #5b6a6e;
+  --heading: #1f2d31;
   --code-border: #eee8d5;
 }
 
@@ -86,7 +92,7 @@ blockquote::before {
 [data-theme="light"] h5,
 [data-theme="light"] h6,
 [data-theme="light"] .header__logo a {
-  color: #586e75 !important;
+  color: var(--heading) !important;
 }
 
 [data-theme="light"] pre {
@@ -341,7 +347,7 @@ blockquote::before {
 }
 
 .note-body a {
-  color: var(--accent);
+  color: var(--link);
 }
 
 .note-single {
@@ -407,8 +413,11 @@ blockquote::before {
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     --background: #fdf6e3;
-    --foreground: #657b83;
+    --foreground: #28383d;
     --accent: #2aa198;
+    --link: #17635d;
+    --muted: #5b6a6e;
+    --heading: #1f2d31;
     --code-border: #eee8d5;
   }
 
@@ -419,7 +428,7 @@ blockquote::before {
   :root:not([data-theme="dark"]) h5,
   :root:not([data-theme="dark"]) h6,
   :root:not([data-theme="dark"]) .header__logo a {
-    color: #586e75 !important;
+    color: var(--heading) !important;
   }
 
   :root:not([data-theme="dark"]) pre {
@@ -539,3 +548,25 @@ blockquote::before {
 .home-list li { padding: 2px 0; line-height: 1.6; }
 .home-list li::before { content: none; }
 .home-list .post-date { margin-right: 10px; }
+
+/* --- One design for the whole site (2026-11-24): the same colours and fonts as the research pages --- */
+/* Body text in a sans font; the logo, menu, dates, footer and code keep the terminal font. */
+html, body {
+  font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+}
+.header, .logo, .navigation-menu, .menu, .footer, .post-meta, .post-tags, .post-date, .note-time,
+.pagination, .button, .read-more, .theme-toggle, code, pre, kbd {
+  font-family: "Fira Code", ui-monospace, Menlo, Consolas, monospace;
+}
+.post-content, .note-body, .index-content { line-height: 1.8; }
+/* Dates, counts and footer text: at least 4.5:1 in both modes. */
+.footer, .post__meta, .post-meta, .post-date, .post-count, .year-count, .post-tag, .note-time, time {
+  color: var(--muted) !important;
+}
+/* Images in posts and notes: no green frame, like the research pages. */
+.post-content img, .note-body img { border: 0; padding: 0; border-radius: 4px; }
+/* Quotes: marked by indent only, like the research pages; no lines and no ">" mark. */
+.post-content blockquote, .note-body blockquote {
+  border: 0 !important; padding: 0 0 0 1.4em; margin: 1.2em 0; color: var(--foreground); opacity: .85;
+}
+.post-content blockquote::before, .note-body blockquote::before { content: none; }
