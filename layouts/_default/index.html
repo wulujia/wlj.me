@@ -13,7 +13,7 @@
     <ul class="home-list">
       {{ range $site.Data.featured.home }}
         {{ with index (where $site.RegularPages "Params.slug" .) 0 }}
-          <li><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
+          <li><span class="post-date">{{ .Date.Format "2006-01-02" }}</span><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
         {{ end }}
       {{ end }}
     </ul>

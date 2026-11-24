@@ -2,6 +2,7 @@
 
 ## 2026-11-24
 
+- 首页精选板块每篇前面加日期，与其他四个板块格式一致。
 - 新增资料页《深圳及珠三角墨水屏设备采购调研》，`static/research/prd-epaper-suppliers/index.html`。比较深圳及珠三角墨水屏设备、开发套件与小批量采购，附联网限制、样机预算和验收计划。
 - 首页改为五个板块，按顺序是精选、日志、研究、笔记、创业笔记。每块有“全部”链接，列最新几条，一行一条（日期和标题）：精选 10 篇（`data/featured.toml` 的 home 列表）、日志 8 篇、研究 6 篇（按 `research-materials.toml` 的日期，跳过 noindex）、笔记 5 条、创业笔记 5 篇（按笔记编号）。首页不再列带摘要的分页文章，`/page/N/` 301 到 `/posts/page/N/`（两边都是每页 10 篇，页码对应）。样式在 `static/style.css` 末尾的 `.home-section`、`.home-list`。
 - 精选页（`/featured/`）去掉每篇文章下面的简介，只留标题和年月。`layouts/_default/featured.html` 删掉 `featured-desc` 一行。
