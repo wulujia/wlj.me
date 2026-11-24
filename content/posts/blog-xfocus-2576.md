@@ -48,4 +48,4 @@ slug: "blog-xfocus-2576"
 web 输出，也可以配合 apache
 生成一个进程状态检测的图表。更详细的信息和配置样例，可以参考它的[安装说明](http://www.tildeslash.com/monit/doc/install.php)和[配置样例](http://www.tildeslash.com/monit/doc/examples.php)。
 
-初步测试，还是比较稳定可靠的，推荐使用。与[WatchDog](http://wulujia.com/Article_60533)相比，monit运行于应用层，能够监测的项目不如WatchDog，并且如果一些底层应用出现问题时，很可能无法监视和控制。但它的优点在于无需重新编译内核，配置简单可靠，不用担心配置失误导致的系统故障（我在配置WatchDog时就出过不少洋相）。
+初步测试，还是比较稳定可靠的，推荐使用。与[WatchDog](https://web.archive.org/web/2007/http://wulujia.com/Article_60533)相比，monit运行于应用层，能够监测的项目不如WatchDog，并且如果一些底层应用出现问题时，很可能无法监视和控制。但它的优点在于无需重新编译内核，配置简单可靠，不用担心配置失误导致的系统故障（我在配置WatchDog时就出过不少洋相）。

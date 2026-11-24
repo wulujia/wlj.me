@@ -39,5 +39,5 @@ by Kyle Haugsness (Version: 2)*
 > 
 > http://news.163.com/07/0519/01/3EQPHCPV0001124J.html
 
-可惜我们的市场宣传能力很有限，没办法[进一步扩大战果](http://wulujia.com/Article_66866)。先找caoz学习一下吧，啥病毒营销，啥口碑营销，啥植入营销的，我得先给脑量扩扩容再去上课
+可惜我们的市场宣传能力很有限，没办法[进一步扩大战果](https://web.archive.org/web/2007/http://wulujia.com/Article_66866)。先找caoz学习一下吧，啥病毒营销，啥口碑营销，啥植入营销的，我得先给脑量扩扩容再去上课
 :)

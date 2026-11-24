@@ -16,4 +16,4 @@ slug: "xfocus-article-241"
 这份文档分析了十一个月以来Honeynet捕获的数据，在这份文档里我们可以发现黑帽子团体的入侵行为有多频繁，同时也能确认，入侵行为的预警是完全可能做到的。
 
 
-[了解你的敌人:统计](/web/20051229024111/http://www.xfocus.net/projects/honeynet/chinese/papers/stats/)
+[了解你的敌人:统计](https://web.archive.org/web/20051229024111/http://www.xfocus.net/projects/honeynet/chinese/papers/stats/)

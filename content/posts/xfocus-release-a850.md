@@ -18,11 +18,11 @@ slug: "xfocus-release-a850"
 
 通过下图可以看出通用弱点评价体系（CVSS）包含的要素及它们之间的相互关系：
 
-[CVSS-model-detailed-8.0.jpg](/web/20121011103602/http://xfocus.net/articles/200602/CVSS-model-detailed-8.0.jpg)
+[CVSS-model-detailed-8.0.jpg](https://web.archive.org/web/20121011103602/http://xfocus.net/articles/200602/CVSS-model-detailed-8.0.jpg)
 
 通用弱点评价体系（CVSS）的所有要素及其取值范围如下表所示：
 
-[CVSS-metric.jpg](/web/20121011103602/http://xfocus.net/articles/200602/CVSS-metric.jpg)
+[CVSS-metric.jpg](https://web.archive.org/web/20121011103602/http://xfocus.net/articles/200602/CVSS-metric.jpg)
 
 有些需要说明的要素如下：
 
@@ -332,7 +332,7 @@ Apache服务器缺省也提供了对分块编码(chunked encoding)支持。Apach
 
 这里是一个CVSS表格的例子：
 
-[CVSS-sample.jpg](/web/20121011103602/http://xfocus.net/articles/200602/CVSS-sample.jpg)
+[CVSS-sample.jpg](https://web.archive.org/web/20121011103602/http://xfocus.net/articles/200602/CVSS-sample.jpg)
 
 该例可以从以下地址下载：
 
@@ -416,7 +416,7 @@ Significant Service Disruption:Yes/No
 
 微软在补丁发布时会有漏洞危急程度的描述，如：CRITICAL、MODERATE等等，都是基于以上要素进行分析的结果，例如CRTTICAL级别漏洞，各要素的取值范畴为：
 
-[Microsoft-score.jpg](/web/20121011103602/http://xfocus.net/articles/200602/Microsoft-score.jpg)
+[Microsoft-score.jpg](https://web.archive.org/web/20121011103602/http://xfocus.net/articles/200602/Microsoft-score.jpg)
 
 当然，作为商业评价体系，微软的漏洞评价方法公开部份有限，因此仅能作为参考。
 

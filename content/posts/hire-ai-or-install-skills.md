@@ -3,7 +3,7 @@ title: "招 AI 同事还是给 AI 装本事"
 date: 2026-05-10T23:03:32+08:00
 lastmod: 2026-05-10T23:03:32+08:00
 author: "Luca"
-tags: ["AI","产品观察"]
+tags: ["AI", "Product"]
 draft: false
 slug: "hire-ai-or-install-skills"
 ---

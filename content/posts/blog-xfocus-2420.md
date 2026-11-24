@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2420"
 ---
 
-嘿嘿，前两天[有人造谣](http://wulujia.com/Article_54851)，今天[killer](index.php?blogId=2)就看到新的熊猫烧香变种里面，把程序里搁着的那段话换成了：
+嘿嘿，前两天[有人造谣](https://web.archive.org/web/2007/http://wulujia.com/Article_54851)，今天[killer](index.php?blogId=2)就看到新的熊猫烧香变种里面，把程序里搁着的那段话换成了：
 
 ![](/images/blog-xfocus/3EA925B6-1804-4549-9E56-88673D21DDC2.jpg)
 

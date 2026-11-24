@@ -1,7 +1,7 @@
 ---
 title: "YC：怎么从零打造一家 AI 原生公司"
 date: 2026-04-27T07:42:00+08:00
-tags: ["AI","创业","翻译"]
+tags: ["AI", "Startup", "Translation"]
 draft: false
 slug: "20260427-yc-ai-native-company-from-scratch"
 description: "YC 合伙人 Diana 2026 年 2 月演讲的中文整理：AI 原生公司应该怎么跑，团队该有什么角色，开环和闭环的区别，哪些做法能让公司立刻更快。"

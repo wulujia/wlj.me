@@ -3,7 +3,7 @@ title: "为下一代模型做产品"
 date: 2026-05-10T18:24:11+08:00
 lastmod: 2026-05-10T18:24:11+08:00
 author: "Luca"
-tags: ["AI","创业","翻译"]
+tags: ["AI", "Startup", "Translation"]
 draft: false
 slug: "building-for-next-model"
 description: "Claude Code 负责人 Boris Cherny 在红杉的访谈整理：Claude Code 怎么意外做出来、他现在怎么工作、为什么要为下一代模型而不是当前模型做产品。"

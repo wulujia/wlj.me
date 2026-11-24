@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2641"
 ---
 
-http://wulujia.com/Article_66655
+https://web.archive.org/web/2007/http://wulujia.com/Article_66655
 
 [铁卷电子文档安全系统](http://www.unnoo.com/)，经过这两年的发展，已经发展成国内，甚至包括国外部份地区电子文档、电子图纸安全和防泄密市场上的最强有力竞争者了。
 

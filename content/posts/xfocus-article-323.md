@@ -11,4 +11,4 @@ slug: "xfocus-article-323"
 利用vmware软件构建简单高效的honeynet。
 
 
-[Virtual Honeynet](/web/20050216153903/http://www.xfocus.net/projects/honeynet/chinese/papers/virtual/virtualhoneynet.html)
+[Virtual Honeynet](https://web.archive.org/web/20050216153903/http://www.xfocus.net/projects/honeynet/chinese/papers/virtual/virtualhoneynet.html)

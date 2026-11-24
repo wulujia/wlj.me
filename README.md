@@ -8,10 +8,12 @@ Luca 的个人博客，基于 [Hugo](https://gohugo.io/) 构建，使用 [termin
 
 ```
 content/
-├── posts/       # 博客文章（约 1280 篇）
-├── notes/       # 笔记（约 800 条）
-├── about/       # 关于页面
-└── archives.md  # 归档页面
+├── posts/         # 博客文章（约 1400 篇）
+├── notes/         # 笔记（约 1070 条）
+├── startupnotes/  # 创业笔记（约 980 篇，只发前半段）
+├── research/      # 研究列表页；研究页本身在 static/research/（约 90 个）
+├── about/         # 关于页面
+└── archives.md    # 归档页面
 ```
 
 ## 发布文章

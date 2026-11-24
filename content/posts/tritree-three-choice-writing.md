@@ -1,7 +1,7 @@
 ---
 title: "Tritree：把写作变成 3 选 1 的工具"
 date: 2026-04-29T17:18:00+08:00
-tags: ["ai","tools","writing"]
+tags: ["AI", "Tools", "Writing"]
 draft: false
 slug: "tritree-three-choice-writing"
 ---

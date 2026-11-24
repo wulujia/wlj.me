@@ -3,7 +3,7 @@ title: "把 AI 推广做成产品"
 date: 2026-05-10T12:01:48+08:00
 lastmod: 2026-05-10T12:01:48+08:00
 author: "Luca"
-tags: ["AI","创业","翻译"]
+tags: ["AI", "Startup", "Translation"]
 draft: false
 slug: "ai-adoption-as-product"
 description: "Delight.ai 的 John Kim 怎么在公司内部推广 AI：token 使用排行榜、AI quests、让营销团队两天做出能收款的周边商店。整理自 How I AI 访谈。"

@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-1982"
 ---
 
-[沈总](http://blog.sina.com.cn/u/1246430843)看了我的[这篇牢骚](http://wulujia.com/Article_33557)，给了我些[建议](http://blog.sina.com.cn/u/4a4b067b0100052l)，比如看看吴思的文章，例如这篇《[硬伙企业](http://blog.sina.com.cn/u/53d4d4c0010000p5)》。多谢沈总了。
+[沈总](http://blog.sina.com.cn/u/1246430843)看了我的[这篇牢骚](https://web.archive.org/web/2006/http://wulujia.com/Article_33557)，给了我些[建议](http://blog.sina.com.cn/u/4a4b067b0100052l)，比如看看吴思的文章，例如这篇《[硬伙企业](http://blog.sina.com.cn/u/53d4d4c0010000p5)》。多谢沈总了。
 牢骚着这件事，一方面固然是做不到“玲珑剔透”，修养也不够，嘿嘿，火冒三丈了。另一方面，却是杞人忧着天，担心大厦将倾，覆巢下难觅完卵。
 
 有人说，企业的头儿做事风格、方法会在一定程度上影响员工，沈总还是对我有不小影响的。比如有一回（应该是四年前）我向沈总抱怨了很多，包括公司管理、某些制度乃至一些小细节上的问题，他告诉我：一年中解决关键的一到两件事情。

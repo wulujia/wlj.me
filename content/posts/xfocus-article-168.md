@@ -8,4 +8,4 @@ slug: "xfocus-article-168"
 
 (quack_at_xfocus.org)
 
-[Know Your Enemy:Honeynet中文翻译](/web/20051229023844/http://www.xfocus.net/projects/honeynet/chinese/papers/)
+[Know Your Enemy:Honeynet中文翻译](https://web.archive.org/web/20051229023844/http://www.xfocus.net/projects/honeynet/chinese/papers/)

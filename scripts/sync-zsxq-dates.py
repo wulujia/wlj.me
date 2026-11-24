@@ -30,9 +30,7 @@ from datetime import datetime
 from pathlib import Path
 
 GROUP_ID = "511244584"
-SOURCE_DIR = Path(
-    "/Users/lucawu/Github/Luca/startupnotes"
-)
+SOURCE_DIR = Path.home() / "Github" / "Luca" / "startupnotes"
 HERE = Path(__file__).resolve().parent
 DATES_JSON = HERE / "zsxq-dates.json"
 RAW_CACHE = HERE / ".zsxq-topics-raw.json"

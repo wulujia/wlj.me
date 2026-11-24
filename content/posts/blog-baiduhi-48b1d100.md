@@ -6,7 +6,7 @@ draft: false
 slug: "blog-baiduhi-48b1d100"
 ---
 
-RSS地址：[http://wulujia.com/index.php/feed/](http://wulujia.com/index.php/feed/)
+RSS地址：[https://web.archive.org/web/2009/http://wulujia.com/index.php/feed/](https://web.archive.org/web/2009/http://wulujia.com/index.php/feed/)
 
 主页：[http://wulujia.com](http://wulujia.com/)
 

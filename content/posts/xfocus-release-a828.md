@@ -10,4 +10,4 @@ slug: "xfocus-release-a828"
 
 本文用尽量简洁的方式说明网络安全评估中最困难的环节―渗透测试的操作过程，希望读者能够揭开其神秘面纱。能够组织甚至操作一次企业内部的Penetration Testing。
 
-[20050926_渗透测试操作实务_wlj_v1.0.pdf](/web/20121011103455/http://xfocus.net/articles/200510/20050926_%C9%F8%CD%B8%B2%E2%CA%D4%B2%D9%D7%F7%CA%B5%CE%F1_wlj_v1.0.pdf)
+[20050926_渗透测试操作实务_wlj_v1.0.pdf](https://web.archive.org/web/20121011103455/http://xfocus.net/articles/200510/20050926_%C9%F8%CD%B8%B2%E2%CA%D4%B2%D9%D7%F7%CA%B5%CE%F1_wlj_v1.0.pdf)

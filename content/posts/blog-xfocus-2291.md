@@ -6,7 +6,7 @@ draft: false
 slug: "blog-xfocus-2291"
 ---
 
-晚上手欠，又折腾起家里的台式机了，仍然是[Ubuntu](http://www.wulujia.com/Article_34876)，这回是6.10。
+晚上手欠，又折腾起家里的台式机了，仍然是[Ubuntu](https://web.archive.org/web/2006/http://wulujia.com/Article_34876)，这回是6.10。
 
 回忆起2000年时尝试过用Linux及FreeBSD做桌面，还是走了些弯路的，每次装好机器后都需要花费半天功夫做各种各样的中文化、美化工作，然后很开心地跟朋友们展示自己美奂美仑的桌面。使用过程中，还时不时会遇到一些应用程序中文支持不好或容易崩溃……
 

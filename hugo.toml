@@ -18,6 +18,10 @@ enableRobotsTXT = true
     isPlainText = true
     notAlternative = true
 
+# The feed lists the newest 30 items; it used to contain every post and note (3.9 MB).
+[services.rss]
+  limit = 30
+
 [pagination]
   pagerSize = 10
 

@@ -2,6 +2,7 @@
 
 ## 2026-11-24
 
+- 全站检查后的修复：旧文章里 25 处丢了域名的 Wayback 链接（`/web/…`）补上 `https://web.archive.org`；22 处指向 2007 年前后 wulujia.com 旧博客的链接（如 `/Article_54851`，域名切换后成了 404）改为 Wayback 存档，年份取文章年份。构建产物里的站内死链从 43 个降到 0。RSS 只输出最新 30 条（`hugo.toml` 的 `[services.rss] limit = 30`），`index.xml` 从 3.9 MB 降到 28 KB。标签统一为英文：`ai`/`tools`/`writing` 并入 `AI`/`Tools`/`Writing`，`创业`→`Startup`、`翻译`→`Translation`、`产品`/`产品观察`→`Product`、`软件工程`→`Tech`。`scripts/sync-zsxq-dates.py` 的源目录改为 `~/Github/Luca/startupnotes`（原来写死了另一台电脑的路径）。README 的数量和目录结构更新。
 - 站名条头像改用更宽的裁切（原图 400×400 区域），整个头部在圆里，四周留出底色，不再撑满。只换 `static/avatar.png`。
 - 精选去掉三篇：《Apple Watch 九年数据让我盯上三件事》《GBrain 双机部署实录》《AI 时代，我们为什么还要学习？》，首页精选和 `/featured/` 分组里都去掉。首页精选剩 7 篇，精选共 33 篇。
 - 站名条头像移到绿色框外、框的左边，34px 圆形，与框同高；新增 `static/avatar.png`（136×136），裁切让脸居中、眼睛略高于圆心。浏览器标签页图标 `favicon.png` 不变。Hugo 页面改 `layouts/partials/logo.html`，研究页改 `scripts/research_style.py` 和 `reading.css`，95 个研究页已同步。

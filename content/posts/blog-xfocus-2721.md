@@ -112,7 +112,7 @@ Expander](http://www.stuffit.com/detect_expander.html)
 
 思维导图：[FreeMind](http://freemind.sf.net/)
 
-局域网通讯：[IPMessenger](http://wulujia.com/Article_70830)
+局域网通讯：[IPMessenger](https://web.archive.org/web/2007/http://wulujia.com/Article_70830)
 
 无线网络挖掘：[iStumbler](http://www.istumbler.net/)
 
