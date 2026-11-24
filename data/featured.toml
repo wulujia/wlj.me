@@ -1,5 +1,5 @@
 # 精选文章。home 列表出现在首页顶部；groups 渲染在 /featured/。slug 对应 content/posts/*.md 的 slug 字段。
-home = ["zsxq-finding-pmf", "zsxq-ten-years", "one-person-business", "nsfocus-memories", "social-software-im-p2p", "ai-education", "hacker-mindset", "gbrain-multi-device", "ai-analyze-apple-watch-data", "twelve-questions-for-2025"]
+home = ["zsxq-finding-pmf", "zsxq-ten-years", "one-person-business", "nsfocus-memories", "social-software-im-p2p", "hacker-mindset", "twelve-questions-for-2025"]
 
 [[groups]]
 name = "创业与小而美"
@@ -11,11 +11,11 @@ slugs = ["nsfocus-memories", "xfocus-five-years", "social-software-im-p2p", "osm
 
 [[groups]]
 name = "AI 与工具"
-slugs = ["ai-education", "understand-github", "understanding-gray-areas", "gbrain-multi-device", "ai-agent-slimming", "lobster-assistant-for-family", "phone-access-local-ai-agent-tailscale", "wuwufu-wordpress-to-hugo"]
+slugs = ["understand-github", "understanding-gray-areas", "ai-agent-slimming", "lobster-assistant-for-family", "phone-access-local-ai-agent-tailscale", "wuwufu-wordpress-to-hugo"]
 
 [[groups]]
 name = "生活与阅读"
-slugs = ["ai-analyze-apple-watch-data", "twelve-questions-for-2025", "twelve-questions-end-of-2025", "love", "photography", "thoughts-on-reading", "best-books-of-five-years", "scifi-heavenly-book"]
+slugs = ["twelve-questions-for-2025", "twelve-questions-end-of-2025", "love", "photography", "thoughts-on-reading", "best-books-of-five-years", "scifi-heavenly-book"]
 
 [[groups]]
 name = "读别人的公司"
