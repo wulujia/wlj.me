@@ -2,6 +2,7 @@
 
 ## 2026-11-24
 
+- 删除 `AGENTS.md`，agent 规则只保留 `CLAUDE.md` 一份。`AGENTS.md` 独有的规则已移入 `CLAUDE.md`：保留 SEO 元信息、结构化数据用 JSON-LD、不批量生成低信息量页面、公开邮箱加 `email_off`、改模板后的本地检查、`research_tags.py check`。“用中文回复”一条不再保留，以全局规则为准。
 - `AGENTS.md`、`CLAUDE.md` 标题注明本仓库发布 wulujia.com。`AGENTS.md` 的可索引页面补上 `/startupnotes/` 和 `/research/`，与 `CLAUDE.md` 一致。
 - 修复 `publish.sh` 发文章的两个问题。标题含英文双引号时，frontmatter 不合法，整站构建失败；现在转义 `"` 和 `\`。远端有新提交时（另一台电脑或笔记 bot 先推送），推送被拒；现在推送前先 `git pull --rebase --autostash`。新增 `tests/test_post_publish.py`，GitHub Actions 改为运行 `tests/` 下全部测试。
 - 正文里指向 wlj.me 的 8 处链接改为 wulujia.com（文章、创业笔记、4 条笔记、1 个研究页、slax-reader 旧跳转页）。wlj.me 以后可能停用，链接不能依赖它的跳转。代码示例和历史文字里的 wlj.me 保留。

@@ -108,7 +108,10 @@ GEO 规则：
 
 - `llms.txt` 和 `llms-full.txt` 由 Hugo 自动生成，不要手写静态文件
 - `robots.txt` 必须允许 `GPTBot`、`ClaudeBot`、`anthropic-ai`、`PerplexityBot`、`Google-Extended`、`Bytespider`、`CCBot`
-- 文章页必须保留 JSON-LD：`BlogPosting`、作者 `Person`、`BreadcrumbList`
+- 文章页必须保留 JSON-LD：`BlogPosting`、作者 `Person`、`BreadcrumbList`。canonical、robots、OG、Twitter Card、发布时间和更新时间也要保留
+- 新增结构化数据时用 JSON-LD，不用 microdata
+- 不要为了 SEO 批量生成信息量低的页面
+- 正文中的公开邮箱写成 `<!--email_off-->邮箱<!--/email_off-->`，否则 Cloudflare 把它改成依赖脚本的占位文字
 - 关于页是作者权威页，外部 profile 和作者简介要保持准确
 - 重要文章建议手写 `description`，不要只依赖自动摘要
 - 图片必须有有意义的 alt，不要新增 `![](...)`
@@ -117,6 +120,7 @@ GEO 规则：
 
 - 线上 `robots.txt` 可能被 Cloudflare Managed Content 覆盖。仓库内模板正确不等于线上生效；部署后要 `curl https://wulujia.com/robots.txt` 验证。
 - Cloudflare 如继续输出 Managed Content 并 block LLM crawler，需要在 Cloudflare 侧关闭或调整。
+- 改了模板或 SEO 文件后，本地运行 `hugo --destination /tmp/wlj-check`。检查 `robots.txt` 允许上面的爬虫，`llms.txt`、`llms-full.txt` 已生成，`sitemap.xml` 不含 notes、tags、categories，任意文章页含 `BlogPosting`。
 
 ## 变更记录（强制）
 
@@ -129,6 +133,8 @@ GEO 规则：
 新建时必须传入 `--tags`，多个标签以逗号分隔。
 更新时省略该参数会保留已有标签。
 检查器统一大小写，并拒绝文章中不存在的标签。
+`category` 只表示资料类型，不能代替主题标签。
+部署前运行 `python3 scripts/research_tags.py check`。
 
 仅修改已有资料的标签时，准备 JSON 清单：
 
