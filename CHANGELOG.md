@@ -2,6 +2,7 @@
 
 ## 2026-11-24
 
+- 站名条头像改用更宽的裁切（原图 400×400 区域），整个头部在圆里，四周留出底色，不再撑满。只换 `static/avatar.png`。
 - 精选去掉三篇：《Apple Watch 九年数据让我盯上三件事》《GBrain 双机部署实录》《AI 时代，我们为什么还要学习？》，首页精选和 `/featured/` 分组里都去掉。首页精选剩 7 篇，精选共 33 篇。
 - 站名条头像移到绿色框外、框的左边，34px 圆形，与框同高；新增 `static/avatar.png`（136×136），裁切让脸居中、眼睛略高于圆心。浏览器标签页图标 `favicon.png` 不变。Hugo 页面改 `layouts/partials/logo.html`，研究页改 `scripts/research_style.py` 和 `reading.css`，95 个研究页已同步。
 - 新增资料页《Mac 与 Linux 单机白名单 HIDS 选型》，`static/research/hids-allowlist/index.html`。不依赖管理服务器、能按白名单拦截程序执行的开源主机防护工具，macOS 与 Linux 各有哪些选择，怎么上线。
