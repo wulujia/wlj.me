@@ -89,7 +89,7 @@ enableRobotsTXT = true
     identifier = "featured"
     name = "精选"
     url = "/featured/"
-    weight = 50
+    weight = 5
   [[menu.main]]
     identifier = "archives"
     name = "归档"
