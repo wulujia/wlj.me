@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mac 与 Linux 单机白名单 HIDS 选型</title>
+<meta name="description" content="不依赖管理服务器、能按白名单拦截程序执行的开源主机防护工具，macOS 与 Linux 各有哪些选择，怎么上线。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wulujia.com/research/hids-allowlist/">
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; text-decoration: none; }
+.site-logo__avatar { display: block; width: 24px; height: 24px; border-radius: 50%; margin-right: 8px; flex: 0 0 auto; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><span class="site-logo"><img class="site-logo__avatar" src="/favicon.png" alt="Luca 的头像" width="24" height="24">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+</ul></nav>
+</header>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#pick">一、选型对比</a></li>
+      <li><a href="#mac">二、macOS：Santa</a>
+        <ul>
+          <li><a href="#mac-mode">三种运行模式</a></li>
+          <li><a href="#mac-rule">五种规则</a></li>
+          <li><a href="#mac-local">不用服务器怎么配</a></li>
+          <li><a href="#mac-gap">管不到的地方</a></li>
+        </ul>
+      </li>
+      <li><a href="#linux">三、Linux：四个选项</a>
+        <ul>
+          <li><a href="#fapolicyd">fapolicyd</a></li>
+          <li><a href="#tetragon">Tetragon</a></li>
+          <li><a href="#ima">IMA 校验</a></li>
+          <li><a href="#kubearmor">KubeArmor</a></li>
+        </ul>
+      </li>
+      <li><a href="#rollout">四、上线步骤</a>
+        <ul>
+          <li><a href="#rollout-steps">先观察，再拦截</a></li>
+          <li><a href="#rollout-extra">白名单之外还要什么</a></li>
+        </ul>
+      </li>
+      <li><a href="#sources">五、方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/research/">返回研究</a>
+</div>
+  <header>
+    <h1>Mac 与 Linux 单机白名单 HIDS 选型</h1>
+    <p class="lede">只列开源、不依赖管理服务器、能按白名单拦截程序执行的工具。目标机器是个人 Mac 和自管的 Linux 服务器。</p>
+    <p class="meta">资料截至 2026-11-15 · 范围：macOS、Linux 单机</p>
+  </header>
+
+  <section class="summary" aria-label="摘要">
+    <p>macOS 选 Santa（North Pole Security 维护的分支）。它有 Lockdown 模式，未知程序一律不准运行，规则可以只在本机配置<sup><a href="#src-1">1</a>,<a href="#src-2">2</a></sup>。</p>
+    <p>Linux 选 fapolicyd。它默认信任包管理器装的文件，其他文件不准执行。RPM 系发行版最成熟，Debian 系目前是初步实现<sup><a href="#src-3">3</a></sup>。</p>
+    <p>两者都不管脚本：<code>bash x.sh</code>、<code>python -c</code> 只会被当成解释器本身放行。白名单旁边要再放一个行为检测工具。</p>
+  </section>
+
+  <h2 id="pick">一、选型对比</h2>
+  <p>“单机”指不装管理服务器也能完整工作。“拦截”指程序在执行前被拒，不是事后告警。</p>
+  <div class="tbl">
+    <table class="compare">
+      <thead><tr><th scope="col">工具</th><th scope="col">系统</th><th scope="col">怎么判断可信</th><th scope="col">单机</th><th scope="col">上手难度</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Santa</th><td>macOS</td><td>文件哈希、签名证书、Apple Team ID</td><td>是</td><td><span class="pill good">低</span></td></tr>
+        <tr><th scope="row">fapolicyd</th><td>Linux</td><td>包管理器数据库，加手工信任列表</td><td>是</td><td><span class="pill good">低</span>（RPM 系）</td></tr>
+        <tr><th scope="row">Tetragon</th><td>Linux</td><td>自己写 eBPF 策略，按程序路径匹配</td><td>是</td><td><span class="pill">中</span></td></tr>
+        <tr><th scope="row">IMA appraisal</th><td>Linux</td><td>内核校验文件哈希或签名</td><td>是</td><td><span class="pill bad">高</span></td></tr>
+        <tr><th scope="row">KubeArmor</th><td>Linux</td><td>allow 策略，按进程和文件</td><td>部分</td><td><span class="pill">中</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>没有列入的工具：Falco、Tracee、osquery 只检测不拦截；Wazuh 要管理服务器；Objective-See 的 BlockBlock 只盯开机自启项，不是执行白名单。</p>
+
+  <h2 id="mac">二、macOS：Santa</h2>
+  <p>Santa 最早由 Google 开发。Google 不再维护后，North Pole Security 接手，仓库在 <code>northpolesec/santa</code>，许可证 Apache-2.0<sup><a href="#src-2">2</a></sup>。它用 Apple 的 Endpoint Security 接口在程序执行前做判断。</p>
+
+  <h3 id="mac-mode">三种运行模式</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">模式</th><th scope="col">遇到不认识的程序</th><th scope="col">适合</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" style="white-space:nowrap">Monitor</th><td>放行，只记日志</td><td>头一两周，用来收集白名单</td></tr>
+        <tr><th scope="row" style="white-space:nowrap">Lockdown</th><td>直接拦截</td><td>白名单收集完以后</td></tr>
+        <tr><th scope="row" style="white-space:nowrap">Standalone</th><td>先挂起，用户用 Touch ID、安全密钥或密码批准后放行，并在本机自动加一条规则</td><td>个人开发机</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Standalone 模式适合单人使用的 Mac：遇到新程序时弹窗问一次，批准后就记住，不必事先把白名单写全<sup><a href="#src-1">1</a></sup>。</p>
+
+  <h3 id="mac-rule">五种规则</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">规则类型</th><th scope="col">匹配什么</th><th scope="col">粒度</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><code>BINARY</code></th><td>整个文件的 SHA-256</td><td>最细，程序一升级就失效</td></tr>
+        <tr><th scope="row"><code>CDHASH</code></th><td>代码目录哈希，只对 Hardened Runtime 程序有效</td><td>细</td></tr>
+        <tr><th scope="row"><code>SIGNINGID</code></th><td>Team ID 加签名标识，如 <code>EQHXZ8M8AV:com.google.Chrome</code></td><td>一个产品</td></tr>
+        <tr><th scope="row"><code>CERTIFICATE</code></th><td>签名叶证书的 SHA-256</td><td>一张证书签的全部程序</td></tr>
+        <tr><th scope="row"><code>TEAMID</code></th><td>10 位 Apple Team ID</td><td>一个开发商的全部程序</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>日常维护主要用 <code>TEAMID</code> 和 <code>SIGNINGID</code>，升级不用改规则。自己编译、没有签名的程序只能用 <code>BINARY</code>。另有 <code>CEL</code> 规则，可以按路径、参数、父进程等条件写表达式，但部分字段不能缓存，会拖慢执行<sup><a href="#src-1">1</a></sup>。</p>
+
+  <h3 id="mac-local">不用服务器怎么配</h3>
+  <p>不接同步服务器时，规则有两个来源：配置里的 <code>StaticRules</code>，和命令 <code>santactl rule</code><sup><a href="#src-2">2</a></sup>。运行模式用配置描述文件（mobileconfig）里的 <code>ClientMode</code> 设置。</p>
+<pre><code># 允许一个开发商的全部程序（示例 Team ID 为 Google）
+sudo santactl rule --allow --teamid --identifier EQHXZ8M8AV
+
+# 允许一个本地编译的程序
+sudo santactl rule --allow --path /usr/local/bin/mytool
+
+# 查看某个程序会被怎么判
+santactl fileinfo /Applications/Foo.app</code></pre>
+  <div class="todo"><b>待确认</b>上面三条命令的参数按以往版本写成，没有在当前版本上运行。使用前用 <code>santactl rule --help</code> 核对一次。</div>
+
+  <h3 id="mac-gap">管不到的地方</h3>
+  <p>官方文档写明，管理脚本执行“目前无法实现”。<code>/bin/sh foo.sh</code> 这类调用只会检查 <code>/bin/sh</code><sup><a href="#src-1">1</a></sup>。Homebrew 装的命令行工具大多没有开发商签名，需要逐个按哈希或路径放行，升级后要重新放行。</p>
+
+  <h2 id="linux">三、Linux：四个选项</h2>
+
+  <h3 id="fapolicyd">fapolicyd</h3>
+  <p>fapolicyd 用内核的 fanotify 在文件打开和执行前拦截，要求内核 4.20 或更高。规则从上往下匹配，第一条命中的生效。“可信”的定义来自信任数据库：用 dnf 或 rpm 装包时，RPM 插件自动更新它<sup><a href="#src-3">3</a></sup>。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">信任来源</th><th scope="col">写法</th><th scope="col">状态</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">RPM 数据库</th><td>RPM 插件自动维护</td><td><span class="pill good">成熟</span></td></tr>
+        <tr><th scope="row">Debian 数据库</th><td><code>trust=debdb</code></td><td><span class="pill">初步实现</span></td></tr>
+        <tr><th scope="row">信任文件</th><td><code>fapolicyd.trust</code>，手工加条目</td><td><span class="pill good">成熟</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>完整性校验可以选三种强度：只比文件大小、用 IMA 提供的哈希、或由 fapolicyd 自己算 SHA-256<sup><a href="#src-3">3</a></sup>。只比大小最快，但同样大小的替换文件能骗过它。</p>
+<pre><code># 先用宽松模式跑：会记 dec=deny，但程序照常运行
+sudo /usr/sbin/fapolicyd --permissive --debug-deny
+
+# 把包外的程序加进信任列表
+sudo fapolicyd-cli --file add /opt/app/bin/tool
+sudo fapolicyd-cli --update</code></pre>
+  <p>RHEL、Fedora、Rocky 上首选它。Ubuntu 和 Debian 上，先在测试机跑一段宽松模式再决定。</p>
+
+  <h3 id="tetragon">Tetragon</h3>
+  <p>Tetragon 是 Cilium 项目的 eBPF 工具，可以不装 Kubernetes，用软件包或容器单机运行<sup><a href="#src-4">4</a></sup>。它的拦截有两种动作：<code>Override</code> 让被跟踪的函数不执行、直接返回错误；<code>Sigkill</code> 结束进程。官方建议两者一起用，因为只发 Sigkill 不保证拦住触发它的那个操作，例如一次 <code>write()</code> 仍会写完<sup><a href="#src-4">4</a></sup>。</p>
+  <p>白名单靠选择器 <code>matchBinaries</code> 写，它支持 <code>NotIn</code> 和 <code>NotPrefix</code><sup><a href="#src-5">5</a></sup>。比如“不在 <code>/usr/bin</code> 和 <code>/opt/app</code> 下的程序，做某个操作时就拦”。它没有现成的“全系统执行白名单”策略，要自己挑内核挂钩点、写 YAML、反复测试。适合已经在用 eBPF、想把白名单和行为检测放在一个工具里的人。</p>
+
+  <h3 id="ima">IMA 校验</h3>
+  <p>IMA（Integrity Measurement Architecture）是 Linux 内核自带的功能。打开 appraisal 后，内核在执行文件前检查文件扩展属性里的哈希或签名，不对就拒绝<sup><a href="#src-6">6</a></sup>。它的保证最强，因为检查发生在内核里，用户态程序关不掉。</p>
+  <p>代价也最高：要生成密钥、给每个可执行文件签名、改内核启动参数。系统每升级一个包都要重新签名。适合镜像固定、很少变动的服务器，不适合日常改动的机器。fapolicyd 可以读 IMA 的哈希，两者能配合用<sup><a href="#src-3">3</a></sup>。</p>
+
+  <h3 id="kubearmor">KubeArmor</h3>
+  <p>KubeArmor 主打 Kubernetes，也有在普通主机上运行的模式，支持 allow 策略，按进程、文件、网络限制<sup><a href="#src-7">7</a></sup>。单机使用的文档和案例比前三个少。只在已经用它管容器、想让主机用同一套策略时考虑。</p>
+  <div class="todo"><b>待确认</b>KubeArmor 单机模式能否不依赖 Kubernetes 完整运行 allow 策略，本页没有逐项核对官方文档。</div>
+
+  <h2 id="rollout">四、上线步骤</h2>
+
+  <h3 id="rollout-steps">先观察，再拦截</h3>
+  <ol>
+    <li>装好后先跑观察模式：Santa 用 Monitor，fapolicyd 用 <code>--permissive</code>。跑 1 到 2 周，覆盖一次系统升级和日常用到的工具。</li>
+    <li>把日志里被标为“未知”或 <code>dec=deny</code> 的程序整理出来。有签名的按 Team ID 或包放行，没签名的按哈希或路径放行。</li>
+    <li>切到拦截模式。Mac 上如果是自己一个人用，直接选 Standalone，新程序弹窗批准。</li>
+    <li>留一条回退路径：知道怎么用本地命令切回观察模式，避免锁死系统。</li>
+  </ol>
+  <div class="warn"><b>风险</b>白名单不全就切拦截，最先坏的是系统更新、编译工具链和包管理器的安装脚本。开发机上 brew、cargo、npm 不停产生新程序，维护成本高；固定用途的服务器上效果最好。</div>
+
+  <h3 id="rollout-extra">白名单之外还要什么</h3>
+  <p>白名单只回答“这个程序能不能启动”。被放行的程序做了什么，它不看。<code>curl … | bash</code>、<code>python -c</code>、被利用的浏览器，都在白名单之内。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">系统</th><th scope="col">白名单</th><th scope="col">配一个行为检测</th><th scope="col">配一个状态检查</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">macOS</th><td>Santa</td><td>BlockBlock（盯开机自启项）</td><td>osquery 或 KnockKnock</td></tr>
+        <tr><th scope="row">Linux</th><td>fapolicyd</td><td>Falco 或 Tetragon</td><td>osquery、AIDE</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>以上都能单机运行，告警写本地日志或 journald。</p>
+
+  <h2 id="sources">五、方法与来源</h2>
+  <p>2026-11-15 读取 Santa、fapolicyd、Tetragon 的官方文档和仓库首页，核对模式、规则类型、信任来源、拦截动作。IMA、KubeArmor 和行为检测工具的描述来自以往对这些项目的了解，没有在本次逐项重读，相关处已标“待确认”。没有在真机上运行任何命令，也没有查各项目最新版本号和发布日期。</p>
+  <ol class="sources">
+    <li id="src-1">North Pole Security，Santa 文档《Binary Authorization》，<a href="https://northpole.dev/features/binary-authorization/" target="_blank" rel="noopener">northpole.dev/features/binary-authorization</a></li>
+    <li id="src-2">GitHub，northpolesec/santa 仓库首页，<a href="https://github.com/northpolesec/santa" target="_blank" rel="noopener">github.com/northpolesec/santa</a></li>
+    <li id="src-3">GitHub，linux-application-whitelisting/fapolicyd 仓库 README，<a href="https://github.com/linux-application-whitelisting/fapolicyd" target="_blank" rel="noopener">github.com/linux-application-whitelisting/fapolicyd</a></li>
+    <li id="src-4">Tetragon 文档《Enforcement》，<a href="https://tetragon.io/docs/concepts/enforcement/" target="_blank" rel="noopener">tetragon.io/docs/concepts/enforcement</a></li>
+    <li id="src-5">Tetragon 文档《Selectors》，<a href="https://tetragon.io/docs/concepts/tracing-policy/selectors/" target="_blank" rel="noopener">tetragon.io/docs/concepts/tracing-policy/selectors</a></li>
+    <li id="src-6">Linux IMA 项目 wiki，<a href="https://sourceforge.net/p/linux-ima/wiki/Home/" target="_blank" rel="noopener">sourceforge.net/p/linux-ima/wiki</a></li>
+    <li id="src-7">GitHub，kubearmor/KubeArmor 仓库，<a href="https://github.com/kubearmor/KubeArmor" target="_blank" rel="noopener">github.com/kubearmor/KubeArmor</a></li>
+  </ol>
+</main>
+</div>
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>
