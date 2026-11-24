@@ -11,10 +11,13 @@
   <section class="home-section">
     <h2>精选 · <a href="/featured/">全部</a></h2>
     <ul class="home-list">
+      {{/* Newest first, the same order as the other sections. */}}
+      {{ $featured := slice }}
       {{ range $site.Data.featured.home }}
-        {{ with index (where $site.RegularPages "Params.slug" .) 0 }}
-          <li><span class="post-date">{{ .Date.Format "2006-01-02" }}</span><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
-        {{ end }}
+        {{ with index (where $site.RegularPages "Params.slug" .) 0 }}{{ $featured = $featured | append . }}{{ end }}
+      {{ end }}
+      {{ range sort $featured "Date" "desc" }}
+        <li><span class="post-date">{{ .Date.Format "2006-01-02" }}</span><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
       {{ end }}
     </ul>
   </section>

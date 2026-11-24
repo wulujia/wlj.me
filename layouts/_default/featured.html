@@ -5,9 +5,13 @@
   {{ range .Site.Data.featured.groups }}
     <h2>{{ .name }}</h2>
     <ul class="featured-list">
+      {{/* Newest first within each group. */}}
+      {{ $pages := slice }}
       {{ range .slugs }}
-        {{ $slug := . }}
-        {{ with index (where $site.RegularPages "Params.slug" $slug) 0 }}
+        {{ with index (where $site.RegularPages "Params.slug" .) 0 }}{{ $pages = $pages | append . }}{{ end }}
+      {{ end }}
+      {{ range sort $pages "Date" "desc" }}
+        {{ with . }}
           <li>
             <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
             <span class="post-date">{{ .Date.Format "2006-01" }}</span>
