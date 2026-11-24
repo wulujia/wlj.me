@@ -15,7 +15,7 @@ slugs = ["understand-github", "understanding-gray-areas", "ai-agent-slimming", "
 
 [[groups]]
 name = "生活与阅读"
-slugs = ["twelve-questions-for-2025", "twelve-questions-end-of-2025", "love", "photography", "thoughts-on-reading", "best-books-of-five-years", "scifi-heavenly-book"]
+slugs = ["twelve-questions-for-2025", "12q1y-2025", "love", "photography", "thoughts-on-reading", "best-books-of-five-years", "scifi-heavenly-book"]
 
 [[groups]]
 name = "读别人的公司"

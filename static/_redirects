@@ -350,3 +350,15 @@
 /reading/* /research/:splat 301
 # The home page no longer has page numbers (2026-11-24). Its old pages had the same posts as /posts/.
 /page/* /posts/page/:splat 301
+
+# Duplicate posts removed on 2026-11-24; each copy redirects to the post that stays.
+/posts/love-simple-longterm/ /posts/love/ 301
+/posts/love-simple-longterm /posts/love/ 301
+/posts/twelve-questions-end-of-2025/ /posts/12q1y-2025/ 301
+/posts/twelve-questions-end-of-2025 /posts/12q1y-2025/ 301
+/posts/blog-xfocus-2602/ /posts/blog-xfocus-2591/ 301
+/posts/blog-xfocus-2602 /posts/blog-xfocus-2591/ 301
+/posts/i170-1824/ /posts/blog-xfocus-750/ 301
+/posts/i170-1824 /posts/blog-xfocus-750/ 301
+/posts/i170-57437/ /posts/blog-xfocus-2467/ 301
+/posts/i170-57437 /posts/blog-xfocus-2467/ 301
