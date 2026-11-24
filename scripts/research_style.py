@@ -177,6 +177,8 @@ def sync(html):
             raise ValueError(f'Expected one {name} block or marker')
     header, footer = site_chrome()
     html = re.sub(OLD_THEME_RE, '', html, flags=re.S)
+    # Pagefind indexes only elements marked data-pagefind-body.
+    html = re.sub(r'<main id="main"(?![^>]*data-pagefind-body)', '<main id="main" data-pagefind-body', html, count=1)
     html, count = re.subn(HEADER_RE, lambda match: header, html, flags=re.S)
     if count == 0:
         if html.count(SKIP_LINK) != 1:

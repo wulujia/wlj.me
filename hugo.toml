@@ -108,6 +108,11 @@ enableRobotsTXT = true
     name = "关于"
     url = "/about/"
     weight = 80
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 90
 
 [outputs]
   home = ["HTML", "RSS", "LLMS", "LLMSFULL"]

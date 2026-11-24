@@ -2,6 +2,8 @@
 
 ## 2026-11-24
 
+- 站内搜索：新增 `/search/`（`content/search/index.md` + `layouts/_default/search.html`，Pagefind UI，按站点配色，noindex），菜单加“搜索”。索引只收文章、笔记、创业笔记和研究页：这些页面的正文容器加 `data-pagefind-body`（`_default/single.html`、`notes/single.html`、`startupnotes/single.html`；研究页由 `research_style.py --sync` 加在 `<main>` 上，模板同步改），列表、标签和首页不进索引。Cloudflare Pages 项目 wlj-me 的构建命令末尾加 `npx -y pagefind@1.6.0 --site public`，在 Hugo 之后生成 `/pagefind/`。
+- Cloudflare 设置（不在仓库里）：新增 `www.wulujia.com`（A 记录 192.0.2.1，代理）和 Page Rule `www.wulujia.com/*` → `https://wulujia.com/$1`（301）；`blog.wulujia.com/*` 改为直接跳 `https://wulujia.com/posts/$1`；wulujia.com 开启 HSTS（6 个月，不含子域名，不预加载）；wlj.me 新增 Page Rules `wlj.me/reading/*` → `https://wulujia.com/research/$1`、`wlj.me/*` → `https://wulujia.com/$1`，`www.wlj.me/*` 改为直接跳 `https://wulujia.com/$1`，均为 301。
 - 图片替代文字：文章和笔记里 277 张 `![]()` 和 19 个没有 alt 的 `<img>` 补上 alt，用所在文章或笔记的标题加“配图 N”。构建产物里 Hugo 页面不再有缺 alt 的图片。notes 机器人（social-poster 1.4.6）以后发布时也这样写，并把长边超过 1600px 的图片缩小。
 - 三张 2–3 MB 的笔记照片缩到长边 1600px（0.6–0.8 MB）。旧百度博客等 75 张 `http://` 图片里，只有 1 张在 Wayback 有存档，已换成存档地址；其余 74 张原站和存档都没有，保留原样。
 - 仓库根目录整理：2026-05 的 SEO 工作记录 `findings.md`、`progress.md`、`task_plan.md` 移到 `docs/20260502-seo-*.md`；一次性的 `retag.py` 和 `retag_report.csv` 移到 `scripts/`。

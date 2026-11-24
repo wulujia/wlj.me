@@ -570,3 +570,13 @@ html, body {
   border: 0 !important; padding: 0 0 0 1.4em; margin: 1.2em 0; color: var(--foreground); opacity: .85;
 }
 .post-content blockquote::before, .note-body blockquote::before { content: none; }
+/* Search page (Pagefind UI) in the site colours. */
+.site-search {
+  --pagefind-ui-primary: var(--link);
+  --pagefind-ui-text: var(--foreground);
+  --pagefind-ui-background: var(--background);
+  --pagefind-ui-border: var(--muted);
+  --pagefind-ui-tag: var(--background);
+  --pagefind-ui-font: inherit;
+  margin-top: 10px;
+}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <h1 class="page-title page-title--hidden">{{ .Title }}</h1>
+  {{/* Pagefind builds /pagefind/ after Hugo, in the Cloudflare build command. */}}
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+  <div id="site-search" class="site-search"></div>
+  <noscript><p>搜索需要 JavaScript。也可以用<a href="/archives/">归档</a>或<a href="/tags/">标签</a>找文章。</p></noscript>
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (!window.PagefindUI) return;
+      new PagefindUI({ element: '#site-search', showSubResults: true, showImages: false, autofocus: true,
+        translations: { placeholder: '搜索文章、笔记、创业笔记和研究', zero_results: '没有找到“[SEARCH_TERM]”', many_results: '[COUNT] 条结果', one_result: '1 条结果', load_more: '更多结果' } });
+    });
+  </script>
+{{ end }}
