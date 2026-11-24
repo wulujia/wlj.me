@@ -1,4 +1,4 @@
-# wlj.me
+# wlj.me 仓库（网站 wulujia.com）
 
 Hugo 博客，Cloudflare Pages 托管（推送 main 后自动构建），Terminal 主题。
 

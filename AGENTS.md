@@ -1,4 +1,4 @@
-# wlj.me Agent 工作规范
+# wlj.me 仓库（网站 wulujia.com）Agent 工作规范
 
 本文件给 Codex、Claude Code 和其他 agent 使用。优先级：用户当前指令 > 本文件 > `CLAUDE.md` > README。
 
@@ -18,7 +18,7 @@
 ## SEO / GEO 规则
 
 - `hugo.toml`、`layouts/partials/head.html`、`layouts/partials/seo/*`、`layouts/sitemap.xml`、`layouts/robots.txt`、`layouts/index.LLMS.txt`、`layouts/index.LLMSFULL.txt` 是 SEO / GEO 核心文件，改动前先读。
-- 首页、`/posts/`、文章页、`/about/`、`/archives/` 是默认可索引页面。
+- 首页、`/posts/`、文章页、`/startupnotes/` 及其文章页、`/about/`、`/archives/`、`/research/` 及研究页是默认可索引页面。
 - `/notes/`、note 单页、tags、categories、分页页默认 `noindex,follow`，不要轻易改成 index。
 - sitemap 只放可索引页面，不放 notes、tags、categories、分页页、redirect、404。
 - `llms.txt` 和 `llms-full.txt` 由 Hugo 自动生成，不要手写静态版本。
