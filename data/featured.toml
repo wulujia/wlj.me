@@ -3,7 +3,7 @@ home = ["shiguredo-company-docs", "small-beautiful-hard-easy", "zsxq-nine-years"
 
 [[groups]]
 name = "创业与小而美"
-slugs = ["shiguredo-company-docs", "small-beautiful-hard-easy", "thinking-small-and-beautiful", "zsxq-nine-years", "zsxq-ten-years", "zsxq-finding-pmf", "20260427-yc-ai-native-company-from-scratch", "yc-ai-startup-ideas", "cofounder-discussion-checklist", "hacker-mindset", "tokyo-trip-log"]
+slugs = ["shiguredo-company-docs", "small-beautiful-hard-easy", "thinking-small-and-beautiful", "zsxq-nine-years", "zsxq-ten-years", "zsxq-finding-pmf", "20260427-yc-ai-native-company-from-scratch", "yc-ai-startup-ideas", "cofounder-discussion-checklist", "hacker-mindset", "tokyo-trip-log", "a-20-year-old-small-company", "zsxq", "seven-years-paid-community"]
 
 [[groups]]
 name = "AI 与产品"
@@ -15,4 +15,4 @@ slugs = ["gbrain-multi-device", "ai-agent-slimming", "lobster-assistant-for-fami
 
 [[groups]]
 name = "生活与阅读"
-slugs = ["ai-analyze-apple-watch-data", "oscar-cpap-data-analysis", "best-books-of-five-years", "twelve-questions-end-of-2025", "scifi-heavenly-book"]
+slugs = ["ai-analyze-apple-watch-data", "oscar-cpap-data-analysis", "best-books-of-five-years", "twelve-questions-end-of-2025", "scifi-heavenly-book", "twelve-questions-for-2025", "12q1y", "values", "love", "photography"]
