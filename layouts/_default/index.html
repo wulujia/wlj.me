@@ -5,68 +5,55 @@
       {{ .Content }}
     </div>
   {{ end }}
-  {{ with .Site.Data.featured.home }}
-    <div class="featured-home">
-      <h2>精选 · <a href="/featured/">全部</a></h2>
-      <ul>
-        {{ $site := $.Site }}
-        {{ range . }}
-          {{ with index (where $site.RegularPages "Params.slug" .) 0 }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
-          {{ end }}
+  {{ $site := .Site }}
+
+  {{/* The home page shows the newest part of each section. Each section links to its full list. */}}
+  <section class="home-section">
+    <h2>精选 · <a href="/featured/">全部</a></h2>
+    <ul class="home-list">
+      {{ range $site.Data.featured.home }}
+        {{ with index (where $site.RegularPages "Params.slug" .) 0 }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
         {{ end }}
-      </ul>
-    </div>
-  {{ end }}
-  <div class="posts">
-    {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
-    {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
+      {{ end }}
+    </ul>
+  </section>
 
-    {{ $PageContext := . }}
-    {{ if .IsHome }}
-      {{ $PageContext = .Site }}
-    {{ end }}
-    {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
+  <section class="home-section">
+    <h2>日志 · <a href="/posts/">全部</a></h2>
+    <ul class="home-list">
+      {{ range first 8 (where $site.RegularPages "Section" "posts") }}
+        <li><span class="post-date">{{ .Date.Format "2006-01-02" }}</span><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
 
-    {{ range $paginator.Pages }}
-      <article class="post on-list">
-        <h2 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-        </h2>
+  <section class="home-section">
+    <h2>研究 · <a href="/research/">全部</a></h2>
+    <ul class="home-list">
+      {{ $materials := where (index (index $site.Data "research-materials") "materials") "noindex" "!=" true }}
+      {{ range first 6 (sort $materials "date" "desc") }}
+        <li><span class="post-date">{{ substr .date 0 10 }}</span><a href="{{ .research_url }}">{{ .title }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
 
-        <div class="post-meta">
-          {{- if .Date -}}
-            <time class="post-date">
-              {{- partial "post-date" . -}}
-            </time>
-          {{- end -}}
-          {{- with .Params.Author -}}
-            <span class="post-author">{{ . }}</span>
-          {{- end -}}
-        </div>
+  <section class="home-section">
+    <h2>笔记 · <a href="/notes/">全部</a></h2>
+    <ul class="home-list">
+      {{ range first 5 (where $site.RegularPages "Section" "notes") }}
+        <li><span class="post-date">{{ .Date.Format "2006-01-02" }}</span><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
 
-        {{ if .Params.tags }}
-          <span class="post-tags">
-            {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
-              {{- . -}}
-            </a>&nbsp;
-            {{ end }}
-          </span>
-        {{ end }}
-
-        {{ partial "cover.html" . }}
-
-        <div class="post-content">
-          <p>{{ .Plain | truncate 200 }}</p>
-        </div>
-
-        <div>
-          <a class="read-more button inline" href="{{ .RelPermalink }}">[阅读全文]</a>
-        </div>
-      </article>
-    {{ end }}
-
-    {{ partial "pagination.html" . }}
-  </div>
+  <section class="home-section">
+    <h2>创业笔记 · <a href="/startupnotes/">全部</a></h2>
+    <ul class="home-list">
+      {{/* Sort by note number: many notes share one backfilled date. */}}
+      {{ range first 5 (sort (where $site.RegularPages "Section" "startupnotes") "Params.note_number" "desc") }}
+        <li><span class="post-date">{{ .Date.Format "2006-01-02" }}</span><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
 {{ end }}

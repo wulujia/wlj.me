@@ -531,3 +531,11 @@ blockquote::before {
 .menu__dropdown a[aria-current="page"] {
   border-bottom: 1px solid currentColor;
 }
+
+/* --- Home page: the newest part of each section --- */
+.home-section { margin: 0 0 2.2rem; }
+.home-section h2 { margin: 0 0 0.8rem; }
+.home-list { list-style: none; margin: 0; padding: 0; }
+.home-list li { padding: 2px 0; line-height: 1.6; }
+.home-list li::before { content: none; }
+.home-list .post-date { margin-right: 10px; }
