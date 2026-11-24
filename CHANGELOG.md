@@ -2,6 +2,7 @@
 
 ## 2026-11-24
 
+- 站名条头像移到绿色框外、框的左边，34px 圆形，与框同高；新增 `static/avatar.png`（136×136），裁切让脸居中、眼睛略高于圆心。浏览器标签页图标 `favicon.png` 不变。Hugo 页面改 `layouts/partials/logo.html`，研究页改 `scripts/research_style.py` 和 `reading.css`，95 个研究页已同步。
 - 新增资料页《Mac 与 Linux 单机白名单 HIDS 选型》，`static/research/hids-allowlist/index.html`。不依赖管理服务器、能按白名单拦截程序执行的开源主机防护工具，macOS 与 Linux 各有哪些选择，怎么上线。
 - 新增资料页《活动平台、会务软件与线下连接行业研究》，`static/research/events-offline-connections/index.html`。活动行、Luma 等活动平台与线下连接公司的业务、融资、收入及网页流量研究。结合 Articuler 案例，评估知识星球的产品机会与试验方案。资料截至 2026 年 10 月 30 日。
 - 站名条里加头像：文章、笔记等 Hugo 页面（`layouts/partials/logo.html`，覆盖主题模板）和研究页（`scripts/research_style.py` 生成的页眉，93 个页面已同步）在“Luca's Blog”前显示 24px 圆形头像，图片用 `/favicon.png`，alt 为“Luca 的头像”。主题给所有 img 加了外边距、8px 边框和内边距，头像的样式直接写在 img 上覆盖这些规则，预览环境也能正确显示。

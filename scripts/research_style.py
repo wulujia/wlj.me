@@ -70,7 +70,7 @@ def site_chrome():
         current = ' aria-current="page"' if item['url'] == '/research/' else ''
         links.append(f'<li><a href="{escape(item["url"])}"{current}>{escape(item["name"])}</a></li>')
     header = ('<header class="site-header" id="site-header">\n'
-              f'<div class="site-logo-bar"><a href="/"><span class="site-logo"><img class="site-logo__avatar" src="/favicon.png" alt="Luca 的头像" width="24" height="24">{escape(logo)}</span></a></div>\n'
+              f'<div class="site-logo-bar"><a href="/"><img class="site-logo__avatar" src="/avatar.png" alt="Luca 的头像" width="34" height="34"><span class="site-logo">{escape(logo)}</span></a></div>\n'
               '<nav class="site-menu" aria-label="站点导航"><ul>\n' + '\n'.join(links) + '\n</ul></nav>\n</header>')
     # No year in the footer, so the pages do not go out of date every January.
     footer = ('<footer class="site-footer" id="site-footer">\n'
