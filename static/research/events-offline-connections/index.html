@@ -1,0 +1,1442 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>活动平台、会务软件与线下连接行业研究</title>
+<meta name="description" content="活动行、Luma 等活动平台与线下连接公司的业务、融资、收入及网页流量研究。结合 Articuler 案例，评估知识星球的产品机会与试验方案。资料截至 2026 年 10 月 30 日。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wulujia.com/research/events-offline-connections/">
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; text-decoration: none; }
+.site-logo__avatar { display: block; width: 24px; height: 24px; border-radius: 50%; margin-right: 8px; flex: 0 0 auto; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><span class="site-logo"><img class="site-logo__avatar" src="/favicon.png" alt="Luca 的头像" width="24" height="24">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+</ul></nav>
+</header>
+<div class="layout">
+<nav aria-label="目录" class="outline"><p class="label">内容目录</p><details><summary>展开目录</summary><ul><li><a href="#section-1">研究判断</a></li><li><a href="#section-2">数据范围与口径</a></li><li><a href="#section-3">行业地图：同样是办活动，收的钱不同</a></li><li><a href="#web-traffic">官网流量：能看使用规模，不能直接当作用户数</a><ul><li><a href="#section-5">同期可比数据：2026 年 9 月网页访问次数</a></li><li><a href="#addition-5">补齐的月访问量：活动行、Timeleft 与其他公司</a></li><li><a href="#addition-6">历史流量与待复核的期间</a></li><li><a href="#section-7">Luma 的例子：同一产品也会有两套答案</a></li><li><a href="#section-8">流量与用户使用，差在哪里</a></li><li><a href="#section-9">对知识星球的判断应如何调整</a></li></ul></li><li><a href="#section-10">活动行：国内必须研究的直接参照</a><ul><li><a href="#section-11">创始人、主体和融资</a></li><li><a href="#section-12">生意从票务延伸到企业服务</a></li><li><a href="#section-13">收入、利润与员工：已知信息的边界</a></li><li><a href="#section-14">对知识星球的意义</a></li></ul></li><li><a href="#section-15">Luma：小团队的软件经营样本</a><ul><li><a href="#section-16">起点与团队</a></li><li><a href="#section-17">收费机制</a></li><li><a href="#section-18">产品优势与限制</a></li></ul></li><li><a href="#section-19">Eventbrite：规模可观，净利润仍承压</a></li><li><a href="#section-20">Meetup：持续社群比单场活动更接近需求</a></li><li><a href="#section-21">Timeleft：为组局与匹配直接收费</a></li><li><a href="#section-22">Cvent、Bizzabo 与 31会议：企业预算能形成更大业务</a><ul><li><a href="#section-23">Cvent</a></li><li><a href="#section-24">Bizzabo</a></li><li><a href="#section-25">31会议</a></li></ul></li><li><a href="#section-26">其他应关注的公司</a></li><li><a href="#section-27">两个需要单独看的反例</a><ul><li><a href="#section-28">Lunchclub：算法匹配不自动带来长期使用</a></li><li><a href="#section-29">Hopin：资产售价与公司估值必须分开</a></li></ul></li><li><a href="#section-30">主办方能赚更多钱，但经营方式不同</a></li><li><a href="#articuler">Articuler：在已有活动中推荐应该认识的人</a><ul><li><a href="#addition-31">产品切入点与经营证据</a></li><li><a href="#addition-32">最值得借鉴的设计</a></li><li><a href="#addition-33">哪些判断仍需核实</a></li><li><a href="#addition-34">对试验设计的具体修正</a></li></ul></li><li><a href="#section-31">知识星球的机会与限制</a><ul><li><a href="#section-32">最值得验证的优势：已有的关系信息</a></li><li><a href="#section-33">最难的约束：双方都愿意见面</a></li><li><a href="#section-34">城市密度比全国用户数更重要</a></li><li><a href="#section-35">真正的竞争对手包括现有组织方法</a></li><li><a href="#section-36">星主关系会限制跨社群扩张</a></li></ul></li><li><a href="#section-37">产品方向判断</a></li><li><a href="#section-38">收入模型：分别计算软件与组织服务</a><ul><li><a href="#section-39">票务抽成的规模要求</a></li><li><a href="#section-40">三种收入达到同一规模所需的用户量</a></li><li><a href="#section-41">六人小组的示例成本</a></li></ul></li><li><a href="#section-42">建议的 8 周验证</a><ul><li><a href="#section-43">范围与预算</a></li><li><a href="#section-44">试验步骤与检查</a></li><li><a href="#section-45">成功标准</a></li></ul></li><li><a href="#section-46">立项前仍需补齐的数据</a></li><li><a href="#section-47">研究记录</a></li><li><a href="#section-48">方法与来源</a></li></ul></details></nav>
+<main id="main"><div class="reading-toolbar"><a href="/research/">返回研究</a><button type="button" onclick="window.print()">打印／存为 PDF</button></div><header><p class="eyebrow">行业研究 · 更新于 2026-10-30</p><h1>活动平台、会务软件与线下连接行业研究</h1><p class="lede">知识星球是否值得做一个新产品，帮助成员在线下遇见“应该认识的人”？</p><p class="meta">首版：2026 年 10 月 29 日。更新：10 月 30 日。流量采集：10 月 29—30 日，统计月份逐项标注。发布：2026 年 11 月 24 日。</p></header><div class="summary"><p class="label">研究建议</p><p><strong>值得用 8 周验证，暂不值得直接投入一个全国性独立 App。</strong></p><p>先在星主已有的活动内验证会前推荐与介绍。小聚单独验证组队质量。用实际交谈、后续联系、付费复用和贡献利润，决定是否继续投入。</p><p><a href="#articuler">新增：Articuler 案例</a> · <a href="#section-42">修订：8 周验证</a> · <a href="#web-traffic">官网流量</a></p></div>
+
+<h2 id="section-1">研究判断</h2>
+<p><strong>值得用 8 周验证，暂不值得直接投入一个全国性独立 App。</strong></p>
+<p>最适合知识星球的切入点，是星主已有的同城活动。先为自愿参加的成员提供会前推荐与介绍。星主或召集人提供信任和组织能力。小型聚会则用于单独验证组队质量和复购。</p>
+<p>建议借鉴 Luma 的低成本组织工具、Meetup 的持续社群，以及 Timeleft 的固定见面节奏。知识星球还需要单独验证一个问题：已有的内容和社群关系，能否提高线下连接质量。</p>
+<p>不建议优先做综合活动搜索、会务外包、会场采购，也不建议承诺“算法帮你认识贵人”。这些方向分别需要流量、现场交付或持续供应高需求人群。知识星球现有的社群关系，不能自动替代这些能力。</p>
+<p>本研究支持小规模验证的依据有三项：</p>
+<ul>
+<li>Luma 的公开材料支持小团队经营活动软件。2026 年报道披露其 7 人团队和八位数 ARR。创始人另称公司已盈利。<a href="https://www.inc.com/rebecca-deczynski/meet-the-seven-person-startup-powering-silicon-valleys-event-boom/91408964" rel="noopener noreferrer" target="_blank">Inc. 报道</a>、<a href="https://www.linkedin.com/in/vpontis" rel="noopener noreferrer" target="_blank">创始人公开招聘信息</a></li>
+<li>Timeleft 官网列出 €1,800 万 ARR。用户为组局和匹配付费，餐饮另付。这提供了直接为见面服务收费的样本。<a href="https://timeleft.com/careers" rel="noopener noreferrer" target="_blank">招聘页</a>、<a href="https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work" rel="noopener noreferrer" target="_blank">服务说明</a></li>
+<li>行业也有明确反例。Eventbrite 的规模没有带来稳定净利润。融资和注册量均不足以证明连接业务成立。<a href="https://www.sec.gov/Archives/edgar/data/1475115/000147511526000005/eb-20251231.htm" rel="noopener noreferrer" target="_blank">Eventbrite 年报</a></li>
+</ul>
+<p>上述是本研究的判断，不代表知识星球已经决定立项。</p>
+<h2 id="section-2">数据范围与口径</h2>
+<p>这是一份公开资料研究。未访谈企业管理层，未取得私营公司的内部财务报表，也未读取知识星球的经营数据库。</p>
+<p>证据分为四类：</p>
+<div aria-label="数据范围与口径数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>数据范围与口径 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">标记</th>
+<th scope="col">含义</th>
+<th scope="col">用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">财报</th>
+<td>监管文件、上市公司财报</td>
+<td>财务判断的主要依据</td>
+</tr>
+<tr>
+<th scope="row">自述</th>
+<td>公司官网、创始人发言、官方公告</td>
+<td>能证明公司这样披露，不能替代审计</td>
+</tr>
+<tr>
+<th scope="row">报道</th>
+<td>媒体采访、融资报道</td>
+<td>保留原日期和口径</td>
+</tr>
+<tr>
+<th scope="row">估计</th>
+<td>数据库人数区间、模型推算</td>
+<td>只作线索，不据此确认收入或利润</td>
+</tr>
+</tbody>
+</table></div>
+<p>“未查到”表示本次没有取得可靠公开数据，不表示收入为零。历史融资不是当前估值。注册人数不是活跃人数。报名人次也不是独立用户数。</p>
+<p>GMV 指平台经手的交易总额。收入指公司确认的营业收入。ARR 指年度经常性收入指标，不能直接当作已确认的全年收入。部分活动公司使用 ARR 时，未说明是否包含票务手续费的年化估算。</p>
+<p>净利润、营业利润和调整后 EBITDA 分开列示。调整后 EBITDA 通常排除部分费用，不能当作净利润。</p>
+<p>员工人数保留日期。招聘网站的规模区间，不能等同于实际在岗人数。并购后的产品团队，也不能直接使用母公司人数。</p>
+<h2 id="section-3">行业地图：同样是办活动，收的钱不同</h2>
+<div aria-label="行业地图：同样是办活动，收的钱不同数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>行业地图：同样是办活动，收的钱不同 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">业务类型</th>
+<th scope="col">代表公司</th>
+<th scope="col">谁付钱</th>
+<th scope="col">主要购买内容</th>
+<th scope="col">对知识星球的参考价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">活动发布与票务</th>
+<td>活动行、Luma、Eventbrite、Peatix、Ticket Tailor</td>
+<td>主办方或购票者</td>
+<td>报名、收款、通知、验票</td>
+<td>必要基础功能，差异较小</td>
+</tr>
+<tr>
+<th scope="row">持续社群</th>
+<td>Meetup</td>
+<td>组织者，也有成员付费</td>
+<td>找成员、管理社群、反复办活动</td>
+<td>关注组织者留存和城市密度</td>
+</tr>
+<tr>
+<th scope="row">社交邀请</th>
+<td>Partiful</td>
+<td>付费票用户、购买增值项目者</td>
+<td>邀请、来宾互动、票务</td>
+<td>研究活动如何传播</td>
+</tr>
+<tr>
+<th scope="row">陌生人小组见面</th>
+<td>Timeleft</td>
+<td>参加者</td>
+<td>匹配、组局、预订、固定节奏</td>
+<td>最接近直接为连接付费</td>
+</tr>
+<tr>
+<th scope="row">职业人员匹配</th>
+<td>Lunchclub</td>
+<td>历史上先扩张用户，商业结果不足</td>
+<td>推荐和安排职业交流</td>
+<td>研究需求不对称和留存风险</td>
+</tr>
+<tr>
+<th scope="row">企业会务软件</th>
+<td>Cvent、Bizzabo、31会议、百格活动</td>
+<td>企业、会议主办方</td>
+<td>全流程管理、客户系统对接、现场服务</td>
+<td>客单价高，但销售和交付较重</td>
+</tr>
+<tr>
+<th scope="row">会中商业匹配</th>
+<td>Swapcard、Brella</td>
+<td>主办方、展商</td>
+<td>约见、线索收集、展商回报</td>
+<td>研究“见到了谁”的测量方法</td>
+</tr>
+<tr>
+<th scope="row">场地与会务采购</th>
+<td>会小二、会唐网、酒店哥哥</td>
+<td>企业、酒店、供应商</td>
+<td>找场地、报价、执行</td>
+<td>与轻软件经营方式距离较远</td>
+</tr>
+<tr>
+<th scope="row">文娱体验分销</th>
+<td>Fever</td>
+<td>消费者、合作主办方</td>
+<td>发现和购买体验</td>
+<td>研究供给和获客，连接目标不同</td>
+</tr>
+<tr>
+<th scope="row">展会与会议主办</th>
+<td>Informa、RX</td>
+<td>展商、赞助商、参会者</td>
+<td>接触行业买家和专业人群</td>
+<td>展示稀缺人群带来的商业价值</td>
+</tr>
+</tbody>
+</table></div>
+<p>后文重点覆盖前九类的公司。大麦、Ticketmaster 等大型演出票务平台属于相邻市场。它们处理的供给、票价和履约关系不同，不宜直接用于推算小型社群聚会。</p>
+<h2 id="web-traffic">官网流量：能看使用规模，不能直接当作用户数</h2>
+<p><strong>官网流量值得看，但它只覆盖网页使用的一部分。</strong> 对 Luma、Eventbrite 这类网页报名产品，访问量与使用规模有较强联系。对 App、小程序或企业私有系统，单看官网容易漏掉核心使用。</p>
+<p>这里的“官网流量”指域名范围的网页访问。它通常包含活动详情、报名、管理和帮助页面。它不是只统计公司介绍首页，也不是公司的全部产品使用。</p>
+<h3 id="section-5">同期可比数据：2026 年 9 月网页访问次数</h3>
+<p>下表采用 Semrush 的全球、全部设备口径。全部设备指桌面网页和移动网页，不代表原生 App。单位为万次访问，均为第三方估计。采集日为 2026 年 10 月 29 日。最新月份放在前面；窄屏可左右滑动表格。</p>
+<div aria-label="同期可比数据：2026 年 9 月网页访问次数数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>同期可比数据：2026 年 9 月网页访问次数 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">产品与统计域名</th>
+<th scope="col" style="text-align: right;">9 月（万次）</th>
+<th scope="col" style="text-align: right;">8 月（万次）</th>
+<th scope="col" style="text-align: right;">7 月（万次）</th>
+<th scope="col" style="text-align: right;">9 月环比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Eventbrite · eventbrite.com</th>
+<td style="text-align: right;">5,413</td>
+<td style="text-align: right;">4,681</td>
+<td style="text-align: right;">5,016</td>
+<td style="text-align: right;">+15.63%</td>
+</tr>
+<tr>
+<th scope="row">Fever · feverup.com</th>
+<td style="text-align: right;">2,608</td>
+<td style="text-align: right;">2,524</td>
+<td style="text-align: right;">2,370</td>
+<td style="text-align: right;">+3.30%</td>
+</tr>
+<tr>
+<th scope="row">Partiful · partiful.com</th>
+<td style="text-align: right;">2,529</td>
+<td style="text-align: right;">2,065</td>
+<td style="text-align: right;">1,880</td>
+<td style="text-align: right;">+22.46%</td>
+</tr>
+<tr>
+<th scope="row">Luma · luma.com</th>
+<td style="text-align: right;">1,898</td>
+<td style="text-align: right;">1,414</td>
+<td style="text-align: right;">1,427</td>
+<td style="text-align: right;">+34.26%</td>
+</tr>
+<tr>
+<th scope="row">Meetup · meetup.com</th>
+<td style="text-align: right;">972</td>
+<td style="text-align: right;">999</td>
+<td style="text-align: right;">1,113</td>
+<td style="text-align: right;">−2.66%</td>
+</tr>
+<tr>
+<th scope="row">Ticket Tailor · tickettailor.com</th>
+<td style="text-align: right;">841</td>
+<td style="text-align: right;">697</td>
+<td style="text-align: right;">747</td>
+<td style="text-align: right;">+20.72%</td>
+</tr>
+<tr>
+<th scope="row">Cvent · cvent.com</th>
+<td style="text-align: right;">524</td>
+<td style="text-align: right;">507</td>
+<td style="text-align: right;">550</td>
+<td style="text-align: right;">+3.47%</td>
+</tr>
+</tbody>
+</table></div>
+<p>来源：<a href="https://www.semrush.com/website/eventbrite.com/overview/" rel="noopener noreferrer" target="_blank">Eventbrite 流量</a>、<a href="https://www.semrush.com/website/feverup.com/overview/" rel="noopener noreferrer" target="_blank">Fever 流量</a>、<a href="https://www.semrush.com/website/partiful.com/overview/?source=trending-websites" rel="noopener noreferrer" target="_blank">Partiful 流量</a>、<a href="https://www.semrush.com/website/luma.com/overview/" rel="noopener noreferrer" target="_blank">Luma 流量</a>、<a href="https://fr.semrush.com/website/meetup.com/overview/" rel="noopener noreferrer" target="_blank">Meetup 流量</a>、<a href="https://www.semrush.com/website/tickettailor.com/overview/" rel="noopener noreferrer" target="_blank">Ticket Tailor 流量</a>、<a href="https://www.semrush.com/website/cvent.com/overview/" rel="noopener noreferrer" target="_blank">Cvent 流量</a>。环比采用来源原值；访问量经过四舍五入，两者会有细小差异。</p>
+<p>这张表支持三项判断：</p>
+<ul>
+<li>Luma 和 Partiful 的网页使用已达到较大规模。它们适合研究活动分享与报名流程。</li>
+<li>Meetup 的 7—9 月访问量下降。这只是三个月的网页变化，不能据此断言收入或整个产品衰退。</li>
+<li>Cvent 的网页访问次数低于上述消费产品。它面向企业收费，不能因此判断业务规模较小。</li>
+</ul>
+<p>三个月仍不足以排除活动季节性。判断持续增长，应补齐至少 12 个月，并比较同月同比。</p>
+<h3 id="addition-5">补齐的月访问量：活动行、Timeleft 与其他公司</h3>
+<p>2026 年 10 月 30 日补查后，原表中 9 家公司的缺项都有了数值。活动行与 Timeleft 已核到 9 月。另 7 家取得月访问估计，但来源未展示统计月份。两组分别列出，不能合并为同月排名。</p>
+<p>下表来自 Similarweb 的 2026 年 9 月报告。口径为全球桌面及移动网页访问。页面日期与访问量字段一并核对。图表展示最近 3 个月走势，不能据图表标题把单月值当作 3 个月合计。</p>
+<div aria-label="补齐的月访问量：活动行、Timeleft 与其他公司数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>补齐的月访问量：活动行、Timeleft 与其他公司 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">产品与域名</th>
+<th scope="col" style="text-align: right;">9 月访问量（万次）</th>
+<th scope="col" style="text-align: right;">来源原值（次）</th>
+<th scope="col" style="text-align: right;">9 月环比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Timeleft · timeleft.com</th>
+<td style="text-align: right;">76.91</td>
+<td style="text-align: right;">769,080</td>
+<td style="text-align: right;">+25.45%</td>
+</tr>
+<tr>
+<th scope="row">活动行 · huodongxing.com</th>
+<td style="text-align: right;">8.03</td>
+<td style="text-align: right;">80,267</td>
+<td style="text-align: right;">−23.15%</td>
+</tr>
+</tbody>
+</table></div>
+<p>来源：<a href="https://www.similarweb.com/website/timeleft.com/" rel="noopener noreferrer" target="_blank">Timeleft 9 月流量</a>、<a href="https://www.similarweb.com/website/huodongxing.com/" rel="noopener noreferrer" target="_blank">活动行 9 月流量</a>。这两项与前表月份相同，但估计机构不同。不要据此计算产品间的精确倍数。Timeleft 的域名估计也不能替代原生 App 活跃。</p>
+<p>活动行另有一项交叉证据。Crunchbase 展示月访问 51,909 次，约 5.19 万次。页面将数据来源链接到 Semrush，但没有展示统计月份。它与 Similarweb 的 8.03 万次均属数万次量级。两者并非已确认的同月测量，也不是误差区间。<a href="https://www.crunchbase.com/organization/huodongxing" rel="noopener noreferrer" target="_blank">活动行月访问补充</a></p>
+<p>以下数字来自 Crunchbase 的 Monthly Web Visits。采集日均为 2026 年 10 月 30 日。公开页没有给出统计月份，因此只用于观察规模。采集日期不等于数据所属月份。</p>
+<div aria-label="补齐的月访问量：活动行、Timeleft 与其他公司数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>补齐的月访问量：活动行、Timeleft 与其他公司 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">产品与统计域名</th>
+<th scope="col" style="text-align: right;">月访问量（万次）</th>
+<th scope="col" style="text-align: right;">来源原值（次）</th>
+<th scope="col">统计月份与使用限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Informa · informa.com</th>
+<td style="text-align: right;">56.38</td>
+<td style="text-align: right;">563,821</td>
+<td>月份未展示；集团网站不覆盖各展会站点</td>
+</tr>
+<tr>
+<th scope="row">百格活动 · bagevent.com</th>
+<td style="text-align: right;">4.40</td>
+<td style="text-align: right;">43,975</td>
+<td>月份未展示；不能代表企业客户总使用</td>
+</tr>
+<tr>
+<th scope="row">RX · rxglobal.com</th>
+<td style="text-align: right;">3.27</td>
+<td style="text-align: right;">32,739</td>
+<td>月份未展示；不能代表各展会的参会规模</td>
+</tr>
+<tr>
+<th scope="row">31会议 · 31huiyi.com</th>
+<td style="text-align: right;">2.83</td>
+<td style="text-align: right;">28,339</td>
+<td>月份未展示；定制部署需单独统计</td>
+</tr>
+<tr>
+<th scope="row">互动吧 · hudongba.com</th>
+<td style="text-align: right;">2.71</td>
+<td style="text-align: right;">27,052</td>
+<td>月份未展示；小程序活跃需另行统计</td>
+</tr>
+<tr>
+<th scope="row">Hopin · hopin.com</th>
+<td style="text-align: right;">1.63</td>
+<td style="text-align: right;">16,311</td>
+<td>月份未展示；仅为旧域名，不是 RingCentral Events 总使用</td>
+</tr>
+<tr>
+<th scope="row">会小二 · huixiaoer.com</th>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">4,711</td>
+<td>月份未展示；不能据此推算询价或成交</td>
+</tr>
+</tbody>
+</table></div>
+<p>逐项来源：<a href="https://www.crunchbase.com/organization/informa-plc" rel="noopener noreferrer" target="_blank">Informa</a>、<a href="https://www.crunchbase.com/organization/bagevent-com" rel="noopener noreferrer" target="_blank">百格活动</a>、<a href="https://www.crunchbase.com/organization/reed-exhibitions" rel="noopener noreferrer" target="_blank">RX</a>、<a href="https://www.crunchbase.com/organization/31huiyi" rel="noopener noreferrer" target="_blank">31会议</a>、<a href="https://www.crunchbase.com/organization/hudongba" rel="noopener noreferrer" target="_blank">互动吧</a>、<a href="https://www.crunchbase.com/organization/hopin-8ff6" rel="noopener noreferrer" target="_blank">Hopin / RingCentral Events</a>、<a href="https://www.crunchbase.com/organization/huixiaoer" rel="noopener noreferrer" target="_blank">会小二</a>。这里采用的是公开页展示的月访问字段。未将同页的营收估计、人员区间或广告价值带入本报告。</p>
+<p>这些数字改变了“没有外部流量线索”的判断。但国内产品的网页数值，仍不能直接当作整个产品规模。应结合微信、小程序、客户独立域名和私有部署。对知识星球，外部网页流量只宜作为获客入口的参照。</p>
+<h3 id="addition-6">历史流量与待复核的期间</h3>
+<p>下表保留先前取得的数值，并明确其使用边界。Similarweb 的走势图标题与单月字段容易混淆。此前按“最近 3 个月”标题理解比较数字，证据不足。以下期间未完成逐项复核，不进入同月排序。</p>
+<div aria-label="历史流量与待复核的期间数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>历史流量与待复核的期间 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">产品与域名</th>
+<th scope="col">已取得的数值</th>
+<th scope="col">期间与使用限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Peatix · peatix.com</th>
+<td>约 320 万次</td>
+<td>2026 年 9 月页面；数值所属期间待复核</td>
+</tr>
+<tr>
+<th scope="row">Bizzabo · bizzabo.com</th>
+<td>约 27.37 万次</td>
+<td>2026 年 7 月页面；数值所属期间待复核</td>
+</tr>
+<tr>
+<th scope="row">Swapcard · swapcard.com</th>
+<td>约 44 万次</td>
+<td>2026 年 4 月页面的 Total Visits；历史估计</td>
+</tr>
+<tr>
+<th scope="row">Brella · brella.io</th>
+<td>约 19.12 万次</td>
+<td>2026 年 3 月页面的 Total Visits；历史估计</td>
+</tr>
+<tr>
+<th scope="row">Lunchclub · lunchclub.com</th>
+<td>约 1.91 万次</td>
+<td>2026 年 9 月页面；数值所属期间待复核</td>
+</tr>
+</tbody>
+</table></div>
+<p>来源：<a href="https://www.similarweb.com/website/peatix.com/" rel="noopener noreferrer" target="_blank">Peatix 流量页</a>、<a href="https://www.similarweb.com/website/bizzabo.com/" rel="noopener noreferrer" target="_blank">Bizzabo 流量页</a>、<a href="https://www.similarweb.com/website/swapcard.com/" rel="noopener noreferrer" target="_blank">Swapcard 流量页</a>、<a href="https://www.similarweb.com/website/brella.io/" rel="noopener noreferrer" target="_blank">Brella 流量页</a>、<a href="https://www.similarweb.com/website/lunchclub.com/" rel="noopener noreferrer" target="_blank">Lunchclub 流量页</a>。本轮读取活动行与 Timeleft 后，Similarweb 免费查询达到上限。后续空白结果不记为零，也不记为网站没有用户。</p>
+<p>旧聚合页不再作为补缺方法。活动行的两个旧统计页仍有 Alexa 或多年未更新的数据。<a href="https://webrate.org/site/huodongxing.com/" rel="noopener noreferrer" target="_blank">旧统计页一</a>、<a href="https://huodongxing.com.clearwebstats.com/" rel="noopener noreferrer" target="_blank">旧统计页二</a></p>
+<p>Timeleft 的聚合页混有不同访问量与参与度数字，部分对应 2025 年 12 月。现已取得 2026 年 9 月的直接来源，因此采用上表的 76.91 万次。<a href="https://techlist.ai/timeleft.com" rel="noopener noreferrer" target="_blank">旧聚合页</a></p>
+<p>互动吧的官网域名是 hudongba.com，拼写中没有“huodong”的第二个 o。域名识别错误会直接导致流量查询错误。<a href="https://www.hudongba.com/about.html" rel="noopener noreferrer" target="_blank">互动吧官方介绍</a></p>
+<h3 id="section-7">Luma 的例子：同一产品也会有两套答案</h3>
+<p>Semrush 给出的 luma.com 9 月访问量约 1,898 万次。此前读取的 Similarweb 9 月页面展示约 2,700 万次。本轮发现，走势图的 3 个月范围不能决定比较数字的期间。现撤回将 2,700 万次视为 3 个月合计的判断。该值的期间待复核，不与 Semrush 三个月合计比较，也不取两家平均值。<a href="https://www.semrush.com/website/luma.com/overview/" rel="noopener noreferrer" target="_blank">Semrush 数据</a>、<a href="https://www.similarweb.com/website/luma.com/" rel="noopener noreferrer" target="_blank">Similarweb 数据</a></p>
+<p>两家机构对 9 月环比的方向一致。Semrush 为 +34.26%，Similarweb 为 +26.08%。因此，“近期网页访问增加”比“实际有多少用户”更有证据支持。确切规模仍需产品自身统计确认。</p>
+<p>还要核对 luma.com 与 lu.ma。Luma 官方帮助文档同时提到这两个域名。通知链接还会经过短链接域名。不能把所有域名访问量直接相加，也不能把某个旧域名下降当成产品下降。<a href="https://help.luma.com/p/site-accessibility-troubleshooting" rel="noopener noreferrer" target="_blank">Luma 访问说明</a>、<a href="https://help.luma.com/p/email-delivery-open-troubleshooting" rel="noopener noreferrer" target="_blank">Luma 通知链接说明</a></p>
+<p>本节只统计活动产品 Luma 的域名。lumalabs.ai 不在范围内。Eventbrite 也有 eventbrite.co.uk 等地区域名，因此表中 eventbrite.com 不是全球产品总访问量。</p>
+<h3 id="section-8">流量与用户使用，差在哪里</h3>
+<div aria-label="流量与用户使用，差在哪里数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>流量与用户使用，差在哪里 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">它回答的问题</th>
+<th scope="col">它不能直接回答的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Visits，访问次数</th>
+<td>网页获得多少次访问</td>
+<td>有多少不重复的人</td>
+</tr>
+<tr>
+<th scope="row">UV，独立访客</th>
+<td>按统计规则识别了多少访客</td>
+<td>有多少注册成员或付费用户</td>
+</tr>
+<tr>
+<th scope="row">PV，页面浏览量</th>
+<td>用户浏览了多少页面</td>
+<td>有多少人完成报名或到场</td>
+</tr>
+<tr>
+<th scope="row">MAU，月活跃用户</th>
+<td>一个月内多少账户完成规定行为</td>
+<td>这些行为是否带来有价值的见面</td>
+</tr>
+<tr>
+<th scope="row">报名与付费人数</th>
+<td>有多少人表达参加意愿或付款</td>
+<td>有多少人真正到场、复购并继续联系</td>
+</tr>
+</tbody>
+</table></div>
+<p>一次访问可以包含多个页面。同一个人也可以产生多次访问。Similarweb 会把长时间间隔后的访问计为新会话。其独立访客与跨设备去重指标也不同。<a href="https://support.similarweb.com/hc/en-us/articles/212999769-Total-Visits" rel="noopener noreferrer" target="_blank">访问次数定义</a>、<a href="https://support.similarweb.com/hc/en-us/articles/360010749958-View-Website-Performance" rel="noopener noreferrer" target="_blank">指标定义</a></p>
+<p>例如，100 名参加者每人访问 5 次，就产生 500 次访问。可能分别用于看介绍、报名、查地址和找票。这是口径演示，不是任何公司的实测数据。</p>
+<p>活动网页同时服务主办方和来宾。来宾只看一次地址，就可能完成任务。较短停留时间不必然表示体验差；较长停留时间也可能来自流程复杂。应结合具体页面任务解释。</p>
+<p>App 和小程序会产生另一层遗漏。活动行官方提供 App 与小程序入口。Timeleft 官方支持 App 和 app.timeleft.com 报名。仅看介绍站流量，无法覆盖这些使用。<a href="https://yunbaio.huodongxing.com/app" rel="noopener noreferrer" target="_blank">活动行入口</a>、<a href="https://timeleft.com/faq/" rel="noopener noreferrer" target="_blank">Timeleft 使用入口</a></p>
+<p>微信内打开普通网页，仍属于网页访问。它是否被第三方样本充分捕捉，另需核实。不能把“微信里的访问”全部当作缺失，也不能假定小程序活跃已计入网页估计。</p>
+<p>Direct 流量也不等于忠诚用户主动输入网址。它可以包含书签和没有传递来源的消息链接。Luma 桌面 Direct 占比较高，只能说明来源归因结果，不能直接证明自然增长或复购。<a href="https://support.similarweb.com/hc/en-us/articles/115004173925-Marketing-Channels" rel="noopener noreferrer" target="_blank">Similarweb 渠道定义</a></p>
+<h3 id="section-9">对知识星球的判断应如何调整</h3>
+<p>本次流量补充增加了对网页活动工具的信心。Luma、Partiful 和 Ticket Tailor 的网页访问规模，支持继续研究轻量报名与分享流程。但这些数据没有证明“认识合适的人”能持续收费。</p>
+<p>建议将新产品的主要指标定义为：<strong>每城每月，经双方确认产生新联系的独立到场人数。</strong> 同时记录付费复购与贡献利润。PV、访问次数和报名人数用于解释前面的转化过程。</p>
+<p>从浏览到结果，需要分别统计：活动页独立访客、报名者、确认者、到场者、双方选择者，以及 30 天后继续交流者。主办方单列活跃与复办，不与参加者混成一个 MAU。</p>
+<p>外部比较时，应固定机构、月份、地区和域名范围。网页与 App 数据分别保留，获得去重依据后再合并。收入、活动场次和付费席位可用于交叉检查。</p>
+<p>Semrush 明确说明其流量依赖样本和模型。实际立项前，可用知识星球已有网站的真实数据对照估计值。这能发现工具对自身场景的偏差，但不能将该比例机械套用到竞争对手。<a href="https://www.semrush.com/kb/1506-traffic-and-market-traffic-overview" rel="noopener noreferrer" target="_blank">Semrush 方法说明</a></p>
+<p>本次没有取得全部公司的同口径月活。下一步最有价值的数据仍是城市密度、主办方复办、实际到场和付费复购。官网流量适合作为外部线索，不能替代这些经营指标。</p>
+<h2 id="section-10">活动行：国内必须研究的直接参照</h2>
+<h3 id="section-11">创始人、主体和融资</h3>
+<p>活动行的大陆运营主体是北京艾科创意信息技术有限公司。36氪资料记载公司成立于 2012 年。历史采访将谢耀辉称为创始人兼 CEO。其与罗子文共同创业，台湾品牌为 ACCUPASS 活动通。<a href="https://pitchhub.36kr.com/project/1678538643944456" rel="noopener noreferrer" target="_blank">36氪公司资料</a>、<a href="https://www.zaobao.com.sg/zfinance/personalities/story20180719-876360" rel="noopener noreferrer" target="_blank">联合早报人物报道</a></p>
+<p>创立年份存在口径差异。部分采访将大陆产品发展起点写为 2013 年。应区分法人设立、产品上线和业务扩张。当前 CEO 职位也不能直接沿用旧采访。</p>
+<div aria-label="创始人、主体和融资数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>创始人、主体和融资 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">时间</th>
+<th scope="col">公开融资记录</th>
+<th scope="col">判断限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">2012 年</th>
+<td>天使轮，数百万美元；DCM、高通等</td>
+<td>历史数据库记录</td>
+</tr>
+<tr>
+<th scope="row">2014 年</th>
+<td>A 轮，数百万美元；DCM、赛富、高通</td>
+<td>轮次和投资方有报道支持</td>
+</tr>
+<tr>
+<th scope="row">2017 年</th>
+<td>A+ 轮，数千万元人民币；Recruit、腾讯、优客工场</td>
+<td>当时报称投后估值超过 3 亿元</td>
+</tr>
+<tr>
+<th scope="row">2018—2026 年</th>
+<td>本次未核实更新的公开融资交易</td>
+<td>不推断“从未再融资”</td>
+</tr>
+</tbody>
+</table></div>
+<p>融资信息来自<a href="https://pitchhub.36kr.com/project/1678538643944456" rel="noopener noreferrer" target="_blank">36氪资料</a>和<a href="https://capital.people.com.cn/n1/2017/0703/c405954-29379643.html" rel="noopener noreferrer" target="_blank">人民网 2017 年报道</a>。3 亿元是当年的估值，不是今天的估值。</p>
+<h3 id="section-12">生意从票务延伸到企业服务</h3>
+<p>当前官网列出的业务包括活动发布、推广、签到、直播、场地与服务商，以及系统私有部署。官网称已服务超过 50 万主办方。截至 2024 年，累计聚集超过 5,000 万用户。这些均是公司口径，未披露当前月活或付费主办方数。<a href="https://huodongxing.com/about" rel="noopener noreferrer" target="_blank">活动行公司介绍</a></p>
+<p>历史采访将收入分成票务、广告、增值服务和供应商服务。这比单纯收门票手续费更接近其经营实质。<a href="https://www.sohu.com/a/229130638_99984157" rel="noopener noreferrer" target="_blank">2018 年创始人采访</a></p>
+<p>2026 年帮助中心仍列出“2.5%＋1 元”的票款手续费。服务条款明确按每张票计费；另有书面约定时，以约定为准。其代收模式设有固定提款批次。这会影响主办方的资金周转。<a href="https://media.huodongxing.com/2026/" rel="noopener noreferrer" target="_blank">票款结算说明</a>、<a href="https://www.huodongxing.com/terms" rel="noopener noreferrer" target="_blank">服务条款</a></p>
+<h3 id="section-13">收入、利润与员工：已知信息的边界</h3>
+<p>2017 年的报道标题称公司在上一年已盈利。同期材料称 2016 年收入提升超过 4 倍。报道还提到 2017 年争取流水超过 5 亿元的目标。<a href="https://www.juhe.cn/news/index/id/1816" rel="noopener noreferrer" target="_blank">历史盈利报道</a>、<a href="https://www.ckgsb.edu.cn/chuang/content/news_detail/348" rel="noopener noreferrer" target="_blank">长江商学院转载</a></p>
+<p>这些材料不能证明当前利润。5 亿元是流水目标，既不是收入，也不是实际完成值。本次未取得活动行 2024—2026 年营业收入、净利润或现金流数据。</p>
+<p>员工方面，36氪企服资料给出 11—50 人区间，但没有明确统计日期。本研究不把它作为当前准确人数。官网的多地办公室，也不足以推导团队规模。<a href="https://www.36dianping.com/vs/hjpb.html" rel="noopener noreferrer" target="_blank">第三方公司资料</a></p>
+<h3 id="section-14">对知识星球的意义</h3>
+<p>活动行已经覆盖“发布—报名—收费—签到”。复制这些功能，很难单独形成选择理由。其推广和企业服务说明，主办方更愿意为新增参加者、节省工作和保障交付付钱。</p>
+<p>知识星球需要回答更具体的问题：同一场活动使用新产品后，成员是否认识了更合适的人？小聚侧重组队质量，中型活动侧重会内介绍。如果答案只是报名页更好看，竞争优势很弱。</p>
+<p>活动行当前财务不透明，不能据此判断行业不赚钱。更合理的结论是：公开数据不足以证明，国内通用活动平台具有很强的利润增长能力。</p>
+<h2 id="section-15">Luma：小团队的软件经营样本</h2>
+<h3 id="section-16">起点与团队</h3>
+<p>这里的 Luma 指 luma.com，原域名为 lu.ma。它与视频生成公司 Luma AI 无关，也与加拿大营销公司 Luma Events 无关。</p>
+<p>Victor Pontis 与 Dan Liu（Danqing Liu）于 2020 年创办产品。早期产品名为 ZmURL，服务 Zoom 活动。Maven Ventures 在 2020 年 12 月确认，与 Venrock 共同领投种子轮。<a href="https://medium.com/maven-ventures/announcing-our-investment-in-luma-to-enable-creators-f45076ccbc81" rel="noopener noreferrer" target="_blank">投资方公告</a></p>
+<p>2026 年 9 月的 Inc. 报道披露 300 万美元种子融资、7 人团队，以及八位数 ARR。报道未给出精确收入和 ARR 算法。创始人的公开招聘信息也称公司盈利，每月处理数百万次报名。<a href="https://www.inc.com/rebecca-deczynski/meet-the-seven-person-startup-powering-silicon-valleys-event-boom/91408964" rel="noopener noreferrer" target="_blank">Inc. 报道</a>、<a href="https://www.linkedin.com/in/vpontis" rel="noopener noreferrer" target="_blank">Victor Pontis 公开页面</a></p>
+<p>“八位数 ARR”是媒体表述。原文没有单独注明币种，本文保留原口径。不能据此填一个精确美元收入，也不能推导净利润率。</p>
+<h3 id="section-17">收费机制</h3>
+<div aria-label="收费机制数据表" class="tbl" role="region" tabindex="0"><table class="compact"><caption>收费机制 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col">调研时官方价格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">免费活动</th>
+<td>无限活动和来宾；基础功能免费</td>
+</tr>
+<tr>
+<th scope="row">免费版收费活动</th>
+<td>5% 平台费</td>
+</tr>
+<tr>
+<th scope="row">Luma Plus</th>
+<td>年付折合 59 美元／月；月付 69 美元／月</td>
+</tr>
+<tr>
+<th scope="row">Plus 的平台票务费</th>
+<td>0%；支付手续费仍存在</td>
+</tr>
+<tr>
+<th scope="row">支付手续费</th>
+<td>官网通常示例为 2.9%＋0.30 美元</td>
+</tr>
+<tr>
+<th scope="row">其他收入</th>
+<td>更多邀请发送量、额外席位、企业方案</td>
+</tr>
+</tbody>
+</table></div>
+<p>价格依据<a href="https://luma.com/pricing" rel="noopener noreferrer" target="_blank">官方价格页</a>和<a href="https://help.luma.com/p/luma-vs-splash" rel="noopener noreferrer" target="_blank">官方帮助页</a>。支付费率随市场和支付方式变化。</p>
+<p>按年付折合价格计算，月票款达到 1,180 美元时，5% 平台费等于 59 美元。持续售票的主办方有动力升级。实际选择还取决于年付承诺、淡旺季和其他功能。</p>
+<p>这使 Luma 的收入更接近“订阅＋小客户交易费＋增值服务”。不能把全站票款乘以 5%，当作 Luma 收入。</p>
+<h3 id="section-18">产品优势与限制</h3>
+<p>Luma 把审核来宾、活动日历、邀请和通知放在同一流程。2023 年后增加城市活动发现页面。这让主办方带来的用户，有机会再发现其他主办方。<a href="https://www.inc.com/rebecca-deczynski/meet-the-seven-person-startup-powering-silicon-valleys-event-boom/91408964" rel="noopener noreferrer" target="_blank">Inc. 产品发展报道</a></p>
+<p>本研究认为，审核来宾的重要性高于视觉风格。专业聚会的主办方需要管理参加者构成。一个低摩擦审核流程，可以减少表单、邮件和名单之间的切换。</p>
+<p>Luma 的小团队数字只计算平台公司。世界各地的主办方仍承担活动内容、场地和接待工作。知识星球若自己承担这些工作，就不能直接参照其人效。</p>
+<p>它也没有证明中国市场会支付相同订阅价格。微信已承担大量邀请和提醒功能。新产品需要提供微信之外的可测量收益。</p>
+<h2 id="section-19">Eventbrite：规模可观，净利润仍承压</h2>
+<p>Eventbrite 于 2006 年创办。创始人为 Julia Hartz、Kevin Hartz 和 Renaud Visage。早期投资者包括 Sequoia 和 Tiger Global。公司后来上市，并于 2026 年 3 月完成与 Bending Spoons 的合并。<a href="https://eventbrite-s3.s3.amazonaws.com/marketing/webinars/greater_giving_through_strategic_fundraising.pdf" rel="noopener noreferrer" target="_blank">公司历史资料</a>、<a href="https://www.sec.gov/Archives/edgar/data/1475115/000147511526000005/eb-20251231.htm" rel="noopener noreferrer" target="_blank">2025 年年报</a></p>
+<p>以下金额单位为百万美元，来自同一份年报。</p>
+<div aria-label="Eventbrite：规模可观，净利润仍承压数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>Eventbrite：规模可观，净利润仍承压 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col" style="text-align: right;">2023 年</th>
+<th scope="col" style="text-align: right;">2024 年</th>
+<th scope="col" style="text-align: right;">2025 年</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">营业收入</th>
+<td style="text-align: right;">326.134</td>
+<td style="text-align: right;">325.068</td>
+<td style="text-align: right;">291.843</td>
+</tr>
+<tr>
+<th scope="row">净利润／亏损</th>
+<td style="text-align: right;">-26.479</td>
+<td style="text-align: right;">-15.571</td>
+<td style="text-align: right;">-10.515</td>
+</tr>
+<tr>
+<th scope="row">调整后 EBITDA</th>
+<td style="text-align: right;">28.655</td>
+<td style="text-align: right;">35.111</td>
+<td style="text-align: right;">25.336</td>
+</tr>
+<tr>
+<th scope="row">付费票量，百万张</th>
+<td style="text-align: right;">93.443</td>
+<td style="text-align: right;">83.834</td>
+<td style="text-align: right;">78.862</td>
+</tr>
+</tbody>
+</table></div>
+<p>2025 年末有 636 名全职员工。收入同比下降约 10.2%。净亏损缩小，但调整后 EBITDA 也下降。2025 年调整后 EBITDA 的定义有调整，跨年比较需注意。<a href="https://www.sec.gov/Archives/edgar/data/1475115/000147511526000005/eb-20251231.htm" rel="noopener noreferrer" target="_blank">财务和员工数据</a></p>
+<p>公司曾增加活动发布收费，随后于 2024 年取消这类前置费用。这说明主办方供给对价格和收费方式敏感。<a href="https://www.sec.gov/Archives/edgar/data/1475115/000147511526000005/eb-20251231.htm" rel="noopener noreferrer" target="_blank">年报定价说明</a></p>
+<p>对知识星球的判断是：免费活动有助于扩大供给，但免费供给不自动产生收入。票务费则依赖付费活动量，并受竞争、支付成本和售后成本影响。不能用所有报名人次推算收入。</p>
+<h2 id="section-20">Meetup：持续社群比单场活动更接近需求</h2>
+<p>Meetup 于 2002 年上线，Scott Heiferman 是核心创始人。2024 年 Bending Spoons 收购完成时，公司称全球注册成员超过 6,000 万。<a href="https://www.meetup.com/blog/highlights-and-milestones-from-20-years-of-meetup/" rel="noopener noreferrer" target="_blank">官方历史</a>、<a href="https://markets.financialcontent.com/wss/article/bizwire-2024-1-24-bending-spoons-finalizes-acquisition-of-us-based-community-building-platform-meetup-and-announces-50000-community-fund" rel="noopener noreferrer" target="_blank">收购公告</a></p>
+<p>其主要付费单位是组织者和社群。当前官方起价为：Standard 月付 29.99 美元，年付 174.99 美元；Pro 月付每群 55 美元。实际价格受地区和优惠影响。<a href="https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview" rel="noopener noreferrer" target="_blank">官方订阅说明</a></p>
+<p>本次未取得可靠的 Meetup 单体收入、利润和收购后在岗人数。但母公司的监管文件提供了一个重要补充：2025 年 Meetup 订阅收入增长，来自付费订阅者数量与单客收入同时增加。2026 年第一季度的增长也包含订阅者增加。<a href="https://www.sec.gov/Archives/edgar/data/2004711/000110465926071170/tm2613674-7_f1.htm" rel="noopener noreferrer" target="_blank">Bending Spoons 监管文件</a></p>
+<p>因此，不能仅凭涨价投诉推断 Meetup 整体衰退。投诉可以解释部分用户体验，却不能替代经营数据。</p>
+<p>知识星球应重点研究其组织者机制：同一召集人持续办活动，成员反复出现，新成员从已有关系进入。一次认识很多人，与半年内形成一个稳定小组，是两种不同结果。</p>
+<h2 id="section-21">Timeleft：为组局与匹配直接收费</h2>
+<p>Maxime Barbier 和 Adrien De Oliveira 是公开资料列出的创始人。公司资料常写 2020 年创立，当前官网强调 2023 年开始的线下模式。应把公司起点与当前产品起点分开。<a href="https://www.crunchbase.com/organization/timeleft" rel="noopener noreferrer" target="_blank">创始人资料</a>、<a href="https://timeleft.com/careers" rel="noopener noreferrer" target="_blank">公司招聘页</a></p>
+<p>官网列出以下经营数据：</p>
+<div aria-label="Timeleft：为组局与匹配直接收费数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>Timeleft：为组局与匹配直接收费 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">公司自述</th>
+<th scope="col">限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">ARR</th>
+<td>20 个月达到 €1,800 万</td>
+<td>未披露审计与具体计算方式</td>
+</tr>
+<tr>
+<th scope="row">团队</th>
+<td>18 个月从 4 人增至 92 人</td>
+<td>属于增长阶段快照，并非当前精确人数</td>
+</tr>
+<tr>
+<th scope="row">月度用户</th>
+<td>15 万</td>
+<td>未明确全部为付费用户或实际到场者</td>
+</tr>
+<tr>
+<th scope="row">覆盖</th>
+<td>超过 200 城、52 国</td>
+<td>覆盖不代表各城密度相同</td>
+</tr>
+<tr>
+<th scope="row">净利润</th>
+<td>本次未查到可靠金额</td>
+<td>ARR 不能替代利润</td>
+</tr>
+</tbody>
+</table></div>
+<p>来源为<a href="https://timeleft.com/careers" rel="noopener noreferrer" target="_blank">Timeleft 官方招聘页</a>。</p>
+<p>融资记录存在冲突。Dealroom 列出 2021 年约 200 万美元融资。服务商案例称 2024 年完成 €700 万 A 轮。一些数据库又把 700 万融资列在 2026 年，币种也不同。本文不把这些条目相加，累计融资额列为待核实。<a href="https://app.dealroom.co/companies/timeleft" rel="noopener noreferrer" target="_blank">Dealroom</a>、<a href="https://en.wearestellar.io/use-case/timeleft" rel="noopener noreferrer" target="_blank">Stellar 客户案例</a></p>
+<p>用户订阅后报名。平台按问卷组队，安排地点和时间。餐饮由用户在现场另付。当前产品已包括晚餐、饮品和其他小组活动。<a href="https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work" rel="noopener noreferrer" target="_blank">官方服务说明</a>、<a href="https://timeleft.com/faq/" rel="noopener noreferrer" target="_blank">官方 FAQ</a></p>
+<p>这个模式证明了一种收费对象：用户可以为“有人替我安排一次见面”付钱。它还不能证明问卷算法显著优于人工分组。官网没有提供能验证这一点的对照试验。</p>
+<p>对知识星球而言，最值得借鉴的是固定时间、小组人数、明确预期和活动后反馈。最需要警惕的是持续运营成本。每个城市都要解决人数不足、取消、迟到和体验差异。</p>
+<p>用户建立稳定朋友关系后，可能减少购买。也可能因体验好而持续参加。两种情况都合理，必须用用户批次留存验证。</p>
+<h2 id="section-22">Cvent、Bizzabo 与 31会议：企业预算能形成更大业务</h2>
+<h3 id="section-23">Cvent</h3>
+<p>Cvent 由 Reggie Aggarwal 创办，成立于 1999 年。2023 年 Blackstone 完成收购，企业价值约 46 亿美元。这是企业价值口径，不能直接与少数股权融资估值比较。<a href="https://www.cvent.com/en/press-release/blackstone-completes-acquisition-cvent" rel="noopener noreferrer" target="_blank">收购公告</a></p>
+<p>最近取得的完整公开年度财务为 2022 年：收入 6.306 亿美元，净亏损 1.003 亿美元，调整后 EBITDA 1.134 亿美元。Event Cloud 收入约占 70%，Hospitality Cloud 约占 30%。同期员工约 4,900 人。<a href="https://www.businesswire.com/news/home/20230314005638/en/Cvent-Announces-Fourth-Quarter-and-Fiscal-Year-2022-Financial-Results" rel="noopener noreferrer" target="_blank">年度业绩公告</a></p>
+<p>当前官网称员工超过 5,500 人。本次未取得收购后的完整年度利润表。<a href="https://www.cvent.com/en/about-cvent" rel="noopener noreferrer" target="_blank">公司介绍</a></p>
+<p>企业购买的不只是报名工具，还包括审批、客户数据、场地选择和现场管理。更多需求可以提高合同额，也会增加销售与交付工作。知识星球若进入此类业务，应将其视作经营方式改变。</p>
+<h3 id="section-24">Bizzabo</h3>
+<p>创始人为 Eran Ben-Shushan、Boaz Katz 和 Alon Alroy。2020 年完成 1.38 亿美元融资，Insight Partners 领投。该轮包含老股交易，不能将全部金额视为进入公司的现金。<a href="https://en.globes.co.il/en/article-Israeli-events-platform-co-Bizzabo-raises-138m-1001351593" rel="noopener noreferrer" target="_blank">融资报道</a></p>
+<p>2026 年 9 月报道指出，公司裁员数十人，裁员前约 150 人。报道称累计融资约 2 亿美元。当前收入和净利润未取得可靠公开数据。<a href="https://www.calcalistech.com/ctechnews/article/duz577shb" rel="noopener noreferrer" target="_blank">CTech 报道</a></p>
+<p>本研究不采用数据库给出的千人级员工数字。它与近期采访冲突，且部分数据库内部增长计算不一致。Bizzabo 的案例也提示：企业软件获得大额融资后，仍需控制成本。</p>
+<h3 id="section-25">31会议</h3>
+<p>31会议由万涛创办，业务起于 2010 年。2023 年完成数千万元人民币 B1 轮融资，投资方为睿弈投资。同期报道提到约 200 人团队。<a href="https://startup.aliyun.com/info/1062093.html" rel="noopener noreferrer" target="_blank">融资报道</a></p>
+<p>其业务覆盖会议与展览的数字工具、现场管理及营销协作。当前官网仍展示企业年会和培训等方案。本次未取得可靠收入、净利润及更新人数。<a href="https://www.31huiyi.com/mobile/case/detail/2357518267/" rel="noopener noreferrer" target="_blank">当前业务示例</a></p>
+<p>它比活动行更适合用来研究企业销售、复杂项目和现场交付。若目标是让星友低成本见面，不宜先按大型会议要求建设完整系统。</p>
+<h2 id="section-26">其他应关注的公司</h2>
+<p>下表补充竞争范围。未列精确财务的公司，不采用第三方模型收入填空。</p>
+<div aria-label="其他应关注的公司数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>其他应关注的公司 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">公司</th>
+<th scope="col">创始人／主体线索</th>
+<th scope="col">融资、员工和财务证据</th>
+<th scope="col">研究价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Partiful</th>
+<td>Shreya Murthy、Joy Tao</td>
+<td>2022 年 A 轮 2,000 万美元，a16z 领投；当前员工、收入与利润未可靠核实</td>
+<td>通过邀请页、来宾互动扩大传播</td>
+</tr>
+<tr>
+<th scope="row">Swapcard</th>
+<td>Baptiste Boulard、Damien Courbon、Godefroy des Francs</td>
+<td>数据库列 101—250 人；收入与利润未确认；融资数据库存在差异</td>
+<td>参会者约见、展商线索、活动后联系</td>
+</tr>
+<tr>
+<th scope="row">Brella</th>
+<td>Markus Kauppinen 等</td>
+<td>2021 年 A 轮 1,000 万美元；当前人数和利润未确认</td>
+<td>将匹配放在明确主题的会议内部</td>
+</tr>
+<tr>
+<th scope="row">Peatix</th>
+<td>Taku Harada、Emi Takemura、Yuji Fujita、Naofumi Iwai</td>
+<td>2015 年约 500 万美元融资；第三方估计 2026 年约 74 人；财务未确认</td>
+<td>日本及新加坡的小型活动与社群样本</td>
+</tr>
+<tr>
+<th scope="row">Ticket Tailor</th>
+<td>Jonny White</td>
+<td>官网称伦敦团队 30 人，另有全球团队 13 人；收入与利润金额未披露</td>
+<td>低成本独立票务软件样本</td>
+</tr>
+<tr>
+<th scope="row">Fever</th>
+<td>管理团队包括 Ignacio Bachiller 等</td>
+<td>2026 年 9 月融资 2.5 亿美元；公司称保持 EBITDA 为正；净利润未披露</td>
+<td>活动发现、体验供给与分销</td>
+</tr>
+<tr>
+<th scope="row">互动吧</th>
+<td>王富强、王一帆；北京佐敦网络科技有限公司</td>
+<td>2016 年腾讯参与 B 轮；金额未披露；近期收入、利润和人数未确认</td>
+<td>微信生态中的活动发布与营销竞争</td>
+</tr>
+<tr>
+<th scope="row">百格活动</th>
+<td>当前产品页可核实；创始团队本次未充分核实</td>
+<td>官网列基础提现费 2%，部分方案免平台费；财务与人数未确认</td>
+<td>报名、收费和企业活动工具的价格参照</td>
+</tr>
+<tr>
+<th scope="row">会小二</th>
+<td>杨亮</td>
+<td>历史披露 IDG 的 A 轮投资；当前财务及人数未核实</td>
+<td>场地搜索向整体会务服务延伸的样本</td>
+</tr>
+</tbody>
+</table></div>
+<p>对应资料：</p>
+<ul>
+<li>Partiful：<a href="https://www.inc.com/john-jannuzzi/how-partiful-became-the-life-of-gen-zs-irl-party/91263552" rel="noopener noreferrer" target="_blank">创始人与融资采访</a>。2026 年官方已说明通过票务费和付费邀请设计收入变现，不能继续描述为“完全没有收入模式”。<a href="https://help.partiful.com/en-us/articles/15525600-how-does-partiful-make-money" rel="noopener noreferrer" target="_blank">官方说明</a></li>
+<li>Swapcard：<a href="https://www.swapcard.com/about-swapcard?9266e060_page=1" rel="noopener noreferrer" target="_blank">官方团队介绍</a>、<a href="https://www.crunchbase.com/organization/swapcard" rel="noopener noreferrer" target="_blank">公司资料</a>、<a href="https://www.swapcard.com/company-information" rel="noopener noreferrer" target="_blank">产品与计价方式</a>。人数是数据库区间，未获公司确认。</li>
+<li>Brella：<a href="https://meetings.skift.com/2021/06/17/brella-raises-10-million-funding-double-hybrid-events/" rel="noopener noreferrer" target="_blank">2021 年融资报道</a>。本次没有确认其最新股权状态，不采用未经证实的“已被收购”标签。</li>
+<li>Peatix：<a href="https://app.dealroom.co/companies/peatix" rel="noopener noreferrer" target="_blank">创始人资料</a>、<a href="https://initial.inc/companies/A-10547" rel="noopener noreferrer" target="_blank">融资历史</a>、<a href="https://leadiq.com/c/peatix/5a1d9d7f23000053008d57ce" rel="noopener noreferrer" target="_blank">第三方人数估计</a>。官网另称每年约 560 万人参与活动，覆盖 22 国。<a href="https://about.peatix.com/en/aboutus" rel="noopener noreferrer" target="_blank">官方介绍</a></li>
+<li>Ticket Tailor：<a href="https://www.tickettailor.com/our-story" rel="noopener noreferrer" target="_blank">公司历史与团队</a>、<a href="https://www.tickettailor.com/pricing?currency=gbp" rel="noopener noreferrer" target="_blank">价格机制</a>。主要按票张数收费，可预购额度；支付处理另计。</li>
+<li>Fever：<a href="https://newsroom.feverup.com/en-CA/271214-fever-raises-record-250m-round-led-by-eqt-in-a-bet-on-what-ai-can-t-replace-live-experiences/" rel="noopener noreferrer" target="_blank">2026 年融资公告</a>、<a href="https://stories.eqtventures.com/articles/fever-scaling-culture-from-madrid-to-the-world" rel="noopener noreferrer" target="_blank">领投方公告</a>。此轮为新增股权融资，勿与其他老股交易重复计算。</li>
+<li>互动吧：<a href="https://pitchhub.36kr.com/project/1678269421188101" rel="noopener noreferrer" target="_blank">36氪团队与融资记录</a>。历史大额注册用户宣传，不用于判断当前活跃度。</li>
+<li>百格活动：<a href="https://www3.bagevent.com/introduce/price.html" rel="noopener noreferrer" target="_blank">官方费用说明</a>。实际合同、支付方式和套餐仍需分别核对。</li>
+<li>会小二：<a href="https://travel.ifeng.com/c/7hSWvfAdOOm" rel="noopener noreferrer" target="_blank">早期融资及经营报道</a>、<a href="https://www.sohu.com/a/232663439_115035" rel="noopener noreferrer" target="_blank">创始人经历</a>。这些资料只支持历史情况。</li>
+</ul>
+<h2 id="section-27">两个需要单独看的反例</h2>
+<h3 id="section-28">Lunchclub：算法匹配不自动带来长期使用</h3>
+<p>Lunchclub 创始人为 Vlad Novakovski、Scott Wu 和 Hayley Leibson。2020 年融资 2,420 万美元，估值约 1 亿美元。2021 年报道列出累计融资约 3,000 万美元。产品通过资料和目标匹配职业交流对象。<a href="https://economictimes.indiatimes.com/tech/startups/lunchclub-a-social-network-for-professionals-officially-launches-in-india/articleshow/86934344.cms" rel="noopener noreferrer" target="_blank">融资与团队报道</a></p>
+<p>增长停滞后，团队转向 Lighter。<a href="https://fortune.com/2025/11/11/lighter-fundraise-founders-fund-ribbit-capital-haun-ventures-robinhood-vladimir-novakovski/" rel="noopener noreferrer" target="_blank">Fortune 报道</a></p>
+<p>不能把旧融资当作今天匹配业务成功的证据。也不应在没有关闭公告时断言网站已经关停。</p>
+<p>对知识星球，这个案例提出了一个验证要求：推荐对象相关，只是见面的前提。还要有双方共同的动机、可用时间，以及下一次交流的理由。本研究没有证据把 Lunchclub 的转向归因于某一个产品缺陷。</p>
+<h3 id="section-29">Hopin：资产售价与公司估值必须分开</h3>
+<p>RingCentral 的监管文件披露，2023 年购买 Hopin 的部分技术资产和客户关系。首付款为 1,500 万美元，另有最高 3,500 万美元的条件对价。<a href="https://www.sec.gov/Archives/edgar/data/1384905/000138490523000032/rng-20230630.htm" rel="noopener noreferrer" target="_blank">RingCentral 文件</a></p>
+<p>这是部分业务资产交易，不能写成“Hopin 整家公司只卖了 1,500 万美元”。历史上的高估值，也不能与这个局部资产价格直接计算损失比例。</p>
+<p>知识星球应避免按照某一阶段的活动热度确定长期人员配置。软件需求、线下组织需求和特定活动形式的热度，会以不同速度变化。</p>
+<h2 id="section-30">主办方能赚更多钱，但经营方式不同</h2>
+<p>活动行业并非只有薄利票务。Informa 和 RX 提供了另一组财务证据。</p>
+<div aria-label="主办方能赚更多钱，但经营方式不同数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>主办方能赚更多钱，但经营方式不同 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">公司与范围</th>
+<th scope="col">年度</th>
+<th scope="col" style="text-align: right;">收入</th>
+<th scope="col">利润口径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Informa 的 B2B Live Events</th>
+<td>2025 年</td>
+<td style="text-align: right;">£30.026 亿</td>
+<td>法定营业利润 £4.963 亿；调整后营业利润 £8.575 亿</td>
+</tr>
+<tr>
+<th scope="row">RELX 的 Exhibitions，即 RX 业务范围</th>
+<td>2025 年</td>
+<td style="text-align: right;">£11.86 亿</td>
+<td>调整后营业利润 £4.10 亿</td>
+</tr>
+</tbody>
+</table></div>
+<p>数据分别来自<a href="https://www.informa.com/globalassets/documents/investor-relations/2026/informa-2025-full-year-results-statement.pdf" rel="noopener noreferrer" target="_blank">Informa 年度业绩</a>和<a href="https://www.relx.com/~/media/Files/R/RELX-Group/documents/reports/annual-reports/relx-2025-annual-report.pdf" rel="noopener noreferrer" target="_blank">RELX 年报</a>。两行均为业务板块口径，不是全集团收入。调整后营业利润也不是净利润。</p>
+<p>这些业务经营展会品牌、专业参加者和商业客户。它们可以收取展位费、赞助费和参会费。主办方掌握持续聚集特定行业人群的能力，收费空间就高于通用报名工具。</p>
+<p>这与“应该认识的人”直接相关：买方愿意见哪些供应商，创业者愿意向哪些同行讨论问题，决定一场活动的价值。但知识星球若亲自成为主办方，也会承担内容、销售和现场工作。</p>
+<p>因此，行业总消费额不能当作新产品的可获得市场。酒店、餐饮、交通和展台搭建收入，不会因为产品推荐了参加者，就变成平台的软件收入。</p>
+<h2 id="articuler">Articuler：在已有活动中推荐应该认识的人</h2>
+<p>Articuler 比通用票务工具更接近本研究的问题。它围绕活动提供招募观众和人员匹配。这个案例增加了对“已有活动内匹配”的信心。它尚未提供足以证明长期经营成立的数据。</p>
+<p>本节依据 2026 年 10 月 17 日的访谈。资料为《42章经》对谈创始人 Jason 的转录稿。转录采用自动语音识别，未逐字核对音频。数字与表述应保留这一限制。另参考本次核对的官网。<a href="https://www.xiaoyuzhoufm.com/episode/6acddf92e742e36efcc2448d?utm_source=rss" rel="noopener noreferrer" target="_blank">访谈节目</a>、<a href="https://www.articuler.ai/" rel="noopener noreferrer" target="_blank">Articuler 官网</a></p>
+<h3 id="addition-31">产品切入点与经营证据</h3>
+<p>据 Jason 介绍，团队从找人、求职等场景探索到活动。其流程包括按主题寻找潜在观众，再发送个性化邀请。活动前一天，平台向参会者推荐值得认识的人。主办方提供活动入口，平台承接人员匹配。</p>
+<p>官网也展示观众招募、赞助商寻找和会前匹配。参会者能看到推荐理由与交流准备内容。这能确认公司的产品定位，不能独立证明效果。<a href="https://www.articuler.ai/events/" rel="noopener noreferrer" target="_blank">活动主办方产品页</a></p>
+<div aria-label="产品切入点与经营证据数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>产品切入点与经营证据 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">访谈中的信息</th>
+<th scope="col">证据性质</th>
+<th scope="col">能支持的判断与限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Jason 为创始人；曾做投资</th>
+<td>创始人自述</td>
+<td>有助于理解早期人脉来源，不能代替获客成本数据</td>
+</tr>
+<tr>
+<th scope="row">首轮投资来自奇绩创坛</th>
+<td>创始人自述</td>
+<td>本节未核实融资金额、估值及完整轮次</td>
+</tr>
+<tr>
+<th scope="row">注册用户超过 7 万，湾区占比超过 40%</th>
+<td>创始人自述</td>
+<td>不是月活、付费用户，也不是活动业务独立用户</td>
+</tr>
+<tr>
+<th scope="row">每周有几十场活动</th>
+<td>创始人自述</td>
+<td>未说明收费场次、重复主办方占比与服务工时</td>
+</tr>
+<tr>
+<th scope="row">邮件打开率约 80%，转化率 15%—20%</th>
+<td>创始人自述</td>
+<td>缺少样本量、分母与转化动作定义</td>
+</tr>
+<tr>
+<th scope="row">合作后出现座位不足</th>
+<td>主办方反馈，经创始人转述</td>
+<td>缺少前后到场人数及可比活动对照</td>
+</tr>
+<tr>
+<th scope="row">有年费会员付款案例</th>
+<td>创始人自述的个案</td>
+<td>不能推出整体付费率、续费率或收入</td>
+</tr>
+<tr>
+<th scope="row">收入、利润、员工人数</th>
+<td>本节未取得可靠数据</td>
+<td>不据此判断公司已规模化盈利</td>
+</tr>
+</tbody>
+</table></div>
+<p>访谈未明确区分招募服务费与个人会员收入。两类业务的付款人、交付内容和成本不同。每周活动量也不能直接换算成软件收入。</p>
+<h3 id="addition-32">最值得借鉴的设计</h3>
+<p>一场已有活动提供时间、地点和主题。参会者也已表达初步参加意愿。产品可以在这个范围内推荐对象。这比让陌生人从零协调一次见面更容易验证。</p>
+<p>知识星球可先提供一项具体服务：活动前一天，向自愿参加匹配的成员推荐 3 人。推荐说明双方有什么可讨论的问题。成员确认意愿后，再安排介绍。这里的 3 人是试验建议，不是行业标准。</p>
+<p>成员资料应结合当下需求。一个人的职业相同，不代表本月的问题相同。成员可填写近期困难、能提供的帮助及见面意愿。已有帖子可以补充背景，但需要成员选择展示范围。</p>
+<p>Jason 还强调请求与接受行为的价值。对知识星球，双方接受介绍比单方点击更有意义。但收到请求的人也会受知名度影响。产品需记录谁看到了哪些推荐，才能解释选择结果。</p>
+<p>访谈也指出，交流会转移到邮件或线下。仅凭平台消息数，无法判断关系是否继续。试验应在活动后询问双方是否交谈，再回访是否继续联系。无需收集完整私人聊天内容。</p>
+<h3 id="addition-33">哪些判断仍需核实</h3>
+<p>邮件打开率不宜作为主要成功指标。自动图片加载会影响打开统计。应同时核对送达、有效回复、报名与实际到场。<a href="https://mailchimp.com/help/about-open-tracking/" rel="noopener noreferrer" target="_blank">Mailchimp 打开统计说明</a></p>
+<p>访谈称现有票务平台“不做邀约”，范围过宽。Luma 已支持邀请来宾。Articuler 更具体的区别，是从原名单之外寻找相关人群。现有邀请功能与外部观众招募应分别比较。<a href="https://help.luma.com/p/inviting-and-adding-guests-to-your-event" rel="noopener noreferrer" target="_blank">Luma 来宾邀请文档</a></p>
+<p>向量、模型训练和多智能体是技术方法。访谈没有给出与人工介绍或简单规则的效果对比。因此，不能仅凭技术描述确认长期竞争优势。更值得验证的是持续使用、双向接受和交付成本。</p>
+<p>Jason 将活动视为获取用户与关系数据的入口。主办方却首先需要活动成功。知识星球若将成员导向独立产品，也会遇到利益分配问题。星主需要控制展示范围，并能看到服务带来的结果。</p>
+<h3 id="addition-34">对试验设计的具体修正</h3>
+<p>Jason 认为，小桌聚会里人人都能交流。人数增加后，寻找对象才更困难。他提到的“超过 20 人”是经验判断，不应当作通用门槛。</p>
+<div aria-label="对试验设计的具体修正数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>对试验设计的具体修正 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">活动场景</th>
+<th scope="col">产品需要解决的问题</th>
+<th scope="col">主要验证内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">约 12 人的小聚</th>
+<td>哪些人适合组成这一组</td>
+<td>组队质量、复购与组织成本</td>
+</tr>
+<tr>
+<th scope="row">约 30—80 人的已有活动</th>
+<td>到场后应优先认识谁</td>
+<td>推荐带来的实际交谈与后续联系</td>
+</tr>
+</tbody>
+</table></div>
+<p>原方案只安排 12 人小聚，容易低估会内匹配的价值。因此，修订方案优先接入星主已有的中型活动。同时保留小聚试验，两类结果分别统计。30—80 人是建议的试验范围，并非 Articuler 已验证的最优规模。</p>
+<p>访谈最值得进一步核实的，是主办方实际付费复办。应索取连续几场活动的报名、到场和匹配记录。再核对平台人工工时、服务费与退款。对未继续合作的主办方，也应了解原因。</p>
+<h2 id="section-31">知识星球的机会与限制</h2>
+<h3 id="section-32">最值得验证的优势：已有的关系信息</h3>
+<p>知识星球已有成员身份、内容交流和星主管理关系。官方文档也提到成员编号可用于线下核验。这说明产品已经与线下组织存在接触点。<a href="https://doc.zsxq.com/member-number-feature.html" rel="noopener noreferrer" target="_blank">成员编号说明</a></p>
+<p>这些信息是否比自填职业标签更有用，目前只是待验证假设。一个人订阅创业内容，不代表他有创业经验。发帖多，也不代表愿意帮助陌生人。</p>
+<p>建议优先使用成员主动填写的短信息：所在城市、最近的问题、能提供的帮助、愿意见面的时间。再由成员决定是否附上相关作品或帖子。跨星球展示应由成员和组织者明确选择。</p>
+<p>如果产品需要长篇填写履历，用户会有负担。如果完全依赖后台推断，又容易错认动机。最小表单应服务于这一次具体见面。</p>
+<h3 id="section-33">最难的约束：双方都愿意见面</h3>
+<p>“我应该认识他”只是单方意愿。产品还需回答对方为什么愿意见，以及双方能否在同一地点和时间出现。</p>
+<div aria-label="最难的约束：双方都愿意见面数据表" class="tbl" role="region" tabindex="0"><table class="compact"><caption>最难的约束：双方都愿意见面 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">容易产生的请求</th>
+<th scope="col">更适合初期产品的请求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">我想认识投资人</th>
+<td>我想与同阶段创业者讨论融资准备</td>
+</tr>
+<tr>
+<th scope="row">我想认识行业大咖</th>
+<td>我能分享一个案例，也想听类似经历</td>
+</tr>
+<tr>
+<th scope="row">我希望认识有资源的人</th>
+<td>我在找有某项实践经验的同城同行</td>
+</tr>
+<tr>
+<th scope="row">我想扩展人脉</th>
+<td>我希望在两周内，与两位同行讨论一个问题</td>
+</tr>
+</tbody>
+</table></div>
+<p>研究判断：先做地位较接近、能互相提供帮助的人群。只要某一方长期提供价值，另一方长期索取，匹配系统就会缺少愿意接受邀请的人。</p>
+<h3 id="section-34">城市密度比全国用户数更重要</h3>
+<p>可见面人群可以粗略拆成：相关成员数 × 同城比例 × 近期意愿 × 时间兼容 × 双方接受。</p>
+<p>例如，一个星球有 1,000 名成员。同城占 10%，近期愿意见面占 20%。若时间兼容率为 50%，只剩 10 人，再筛主题就更少。这是演示，不是知识星球实际数据。</p>
+<p>因此，初期选择一个城市和一个明确主题，优于同时开放很多城市。跨星球连接可以补充密度，但要先证明单个社群内确有需求。</p>
+<h3 id="section-35">真正的竞争对手包括现有组织方法</h3>
+<p>对星主而言，微信群、表单和熟人介绍已经能组织聚会。新产品需要减少具体工作，或带来更好的连接结果。仅把这些步骤集中到新页面，可能不足以让星主迁移。</p>
+<p>建议先比较三项结果：组织一场活动需要多少分钟；参加者到场率；活动后继续交流的比例。软件是否节省时间，与连接是否更好，必须分别验证。</p>
+<h3 id="section-36">星主关系会限制跨社群扩张</h3>
+<p>星主可能欢迎更好办活动，但不愿意平台直接把成员导向其他星球。独立产品如果绕过星主，原本的分发优势可能转成阻力。</p>
+<p>初期应允许星主决定活动开放范围。成员关系展示应有明确边界。平台可以提供共同主办功能，但不应默认共享整个成员目录。</p>
+<h2 id="section-37">产品方向判断</h2>
+<div aria-label="产品方向判断数据表" class="tbl" role="region" tabindex="0"><table class="wide"><caption>产品方向判断 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">方向</th>
+<th scope="col">判断</th>
+<th scope="col">原因</th>
+<th scope="col">改变判断所需证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">通用活动发布与售票</th>
+<td>不优先独立做</td>
+<td>成熟替代品多，收费空间受竞争限制</td>
+<td>星主有大规模未满足需求，且愿意迁移付费</td>
+</tr>
+<tr>
+<th scope="row">企业会务全流程软件</th>
+<td>不适合作为本次起点</td>
+<td>需要企业销售、系统对接和现场保障</td>
+<td>明确接受新的销售与交付方式</td>
+</tr>
+<tr>
+<th scope="row">平台自营陌生人饭局</th>
+<td>不优先规模化</td>
+<td>城市运营和体验成本高</td>
+<td>多城均有稳定贡献利润和复购</td>
+</tr>
+<tr>
+<th scope="row">星主已有活动内的匹配</th>
+<td>优先试验</td>
+<td>已有主题、时间和参加意愿，先验证介绍效果</td>
+<td>相比原方式增加实际交谈、后续联系和付费复办</td>
+</tr>
+<tr>
+<th scope="row">星主组织的同城小聚</th>
+<td>补充试验</td>
+<td>单独验证组队质量与组织成本</td>
+<td>提高复购及后续联系，贡献利润为正</td>
+</tr>
+<tr>
+<th scope="row">跨星球的同主题连接</th>
+<td>第二阶段</td>
+<td>可补足城市密度，但涉及成员关系</td>
+<td>星主愿意合作，成员愿意跨群参加</td>
+</tr>
+<tr>
+<th scope="row">独立品牌和 App</th>
+<td>结果达标后再决定</td>
+<td>初期新增获客与安装成本</td>
+<td>外部用户也能持续参加并付费</td>
+</tr>
+</tbody>
+</table></div>
+<p>一项新产品可以先有独立流程和身份，不必第一天就有独立 App。试验期使用网页或小程序，更容易通过现有社群传播。</p>
+<p>本研究没有查到足以证明“全国职业匹配平台已经成立”的经营证据。因此，对这一方向的判断比小型社群活动更保守。</p>
+<h2 id="section-38">收入模型：分别计算软件与组织服务</h2>
+<p>以下全部是方案测算，不是公司披露，也不是收入预测。金额为人民币，未扣税及固定研发成本。</p>
+<h3 id="section-39">票务抽成的规模要求</h3>
+<p>假设每场 30 人，每人票价 199 元，平台收取 3%。单场收入为：</p>
+<p>30 × 199 × 3%＝179.10 元。</p>
+<p>若年收入目标为 1,000 万元，需要约 55,835 场，平均每天约 153 场。每场人工支持稍重，就会明显压低利润。</p>
+<p>若按活动行公布的 2.5%＋1 元／张计算，同一场收费为 179.25 元。这个算式只是解释费率，不代表活动行的实际客单价或成本。</p>
+<h3 id="section-40">三种收入达到同一规模所需的用户量</h3>
+<div aria-label="三种收入达到同一规模所需的用户量数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>三种收入达到同一规模所需的用户量 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">模型假设</th>
+<th scope="col" style="text-align: right;">达到约 1,000 万元年收入所需规模</th>
+<th scope="col">核心困难</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">每主办方每年 1,999 元软件费</th>
+<td style="text-align: right;">约 5,003 个持续付费主办方</td>
+<td>需要证明每年都节省工作或增加收入</td>
+</tr>
+<tr>
+<th scope="row">每人每年 499 元连接会员</th>
+<td style="text-align: right;">约 20,041 个持续付费成员</td>
+<td>需要稳定供给、复购及明确服务范围</td>
+</tr>
+<tr>
+<th scope="row">每次见面服务费 79 元</th>
+<td style="text-align: right;">约 126,583 次付费席位</td>
+<td>每城组织、补位和服务成本</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些只是收入等式。实际所需用户数还受退款、折扣、流失和确认收入方式影响。会员费与按次费是不同方案，不能默认同时收取。</p>
+<h3 id="section-41">六人小组的示例成本</h3>
+<p>假设每人支付 79 元服务费，餐饮另付：</p>
+<div aria-label="六人小组的示例成本数据表" class="tbl" role="region" tabindex="0"><table class="compact"><caption>六人小组的示例成本 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col" style="text-align: right;">每组金额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">服务费收入，6×79</th>
+<td style="text-align: right;">474 元</td>
+</tr>
+<tr>
+<th scope="row">召集人或合作方报酬</th>
+<td style="text-align: right;">-120 元</td>
+</tr>
+<tr>
+<th scope="row">支付与消息成本预算</th>
+<td style="text-align: right;">-18 元</td>
+</tr>
+<tr>
+<th scope="row">退款和补偿预算</th>
+<td style="text-align: right;">-24 元</td>
+</tr>
+<tr>
+<th scope="row">获客成本分摊</th>
+<td style="text-align: right;">-60 元</td>
+</tr>
+<tr>
+<th scope="row">人工组织，1 小时×120 元</th>
+<td style="text-align: right;">-120 元</td>
+</tr>
+<tr>
+<th scope="row">贡献利润</th>
+<td style="text-align: right;">132 元</td>
+</tr>
+</tbody>
+</table></div>
+<p>贡献利润率约为 27.8%。若人工增加到两小时，只剩 12 元。这个模型揭示的关键变量是组织工时，不能只看匹配算法成本。</p>
+<p>如果星主完成组织工作，平台的成本可以下降，但必须给星主足够的收益或节省时间。把工作交给免费志愿者，不等于成本永久消失。</p>
+<p>知识星球也可能通过提高现有会员续费获益。应单独计算：参加者数量 × 相对对照组的续费提升 × 每个续费用户的平台贡献。不能把星球交易总额都归为新产品收入。</p>
+<h2 id="section-42">建议的 8 周验证</h2>
+<h3 id="section-43">范围与预算</h3>
+<p>选择一个城市，邀请 3 个主题接近的星球。优先使用已有召集人和报名工具。以至少 120 名独立参加者作为探索目标。两类试验共用人力，分别记录结果。</p>
+<div aria-label="范围与预算数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>范围与预算 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">试验</th>
+<th scope="col">建议范围</th>
+<th scope="col">比较方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">已有活动内匹配，主试验</th>
+<td>6 场约 30—80 人的活动</td>
+<td>将相似活动配成 3 对，比较会前推荐与原有介绍方式</td>
+</tr>
+<tr>
+<th scope="row">同城小聚，补充试验</th>
+<td>12 场约 12 人的小聚</td>
+<td>比较按近期需求组队与原有组队方式，并安排再次参加机会</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些场次与人数是修订后的建议。它们替代原先 24 场小聚的安排。若已有活动不足，先缩小范围，不为完成场次而新办大会。</p>
+<p>建议安排 1 名产品负责人、1 名运营人员和按需工程支持。新增现金预算上限可先设为 15 万元。内部人力另记账，防止把内部投入算成免费。此金额是研究建议，尚未经成本核实或批准。</p>
+<p>保持一个清楚的场景，例如同城创业者讨论近期经营问题。不要同时测试求职、婚恋、投资介绍和兴趣交友。</p>
+<h3 id="section-44">试验步骤与检查</h3>
+<div aria-label="试验步骤与检查数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>试验步骤与检查 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">时间</th>
+<th scope="col">行动</th>
+<th scope="col">检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">第 1 周</th>
+<td>访谈 10 位星主、20 位成员；复盘实际办过的活动</td>
+<td>记录现有工时、到场率、失败原因和已付费用</td>
+</tr>
+<tr>
+<th scope="row">第 2 周</th>
+<td>确定已有活动与对照；收集自愿匹配成员的需求</td>
+<td>确认 3 位召集人、展示授权和计数方式</td>
+</tr>
+<tr>
+<th scope="row">第 3—4 周</th>
+<td>完成首批会内匹配与小聚；会前提供推荐</td>
+<td>分别记录曝光、接受、实际交谈、到场及工时</td>
+</tr>
+<tr>
+<th scope="row">第 5—6 周</th>
+<td>邀请主办方付费复用匹配服务；开放小聚复购</td>
+<td>分开统计服务费与门票收入，不以口头意愿代替付款</td>
+</tr>
+<tr>
+<th scope="row">第 7—8 周</th>
+<td>完成早期用户 30 天回访；核算贡献利润</td>
+<td>决定继续、缩小方向或停止投入</td>
+</tr>
+</tbody>
+</table></div>
+<p>两类试验应分别比较相似主题、规模和收费方式。条件允许时，随机指定成对活动中的试验场。会内匹配有双方交互，不宜把同场成员简单切成独立样本。少量活动只能提供方向性证据，不能作强统计结论。</p>
+<p>30 天回访优先覆盖第 3—4 周的参加者。后期参加者未满观察期时，标记为观察中。第 8 周不将这部分人计入完整 30 天结果。</p>
+<p>不要先开发复杂推荐系统。人工匹配更容易发现实际变量。只有规则开始重复，才值得把这部分自动化。</p>
+<h3 id="section-45">成功标准</h3>
+<p>以下阈值是建议的决策标准，不是行业平均值。两类试验分别计算，不合并成一个成功率。</p>
+<div aria-label="成功标准数据表" class="tbl" role="region" tabindex="0"><table class="medium"><caption>成功标准 · 数据表</caption>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col" style="text-align: right;">初始继续门槛</th>
+<th scope="col">如何计数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">小聚实际到场率</th>
+<td style="text-align: right;">≥80%</td>
+<td>到场者÷最终确认者；单列提前取消与临时缺席</td>
+</tr>
+<tr>
+<th scope="row">已有活动到场率</th>
+<td style="text-align: right;">不低于可比活动</td>
+<td>同时报告报名人数与最终确认人数，不沿用免费活动的行业传闻</td>
+</tr>
+<tr>
+<th scope="row">推荐对象间的实际交谈</th>
+<td style="text-align: right;">高于原方式</td>
+<td>由双方确认；按独立参加者统计，另记录双方均到场的推荐对数</td>
+</tr>
+<tr>
+<th scope="row">双方愿意继续联系</th>
+<td style="text-align: right;">≥40%</td>
+<td>到场者中，至少与一位新认识成员互相选择者占比</td>
+</tr>
+<tr>
+<th scope="row">30 天内后续实质交流</th>
+<td style="text-align: right;">≥25%</td>
+<td>完成 30 天观察的首访者中，有双方确认后续交流者占比</td>
+</tr>
+<tr>
+<th scope="row">小聚 30 天内第二次付费参加</th>
+<td style="text-align: right;">≥30%</td>
+<td>有第二次活动机会的首访者中，实际付款到场者占比</td>
+</tr>
+<tr>
+<th scope="row">主办方付费复用匹配服务</th>
+<td style="text-align: right;">≥2／3</td>
+<td>3 位试用主办方中，实际付费再次使用者占比；单列金额与折扣</td>
+</tr>
+<tr>
+<th scope="row">召集人自主复办</th>
+<td style="text-align: right;">≥2／3</td>
+<td>不由平台代办，召集人实际完成第二轮</td>
+</tr>
+<tr>
+<th scope="row">单场贡献利润</th>
+<td style="text-align: right;">为正</td>
+<td>扣除支付、补偿、获客、组织人工和合作方成本</td>
+</tr>
+<tr>
+<th scope="row">平台人工工时</th>
+<td style="text-align: right;">随批次下降</td>
+<td>不把工时转移到未记录的私聊和客服中</td>
+</tr>
+</tbody>
+</table></div>
+<p>匹配服务的付款人需单独确认。参加者购买活动门票，不等于为匹配付费。主试验按匹配服务收入扣除新增人工等成本。补充试验则核算小聚的组织成本。</p>
+<p>“实质交流”包括第二次线下见面或围绕具体问题的深入交流。交换微信、浏览资料和满意度问卷不算。未回复回访者不计为成功，并单列失访率。</p>
+<p>三种不同结果对应不同动作：</p>
+<ul>
+<li>组织者愿付费，但连接质量无明显提升：保留活动工具方向。</li>
+<li>连接结果好，但人工成本过高：缩小人群，改善召集人流程。</li>
+<li>初次体验好，但不复购也不继续联系：停止扩大匹配投入。</li>
+</ul>
+<p>连续两轮仍无法达到各自的连接结果与贡献利润门槛，就不进入多城扩张。独立 App 应等到外部主办方和外部成员也显示持续需求。</p>
+<h2 id="section-46">立项前仍需补齐的数据</h2>
+<p>公开研究不能替代知识星球内部数据。以下信息会直接改变判断：</p>
+<ol>
+<li>过去 12 个月，有多少星球组织过真实线下活动。</li>
+<li>每个城市有多少近期活跃、愿意见面的成员。</li>
+<li>活动由星主、管理员还是普通成员发起。</li>
+<li>星主目前为报名、场地、运营分别付多少钱。</li>
+<li>参加活动者的续费差异，是否来自原本更活跃。</li>
+<li>成员愿意公开什么资料，愿意跨哪些星球见面。</li>
+<li>星主愿意为节省工时、增加到场或改善连接，购买哪一种结果。</li>
+</ol>
+<p>对外部公司，最值得继续核实的是活动行当前收入结构与利润、Luma 的 ARR 定义，以及 Timeleft 的城市留存和贡献利润。Articuler 则需补主办方付费复用、到场提升和服务工时。还应访谈使用后离开的主办方，避免只看到成功案例。</p>
+<p>具体访谈可以从最近一场失败活动开始：取消了多少人，组织者补了几次位，花了多少时间，参加者后来是否再联系。这些记录比“是否喜欢线下社交”的问卷更能决定产品范围。</p>
+<h2 id="section-47">研究记录</h2>
+<p>2026-10-29：完成首版公开资料研究。区分活动工具、企业会务和人员连接业务。核对历史融资与近期经营证据。增加成本测算、验证门槛及数据缺口。本文未开展真实试验，未将建议作为知识星球已作出的决定。</p>
+<p>2026-10-29：补充 21 个公司或产品的流量数据状态。新增 7 个域名的同月访问估计、历史与缺失数据、域名口径说明及使用指标建议。网页访问不等同于月活、付费用户或到场人数。</p>
+<p>2026-10-30：新增 Articuler 专章，放在企业案例之后、知识星球分析之前。区分创始人自述、官网功能与待验证判断。同步修订研究摘要、产品方向及 8 周试验。主试验转为已有活动内匹配，保留小聚作为补充。原有流量数据仍使用 2026-10-29 采集口径，未新增 Articuler 流量估计。</p>
+<p>2026-10-30：补齐原有 9 个流量缺项。活动行与 Timeleft 核到 9 月；另 7 项标明统计月份未展示。新增活动行的另一来源数值。月度表头补充“万次”，新增原始次数。撤回按走势图标题将比较数字视为 3 个月合计的解释。</p><h2 id="section-48">方法与来源</h2><p>首版公开资料研究完成于 2026 年 10 月 29 日。10 月 30 日补充 Articuler 访谈与官网资料，并修订试验建议。10 月 30 日补查 9 项流量缺口，区分已核到月份和月份未展示的估计。公司自述、媒体报道、财报和研究建议分别标明。未访谈企业管理层，也未取得内部经营数据。</p><ol class="sources"><li><a href="https://www.inc.com/rebecca-deczynski/meet-the-seven-person-startup-powering-silicon-valleys-event-boom/91408964" rel="noopener noreferrer" target="_blank">Inc. 报道</a><span class="domain">www.inc.com</span></li><li><a href="https://www.linkedin.com/in/vpontis" rel="noopener noreferrer" target="_blank">创始人公开招聘信息</a><span class="domain">www.linkedin.com</span></li><li><a href="https://timeleft.com/careers" rel="noopener noreferrer" target="_blank">招聘页</a><span class="domain">timeleft.com</span></li><li><a href="https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work" rel="noopener noreferrer" target="_blank">服务说明</a><span class="domain">help.timeleft.com</span></li><li><a href="https://www.sec.gov/Archives/edgar/data/1475115/000147511526000005/eb-20251231.htm" rel="noopener noreferrer" target="_blank">Eventbrite 年报</a><span class="domain">www.sec.gov</span></li><li><a href="https://www.semrush.com/website/eventbrite.com/overview/" rel="noopener noreferrer" target="_blank">Eventbrite 流量</a><span class="domain">www.semrush.com</span></li><li><a href="https://www.semrush.com/website/feverup.com/overview/" rel="noopener noreferrer" target="_blank">Fever 流量</a><span class="domain">www.semrush.com</span></li><li><a href="https://www.semrush.com/website/partiful.com/overview/?source=trending-websites" rel="noopener noreferrer" target="_blank">Partiful 流量</a><span class="domain">www.semrush.com</span></li><li><a href="https://www.semrush.com/website/luma.com/overview/" rel="noopener noreferrer" target="_blank">Luma 流量</a><span class="domain">www.semrush.com</span></li><li><a href="https://fr.semrush.com/website/meetup.com/overview/" rel="noopener noreferrer" target="_blank">Meetup 流量</a><span class="domain">fr.semrush.com</span></li><li><a href="https://www.semrush.com/website/tickettailor.com/overview/" rel="noopener noreferrer" target="_blank">Ticket Tailor 流量</a><span class="domain">www.semrush.com</span></li><li><a href="https://www.semrush.com/website/cvent.com/overview/" rel="noopener noreferrer" target="_blank">Cvent 流量</a><span class="domain">www.semrush.com</span></li><li><a href="https://www.similarweb.com/website/timeleft.com/" rel="noopener noreferrer" target="_blank">Timeleft 9 月流量</a><span class="domain">www.similarweb.com</span></li><li><a href="https://www.similarweb.com/website/huodongxing.com/" rel="noopener noreferrer" target="_blank">活动行 9 月流量</a><span class="domain">www.similarweb.com</span></li><li><a href="https://www.crunchbase.com/organization/huodongxing" rel="noopener noreferrer" target="_blank">活动行月访问补充</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.crunchbase.com/organization/informa-plc" rel="noopener noreferrer" target="_blank">Informa</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.crunchbase.com/organization/bagevent-com" rel="noopener noreferrer" target="_blank">百格活动</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.crunchbase.com/organization/reed-exhibitions" rel="noopener noreferrer" target="_blank">RX</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.crunchbase.com/organization/31huiyi" rel="noopener noreferrer" target="_blank">31会议</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.crunchbase.com/organization/hudongba" rel="noopener noreferrer" target="_blank">互动吧</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.crunchbase.com/organization/hopin-8ff6" rel="noopener noreferrer" target="_blank">Hopin / RingCentral Events</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.crunchbase.com/organization/huixiaoer" rel="noopener noreferrer" target="_blank">会小二</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.similarweb.com/website/peatix.com/" rel="noopener noreferrer" target="_blank">Peatix 流量页</a><span class="domain">www.similarweb.com</span></li><li><a href="https://www.similarweb.com/website/bizzabo.com/" rel="noopener noreferrer" target="_blank">Bizzabo 流量页</a><span class="domain">www.similarweb.com</span></li><li><a href="https://www.similarweb.com/website/swapcard.com/" rel="noopener noreferrer" target="_blank">Swapcard 流量页</a><span class="domain">www.similarweb.com</span></li><li><a href="https://www.similarweb.com/website/brella.io/" rel="noopener noreferrer" target="_blank">Brella 流量页</a><span class="domain">www.similarweb.com</span></li><li><a href="https://www.similarweb.com/website/lunchclub.com/" rel="noopener noreferrer" target="_blank">Lunchclub 流量页</a><span class="domain">www.similarweb.com</span></li><li><a href="https://webrate.org/site/huodongxing.com/" rel="noopener noreferrer" target="_blank">旧统计页一</a><span class="domain">webrate.org</span></li><li><a href="https://huodongxing.com.clearwebstats.com/" rel="noopener noreferrer" target="_blank">旧统计页二</a><span class="domain">huodongxing.com.clearwebstats.com</span></li><li><a href="https://techlist.ai/timeleft.com" rel="noopener noreferrer" target="_blank">旧聚合页</a><span class="domain">techlist.ai</span></li><li><a href="https://www.hudongba.com/about.html" rel="noopener noreferrer" target="_blank">互动吧官方介绍</a><span class="domain">www.hudongba.com</span></li><li><a href="https://www.similarweb.com/website/luma.com/" rel="noopener noreferrer" target="_blank">Similarweb 数据</a><span class="domain">www.similarweb.com</span></li><li><a href="https://help.luma.com/p/site-accessibility-troubleshooting" rel="noopener noreferrer" target="_blank">Luma 访问说明</a><span class="domain">help.luma.com</span></li><li><a href="https://help.luma.com/p/email-delivery-open-troubleshooting" rel="noopener noreferrer" target="_blank">Luma 通知链接说明</a><span class="domain">help.luma.com</span></li><li><a href="https://support.similarweb.com/hc/en-us/articles/212999769-Total-Visits" rel="noopener noreferrer" target="_blank">访问次数定义</a><span class="domain">support.similarweb.com</span></li><li><a href="https://support.similarweb.com/hc/en-us/articles/360010749958-View-Website-Performance" rel="noopener noreferrer" target="_blank">指标定义</a><span class="domain">support.similarweb.com</span></li><li><a href="https://yunbaio.huodongxing.com/app" rel="noopener noreferrer" target="_blank">活动行入口</a><span class="domain">yunbaio.huodongxing.com</span></li><li><a href="https://timeleft.com/faq/" rel="noopener noreferrer" target="_blank">Timeleft 使用入口</a><span class="domain">timeleft.com</span></li><li><a href="https://support.similarweb.com/hc/en-us/articles/115004173925-Marketing-Channels" rel="noopener noreferrer" target="_blank">Similarweb 渠道定义</a><span class="domain">support.similarweb.com</span></li><li><a href="https://www.semrush.com/kb/1506-traffic-and-market-traffic-overview" rel="noopener noreferrer" target="_blank">Semrush 方法说明</a><span class="domain">www.semrush.com</span></li><li><a href="https://pitchhub.36kr.com/project/1678538643944456" rel="noopener noreferrer" target="_blank">36氪公司资料</a><span class="domain">pitchhub.36kr.com</span></li><li><a href="https://www.zaobao.com.sg/zfinance/personalities/story20180719-876360" rel="noopener noreferrer" target="_blank">联合早报人物报道</a><span class="domain">www.zaobao.com.sg</span></li><li><a href="https://capital.people.com.cn/n1/2017/0703/c405954-29379643.html" rel="noopener noreferrer" target="_blank">人民网 2017 年报道</a><span class="domain">capital.people.com.cn</span></li><li><a href="https://huodongxing.com/about" rel="noopener noreferrer" target="_blank">活动行公司介绍</a><span class="domain">huodongxing.com</span></li><li><a href="https://www.sohu.com/a/229130638_99984157" rel="noopener noreferrer" target="_blank">2018 年创始人采访</a><span class="domain">www.sohu.com</span></li><li><a href="https://media.huodongxing.com/2026/" rel="noopener noreferrer" target="_blank">票款结算说明</a><span class="domain">media.huodongxing.com</span></li><li><a href="https://www.huodongxing.com/terms" rel="noopener noreferrer" target="_blank">服务条款</a><span class="domain">www.huodongxing.com</span></li><li><a href="https://www.juhe.cn/news/index/id/1816" rel="noopener noreferrer" target="_blank">历史盈利报道</a><span class="domain">www.juhe.cn</span></li><li><a href="https://www.ckgsb.edu.cn/chuang/content/news_detail/348" rel="noopener noreferrer" target="_blank">长江商学院转载</a><span class="domain">www.ckgsb.edu.cn</span></li><li><a href="https://www.36dianping.com/vs/hjpb.html" rel="noopener noreferrer" target="_blank">第三方公司资料</a><span class="domain">www.36dianping.com</span></li><li><a href="https://medium.com/maven-ventures/announcing-our-investment-in-luma-to-enable-creators-f45076ccbc81" rel="noopener noreferrer" target="_blank">投资方公告</a><span class="domain">medium.com</span></li><li><a href="https://luma.com/pricing" rel="noopener noreferrer" target="_blank">官方价格页</a><span class="domain">luma.com</span></li><li><a href="https://help.luma.com/p/luma-vs-splash" rel="noopener noreferrer" target="_blank">官方帮助页</a><span class="domain">help.luma.com</span></li><li><a href="https://eventbrite-s3.s3.amazonaws.com/marketing/webinars/greater_giving_through_strategic_fundraising.pdf" rel="noopener noreferrer" target="_blank">公司历史资料</a><span class="domain">eventbrite-s3.s3.amazonaws.com</span></li><li><a href="https://www.meetup.com/blog/highlights-and-milestones-from-20-years-of-meetup/" rel="noopener noreferrer" target="_blank">官方历史</a><span class="domain">www.meetup.com</span></li><li><a href="https://markets.financialcontent.com/wss/article/bizwire-2024-1-24-bending-spoons-finalizes-acquisition-of-us-based-community-building-platform-meetup-and-announces-50000-community-fund" rel="noopener noreferrer" target="_blank">收购公告</a><span class="domain">markets.financialcontent.com</span></li><li><a href="https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview" rel="noopener noreferrer" target="_blank">官方订阅说明</a><span class="domain">help.meetup.com</span></li><li><a href="https://www.sec.gov/Archives/edgar/data/2004711/000110465926071170/tm2613674-7_f1.htm" rel="noopener noreferrer" target="_blank">Bending Spoons 监管文件</a><span class="domain">www.sec.gov</span></li><li><a href="https://www.crunchbase.com/organization/timeleft" rel="noopener noreferrer" target="_blank">创始人资料</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://app.dealroom.co/companies/timeleft" rel="noopener noreferrer" target="_blank">Dealroom</a><span class="domain">app.dealroom.co</span></li><li><a href="https://en.wearestellar.io/use-case/timeleft" rel="noopener noreferrer" target="_blank">Stellar 客户案例</a><span class="domain">en.wearestellar.io</span></li><li><a href="https://www.cvent.com/en/press-release/blackstone-completes-acquisition-cvent" rel="noopener noreferrer" target="_blank">收购公告</a><span class="domain">www.cvent.com</span></li><li><a href="https://www.businesswire.com/news/home/20230314005638/en/Cvent-Announces-Fourth-Quarter-and-Fiscal-Year-2022-Financial-Results" rel="noopener noreferrer" target="_blank">年度业绩公告</a><span class="domain">www.businesswire.com</span></li><li><a href="https://www.cvent.com/en/about-cvent" rel="noopener noreferrer" target="_blank">公司介绍</a><span class="domain">www.cvent.com</span></li><li><a href="https://en.globes.co.il/en/article-Israeli-events-platform-co-Bizzabo-raises-138m-1001351593" rel="noopener noreferrer" target="_blank">融资报道</a><span class="domain">en.globes.co.il</span></li><li><a href="https://www.calcalistech.com/ctechnews/article/duz577shb" rel="noopener noreferrer" target="_blank">CTech 报道</a><span class="domain">www.calcalistech.com</span></li><li><a href="https://startup.aliyun.com/info/1062093.html" rel="noopener noreferrer" target="_blank">融资报道</a><span class="domain">startup.aliyun.com</span></li><li><a href="https://www.31huiyi.com/mobile/case/detail/2357518267/" rel="noopener noreferrer" target="_blank">当前业务示例</a><span class="domain">www.31huiyi.com</span></li><li><a href="https://www.inc.com/john-jannuzzi/how-partiful-became-the-life-of-gen-zs-irl-party/91263552" rel="noopener noreferrer" target="_blank">创始人与融资采访</a><span class="domain">www.inc.com</span></li><li><a href="https://help.partiful.com/en-us/articles/15525600-how-does-partiful-make-money" rel="noopener noreferrer" target="_blank">官方说明</a><span class="domain">help.partiful.com</span></li><li><a href="https://www.swapcard.com/about-swapcard?9266e060_page=1" rel="noopener noreferrer" target="_blank">官方团队介绍</a><span class="domain">www.swapcard.com</span></li><li><a href="https://www.crunchbase.com/organization/swapcard" rel="noopener noreferrer" target="_blank">公司资料</a><span class="domain">www.crunchbase.com</span></li><li><a href="https://www.swapcard.com/company-information" rel="noopener noreferrer" target="_blank">产品与计价方式</a><span class="domain">www.swapcard.com</span></li><li><a href="https://meetings.skift.com/2021/06/17/brella-raises-10-million-funding-double-hybrid-events/" rel="noopener noreferrer" target="_blank">2021 年融资报道</a><span class="domain">meetings.skift.com</span></li><li><a href="https://app.dealroom.co/companies/peatix" rel="noopener noreferrer" target="_blank">创始人资料</a><span class="domain">app.dealroom.co</span></li><li><a href="https://initial.inc/companies/A-10547" rel="noopener noreferrer" target="_blank">融资历史</a><span class="domain">initial.inc</span></li><li><a href="https://leadiq.com/c/peatix/5a1d9d7f23000053008d57ce" rel="noopener noreferrer" target="_blank">第三方人数估计</a><span class="domain">leadiq.com</span></li><li><a href="https://about.peatix.com/en/aboutus" rel="noopener noreferrer" target="_blank">官方介绍</a><span class="domain">about.peatix.com</span></li><li><a href="https://www.tickettailor.com/our-story" rel="noopener noreferrer" target="_blank">公司历史与团队</a><span class="domain">www.tickettailor.com</span></li><li><a href="https://www.tickettailor.com/pricing?currency=gbp" rel="noopener noreferrer" target="_blank">价格机制</a><span class="domain">www.tickettailor.com</span></li><li><a href="https://newsroom.feverup.com/en-CA/271214-fever-raises-record-250m-round-led-by-eqt-in-a-bet-on-what-ai-can-t-replace-live-experiences/" rel="noopener noreferrer" target="_blank">2026 年融资公告</a><span class="domain">newsroom.feverup.com</span></li><li><a href="https://stories.eqtventures.com/articles/fever-scaling-culture-from-madrid-to-the-world" rel="noopener noreferrer" target="_blank">领投方公告</a><span class="domain">stories.eqtventures.com</span></li><li><a href="https://pitchhub.36kr.com/project/1678269421188101" rel="noopener noreferrer" target="_blank">36氪团队与融资记录</a><span class="domain">pitchhub.36kr.com</span></li><li><a href="https://www3.bagevent.com/introduce/price.html" rel="noopener noreferrer" target="_blank">官方费用说明</a><span class="domain">www3.bagevent.com</span></li><li><a href="https://travel.ifeng.com/c/7hSWvfAdOOm" rel="noopener noreferrer" target="_blank">早期融资及经营报道</a><span class="domain">travel.ifeng.com</span></li><li><a href="https://www.sohu.com/a/232663439_115035" rel="noopener noreferrer" target="_blank">创始人经历</a><span class="domain">www.sohu.com</span></li><li><a href="https://economictimes.indiatimes.com/tech/startups/lunchclub-a-social-network-for-professionals-officially-launches-in-india/articleshow/86934344.cms" rel="noopener noreferrer" target="_blank">融资与团队报道</a><span class="domain">economictimes.indiatimes.com</span></li><li><a href="https://fortune.com/2025/11/11/lighter-fundraise-founders-fund-ribbit-capital-haun-ventures-robinhood-vladimir-novakovski/" rel="noopener noreferrer" target="_blank">Fortune 报道</a><span class="domain">fortune.com</span></li><li><a href="https://www.sec.gov/Archives/edgar/data/1384905/000138490523000032/rng-20230630.htm" rel="noopener noreferrer" target="_blank">RingCentral 文件</a><span class="domain">www.sec.gov</span></li><li><a href="https://www.informa.com/globalassets/documents/investor-relations/2026/informa-2025-full-year-results-statement.pdf" rel="noopener noreferrer" target="_blank">Informa 年度业绩</a><span class="domain">www.informa.com</span></li><li><a href="https://www.relx.com/~/media/Files/R/RELX-Group/documents/reports/annual-reports/relx-2025-annual-report.pdf" rel="noopener noreferrer" target="_blank">RELX 年报</a><span class="domain">www.relx.com</span></li><li><a href="https://www.xiaoyuzhoufm.com/episode/6acddf92e742e36efcc2448d?utm_source=rss" rel="noopener noreferrer" target="_blank">访谈节目</a><span class="domain">www.xiaoyuzhoufm.com</span></li><li><a href="https://www.articuler.ai/" rel="noopener noreferrer" target="_blank">Articuler 官网</a><span class="domain">www.articuler.ai</span></li><li><a href="https://www.articuler.ai/events/" rel="noopener noreferrer" target="_blank">活动主办方产品页</a><span class="domain">www.articuler.ai</span></li><li><a href="https://mailchimp.com/help/about-open-tracking/" rel="noopener noreferrer" target="_blank">Mailchimp 打开统计说明</a><span class="domain">mailchimp.com</span></li><li><a href="https://help.luma.com/p/inviting-and-adding-guests-to-your-event" rel="noopener noreferrer" target="_blank">Luma 来宾邀请文档</a><span class="domain">help.luma.com</span></li><li><a href="https://doc.zsxq.com/member-number-feature.html" rel="noopener noreferrer" target="_blank">成员编号说明</a><span class="domain">doc.zsxq.com</span></li></ol></main>
+</div>
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

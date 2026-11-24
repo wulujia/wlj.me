@@ -1138,3 +1138,16 @@ year = "2026"
 description = "比较深圳及珠三角墨水屏设备、开发套件与小批量采购，附联网限制、样机预算和验收计划。"
 original_url = ""
 research_url = "/research/prd-epaper-suppliers/"
+
+[[materials]]
+slug = "events-offline-connections"
+title = "活动平台、会务软件与线下连接行业研究"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Business", "Product", "Community"]
+date = "2026-11-24T16:39:30+08:00"
+year = "2026"
+description = "活动行、Luma 等活动平台与线下连接公司的业务、融资、收入及网页流量研究。结合 Articuler 案例，评估知识星球的产品机会与试验方案。资料截至 2026 年 10 月 30 日。"
+original_url = ""
+research_url = "/research/events-offline-connections/"
