@@ -12,4 +12,4 @@ slug: "zhouyi-reading-guide"
 
 我让 AI 做了一份学习指南，包含：十五讲逐讲要点、八卦速查表（含作者对卦名的考源）、六十四卦一览（逐卦一句话概括）、卦序规律（「二二相耦，非覆即变」）。
 
-[打开指南](https://wlj.me/reading/zhouyi-jingzhuan-15-lectures/)
+[打开指南](/research/zhouyi-jingzhuan-15-lectures/)

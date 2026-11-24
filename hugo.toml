@@ -1,4 +1,4 @@
-baseURL = "https://wlj.me/"
+baseURL = "https://wulujia.com/"
 languageCode = "zh-cn"
 title = "Luca's Blog"
 theme = "terminal"
@@ -47,7 +47,6 @@ enableRobotsTXT = true
     url = "/about/"
     description = "产品经理、连续创业者，长期写作者。关注产品设计、技术工具、创业和生活。"
     sameAs = [
-      "https://wulujia.com",
       "https://github.com/wulujia",
       "https://x.com/wulujia",
       "https://slax.com/",
@@ -71,9 +70,9 @@ enableRobotsTXT = true
     url = "/posts/"
     weight = 10
   [[menu.main]]
-    identifier = "reading"
-    name = "整理"
-    url = "/reading/"
+    identifier = "research"
+    name = "研究"
+    url = "/research/"
     weight = 20
   [[menu.main]]
     identifier = "notes"

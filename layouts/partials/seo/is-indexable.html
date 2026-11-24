@@ -8,7 +8,7 @@
     {{- $isIndexable = true -}}
   {{- else if and .IsPage (eq .Section "posts") -}}
     {{- $isIndexable = true -}}
-  {{- else if and (eq .Kind "section") (eq .Section "reading") -}}
+  {{- else if and (eq .Kind "section") (eq .Section "research") -}}
     {{- $isIndexable = true -}}
   {{- else if and (eq .Kind "section") (eq .Section "startupnotes") -}}
     {{- $isIndexable = true -}}

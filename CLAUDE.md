@@ -39,35 +39,35 @@ publish.sh 自动处理：先跑 luca-writing 的检查器（`~/Github/luca-writ
 - tags 必须用英文，优先复用现有标签
 - 检查器没过就改稿，不要绕过脚本手动发布。确认是误报的行，在行尾加 `<!-- lint-disable-line -->`，发布时脚本会把这个标记删掉
 
-## 发布整理页（reading）
+## 发布研究页（research）
 
-先读 `docs/spec.md`。新页面从 `templates/reading/index.html` 起稿。
+先读 `docs/spec.md`。新页面从 `templates/research/index.html` 起稿。
 复制模板后，替换标题、摘要、日期、canonical 和正文。
 保留统一样式、主题控件、返回链接和目录结构。
 目录按顺序列出全部 `h2`、`h3`，文字必须与标题一致。
 每个标题有独立 id。
 
-统一样式和脚本在 `templates/reading/reading.css`、`reading.js`。
+统一样式和脚本在 `templates/research/reading.css`、`reading.js`。
 禁止逐页修改内嵌副本。更新副本使用：
 
 ```bash
-python3 scripts/reading_style.py /tmp/slug-name --sync --url-prefix https://wlj.me/reading/slug-name/
+python3 scripts/research_style.py /tmp/slug-name --sync --url-prefix https://wulujia.com/research/slug-name/
 ```
 
 组件样式放在共用样式之前。组件不得另设正文主题和字体。
 专题目录中的 HTML 子页也必须使用模板。
 
-整理页是 `static/reading/<slug>/index.html` 下的自包含 HTML，不是 Hugo 页面。必须通过 publish.sh 发布，不要手动复制目录、手动改 `data/reading-materials.toml` 或手写 CHANGELOG 条目：
+研究页是 `static/research/<slug>/index.html` 下的自包含 HTML，不是 Hugo 页面。必须通过 publish.sh 发布，不要手动复制目录、手动改 `data/research-materials.toml` 或手写 CHANGELOG 条目：
 
 1. 在 /tmp/ 下建目录，目录名为英文 kebab-case（这就是 slug），里面放 `index.html`（图片、EPUB 等附件一起放在目录里）
-2. HTML 的 head 必须有：`<title>`、手写的 `<meta name="description">`、`<meta name="robots" content="index,follow">`、`<link rel="canonical" href="https://wlj.me/reading/<slug>/">`；正文要有返回整理的链接 `href="/reading/"`；图片不能空 alt
+2. HTML 的 head 必须有：`<title>`、手写的 `<meta name="description">`、`<meta name="robots" content="index,follow">`、`<link rel="canonical" href="https://wulujia.com/research/<slug>/">`；正文要有返回研究的链接 `href="/research/"`；图片不能空 alt
 3. 运行：
 
 ```bash
-./publish.sh reading /tmp/slug-name --category misc --author "作者" --tags AI,Tools [--year 2026] [--subtitle "副标题"] [--original-url URL] [--post-slug 相关文章slug] [--changelog "自定义日志行"]
+./publish.sh research /tmp/slug-name --category misc --author "作者" --tags AI,Tools [--year 2026] [--subtitle "副标题"] [--original-url URL] [--post-slug 相关文章slug] [--changelog "自定义日志行"]
 ```
 
-publish.sh 自动处理：校验上面的 head 要求、跑 luca-html 的检查器（`~/Github/luca-html/scripts/check_html.py`，它同时会对页面正文跑 luca-writing 的检查，0 error 0 warning 才放行）、把目录复制到 `static/reading/<slug>/`、在 `data/reading-materials.toml` 追加条目（date 取当前时间，title / description 从 HTML 读）、在 CHANGELOG.md 当天标题下加一行、本机有 hugo 时构建并检查 sitemap、git commit、git push。
+publish.sh 自动处理：校验上面的 head 要求、跑 luca-html 的检查器（`~/Github/luca-html/scripts/check_html.py`，它同时会对页面正文跑 luca-writing 的检查，0 error 0 warning 才放行）、把目录复制到 `static/research/<slug>/`、在 `data/research-materials.toml` 追加条目（date 取当前时间，title / description 从 HTML 读）、在 CHANGELOG.md 当天标题下加一行、本机有 hugo 时构建并检查 sitemap、git commit、git push。
 
 规则：
 - category 只能是 book / report / documentary / misc
@@ -75,7 +75,7 @@ publish.sh 自动处理：校验上面的 head 要求、跑 luca-html 的检查�
 - 先跑 `--dry-run` 看校验结果和将写入的条目，再正式发布
 - 更新页面加 `--update`。只写本地加 `--local`，脚本仍检查和构建，但不提交、不推送
 - 发布前递归检查全部 HTML 子页。任一子页失败时，不写入目标目录
-- 推送后 GitHub Actions 运行整理页测试、`python3 scripts/reading_style.py static/reading` 和一次 Hugo 构建，失败时提交显示红叉。这个工作流不部署；要让检查拦住上线，Cloudflare Pages 的构建命令须先跑同样的检查
+- 推送后 GitHub Actions 运行研究页测试、`python3 scripts/research_style.py static/research` 和一次 Hugo 构建，失败时提交显示红叉。这个工作流不部署；要让检查拦住上线，Cloudflare Pages 的构建命令须先跑同样的检查
 - 引文或专业术语确属误报时，逐行核对并记录到 `docs/20261102-reading-lint-reviews.md`。不得整页豁免；修改标记行时必须重新核对。
 - 页面按 luca-html skill 从模板起稿，正文按 luca-writing 写。检查器没过就改页面，不要手动复制目录绕过脚本
 
@@ -97,9 +97,9 @@ notes 通过 social-poster bot 的 wlj 平台发布，不在 Claude Code 的职�
 
 站点索引策略：
 
-- 可索引：首页、`/posts/`、文章页、`/startupnotes/` 及其文章页、`/about/`、`/archives/`、`/reading/` 索引页、整理页（`static/reading/<slug>/`，页面内硬编码 `index,follow` + canonical）
+- 可索引：首页、`/posts/`、文章页、`/startupnotes/` 及其文章页、`/about/`、`/archives/`、`/research/` 索引页、研究页（`static/research/<slug>/`，页面内硬编码 `index,follow` + canonical）
 - 默认 noindex：`/notes/`、note 单页、tags、categories、分页页
-- sitemap 只放可索引页面，不放 notes、tags、categories、分页页；整理页是 static 文件不是 Hugo 页面，由 `layouts/sitemap.xml` 从 `data/reading-materials.toml` 读取补进 sitemap（条目 `noindex = true` 的不放）
+- sitemap 只放可索引页面，不放 notes、tags、categories、分页页；研究页是 static 文件不是 Hugo 页面，由 `layouts/sitemap.xml` 从 `data/research-materials.toml` 读取补进 sitemap（条目 `noindex = true` 的不放）
 
 GEO 规则：
 
@@ -112,14 +112,14 @@ GEO 规则：
 
 部署注意：
 
-- 线上 `robots.txt` 可能被 Cloudflare Managed Content 覆盖。仓库内模板正确不等于线上生效；部署后要 `curl https://wlj.me/robots.txt` 验证。
+- 线上 `robots.txt` 可能被 Cloudflare Managed Content 覆盖。仓库内模板正确不等于线上生效；部署后要 `curl https://wulujia.com/robots.txt` 验证。
 - Cloudflare 如继续输出 Managed Content 并 block LLM crawler，需要在 Cloudflare 侧关闭或调整。
 
 ## 变更记录（强制）
 
 任何影响构建、SEO/GEO、发布流程、模板、索引策略的改动，都要更新 `CHANGELOG.md`。
 
-### 整理页主题标签
+### 研究页主题标签
 
 `category` 保留书、报告、纪录片、杂项四种资料类型。
 主题使用文章已有的英文标签，每页 1–5 个。
@@ -136,11 +136,11 @@ GEO 规则：
 先检查，再更新本地：
 
 ```bash
-./publish.sh reading-tags /tmp/reading-tags.json --local --dry-run
-./publish.sh reading-tags /tmp/reading-tags.json --local
+./publish.sh research-tags /tmp/research-tags.json --local --dry-run
+./publish.sh research-tags /tmp/research-tags.json --local
 ```
 
 此命令只修改标签并生成变更记录。
 命令不修改 HTML，不提交、不推送。
-列表支持主题筛选，例如 `/reading/#Security`。
-旧类型链接（如 `/reading/#report/2`）继续可用。
+列表支持主题筛选，例如 `/research/#Security`。
+旧类型链接（如 `/research/#report/2`）继续可用。

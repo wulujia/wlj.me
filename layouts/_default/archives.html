@@ -1,7 +1,7 @@
 {{ define "main" }}
   <h1 class="page-title page-title--hidden">{{ .Title | default "归档" }}</h1>
 
-  {{/* Posts and reading pages share one timeline. */}}
+  {{/* Posts and research pages share one timeline. */}}
   {{ $items := slice }}
   {{ range where .Site.RegularPages "Type" "posts" }}
     {{ $tag := "" }}
@@ -14,15 +14,15 @@
       "url" .RelPermalink
       "tag" $tag) }}
   {{ end }}
-  {{ range (index (index .Site.Data "reading-materials") "materials") }}
+  {{ range (index (index .Site.Data "research-materials") "materials") }}
     {{ $date := time .date }}
     {{ $items = $items | append (dict
       "sortKey" ($date.Format "2006-01-02T15:04:05")
       "year" ($date.Format "2006")
       "day" ($date.Format "01-02")
       "title" .title
-      "url" .reading_url
-      "tag" "整理") }}
+      "url" .research_url
+      "tag" "研究") }}
   {{ end }}
   {{ $items = sort $items "sortKey" "desc" }}
 

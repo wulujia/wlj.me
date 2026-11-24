@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美图公司产品发展调研（2008–2026）</title>
+<meta name="description" content="美图公司 2008–2026 年做过的产品、上线时间和现状，AI 时代赚钱的产品和失败的项目，以及年报里的收获和教训。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wulujia.com/research/meitu-product-history/">
+<style id="component-style">
+/* Chart category colours: component only, both themes. */
+:root { --c-hw: #8a8f98; --c-ads: #b07a12; --c-vas: #7b6bb0; --c-sub: var(--acc); --c-oth: #c2185b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --c-hw: #9aa0a8; --c-ads: #e3b75a; --c-vas: #a495d6; --c-oth: #ff7aa2; } }
+:root[data-theme="dark"] { --c-hw: #9aa0a8; --c-ads: #e3b75a; --c-vas: #a495d6; --c-oth: #ff7aa2; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--ink-2); margin: 0 0 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+.chart { overflow-x: auto; }
+.chart svg { min-width: 520px; }
+.chart.wide svg { min-width: 600px; }
+.apps { list-style: none; padding: 0; margin: 0 0 1.6em; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 12px; }
+.apps li { margin: 0; display: grid; justify-items: center; text-align: center; line-height: 1.4; }
+.apps img { width: 56px; height: 56px; border-radius: 13px; box-shadow: 0 0 0 1px var(--rule); margin-bottom: 6px; }
+.apps b { font-size: 14px; font-weight: 600; }
+.apps span { font-size: 12.5px; color: var(--ink-3); }
+td .pill { white-space: nowrap; }
+.prod td:nth-of-type(2) { white-space: nowrap; }
+
+.prod td:nth-of-type(2) { white-space: nowrap; }
+@media print { .chart svg { min-width: 0; } figure details { display: none; } }
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --ink: #192b26;
+  --ink-2: #40564d;
+  --ink-3: #52655e;          --rule: #dcdfe2;
+  --rule-2: #b9bfc5;
+  --mid: #eceef0;
+  --acc: #236b52;            --acc-ink: #1b5843;        --acc-wash: rgba(35, 107, 82, .09);
+  --good: #2c7a3a; --warn: #9a6a00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+    --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+    --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181a; --surface: #1e2124; --ink: #ecedeb; --ink-2: #bfc4c8; --ink-3: #939ba3;
+  --rule: #2d3236; --rule-2: #454c52; --mid: #24282b;
+  --acc: #79bea0; --acc-ink: #a0d7be; --acc-wash: rgba(121,190,160,.14);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 48px 24px 96px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+.reading-toolbar label { color: var(--ink-3); }
+.reading-toolbar select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--rule-2); border-radius: 3px; padding: 6px; }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+  <details open>
+    <summary>目录</summary>
+    <ul>
+      <li><a href="#stage">发展阶段</a>
+        <ul>
+          <li><a href="#stage-five">五个阶段</a></li>
+          <li><a href="#stage-rev">收入构成</a></li>
+          <li><a href="#stage-users">付费用户和月活</a></li>
+        </ul>
+      </li>
+      <li><a href="#products">产品全景</a>
+        <ul>
+          <li><a href="#p-apps">主要应用</a></li>
+          <li><a href="#p-life">产品时间线</a></li>
+          <li><a href="#p-tools">修图和相机工具</a></li>
+          <li><a href="#p-social">社区和内容</a></li>
+          <li><a href="#p-hw">硬件</a></li>
+          <li><a href="#p-biz">电商、美业和其他业务</a></li>
+          <li><a href="#p-ai">AI 和生产力应用</a></li>
+        </ul>
+      </li>
+      <li><a href="#win">成功的产品</a>
+        <ul>
+          <li><a href="#win-sub">订阅模式</a></li>
+          <li><a href="#win-life">美图秀秀、美颜相机加 AI 爆款功能</a></li>
+          <li><a href="#win-prod">生产力应用</a></li>
+          <li><a href="#win-global">海外业务</a></li>
+        </ul>
+      </li>
+      <li><a href="#fail">失败的产品和项目</a>
+        <ul>
+          <li><a href="#f-phone">美图手机</a></li>
+          <li><a href="#f-meipai">美拍和直播</a></li>
+          <li><a href="#f-social">社交转型</a></li>
+          <li><a href="#f-ecom">电商</a></li>
+          <li><a href="#f-mna">偏离主线的并购和投资</a></li>
+          <li><a href="#f-beauty">美业</a></li>
+          <li><a href="#f-ai">AI 时代的失败和收缩</a></li>
+          <li><a href="#f-unclear">状态不明的产品</a></li>
+        </ul>
+      </li>
+      <li><a href="#lesson">收获和教训</a>
+        <ul>
+          <li><a href="#l-focus">专注</a></li>
+          <li><a href="#l-sub">从流量模式到订阅</a></li>
+          <li><a href="#l-prod">从生活场景到生产力</a></li>
+          <li><a href="#l-model">模型策略的反复</a></li>
+          <li><a href="#l-inc">孵化方法</a></li>
+          <li><a href="#l-price">收费方式</a></li>
+          <li><a href="#l-global">全球化</a></li>
+          <li><a href="#l-self">管理层的其他自述</a></li>
+        </ul>
+      </li>
+      <li><a href="#judge">研究判断</a>
+        <ul>
+          <li><a href="#j-line">成功和失败的分界线</a></li>
+          <li><a href="#j-lag">转向比市场慢一到两年</a></li>
+          <li><a href="#j-risk">需要跟踪的风险</a></li>
+        </ul>
+      </li>
+      <li><a href="#todo">待确认</a></li>
+      <li><a href="#method">方法与来源</a></li>
+    </ul>
+  </details>
+</nav>
+<main id="main">
+<div class="reading-toolbar">
+<a href="/research/">返回研究</a>
+<label for="reading-theme">主题</label>
+<select id="reading-theme">
+<option value="system">跟随系统</option>
+<option value="light">亮色</option>
+<option value="dark">暗色</option>
+</select>
+</div>
+  <header>
+    <h1>美图公司产品发展调研（2008–2026）</h1>
+    <p class="lede">美图公司（01357.HK）18 年里做过哪些产品，哪些赚到了钱，哪些失败了，公司自己在年报里怎么总结。</p>
+    <p class="meta">公开资料整理 · 数据截至 2026-11-12 · 金额为人民币，另有标注的除外 · 公告引文已由繁体转为简体</p>
+  </header>
+
+  <section class="summary" aria-label="摘要">
+    <p>美图 18 年里只有修图和相机工具一直赚钱。公司的收入来源换了四次：2013–2018 年卖手机，2017–2019 年靠广告和美拍直播，2019 年起靠订阅，2025 年起加上按 AI 算力点收费。</p>
+    <p>AI 时代收入最大的一块是美图秀秀、美颜相机等应用的订阅，AI 爆款功能带来新的付费用户。增长最快的是生产力应用：2026 年 9 月 ARR 约 6.55 亿元，约占影像与设计收入的 20%。2025 年经调整归母净利 9.65 亿元，是上市以来最高。</p>
+    <p>失败的项目大多进入了别人的主场：手机、短视频社区、社交、自营电商、招聘、美业供应链、自研通用大模型。</p>
+  </section>
+
+  <h2 id="stage">发展阶段</h2>
+
+  <h3 id="stage-five">五个阶段</h3>
+  <ol class="timeline">
+    <li><time>2008</time><div><strong>工具起家（2008–2012）</strong>。PC 版美图秀秀 2008 年 10 月上线，移动版 2011 年 2 月上线。几乎没有收入，靠免费工具积累用户。</div></li>
+    <li><time>2013</time><div><strong>硬件和社区扩张（2013–2017）</strong>。美颜相机、美图手机、BeautyPlus、美拍、直播相继推出。手机占收入的 60%–95%，互联网业务多年毛损。</div></li>
+    <li><time>2018</time><div><strong>收缩和社交试验（2018–2020）</strong>。推出“美和社交”战略，关闭电商，手机授权给小米，退出直播。收入从 45 亿元降到 10 亿元左右，毛利率升到 66%–72%。</div></li>
+    <li><time>2020</time><div><strong>订阅和美业 SaaS（2020–2022）</strong>。VIP 订阅从海外应用复制到国内，同时做美图宜肤和美得得。2022 年订阅成为第一大收入来源。</div></li>
+    <li><time>2023</time><div><strong>AI 生产力和全球化（2023–2026）</strong>。奇想大模型、美图设计室、开拍、Wink、RoboNeo、AI Agent。影像与设计收入三年增长 1.2 倍，海外付费增长更快。</div></li>
+  </ol>
+
+  <h3 id="stage-rev">收入构成</h3>
+  <figure>
+    <p class="legend"><span><i style="background:var(--c-hw)"></i>手机硬件</span><span><i style="background:var(--c-ads)"></i>广告</span><span><i style="background:var(--c-vas)"></i>直播与增值服务</span><span><i style="background:var(--c-sub)"></i>订阅与影像设计产品</span><span><i style="background:var(--c-oth)"></i>美业与其他</span></p><div class="chart"><svg viewBox="0 0 640 300" role="img" aria-label="美图 2013 到 2025 年收入构成堆叠柱状图。2017 年收入 45.3 亿元，其中手机 37.4 亿元；2019 年手机移出后收入 9.8 亿元；2025 年收入 38.6 亿元，其中订阅与影像设计产品 29.5 亿元。"><g stroke="currentColor" stroke-opacity=".14" stroke-width="1"><line x1="44" y1="262.0" x2="632" y2="262.0"/><line x1="44" y1="212.8" x2="632" y2="212.8"/><line x1="44" y1="163.6" x2="632" y2="163.6"/><line x1="44" y1="114.4" x2="632" y2="114.4"/><line x1="44" y1="65.2" x2="632" y2="65.2"/><line x1="44" y1="16.0" x2="632" y2="16.0"/></g><g font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="end"><text x="38" y="266.0">0</text><text x="38" y="216.8">10</text><text x="38" y="167.6">20</text><text x="38" y="118.4">30</text><text x="38" y="69.2">40</text><text x="38" y="20.0">50</text></g><rect x="52.6" y="259.5" width="28.0" height="2.5" fill="var(--c-hw)"/><rect x="52.6" y="257.8" width="28.0" height="1.7" fill="var(--c-ads)"/><text x="66.6" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">13</text><rect x="97.8" y="240.9" width="28.0" height="21.1" fill="var(--c-hw)"/><rect x="97.8" y="238.1" width="28.0" height="2.9" fill="var(--c-ads)"/><rect x="97.8" y="238.0" width="28.0" height="0.1" fill="var(--c-vas)"/><text x="111.8" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">14</text><rect x="143.1" y="229.2" width="28.0" height="32.8" fill="var(--c-hw)"/><rect x="143.1" y="225.6" width="28.0" height="3.6" fill="var(--c-ads)"/><rect x="143.1" y="225.5" width="28.0" height="0.1" fill="var(--c-vas)"/><text x="157.1" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">15</text><rect x="188.3" y="189.5" width="28.0" height="72.5" fill="var(--c-hw)"/><rect x="188.3" y="186.5" width="28.0" height="3.0" fill="var(--c-ads)"/><rect x="188.3" y="184.4" width="28.0" height="2.2" fill="var(--c-vas)"/><text x="202.3" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">16</text><rect x="233.5" y="78.0" width="28.0" height="184.0" fill="var(--c-hw)"/><rect x="233.5" y="62.9" width="28.0" height="15.1" fill="var(--c-ads)"/><rect x="233.5" y="39.3" width="28.0" height="23.6" fill="var(--c-vas)"/><text x="247.5" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">17</text><text x="247.5" y="33.3" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">45.3</text><rect x="278.7" y="171.3" width="28.0" height="90.7" fill="var(--c-hw)"/><rect x="278.7" y="140.7" width="28.0" height="30.6" fill="var(--c-ads)"/><rect x="278.7" y="124.6" width="28.0" height="16.1" fill="var(--c-vas)"/><text x="292.8" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">18</text><rect x="324.0" y="225.0" width="28.0" height="37.0" fill="var(--c-ads)"/><rect x="324.0" y="222.7" width="28.0" height="2.3" fill="var(--c-vas)"/><rect x="324.0" y="218.5" width="28.0" height="4.2" fill="var(--c-sub)"/><rect x="324.0" y="213.9" width="28.0" height="4.6" fill="var(--c-oth)"/><text x="338.0" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">19</text><text x="338.0" y="207.9" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">9.8</text><rect x="369.2" y="228.5" width="28.0" height="33.5" fill="var(--c-ads)"/><rect x="369.2" y="226.3" width="28.0" height="2.2" fill="var(--c-vas)"/><rect x="369.2" y="216.1" width="28.0" height="10.2" fill="var(--c-sub)"/><rect x="369.2" y="203.2" width="28.0" height="12.9" fill="var(--c-oth)"/><text x="383.2" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">20</text><rect x="414.4" y="224.3" width="28.0" height="37.7" fill="var(--c-ads)"/><rect x="414.4" y="220.3" width="28.0" height="4.0" fill="var(--c-vas)"/><rect x="414.4" y="194.7" width="28.0" height="25.6" fill="var(--c-sub)"/><rect x="414.4" y="180.0" width="28.0" height="14.7" fill="var(--c-oth)"/><text x="428.5" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">21</text><rect x="459.7" y="232.7" width="28.0" height="29.3" fill="var(--c-ads)"/><rect x="459.7" y="228.0" width="28.0" height="4.7" fill="var(--c-vas)"/><rect x="459.7" y="189.5" width="28.0" height="38.5" fill="var(--c-sub)"/><rect x="459.7" y="159.4" width="28.0" height="30.1" fill="var(--c-oth)"/><text x="473.7" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">22</text><rect x="504.9" y="224.7" width="28.0" height="37.3" fill="var(--c-ads)"/><rect x="504.9" y="159.4" width="28.0" height="65.3" fill="var(--c-sub)"/><rect x="504.9" y="129.4" width="28.0" height="30.0" fill="var(--c-oth)"/><text x="518.9" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">23</text><rect x="550.1" y="220.0" width="28.0" height="42.0" fill="var(--c-ads)"/><rect x="550.1" y="117.4" width="28.0" height="102.6" fill="var(--c-sub)"/><rect x="550.1" y="97.6" width="28.0" height="19.8" fill="var(--c-oth)"/><text x="564.2" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">24</text><rect x="595.4" y="220.5" width="28.0" height="41.5" fill="var(--c-ads)"/><rect x="595.4" y="75.2" width="28.0" height="145.3" fill="var(--c-sub)"/><rect x="595.4" y="72.1" width="28.0" height="3.1" fill="var(--c-oth)"/><text x="609.4" y="280" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">25</text><text x="609.4" y="66.1" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">38.6</text><text x="44" y="296" font-size="12" fill="currentColor" fill-opacity=".72">年份（20xx），单位：亿元人民币</text></svg></div>
+    <figcaption>2017 年收入 45.3 亿元，八成来自手机。2019 年手机移出持续经营后，收入只剩 9.8 亿元。2025 年回到 38.6 亿元，其中订阅与影像设计产品 29.5 亿元。2013–2022 年按当年分部归类，2023 年起采用公司新分部“影像与设计产品”，其中含少量增值服务。2018 年包括当年持续经营的手机收入。来源：招股书、2016–2025 年年度业绩公告<sup><a href="#src-1">1</a></sup><sup><a href="#src-2">2</a></sup>。</figcaption>
+    <details><summary>数据表</summary><div class="tbl"><table><thead><tr><th scope="col">年份</th><th scope="col" class="num">手机硬件</th><th scope="col" class="num">广告</th><th scope="col" class="num">直播与增值服务</th><th scope="col" class="num">订阅与影像设计产品</th><th scope="col" class="num">美业与其他</th><th scope="col" class="num">合计</th></tr></thead><tbody><tr><th scope="row">2013</th><td class="num">0.51</td><td class="num">0.35</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.86</td></tr><tr><th scope="row">2014</th><td class="num">4.28</td><td class="num">0.58</td><td class="num">0.02</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">4.88</td></tr><tr><th scope="row">2015</th><td class="num">6.67</td><td class="num">0.73</td><td class="num">0.02</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">7.42</td></tr><tr><th scope="row">2016</th><td class="num">14.74</td><td class="num">0.60</td><td class="num">0.44</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">15.78</td></tr><tr><th scope="row">2017</th><td class="num">37.40</td><td class="num">3.07</td><td class="num">4.80</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">45.27</td></tr><tr><th scope="row">2018</th><td class="num">18.44</td><td class="num">6.21</td><td class="num">3.27</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">27.92</td></tr><tr><th scope="row">2019</th><td class="num">0.00</td><td class="num">7.52</td><td class="num">0.46</td><td class="num">0.86</td><td class="num">0.94</td><td class="num">9.78</td></tr><tr><th scope="row">2020</th><td class="num">0.00</td><td class="num">6.81</td><td class="num">0.45</td><td class="num">2.07</td><td class="num">2.62</td><td class="num">11.95</td></tr><tr><th scope="row">2021</th><td class="num">0.00</td><td class="num">7.66</td><td class="num">0.82</td><td class="num">5.20</td><td class="num">2.99</td><td class="num">16.67</td></tr><tr><th scope="row">2022</th><td class="num">0.00</td><td class="num">5.96</td><td class="num">0.96</td><td class="num">7.82</td><td class="num">6.12</td><td class="num">20.86</td></tr><tr><th scope="row">2023</th><td class="num">0.00</td><td class="num">7.59</td><td class="num">0.00</td><td class="num">13.27</td><td class="num">6.09</td><td class="num">26.95</td></tr><tr><th scope="row">2024</th><td class="num">0.00</td><td class="num">8.53</td><td class="num">0.00</td><td class="num">20.86</td><td class="num">4.02</td><td class="num">33.41</td></tr><tr><th scope="row">2025</th><td class="num">0.00</td><td class="num">8.43</td><td class="num">0.00</td><td class="num">29.54</td><td class="num">0.62</td><td class="num">38.59</td></tr></tbody></table></div></details>
+  </figure>
+
+  <div class="tbl">
+    <table>
+      <caption>收入和盈利（亿元）</caption>
+      <thead><tr><th scope="col">年份</th><th scope="col" class="num">总收入</th><th scope="col">主要构成</th><th scope="col" class="num">经调整净利</th><th scope="col" class="num">付费订阅用户</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2013</th><td class="num">0.86</td><td>手机 0.51，广告 0.35</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr><th scope="row">2014</th><td class="num">4.88</td><td>手机 4.28（88%）</td><td class="num">−1.12</td><td class="num">—</td></tr>
+        <tr><th scope="row">2015</th><td class="num">7.42</td><td>手机 6.67（90%）</td><td class="num">−7.11</td><td class="num">—</td></tr>
+        <tr><th scope="row">2016</th><td class="num">15.79</td><td>手机 14.74（93%），广告 0.60</td><td class="num">−5.41</td><td class="num">—</td></tr>
+        <tr><th scope="row">2017</th><td class="num">45.27</td><td>手机 37.40，直播等增值 4.80，广告 3.07</td><td class="num">−0.46</td><td class="num">—</td></tr>
+        <tr><th scope="row">2018</th><td class="num">27.92</td><td>手机 18.44，广告 6.21，增值 3.27</td><td class="num">−8.79</td><td class="num">—</td></tr>
+        <tr><th scope="row">2019</th><td class="num">9.78</td><td>广告 7.52，订阅 0.86（手机移出持续经营）</td><td class="num">−1.91</td><td class="num">—</td></tr>
+        <tr><th scope="row">2020</th><td class="num">11.94</td><td>广告 6.81，订阅 2.07，IMS 等 2.62</td><td class="num">0.61</td><td class="num">170 万+</td></tr>
+        <tr><th scope="row">2021</th><td class="num">16.66</td><td>广告 7.66，VIP 和 SaaS 5.20</td><td class="num">0.85</td><td class="num">约 400 万</td></tr>
+        <tr><th scope="row">2022</th><td class="num">20.85</td><td>VIP 7.82，广告 5.96，SaaS（美得得）4.63</td><td class="num">1.11</td><td class="num">560 万+</td></tr>
+        <tr><th scope="row">2023</th><td class="num">26.96</td><td>影像与设计 13.27，广告 7.59，美业 5.69</td><td class="num">3.68</td><td class="num">911 万</td></tr>
+        <tr><th scope="row">2024</th><td class="num">33.41</td><td>影像与设计 20.86，广告 8.53，美业 3.85</td><td class="num">5.86</td><td class="num">1,261 万</td></tr>
+        <tr><th scope="row">2025</th><td class="num">38.59</td><td>影像与设计 29.54，广告 8.43</td><td class="num">9.65</td><td class="num">1,691 万</td></tr>
+        <tr><th scope="row">2026H1</th><td class="num">22.13</td><td>影像与设计 17.69，广告 4.15</td><td class="num">6.52</td><td class="num">1,844 万</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>口径</b>2014–2017 年的经调整净利不含优先股公允价值变动。2018 年的经调整净利按持续经营口径。后来的年报对部分年份做过重列。2025 年美业供应链终止，不再单列。</div>
+
+  <h3 id="stage-users">付费用户和月活</h3>
+  <figure>
+    <div class="chart"><svg viewBox="0 0 560 230" role="img" aria-label="美图付费订阅用户数：2020 年底约 170 万，2023 年 911 万，2025 年 1,691 万，2026 年 9 月 1,983 万。"><g stroke="currentColor" stroke-opacity=".14"><line x1="48" y1="196.0" x2="552" y2="196.0"/><line x1="48" y1="151.5" x2="552" y2="151.5"/><line x1="48" y1="107.0" x2="552" y2="107.0"/><line x1="48" y1="62.5" x2="552" y2="62.5"/><line x1="48" y1="18.0" x2="552" y2="18.0"/></g><g font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="end"><text x="42" y="200.0">0</text><text x="42" y="155.5">500</text><text x="42" y="111.0">1,000</text><text x="42" y="66.5">1,500</text><text x="42" y="22.0">2,000</text></g><rect x="64.2" y="180.9" width="39.6" height="15.1" fill="var(--acc)"/><text x="84.0" y="214" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">2020</text><text x="84.0" y="174.9" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">170</text><rect x="136.2" y="160.4" width="39.6" height="35.6" fill="var(--acc)"/><text x="156.0" y="214" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">2021</text><rect x="208.2" y="146.2" width="39.6" height="49.8" fill="var(--acc)"/><text x="228.0" y="214" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">2022</text><rect x="280.2" y="114.9" width="39.6" height="81.1" fill="var(--acc)"/><text x="300.0" y="214" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">2023</text><rect x="352.2" y="83.8" width="39.6" height="112.2" fill="var(--acc)"/><text x="372.0" y="214" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">2024</text><rect x="424.2" y="45.5" width="39.6" height="150.5" fill="var(--acc)"/><text x="444.0" y="214" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">2025</text><rect x="496.2" y="19.5" width="39.6" height="176.5" fill="var(--acc)"/><text x="516.0" y="214" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle">2026-09</text><text x="516.0" y="13.5" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" text-anchor="middle">1,983</text></svg></div>
+    <figcaption>付费订阅用户（万）从 2020 年底约 170 万增长到 2026 年 9 月的 1,983 万，渗透率从 2022 年的 2.3% 升到 2025 年的 6.1%。来源：2020–2025 年年度业绩公告，2026 年第三季度业务公告<sup><a href="#src-2">2</a></sup><sup><a href="#src-3">3</a></sup>。</figcaption>
+    <details><summary>数据表</summary><div class="tbl"><table><thead><tr><th scope="col">时间</th><th scope="col" class="num">付费订阅用户（万）</th></tr></thead><tbody><tr><th scope="row">2020</th><td class="num">170</td></tr><tr><th scope="row">2021</th><td class="num">400</td></tr><tr><th scope="row">2022</th><td class="num">560</td></tr><tr><th scope="row">2023</th><td class="num">911</td></tr><tr><th scope="row">2024</th><td class="num">1,261</td></tr><tr><th scope="row">2025</th><td class="num">1,691</td></tr><tr><th scope="row">2026-09</th><td class="num">1,983</td></tr></tbody></table></div></details>
+  </figure>
+  <p>月活跃用户（MAU）的走势和付费用户相反：2017 年底 4.15 亿，2020 年底 2.61 亿，2023 年底 2.49 亿，2025 年底 2.76 亿，2026 年 6 月 2.82 亿。2026 年起公司把 MAU 改为半年披露。生活场景 MAU 在 2026 年上半年同比下降 3.1%。</p>
+
+  <h2 id="products">产品全景</h2>
+
+  <h3 id="p-apps">主要应用</h3>
+  <figure>
+    <ul class="apps"><li><img src="data:image/jpeg;base64,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" width="56" height="56" alt="美图秀秀 应用图标"><b>美图秀秀</b><span>2011 · 运行中</span></li><li><img src="data:image/jpeg;base64,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" width="56" height="56" alt="美颜相机 应用图标"><b>美颜相机</b><span>2013 · 运行中</span></li><li><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QB6RXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAABJKGAAcAAAAiAAAAUKABAAMAAAABAAEAAKACAAQAAAABAAAAYKADAAQAAAABAAAAYAAAAABBU0NJSQAAADJQU1VBSDVXVkRFS05WRUxUTlgySUxUQk5J/+0AOFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/AABEIAGAAYAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2wBDAAICAgICAgMCAgMEAwMDBAUEBAQEBQcFBQUFBQcIBwcHBwcHCAgICAgICAgKCgoKCgoLCwsLCw0NDQ0NDQ0NDQ3/2wBDAQICAgMDAwYDAwYNCQcJDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ3/3QAEAAb/2gAMAwEAAhEDEQA/AMOiik+lfgUYNn+wAucUn6Umce9N611U6FwFz6UlFNz616FLDDSHU3P40hOabmvTo4UpIWkzSE03NetQwhaiLmkpCcU3NexQwZSR/9DB+vNITmkrk/GHjjwt4D0z+1/FV/HY27NsjDAtJK/XbHGoLOfoOO9fjOHwkpNRirs/14xeLoYWjLE4qahCKu5SaSS7tvRHWUhNeIwftBfDr7VFaaxLf6E1wN0D6tYzWscy/wB5XIK49yQK9b03VtL1m1F9pF5b3tswyJreVZUP/AlJFeustq0/4kWvkeZk3E+T5sm8sxUKtt+WSbXqk7o0c0lecab4j8a/FXxe3ww/Z20FvGXiUYF3eKdukaUhO0y3dzwgCn+ENyRgEt8p+ptX/wCCcf7V2leGn8SaJ8XtH1vxPFEZm8PzaQttpkzgZMEd3u8wZ+6rtEmTjJQZI93C5LVnHmenqfmnFHj5wrkmN+oynKtJaSdNKUY+Tbkk2uqje2z10PHiay9T1rR9Gi8/WL62sYx/HczJCv5uRXzT8P8Axv8AGL9oP4uaT+zZ4b0qPwZ4l1PUJtO1a/kZ5pdOSyDtfOIyF2PEkT8Fidw2hgSGH7geAP8Agl/+yR4PjguvEXh278cauiL52o+JL+e6aaQfecwI8dvhj2MZwOMnrXq4fKWtZ6HxnFX0ncnwclTyKg8Q2tZSbpxT7WcXJvvol2bPyD1H9oH4PaZL5M/iW2lYf8+6S3C/99RIy/rW/wCHPix8OfF0y2vh/wAQWdzcP92BnMMzf7qShGP4A1/RD4Y+Dnwk8E2S6d4P8F+H9FtlGPLsNMtrdSPfZGM/U5ryv4u/sb/s2fG3TprPxv4E0oXcikR6ppsCafqULHo6XNuEckHkK+5D3UivShgqcdj86w/0qM+Vfmr4Ok6fZc6l/wCBOUl/5KfjnTSazfjD8HviD+xt460vwl4y1SbxR8N/E05tfDfie4GLmzueq2N+Rxv2/cfo4G5cAOkegTivSw2FUtj+s+AePct4sy1ZhlzaadpRfxRl2fdPdNaNeaaX/9Hnc54rU/4JveGfCvx//ad+IfxJ8aWcWrRfDm2tLTw1aXSCW3tpLuadDdhGypmAt2KsQdpkyOVUjJzzW3/wRO/5HL42f7mif+jtQr5Xh7DRjKU2tUf2z9KfM8RRy3A4CnK1OpKbku/Io2v5e83bvZ9D94PFXgzwh460qTQvG2iadr+nSgh7TU7WK7hOePuSqy598V8J+Lv+CW/7IfifVm1bTdC1TwqZj/pNr4f1Oa0tLgd1eF/NVVPpHsFfobLLHBE88zBI41Lux4AVRkk/QVz3hPxn4Q8eaPF4h8E63p+v6ZOAY7zTbmO7gbPOA8TMufUZyK+qP4ohOUHzRdmc38KvhB8Nvgj4St/A/wALdBtNA0e358q2X55pMYMs8rZkmlPd5GZj0zgAV6TXy637Xfweu/2hNG/Zp8M6iNf8W6gl7LfmwZZLTS1sreS4KXEwO0zNs2+Um5kzl9vAP1FQSfzkfs+Ikf8AwWU8XLGoUf274uOAMcta3BJ/EnNf0b1/OV+z/wD8plvF3/Yc8W/+klxX9GtAH4jftH/8FPfiL+zV+114p+F+r+HNO8R+BdJXTESCIta6nF9ps4LiSRLgl43O6VvkePBAADLyT+hX7O37an7P37TcEdv8OvECw68YjJN4f1MC11SMKMuViLFZlUcl4WkUDqRX86//AAUY8IeJ/Hv/AAUF8Z+D/BmmXOs61qsui29nY2cZlmmkbS7TAVR2A5JOAoBJIAJr9iv2B/8AgnNoX7NCWnxR+JTRax8TJoGEQibfZ6Ik6FJIoD0lnZGKSTdMErH8uWcA+uf2vvhNpfxr/Zv8eeBdRhWWeTSLm+01yMtDqNihuLWRT1B8xApI5KMw6E1+EHwm8Rz+LPhx4f127bfcT2aJO56tLCTE7H3ZkJ/Gv6Gvjz420z4cfBTxz451eRY7bRdA1G6JY43SLA4jjH+1JIVRR3LAV/OP8BbCTTfhD4aglBDSWr3GD6TyvKv/AI6wr2clpOdVrpY/qX6Kleus/wAZRi/3bpXf+JTio/g5H//S5jPNb3/BE7/kcvjZ/uaJ/wCjtQrns810P/BE3/kcvjX/ALmif+jtQrzcuo+zTP7K+lh/Byz1q/lTP3v1/wD5AWpf9ek//oDV/EN4A+Hfxs1WwXUfAUeoWmnarvja5tr0WsMqoxRhJtkUkAgjBB9ga/tV+J/i3QPAnw68S+MfFN3HY6VpGl3d1dTysFVY442OBnqzHCqo5ZiAMkgV/Mx+zWjp8GtC3qV3NeMM9wbmXBr1YQcnZH4h4M8A4Hi7O6mXZhOUYRpud4NJ3UoK2qlpaT6XMv8A4JreFr3wV/wUD8PeF9RmjuLqwstZSWSLOwu2lyucFgCQN2MkDOM1/VrX8j3wd+OXg79nP9u27+LXjyK+n0fSkv45YtOiSa5eS604wxhFd415dxklhgc19qfFf/gtpe3mmXmm/Bf4fHT7qaN0t9V1+7WVoGYYEgs4FKMy9QGnK56hhwVJWbR8DxRgKOBznF4LDq0KdSpGPXSMmlr6I5X9nx1f/gsr4uZCGH9ueLhkHPItbgEfgeK/o3r+Tb/glzrWq+I/28/D/iHXbqS+1LU4PEN5eXMx3ST3E9lcSSSOe7O7En3Nf1k1J4R5xpvwg+GWj/EfVvi9pvhyxh8Z67bw2t/rQj3Xc0Fuixom5idg2KqtsC7gq7s7Rju9Q1Cw0myn1PVLmGzs7WNpZ7i4kWKKKNRlmd2IVVA5JJAFfgN+3j/wUQ/ab+E37Q3ij4I/CifS9K07RlsFt7qLTReajIbuzhuHLGcyxcNKQu2IYAHU81+b+v6z+2P+0xIlr8TPE/iC80l3DuusXD2unryDuWzQJGxHbbF+Irajh6tWXLSi2/I9jJuHszzassPlmHnVk+kYt/fbRersj9Af29v2x7P9qjxJY/su/AW9a88Ix3qXPiXXoc+RffZWDCOE/wAVrA3z7zxNKE2fKoZ8Sxs7bTbK306yQR29rEkMSDoscahVH4AV5x8L/hV4d+Fujmx0oG4vbgKby+kAEk7DoAOdka/wqD7nJ5r07NfoWSZM8NTvU+J7+Xkf6H+CPhdPhHLJ1MbZ4qtZztqopfDBPra7cmtG3ZXSTf8A/9Pks81+bHwH/av+M37MWqeMIfg5LZW154rlgiup7myF7NGLJ5jH5KuTGCTM27cj546d/wBJKybLRNE0yWSfTdPtLSWZi8jwQJGzsxySxVQSSepNdlLAtqyP9KfFrwpnxr9UhHEqiqLnf3eZvm5dtY7cvfqfGGueKf2w/wBq64h074t+Kddn8O+cs8q6h/oenrg5DR2cSwxySD+AiPg/xDrX2XoGiaf4Z0Sx8P6ShjtNPgS3hB5O1BjJPdieSe5JrXJJ60ma9jC5eonq+GvhNlXBtOo8JJ1K1SylOVr2XRJbK+vVt7vRW+e/E/7Nvgbxf4xvvF+t3WoM9+yPJaxSJHFuVFQ87C+CFzjI5711GlfAr4SaPD5Nv4as5sjBe7DXLH8ZS2D9MV60TTa9ehllO9+VH0WH8POGqOJqYyOBpupNuUpOCk25O7d5Xtd9rHzx+xrq3w6+Bn/BQOC/8SavY+GvDGlW+rZu9RuFgt4Bc6a7JGZJCBy8mxBnJ4HJr9pfiP8A8FTv2OvAdhdSaX4qm8XajBGxisdDsp5POkA+VRcTJFbgE9W8w4HPPSvwX+JP7NHiHx58QtU8U2+sWVnY6gYXUOkjzKUiSNhtACnlcg7u9XPDv7IfhOwnjuPEer3eqhCC0ESLaxP7MQXfH0ZT714kuH8ZVrSVOFo3dtVtf7z+I838BOLcfn2L+oYNU8O6s+RylGMVBzfLZXcrWta0Xoej/DXx54o+OPxL+Iv7Q3iu1Wzl8Y6jEtrAmWSGC1UokSMQCyxReXHuwNxUnrwPdM1R07TbDR7CDS9Lt47W0tUEcMMS7URB0AA/yat59K/Qcryv6vQjR3sf3B4f8Ix4ZyDD5LGXM6ad33lJuUmvK7dvKw7NNJ/CkzSV71LDH2dj/9TjCc0lITTc19zQwZ/sgkKTTaCaaTXsUMGWkLmmk0lJnFetRwpSQtJmkJ9aTNenSwxSQZ9aSiivQp0LDCkyBSZz0orrjBIZ/9k=" width="56" height="56" alt="美拍 应用图标"><b>美拍</b><span>2014 · 停滞</span></li><li><img src="data:image/jpeg;base64,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" width="56" height="56" alt="Wink 应用图标"><b>Wink</b><span>2022 · 运行中</span></li><li><img src="data:image/jpeg;base64,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" width="56" height="56" alt="美图设计室 应用图标"><b>美图设计室</b><span>2022 · 运行中</span></li><li><img src="data:image/jpeg;base64,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" width="56" height="56" alt="开拍 应用图标"><b>开拍</b><span>2023 · 运行中</span></li><li><img src="data:image/jpeg;base64,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" width="56" height="56" alt="WHEE 应用图标"><b>WHEE</b><span>2023 · 运行中</span></li><li><img src="data:image/jpeg;base64,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" width="56" height="56" alt="RoboNeo 应用图标"><b>RoboNeo</b><span>2025 · 状态不明</span></li></ul>
+    <figcaption>美图在中国 App Store 上的主要应用，年份为上线年份。图标取自 App Store，2026-11-14<sup><a href="#src-31">31</a></sup>。</figcaption>
+  </figure>
+
+  <h3 id="p-life">产品时间线</h3>
+  <figure>
+    <p class="legend"><span><i style="background:var(--good)"></i>运行中，有收入或用户数据</span><span><i style="background:var(--c-vas)"></i>运行中，数据少或刚上线</span><span><i style="background:var(--warn)"></i>收缩或状态不明</span><span><i style="background:var(--bad)"></i>已停止、出售或交出</span><span>竖线 = 停止时间</span></p><div class="chart wide"><svg viewBox="0 0 680 514" role="img" aria-label="美图 20 个主要产品从上线到现在的时间线。修图和相机应用一直运行；手机、美拍、直播、电商、社交版、美业、大街网、MOKI 已停止。"><g stroke="currentColor" stroke-opacity=".14"><line x1="150.0" y1="20" x2="150.0" y2="508"/><line x1="204.7" y1="20" x2="204.7" y2="508"/><line x1="259.5" y1="20" x2="259.5" y2="508"/><line x1="314.2" y1="20" x2="314.2" y2="508"/><line x1="368.9" y1="20" x2="368.9" y2="508"/><line x1="423.7" y1="20" x2="423.7" y2="508"/><line x1="478.4" y1="20" x2="478.4" y2="508"/><line x1="533.2" y1="20" x2="533.2" y2="508"/><line x1="587.9" y1="20" x2="587.9" y2="508"/><line x1="642.6" y1="20" x2="642.6" y2="508"/></g><g font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor" fill-opacity=".72" text-anchor="middle"><text x="150.0" y="16">2008</text><text x="204.7" y="16">2010</text><text x="259.5" y="16">2012</text><text x="314.2" y="16">2014</text><text x="368.9" y="16">2016</text><text x="423.7" y="16">2018</text><text x="478.4" y="16">2020</text><text x="533.2" y="16">2022</text><text x="587.9" y="16">2024</text><text x="642.6" y="16">2026</text></g><text x="142" y="42.5" font-size="13" fill="currentColor" text-anchor="end">美图秀秀（PC）</text><rect x="171.9" y="32.0" width="494.5" height="12" rx="2" fill="var(--c-vas)"/><text x="142" y="66.5" font-size="13" fill="currentColor" text-anchor="end">美图秀秀 App</text><rect x="234.8" y="56.0" width="431.6" height="12" rx="2" fill="var(--good)"/><text x="142" y="90.5" font-size="13" fill="currentColor" text-anchor="end">美颜相机</text><rect x="286.8" y="80.0" width="379.6" height="12" rx="2" fill="var(--good)"/><text x="142" y="114.5" font-size="13" fill="currentColor" text-anchor="end">BeautyPlus</text><rect x="297.8" y="104.0" width="368.7" height="12" rx="2" fill="var(--good)"/><text x="142" y="138.5" font-size="13" fill="currentColor" text-anchor="end">美图手机</text><rect x="297.8" y="128.0" width="162.3" height="12" rx="2" fill="var(--bad)"/><line x1="460.1" y1="126.0" x2="460.1" y2="142.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="162.5" font-size="13" fill="currentColor" text-anchor="end">美拍</text><rect x="323.8" y="152.0" width="151.9" height="12" rx="2" fill="var(--bad)"/><line x1="475.7" y1="150.0" x2="475.7" y2="166.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="186.5" font-size="13" fill="currentColor" text-anchor="end">AirBrush</text><rect x="363.5" y="176.0" width="303.0" height="12" rx="2" fill="var(--good)"/><text x="142" y="210.5" font-size="13" fill="currentColor" text-anchor="end">美拍直播</text><rect x="368.9" y="200.0" width="95.8" height="12" rx="2" fill="var(--bad)"/><line x1="464.7" y1="198.0" x2="464.7" y2="214.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="234.5" font-size="13" fill="currentColor" text-anchor="end">美铺 / 美图美妆</text><rect x="401.8" y="224.0" width="47.1" height="12" rx="2" fill="var(--bad)"/><line x1="448.9" y1="222.0" x2="448.9" y2="238.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="258.5" font-size="13" fill="currentColor" text-anchor="end">美图秀秀社交版</text><rect x="431.9" y="248.0" width="60.2" height="12" rx="2" fill="var(--bad)"/><line x1="492.1" y1="246.0" x2="492.1" y2="262.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="282.5" font-size="13" fill="currentColor" text-anchor="end">美业（宜肤、美得得）</text><rect x="451.1" y="272.0" width="186.9" height="12" rx="2" fill="var(--bad)"/><line x1="638.0" y1="270.0" x2="638.0" y2="286.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="306.5" font-size="13" fill="currentColor" text-anchor="end">大街网 / IMS</text><rect x="474.3" y="296.0" width="102.6" height="12" rx="2" fill="var(--bad)"/><line x1="576.9" y1="294.0" x2="576.9" y2="310.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="330.5" font-size="13" fill="currentColor" text-anchor="end">Wink</text><rect x="538.6" y="320.0" width="127.8" height="12" rx="2" fill="var(--good)"/><text x="142" y="354.5" font-size="13" fill="currentColor" text-anchor="end">美图设计室</text><rect x="538.6" y="344.0" width="127.8" height="12" rx="2" fill="var(--good)"/><text x="142" y="378.5" font-size="13" fill="currentColor" text-anchor="end">奇想大模型</text><rect x="572.8" y="368.0" width="93.6" height="12" rx="2" fill="var(--warn)"/><text x="142" y="402.5" font-size="13" fill="currentColor" text-anchor="end">开拍</text><rect x="572.8" y="392.0" width="93.6" height="12" rx="2" fill="var(--good)"/><text x="142" y="426.5" font-size="13" fill="currentColor" text-anchor="end">站酷</text><rect x="590.6" y="416.0" width="75.8" height="12" rx="2" fill="var(--warn)"/><text x="142" y="450.5" font-size="13" fill="currentColor" text-anchor="end">MOKI</text><rect x="602.9" y="440.0" width="45.2" height="12" rx="2" fill="var(--bad)"/><line x1="648.1" y1="438.0" x2="648.1" y2="454.0" stroke="currentColor" stroke-width="1.5"/><text x="142" y="474.5" font-size="13" fill="currentColor" text-anchor="end">RoboNeo</text><rect x="629.8" y="464.0" width="36.7" height="12" rx="2" fill="var(--warn)"/><text x="142" y="498.5" font-size="13" fill="currentColor" text-anchor="end">MVLAND / Picchi</text><rect x="654.9" y="488.0" width="11.5" height="12" rx="2" fill="var(--c-vas)"/></svg></div>
+    <figcaption>20 个主要产品从上线到现在。修图和相机应用从 2008 年一直运行到现在；2013–2020 年推出的手机、社区、电商、社交和美业项目全部停止。来源：招股书、年报、重大事件公告和媒体报道，见下面五张表。</figcaption>
+  </figure>
+
+  <h3 id="p-tools">修图和相机工具</h3>
+  <div class="tbl">
+    <table class="prod">
+      <caption>核心业务，18 年里一直赚钱的一类</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">做什么</th><th scope="col">上线</th><th scope="col">状态</th><th scope="col">现状</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">美图秀秀（PC）</th><td>简化版 Photoshop，一键修图。最初叫“美图大师”，2009 年改名</td><td>2008-10</td><td><span class="pill good">运行中</span></td><td>现为电脑版和网页版</td></tr>
+        <tr><th scope="row">美图秀秀（App）</th><td>手机修图、修视频</td><td>2011-02</td><td><span class="pill good">运行中</span></td><td>旗舰产品。MAU 约 1.15 亿–1.3 亿。QuestMobile 口径 2015 年起连续十年中国拍摄美化类第一</td></tr>
+        <tr><th scope="row">美颜相机</th><td>自拍时实时美颜</td><td>2013-01</td><td><span class="pill good">运行中</span></td><td>MAU 从 2016 年 1.31 亿降到 2022 年 0.49 亿。2025-02 “AI 换装”带动全球 MAU 突破 7,200 万</td></tr>
+        <tr><th scope="row">BeautyPlus</th><td>美颜相机海外版</td><td>2013-05</td><td><span class="pill good">运行中</span></td><td>归海外子公司 Pixocial</td></tr>
+        <tr><th scope="row">AirBrush</th><td>美图秀秀海外版，主攻欧美</td><td>2015-10</td><td><span class="pill good">运行中</span></td><td>归 Pixocial</td></tr>
+        <tr><th scope="row">美妆相机（MakeupPlus）</th><td>虚拟试妆</td><td>2015-05</td><td><span class="pill warn">不明</span></td><td>2022 年后只在产品图里出现，没有数据</td></tr>
+        <tr><th scope="row">潮自拍</th><td>艺术滤镜自拍，内嵌照片印制</td><td>2015-09</td><td><span class="pill warn">不明</span></td><td>上线 60 天里 46 天居 iOS 榜首，后来没有数据</td></tr>
+        <tr><th scope="row">其他小工具</th><td>表情工厂、柚子相机、美图贴贴、海报工厂、美拍大师、美图 GIF、闪传、Chic、蛋啵、PartyNow 等</td><td>2011 年起</td><td><span class="pill warn">不明</span></td><td>招股书称共 20 多款小应用，6 款核心应用占 MAU 的 96.7%。多数没有关停公告，已不在新产品矩阵中</td></tr>
+        <tr><th scope="row">美图证件照</th><td>AI 换背景、裁剪，按次付费</td><td>2022-03</td><td><span class="pill good">运行中</span></td><td>收入计入增值服务</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="p-social">社区和内容</h3>
+  <div class="tbl">
+    <table class="prod">
+      <caption>社区、短视频和直播</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">做什么</th><th scope="col">上线</th><th scope="col">状态</th><th scope="col">现状</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">美图社区</th><td>早期图片社区</td><td>2012</td><td><span class="pill bad">已停止</span></td><td>2013 年左右关闭。吴欣鸿说它“因为没有很大的反响被灭掉了”<sup><a href="#src-9">9</a></sup></td></tr>
+        <tr><th scope="row">美拍</th><td>短视频社区</td><td>2014-05</td><td><span class="pill bad">停滞</span></td><td>9 个月用户破 1 亿。应用内 MAU 从 2017 年的 2,950 万降到 2019 年的 706 万，2020 年起不再单列。没有找到关停公告</td></tr>
+        <tr><th scope="row">美拍直播</th><td>直播打赏，主播分成约 73%</td><td>2016-01</td><td><span class="pill bad">已退出</span></td><td>2017 年收入 4.80 亿元。2019 年公司说直播“不再与我们重新调整的战略重点相符”</td></tr>
+        <tr><th scope="row">美图秀秀社交版</th><td>把修图工具改成图片社交平台</td><td>2018-04</td><td><span class="pill bad">已撤回</span></td><td>2018-09 全面上线。2020 年公司停止追求使用时长，回到工具</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="p-hw">硬件</h3>
+  <div class="tbl">
+    <table class="prod">
+      <caption>手机和美业硬件</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">做什么</th><th scope="col">上线</th><th scope="col">状态</th><th scope="col">现状</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">美图手机</th><td>自拍手机（Kiss、M、V、T 系列）</td><td>2013-06</td><td><span class="pill bad">已停止</span></td><td>累计约 350 万部。最后一款自产机 V7（2019-01）。2019-04-30 停止制造</td></tr>
+        <tr><th scope="row">小米 CC9 美图定制版</th><td>小米按授权生产</td><td>2019-07</td><td><span class="pill bad">已停止</span></td><td>授权期间只出这一款。媒体报道 2021 年美图收回授权<sup><a href="#src-14">14</a></sup></td></tr>
+        <tr><th scope="row">美图魔镜</th><td>零售店虚拟试妆硬件</td><td>2018-10</td><td><span class="pill warn">不明</span></td><td>先进香港屈臣氏，后来没有数据</td></tr>
+        <tr><th scope="row">美图宜肤</th><td>门店用的 AI 测肤仪和 SaaS，海外品牌 EveLab Insight</td><td>2019</td><td><span class="pill warn">收缩</span></td><td>2022 年服务 130 多个品牌、2,900 多家门店。2025 年并入“其他”</td></tr>
+        <tr><th scope="row">MeituKey 等</th><td>测肤仪、洁面刷（MeituSpa）、AI 镜（Meitu Genius）</td><td>2019–2021</td><td><span class="pill warn">不明</span></td><td>只在 ESG 章节出现，没有业务数据</td></tr>
+        <tr><th scope="row">单反 / 无反相机</th><td>内置修图分享的相机</td><td>计划 2017</td><td><span class="pill bad">未推出</span></td><td>招股书计划 2017 年推出，后续文件不再提及</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="p-biz">电商、美业和其他业务</h3>
+  <div class="tbl">
+    <table class="prod">
+      <caption>主业以外的业务</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">做什么</th><th scope="col">上线</th><th scope="col">状态</th><th scope="col">现状</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">美美小店</th><td>女性休闲手游</td><td>2016-04</td><td><span class="pill bad">已停止</span></td><td>2016Q3 收入 43 万元，之后不再出现</td></tr>
+        <tr><th scope="row">美印 / 美图定制</th><td>照片印在 T 恤、杯子上</td><td>2016</td><td><span class="pill warn">不明</span></td><td>2018 年进入香港 3 门店，之后没有数据</td></tr>
+        <tr><th scope="row">美铺 → 美图美妆</th><td>美妆电商，带 AI 测肤推荐</td><td>2017-03</td><td><span class="pill bad">已关闭</span></td><td>2017-10 升级为美图美妆，2018-11-30 关闭</td></tr>
+        <tr><th scope="row">IMS / 美事</th><td>达人营销</td><td>2019–2020</td><td><span class="pill bad">已出售</span></td><td>2021 年商誉全额减值，2023 年随大街网出表</td></tr>
+        <tr><th scope="row">大街网</th><td>社交招聘</td><td>2019-11</td><td><span class="pill bad">已出售</span></td><td>2023-08 以 1 美元出售 20% 股份后出表</td></tr>
+        <tr><th scope="row">美图皮肤医生</th><td>远程皮肤科问诊</td><td>2020</td><td><span class="pill warn">不明</span></td><td>后来没有数据</td></tr>
+        <tr><th scope="row">美得得</th><td>化妆品门店 ERP 和集中采购</td><td>2022-01</td><td><span class="pill bad">已终止</span></td><td>供应链业务 2025-11-01 终止，商誉全额减值</td></tr>
+        <tr><th scope="row">站酷（ZCOOL）</th><td>设计师社区、正版图库（站酷海洛）</td><td>2024</td><td><span class="pill warn">收缩</span></td><td>社区运行中。公司 2025 年底退出版权图库业务</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="p-ai">AI 和生产力应用</h3>
+  <div class="tbl">
+    <table class="prod">
+      <caption>2022 年以后推出的产品</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">做什么</th><th scope="col">上线</th><th scope="col">状态</th><th scope="col">现状</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Wink</th><td>视频美颜、画质修复</td><td>2022-03</td><td><span class="pill good">运行中</span></td><td>两年内 MAU 从 0 到约 3,000 万，中国第三的视频编辑应用。公司列为领跑产品</td></tr>
+        <tr><th scope="row">美图设计室</th><td>电商商品图、海报、AI 商拍，海外版 X-Design</td><td>2022-03</td><td><span class="pill good">运行中</span></td><td>2023 年收入超 1 亿元，2024 年约 2 亿元。2025-12 起 Agent 功能是付费增长的主要来源</td></tr>
+        <tr><th scope="row">美图云修</th><td>摄影工作室批量修图</td><td>2022-03</td><td><span class="pill warn">不明</span></td><td>财报正文没有数据</td></tr>
+        <tr><th scope="row">奇想大模型</th><td>自研视觉大模型（MiracleVision）</td><td>2023-06</td><td><span class="pill warn">收缩</span></td><td>V5 2024-06，V6 2026-06。2025 年起停止基础模型训练，转做垂直模型。2026H1 公司称 96% 以上的输出来自自研模型层</td></tr>
+        <tr><th scope="row">WHEE</th><td>网页端 AI 生图</td><td>2023-06</td><td><span class="pill good">运行中</span></td><td>2023 年底累计生成 390 万张图。列为潜力型产品</td></tr>
+        <tr><th scope="row">开拍</th><td>口播视频制作</td><td>2023-06</td><td><span class="pill good">运行中</span></td><td>2024-12 MAU 破百万，中国口播视频类第一。2026H1 ARR 超过去年两倍</td></tr>
+        <tr><th scope="row">Vmake</th><td>海外口播和营销视频</td><td>2024</td><td><span class="pill good">运行中</span></td><td>ARR 2025-12 约 300 万美元，2026-06 约 500 万美元</td></tr>
+        <tr><th scope="row">WinkStudio、DreamAvatar</th><td>桌面视频剪辑、数字人</td><td>2023-06</td><td><span class="pill warn">不明</span></td><td>发布后没有后续数据</td></tr>
+        <tr><th scope="row">奇觅</th><td>游戏广告制作和投放</td><td>2024-06</td><td><span class="pill warn">不明</span></td><td>只在 ESG 章节出现</td></tr>
+        <tr><th scope="row">MOKI</th><td>AI 短片、短剧制作</td><td>2024-07</td><td><span class="pill bad">已停止</span></td><td>2026 年停止<sup><a href="#src-25">25</a></sup></td></tr>
+        <tr><th scope="row">RoboNeo</th><td>图像和视频 AI Agent</td><td>2025-07</td><td><span class="pill warn">不明</span></td><td>首月 MAU 破百万，登顶 26 国应用商店榜。2026H1 业绩公告和中期报告没有提到它</td></tr>
+        <tr><th scope="row">MVLAND</th><td>音乐转视频</td><td>2026-06</td><td><span class="pill">新品</span></td><td>付费用户月均约 220 元，是公司平均水平的 13 倍。ARR 约 68 万美元（2026-10）<sup><a href="#src-29">29</a></sup></td></tr>
+        <tr><th scope="row">Picchi</th><td>学习用户习惯的修图 Agent</td><td>2026-06</td><td><span class="pill">新品</span></td><td>ARR 约 111 万美元（2026-10）<sup><a href="#src-29">29</a></sup></td></tr>
+        <tr><th scope="row">Artflo、MeituHub</th><td>灵感创作、底层连接平台</td><td>2026-06</td><td><span class="pill">新品</span></td><td>刚上线，没有数据</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="win">成功的产品</h2>
+
+  <h3 id="win-sub">订阅模式</h3>
+  <p>订阅是美图 18 年里最重要的一次商业模式转换。订阅从海外应用 BeautyPlus 和 AirBrush 开始（2018 年下半年试行，2019 年规模化），2020 年第四季度复制到美图秀秀和美颜相机。订阅收入 2018 年 0.14 亿元，2019 年 0.86 亿元，2020 年 2.07 亿元，2022 年 7.82 亿元。2022 年订阅超过广告，成为第一大收入来源。</p>
+  <blockquote>为美图现时有能力开发新商业模式并实现规模化提供了有力证据。<cite>2020 年年度业绩公告，谈订阅</cite></blockquote>
+
+  <h3 id="win-life">美图秀秀、美颜相机加 AI 爆款功能</h3>
+  <p>这是 AI 时代收入最大的一块。生活场景占影像与设计收入的约 80%，按 2025 年 29.54 亿元算约 24 亿元。2025 年底生活场景付费用户 1,475 万，2026 年 9 月 1,744 万，同比增长 24%。公司反复把增长归因于 AI 功能带来的订阅：</p>
+  <ol class="timeline">
+    <li><time>2022-Q4</time><div>美图秀秀“AI 绘画”（照片转动漫）登上多国 iOS 影像榜首。</div></li>
+    <li><time>2024-12</time><div>美图秀秀“AI 发型”在印尼走红，登顶越南 iOS 分类榜。</div></li>
+    <li><time>2025-02</time><div>美颜相机“AI 换装”登顶 12 国 iOS 总榜，全球 MAU 突破 7,200 万。</div></li>
+    <li><time>2025</time><div>美图秀秀的“3D 手办”“AI 合照”“AI 雪景”登顶 52 国总榜。“AI 合照”带来欧洲 300 万以上新增活跃用户。</div></li>
+  </ol>
+  <p>这些功能有一个共同点：用户已经在用美图修图，新功能直接放进现有应用，不用另外花钱买用户。2024 年年报说，新产品靠内部流量“低成本冷启动”。</p>
+
+  <h3 id="win-prod">生产力应用</h3>
+  <p>生产力收入占影像与设计收入的比例：2025 年 19%，2026 年第三季度约 20%。生产力用户的 ARPPU 比生活场景高约 50%。AI 生产力应用的 ARR 如下：</p>
+  <div class="stats">
+    <div><b>5.8 亿元</b><span>2026 年 3 月，同比 +56%</span></div>
+    <div><b>6.2 亿元</b><span>2026 年 6 月，同比 +48%</span></div>
+    <div><b>6.55 亿元</b><span>2026 年 9 月，同比 +40%</span></div>
+  </div>
+  <div class="tbl">
+    <table>
+      <caption>被公司点名的生产力产品</caption>
+      <thead><tr><th scope="col">产品</th><th scope="col">成绩</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">美图设计室</th><td>2022 年试验，2023 年收入超 1 亿元（+230%，“比原定目标接近翻倍”），2024 年约 2 亿元。2023 年底 AI 商拍服务 218 万电商商家。接入阿里、京东商家后台和亚马逊 SPN。2026 年有数千名用户年消费约为平均 ARPPU 的 10 倍</td></tr>
+        <tr><th scope="row">开拍</th><td>2025 年 MAU 近翻倍，付费用户增至三倍。2026Q1 算力点消费同比 +360%</td></tr>
+        <tr><th scope="row">Wink</th><td>从秀秀和美颜相机的视频功能拆出，第一天就收订阅。两年 MAU 约 3,000 万</td></tr>
+        <tr><th scope="row">Vmake</th><td>面向美国健身和大健康行业，ARR 一年内超过三倍</td></tr>
+        <tr><th scope="row">MVLAND、Picchi</th><td>2026 年新品，小团队开发，单用户付费高</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="win-global">海外业务</h3>
+  <p>2023 年中国内地以外收入超过影像与设计收入的一半。海外 MAU 2025 年首次超过 1 亿。Pixocial（BeautyPlus、AirBrush 的海外主体）2022 年净利 0.75 亿元，2023 年按约 12.7 倍市盈率融资 2,200 万美元。2025 年生产力付费用户在海外翻倍。</p>
+
+  <h2 id="fail">失败的产品和项目</h2>
+
+  <h3 id="f-phone">美图手机</h3>
+  <p>手机是美图收入最高的业务，也是最大的失败（2013–2019）。2017 年卖出 157 万部，收入 37.4 亿元，但毛利率只有 13%–23%。2018 年只推出 T9 一款新机，销量降到 72 万部，硬件毛利率变成 −3.4%，存货减值约 3.77 亿元，手机业务亏损约 5.1 亿元。2018 年 11 月，美图把品牌授权给小米，2019 年 4 月停止制造。</p>
+  <blockquote>考虑到这项业务的小规模团队……与具规模的智能手机业务的合作伙伴合作可以极大地加快……<cite>2018-11-19 内幕消息及盈利警告</cite></blockquote>
+  <p>2018 年年报说，手机业务“经营去杠杆化”，固定成本不随销量下降。CFO 颜劲良的解释是小众品牌规模上不去，成本降不下来<sup><a href="#src-12">12</a></sup>。吴欣鸿在 2018 年说：“硬件是一个很好的商业化尝试，但美图是一家移动互联网公司。”<sup><a href="#src-11">11</a></sup></p>
+
+  <h3 id="f-meipai">美拍和直播</h3>
+  <p>美拍（2014–2019）是美图最接近做成社区的产品，9 个月用户破亿<sup><a href="#src-7">7</a></sup>。招股书显示，2016 年 10 月美拍的 1.10 亿 MAU 里，应用内只有 2,300 万，其余来自网页和第三方。2015 年美拍占互联网分部成本的 92%，招股书说它“并未产生高额收益”。</p>
+  <p>直播礼物是 2017 年唯一跑通的变现，收入 4.80 亿元。抖音和快手兴起后，美拍应用内 MAU 从 2017 年的 2,950 万降到 2019 年的 706 万。2019 年公司退出直播，理由是“竞争不断加剧”和不再符合战略重点。</p>
+
+  <h3 id="f-social">社交转型</h3>
+  <p>2018 年 8 月，公司宣布“美和社交”战略，把美图秀秀改成图片社交平台，并预告未来 18 个月大幅投入。同年花约 2 亿元冠名一档真人秀。2018 年底社交用户约占美图秀秀 MAU 的 51%，但全公司 MAU 从 4.15 亿降到 3.32 亿，广告在 2020 年下降 9.5%。</p>
+  <blockquote>我们改变了最大化美图秀秀应用的日均使用时长……使用户花费最少的时间获得想要的影像美化结果。<cite>2020 年年度业绩公告</cite></blockquote>
+  <blockquote>社交可能是一千家企业去做，最后能成一家就不错了，失败率太高了。……把工具做好，是一件确定性很强的事。<cite>吴欣鸿，2023 年 6 月<sup><a href="#src-20">20</a></sup></cite></blockquote>
+
+  <h3 id="f-ecom">电商</h3>
+  <p>招股书计划 2017 年上半年推出社交电商“美铺”，并给电商留出 3 亿元募资。美铺 2017 年 3 月上线，10 月升级为美图美妆。2018 年电商收入 1.81 亿元，亏损约 2.0 亿元，2018 年 11 月 30 日关闭，品牌授权给寺库关联公司。COO 程昱的内部信说，自营电商是一次商业化尝试，公司转向开放的平台业务<sup><a href="#src-15">15</a></sup>。</p>
+
+  <h3 id="f-mna">偏离主线的并购和投资</h3>
+  <div class="tbl">
+    <table>
+      <caption>2019–2023 年主业以外的资本动作</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">做了什么</th><th scope="col">结果</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Dreamscape</th><td>2019 年拟用 26.87 亿港元新股收购游戏 Warframe 开发商母公司 31% 股权</td><td>2019 年 4 月被股东特别大会否决</td></tr>
+        <tr><th scope="row">大街网和 IMS</th><td>2019 年以约 3.96 亿港元收购大街网约 57% 股权，理由是美图用户八成以上在 35 岁以下</td><td>2021 年亏损 0.97 亿元，2022 年亏损 1.81 亿元。商誉 1.62 亿元 2021 年全额减值。2023 年 8 月以 1 美元卖出 20% 股份后出表，公告说 IMS“与战略相关性较弱”</td></tr>
+        <tr><th scope="row">睿晟天和</th><td>计划在 A 股单独上市并做游戏发行</td><td>2022 年底没有递交上市申请，回拨后成为全资子公司</td></tr>
+        <tr><th scope="row">加密货币</th><td>2021 年用约 1 亿美元买入约 31,000 ETH 和 940.89 BTC，公司说区块链“类似于 2005 年左右的移动互联网”</td><td>2022 年减值约 2.85 亿元。2024 年全部卖出，获利约 5.71 亿元，约八成用于特别股息。公告没有提到任何区块链业务成果</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="f-beauty">美业</h3>
+  <p>美图宜肤测肤仪和美得得门店 SaaS 是 2020–2022 年的第二条主线。2022 年美得得并表后，SaaS 收入增长 11 倍，但毛利率低，公司整体毛利率从 67.5% 降到 56.9%。美业商誉 2023 年减值 1.55 亿元。2024 年公司说“不追求扩充美业解决方案的收入规模”，2025 年 11 月终止供应链业务，剩余商誉和客户关系全额减值。</p>
+
+  <h3 id="f-ai">AI 时代的失败和收缩</h3>
+  <ul>
+    <li>自研通用大模型：2024 年视觉大模型训练费用约 1.4 亿元。2025 年上半年公司宣布“已基本完成视觉大模型的底层模型训练”，转向垂直模型。媒体报道总投入达数亿元<sup><a href="#src-25">25</a></sup>。</li>
+    <li>MOKI（AI 短片）：2024 年 7 月上线。字节和快手进入同一市场后，2026 年停止<sup><a href="#src-25">25</a></sup>。</li>
+    <li>AI 试衣：管理层在访谈中说这个方向被“证伪”<sup><a href="#src-26">26</a></sup>。</li>
+    <li>站酷版权图库：收购站酷时，理由之一是补充训练素材。2025 年底公司退出版权图库业务。站酷 2024 年业绩对赌完成率 96.75%。</li>
+    <li>内部工作室：每个项目约 1,000 万元预算，花到 500 万元时评估。2026 年上半年已停掉部分项目，公司没有点名。</li>
+    <li>美图影像节：2025 年 6 月暂停，团队转做 AI Agent，2026 年 6 月恢复<sup><a href="#src-24">24</a></sup>。</li>
+  </ul>
+
+  <h3 id="f-unclear">状态不明的产品</h3>
+  <p>RoboNeo 2025 年 7 月上线时登顶 26 国榜单，2026 年第一季度算力点消费增长 316%，但 2026 年中期业绩公告和中期报告都没有提到它。媒体报道它 2026 年 8 月转向“AI 短剧团队”，巴西用户多于中国<sup><a href="#src-26">26</a></sup>。WHEE、美图云修、奇觅在财报正文里没有业务数据。</p>
+
+  <h2 id="lesson">收获和教训</h2>
+  <p>以下是年报、中期报告和管理层访谈里的原话和要点，按主题排列。</p>
+
+  <h3 id="l-focus">专注</h3>
+  <blockquote>历经多年辗转尝试不同领域及业务模式后，我们选择专注于影像及美丽产业业务。<cite>2021 年年度业绩公告</cite></blockquote>
+  <p>这是年报里唯一一次直接承认过去转向太多。到 2024 年，美业也被收缩，专注范围只剩影像。</p>
+
+  <h3 id="l-sub">从流量模式到订阅</h3>
+  <ul>
+    <li>2019 年：减少付费下载和大型营销活动获客，靠新功能和体验推动自然下载。</li>
+    <li>2020 年：不再最大化使用时长，因为订阅不依赖时长。</li>
+    <li>2022 年：公司把 MAU 看成订阅的“销售漏斗”，并说不太可能大量花钱买流量来提高渗透率。</li>
+  </ul>
+  <blockquote>由于我们的变现模式已从围绕流量分流的“互联网模式”转移，我们对整体月活跃用户的看法亦已相应转变。<cite>2022 年年度业绩公告</cite></blockquote>
+
+  <h3 id="l-prod">从生活场景到生产力</h3>
+  <blockquote>我们发现，众多用户正使用我们的应用程序提升其于工作中的生产力……用户愿意接纳更高的价位。<cite>2022 年年度业绩公告</cite></blockquote>
+  <p>2024 年年报：“全球用户对生产力工具的付费意愿更强”，专注生产力工具的公司收入规模“显著高于”专注生活场景的公司。吴欣鸿 2023 年说，订阅渗透率的空间“迫使美图从生活场景往生产力场景延伸”<sup><a href="#src-20">20</a></sup>。</p>
+
+  <h3 id="l-model">模型策略的反复</h3>
+  <ol class="timeline">
+    <li><time>2023</time><div>发布自研大模型。吴欣鸿的理由是“用别人的大模型，没有办法对效果提出意见和要求”<sup><a href="#src-20">20</a></sup>。年报说场景产品比通用模型效率高。</div></li>
+    <li><time>2025-H1</time><div>“向用户提供最好的用户体验的优先级远高于从零开始研发基础大模型”，改用第三方 API 加开源模型微调，称为“模型容器策略”。</div></li>
+    <li><time>2025</time><div>年报把通用大模型比作“瑞士军刀”，把垂直应用比作“手术刀”。</div></li>
+    <li><time>2026-H1</time><div>中期报告自问：应用层的价值为什么会留在美图的产品里，而不是通用模型厂商推出的应用里。回答有三点：用户反馈积累的审美标准，聚焦人像的小模型，用户留下的创作资产。公司仍保留自研垂直模型，因为“封闭的第三方 API 无法让模型吸收我们用户的视觉偏好”。</div></li>
+  </ol>
+
+  <h3 id="l-inc">孵化方法</h3>
+  <p>2026 年中期报告说，一年前公司主要把 AI 能力加进现有产品。现在进入新领域的关键是“多少支有能力的团队”，资金不再是主要限制。2025 年年报：“对未能验证的方向，则会迅速降低优先级”。</p>
+  <blockquote>如果多次试验后，产品数据依然不好，那就只能结束业务。……成功产品，大多都从没有竞争的场景开始。<cite>美图高管陈剑毅，2026 年 7 月<sup><a href="#src-26">26</a></sup></cite></blockquote>
+  <p>2026 年 10 月的 18 周年活动把产品分为三级：领跑型（美图秀秀、美颜相机、Wink），潜力型（WHEE、站酷、RoboNeo，团队不超过 50 人），孵化型（ARR 稳定超过 50 万美元可以升级）<sup><a href="#src-29">29</a></sup>。</p>
+
+  <h3 id="l-price">收费方式</h3>
+  <p>2026 年中期报告说，订阅档位“给消费金额设了一个天花板”，按算力点收费的 Agent 去掉了这个上限。2026 年第一季度，美图设计室的算力点消费增长 107%，开拍增长 360%。</p>
+
+  <h3 id="l-global">全球化</h3>
+  <p>2023 年年报：早在 2018 年就面向英语市场做产品，海外成为收入重心。公司在美国西岸和悉尼建了本地团队，下一阶段重点是巴西和墨西哥。</p>
+  <blockquote>通过本地化推广进入一个市场，与从构思之初就为该市场打造产品，并不相同。<cite>2026 年中期报告</cite></blockquote>
+
+  <h3 id="l-self">管理层的其他自述</h3>
+  <blockquote>美图在 2018 年、2019 年遭遇了非常大的挑战，股价狂掉，公司人心涣散。……美图过去也踩了很多坑。<cite>吴欣鸿，2025 年 3 月<sup><a href="#src-22">22</a></sup></cite></blockquote>
+  <p>2025 年 10 月的 17 周年讲话要求打破“十七年的思维定式”，点名固化流程、多余会议和套路化的市场做法<sup><a href="#src-23">23</a></sup>。</p>
+
+  <h2 id="judge">研究判断</h2>
+  <p>以下是本文作者根据上面资料做的判断，不是公司表述。</p>
+
+  <h3 id="j-line">成功和失败的分界线</h3>
+  <p>成功的产品有三个共同点：</p>
+  <ul>
+    <li>起点是美图已有的修图用户，新功能放进现有应用，或者从现有应用拆出。</li>
+    <li>用户为一个明确的结果付钱，例如一张更好看的照片、一张能用的商品图、一条能发的口播视频。</li>
+    <li>美图在这个场景里没有强大的对手，或者对手是小公司。</li>
+  </ul>
+  <p>失败的项目大多相反。手机要和小米、OPPO、vivo 拼供应链，美拍要和抖音、快手拼内容和流量，招聘、电商、美业供应链都不是美图熟悉的行业。自研通用大模型要和资金多几十倍的公司拼算力。陈剑毅说的“成功产品大多从没有竞争的场景开始”和这份清单一致。</p>
+
+  <h3 id="j-lag">转向比市场慢一到两年</h3>
+  <div class="tbl">
+    <table>
+      <caption>主要方向的开始和收缩时间</caption>
+      <thead><tr><th scope="col">方向</th><th scope="col">加码</th><th scope="col">收缩</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">手机</th><td>2017 年收入最高</td><td>2018 年下半年</td></tr>
+        <tr><th scope="row">社交</th><td>2018 年，那时抖音已经起量</td><td>2020 年</td></tr>
+        <tr><th scope="row">美业</th><td>2020–2022 年</td><td>2024–2025 年</td></tr>
+        <tr><th scope="row">自研通用大模型</th><td>2023 年</td><td>2025 年</td></tr>
+        <tr><th scope="row">MOKI</th><td>2024 年 7 月</td><td>2026 年</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>AI 时代这个间隔在缩短。MOKI 从上线到停止约两年，内部工作室按 500 万元评估一次。</p>
+
+  <h3 id="j-risk">需要跟踪的风险</h3>
+  <div class="warn"><b>风险</b>
+    <ul>
+      <li>生产力付费用户的增速在下降：2025 年 +67%，2026 年第一季度 +53%，第三季度 +18%。ARR 同比增速从 56% 降到 40%。</li>
+      <li>生活场景 MAU 在 2026 年上半年开始下降（−3.1%），同期公司把 MAU 改成半年披露。</li>
+      <li>毛利率从 2025 年的 73.6% 降到 2026 年上半年的 71.5%，公司解释为算力和 API 成本上升。苹果和谷歌渠道分成 2025 年 6.18 亿元，是最大的成本项。</li>
+      <li>RoboNeo 上线时宣传最多，但在最新财报里没有出现。</li>
+      <li>阿里 2.5 亿美元可转债附带 36 个月 5.6 亿元阿里云采购承诺，并带来 5.12 亿元一次性非现金开支。阿里 2026 年 8 月提名了一名董事。</li>
+    </ul>
+  </div>
+
+  <h2 id="todo">待确认</h2>
+  <div class="todo"><b>待确认</b>
+    <ul>
+      <li>美图看看、美图拼图、美图 GIF、表情工厂、闪传、海报工厂、美妆相机、潮自拍的上线和停运时间没有公开记录。</li>
+      <li>美拍没有正式关停公告，目前状态按“停滞”处理。</li>
+      <li>订阅的起始时间：2019 年年报写 2018 年下半年，2020 年年报写 2019 年。</li>
+      <li>2021 年美图收回小米授权，只有媒体报道，港交所文件没有单独公告。</li>
+      <li>AirBrush 是自研还是收购，没有找到来源。招股书把它列为美图秀秀海外版。</li>
+      <li>2021 年年报中美图秀秀 MAU 与 2020 年完全相同（114,718 千），可能是原文错误。</li>
+      <li>退出的版权图库业务是不是站酷海洛，公告没有写明。</li>
+      <li>App Store 上美图设计室的首发日期是 2014-07-24，早于公司说的 2022 年。这个应用条目可能由更早的应用改名而来，没有核实。</li>
+    </ul>
+  </div>
+
+  <h2 id="method">方法与来源</h2>
+  <p>2026-11-12 从港交所披露易下载美图全部公告清单（461 份），取其中的招股书、2016–2025 年报和年度业绩公告、2025 和 2026 中期报告、2026 年季度业务公告、业绩预告和 48 份重大事件公告。用 pdftotext 转成文本后按时期分段阅读，摘出产品、收入分部、MAU、付费用户、减值和管理层表述。再用公开报道补充上线时间、停运时间和创始人访谈。2026-11-14 从 App Store 取应用图标和首发日期。</p>
+  <p>没拿到的：小应用的停运时间、美拍的正式状态、2025 年之前的季度数据（美图只发半年报和年报）。三处媒体数字只看到搜索摘要，没有打开原文核对：CFO 谈手机的说法、2018 年上半年手机销量、早期用户总数。</p>
+  <ol class="sources">
+    <li id="src-1">美图公司，招股书（全球发售），2016-12-05，港交所披露易</li>
+    <li id="src-2">美图公司，2016–2025 年年报和年度业绩公告，港交所披露易</li>
+    <li id="src-3">美图公司，2025 和 2026 中期报告及中期业绩公告，2026 年第一、第三季度业务状况公告，2025-02、2026-02、2026-07 业绩预告，港交所披露易</li>
+    <li id="src-4">美图公司，重大事件公告：2017-01-16 互联网服务商业化，2018-08-08 最新业务发展，2018-10-16 长江和记联盟，2018-11-19 内幕消息及盈利警告，2019-01/02 Dreamscape 收购，2019-08-28 大街网收购，2020-04-24 PressLogic，2020-12-27 睿晟天和，2021-03/04 加密货币，2021-04/12 美得得，2021-07-30 美图宜肤合约安排，2023-08-04 出售大街网，2023-10-12 Pixocial 融资，2024-02-02 收购站酷，2024-12-04 出售加密货币，2025-05-20 阿里战略合作，2025-12-31 可转债交割，2026-01-26 护家科技分拆，2026-03-26 和 2026-06-18 停牌澄清，2026-09-15 创始人增持</li>
+    <li id="src-5">美图大事记，<a href="https://info.meitu.com/" target="_blank" rel="noopener">info.meitu.com</a></li>
+    <li id="src-6">人人都是产品经理，美图秀秀起源，<a href="https://www.woshipm.com/it/5642658.html" target="_blank" rel="noopener">woshipm.com</a></li>
+    <li id="src-7">爱范儿，美拍用户破亿，<a href="https://www.ifanr.com/486405" target="_blank" rel="noopener">ifanr.com/486405</a></li>
+    <li id="src-8">虎嗅，美拍和社交转型，<a href="https://www.huxiu.com/article/259012.html" target="_blank" rel="noopener">huxiu.com/article/259012</a></li>
+    <li id="src-9">36 氪，吴欣鸿谈美和社交，2018，<a href="https://www.36kr.com/p/1722542080001" target="_blank" rel="noopener">36kr.com/p/1722542080001</a></li>
+    <li id="src-10">每日经济新闻，美图手机，2019-04-15，<a href="https://www.nbd.com.cn/articles/2019-04-15/1321515.html" target="_blank" rel="noopener">nbd.com.cn</a></li>
+    <li id="src-11">IT 之家，吴欣鸿谈硬件，<a href="https://www.ithome.com/0/421/543.htm" target="_blank" rel="noopener">ithome.com/0/421/543</a></li>
+    <li id="src-12">爱范儿，美图手机，<a href="https://www.ifanr.com/1130730" target="_blank" rel="noopener">ifanr.com/1130730</a></li>
+    <li id="src-13">投资界，美图与小米合作，2018-11，<a href="https://news.pedaily.cn/201811/438011.shtml" target="_blank" rel="noopener">news.pedaily.cn</a></li>
+    <li id="src-14">IT 之家，美图手机近况，2026，<a href="https://www.ithome.com/0/956/761.htm" target="_blank" rel="noopener">ithome.com/0/956/761</a></li>
+    <li id="src-15">界面新闻，美图美妆关闭，<a href="https://www.jiemian.com/article/2621391.html" target="_blank" rel="noopener">jiemian.com/article/2621391</a></li>
+    <li id="src-16">澎湃新闻，美图买入加密货币，<a href="https://m.thepaper.cn/newsDetail_forward_11600402" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-17">界面新闻，美图出售加密货币，<a href="https://m.jiemian.com/article/12080928.html" target="_blank" rel="noopener">jiemian.com/article/12080928</a></li>
+    <li id="src-18">IT 之家，2022 年新品发布（Wink、美图设计室、美图云修），<a href="https://www.ithome.com/0/609/142.htm" target="_blank" rel="noopener">ithome.com/0/609/142</a></li>
+    <li id="src-19">数英，2023 年影像节（MiracleVision、WHEE、开拍），<a href="https://www.digitaling.com/articles/944215.html" target="_blank" rel="noopener">digitaling.com</a></li>
+    <li id="src-20">36 氪，吴欣鸿谈社交和工具，2023-06，<a href="https://www.36kr.com/p/2319772513419906" target="_blank" rel="noopener">36kr.com/p/2319772513419906</a></li>
+    <li id="src-21">36 氪，吴欣鸿谈爆款功能，2023-10，<a href="https://www.36kr.com/p/2481265900869511" target="_blank" rel="noopener">36kr.com/p/2481265900869511</a></li>
+    <li id="src-22">钛媒体，吴欣鸿访谈，2025-03，<a href="https://www.tmtpost.com/7500139.html" target="_blank" rel="noopener">tmtpost.com/7500139</a></li>
+    <li id="src-23">36 氪，美图 17 周年讲话，2025-10，<a href="https://www.36kr.com/p/3503049809910659" target="_blank" rel="noopener">36kr.com/p/3503049809910659</a></li>
+    <li id="src-24">白鲸出海，RoboNeo 和影像节暂停，<a href="https://www.baijing.cn/article/53346" target="_blank" rel="noopener">baijing.cn/article/53346</a></li>
+    <li id="src-25">每经网，自研大模型和 MOKI 停止，2026-04-08，<a href="https://www.mrjjxw.com/articles/2026-04-08/4330252.html" target="_blank" rel="noopener">mrjjxw.com</a></li>
+    <li id="src-26">36 氪，陈剑毅访谈，2026-07，<a href="https://www.36kr.com/p/3877112973733895" target="_blank" rel="noopener">36kr.com/p/3877112973733895</a></li>
+    <li id="src-27">财联社，2026 影像节，<a href="https://www.cls.cn/detail/2403568" target="_blank" rel="noopener">cls.cn/detail/2403568</a></li>
+    <li id="src-28">GNA，2026 Meitu Multimedia Festival，<a href="https://gna.org.gh/2026/06/2026-meitu-multimedia-festival-uveils-8-ai-products-declaresyour-ai-crew-assembled/" target="_blank" rel="noopener">gna.org.gh</a></li>
+    <li id="src-29">格隆汇，美图 18 周年三级产品体系，2026-10，<a href="https://m.gelonghui.com/news/5322410" target="_blank" rel="noopener">gelonghui.com/news/5322410</a></li>
+    <li id="src-30">澎湃新闻，2026 年中期业绩报道，<a href="https://www.thepaper.cn/newsDetail_forward_33685868" target="_blank" rel="noopener">thepaper.cn</a></li>
+    <li id="src-31">Apple App Store 中国区，美图各应用页面（图标、首发日期），2026-11-14，<a href="https://apps.apple.com/cn/developer/meitu-technology-co-ltd/id416048308" target="_blank" rel="noopener">apps.apple.com</a></li>
+  </ol>
+</main>
+</div>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  const theme = document.getElementById('reading-theme');
+  if (theme) {
+    theme.value = root.getAttribute('data-theme') || 'system';
+    theme.addEventListener('change', function () {
+      if (theme.value === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme.value);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

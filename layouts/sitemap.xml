@@ -11,11 +11,11 @@
     {{- end }}
   {{- end }}
   {{- /* Reading materials are static HTML files, not Hugo pages; list them from the data file. */}}
-  {{- $reading := index .Site.Data "reading-materials" }}
+  {{- $reading := index .Site.Data "research-materials" }}
   {{- range $reading.materials }}
     {{- if not .noindex }}
   <url>
-    <loc>{{ .reading_url | absURL }}</loc>
+    <loc>{{ .research_url | absURL }}</loc>
   </url>
     {{- end }}
   {{- end }}

@@ -17,4 +17,4 @@ slug: "temasek-review-2026-reading-aid"
 
 做了份中文速读页，按 12 个小节拆开原报告的 143 页。
 
-[打开速读](https://wlj.me/reading/temasek-review-2026/)
+[打开速读](/research/temasek-review-2026/)

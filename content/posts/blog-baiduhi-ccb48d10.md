@@ -194,7 +194,7 @@ slug: "blog-baiduhi-ccb48d10"
 
 自己
 
-[http://wlj.me](http://wlj.me/)
+[http://wlj.me](/)
 
 [http://www.douban.com/people/wlj/](http://www.douban.com/people/wlj/)
 
