@@ -2,6 +2,7 @@
 
 ## 2026-11-24
 
+- 修复 `publish.sh` 发文章的两个问题。标题含英文双引号时，frontmatter 不合法，整站构建失败；现在转义 `"` 和 `\`。远端有新提交时（另一台电脑或笔记 bot 先推送），推送被拒；现在推送前先 `git pull --rebase --autostash`。新增 `tests/test_post_publish.py`，GitHub Actions 改为运行 `tests/` 下全部测试。
 - 正文里指向 wlj.me 的 8 处链接改为 wulujia.com（文章、创业笔记、4 条笔记、1 个研究页、slax-reader 旧跳转页）。wlj.me 以后可能停用，链接不能依赖它的跳转。代码示例和历史文字里的 wlj.me 保留。
 - 站内搜索：新增 `/search/`（`content/search/index.md` + `layouts/_default/search.html`，Pagefind UI，按站点配色，noindex），菜单加“搜索”。索引只收文章、笔记、创业笔记和研究页：这些页面的正文容器加 `data-pagefind-body`（`_default/single.html`、`notes/single.html`、`startupnotes/single.html`；研究页由 `research_style.py --sync` 加在 `<main>` 上，模板同步改），列表、标签和首页不进索引。Cloudflare Pages 项目 wlj-me 的构建命令末尾加 `npx -y pagefind@1.6.0 --site public --force-language zh`，在 Hugo 之后生成 `/pagefind/`。`--force-language zh` 必须有：研究页的语言是 zh-CN，不合并时搜索页（zh）搜不到研究页。
 - Cloudflare 设置（不在仓库里）：新增 `www.wulujia.com`（A 记录 192.0.2.1，代理）和 Page Rule `www.wulujia.com/*` → `https://wulujia.com/$1`（301）；`blog.wulujia.com/*` 改为直接跳 `https://wulujia.com/posts/$1`；wulujia.com 开启 HSTS（6 个月，不含子域名，不预加载）；wlj.me 新增 Page Rules `wlj.me/reading/*` → `https://wulujia.com/research/$1`、`wlj.me/*` → `https://wulujia.com/$1`，`www.wlj.me/*` 改为直接跳 `https://wulujia.com/$1`，均为 301。

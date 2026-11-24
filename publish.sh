@@ -56,6 +56,8 @@ now_iso() {
 git_push_default() {
   local default_branch
   default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo main)
+  # Another computer or the notes bot may have pushed first; put this commit on top.
+  git pull --rebase --autostash origin "$default_branch" || die "与 origin/$default_branch 合并失败，手动处理冲突后再 git push"
   git push origin "HEAD:$default_branch"
 }
 
@@ -121,7 +123,8 @@ publish_post() {
 
   {
     echo "---"
-    echo "title: \"$title\""
+    # Escape backslashes and double quotes, or the YAML breaks the whole Hugo build.
+    echo "title: \"$(printf '%s' "$title" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g')\""
     echo "date: $date"
     echo "lastmod: $lastmod"
     echo "author: \"Luca\""
@@ -370,7 +373,7 @@ PYMETA
     else
       grep -q "<loc>$canonical</loc>" "$out/sitemap.xml" || die "sitemap 里没有 $canonical，检查 data/research-materials.toml"
     fi
-    [ -f "$out/research/$slug/index.html" ] || die "构建产物里没有 reading/$slug/index.html"
+    [ -f "$out/research/$slug/index.html" ] || die "构建产物里没有 research/$slug/index.html"
   else
     echo "提示: 本机没有 hugo，跳过本地构建检查" >&2
   fi

@@ -30,9 +30,9 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Check reading pages
+      - name: Run tests and check research pages
         run: |
-          python3 -m unittest discover -s tests -p 'test_research*.py'
+          python3 -m unittest discover -s tests -p 'test_*.py'
           python3 scripts/research_tags.py check
           python3 scripts/research_style.py static/research
       - name: Test build with Hugo
