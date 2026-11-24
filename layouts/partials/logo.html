@@ -1,0 +1,6 @@
+<a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}">
+  <div class="logo">
+    <img class="logo__avatar" src="/favicon.png" alt="Luca 的头像" width="24" height="24">
+    {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
+  </div>
+</a>

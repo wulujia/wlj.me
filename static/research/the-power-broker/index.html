@@ -422,6 +422,7 @@ main > *, .layout > * { min-width: 0; }
 .site-logo-bar { display: flex; }
 .site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
 .site-logo-bar a { flex: 0 0 auto; text-decoration: none; }
+.site-logo__avatar { display: block; width: 24px; height: 24px; border-radius: 50%; margin-right: 8px; flex: 0 0 auto; }
 .site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
 .site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
 .site-menu a { color: var(--acc-ink); }
@@ -448,7 +449,7 @@ main > *, .layout > * { min-width: 0; }
 </style></head>
 <body data-reading-version="1"><a class="skip" href="#main">跳到正文</a>
 <header class="site-header" id="site-header">
-<div class="site-logo-bar"><a href="/"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<div class="site-logo-bar"><a href="/"><span class="site-logo"><img class="site-logo__avatar" src="/favicon.png" alt="Luca 的头像" width="24" height="24">Luca&#x27;s Blog</span></a></div>
 <nav class="site-menu" aria-label="站点导航"><ul>
 <li><a href="/featured/">精选</a></li>
 <li><a href="/posts/">日志</a></li>

@@ -539,3 +539,7 @@ blockquote::before {
 .home-list li { padding: 2px 0; line-height: 1.6; }
 .home-list li::before { content: none; }
 .home-list .post-date { margin-right: 10px; }
+
+/* --- Logo avatar: a small round avatar inside the logo box --- */
+/* The theme gives every img a margin, border and padding; the avatar needs none of them. */
+.logo img.logo__avatar { display: block; width: 24px; height: 24px; margin: 0 8px 0 0; padding: 0; border: 0; border-radius: 50%; flex: 0 0 auto; }
