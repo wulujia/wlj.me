@@ -32,9 +32,9 @@ jobs:
           fetch-depth: 0
       - name: Check reading pages
         run: |
-          python3 -m unittest discover -s tests -p 'test_reading*.py'
-          python3 scripts/reading_tags.py check
-          python3 scripts/reading_style.py static/reading
+          python3 -m unittest discover -s tests -p 'test_research*.py'
+          python3 scripts/research_tags.py check
+          python3 scripts/research_style.py static/research
       - name: Test build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
