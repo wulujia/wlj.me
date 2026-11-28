@@ -1190,3 +1190,16 @@ year = "2026"
 description = "比较 Amp、Herdr、Orca、Cindy、Happy、Open WebUI 等工具，场景是常出差、手机含鸿蒙 NEXT、固定 Mac 与 Linux 主机、以研究写作为主。结论：主力用 Cindy，记忆存为自有 Markdown，鸿蒙只走浏览器。"
 original_url = ""
 research_url = "/research/agent-tool-selection-2026-11/"
+
+[[materials]]
+slug = "wondershare-financials-2022-2026"
+title = "万兴科技四年财报：买量撑住收入，AI 推高成本"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Business", "AI", "Product"]
+date = "2026-11-28T10:31:52+08:00"
+year = "2026"
+description = "万兴科技营业收入从 2022 年 11.80 亿元升到 2025 年 15.33 亿元，2024 年起连续亏损。本页用 2022–2026 年的年报、半年报和三季报，分析收入、买量效率、AI 成本和产品停服记录。"
+original_url = ""
+research_url = "/research/wondershare-financials-2022-2026/"

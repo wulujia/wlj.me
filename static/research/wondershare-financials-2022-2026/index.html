@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>万兴科技四年财报：买量撑住收入，AI 推高成本</title>
+<meta name="description" content="万兴科技营业收入从 2022 年 11.80 亿元升到 2025 年 15.33 亿元，2024 年起连续亏损。本页用 2022–2026 年的年报、半年报和三季报，分析收入、买量效率、AI 成本和产品停服记录。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wulujia.com/research/wondershare-financials-2022-2026/">
+<style>
+/* Component styles for this page: charts, legends and source lines. */
+:root { --profit: var(--bad); --loss: var(--good); --acc-soft: color-mix(in srgb, var(--acc) 45%, var(--bg)); }
+.src { font-size: 13.5px; color: var(--ink-3); }
+.ticker { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.charts figure { margin: 0; }
+.summary h2.label { font-family: var(--font-body); font-size: 12px; font-weight: 600; line-height: 1.5; margin: 0 0 8px; padding: 0; border: 0; }
+.wide { overflow-x: auto; }
+.wide svg { min-width: 600px; }
+.swatch { display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 10px; vertical-align: baseline; }
+.swatch:first-child { margin-left: 0; }
+@media (max-width: 900px) { .charts { grid-template-columns: 1fr; } }
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.site-logo__avatar { display: block; width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><img class="site-logo__avatar" src="/avatar.png" alt="Luca 的头像" width="34" height="34"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+<li><a href="/search/">搜索</a></li>
+</ul></nav>
+</header>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+<details open>
+<summary>目录</summary>
+<ul>
+      <li><a href="#s1">先说结论</a></li>
+      <li><a href="#s2">一、收入四年涨三成，2024 年起连续亏损</a>
+        <ul>
+          <li><a href="#s2-1">1.1 年度核心数据</a></li>
+          <li><a href="#s2-2">1.2 季度数据：2024 Q2 起转亏</a></li>
+          <li><a href="#s2-3">1.3 2026 年：收入下降，亏损扩大</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3">二、视频创意类占三分之二，绘图和文档在缩小</a>
+        <ul>
+          <li><a href="#s3-1">2.1 产品线收入与毛利率</a></li>
+          <li><a href="#s3-2">2.2 地区：九成以上来自境外</a></li>
+          <li><a href="#s3-3">2.3 渠道：直销、经销、分销</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4">三、主力产品：低价“准专业”工具，卖给海外个人</a>
+        <ul>
+          <li><a href="#s4-1">3.1 存活产品画像</a></li>
+          <li><a href="#s4-2">3.2 价格定位</a></li>
+          <li><a href="#s4-3">3.3 用户与订阅</a></li>
+          <li><a href="#s4-4">3.4 每年的重点产品怎样变化</a></li>
+        </ul>
+      </li>
+      <li><a href="#s5">四、每 1 元广告带来 2.2–2.7 元收入</a>
+        <ul>
+          <li><a href="#s5-1">4.1 费用结构</a></li>
+          <li><a href="#s5-2">4.2 毛利增量被销售费用增量吃掉</a></li>
+        </ul>
+      </li>
+      <li><a href="#s6">五、AI 调用量涨了两倍多，AI 收入约占一成</a>
+        <ul>
+          <li><a href="#s6-1">5.1 天幕大模型</a></li>
+          <li><a href="#s6-2">5.2 AI 原生新品时间线</a></li>
+          <li><a href="#s6-3">5.3 AI 业务指标</a></li>
+          <li><a href="#s6-4">5.4 AI 成本</a></li>
+        </ul>
+      </li>
+      <li><a href="#s7">六、产品墓地：7 款有公告，十余款悄悄消失</a>
+        <ul>
+          <li><a href="#s7-1">6.1 有官方公告的停服、停售、合并和出售</a></li>
+          <li><a href="#s7-2">6.2 从年报产品表消失、没有停服公告</a></li>
+          <li><a href="#s7-3">6.3 商誉：杭州格像在业绩承诺期后第二年减值</a></li>
+        </ul>
+      </li>
+      <li><a href="#s8">七、竞争：份额 1.3%，夹在 Adobe 和字节之间</a></li>
+      <li><a href="#s9">八、治理与资本：两次大额融资都已终止</a>
+        <ul>
+          <li><a href="#s9-1">8.1 股权、减持、激励、回购</a></li>
+          <li><a href="#s9-2">8.2 融资与 H 股</a></li>
+        </ul>
+      </li>
+      <li><a href="#s10">九、研究者判断（分析，非公司口径）</a>
+        <ul>
+          <li><a href="#s10-1">9.1 收入为什么停在 15 亿元附近</a></li>
+          <li><a href="#s10-2">9.2 买量陷阱</a></li>
+          <li><a href="#s10-3">9.3 AI 的成本和收入</a></li>
+          <li><a href="#s10-4">9.4 活下来的产品有什么共同点</a></li>
+          <li><a href="#s10-5">9.5 治理上值得注意的地方</a></li>
+          <li><a href="#s10-6">9.6 接下来要看的指标</a></li>
+        </ul>
+      </li>
+      <li><a href="#s11">十、数据冲突与待确认点</a></li>
+      <li><a href="#s12">结论</a></li>
+      <li><a href="#s13">方法与来源</a>
+        <ul>
+          <li><a href="#s13-1">方法</a></li>
+          <li><a href="#s13-2">没有拿到的资料</a></li>
+          <li><a href="#s13-3">来源</a></li>
+        </ul>
+      </li>
+    </ul>
+</details>
+</nav>
+<main id="main" data-pagefind-body>
+<div class="reading-toolbar">
+<a href="/research/">返回研究</a>
+</div>
+<header>
+    <p class="eyebrow">财报研究 · 2026-11-27</p>
+    <h1>万兴科技四年财报：买量撑住收入，AI 推高成本</h1>
+    <p class="lede">这份研究用万兴科技 2022–2025 年年报、2025 和 2026 年半年报与三季报，看收入、买量、AI 成本和产品存废。</p>
+    <p class="meta"><span>万兴科技 <span class="ticker">300624.SZ</span></span><span>数据截至 2026-11-27</span><span>金额单位：人民币</span></p>
+  </header>
+
+<section class="summary" aria-labelledby="s1"><h2 id="s1" class="label">先说结论</h2>
+<p>万兴科技（300624.SZ）营业收入从 2022 年 11.80 亿元升到 2025 年 15.33 亿元，2024、2025 年归母净利润分别为 -1.63 亿元和 -0.91 亿元（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。2026 年前三季度销售费用同比下降 24.12%，营业收入同比下降 11.07%，归母净利润为 -1.03 亿元（<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a>）。服务器费用从 2022 年 1,466 万元升到 2025 年 8,012 万元，同期综合毛利率从 95.47% 降到 90.77%；2025 年 AI 原生应用收入约 1.3 亿元，约占营业收入 8.5%（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。2022 年以来，有官方停服或停售公告的产品有 7 款，墨刀在 2024 年底出售；H 股申请在 2025 年 9 月递交，2026 年 4 月终止（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211152.PDF" target="_blank" rel="noopener">H 股终止公告</a>）。</p></section>
+<p>本报告的核心发现如下。万兴是一家“海外 C 端订阅 + 付费买量”的工具软件公司。境外收入约占 90%–93%，每 1 元广告费带来约 2.2–2.7 元收入。2024 年流量成本上升，广告费多花 1.10 亿元，收入反而少了 4,100 万元，公司由盈转亏。2026 年公司砍广告，收入随之下降，说明收入高度依赖投放。AI 让单个用户付得更多（积分、Token），也让毛利率每年下降 2–6 个百分点。活下来的产品都对应一个有明确搜索需求的单点问题。死掉的产品多是主线的重复品、长尾小工具或追热点的 AI 单品。</p>
+<h2 id="s2">一、收入四年涨三成，2024 年起连续亏损</h2>
+<p>四年里，收入年复合增长约 9.1%（计算），总增幅 29.9%（计算）。利润只在 2023 年明显为正。2023 年扣非归母净利 8,968 万元，是四年中唯一较高的一年。2024 年起，扣非归母净利连续为负。2026 年收入也开始下降。</p>
+<figure><div class="wide"><svg viewBox="0 0 660 300" role="img" aria-label="营业收入与归母净利润柱状图。营业收入 2022 至 2025 年为 11.80、14.81、14.40、15.33 亿元；归母净利润为 0.40、0.86、-1.63、-0.91 亿元。2026 H1 收入 7.06 亿元，同比 2025 H1 的 7.60 亿元下降；2026 前三季度收入 10.16 亿元，归母净利润 -1.03 亿元。"><g stroke="currentColor" stroke-opacity=".14" stroke-width="1"><line x1="50" y1="227.8" x2="650" y2="227.8"/><line x1="50" y1="179.3" x2="650" y2="179.3"/><line x1="50" y1="130.9" x2="650" y2="130.9"/><line x1="50" y1="82.4" x2="650" y2="82.4"/><line x1="50" y1="34.0" x2="650" y2="34.0"/></g><line x1="50" y1="227.8" x2="650" y2="227.8" stroke="currentColor" stroke-opacity=".55"/><g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="currentColor" fill-opacity=".7" text-anchor="end"><text x="42" y="231.8">0</text><text x="42" y="183.3">4</text><text x="42" y="134.9">8</text><text x="42" y="86.4">12</text><text x="42" y="38.0">16</text></g><rect x="61.3" y="84.9" width="20" height="142.9" fill="var(--acc)"/><rect x="84.3" y="222.9" width="20" height="4.8" fill="var(--profit)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="start" x="86.3" y="217.9">0.40</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="71.3" y="79.9">11.80</text><text font-size="12" fill="currentColor" text-anchor="middle" x="83.3" y="282">2022</text><rect x="128.0" y="48.4" width="20" height="179.4" fill="var(--acc)"/><rect x="151.0" y="217.4" width="20" height="10.4" fill="var(--profit)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="start" x="153.0" y="212.4">0.86</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="138.0" y="43.4">14.81</text><text font-size="12" fill="currentColor" text-anchor="middle" x="150.0" y="282">2023</text><rect x="194.7" y="53.4" width="20" height="174.4" fill="var(--acc)"/><rect x="217.7" y="227.8" width="20" height="19.7" fill="var(--loss)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="middle" x="227.7" y="260.5">-1.63</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="204.7" y="48.4">14.40</text><text font-size="12" fill="currentColor" text-anchor="middle" x="216.7" y="282">2024</text><rect x="261.3" y="42.1" width="20" height="185.7" fill="var(--acc)"/><rect x="284.3" y="227.8" width="20" height="11.0" fill="var(--loss)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="middle" x="294.3" y="251.8">-0.91</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="271.3" y="37.1">15.33</text><text font-size="12" fill="currentColor" text-anchor="middle" x="283.3" y="282">2025</text><rect x="394.7" y="135.7" width="20" height="92.0" fill="var(--acc)"/><rect x="417.7" y="227.8" width="20" height="6.4" fill="var(--loss)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="middle" x="427.7" y="247.2">-0.53</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="404.7" y="130.7">7.60</text><text font-size="12" fill="currentColor" text-anchor="middle" x="416.7" y="282">2025</text><text font-size="12" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="416.7" y="297">H1</text><rect x="461.3" y="142.3" width="20" height="85.5" fill="var(--acc)"/><rect x="484.3" y="227.8" width="20" height="8.4" fill="var(--loss)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="middle" x="494.3" y="249.1">-0.69</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="471.3" y="137.3">7.06</text><text font-size="12" fill="currentColor" text-anchor="middle" x="483.3" y="282">2026</text><text font-size="12" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="483.3" y="297">H1</text><rect x="528.0" y="89.5" width="20" height="138.3" fill="var(--acc)"/><rect x="551.0" y="227.8" width="20" height="7.5" fill="var(--loss)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="middle" x="561.0" y="248.3">-0.62</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="538.0" y="84.5">11.42</text><text font-size="12" fill="currentColor" text-anchor="middle" x="550.0" y="282">2025</text><text font-size="12" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="550.0" y="297">前三季度</text><rect x="594.7" y="104.7" width="20" height="123.0" fill="var(--acc)"/><rect x="617.7" y="227.8" width="20" height="12.5" fill="var(--loss)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" text-anchor="middle" x="627.7" y="253.3">-1.03</text><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="604.7" y="99.7">10.16</text><text font-size="12" fill="currentColor" text-anchor="middle" x="616.7" y="282">2026</text><text font-size="12" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="616.7" y="297">前三季度</text><line x1="350.0" y1="34" x2="350.0" y2="298" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="3 3"/><g font-size="12" fill="currentColor"><text x="50" y="14">年度</text><text x="358.0" y="14">2026 年各期与上年同期</text></g><text font-size="12" fill="currentColor" fill-opacity=".7" x="42" y="22" text-anchor="end">亿元</text></svg></div><figcaption><span class="swatch" style="background:var(--acc)"></span>营业收入<span class="swatch" style="background:var(--profit)"></span>归母净利润为正<span class="swatch" style="background:var(--loss)"></span>归母净利润为负。颜色按 A 股行情的红涨绿跌习惯。收入四年涨了约三成，2024 年起连续亏损；2026 年收入下降，亏损扩大。2022 年净利润用重述值 0.40 亿元。来源：2022–2025 年报，2025、2026 年半年报和三季报。</figcaption><details><summary>数据表</summary><div class="tbl"><table><thead><tr><th scope="col">期间</th><th scope="col" class="num">营业收入（亿元）</th><th scope="col" class="num">归母净利润（亿元）</th></tr></thead><tbody><tr><th scope="row">2022</th><td class="num">11.80</td><td class="num">0.40</td></tr><tr><th scope="row">2023</th><td class="num">14.81</td><td class="num">0.86</td></tr><tr><th scope="row">2024</th><td class="num">14.40</td><td class="num">-1.63</td></tr><tr><th scope="row">2025</th><td class="num">15.33</td><td class="num">-0.91</td></tr><tr><th scope="row">2025 H1</th><td class="num">7.60</td><td class="num">-0.53</td></tr><tr><th scope="row">2026 H1</th><td class="num">7.06</td><td class="num">-0.69</td></tr><tr><th scope="row">2025 前三季度</th><td class="num">11.42</td><td class="num">-0.62</td></tr><tr><th scope="row">2026 前三季度</th><td class="num">10.16</td><td class="num">-1.03</td></tr></tbody></table></div></details></figure>
+<h3 id="s2-1">1.1 年度核心数据</h3>
+<div class="tbl"><table><thead><tr><th scope="col">指标</th><th scope="col" class="num">2022</th><th scope="col" class="num">2023</th><th scope="col" class="num">2024</th><th scope="col" class="num">2025</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">营业收入（亿元）</th><td class="num">11.80</td><td class="num">14.81</td><td class="num">14.40</td><td class="num">15.33</td><td>各年年报第二节五</td></tr><tr><th scope="row">收入同比</th><td class="num">+14.67%</td><td class="num">+25.49%</td><td class="num">-2.78%</td><td class="num">+6.46%</td><td>同上</td></tr><tr><th scope="row">营业成本（亿元）</th><td class="num">0.53</td><td class="num">0.77</td><td class="num">0.98</td><td class="num">1.41</td><td>各年年报“营业成本构成”</td></tr><tr><th scope="row">综合毛利率（计算）</th><td class="num">95.47%</td><td class="num">94.77%</td><td class="num">93.22%</td><td class="num">90.77%</td><td>由上两行计算</td></tr><tr><th scope="row">归母净利润（亿元）</th><td>0.41（原报）/ 0.40（重述）</td><td class="num">0.86</td><td class="num">-1.63</td><td class="num">-0.91</td><td>各年年报第二节五</td></tr><tr><th scope="row">扣非归母净利润（亿元）</th><td>0.11（原报）/ 0.10（重述）</td><td class="num">0.90</td><td class="num">-1.61</td><td class="num">-1.38</td><td>同上</td></tr><tr><th scope="row">经营现金流净额（亿元）</th><td class="num">1.07</td><td class="num">2.34</td><td class="num">0.33</td><td class="num">0.21</td><td>同上</td></tr><tr><th scope="row">加权 ROE</th><td class="num">4.68%</td><td class="num">7.69%</td><td class="num">-13.24%</td><td class="num">-8.46%</td><td>同上</td></tr><tr><th scope="row">归母净资产（亿元）</th><td class="num">8.84</td><td class="num">13.25</td><td class="num">11.28</td><td class="num">10.24</td><td>同上</td></tr><tr><th scope="row">非经常性损益合计（万元）</th><td class="num">3,066</td><td class="num">-348</td><td class="num">-221</td><td class="num">4,673</td><td>各年年报第二节八</td></tr><tr><th scope="row">商誉减值（万元）</th><td class="num">0</td><td class="num">0</td><td class="num">5,906</td><td class="num">0</td><td>各年年报附注</td></tr></tbody></table></div>
+<p class="src">来源：<a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>。</p>
+<p>2022 年归母净利在 2023 年报中因“前期会计差错更正”追溯重述，减少 821,696.15 元（<a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a>）。2023 年基本每股收益在 2023 年报为 0.64 元，在 2025 年报比较列为 0.46 元。这一差异来自股本变化后的追溯调整，具体原因待确认。</p>
+<p>2024 年亏损 1.63 亿元。公司原文给出的原因是“营业成本、研发费用和销售费用有所增长以及计提商誉减值”（<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>）。扣非净利（-1.61 亿元）和归母净利接近，说明亏损来自经常性经营。2025 年非经常性收益 4,673 万元，使归母亏损（-0.91 亿元）小于扣非亏损（-1.38 亿元）。</p>
+<h3 id="s2-2">1.2 季度数据：2024 Q2 起转亏</h3>
+<div class="tbl"><table><thead><tr><th scope="col">季度</th><th scope="col" class="num">营业收入（亿元）</th><th scope="col" class="num">归母净利润（万元）</th><th scope="col" class="num">扣非净利润（万元）</th><th scope="col" class="num">经营现金流（万元）</th></tr></thead><tbody><tr><th scope="row">2023 Q1</th><td class="num">3.55</td><td class="num">2,086</td><td class="num">1,798</td><td class="num">2,010</td></tr><tr><th scope="row">2023 Q2</th><td class="num">3.63</td><td class="num">2,301</td><td class="num">1,662</td><td class="num">5,683</td></tr><tr><th scope="row">2023 Q3</th><td class="num">3.78</td><td class="num">2,120</td><td class="num">1,722</td><td class="num">4,793</td></tr><tr><th scope="row">2023 Q4</th><td class="num">3.85</td><td class="num">2,114</td><td class="num">3,786</td><td class="num">10,871</td></tr><tr><th scope="row">2024 Q1</th><td class="num">3.58</td><td class="num">2,565</td><td class="num">2,277</td><td class="num">-794</td></tr><tr><th scope="row">2024 Q2</th><td class="num">3.47</td><td class="num">-116</td><td class="num">-712</td><td class="num">1,813</td></tr><tr><th scope="row">2024 Q3</th><td class="num">3.48</td><td class="num">-2,999</td><td class="num">-3,508</td><td class="num">-297</td></tr><tr><th scope="row">2024 Q4</th><td class="num">3.87</td><td class="num">-15,796</td><td class="num">-14,182</td><td class="num">2,610</td></tr><tr><th scope="row">2025 Q1</th><td class="num">3.80</td><td class="num">-3,281</td><td class="num">-3,768</td><td class="num">-5,756</td></tr><tr><th scope="row">2025 Q2</th><td class="num">3.80</td><td class="num">-1,999</td><td class="num">-2,686</td><td class="num">-1,046</td></tr><tr><th scope="row">2025 Q3</th><td class="num">3.82</td><td class="num">-878</td><td class="num">-1,726</td><td class="num">3,048</td></tr><tr><th scope="row">2025 Q4</th><td class="num">3.90</td><td class="num">-2,964</td><td class="num">-5,616</td><td class="num">5,895</td></tr><tr><th scope="row">2026 Q3</th><td>3.10（同比 -18.97%）</td><td class="num">-3,421</td><td class="num">-3,820</td><td>未单列</td></tr></tbody></table></div>
+<p class="src">来源：各年年报第二节六“分季度主要财务指标”；<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a>。2022 年季度扣非和经营现金流在 PDF 抽取后排版错乱，待确认。</p>
+<h3 id="s2-3">1.3 2026 年：收入下降，亏损扩大</h3>
+<div class="tbl"><table><thead><tr><th scope="col">指标</th><th scope="col" class="num">2025 H1</th><th scope="col" class="num">2026 H1</th><th scope="col" class="num">同比</th><th scope="col" class="num">2025 前三季度</th><th scope="col" class="num">2026 前三季度</th><th scope="col" class="num">同比</th></tr></thead><tbody><tr><th scope="row">营业收入（亿元）</th><td class="num">7.60</td><td class="num">7.06</td><td class="num">-7.09%</td><td class="num">11.42</td><td class="num">10.16</td><td class="num">-11.07%</td></tr><tr><th scope="row">营业成本（亿元）</th><td class="num">0.58</td><td class="num">0.94</td><td class="num">+63.88%</td><td class="num">0.94</td><td class="num">1.42</td><td class="num">+51.49%</td></tr><tr><th scope="row">毛利率（计算）</th><td class="num">92.42%</td><td class="num">86.63%</td><td class="num">-5.79 pct</td><td class="num">91.77%</td><td class="num">85.98%</td><td class="num">-5.79 pct</td></tr><tr><th scope="row">归母净利润（亿元）</th><td class="num">-0.53</td><td class="num">-0.69</td><td>亏损扩大 30.63%</td><td class="num">-0.62</td><td class="num">-1.03</td><td>亏损扩大 67.55%</td></tr><tr><th scope="row">扣非净利润（亿元）</th><td class="num">-0.65</td><td class="num">-0.83</td><td></td><td class="num">-0.82</td><td class="num">-1.22</td><td></td></tr><tr><th scope="row">经营现金流（亿元）</th><td class="num">-0.68</td><td class="num">-0.89</td><td></td><td class="num">-0.38</td><td class="num">-0.78</td><td></td></tr></tbody></table></div>
+<p class="src">来源：<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a>。</p>
+<p>公司说，剔除人民币升值影响后，2026 H1 收入同比下降 3.56%（<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>）。前三季度亏损的原因，公司原文是“AI 服务器成本增加、美元兑人民币汇率下跌导致收入减少同时汇兑损失增加”（<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a>）。2026 年 9 月末货币资金 2.47 亿元，比 2025 年末 5.98 亿元下降 58.66%。公司把下降归因于股权投资款、购买理财和偿还银行借款（同上）。</p>
+<p>前三季度亏损扩大约 4,160 万元，可以拆成几项（计算）。毛利减少约 1.75 亿元。销售费用减少约 1.61 亿元，抵消了大部分。研发费用增加约 1,392 万元。财务费用由 -434 万元变为 1,436 万元，增加约 1,870 万元。管理费用减少约 672 万元。2026 Q3 单季营业成本约 4,800 万元，比 2025 Q3 约 3,640 万元升约 32%（计算）。同期单季收入下降 19%。AI 算力成本在收入下降时没有跟着下降。</p>
+<h2 id="s3">二、视频创意类占三分之二，绘图和文档在缩小</h2>
+<p>公司在 2022–2026 年一直按四条产品线披露收入：视频创意类、实用工具类、文档创意类、绘图创意类。另有“其他”，主要是租赁收入。公司从不披露单个产品的收入金额，只给增速和比例。</p>
+<h3 id="s3-1">2.1 产品线收入与毛利率</h3>
+<div class="tbl"><table><thead><tr><th scope="col">产品线</th><th scope="col" class="num">2022</th><th scope="col" class="num">2023</th><th scope="col" class="num">2024</th><th scope="col" class="num">2025</th><th scope="col" class="num">2025 H1</th><th scope="col" class="num">2026 H1</th></tr></thead><tbody><tr><th scope="row">视频创意类（亿元）</th><td class="num">7.45</td><td class="num">9.61</td><td class="num">9.61</td><td class="num">10.22</td><td class="num">5.12</td><td class="num">4.62</td></tr><tr><th scope="row">占比</th><td class="num">63.15%</td><td class="num">64.87%</td><td class="num">66.76%</td><td class="num">66.65%</td><td>67.43%（计算）</td><td>65.48%（计算）</td></tr><tr><th scope="row">同比</th><td class="num">+27.82%</td><td class="num">+28.91%</td><td class="num">+0.06%</td><td class="num">+6.28%</td><td class="num">+11.15%</td><td class="num">-9.78%</td></tr><tr><th scope="row">毛利率</th><td class="num">95.45%</td><td class="num">94.64%</td><td class="num">92.54%</td><td class="num">89.73%</td><td>91.74%（计算）</td><td class="num">85.72%</td></tr><tr><th scope="row">实用工具类（亿元）</th><td class="num">2.33</td><td class="num">2.56</td><td class="num">2.34</td><td class="num">3.03</td><td class="num">1.45</td><td class="num">1.60</td></tr><tr><th scope="row">占比</th><td class="num">19.71%</td><td class="num">17.28%</td><td class="num">16.23%</td><td class="num">19.75%</td><td class="num">19.03%</td><td class="num">22.63%</td></tr><tr><th scope="row">同比</th><td class="num">-2.46%</td><td class="num">+10.07%</td><td class="num">-8.70%</td><td class="num">+29.50%</td><td class="num">+20.83%</td><td class="num">+10.45%</td></tr><tr><th scope="row">毛利率</th><td class="num">96.80%</td><td class="num">96.33%</td><td class="num">94.83%</td><td class="num">92.30%</td><td class="num">93.88%</td><td class="num">87.44%</td></tr><tr><th scope="row">文档创意类（亿元）</th><td class="num">0.99</td><td class="num">1.30</td><td class="num">1.17</td><td class="num">1.09</td><td class="num">0.56</td><td class="num">0.46</td></tr><tr><th scope="row">占比</th><td class="num">8.42%</td><td class="num">8.79%</td><td class="num">8.12%</td><td class="num">7.13%</td><td class="num">7.34%</td><td class="num">6.56%</td></tr><tr><th scope="row">同比</th><td class="num">-2.73%</td><td class="num">+30.92%</td><td class="num">-10.13%</td><td class="num">-6.38%</td><td></td><td>-16.93%（计算）</td></tr><tr><th scope="row">毛利率</th><td class="num">94.81%</td><td class="num">93.82%</td><td class="num">95.31%</td><td class="num">95.74%</td><td class="num">94.14%</td><td>88.50%（计算）</td></tr><tr><th scope="row">绘图创意类（亿元）</th><td class="num">0.99</td><td class="num">1.29</td><td class="num">1.21</td><td class="num">0.92</td><td class="num">0.44</td><td class="num">0.34</td></tr><tr><th scope="row">占比</th><td class="num">8.38%</td><td class="num">8.71%</td><td class="num">8.44%</td><td class="num">6.01%</td><td class="num">5.82%</td><td class="num">4.82%</td></tr><tr><th scope="row">同比</th><td class="num">-3.95%</td><td class="num">+30.52%</td><td class="num">-5.88%</td><td class="num">-24.20%</td><td></td><td>-22.98%（计算）</td></tr><tr><th scope="row">毛利率</th><td class="num">94.16%</td><td class="num">94.31%</td><td class="num">94.30%</td><td class="num">93.14%</td><td class="num">94.32%</td><td>94.67%（计算）</td></tr><tr><th scope="row">其他（万元）</th><td class="num">410</td><td class="num">515</td><td class="num">643</td><td class="num">700</td><td class="num">288</td><td class="num">356</td></tr></tbody></table></div>
+<p class="src">来源：<a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年报</a>、<a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a>、<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>、<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>第三节“营业收入构成”；<a href="http://static.cninfo.com.cn/finalpage/2025-08-29/1224612504.PDF" target="_blank" rel="noopener">2025 半年报</a>、<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>附注“营业收入、营业成本的分解信息”。2026 前三季度三季报不披露分产品数据。</p>
+<p>视频创意类四年增长 37%（计算），是收入增长的主要来源。它的毛利率降幅也最大，从 95.45% 降到 2026 H1 的 85.72%。年报把视频线成本上升归因于 AI 服务器等成本。实用工具类在 2025 年增长 29.50%，2026 H1 是四条线中唯一增长的一条。绘图创意类在 2025 年下降 24.20%，2026 H1 又降约 23%。</p>
+<p>2024 年报另有“占软件业务收入比”口径：视频 67.06%、工具 16.30%、绘图 8.47%、文档 8.16%（<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>）。分母不同，所以和上表略有差异。H 股申请资料用另一种口径：“AIGC 数字创意软件产品”（视频、绘图、文档合计）占收入 79.9%（2022）、82.4%（2023）、83.3%（2024）、80.6%（2025 H1）（<a href="https://www.nbd.com.cn/articles/2025-09-26/4076832.html" target="_blank" rel="noopener">每日经济新闻</a>）。</p>
+<h3 id="s3-2">2.2 地区：九成以上来自境外</h3>
+<div class="tbl"><table><thead><tr><th scope="col">维度</th><th scope="col" class="num">2022</th><th scope="col" class="num">2023</th><th scope="col" class="num">2024</th><th scope="col" class="num">2025</th><th scope="col" class="num">2026 H1</th></tr></thead><tbody><tr><th scope="row">境外收入（亿元）</th><td class="num">10.54</td><td class="num">13.50</td><td class="num">13.03</td><td class="num">14.29</td><td class="num">6.57</td></tr><tr><th scope="row">境外占比</th><td class="num">89.33%</td><td class="num">91.19%</td><td class="num">90.51%</td><td class="num">93.21%</td><td>93.06%（计算）</td></tr><tr><th scope="row">境外同比</th><td class="num">+16.31%</td><td class="num">+28.10%</td><td class="num">-3.51%</td><td class="num">+9.64%</td><td class="num">-7.66%</td></tr><tr><th scope="row">境内收入（含港澳台，亿元）</th><td class="num">1.26</td><td class="num">1.30</td><td class="num">1.37</td><td class="num">1.04</td><td class="num">0.49</td></tr><tr><th scope="row">境内同比</th><td class="num">+2.56%</td><td class="num">+3.60%</td><td class="num">+4.74%</td><td class="num">-23.82%</td><td>+1.26%（计算）</td></tr></tbody></table></div>
+<p class="src">来源：各年年报“营业收入构成”；<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>。A 股报告不披露北美、欧洲、亚洲等细分地区。H 股申请资料可能有，但原文已下架，待确认。</p>
+<h3 id="s3-3">2.3 渠道：直销、经销、分销</h3>
+<div class="tbl"><table><thead><tr><th scope="col">渠道</th><th scope="col">2022</th><th scope="col">2023</th><th scope="col">2024</th><th scope="col">2025</th><th scope="col">2025 H1</th><th scope="col">2026 H1</th></tr></thead><tbody><tr><th scope="row">直销（亿元，占比）</th><td>4.84（41.00%）</td><td>6.06（40.95%）</td><td>6.27（43.57%）</td><td>7.02（45.82%）</td><td>3.21（42.25%）</td><td>3.94（55.86%）</td></tr><tr><th scope="row">经销（亿元，占比）</th><td>5.14（43.52%）</td><td>6.66（44.94%）</td><td>6.02（41.85%）</td><td>4.83（31.52%）</td><td>2.72（35.78%）</td><td>1.53（21.70%）</td></tr><tr><th scope="row">分销（亿元，占比）</th><td>1.83（15.48%）</td><td>2.09（14.11%）</td><td>2.10（14.58%）</td><td>3.47（22.66%）</td><td>1.67（21.97%）</td><td>1.58（22.44%）</td></tr><tr><th scope="row">第三方平台手续费（万元）</th><td>1,824</td><td>2,506</td><td>2,748</td><td>3,273</td><td>1,434</td><td>1,887</td></tr></tbody></table></div>
+<p class="src">来源：同上；手续费取自各年年报“营业成本构成”。</p>
+<p>公司对三种渠道的定义如下。直销指用户在公司自有网站购买，第三方支付平台只代收款。经销指用户通过第三方电子商务平台付款，平台再向公司下采购订单。分销指公司把产品放到分销商平台，平台负责推广和支付，用户直接付费下载（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。</p>
+<p>H 股申请资料说“官网收入”占比为 81.2%（2022）、82.2%（2023）、81.2%（2024）、74.9%（2025 H1）（<a href="https://www.nbd.com.cn/articles/2025-09-26/4076832.html" target="_blank" rel="noopener">每日经济新闻</a>）。这个比例高于 A 股“直销”的 41%–46%。两个口径都可靠，只是分类不同。研究者推断：A 股的“经销”多数是官网下单、由第三方电商平台结算的收入；“分销”更接近 App Store 和 Google Play。2025 年分销增长 65.49%，和移动端收入增长超 60% 一致。2026 H1 经销下降 43.66%、直销上升 22.84%（计算），更像结算平台迁移。</p>
+<h2 id="s4">三、主力产品：低价“准专业”工具，卖给海外个人</h2>
+<p>公司在投资者关系活动中说，产品“确立了在准专业用户领域里的市场地位”（<a href="http://static.cninfo.com.cn/finalpage/2024-05-23/1220137014.PDF" target="_blank" rel="noopener">IR 2024-05-23</a>）。目标用户是会做内容、但不想付 Adobe 价格的创作者、办公人群和学生。年报没有按产品披露个人和企业用户比例。</p>
+<h3 id="s4-1">3.1 存活产品画像</h3>
+<div class="tbl"><table><thead><tr><th scope="col">产品（中文 / 英文）</th><th scope="col">产品线</th><th scope="col">面向的用户</th><th scope="col">解决的问题</th><th scope="col">财报中的业务数据</th><th scope="col">官网现价（2026-11-27）</th></tr></thead><tbody><tr><th scope="row">万兴喵影 / Filmora</th><td>视频</td><td>大众创作者，桌面和移动</td><td>“进阶级”视频剪辑</td><td>2024 移动端月活年内增长约 90%；2025 移动端收入增长超 90%，续费收入增长超 200%；AI 积分约占产品收入 6%；2026 前三季度 AI 积分销售增长超 50%</td><td>Win 49.99 美元/年，Mac 69.99 美元/年</td></tr><tr><th scope="row">万兴优转 / UniConverter</th><td>视频</td><td>需要转格式、压缩的个人</td><td>音视频转换、压缩、画质增强</td><td>AI 积分约占产品收入 10%（2025）；2026 前三季度积分销售增长超 70%</td><td>Win 49.99 美元/年，Mac 59.99 美元/年</td></tr><tr><th scope="row">万兴录演 / DemoCreator</th><td>视频</td><td>教培、企业宣传</td><td>录屏加虚拟人演示</td><td>年报只写版本升级，无单品数据</td><td>59.99 美元/年</td></tr><tr><th scope="row">Media.io</th><td>视频</td><td>网页端创作者</td><td>云端 AI 视频、音频、图片工具集</td><td>2025 收入增长超 90%；2026 前三季度增长超 70%</td><td>待确认</td></tr><tr><th scope="row">SelfyzAI</th><td>视频</td><td>移动端个人</td><td>AI 人像生成和编辑</td><td>2024 收入约增 4 倍；2025 收入和付费用户增长超 2 倍</td><td>待确认</td></tr><tr><th scope="row">Beat.ly</th><td>视频</td><td>移动端个人</td><td>音乐卡点短视频</td><td>公司称“用户超过 1 亿”</td><td>待确认</td></tr><tr><th scope="row">万兴 PDF / PDFelement</th><td>文档</td><td>办公人群、学生</td><td>PDF 编辑、转换、OCR、签名、AI 总结和翻译</td><td>2023 文档线付费用户增长约 20%；2025 桌面 AI 积分收入增长超 80%，移动端收入增长超 30%</td><td>Win 79.99 美元/年，Mac 89.99 美元/年</td></tr><tr><th scope="row">万兴图示 / EdrawMax</th><td>绘图</td><td>企业、软件、教育、工程</td><td>拖拽式绘图，280 多种图形</td><td>2025 H1 移动端平均月活增长超 20%</td><td>99 美元/年</td></tr><tr><th scope="row">万兴脑图 / EdrawMind</th><td>绘图</td><td>学生、知识工作者</td><td>跨端思维导图</td><td>2024 海外版付费转化率提升约 2 pct</td><td>59 美元/年</td></tr><tr><th scope="row">万兴项管 / EdrawProj</th><td>绘图</td><td>项目管理者</td><td>甘特图和项目计划</td><td>无单品数据</td><td>待确认</td></tr><tr><th scope="row">万兴恢复专家 / Recoverit</th><td>工具</td><td>丢数据的个人</td><td>硬盘、SD 卡、U 盘数据恢复</td><td>2025 收入“快速增长”</td><td>64.99 美元（计费周期待确认）</td></tr><tr><th scope="row">万兴易修 / Repairit</th><td>工具</td><td>文件损坏的个人</td><td>修复损坏的视频、照片、文档</td><td>无单品数据</td><td>39.99 美元起（计费周期待确认）</td></tr><tr><th scope="row">万兴手机管家 / Dr.Fone</th><td>工具</td><td>手机用户</td><td>手机恢复、解锁、换机、云端备份恢复</td><td>2026 H1 云端恢复带动销售增长</td><td>79.95 美元（计费周期待确认）</td></tr><tr><th scope="row">MobileTrans</th><td>工具</td><td>换机用户</td><td>iOS、Android、电脑间传 18 类数据</td><td>2024 收入增长超 40%；2025 进入 Sensor Tower Google Play 工具类收入 Top100</td><td>29.99 美元（计费周期待确认）</td></tr><tr><th scope="row">FamiSafe</th><td>工具</td><td>家长</td><td>儿童手机监控</td><td>从未进入年报产品表</td><td>9.99 美元/月</td></tr></tbody></table></div>
+<p class="src">来源：<a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2025-08-29/1224612504.PDF" target="_blank" rel="noopener">2025 半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a>；<a href="https://www.wondershare.com/shop/individuals.html" target="_blank" rel="noopener">Wondershare 官网商店</a>。官网抓取工具把工具类价格识别成“/月”，研究者认为这不合理，所以标为计费周期待确认。</p>
+<h3 id="s4-2">3.2 价格定位</h3>
+<p>券商在 2024 年做过价格对比。Filmora 年付约 49.99 美元，Adobe Premiere Pro 为 22.99 美元/月。EdrawMax 永久授权 198 美元，Visio 标准版 2021 永久授权 309.99 美元。PDFelement 79.99 美元/年，Foxit PDF Editor+ 159.99 美元/年（<a href="https://pdf.dfcfw.com/pdf/H3_AP202410111640257786_1.pdf" target="_blank" rel="noopener">平安证券 2024-10-11</a>）。国内价格更低：万兴喵影 269 元/年，亿图图示 680 元永久授权（同上）。</p>
+<h3 id="s4-3">3.3 用户与订阅</h3>
+<div class="tbl"><table><thead><tr><th scope="col">指标</th><th scope="col">数值</th><th scope="col">期间</th><th scope="col">来源</th><th scope="col">可信度</th></tr></thead><tbody><tr><th scope="row">订阅收入占比</th><td>约 60% / 64% / 70%</td><td>2021 / 2022 / 2023 Q1</td><td><a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2023-04-21/1216525705.PDF" target="_blank" rel="noopener">IR 2023-04-21</a></td><td>公司口径</td></tr><tr><th scope="row">订阅续约率</th><td>48% / 60% / 64%</td><td>2021 / 2022 / 2023 Q1</td><td>同上</td><td>公司口径</td></tr><tr><th scope="row">订阅收入占比、续约率</th><td>72%、65%</td><td>2023 H1（见 6.2 冲突说明）</td><td><a href="https://pdf.dfcfw.com/pdf/H3_AP202410111640257786_1.pdf" target="_blank" rel="noopener">平安证券</a></td><td>券商转述</td></tr><tr><th scope="row">年度订阅续约率</th><td>“60% 以上”</td><td>2025</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a></td><td>公司口径</td></tr><tr><th scope="row">平均月活</th><td>6,740 万 / 6,730 万 / 6,870 万</td><td>2023 / 2024 / 2025 H1</td><td><a href="https://news.qq.com/rain/a/20250928A04IN900" target="_blank" rel="noopener">腾讯新闻 IPO 前哨</a></td><td>媒体转述招股书，待确认</td></tr><tr><th scope="row">付费用户</th><td>超 290 万</td><td>截至 2025-06-30</td><td>同上</td><td>媒体转述招股书，待确认</td></tr><tr><th scope="row">移动端收入占软件收入</th><td>超 20% / 近 25%</td><td>2025 H1 / 2025</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-08-29/1224612504.PDF" target="_blank" rel="noopener">2025 半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a></td><td>公司口径</td></tr></tbody></table></div>
+<p>月活三年基本不动，付费用户约 290 万。研究者据此判断：收入增长主要靠提高每个付费用户的花费，以及靠投放替换流失用户。按 2025 年收入 15.33 亿元和 290 万付费用户粗算，每个付费用户年均约 530 元（计算，口径不一致，仅作量级参考）。</p>
+<h3 id="s4-4">3.4 每年的重点产品怎样变化</h3>
+<div class="tbl"><table><thead><tr><th scope="col">年份</th><th scope="col">管理层的说法</th><th scope="col">重点产品</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">2022</th><td>订阅转型，视频线增长</td><td>Filmora 12；新品万兴爱画、万兴播爆；素材收入增长 74%</td><td><a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年报</a></td></tr><tr><th scope="row">2023</th><td>“全面拥抱 AIGC”</td><td>Virbo、Pixpic、TruMate、Kwicut、Presentory；Media.io 换新；素材收入翻倍</td><td><a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a></td></tr><tr><th scope="row">2024</th><td>积极营销扩量，投入移动端和云端 AI</td><td>Filmora 移动端改造；Virbo 收入约 2 倍；SelfyzAI 约 4 倍</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a></td></tr><tr><th scope="row">2025</th><td>“移动化 + AI 化”双引擎</td><td>Filmora 移动端；天幕 2.0；万兴超媒；实用工具线 +29.50%</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a></td></tr><tr><th scope="row">2026</th><td>效益导向；“订阅 + Token 消费”</td><td>万兴剧厂、Enkio、Filmora.TV、Virbo AI；Filmora V16</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a></td></tr></tbody></table></div>
+<p>公司从未把实用工具线称为“增长引擎”。2025 年它的增速却是四条线中最高的。</p>
+<h2 id="s5">四、每 1 元广告带来 2.2–2.7 元收入</h2>
+<p>万兴的营销方式是搜索引擎优化、搜索广告和网红推广，以线上销售为主（<a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a>）。2021 年前后的媒体分析称，公司六成以上的线上推广费投在 Google（<a href="http://finance.ce.cn/stock/gsgdbd/202105/31/t20210531_36605093.shtml" target="_blank" rel="noopener">中国经济网 2021-05-31</a>）。这是旧数据，2022 年以后的平台拆分未披露。</p>
+<h3 id="s5-1">4.1 费用结构</h3>
+<div class="tbl"><table><thead><tr><th scope="col">项目</th><th scope="col" class="num">2022</th><th scope="col" class="num">2023</th><th scope="col" class="num">2024</th><th scope="col" class="num">2025</th><th scope="col" class="num">2025 H1</th><th scope="col" class="num">2026 H1</th></tr></thead><tbody><tr><th scope="row">销售费用（亿元）</th><td class="num">5.80</td><td class="num">7.23</td><td class="num">8.49</td><td class="num">8.75</td><td class="num">4.62</td><td class="num">3.59</td></tr><tr><th scope="row">销售费用率（计算）</th><td class="num">49.15%</td><td class="num">48.81%</td><td class="num">58.95%</td><td class="num">57.08%</td><td class="num">60.80%</td><td class="num">50.90%</td></tr><tr><th scope="row">其中广告宣传费（亿元）</th><td class="num">4.36</td><td class="num">5.48</td><td class="num">6.58</td><td class="num">6.72</td><td class="num">3.56</td><td class="num">2.74</td></tr><tr><th scope="row">广告费 / 收入（计算）</th><td class="num">36.96%</td><td class="num">36.99%</td><td class="num">45.70%</td><td class="num">43.83%</td><td class="num">46.78%</td><td class="num">38.80%</td></tr><tr><th scope="row">每 1 元广告带来的收入（元，计算）</th><td class="num">2.71</td><td class="num">2.70</td><td class="num">2.19</td><td class="num">2.28</td><td class="num">2.14</td><td class="num">2.58</td></tr><tr><th scope="row">研发投入合计（亿元）</th><td class="num">3.48</td><td class="num">4.03</td><td class="num">4.42</td><td class="num">4.85</td><td class="num">2.33</td><td class="num">2.28</td></tr><tr><th scope="row">研发投入 / 收入</th><td class="num">29.47%</td><td class="num">27.18%</td><td class="num">30.73%</td><td class="num">31.65%</td><td>30.69%（计算）</td><td>32.26%（计算）</td></tr><tr><th scope="row">研发资本化（万元）</th><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">5,324</td><td>待确认</td><td>待确认</td></tr><tr><th scope="row">管理费用（亿元）</th><td class="num">1.39</td><td class="num">1.65</td><td class="num">1.64</td><td class="num">2.24</td><td class="num">0.99</td><td class="num">0.96</td></tr><tr><th scope="row">其中中介机构服务费（万元）</th><td class="num">365</td><td class="num">590</td><td class="num">963</td><td class="num">2,384</td><td></td><td></td></tr><tr><th scope="row">销售 + 研发 + 管理费用 / 收入（计算）</th><td class="num">90.4%</td><td class="num">87.6%</td><td class="num">101.8%</td><td class="num">99.9%</td><td></td><td></td></tr><tr><th scope="row">股份支付合计（万元，计算）</th><td class="num">-801</td><td class="num">1,196</td><td class="num">-804</td><td class="num">190</td><td></td><td></td></tr></tbody></table></div>
+<p class="src">来源：各年年报第三节“费用”和附注；<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>。2025 年第三项比率用费用化研发 4.32 亿元计算。股份支付为负，表示激励条件未达成后冲回。</p>
+<figure><div class="charts"><div><svg viewBox="0 0 340 280" role="img" aria-label="销售费用率柱状图：2022 至 2025 年为 49.15%、48.81%、58.95%、57.08%；2025 H1 为 60.80%，2026 H1 为 50.90%。"><text font-size="13" font-weight="600" fill="currentColor" x="0" y="16">销售费用率</text><text font-size="11.5" fill="currentColor" fill-opacity=".7" x="0" y="32">销售费用 / 营业收入，%</text><g stroke="currentColor" stroke-opacity=".14"><line x1="44" y1="236.0" x2="332" y2="236.0"/><line x1="44" y1="180.0" x2="332" y2="180.0"/><line x1="44" y1="124.0" x2="332" y2="124.0"/><line x1="44" y1="68.0" x2="332" y2="68.0"/></g><g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".7" text-anchor="end"><text x="38" y="240.0">0</text><text x="38" y="184.0">20</text><text x="38" y="128.0">40</text><text x="38" y="72.0">60</text></g><rect x="54.6" y="98.4" width="26.9" height="137.6" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="68.0" y="93.4">49.1</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="68.0" y="253">2022</text><rect x="102.6" y="99.3" width="26.9" height="136.7" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="116.0" y="94.3">48.8</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="116.0" y="253">2023</text><rect x="150.6" y="70.9" width="26.9" height="165.1" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="164.0" y="65.9">59.0</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="164.0" y="253">2024</text><rect x="198.6" y="76.2" width="26.9" height="159.8" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="212.0" y="71.2">57.1</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="212.0" y="253">2025</text><rect x="246.6" y="65.8" width="26.9" height="170.2" fill="var(--acc-soft)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="260.0" y="60.8">60.8</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="260.0" y="253">2025</text><text font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="260.0" y="267">H1</text><rect x="294.6" y="93.5" width="26.9" height="142.5" fill="var(--acc-soft)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="308.0" y="88.5">50.9</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="308.0" y="253">2026</text><text font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="308.0" y="267">H1</text><line x1="44" y1="236" x2="332" y2="236" stroke="currentColor" stroke-opacity=".55"/></svg></div><div><svg viewBox="0 0 340 280" role="img" aria-label="每 1 元广告带来的收入柱状图：2022 至 2025 年为 2.71、2.70、2.19、2.28 元；2025 H1 为 2.14 元，2026 H1 为 2.58 元。"><text font-size="13" font-weight="600" fill="currentColor" x="0" y="16">每 1 元广告带来的收入</text><text font-size="11.5" fill="currentColor" fill-opacity=".7" x="0" y="32">营业收入 / 广告宣传费，元</text><g stroke="currentColor" stroke-opacity=".14"><line x1="44" y1="236.0" x2="332" y2="236.0"/><line x1="44" y1="170.7" x2="332" y2="170.7"/><line x1="44" y1="105.3" x2="332" y2="105.3"/><line x1="44" y1="40.0" x2="332" y2="40.0"/></g><g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".7" text-anchor="end"><text x="38" y="240.0">0</text><text x="38" y="174.7">1</text><text x="38" y="109.3">2</text><text x="38" y="44.0">3</text></g><rect x="54.6" y="58.9" width="26.9" height="177.1" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="68.0" y="53.9">2.71</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="68.0" y="253">2022</text><rect x="102.6" y="59.6" width="26.9" height="176.4" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="116.0" y="54.6">2.70</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="116.0" y="253">2023</text><rect x="150.6" y="92.9" width="26.9" height="143.1" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="164.0" y="87.9">2.19</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="164.0" y="253">2024</text><rect x="198.6" y="87.0" width="26.9" height="149.0" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="212.0" y="82.0">2.28</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="212.0" y="253">2025</text><rect x="246.6" y="96.2" width="26.9" height="139.8" fill="var(--acc-soft)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="260.0" y="91.2">2.14</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="260.0" y="253">2025</text><text font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="260.0" y="267">H1</text><rect x="294.6" y="67.4" width="26.9" height="168.6" fill="var(--acc-soft)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="308.0" y="62.4">2.58</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="308.0" y="253">2026</text><text font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="308.0" y="267">H1</text><line x1="44" y1="236" x2="332" y2="236" stroke="currentColor" stroke-opacity=".55"/></svg></div></div><figcaption><span class="swatch" style="background:var(--acc)"></span>全年<span class="swatch" style="background:var(--acc-soft)"></span>半年。2024 年销售费用率升到 58.95%，每 1 元广告带来的收入从 2.70 元掉到 2.19 元；2026 H1 砍广告后回升到 2.58 元。比率由各年年报和半年报的原表计算。</figcaption><details><summary>数据表</summary><div class="tbl"><table><thead><tr><th scope="col">期间</th><th scope="col" class="num">销售费用率</th><th scope="col" class="num">每 1 元广告带来的收入（元）</th></tr></thead><tbody><tr><th scope="row">2022</th><td class="num">49.15%</td><td class="num">2.71</td></tr><tr><th scope="row">2023</th><td class="num">48.81%</td><td class="num">2.70</td></tr><tr><th scope="row">2024</th><td class="num">58.95%</td><td class="num">2.19</td></tr><tr><th scope="row">2025</th><td class="num">57.08%</td><td class="num">2.28</td></tr><tr><th scope="row">2025 H1</th><td class="num">60.80%</td><td class="num">2.14</td></tr><tr><th scope="row">2026 H1</th><td class="num">50.90%</td><td class="num">2.58</td></tr></tbody></table></div></details></figure>
+<p>H 股申请资料披露，广告费占销售及分销开支 75.2%（2022）、75.8%（2023）、77.5%（2024）、76.9%（2025 H1）（<a href="https://www.nbd.com.cn/articles/2025-09-26/4076832.html" target="_blank" rel="noopener">每日经济新闻</a>）。它和 A 股年报的计算值一致，两套资料可以互相印证。</p>
+<p>2026 年前三季度销售费用 5.05 亿元，同比下降 24.12%。销售费用率从 58.26% 降到 49.71%（计算）。2026 Q3 单季销售费用约 1.46 亿元，2025 Q3 约 2.04 亿元（计算）。同期单季收入减少约 7,250 万元（计算）。公司在 2026 H1 说：“全球流量成本持续上行，传统获客方式边际效率有所下降”，并加强 GEO 营销（<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>）。公司称 GEO 流量比年初增长 7 倍（同上）。</p>
+<h3 id="s5-2">4.2 毛利增量被销售费用增量吃掉</h3>
+<p>2022–2025 年，毛利增加约 2.65 亿元（计算）。同期销售费用增加约 2.95 亿元，广告费增加约 2.36 亿元（计算）。收入增长带来的毛利，全部被获客成本吸收。员工数从 2022 年 1,480 人升到 2024 年 1,704 人，2025 年降到 1,575 人。2025 年研发人员降 10.39% 到 828 人（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。2025 年领薪员工总数 2,023 人，比年末在职多 448 人，说明当年人员流动较大（同上）。</p>
+<h2 id="s6">五、AI 调用量涨了两倍多，AI 收入约占一成</h2>
+<p>公司在 AI 上的动作分三层。第一层是自研的天幕大模型。第二层是 AI 原生新品。第三层是老产品里的 AI 积分收费。三层的成本都体现在“服务器费用”里。</p>
+<h3 id="s6-1">5.1 天幕大模型</h3>
+<p>天幕在 2024 年 1 月发布，2024 年 3 月通过生成式 AI 服务备案，4 月 28 日公测（<a href="https://www.cs.com.cn/ssgs/gsxw/202403/t20240319_6395565.html" target="_blank" rel="noopener">中证网 2024-03-19</a>；<a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a>）。天幕 2.0 在 2025 年 6 月发布，结合了华为盘古多模态能力（<a href="https://www.cls.cn/detail/2067184" target="_blank" rel="noopener">财联社 2025-06-25</a>）。天幕有三种形态：App“万兴天幕 AI”、网页“天幕创作广场”和 API 平台，英文品牌是 ToMoviee AI（<a href="https://www.cs.com.cn/ssgs/gsxw/202508/t20250829_6509936.html" target="_blank" rel="noopener">中证网 2025-08-29</a>）。</p>
+<p>天幕项目在 2025 年 5 月满足资本化条件，2025 年 12 月 29 日转入无形资产，金额 5,323.72 万元（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。年报把它描述为“一站式 AI 创新能力平台”，包括算法集成、数据工具和模型训练。研究者据此判断，天幕更像内部 AI 平台加几百个垂类小模型（特效、超清、抠像、配音）。2025 年公司生产了 400 余个特效类视频模型（同上）。公司称天幕 2.0 进入 VBench-2.0 综合得分全球 Top3，这是公司自述，评测版本待确认。</p>
+<p>公司采用“双模驱动”：自研垂类模型加第三方通用模型。2025 年报列出 OpenAI、谷歌、阿里、即梦、可灵、Vidu、MiniMax、DeepSeek（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。2026 Q3 又接入 GPT Image 2、Seedance 2.5、Kling 3.0（<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a>）。2026 前三季度“自研算法调用量占比提升至 60% 以上”（<a href="https://stock.10jqka.com.cn/20261027/c681151709.shtml" target="_blank" rel="noopener">同花顺 2026-10-27</a>）。这个比例按调用次数算。高成本的视频生成大概率仍靠外部模型，这是推断。</p>
+<h3 id="s6-2">5.2 AI 原生新品时间线</h3>
+<div class="tbl"><table><thead><tr><th scope="col">时间</th><th scope="col">产品</th><th scope="col">内容</th><th scope="col">当前状态</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">2022-11</th><td>万兴爱画</td><td>AI 绘画小程序，后扩展到 App 和网页</td><td>2025 年报产品表无，状态待确认</td><td><a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年报</a></td></tr><tr><th scope="row">2023-03</th><td>万兴播爆 / Virbo</td><td>出海营销数字人短视频，面向跨境电商和 B 端</td><td>2025 年报产品表无；2026 年 8–9 月重做为 Virbo AI 营销视频平台</td><td><a href="http://static.cninfo.com.cn/finalpage/2023-04-21/1216525705.PDF" target="_blank" rel="noopener">IR 2023-04-21</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a></td></tr><tr><th scope="row">2023</th><td>Pixpic、TruMate、Kwicut、万兴智演 / Presentory</td><td>AI 形象照、AI 陪伴、AI 文字剪辑、AI 演示</td><td>2025 年报产品表均无，是否停运待确认</td><td><a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a></td></tr><tr><th scope="row">2023</th><td>VirtuLook</td><td>AI 商品图</td><td>2025-01-14 下线</td><td><a href="https://virbo.wondershare.com/virtulook-offline.html" target="_blank" rel="noopener">VirtuLook 下线页</a></td></tr><tr><th scope="row">2024</th><td>SelfyzAI</td><td>移动端 AI 人像</td><td>存活，2025 收入增长超 2 倍</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a></td></tr><tr><th scope="row">2024</th><td>Edraw.AI</td><td>绘图 AI 版</td><td>网站在线</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a></td></tr><tr><th scope="row">2025-06/08</th><td>天幕 2.0 / ToMoviee AI</td><td>文生视频、图生视频平台</td><td>存活</td><td><a href="https://www.cs.com.cn/ssgs/gsxw/202508/t20250829_6509936.html" target="_blank" rel="noopener">中证网 2025-08-29</a></td></tr><tr><th scope="row">2025-08</th><td>万兴超媒 / ReelMate AI</td><td>公司首款 Agent 产品，一句话生成视频，集成 Sora 2、Veo 3.1、Kling 等</td><td>存活</td><td><a href="https://apps.apple.com/us/app/-/id6751309799" target="_blank" rel="noopener">App Store</a></td></tr><tr><th scope="row">2025</th><td>CalBye</td><td>AI 卡路里记录</td><td>待确认</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-08-29/1224612504.PDF" target="_blank" rel="noopener">2025 半年报</a></td></tr><tr><th scope="row">2026-03</th><td>万兴剧厂</td><td>AI 漫剧、真人短剧、广告剧创作平台</td><td>存活，Q3 年化 ARR 超 500 万美元</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a></td></tr><tr><th scope="row">2026-06</th><td>Wondershare Enkio</td><td>AI 音乐视频（MV）平台</td><td>存活，Q3 年化 ARR 超 300 万美元</td><td><a href="https://www.cs.com.cn/ssgs/01/2026/10/27/detail_2026102710047633.html" target="_blank" rel="noopener">中证网 2026-10-27</a></td></tr><tr><th scope="row">2026-08/09</th><td>Filmora.TV</td><td>广告片（TVC）AI 工作台</td><td>新上线</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a></td></tr></tbody></table></div>
+<h3 id="s6-3">5.3 AI 业务指标</h3>
+<div class="tbl"><table><thead><tr><th scope="col">期间</th><th scope="col">AI 原生应用收入</th><th scope="col">AI 服务器调用量</th><th scope="col">其他指标</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">2024</th><td>约 6,700 万元，同比增长超 100%</td><td>超 5 亿次</td><td>AI 素材导出超 1,400 万次，增长超 700%</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a></td></tr><tr><th scope="row">2025 H1</th><td>超 6,000 万元，占软件收入超 8%</td><td>超 5 亿次，增长超 2 倍</td><td>Filmora、UniConverter AI 积分各约占产品收入 6%</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-08-29/1224612504.PDF" target="_blank" rel="noopener">2025 半年报</a></td></tr><tr><th scope="row">2025</th><td>超 1.3 亿元，增长超 90%；付费用户增长超 100%</td><td>超 13 亿次，增长超 140%</td><td>Filmora 积分约占 6%，UniConverter 约占 10%；PDFelement 积分收入增长超 80%</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a></td></tr><tr><th scope="row">2026 H1</th><td>未披露总额</td><td>超 9 亿次，增长超 80%</td><td>6 月日均 Token 超 1,000 亿；剧厂 3–6 月收入月度复合增长超 100%，复购率超 85%</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a></td></tr><tr><th scope="row">2026 前三季度</th><td>未披露总额</td><td>超 14 亿次，增长超 60%</td><td>剧厂 ARR 超 500 万美元，Enkio 超 300 万美元；自研调用占比超 60%</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a></td></tr></tbody></table></div>
+<p>所有 AI 经营指标都是公司口径，未经审计，也没有第三方核实。2026 年起公司不再披露 AI 原生应用收入总额，改为披露增速、ARR 和 Token。公司在剧厂案例中列出的一部爆款漫剧，出自 2026 年 1 月投资的灵漫快创（持股 25%）（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。这个案例和公司有关联关系。</p>
+<h3 id="s6-4">5.4 AI 成本</h3>
+<div class="tbl"><table><thead><tr><th scope="col">期间</th><th scope="col" class="num">服务器费用（万元）</th><th scope="col" class="num">同比</th><th scope="col" class="num">占营业成本</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">2022</th><td class="num">1,466</td><td></td><td class="num">27.43%</td><td><a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年报</a></td></tr><tr><th scope="row">2023</th><td class="num">2,723</td><td class="num">+85.80%</td><td class="num">35.15%</td><td><a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a></td></tr><tr><th scope="row">2024</th><td class="num">4,493</td><td class="num">+65.01%</td><td class="num">46.01%</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a></td></tr><tr><th scope="row">2025</th><td class="num">8,012</td><td class="num">+78.30%</td><td class="num">56.64%</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a></td></tr><tr><th scope="row">2026 H1</th><td class="num">5,450</td><td class="num">+71.60%</td><td class="num">57.71%</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a></td></tr></tbody></table></div>
+<figure><div class="charts"><div><svg viewBox="0 0 340 280" role="img" aria-label="服务器费用柱状图：2022 至 2025 年为 1,466、2,723、4,493、8,012 万元；2026 H1 为 5,450 万元。"><text font-size="13" font-weight="600" fill="currentColor" x="0" y="16">服务器费用</text><text font-size="11.5" fill="currentColor" fill-opacity=".7" x="0" y="32">万元</text><g stroke="currentColor" stroke-opacity=".14"><line x1="44" y1="236.0" x2="332" y2="236.0"/><line x1="44" y1="170.7" x2="332" y2="170.7"/><line x1="44" y1="105.3" x2="332" y2="105.3"/><line x1="44" y1="40.0" x2="332" y2="40.0"/></g><g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".7" text-anchor="end"><text x="38" y="240.0">0</text><text x="38" y="174.7">3,000</text><text x="38" y="109.3">6,000</text><text x="38" y="44.0">9,000</text></g><rect x="56.7" y="204.1" width="32.3" height="31.9" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="72.8" y="199.1">1,466</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="72.8" y="253">2022</text><rect x="114.3" y="176.7" width="32.3" height="59.3" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="130.4" y="171.7">2,723</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="130.4" y="253">2023</text><rect x="171.9" y="138.2" width="32.3" height="97.8" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="188.0" y="133.2">4,493</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="188.0" y="253">2024</text><rect x="229.5" y="61.5" width="32.3" height="174.5" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="245.6" y="56.5">8,012</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="245.6" y="253">2025</text><rect x="287.1" y="117.3" width="32.3" height="118.7" fill="var(--acc-soft)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="303.2" y="112.3">5,450</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="303.2" y="253">2026</text><text font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="303.2" y="267">H1</text><line x1="44" y1="236" x2="332" y2="236" stroke="currentColor" stroke-opacity=".55"/></svg></div><div><svg viewBox="0 0 340 280" role="img" aria-label="综合毛利率折线图：2022 至 2025 年为 95.47%、94.77%、93.22%、90.77%；2026 H1 为 86.63%。纵轴从 84% 开始。"><text font-size="13" font-weight="600" fill="currentColor" x="0" y="16">综合毛利率</text><text font-size="11.5" fill="currentColor" fill-opacity=".7" x="0" y="32">%，纵轴从 84 开始</text><g stroke="currentColor" stroke-opacity=".14"><line x1="44" y1="236.0" x2="332" y2="236.0"/><line x1="44" y1="170.7" x2="332" y2="170.7"/><line x1="44" y1="105.3" x2="332" y2="105.3"/><line x1="44" y1="40.0" x2="332" y2="40.0"/></g><g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11.5" fill="currentColor" fill-opacity=".7" text-anchor="end"><text x="38" y="240.0">84</text><text x="38" y="174.7">88</text><text x="38" y="109.3">92</text><text x="38" y="44.0">96</text></g><polyline points="72.8,48.7 130.4,60.1 188.0,85.4 245.6,125.4" fill="none" stroke="var(--acc)" stroke-width="2"/><line x1="245.6" y1="125.4" x2="303.2" y2="193.0" stroke="var(--acc)" stroke-width="2" stroke-dasharray="4 4"/><circle cx="72.8" cy="48.7" r="3.5" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="72.8" y="39.7">95.47</text><circle cx="130.4" cy="60.1" r="3.5" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="130.4" y="51.1">94.77</text><circle cx="188.0" cy="85.4" r="3.5" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="188.0" y="76.4">93.22</text><circle cx="245.6" cy="125.4" r="3.5" fill="var(--acc)"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="245.6" y="116.4">90.77</text><circle cx="303.2" cy="193.0" r="3.5" fill="var(--bg)" stroke="var(--acc)" stroke-width="2"/><text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="currentColor" text-anchor="middle" x="303.2" y="184.0">86.63</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="72.8" y="253">2022</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="130.4" y="253">2023</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="188.0" y="253">2024</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="245.6" y="253">2025</text><text font-size="11.5" fill="currentColor" text-anchor="middle" x="303.2" y="253">2026</text><text font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle" x="303.2" y="267">H1</text><line x1="44" y1="236" x2="332" y2="236" stroke="currentColor" stroke-opacity=".55"/></svg></div></div><figcaption><span class="swatch" style="background:var(--acc)"></span>全年<span class="swatch" style="background:var(--acc-soft)"></span>半年；毛利率图的空心点和虚线是 2026 H1。服务器费用从 2022 年 1,466 万元升到 2025 年 8,012 万元，同期综合毛利率从 95.47% 降到 90.77%。毛利率由营业收入和营业成本计算。来源：各年年报“营业成本构成”，2026 年半年报。</figcaption><details><summary>数据表</summary><div class="tbl"><table><thead><tr><th scope="col">期间</th><th scope="col" class="num">服务器费用（万元）</th><th scope="col" class="num">综合毛利率</th></tr></thead><tbody><tr><th scope="row">2022</th><td class="num">1,466</td><td class="num">95.47%</td></tr><tr><th scope="row">2023</th><td class="num">2,723</td><td class="num">94.77%</td></tr><tr><th scope="row">2024</th><td class="num">4,493</td><td class="num">93.22%</td></tr><tr><th scope="row">2025</th><td class="num">8,012</td><td class="num">90.77%</td></tr><tr><th scope="row">2026 H1</th><td class="num">5,450</td><td class="num">86.63%</td></tr></tbody></table></div></details></figure>
+<p>各期年报都说，服务器费用增长“主要系 AI 服务器费用增长所致”。CDN 费反而从 638 万元（2022）降到 397 万元（2025）。2026 H1 营业成本中“其他”项增长 104.25%，公司说主要是资产摊销。研究者推断其中包含天幕无形资产的摊销。</p>
+<p>公司内部研发也在用 AI。公司说 2026 H1“AI 代码占比超过 80%”，用到 Claude、Codex、GitHub Copilot、GLM 等工具；2024 年这个比例为 35% 以上（<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>）。</p>
+<h2 id="s7">六、产品墓地：7 款有公告，十余款悄悄消失</h2>
+<p>本节分三类证据。第一类是官网停服公告。第二类是年报“主要产品”表的增减。第三类是 2026-11-27 实测的域名状态。第三类只说明今天的状态，不说明何时停止。</p>
+<h3 id="s7-1">6.1 有官方公告的停服、停售、合并和出售</h3>
+<div class="tbl"><table><thead><tr><th scope="col">产品</th><th scope="col">上线</th><th scope="col">结束</th><th scope="col">方式</th><th scope="col">公司给的原因</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">Filmii（模板一键剪辑）</th><td>约 2020-10（推断）</td><td>2022-06-20</td><td>并入 Filmora，改名 Instant Mode</td><td>“new enterprise strategy”</td><td><a href="https://filmora.wondershare.com/filmii/what-is-new.html" target="_blank" rel="noopener">Filmii 公告</a></td></tr><tr><th scope="row">FilmoraPro（专业剪辑）</th><td>待确认</td><td>2022-07-01 停售；永久用户支持到 2023-07-01</td><td>停售，用户导向 Filmora</td><td>整合资源</td><td><a href="https://filmora.wondershare.com/filmorapro/offline-page.html" target="_blank" rel="noopener">FilmoraPro 下线页</a></td></tr><tr><th scope="row">VirtuLook（AI 商品图）</th><td>2023</td><td>2025-01-14</td><td>关停，推荐转 Virbo，按用量退款</td><td>“business strategy adjustments”</td><td><a href="https://virbo.wondershare.com/virtulook-offline.html" target="_blank" rel="noopener">VirtuLook 下线页</a></td></tr><tr><th scope="row">EdrawInfo（信息图）</th><td>待确认</td><td>2025-08-31 停更；2026-08-30 停服</td><td>先停更，再关停，数据删除</td><td>“various unavoidable circumstances”</td><td><a href="https://www.edrawsoft.com/wondershare-edrawinfo-stop-updating.html" target="_blank" rel="noopener">EdrawInfo 停更公告</a>；<a href="https://www.edrawsoft.com/pricing-edrawinfographic.html" target="_blank" rel="noopener">停服公告</a></td></tr><tr><th scope="row">OrgCharting（组织架构图）</th><td>待确认</td><td>2026-08-30</td><td>关停，无替代品</td><td>同上</td><td><a href="https://www.edrawsoft.com/pricing-orgcharting.html" target="_blank" rel="noopener">停服公告</a></td></tr><tr><th scope="row">EdrawMath（数学公式）</th><td>待确认</td><td>2026-08-30</td><td>关停</td><td>同上</td><td><a href="https://www.edrawsoft.com/pricing-edrawinfographic.html" target="_blank" rel="noopener">停服公告</a></td></tr><tr><th scope="row">Anireel（动画解说视频）</th><td>2021</td><td>2026-11-11 公告；2027-01-11 停服</td><td>关停</td><td>待确认</td><td><a href="https://anireel.wondershare.com/" target="_blank" rel="noopener">Anireel 官网</a></td></tr><tr><th scope="row">墨刀 / Mockitt（产品原型协作）</th><td>2020-10 收购入股</td><td>2024-12-31 出售 78%</td><td>资产置换出表，保留 22%</td><td>资本运作</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a></td></tr></tbody></table></div>
+<p>墨刀的交易较复杂。2024 年 11 月，公司先买入北京磨刀少数股权，持股到 100%。2024 年 12 月 31 日，公司付 1.46 亿元买入赣州思为（持有亿图股权），交易对手付 1.248 亿元买入北京磨刀 78% 股权。交易后公司持有亿图的比例从 61.00% 升到 97.50%（<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>）。墨刀业绩承诺口径的收入为 2,771.95 万元，完成率 106.61%（同上，年报表格“上期”栏）。墨刀今天仍在 mockitt.com 运营，页脚属于磨刀刻石（<a href="https://mockitt.com/" target="_blank" rel="noopener">mockitt.com</a>）。2026 年，博思云创以换股方式收购北京磨刀 100% 股权，公司对博思云创的持股升到 15.72%（<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>）。</p>
+<h3 id="s7-2">6.2 从年报产品表消失、没有停服公告</h3>
+<div class="tbl"><table><thead><tr><th scope="col">产品</th><th scope="col">最后出现</th><th scope="col">去向</th><th scope="col">证据强度</th></tr></thead><tbody><tr><th scope="row">Sweet Selfie（自拍美颜，杭州格像）</th><td>2023 年报</td><td>SelfyzAI 顶替“移动端 AI 人像”位置；sweetselfie.com 仍在线</td><td>推断</td></tr><tr><th scope="row">Sweet Snap（AR 贴纸，杭州格像）</th><td>2022 H1</td><td>待确认</td><td>待确认</td></tr><tr><th scope="row">万兴喵库 / Filmstock（素材商城）</th><td>2023 年报</td><td>filmstock 子站仍在线，国内页 404；推断并入 Filmora 素材体系</td><td>推断</td></tr><tr><th scope="row">FilmoraGo（移动端品牌）</th><td>2022 H1</td><td>子域名跳到 Filmora，品牌并入</td><td>实测加推断</td></tr><tr><th scope="row">万兴数据管家（iOS 微信数据）</th><td>2024 年报</td><td>待确认</td><td>待确认</td></tr><tr><th scope="row">MobileClean（相册清理）</th><td>2022 H1</td><td>待确认</td><td>待确认</td></tr><tr><th scope="row">Geonection（家庭安全）</th><td>2022 年报</td><td>待确认</td><td>待确认</td></tr><tr><th scope="row">HiPDF（云端 PDF）</th><td>2024 年报（当年收入增长超 40%）</td><td>hipdf.com 仍在线，已从产品表降级</td><td>实测</td></tr><tr><th scope="row">Kwicut、TruMate、Pixpic、Presentory</th><td>2023 年报</td><td>是否停运待确认</td><td>待确认</td></tr><tr><th scope="row">万兴播爆 / Virbo</th><td>2024 年报</td><td>2026 年重做为 Virbo AI</td><td>公告</td></tr></tbody></table></div>
+<p class="src">来源：<a href="https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-08-27/a0e3152f-c503-433f-8ce7-33f2ea111c1f.PDF" target="_blank" rel="noopener">2022 年半年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>。</p>
+<p>2026-11-27 实测，还有一批老产品的域名已跳转或失效。PixCut 跳到 Media.io。Fotophire 先跳到 PixStudio，再跳到 Media.io 的“PixStudio 下线”页。MirrorGo、InClowdz 子域名无解析。PowerSuite、AllMyTube、Fantashow、Streaming Audio Recorder、Quiz Creator、PDF Converter Pro 的官网路径返回 404。TunesGo 子域名连接失败。这些产品的停止时间都待确认。</p>
+<p>2026 H1 年报写到，公司“战略性收缩了功能场景和形态过时的部分产品”（<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>）。公司没有列出名单。从时间看，EdrawInfo、OrgCharting、EdrawMath 在 2026 年 8 月停服，Anireel 在 2026 年 11 月公告停服，和这句话一致。</p>
+<h3 id="s7-3">6.3 商誉：杭州格像在业绩承诺期后第二年减值</h3>
+<div class="tbl"><table><thead><tr><th scope="col">商誉来源</th><th scope="col" class="num">收购时间</th><th scope="col" class="num">商誉原值（万元）</th><th scope="col" class="num">2024 年减值（万元）</th><th scope="col">去向</th></tr></thead><tbody><tr><th scope="row">深圳亿图（绘图线）</th><td class="num">2019</td><td class="num">11,160</td><td class="num">0</td><td>2024 年持股升到 97.50%</td></tr><tr><th scope="row">北京磨刀（墨刀）</th><td>2020–2021</td><td class="num">3,686</td><td class="num">0</td><td>2024 年随出售转出</td></tr><tr><th scope="row">杭州格像（Beat.ly、Sweet Selfie、SelfyzAI 方向）</th><td class="num">2021</td><td class="num">16,797</td><td class="num">5,906</td><td>资产组可回收金额 1.51 亿元</td></tr></tbody></table></div>
+<p class="src">来源：<a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年报</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>。杭州格像的业绩承诺为 10,800 万元，实际完成 11,018.45 万元（102.02%）。2024 年公司说“部分子公司产品创新转型期利润有所下滑”，计提减值。2025 年末商誉账面价值仍为 2.21 亿元，占总资产 13.09%。</p>
+<h2 id="s8">七、竞争：份额 1.3%，夹在 Adobe 和字节之间</h2>
+<p>年报很少点名竞争对手。H 股申请资料（媒体转述）列出的视频剪辑对手是剪映、快影、PowerDirector、DaVinci Resolve、Adobe Premiere Pro。资料还提到，平台型工具用免费或低价产品加内置发布渠道，压制付费产品（<a href="https://news.qq.com/rain/a/20250928A04IN900" target="_blank" rel="noopener">腾讯新闻 IPO 前哨</a>）。按弗若斯特沙利文的数据和 2024 年收入，万兴在全球 AIGC 视频创意软件市场的份额为 1.3%，在中国第三方独立厂商中排第一（同上）。</p>
+<div class="tbl"><table><thead><tr><th scope="col">万兴产品</th><th scope="col">主要对手（券商或招股书点名）</th><th scope="col">万兴的位置</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">Filmora</th><td>Adobe Premiere Pro、CapCut / 剪映、DaVinci Resolve、PowerDirector</td><td>低价“准专业”；G2 视频剪辑“领导者”</td><td><a href="https://pdf.dfcfw.com/pdf/H3_AP202410111640257786_1.pdf" target="_blank" rel="noopener">平安证券</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 三季报</a></td></tr><tr><th scope="row">EdrawMax</th><td>Microsoft Visio</td><td>永久授权价约为 Visio 的六成</td><td><a href="https://pdf.dfcfw.com/pdf/H3_AP202410111640257786_1.pdf" target="_blank" rel="noopener">平安证券</a></td></tr><tr><th scope="row">PDFelement</th><td>Adobe Acrobat、Foxit</td><td>一份第三方报告称全球 PDF 市场第四，份额 0.64%（出处待确认）</td><td><a href="https://finance.ifeng.com/c/8xAsLE7NYC6" target="_blank" rel="noopener">凤凰网</a></td></tr><tr><th scope="row">Mockitt（已出售）</th><td>Axure</td><td>已出表</td><td><a href="https://pdf.dfcfw.com/pdf/H3_AP202410111640257786_1.pdf" target="_blank" rel="noopener">平安证券</a></td></tr><tr><th scope="row">万兴剧厂、天幕</th><td>字节即梦 / Seedance、快手可灵</td><td>国内 AI 视频日算力消耗中，Seedance 超 80%，可灵约 14%</td><td><a href="https://m.21jingji.com/article/20261021/herald/5a8e6dbcc0cd72bc89c3e86044c7d2cb.html" target="_blank" rel="noopener">21 财经 2026-10-21</a></td></tr></tbody></table></div>
+<p>公司在 2024 年 8 月说，大厂入局和出海创业项目“短期不计成本争夺流量”，使高价值流量更难获取（<a href="http://static.cninfo.com.cn/finalpage/2024-08-17/1220902441.PDF" target="_blank" rel="noopener">IR 2024-08-17</a>）。2026 年 4 月，公司说桌面剪辑市场“正进入结构性重构、重新分层的阶段”（<a href="http://static.cninfo.com.cn/finalpage/2026-04-29/1225252693.PDF" target="_blank" rel="noopener">IR 2026-04-29</a>）。2026 H1 公司还承认，“AI 搜索、AI 助手和 Agent 等新入口也在分流传统渠道流量”，并引用 Gartner 预测 2026 年 PC 出货量下降约 10.4%（<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>）。</p>
+<p>媒体对比了用户规模：剪映月活超 7 亿，Canva 超 2.6 亿，Adobe 超 8 亿，万兴 6,870 万（<a href="https://www.jiemian.com/article/15052604.html" target="_blank" rel="noopener">界面新闻 2026-09-03</a>）。这些数字口径不一，只能看量级。吴太兵的应对说法是“不追求单项第一，但要打赢‘矩阵战争’”（<a href="https://time-weekly.com/post/322071" target="_blank" rel="noopener">时代周报</a>），以及竞争重心“从‘拼模型’转向‘拼产线’”（<a href="https://m.21jingji.com/article/20261021/herald/5a8e6dbcc0cd72bc89c3e86044c7d2cb.html" target="_blank" rel="noopener">21 财经 2026-10-21</a>）。</p>
+<h2 id="s9">八、治理与资本：两次大额融资都已终止</h2>
+<h3 id="s9-1">8.1 股权、减持、激励、回购</h3>
+<p>截至 2025-12-31，吴太兵直接持股 15.24%，通过兴亿网络持 11.69%，通过家兴网络持 2.28%（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。三项相加为 29.21%，即 H 股资料中“吴太兵及其实体持股 29.21%”（<a href="https://www.nbd.com.cn/articles/2025-09-26/4076832.html" target="_blank" rel="noopener">每日经济新闻</a>）。按他在两个平台中的份额穿透计算，约为 24.54%（<a href="https://news.qq.com/rain/a/20260521A024RK00" target="_blank" rel="noopener">腾讯新闻 2026-05-21</a>）。两个数字口径不同，并不冲突。</p>
+<p>2023 年 4–6 月，两个持股平台合计减持 332.28 万股，套现超 3 亿元。2023 年 6–7 月，吴太兵个人减持 206 万股，套现超 2 亿元（<a href="https://news.qq.com/rain/a/20260521A024RK00" target="_blank" rel="noopener">腾讯新闻 2026-05-21</a>；<a href="https://www.yicai.com/news/101773701.html" target="_blank" rel="noopener">第一财经</a>）。这段时间正是 2023 年 AIGC 行情的高点，也是 11 亿元定增推出的时候。</p>
+<p>2021 年限制性股票激励计划以 2020 年收入为基数，目标是 2025 年收入增长 200%（<a href="http://www.zqrb.cn/gscy/qiyexinxi/2021-04-11/A1618126589590.html" target="_blank" rel="noopener">证券日报 2021-04-11</a>）。2025 年实际收入较 2020 年增长 56.97%，第五个归属期作废 131.46 万股（<a href="http://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?stockid=300624&id=12225627" target="_blank" rel="noopener">作废公告</a>）。这是公司唯一可以按数值检验的长期目标，没有达成。</p>
+<p>2023 年度现金分红 1,528 万元，2024、2025 年度不分红（<a href="https://pdf.dfcfw.com/pdf/H2_AN202604271821633259_1.pdf" target="_blank" rel="noopener">分红公告</a>）。截至 2026 年 1 月，2025 年回购计划已回购 54 万股，金额 3,400 万元（<a href="https://finance.eastmoney.com/a/202601063610219350.html" target="_blank" rel="noopener">东方财富</a>）。2026 年 6 月新回购方案金额 2,500–5,000 万元，用于员工持股或股权激励（<a href="https://wap.stockstar.com/detail/SN2026062400038058" target="_blank" rel="noopener">证券之星</a>）。2025 年 5 月董事会换届，吴太兵任董事长兼总经理（<a href="http://disc.static.szse.cn/download/disc/disk03/finalpage/2025-05-19/f31d6af1-06ec-4353-837c-2fed9c86cd68.PDF" target="_blank" rel="noopener">公告 2025-034</a>）。</p>
+<h3 id="s9-2">8.2 融资与 H 股</h3>
+<div class="tbl"><table><thead><tr><th scope="col">日期</th><th scope="col">事件</th><th scope="col">来源</th></tr></thead><tbody><tr><th scope="row">2023-06-19</th><td>定增预案：募资不超过 11.01 亿元，投向数字创意产品升级和技术研发</td><td><a href="http://finance.ce.cn/stock/gsgdbd/202404/29/t20240429_38987783.shtml" target="_blank" rel="noopener">中国经济网</a></td></tr><tr><th scope="row">2024-04-25</th><td>董事会终止定增，理由“市场环境的变化”</td><td><a href="https://stock.hexun.com/2024-04-26/212689442.html" target="_blank" rel="noopener">和讯</a></td></tr><tr><th scope="row">2025-08-08</th><td>董事会通过发行 H 股议案；当天 A 股盘中跌 11.53%</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211152.PDF" target="_blank" rel="noopener">H 股终止公告</a>；<a href="https://www.jiemian.com/article/15052604.html" target="_blank" rel="noopener">界面新闻</a></td></tr><tr><th scope="row">2025-08-25</th><td>临时股东会通过</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211152.PDF" target="_blank" rel="noopener">H 股终止公告</a></td></tr><tr><th scope="row">2025-09-25</th><td>向港交所递表，中金公司独家保荐</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-09-26/1224683535.PDF" target="_blank" rel="noopener">递表公告 2025-069</a></td></tr><tr><th scope="row">2025-10</th><td>证监会接收境外上市备案材料</td><td><a href="http://static.cninfo.com.cn/finalpage/2025-10-13/1224709912.PDF" target="_blank" rel="noopener">公告 2025-071</a></td></tr><tr><th scope="row">2025-12</th><td>证监会要求补充材料，涉及增值电信许可、外资准入、数据安全（媒体报道）</td><td><a href="https://finance.ifeng.com/c/8xAsLE7NYC6" target="_blank" rel="noopener">凤凰网</a></td></tr><tr><th scope="row">2026-04-27</th><td>董事会终止 H 股发行，理由为宏观环境、资本市场环境、公司实际情况等“多重因素”</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211152.PDF" target="_blank" rel="noopener">终止公告 2026-018</a></td></tr></tbody></table></div>
+<p>H 股申请资料中的毛利率、境外占比、广告费占比，都和 A 股年报的计算值一致（<a href="https://www.nbd.com.cn/articles/2025-09-26/4076832.html" target="_blank" rel="noopener">每日经济新闻</a>）。资料还披露代理商从 2023 年末 171 家减到 2025 年 6 月末 68 家（<a href="https://news.qq.com/rain/a/20250928A04IN900" target="_blank" rel="noopener">腾讯新闻 IPO 前哨</a>）。H 股相关费用已计入 2025 年报表，2025 年中介机构服务费为 2,384 万元，同比增长约 1.5 倍（计算）。</p>
+<p>实际落地的资本动作规模较小。2026 年 1 月，公司出资 1,000 万元投资灵漫快创（25%），出资 5,000 万元投资生数科技（1.3202%）（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）。按此计算，生数科技投后估值约 37.9 亿元（计算）。股价方面，2023 年高点各来源不一致（见第十节）。2026-08-28 收盘价 47.22 元（<a href="http://jsjjb.xhby.net/pc/con/202609/07/content_1587590.html" target="_blank" rel="noopener">江苏经济报</a>）。2026 年 11 月的一份券商研报预测 2026 年归母净利润为 -0.98 亿元（<a href="https://data.eastmoney.com/report/info/AP202611021831331959.html" target="_blank" rel="noopener">东方财富研报</a>）。</p>
+<h2 id="s10">九、研究者判断（分析，非公司口径）</h2>
+<p>本节是研究者基于上文数据的判断，不代表公司说法。每条判断都写明依据和不确定的地方。</p>
+<h3 id="s10-1">9.1 收入为什么停在 15 亿元附近</h3>
+<p>研究者判断，收入停滞有三个原因，按影响大小排序。</p>
+<p>第一，用户池不再扩大。平均月活在 2023–2025 H1 停在 6,730–6,870 万。增长只能靠提价、AI 积分和投放替换流失用户。2024 年视频线付费用户增长超 20%，收入却只增长 0.06%。这说明每个付费用户的花费在下降，或低价的移动端用户占比在上升。</p>
+<p>第二，桌面端的入口在缩小。公司自己提到 PC 出货量下降、Google 搜索广告变贵、AI 搜索分流流量。万兴的主力产品诞生于“搜索一个问题，下载一个桌面软件”的时代。这个入口在变窄，移动端增长（2025 年占比近 25%）还补不上。</p>
+<p>第三，绘图和文档两条线在萎缩。绘图线 2025 年下降 2,939 万元（计算），墨刀业绩承诺口径收入约 2,772 万元。研究者推断，2025 年绘图线下降大部分来自墨刀出表，属于口径变化。2026 H1 绘图线再降约 23%，那时墨刀已出表，这一部分是真实下滑。2025 年境内收入下降 3,255 万元（计算），时间也和墨刀出表吻合。</p>
+<p>汇率是 2026 年的额外因素。公司说剔除汇率后 H1 收入降 3.56%，比报表的 7.09% 小一半。</p>
+<h3 id="s10-2">9.2 买量陷阱</h3>
+<p>万兴的模型可以写成一个简单等式：收入约等于广告费乘以 2.2–2.7。2022、2023 年这个倍数约 2.7。2024 年流量变贵，倍数掉到 2.19。公司多投 1.10 亿元广告费，收入反而少了 4,100 万元。研究者判断，这 1.10 亿元是 2024 年由盈转亏的最大单项原因，大于 5,906 万元的商誉减值。</p>
+<p>2026 年公司反向操作。H1 广告费少花 8,160 万元，收入少了 5,390 万元（计算），倍数回升到 2.58。被砍掉的投放，边际产出低于成本。这说明控费方向正确。但毛利在同期减少约 9,070 万元（计算），因为 AI 成本还在涨。结果是亏损扩大。</p>
+<p>研究者判断，这是一个两难。多投放，倍数下降，亏损。少投放，收入下降，固定的研发和算力成本摊不薄，也亏损。2022–2025 年毛利增量约 2.65 亿元，销售费用增量约 2.95 亿元。增长带来的毛利，全部付给了流量平台。公司把希望放在 GEO 上（流量增长 7 倍），但没有披露 GEO 的收入贡献。</p>
+<h3 id="s10-3">9.3 AI 的成本和收入</h3>
+<p>服务器费用四年涨了约 5.5 倍，2022–2025 年增加 6,546 万元（计算）。2025 年服务器费用 8,012 万元，AI 原生应用收入约 1.3 亿元。媒体据此算出服务器费用约占 AI 原生收入 61.6%（<a href="https://finance.ifeng.com/c/8trzMch453D" target="_blank" rel="noopener">凤凰网</a>）。研究者认为这个比例高估了 AI 原生产品的成本。服务器费用还覆盖老产品里的 AI 积分和非 AI 服务。</p>
+<p>研究者做了一个粗估。如果把 Filmora、UniConverter 的积分收入加上，全部 AI 相关收入约 2 亿元，占营业收入 13%–15%。这是估算，公司没有披露这个口径。按这个口径，服务器费用约占 AI 相关收入四成。软件业务原本的毛利率在 95% 左右。AI 业务的毛利率大约在 60% 上下（推断）。AI 收入占比越高，综合毛利率越低。这个趋势在 2026 年还在加速：2026 Q3 单季毛利率约 84.5%，2025 Q3 约 90.5%（计算）。</p>
+<p>AI 给万兴带来了两样东西。一样是新的收费方式：积分和 Token 让用户按用量付费，把一部分算力成本转给用户。另一样是新品类：剧厂和 Enkio 合计年化 ARR 约 800 万美元，约合 5,700 万元（计算）。这还不到 2026 Q3 单季收入降幅（约 7,250 万元）的一个季度量。研究者判断，AI 新品在 2027 年前补不上老业务的缺口。</p>
+<p>天幕资本化 5,324 万元，减少了 2025 年的研发费用。如果全部费用化，2025 年扣非亏损约为 -1.91 亿元（推断，未考虑所得税影响）。2026 年起这笔无形资产开始摊销，会进入营业成本或费用。</p>
+<h3 id="s10-4">9.4 活下来的产品有什么共同点</h3>
+<p>研究者对比了存活者和死者，归纳出五个共同点。</p>
+<p>存活者对应一个明确、急迫、可搜索的问题：剪视频、转格式、改 PDF、恢复数据、换手机传数据、画流程图。用户会在搜索框里直接输入这个问题。实用工具线 2025 年增长 29.50%，说明“急需”类工具在 AI 时代仍然有人付费。</p>
+<p>存活者都有十年以上的版本迭代。Filmora 从 V12 迭代到 V16，PDFelement 从 V9 迭代到 V13。品牌和搜索排名是长期积累的资产。</p>
+<p>存活者能把 AI 加进已有的付费关系。Filmora、UniConverter、PDFelement 的 AI 积分增速在 50%–80%。用户已经在付订阅费，AI 是加购项。</p>
+<p>死者分三类。第一类是主线的重复品，被并入主品牌：Filmii、FilmoraPro、FilmoraGo。第二类是搜索需求小的长尾工具：EdrawMath、OrgCharting、EdrawInfo。第三类是追热点的 AI 单品，被下一代 AI 能力替代：VirtuLook、Anireel，以及 2023 年那批从产品表消失的 AI 新品。</p>
+<p>唯一以国内企业用户为主的产品（墨刀）被卖出。研究者判断，万兴的能力集中在“海外个人用户 + 搜索获客 + 订阅”这一种模式。偏离这个模式的产品都没留下。</p>
+<h3 id="s10-5">9.5 治理上值得注意的地方</h3>
+<p>研究者关注三点。第一，实控人在 2023 年高位套现超 5 亿元，同期推出 11 亿元定增。2025–2026 年的回购合计不到 1 亿元，且用于激励，不注销。第二，两次大额外部融资都在推出后终止，AI 投入只能靠自有现金。2026 年 9 月末货币资金只有 2.47 亿元，同时长沙园区在建工程 1.83 亿元。第三，剧厂的爆款案例来自被投公司灵漫快创。研究者认为，外部投资者应把剧厂的增长数据和关联方收入分开看，但公司没有披露这个拆分。</p>
+<h3 id="s10-6">9.6 接下来要看的指标</h3>
+<p>研究者建议跟踪四个可以检验的指标。一是每 1 元广告带来的收入能否稳定在 2.5 以上。二是服务器费用增速能否低于 AI 相关收入增速。三是实用工具线能否保持两位数增长。四是公司是否恢复披露 AI 原生应用收入总额。</p>
+<h2 id="s11">十、数据冲突与待确认点</h2>
+<div class="tbl"><table><thead><tr><th scope="col">事项</th><th scope="col">说法 A</th><th scope="col">说法 B</th><th scope="col">更可靠的一方</th></tr></thead><tbody><tr><th scope="row">万兴剧厂上线时间</th><td>2026 年 3 月（<a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 半年报</a>）</td><td>2026 年 1 月推出（<a href="https://finance.ifeng.com/c/8xAsLE7NYC6" target="_blank" rel="noopener">凤凰网</a>）</td><td>半年报原文。1 月可能是内测或发布会时间</td></tr><tr><th scope="row">2025 年境外收入占比</th><td>93.21%（<a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年报</a>）</td><td>约 91%（<a href="https://finance.ifeng.com/c/8xAsLE7NYC6" target="_blank" rel="noopener">凤凰网</a>）</td><td>年报原文</td></tr><tr><th scope="row">订阅收入占比 72%、续约率 65% 的期间</th><td>2023 H1（<a href="https://pdf.dfcfw.com/pdf/H3_AP202410111640257786_1.pdf" target="_blank" rel="noopener">平安证券</a>，引用半年报）</td><td>2023 全年（<a href="https://caifuhao.eastmoney.com/news/20251010155939796465410" target="_blank" rel="noopener">东方财富财富号</a>）</td><td>平安证券。它注明出自 2023 半年报</td></tr><tr><th scope="row">2025 年研发</th><td>4.32 亿元，占 28.18%（费用化）</td><td>4.85 亿元，占 31.65%（研发投入）</td><td>两者都对，口径不同，差额 5,324 万元是资本化</td></tr><tr><th scope="row">吴太兵持股</th><td>29.21%（含实体）</td><td>24.54%（穿透）</td><td>两者都对。前者是控制口径，后者是经济权益口径</td></tr><tr><th scope="row">2025 H1 实用工具线增速</th><td>20.62%（半年报文字）</td><td>20.83%（半年报表格）</td><td>表格。文字可能用了不同基数</td></tr><tr><th scope="row">2023 年股价高点</th><td>172.2 元（<a href="http://jsjjb.xhby.net/pc/con/202609/07/content_1587590.html" target="_blank" rel="noopener">江苏经济报</a>）</td><td>165.55 元（<a href="https://m.21jingji.com/article/20261021/herald/5a8e6dbcc0cd72bc89c3e86044c7d2cb.html" target="_blank" rel="noopener">21 财经</a>）</td><td>待确认。可能是盘中价和收盘价或复权方式的差异</td></tr><tr><th scope="row">Virbo 状态</th><td>搜索摘要称 2025-06-30 停运</td><td>2026-11-27 官网在线，定位为电商营销 AI 视频</td><td>官网实测。停运的可能是某个子功能或端，待确认</td></tr><tr><th scope="row">EdrawMind 2024 版本号</th><td>V12（年报）</td><td>V14（IR 记录）</td><td>待确认</td></tr><tr><th scope="row">2026 年 1 月股价</th><td>盘中最高 122.80 元（<a href="https://www.jiemian.com/article/15052604.html" target="_blank" rel="noopener">界面新闻</a>）</td><td>收盘 109.82 元（<a href="http://jsjjb.xhby.net/pc/con/202609/07/content_1587590.html" target="_blank" rel="noopener">江苏经济报</a>）</td><td>不矛盾，一个是盘中最高价，一个是收盘价</td></tr></tbody></table></div>
+<p>其他待确认事项包括：单个产品的收入金额、月活和 ARPPU；2023–2025 年订阅收入占比；北美、欧洲等细分地区收入；应用商店佣金金额，以及分销收入按总额还是净额确认；2026 H1 和前三季度研发资本化金额；2026 年起 AI 原生应用收入总额；Pixcut、Fotophire 等老产品的停止日期。研究任务里提到的“Wondershare Kwai”没有找到对应产品，最接近的是 2023 年发布的 Kwicut。</p>
+<h2 id="s12">结论</h2>
+<p>万兴的问题主要出在获客和成本结构上，产品本身仍有人买。Filmora、PDFelement、Recoverit 等产品在 G2 评分、Google Play 榜单和续约率上都还站得住。但公司过去靠“搜索广告买用户，订阅留用户”，现在这个模式的每一环都在变贵：流量涨价，桌面端萎缩，AI 让单个用户的服务成本上升。AI 积分和 Token 收费能把一部分成本转给用户，剧厂这类新品能开新品类。这两件事的规模，目前都只有老业务下滑幅度的一部分。</p>
+<p>对外部观察者来说，判断万兴的关键数据已从“AI 调用量”变为“单位获客收入”和“AI 相关毛利”。前者决定老业务能否在少投放时稳住，后者决定新业务做大后能否赚钱。公司 2026 年停止披露 AI 原生收入总额，H 股申请也已撤回，外部能拿到的单品数据比 2025 年更少了。</p>
+<h2 id="s13">方法与来源</h2>
+<h3 id="s13-1">方法</h3>
+<p>数据采样日期为 2026-11-27。研究团队下载了巨潮资讯网和深交所的定期报告 PDF 原文，用 pdftotext 抽取后逐项核对，范围是 2022–2025 年年报、2025 和 2026 年半年报、2025 和 2026 年三季报，以及 2022–2026 年的投资者关系活动记录表。标为“计算”的比率由研究者根据原表计算。H 股申请资料的数据来自媒体转述，可信度比年报低一级。产品停服情况来自 Wondershare 和 Edraw 官网公告。域名状态在 2026-11-27 用 curl 实测，只说明当天状态。券商报告和媒体报道用于价格、竞争和外部观点。</p>
+<h3 id="s13-2">没有拿到的资料</h3>
+<p>港交所披露易上的 H 股申请资料（中文版 sehk25092502278_c.pdf、英文版 sehk25092502279.pdf）在递表 6 个月后失效，现在返回“页面已移走”。因此招股书中的单品收入、月活拆分、细分地区收入、前五大供应商和募资用途都无法直接核对。其他没有拿到的资料包括：2018–2021 年年报产品表；Wayback Machine 快照（用于确定老产品停止日期）；App Store 和 Google Play 的下架记录；Sensor Tower、data.ai 的下载量估算；2022–2025 年年报“未来发展展望”原文的逐条比对。</p>
+<h3 id="s13-3">来源</h3>
+<p>公司定期报告与公告：</p>
+<ul class="sources"><li><a href="http://static.cninfo.com.cn/finalpage/2023-04-08/1216357981.PDF" target="_blank" rel="noopener">2022 年年度报告</a></li><li><a href="https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-08-27/a0e3152f-c503-433f-8ce7-33f2ea111c1f.PDF" target="_blank" rel="noopener">2022 年半年度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2024-04-27/1219864137.PDF" target="_blank" rel="noopener">2023 年年度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223329643.PDF" target="_blank" rel="noopener">2024 年年度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211130.PDF" target="_blank" rel="noopener">2025 年年度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2025-08-29/1224612504.PDF" target="_blank" rel="noopener">2025 年半年度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2026-08-24/1225490024.PDF" target="_blank" rel="noopener">2026 年半年度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2025-10-29/1224755564.PDF" target="_blank" rel="noopener">2025 年第三季度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2026-10-28/1225627881.PDF" target="_blank" rel="noopener">2026 年第三季度报告</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2025-09-26/1224683535.PDF" target="_blank" rel="noopener">H 股递表公告 2025-069</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2025-10-13/1224709912.PDF" target="_blank" rel="noopener">H 股备案材料获接收公告 2025-071</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2026-04-28/1225211152.PDF" target="_blank" rel="noopener">H 股终止公告 2026-018</a></li><li><a href="http://disc.static.szse.cn/download/disc/disk03/finalpage/2025-05-19/f31d6af1-06ec-4353-837c-2fed9c86cd68.PDF" target="_blank" rel="noopener">董事会换届公告 2025-034</a></li><li><a href="https://pdf.dfcfw.com/pdf/H2_AN202604271821633259_1.pdf" target="_blank" rel="noopener">2025 年度利润分配公告</a></li><li><a href="http://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?stockid=300624&id=12225627" target="_blank" rel="noopener">限制性股票作废公告</a></li><li><a href="https://www1.hkexnews.hk/app/sehk/2025/107707/documents/sehk25092502278_c.pdf" target="_blank" rel="noopener">港交所申请资料中文版（已失效）</a></li></ul>
+<p>投资者关系活动记录表：</p>
+<ul class="sources"><li><a href="http://static.cninfo.com.cn/finalpage/2023-04-21/1216525705.PDF" target="_blank" rel="noopener">IR 2023-04-21</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2024-04-28/1219894615.PDF" target="_blank" rel="noopener">IR 2024-04-28</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2024-05-23/1220137014.PDF" target="_blank" rel="noopener">IR 2024-05-23</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2024-08-17/1220902441.PDF" target="_blank" rel="noopener">IR 2024-08-17</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2025-04-28/1223357567.PDF" target="_blank" rel="noopener">IR 2025-04-28</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2025-08-30/1224629625.PDF" target="_blank" rel="noopener">IR 2025-08-30</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2026-04-29/1225252693.PDF" target="_blank" rel="noopener">IR 2026-04-29</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2026-06-15/1225370259.PDF" target="_blank" rel="noopener">IR 2026-06-15</a></li><li><a href="http://static.cninfo.com.cn/finalpage/2026-11-07/1225662718.PDF" target="_blank" rel="noopener">IR 2026-11-07</a></li></ul>
+<p>官网与产品页（2026-11-27 访问）：</p>
+<ul class="sources"><li><a href="https://www.wondershare.com/shop/individuals.html" target="_blank" rel="noopener">Wondershare 官网商店</a></li><li><a href="https://filmora.wondershare.com/filmii/what-is-new.html" target="_blank" rel="noopener">Filmii 并入公告</a></li><li><a href="https://filmora.wondershare.com/filmorapro/offline-page.html" target="_blank" rel="noopener">FilmoraPro 下线页</a></li><li><a href="https://virbo.wondershare.com/virtulook-offline.html" target="_blank" rel="noopener">VirtuLook 下线页</a></li><li><a href="https://www.edrawsoft.com/wondershare-edrawinfo-stop-updating.html" target="_blank" rel="noopener">EdrawInfo 停更公告</a></li><li><a href="https://www.edrawsoft.com/pricing-edrawinfographic.html" target="_blank" rel="noopener">EdrawInfo、OrgCharting、EdrawMath 停服公告</a></li><li><a href="https://anireel.wondershare.com/" target="_blank" rel="noopener">Anireel 官网停服通知</a></li><li><a href="https://mockitt.com/" target="_blank" rel="noopener">mockitt.com</a></li><li><a href="https://apps.apple.com/us/app/-/id6751309799" target="_blank" rel="noopener">万兴超媒 / ReelMate AI App Store 页</a></li></ul>
+<p>券商报告：</p>
+<ul class="sources"><li><a href="https://pdf.dfcfw.com/pdf/H3_AP202402071621034882_1.pdf" target="_blank" rel="noopener">华安证券深度报告 2024-02-06</a></li><li><a href="https://pdf.dfcfw.com/pdf/H3_AP202410111640257786_1.pdf" target="_blank" rel="noopener">平安证券首次覆盖 2024-10-11</a></li><li><a href="https://data.eastmoney.com/report/info/AP202611021831331959.html" target="_blank" rel="noopener">东方财富研报 2026-11</a></li></ul>
+<p>媒体报道：</p>
+<ul class="sources"><li><a href="https://www.nbd.com.cn/articles/2025-09-26/4076832.html" target="_blank" rel="noopener">每日经济新闻 2025-09-26（H 股申请资料要点）</a></li><li><a href="https://news.qq.com/rain/a/20250928A04IN900" target="_blank" rel="noopener">腾讯新闻 IPO 前哨 2025-09-28</a></li><li><a href="https://news.qq.com/rain/a/20260521A024RK00" target="_blank" rel="noopener">腾讯新闻 2026-05-21</a></li><li><a href="https://www.jiemian.com/article/15052604.html" target="_blank" rel="noopener">界面新闻 2026-09-03</a></li><li><a href="http://jsjjb.xhby.net/pc/con/202609/07/content_1587590.html" target="_blank" rel="noopener">江苏经济报 2026-09-07</a></li><li><a href="https://m.21jingji.com/article/20261021/herald/5a8e6dbcc0cd72bc89c3e86044c7d2cb.html" target="_blank" rel="noopener">21 世纪经济报道 2026-10-21</a></li><li><a href="https://m.21jingji.com/article/20260729/d13c32993a0dee5b689bc14f9d9347b5.html" target="_blank" rel="noopener">21 世纪经济报道 2026-07-29（吴太兵专访）</a></li><li><a href="https://www.cls.cn/detail/2067184" target="_blank" rel="noopener">财联社 2025-06-25（吴太兵专访）</a></li><li><a href="https://time-weekly.com/post/322071" target="_blank" rel="noopener">时代周报 2025-06-26</a></li><li><a href="https://finance.ifeng.com/c/8xAsLE7NYC6" target="_blank" rel="noopener">凤凰网深度分析 2026-10</a></li><li><a href="https://finance.ifeng.com/c/8trzMch453D" target="_blank" rel="noopener">凤凰网</a></li><li><a href="https://www.cs.com.cn/ssgs/gsxw/202403/t20240319_6395565.html" target="_blank" rel="noopener">中证网 2024-03-19（天幕备案）</a></li><li><a href="https://www.cs.com.cn/ssgs/gsxw/202508/t20250829_6509936.html" target="_blank" rel="noopener">中证网 2025-08-29（2025 半年报）</a></li><li><a href="https://www.cs.com.cn/ssgs/01/2026/10/27/detail_2026102710047633.html" target="_blank" rel="noopener">中证网 2026-10-27（2026 三季报）</a></li><li><a href="https://stock.10jqka.com.cn/20261027/c681151709.shtml" target="_blank" rel="noopener">同花顺 2026-10-27</a></li><li><a href="http://finance.ce.cn/stock/gsgdbd/202105/31/t20210531_36605093.shtml" target="_blank" rel="noopener">中国经济网 2021-05-31（Google 投放占比）</a></li><li><a href="http://finance.ce.cn/stock/gsgdbd/202404/29/t20240429_38987783.shtml" target="_blank" rel="noopener">中国经济网 2024-04-29（定增）</a></li><li><a href="https://stock.hexun.com/2024-04-26/212689442.html" target="_blank" rel="noopener">和讯 2024-04-26（定增终止）</a></li><li><a href="https://www.yicai.com/news/101773701.html" target="_blank" rel="noopener">第一财经（减持）</a></li><li><a href="http://www.zqrb.cn/gscy/qiyexinxi/2021-04-11/A1618126589590.html" target="_blank" rel="noopener">证券日报 2021-04-11（2021 激励计划）</a></li><li><a href="https://finance.eastmoney.com/a/202601063610219350.html" target="_blank" rel="noopener">东方财富 2026-01（回购进度）</a></li><li><a href="https://wap.stockstar.com/detail/SN2026062400038058" target="_blank" rel="noopener">证券之星 2026-06（新回购方案）</a></li><li><a href="https://caifuhao.eastmoney.com/news/20251010155939796465410" target="_blank" rel="noopener">东方财富财富号 2025-10-10</a></li></ul>
+</main>
+</div>
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>
