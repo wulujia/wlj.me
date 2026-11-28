@@ -2,6 +2,7 @@
 
 ## 2026-11-28
 
+- 新增资料页《墨水屏阅读器与 iPad Pro 纳米纹理版护眼对比》，`static/research/eink-vs-ipad-pro-eye-health/index.html`。对比墨水屏阅读器与最新款 iPad Pro（M4 / M5 纳米纹理玻璃版）长时间读电子书时的眼部负担，按干眼症、近视、老花与频闪敏感拆分临床与实测证据，区分墨水屏的物理优势与营销夸大。
 - 新增资料页《万兴科技四年财报：买量撑住收入，AI 推高成本》，`static/research/wondershare-financials-2022-2026/index.html`。万兴科技营业收入从 2022 年 11.80 亿元升到 2025 年 15.33 亿元，2024 年起连续亏损。本页用 2022–2026 年的年报、半年报和三季报，分析收入、买量效率、AI 成本和产品停服记录。
 - 更新资料页《iPad 与 Apple Pencil Pro 油画入门指南》，`static/research/ipad-oil-painting-guide/index.html`。
 - 新增资料页《iPad 与 Apple Pencil Pro 油画入门指南》，`static/research/ipad-oil-painting-guide/index.html`。针对零基础初学者的平板数字油画调研与分步实操指南，对比 iPad、安卓与鸿蒙主流油画软件与原生笔刷，拆解手写笔侧旋设置，并以一枚侧光红苹果完整演示从新建画布到厚涂高光的五步流程。

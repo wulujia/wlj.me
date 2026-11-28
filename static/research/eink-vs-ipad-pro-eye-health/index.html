@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>墨水屏阅读器与 iPad Pro 纳米纹理版护眼对比</title>
+<meta name="description" content="对比墨水屏阅读器与最新款 iPad Pro（M4 / M5 纳米纹理玻璃版）长时间读电子书时的眼部负担，按干眼症、近视、老花与频闪敏感拆分临床与实测证据，区分墨水屏的物理优势与营销夸大。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wulujia.com/research/eink-vs-ipad-pro-eye-health/">
+<style>
+.compare th[scope="row"] { min-width: 7em; }
+.compare th.pick, .compare td.pick { padding-left: 10px; padding-right: 10px; }
+</style>
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.site-logo__avatar { display: block; width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><img class="site-logo__avatar" src="/avatar.png" alt="Luca 的头像" width="34" height="34"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+<li><a href="/search/">搜索</a></li>
+</ul></nav>
+</header>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+<details open>
+<summary>目录</summary>
+<ul>
+  <li><a href="#optics">两种屏幕的光学差异</a>
+    <ul>
+      <li><a href="#ipad-nano">iPad Pro 纳米纹理玻璃解决了什么</a></li>
+      <li><a href="#eink-optics">墨水屏的反射光路与前光机制</a></li>
+    </ul>
+  </li>
+  <li><a href="#conditions">按眼部状况拆分的影响</a>
+    <ul>
+      <li><a href="#dry-eye">干眼症人群</a></li>
+      <li><a href="#myopia">近视人群</a></li>
+      <li><a href="#presbyopia">老花人群</a></li>
+      <li><a href="#pwm">频闪敏感人群</a></li>
+    </ul>
+  </li>
+  <li><a href="#iq-tax">墨水屏是不是 “智商税”</a>
+    <ul>
+      <li><a href="#marketing-gap">营销夸大的部分</a></li>
+      <li><a href="#real-value">经得起验证的物理优势</a></li>
+      <li><a href="#color-eink">彩色墨水屏的折中代价</a></li>
+    </ul>
+  </li>
+  <li><a href="#selection">选购与用眼建议</a></li>
+  <li><a href="#sources">方法与来源</a></li>
+</ul>
+</details>
+</nav>
+<main id="main" data-pagefind-body>
+<div class="reading-toolbar">
+<a href="/research/">返回研究</a>
+</div>
+<header>
+  <h1>墨水屏阅读器与 iPad&nbsp;Pro 纳米纹理版护眼对比</h1>
+  <p class="lede">对比墨水屏阅读器与最新款 iPad Pro（M4 / M5 纳米纹理玻璃版）长时间读电子书时的眼部负担，按干眼症、近视、老花与频闪敏感拆分证据，并厘清墨水屏的实际边界。</p>
+  <p class="meta"><span>显示光学与眼健康调研</span><span>资料截至 2026-11-27</span><span>对象：电子书阅读器与 OLED 平板</span></p>
+</header>
+
+<section class="summary" aria-label="先说结论">
+  <p class="label">先说结论</p>
+  <p>两种屏幕对健康成人的眼睛均无永久性器质损伤证据，但在阅读舒适度上有明确差异。干眼症患者与低频 PWM 频闪敏感人群用墨水屏的负担明显更低，2021 年一项 119 人随机对照试验显示连续阅读 2 小时后 OLED 组泪膜破裂时间显著缩短，墨水屏组无显著变化<sup><a href="#src-1">1</a></sup>。iPad Pro 的纳米纹理玻璃只散射环境眩光，无法消除下方双层串联 OLED 的自发光与约 240 Hz 低频 PWM 调光<sup><a href="#src-2">2</a>,<a href="#src-3">3</a></sup>。墨水屏硬件本身具有真实光学价值，但 “防近视” “零伤眼” 等宣传属于夸大。</p>
+</section>
+
+<h2 id="optics">两种屏幕的光学差异</h2>
+<p>评估屏幕对眼睛的影响，核心看两条光线路径：进入眼睛的光由谁发出，以及屏幕表面如何处理外部环境光。</p>
+
+<h3 id="ipad-nano">iPad Pro 纳米纹理玻璃解决了什么</h3>
+<p>M4 与 M5 两代 iPad Pro 均采用双层串联 OLED 面板（Apple 命名为 Ultra Retina XDR）<sup><a href="#src-2">2</a></sup>。纳米纹理玻璃仅提供给 1 TB 和 2 TB 存储版本，工艺是在玻璃表层做纳米级化学蚀刻，将头顶灯光和窗户反射的强光向四周漫反射，降低镜面眩光<sup><a href="#src-2">2</a></sup>。</p>
+<p>表层蚀刻无法改变下方发光面板的工作方式。OLED 像素依然向人眼直接发射光线，在偏低亮度区间通过约 240 Hz（Notebookcheck 实测 M4 11 英寸版最差值 239.1 Hz）的脉冲宽度调制（PWM）快速开关像素来控光<sup><a href="#src-3">3</a></sup>。蚀刻层在纯白阅读底色上会带来轻微噪点感，文字边缘锐度略低于普通光面玻璃与高分辨率黑白墨水屏。</p>
+
+<h3 id="eink-optics">墨水屏的反射光路与前光机制</h3>
+<p>黑白墨水屏内部是微胶囊电泳粒子，画面翻页后粒子静止，刷新率为零，不存在 PWM 频闪。关闭内置前光时，屏幕完全依赖日光或台灯照在表面后反射入眼，光学特性接近印刷纸张，自身不发射蓝光<sup><a href="#src-4">4</a></sup>。</p>
+<p>夜间开启前光时，LED 灯珠装在屏幕边框内侧，光束经导光板向下照向墨水层再反射入眼。哈佛大学陈曾熙公共卫生学院 2022 至 2023 年开展的体外视网膜细胞实验显示，配备定制暖光谱前光的墨水屏在细胞活性氧积累指标上，最高可比标准 LCD 屏幕低 3 倍<sup><a href="#src-4">4</a>,<a href="#src-5">5</a></sup>。该实验由 E Ink 公司资助且属于体外细胞研究，用于佐证反射光路压力更低，不能直接等同于人体长期临床结论。</p>
+
+<figure>
+  <svg viewBox="0 0 680 232" role="img" aria-label="iPad Pro 纳米纹理玻璃与墨水屏的光路对比示意图：左侧显示 OLED 自发光穿过纳米纹理玻璃直射人眼并伴随约 240 Hz 频闪，纳米纹理仅散射环境光；右侧显示墨水屏通过反射环境光或边框前光成像，无背光直射与频闪">
+    <rect x="16" y="16" width="308" height="200" rx="4" fill="var(--surface)" stroke="var(--rule-2)" stroke-width="1"/>
+    <rect x="356" y="16" width="308" height="200" rx="4" fill="var(--surface)" stroke="var(--acc)" stroke-width="1.2"/>
+
+    <text x="32" y="40" font-size="14" font-weight="600" fill="currentColor">iPad Pro（纳米纹理 + OLED）</text>
+    <text x="372" y="40" font-size="14" font-weight="600" fill="var(--acc-ink)">墨水屏阅读器（反射式微胶囊）</text>
+
+    <rect x="32" y="132" width="276" height="22" fill="var(--mid)" stroke="var(--rule-2)" stroke-width="1"/>
+    <text x="170" y="147" font-size="11.5" text-anchor="middle" fill="currentColor">纳米纹理玻璃（散射环境眩光）</text>
+    <rect x="32" y="160" width="276" height="24" fill="var(--warn-wash)" stroke="var(--warn)" stroke-width="1"/>
+    <text x="170" y="176" font-size="11.5" text-anchor="middle" fill="var(--warn)">双层串联 OLED（自发光 · 约 240 Hz PWM）</text>
+
+    <g stroke="var(--warn)" stroke-width="2" fill="none">
+      <line x1="130" y1="130" x2="130" y2="78"/>
+      <polyline points="125,85 130,76 135,85"/>
+      <line x1="175" y1="130" x2="175" y2="78"/>
+      <polyline points="170,85 175,76 180,85"/>
+      <line x1="220" y1="130" x2="220" y2="78"/>
+      <polyline points="215,85 220,76 225,85"/>
+    </g>
+    <g stroke="currentColor" stroke-opacity=".45" stroke-width="1.4" stroke-dasharray="4 3" fill="none">
+      <line x1="54" y1="74" x2="84" y2="130"/>
+      <line x1="84" y1="130" x2="66" y2="98"/>
+      <line x1="84" y1="130" x2="100" y2="98"/>
+    </g>
+    <text x="54" y="66" font-size="11" text-anchor="middle" fill="var(--ink-3)">环境光</text>
+    <text x="175" y="66" font-size="12" text-anchor="middle" fill="var(--warn)">自发光直射眼睛</text>
+    <text x="32" y="203" font-size="11.5" fill="var(--ink-3)">镜面反光减少，但底层仍为自发光与频闪</text>
+
+    <rect x="372" y="132" width="276" height="22" fill="var(--mid)" stroke="var(--rule-2)" stroke-width="1"/>
+    <text x="510" y="147" font-size="11.5" text-anchor="middle" fill="currentColor">雾面导光层（边框暖色前光，可关闭）</text>
+    <rect x="372" y="160" width="276" height="24" fill="var(--acc-wash)" stroke="var(--acc)" stroke-width="1"/>
+    <text x="510" y="176" font-size="11.5" text-anchor="middle" fill="var(--acc-ink)">电子墨水微胶囊（静止成像 · 0 Hz 频闪）</text>
+
+    <g stroke="currentColor" stroke-opacity=".5" stroke-width="1.5" fill="none">
+      <line x1="422" y1="74" x2="462" y2="130"/>
+      <polyline points="454,126 462,131 463,121"/>
+    </g>
+    <g stroke="var(--acc)" stroke-width="2" fill="none">
+      <line x1="466" y1="130" x2="508" y2="78"/>
+      <polyline points="500,82 508,76 509,86"/>
+      <line x1="560" y1="130" x2="560" y2="78"/>
+      <polyline points="555,85 560,76 565,85"/>
+    </g>
+    <text x="422" y="66" font-size="11" text-anchor="middle" fill="var(--ink-3)">环境光</text>
+    <text x="536" y="66" font-size="12" text-anchor="middle" fill="var(--acc-ink)">漫反射入眼</text>
+    <text x="372" y="203" font-size="11.5" fill="var(--ink-3)">无背光直射；暗处需开台灯或暖色前光</text>
+  </svg>
+  <figcaption>纳米纹理玻璃只作用于表层环境反光，墨水屏从发光机制上取消了背光直射与低频 PWM 频闪。</figcaption>
+  <details>
+    <summary>展开光学参数对照表</summary>
+    <div class="tbl">
+      <table>
+        <caption>墨水屏阅读器与 iPad Pro（纳米纹理版）基础光学参数</caption>
+        <thead>
+          <tr>
+            <th scope="col">维度</th>
+            <th scope="col">黑白墨水屏阅读器</th>
+            <th scope="col">iPad Pro（M4 / M5 纳米纹理版）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">光源类型</th>
+            <td>反射环境光；可选边框导光前光</td>
+            <td>双层串联 OLED 像素自发光</td>
+          </tr>
+          <tr>
+            <th scope="row">PWM 频闪</th>
+            <td>无（画面静止后 0 Hz）</td>
+            <td>低亮度下约 240 Hz（M4 实测 239.1 Hz）<sup><a href="#src-3">3</a></sup></td>
+          </tr>
+          <tr>
+            <th scope="row">抗眩光能力</th>
+            <td>雾面表层，日光下清晰可读</td>
+            <td>纳米蚀刻大幅减少镜面反光，强日光下仍依赖高亮度对抗</td>
+          </tr>
+          <tr>
+            <th scope="row">暗光对比度</th>
+            <td>关闭前光时偏灰，需外部照明或开启前光</td>
+            <td>极高对比度，暗光下文字依然清晰</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</figure>
+
+<h2 id="conditions">按眼部状况拆分的影响</h2>
+<p>屏幕差异对不同眼部状况的影响程度悬殊，不能混为一谈。</p>
+
+<h3 id="dry-eye">干眼症人群</h3>
+<p>干眼症是两类设备拉开差距最大的场景。2021 年发表于 <em>Clinical and Translational Science</em> 的随机对照研究招募 119 名受试者，分别在亮、暗两种环境中用 OLED 手机和墨水屏阅读 2 小时<sup><a href="#src-1">1</a></sup>。结果显示，OLED 组在两种环境下都出现非侵入性泪膜破裂时间（NIBUT）、荧光素泪膜破裂时间（FBUT）与泪河高度的显著下降，结膜充血和眼表疾病指数（OSDI）同步恶化；墨水屏组在同等 2 小时阅读后，上述泪膜稳定性指标无统计学显著下降<sup><a href="#src-1">1</a></sup>。</p>
+<p>自发光屏幕的高亮度刺激会干扰正常瞬目反射，加速泪膜蒸发。对干眼症患者，在充足台灯下关闭前光阅读墨水屏，能明显减轻干涩、刺痛与异物感。</p>
+
+<h3 id="myopia">近视人群</h3>
+<p>在相同阅读距离和时长下，墨水屏与 iPad Pro 对近视加深的影响没有本质差别。推动近视进展的主因是长时间近距离用眼引发的调节滞后，以及缺乏户外自然光暴露，无关屏幕是否自发光<sup><a href="#src-6">6</a></sup>。</p>
+<p>墨水屏唯一的间接优势在户外场景。强阳光下 OLED 屏幕对比度下降，迫使读者回到室内；墨水屏在户外日光下反而最清晰，能配合增加户外自然光暴露。对成年近视且度数已稳定的人群，选设备时应优先看干眼与视疲劳表现，不必为防近视买单。</p>
+
+<h3 id="presbyopia">老花人群</h3>
+<p>老花源于晶状体弹性下降、近距离聚焦能力减退。两类电子设备都支持自由放大字号与行距，比固定字号的纸质书友好得多。随着年龄增长，晶状体对眩光的散射更敏感，墨水屏零频闪、低眩光的雾面观感能减少继发性眉弓酸胀和头痛。</p>
+<div class="warn"><b>老花人群使用提醒</b>老花眼对画面对比度要求高于年轻人。室内光线偏暗时，不开前光的墨水屏底色发灰，反而会加重聚焦吃力。使用墨水屏阅读时，应打开充足的桌面台灯或将暖色前光调至清晰舒适的档位。</div>
+
+<h3 id="pwm">频闪敏感人群</h3>
+<p>约 240 Hz 属于移动设备中的偏低频 PWM 区间<sup><a href="#src-3">3</a></sup>。多数人对这个频率无感，但对频闪敏感的用户在低亮度看 OLED 屏幕十几分钟就会出现眼胀、眉心紧绷甚至轻度头痛。纳米纹理玻璃不改变底层驱动方式，无法缓解 PWM 不适。存在此类症状的读者，使用墨水屏或采用无频闪 LCD 面板的 iPad Air，体感会比最新款 OLED iPad Pro 轻松。</p>
+
+<div class="tbl">
+  <table class="compare">
+    <caption>四类人群使用两类设备的眼部负担对比</caption>
+    <thead>
+      <tr>
+        <th scope="col">人群 / 场景</th>
+        <th scope="col" class="pick">黑白墨水屏阅读器</th>
+        <th scope="col">iPad Pro（纳米纹理版）</th>
+        <th scope="col">核心决定因素</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">干眼症</th>
+        <td class="pick"><span class="pill good">明显占优</span> 泪膜波动小，眼干症状轻</td>
+        <td><span class="pill bad">负担较高</span> 自发光加速泪膜不稳定</td>
+        <td>光源直射与瞬目节律<sup><a href="#src-1">1</a></sup></td>
+      </tr>
+      <tr>
+        <th scope="row">近视控制</th>
+        <td class="pick"><span class="pill warn">基本持平</span> 仅户外可读带来间接加分</td>
+        <td><span class="pill warn">基本持平</span> 强光下难在户外阅读</td>
+        <td>阅读距离、时长与户外光照<sup><a href="#src-6">6</a></sup></td>
+      </tr>
+      <tr>
+        <th scope="row">老花阅读</th>
+        <td class="pick"><span class="pill good">小幅占优</span> 眩光低，但暗处须补光</td>
+        <td><span class="pill warn">中等</span> 对比度高，但存在频闪与微颗粒</td>
+        <td>字号缩放、高对比度与低眩光</td>
+      </tr>
+      <tr>
+        <th scope="row">PWM 频闪敏感</th>
+        <td class="pick"><span class="pill good">明显占优</span> 静态零频闪</td>
+        <td><span class="pill bad">不友好</span> 低亮度约 240 Hz 频闪<sup><a href="#src-3">3</a></sup></td>
+        <td>OLED 驱动方式（纳米玻璃无效）</td>
+      </tr>
+      <tr>
+        <th scope="row">图文 / PDF / 论文</th>
+        <td class="pick"><span class="pill bad">体验偏弱</span> 翻页缩放慢，彩屏偏暗</td>
+        <td><span class="pill good">明显占优</span> 大屏流畅批注与色彩准确</td>
+        <td>刷新率、色彩与交互效率</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="iq-tax">墨水屏是不是 “智商税”</h2>
+<p>判断一样硬件算不算 “智商税”，要拆开厂商的广告话术和硬件本身的物理特性。</p>
+
+<h3 id="marketing-gap">营销夸大的部分</h3>
+<p>部分厂商把墨水屏包装成 “护眼专用屏” “不伤眼” “预防近视”。这类说法站不住脚。美国眼科学会指出，日常电子屏幕的蓝光没有造成永久性视网膜损伤的临床证据，数码视疲劳的核心来自长时间盯近处和眨眼减少<sup><a href="#src-6">6</a>,<a href="#src-7">7</a></sup>。在昏暗房间里贴近屏幕连读 3 小时小说，换任何墨水屏一样会眼酸视疲劳。</p>
+
+<h3 id="real-value">经得起验证的物理优势</h3>
+<p>剥离夸大宣传后，黑白墨水屏有五项平板难以替代的真实特性：反射式成像对干眼症友好、静止显示零频闪、烈日下无需拉高亮度即可清晰阅读、整机轻且续航按周计算、系统封闭无弹窗通知干扰。对每天连续读纯文字超过 1 小时的人，这些特性值回票价。</p>
+
+<h3 id="color-eink">彩色墨水屏的折中代价</h3>
+<p>目前主流彩色墨水屏（如 Kaleido 3 方案）在黑白层上方叠加了一层彩色滤光片，导致自然反射率显著下降、底色明显发灰。多数用户在室内不得不把前光调到中高亮度才能看清，这会削弱墨水屏原本不依赖自发光的核心优势。如果阅读内容以彩色杂志、漫画或带图表 PDF 为主，直接用 iPad Pro 更划算。</p>
+
+<h2 id="selection">选购与用眼建议</h2>
+<p>按阅读习惯与眼部状态做取舍，不必两台都买：</p>
+<ul>
+  <li>有干眼症、对 OLED 频闪敏感，或习惯每天连续阅读纯文字书籍 1 小时以上，选购黑白墨水屏阅读器。</li>
+  <li>眼部健康、单次阅读在 30 分钟以内，或主要看论文 PDF、财报图表与彩色图文，继续用纳米纹理版 iPad Pro 即可，无需额外购机。</li>
+  <li>已经对 iPad Pro 产生频闪不适但仍需平板功能，可改用无频闪 LCD 面板的 iPad Air，或在 iPad Pro 上尽量避免极低亮度阅读。</li>
+  <li>无论使用哪种设备，阅读距离保持在 40 cm 以上，遵守 20-20-20 法则（每 20 分钟向 6 米外远眺 20 秒），并确保环境光均匀柔和<sup><a href="#src-6">6</a></sup>。</li>
+</ul>
+
+<h2 id="sources">方法与来源</h2>
+<p>本页结论综合眼科临床对照研究、第三方显示实验室 PWM 实测数据、Apple 官方硬件规格与美国眼科学会临床科普指南，资料核对日期为 2026 年 11 月 27 日。现有公开文献的局限有两处：其一，暂缺直接将 2024 至 2026 年款纳米纹理玻璃版 iPad Pro 与墨水屏放在同一队列中测泪膜破裂时间的随机对照试验，本文依据两类底层面板（OLED 与墨水屏）的临床试验结果及纳米纹理玻璃的光学原理进行推演；其二，M5 iPad Pro 延续 M4 的双层串联 OLED 架构，公开的独立实验室 PWM 逐档实测数值仍以 M4 代评测为主要依据。</p>
+<ol class="sources">
+  <li id="src-1">Yujie Mou, Yaying Wu 等，《Effects on the Ocular Surface from Reading on Different Smartphone Screens: A Prospective Randomized Controlled Study》，<em>Clinical and Translational Science</em>，2021 年（PMID: 33230911），<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8212737/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov/articles/PMC8212737</a></li>
+  <li id="src-2">Apple，《iPad Pro Technical Specifications》（含双层串联 OLED 与 1 TB / 2 TB 纳米纹理玻璃说明），核对日 2026-11-27，<a href="https://www.apple.com/ipad-pro/specs/" target="_blank" rel="noopener">apple.com/ipad-pro/specs</a></li>
+  <li id="src-3">Notebookcheck，《Apple iPad Pro 11 (2024) tablet review》（实测低亮度 PWM 频率 239.1 Hz），2024 年，<a href="https://www.notebookcheck.net/Apple-iPad-Pro-11-2024-tablet-review-Lighter-slimmer-and-lightning-fast.842302.0.html" target="_blank" rel="noopener">notebookcheck.net</a></li>
+  <li id="src-4">E Ink（引用哈佛大学陈曾熙公共卫生学院研究），《Harvard Study Shows E Ink ePaper is Three Times Healthier for Your Eyes Than LCD Screens》，2023 年，<a href="https://www.eink.com/news/detail/harvard-study-shows-e-ink-epaper-is-three-times-healthier-for-your-eyes-than-lcd-screens" target="_blank" rel="noopener">eink.com</a></li>
+  <li id="src-5">Journal of the Society for Information Display，哈佛公共卫生学院视网膜细胞光氧化应激论文（DOI: 10.1002/jsid.1191），2023 年，<a href="https://sid.onlinelibrary.wiley.com/doi/10.1002/jsid.1191" target="_blank" rel="noopener">onlinelibrary.wiley.com</a></li>
+  <li id="src-6">American Academy of Ophthalmology（AAO），《Computers, Digital Devices and Eye Strain》（20-20-20 法则与用眼距离建议），<a href="https://www.aao.org/eye-health/tips-prevention/computer-usage" target="_blank" rel="noopener">aao.org/eye-health/tips-prevention/computer-usage</a></li>
+  <li id="src-7">American Academy of Ophthalmology（AAO），《Should You Be Worried About Blue Light?》，<a href="https://www.aao.org/eye-health/news/should-you-be-worried-about-blue-light" target="_blank" rel="noopener">aao.org/eye-health/news/should-you-be-worried-about-blue-light</a></li>
+</ol>
+</main>
+</div>
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

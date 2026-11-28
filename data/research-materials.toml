@@ -1203,3 +1203,16 @@ year = "2026"
 description = "万兴科技营业收入从 2022 年 11.80 亿元升到 2025 年 15.33 亿元，2024 年起连续亏损。本页用 2022–2026 年的年报、半年报和三季报，分析收入、买量效率、AI 成本和产品停服记录。"
 original_url = ""
 research_url = "/research/wondershare-financials-2022-2026/"
+
+[[materials]]
+slug = "eink-vs-ipad-pro-eye-health"
+title = "墨水屏阅读器与 iPad Pro 纳米纹理版护眼对比"
+subtitle = ""
+author = "公开资料整理"
+category = "report"
+tags = ["Reading", "Health", "Tech"]
+date = "2026-11-28T10:33:22+08:00"
+year = "2026"
+description = "对比墨水屏阅读器与最新款 iPad Pro（M4 / M5 纳米纹理玻璃版）长时间读电子书时的眼部负担，按干眼症、近视、老花与频闪敏感拆分临床与实测证据，区分墨水屏的物理优势与营销夸大。"
+original_url = ""
+research_url = "/research/eink-vs-ipad-pro-eye-health/"
