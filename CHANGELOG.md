@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-28
+
+- 新增资料页《iPad 与 Apple Pencil Pro 油画入门指南》，`static/research/ipad-oil-painting-guide/index.html`。针对零基础初学者的平板数字油画调研与分步实操指南，对比 iPad、安卓与鸿蒙主流油画软件与原生笔刷，拆解手写笔侧旋设置，并以一枚侧光红苹果完整演示从新建画布到厚涂高光的五步流程。
+
 ## 2026-11-24
 
 - 删除 `AGENTS.md`，agent 规则只保留 `CLAUDE.md` 一份。`AGENTS.md` 独有的规则已移入 `CLAUDE.md`：保留 SEO 元信息、结构化数据用 JSON-LD、不批量生成低信息量页面、公开邮箱加 `email_off`、改模板后的本地检查、`research_tags.py check`。“用中文回复”一条不再保留，以全局规则为准。

@@ -1164,3 +1164,16 @@ year = "2026"
 description = "不依赖管理服务器、能按白名单拦截程序执行的开源主机防护工具，macOS 与 Linux 各有哪些选择，怎么上线。"
 original_url = ""
 research_url = "/research/hids-allowlist/"
+
+[[materials]]
+slug = "ipad-oil-painting-guide"
+title = "iPad 与 Apple Pencil Pro 油画入门指南"
+subtitle = "iPad、安卓与鸿蒙平板油画软件选型与五步静物实操"
+author = "公开资料整理"
+category = "misc"
+tags = ["Creativity", "Tools"]
+date = "2026-11-28T09:23:39+08:00"
+year = "2026"
+description = "针对零基础初学者的平板数字油画调研与分步实操指南，对比 iPad、安卓与鸿蒙主流油画软件与原生笔刷，拆解手写笔侧旋设置，并以一枚侧光红苹果完整演示从新建画布到厚涂高光的五步流程。"
+original_url = ""
+research_url = "/research/ipad-oil-painting-guide/"
