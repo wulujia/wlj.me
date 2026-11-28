@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Agent 工具选型：手机、多主机与研究写作</title>
+<meta name="description" content="比较 Amp、Herdr、Orca、Cindy、Happy、Open WebUI 等工具，场景是常出差、手机含鸿蒙 NEXT、固定 Mac 与 Linux 主机、以研究写作为主。结论：主力用 Cindy，记忆存为自有 Markdown，鸿蒙只走浏览器。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://wulujia.com/research/agent-tool-selection-2026-11/">
+<style id="reading-style">
+:root {
+  color-scheme: light;
+  /* Solarized Light, the same base as the site theme; text is darker for 4.5:1 contrast. */
+  --bg: #fdf6e3;
+  --surface: #fffcf2;
+  --ink: #28383d;
+  --ink-2: #45565b;
+  --ink-3: #5b6a6e;          --rule: #e6dfca;
+  --rule-2: #c8c1ab;
+  --mid: #eee8d5;
+  --acc: #2aa198;            --acc-ink: #17635d;        --acc-wash: rgba(42, 161, 152, .10);
+  --good: #2c7a3a; --warn: #8a5d00; --bad: #b3261e;
+  --good-wash: rgba(44,122,58,.10); --warn-wash: rgba(154,106,0,.12); --bad-wash: rgba(179,38,30,.10);
+  --font-body: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Noto Sans Mono CJK SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+    --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+    --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+    --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+    --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #002b36; --surface: #073642; --ink: #d2dbdb; --ink-2: #adbaba; --ink-3: #93a1a1;
+  --rule: #0e4250; --rule-2: #2f5d68; --mid: #073642;
+  --acc: #2aa198; --acc-ink: #5cc8bf; --acc-wash: rgba(42,161,152,.16);
+  --good: #6fc27d; --warn: #e0b34a; --bad: #ef8a83;
+  --good-wash: rgba(111,194,125,.14); --warn-wash: rgba(224,179,74,.14); --bad-wash: rgba(239,138,131,.14);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.8;
+  text-autospace: normal; font-kerning: normal; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--acc-ink); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 720px); gap: 56px; max-width: 1044px; margin: 0 auto; padding: 40px 24px 48px; }
+main { min-width: 0; }
+.outline { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 13px; line-height: 1.55; }
+.outline .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.outline ul { list-style: none; margin: 0; padding: 0; }
+.outline > ul > li { margin: 0 0 7px; }
+.outline > ul > li > a { font-weight: 600; }
+.outline ul ul { margin: 3px 0 6px 10px; padding-left: 10px; border-left: 1px solid var(--rule); }
+.outline ul ul li { margin: 0 0 2px; }
+.outline a { color: var(--ink-2); text-decoration: none; display: block; padding: 1px 0; }
+.outline a:hover { color: var(--ink); }
+.outline a.active { color: var(--acc-ink); }
+.outline summary { display: none; }
+@media (min-width: 901px) {
+  .outline details > ul { display: block !important; }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding: 28px 18px 72px; }
+  .outline { position: static; max-height: none; border: 1px solid var(--rule); padding: 10px 14px; }
+  .outline .label { display: none; }
+  .outline summary { display: block; cursor: pointer; font-weight: 600; }
+  .outline details:not([open]) ul { display: none; }
+}
+
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 12px; text-wrap: pretty; }
+.meta { font-size: 13px; color: var(--ink-3); margin: 0 0 40px; }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.35; margin: 56px 0 14px; padding-top: 20px; border-top: 1px solid var(--rule-2); text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 600; margin: 32px 0 10px; }
+h4 { font-size: 15px; font-weight: 600; color: var(--ink-2); margin: 24px 0 8px; }
+p, li { text-wrap: pretty; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; margin: 0 0 1em; }
+li { margin: 0 0 .35em; }
+strong { font-weight: 600; }
+blockquote { margin: 1.2em 0; padding: 0 0 0 1.4em; color: var(--ink-2); }
+blockquote cite { display: block; font-size: 13px; color: var(--ink-3); font-style: normal; margin-top: 4px; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--mid); padding: 1px 5px; border-radius: 3px; }
+pre { overflow-x: auto; background: var(--mid); padding: 12px 14px; font-size: 13px; line-height: 1.6; margin: 0 0 1.2em; }
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); }
+
+.summary { border: 1px solid var(--rule-2); background: var(--surface); padding: 18px 20px; margin: 0 0 40px; }
+.summary .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.summary p:last-child { margin: 0; }
+
+.note, .warn, .decision, .todo { border-left: 3px solid var(--rule-2); padding: 10px 16px; margin: 1.2em 0; background: var(--acc-wash); }
+.note { border-color: var(--acc); }
+.warn { border-color: var(--warn); background: var(--warn-wash); }
+.decision { border-color: var(--good); background: var(--good-wash); }
+.todo { border-color: var(--bad); background: var(--bad-wash); }
+.note b:first-child, .warn b:first-child, .decision b:first-child, .todo b:first-child { margin-right: .5em; }
+.note p:last-child, .warn p:last-child, .decision p:last-child, .todo p:last-child { margin: 0; }
+
+.tbl { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.55; }
+caption { text-align: left; font-weight: 600; padding: 0 0 8px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-2); }
+th[scope="row"] { font-weight: 600; color: var(--ink); font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--rule); }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--rule-2); font-weight: 600; }
+.compare th.pick { background: var(--acc-wash); color: var(--acc-ink); }
+.compare td.pick { background: var(--acc-wash); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); margin: 0 0 1.6em; }
+.stats > div { background: var(--surface); padding: 12px 14px; }
+.stats b { display: block; font-family: var(--font-mono); font-size: 22px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.stats i { font-style: normal; font-size: 12.5px; color: var(--ink-2); }
+
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14.5px; margin: 0 0 1.4em; }
+.kv dt { color: var(--ink-3); margin: 0; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 1.6em; border-left: 1px solid var(--rule-2); }
+.timeline li { display: grid; grid-template-columns: 7ch 1fr; gap: 14px; padding: 0 0 14px 18px; position: relative; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+.timeline time { font-family: var(--font-mono); font-size: 13px; color: var(--ink-3); }
+
+figure { margin: 1.6em 0; }
+figure svg { width: 100%; height: auto; display: block; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+figure details { font-size: 13.5px; margin-top: 6px; }
+figure summary { cursor: pointer; color: var(--ink-3); }
+
+.pill { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.6; padding: 0 8px; border-radius: 3px; background: var(--acc-wash); color: var(--acc-ink); box-shadow: inset 0 0 0 1px var(--acc); vertical-align: middle; }
+.pill.good { background: var(--good-wash); color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.pill.warn { background: var(--warn-wash); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+.pill.bad { background: var(--bad-wash); color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+
+.sources { font-size: 14px; color: var(--ink-2); }
+.sources li { margin: 0 0 .5em; word-break: break-word; }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 11px; }
+
+@page { size: A4; margin: 20mm 22mm 22mm; @bottom-center { content: counter(page); font-size: 9pt; color: #555; } }
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc-wash: #f2f2f2; }
+  html { font-size: 11pt; }
+  body { font-size: 11pt; background: #fff; color: #000; line-height: 1.6; font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif; }
+  th { border-bottom-width: .6pt; }
+  td { border-bottom-width: .25pt; }
+  tfoot td { border-top-width: .6pt; }
+  .layout { display: block; max-width: none; padding: 0; }
+  .outline, .skip { display: none; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  figure, pre, .note, .warn, .decision, .todo, .stats, .summary { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  a { color: #000; }
+  .sources a[href^="http"]::after, p a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 85%; color: #555; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Shared controls and narrow-screen safeguards. */
+body { overflow-wrap: anywhere; }
+main img { max-width: 100%; height: auto; }
+main iframe, main video { max-width: 100%; }
+main > *, .layout > * { min-width: 0; }
+[id] { scroll-margin-top: 24px; }
+.reading-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 24px; font-size: 13px; }
+
+/* Site header and footer: the same logo bar, menu and footer as the Hugo theme. */
+/* Fira Code is the site font; the files come from the theme at /fonts/. Chinese text falls back to system fonts. */
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 300 700; font-display: swap; src: url("/fonts/FiraCode-Latin.woff2") format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.site-header, .site-footer { font-family: "Fira Code", var(--font-mono); max-width: 1044px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header { padding-top: 40px; }
+.site-logo-bar { display: flex; }
+.site-logo-bar::after { content: ""; flex: 1; display: block; background: repeating-linear-gradient(90deg, var(--acc), var(--acc) 2px, transparent 0, transparent 10px); }
+.site-logo-bar a { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.site-logo__avatar { display: block; width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto; }
+.site-logo { display: flex; align-items: center; background: var(--acc); color: var(--bg); font-weight: bold; padding: 5px 10px; margin-right: 8px; }
+.site-menu ul { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; margin: 20px 1px 0; padding: 0; }
+.site-menu a { color: var(--acc-ink); }
+.site-menu a[aria-current="page"] { text-decoration: none; border-bottom: 1px solid currentColor; }
+.site-footer { padding-top: 24px; padding-bottom: 40px; text-align: center; font-size: 13px; color: var(--ink-3); }
+.site-footer a { color: inherit; }
+.theme-toggle { background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: bold; cursor: pointer; }
+.theme-toggle:hover { color: var(--acc-ink); }
+@media (max-width: 900px) { .site-header { padding-top: 24px; padding-left: 18px; padding-right: 18px; } }
+.outline .outline-sub { padding-left: 14px; font-weight: 400; }
+@media (max-width: 900px) {
+  h1 { font-size: 28px; }
+  .outline details[open] > ul { max-height: 55vh; overflow-y: auto; margin-top: 12px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kv dd { margin-bottom: 10px; }
+}
+@media print {
+  :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --surface: #fff; --ink: #000; --ink-2: #222; --ink-3: #555; --rule: #bbb; --rule-2: #888; --mid: #f0f0f0; --acc: #222; --acc-ink: #222; --acc-wash: #f2f2f2; }
+  .reading-toolbar, .site-header, .site-footer { display: none; }
+  .tbl, pre { overflow: visible; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  table { break-inside: auto; }
+}
+</style>
+</head>
+<body data-reading-version="1">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header" id="site-header">
+<div class="site-logo-bar"><a href="/"><img class="site-logo__avatar" src="/avatar.png" alt="Luca 的头像" width="34" height="34"><span class="site-logo">Luca&#x27;s Blog</span></a></div>
+<nav class="site-menu" aria-label="站点导航"><ul>
+<li><a href="/featured/">精选</a></li>
+<li><a href="/posts/">日志</a></li>
+<li><a href="/research/" aria-current="page">研究</a></li>
+<li><a href="/notes/">笔记</a></li>
+<li><a href="/startupnotes/">创业笔记</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/tags/">标签</a></li>
+<li><a href="/about/">关于</a></li>
+<li><a href="/search/">搜索</a></li>
+</ul></nav>
+</header>
+<div class="layout">
+<nav class="outline" aria-label="目录">
+<details open>
+<summary>目录</summary>
+<ul>
+<li><a href="#pick">结论和配置</a>
+</li>
+<li><a href="#types">产品分类</a>
+<ul>
+<li><a href="#stars">GitHub 星标</a></li>
+</ul></li>
+<li><a href="#mobile">手机与鸿蒙</a>
+<ul>
+<li><a href="#travel">出差时的连接</a></li>
+</ul></li>
+<li><a href="#hosts">办公室和家里的主机</a>
+</li>
+<li><a href="#work">研究、写作、设计</a>
+</li>
+<li><a href="#memory">记忆迁移</a>
+</li>
+<li><a href="#open">开放程度与商业模式</a>
+</li>
+<li><a href="#privacy">隐私</a>
+</li>
+<li><a href="#trial">试用方法</a>
+</li>
+<li><a href="#method">方法与来源</a>
+</li>
+</ul>
+</details>
+</nav>
+<main id="main" data-pagefind-body>
+<div class="reading-toolbar">
+<a href="/research/">返回研究</a>
+</div>
+<header>
+<h1>AI Agent 工具选型：手机、多主机与研究写作</h1>
+<p class="lede">比较 Amp、Herdr、Orca、Cindy，以及 Happy、Open WebUI、OpenCode 等高星产品。场景是常出差，手机有 iOS、Android 和鸿蒙 NEXT，办公室和家里有固定的 Mac、Linux，工作以研究、写作、设计为主。</p>
+<p class="meta">产品调研 · 2026-11-28 · 未做真机与跨境网络测试</p>
+</header>
+<section class="summary" aria-label="摘要">
+<p>主力用 Cindy：任务跑在办公室和家里的固定电脑上，用 iOS 或 Android 手机接手。记忆写成自己的 Markdown 文件放 git，不存在任何一款产品里。鸿蒙 NEXT 没有一款原生支持，只当浏览器副机。Herdr、Orca 等编程调度台不用试；Amp 只在要云端机器、内容不敏感时补位。</p>
+</section>
+<h2 id="pick">结论和配置</h2>
+<p>选型条件有五条：手机是 iOS、Android 和鸿蒙 NEXT；人常出差；办公室和家里各有固定的 Mac、Linux；工作以研究、写作、设计为主，研发少；记忆要能带走。按这五条筛，答案比较清楚。</p>
+<ol><li>主力用 Cindy。任务跑在办公室和家里的固定电脑上，出差时用 iOS 或 Android 手机接手。这批产品里，只有它把研究、写文件、做 HTML 和远程看桌面放在同一个对话里，也不按代码仓库组织工作。客户端 Apache-2.0，自带模型密钥时免费。<sup><a href="#src-1" aria-label="来源 1">[1]</a><a href="#src-2" aria-label="来源 2">[2]</a><a href="#src-3" aria-label="来源 3">[3]</a></sup></li><li>记忆写在自己的文件里，放 git。偏好、项目背景、写作规则、技能都写成 Markdown。Amp、Orca、Happy 都读 AGENTS.md 这类指令文件，Cindy 的记忆本身也是 Markdown。换工具时文件跟着走，产品内的记忆只当缓存。<sup><a href="#src-4" aria-label="来源 4">[4]</a><a href="#src-5" aria-label="来源 5">[5]</a><a href="#src-6" aria-label="来源 6">[6]</a><a href="#src-7" aria-label="来源 7">[7]</a></sup></li><li>鸿蒙 NEXT 手机当副机。主要候选都没有原生鸿蒙应用，只能走浏览器。用它看报告、回审批、发短指令，长任务和附件交给另一部手机。<sup><a href="#src-2" aria-label="来源 2">[2]</a><a href="#src-8" aria-label="来源 8">[8]</a><a href="#src-9" aria-label="来源 9">[9]</a><a href="#src-10" aria-label="来源 10">[10]</a><a href="#src-11" aria-label="来源 11">[11]</a></sup></li><li>需要“家里电脑关了也能跑”时，加 Amp 当云端补位，只放不敏感的任务。Amp 的线程、工具结果和附件都存在它的服务器上。<sup><a href="#src-12" aria-label="来源 12">[12]</a><a href="#src-13" aria-label="来源 13">[13]</a></sup></li></ol>
+<p>其余产品不用试。Herdr、Orca、Vibe Kanban、Paradev、Agent Orchestrator 都是给同时写好几路代码的人做的，核心是终端、仓库、worktree 和 PR。研发少的人用不上这些长处，却要承担它们的配置成本。</p>
+<div class="warn"><p>两个限制要先知道。Cindy 的远程任务在你自己的电脑上执行，电脑休眠或断网，任务就停。Cindy 隐私政策写明数据可能传到中国或其他地区，并提示不要输入商业秘密。公司未公开的材料，用直连模型的方式跑，或者不放进任何一款托管服务。<sup><a href="#src-1" aria-label="来源 1">[1]</a><a href="#src-14" aria-label="来源 14">[14]</a></sup></p></div>
+<div class="note"><p>Happy 是备选。它只做一件事：用手机遥控电脑上的 Claude Code 和 Codex，设备之间端到端加密，MIT 开源，免费。如果用下来 Cindy 的手机端不顺手，或者更在意手机到电脑这一段的加密，换 Happy。<sup><a href="#src-11" aria-label="来源 11">[11]</a><a href="#src-15" aria-label="来源 15">[15]</a></sup></p></div>
+<h2 id="types">产品分类</h2>
+<p>这几款产品经常被放在一起比，其实做的事不同。按“它管什么”分，有五类。</p>
+<div class="tbl"><table class="responsive"><caption>按产品管的东西分类</caption><thead><tr><th scope="col">类别</th><th scope="col">产品</th><th scope="col">它管什么</th><th scope="col">对研究写作的用处</th></tr></thead><tbody><tr><th scope="row">编程调度台</th><td data-label="产品">Herdr、Orca、Vibe Kanban、Paradev、Agent Orchestrator</td><td data-label="它管什么">多个编程 Agent 的终端、worktree、代码审查、PR</td><td data-label="对研究写作的用处">小。长处都在代码上</td></tr><tr><th scope="row">编程 Agent</th><td data-label="产品">Amp、OpenCode</td><td data-label="它管什么">Agent 本身：模型、工具、上下文</td><td data-label="对研究写作的用处">中。能做网页研究和文件，但界面按写代码设计</td></tr><tr><th scope="row">手机遥控</th><td data-label="产品">Happy</td><td data-label="它管什么">用手机操作电脑上的 Claude Code、Codex</td><td data-label="对研究写作的用处">中。管连接，不管资料和交付物</td></tr><tr><th scope="row">通用工作台</th><td data-label="产品">Cindy</td><td data-label="它管什么">多种 Agent、多台电脑、文件、记忆、技能</td><td data-label="对研究写作的用处">大。按任务和对话组织，不按仓库</td></tr><tr><th scope="row">资料库</th><td data-label="产品">Open WebUI</td><td data-label="它管什么">自建服务器上的对话、知识库和检索</td><td data-label="对研究写作的用处">中。适合长期资料库，不能远程操作电脑</td></tr></tbody></table></div>
+<p>Amp 有点特殊。它有自己的 Agent，也能把 Claude Code 当成模型来用，还卖托管机器。它是这批里唯一闭源、按用量收费的。<sup><a href="#src-16" aria-label="来源 16">[16]</a><a href="#src-17" aria-label="来源 17">[17]</a></sup></p>
+<h3 id="stars">GitHub 星标</h3>
+<p>星标说明关注度，不说明好不好用。下表是 2026-11-28 页面显示的近似值，k 表示千。</p>
+<div class="tbl"><table class="responsive compare"><caption>2026-11-28 GitHub 星标</caption><thead><tr><th scope="col">产品</th><th scope="col">星标</th><th scope="col">许可证</th></tr></thead><tbody><tr><th scope="row">OpenCode<sup><a href="#src-18" aria-label="来源 18">[18]</a></sup></th><td data-label="星标" class="num">229.6k</td><td data-label="许可证">开源</td></tr><tr><th scope="row">Open WebUI<sup><a href="#src-19" aria-label="来源 19">[19]</a></sup></th><td data-label="星标" class="num">159.7k</td><td data-label="许可证">源码公开，带品牌条款</td></tr><tr><th scope="row">Orca<sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></th><td data-label="星标" class="num">142.4k</td><td data-label="许可证">MIT</td></tr><tr><th scope="row">Herdr TUI<sup><a href="#src-21" aria-label="来源 21">[21]</a></sup></th><td data-label="星标" class="num">53.3k</td><td data-label="许可证">Apache-2.0</td></tr><tr><th scope="row">Vibe Kanban<sup><a href="#src-22" aria-label="来源 22">[22]</a></sup></th><td data-label="星标" class="num">28.8k</td><td data-label="许可证">开源</td></tr><tr><th scope="row">Happy<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></th><td data-label="星标" class="num">24.9k</td><td data-label="许可证">MIT</td></tr><tr><th scope="row">Paradev<sup><a href="#src-23" aria-label="来源 23">[23]</a></sup></th><td data-label="星标" class="num">16.8k</td><td data-label="许可证">开源</td></tr><tr><th scope="row">Agent Orchestrator<sup><a href="#src-24" aria-label="来源 24">[24]</a></sup></th><td data-label="星标" class="num">15.2k</td><td data-label="许可证">开源</td></tr><tr><th scope="row">Cindy<sup><a href="#src-25" aria-label="来源 25">[25]</a></sup></th><td data-label="星标" class="num">10.7k</td><td data-label="许可证">Apache-2.0</td></tr><tr><th scope="row">Herdr 桌面<sup><a href="#src-26" aria-label="来源 26">[26]</a></sup></th><td data-label="星标" class="num">3.6k</td><td data-label="许可证">Apache-2.0</td></tr></tbody></table></div>
+<p>Herdr 的 53.3k 属于老的终端版。手机应用连的是新的 herdr-core，桌面仓库只有约 3.6k，新体系还很年轻。Amp 没有可代表完整产品的开源仓库，不在表里。<sup><a href="#src-9" aria-label="来源 9">[9]</a><a href="#src-26" aria-label="来源 26">[26]</a></sup></p>
+<h2 id="mobile">手机与鸿蒙</h2>
+<p>iOS 和 Android 都有着落，鸿蒙没有。下表按官方下载页和文档整理。</p>
+<div class="tbl"><table class="responsive"><caption>手机平台支持（2026-11-28）</caption><thead><tr><th scope="col">产品</th><th scope="col">iOS / Android</th><th scope="col">鸿蒙 NEXT</th></tr></thead><tbody><tr><th scope="row">Cindy</th><td data-label="iOS / Android">iPhone、iPad、Android APK<sup><a href="#src-2" aria-label="来源 2">[2]</a></sup></td><td data-label="鸿蒙 NEXT">没有原生应用，下载页也没有网页客户端</td></tr><tr><th scope="row">Amp</th><td data-label="iOS / Android">iOS 走 TestFlight，要求 iOS 26+；Android APK，要求 Android 13+<sup><a href="#src-8" aria-label="来源 8">[8]</a></sup></td><td data-label="鸿蒙 NEXT">没有原生应用。文档提到网页入口，鸿蒙浏览器上能否用未实测<sup><a href="#src-13" aria-label="来源 13">[13]</a></sup></td></tr><tr><th scope="row">Happy</th><td data-label="iOS / Android">App Store、Google Play<sup><a href="#src-11" aria-label="来源 11">[11]</a></sup></td><td data-label="鸿蒙 NEXT">没有原生应用。仓库包含网页版，官网没给网址<sup><a href="#src-15" aria-label="来源 15">[15]</a></sup></td></tr><tr><th scope="row">Orca</th><td data-label="iOS / Android">App Store、Google Play、APK，仍是 Beta<sup><a href="#src-10" aria-label="来源 10">[10]</a></sup></td><td data-label="鸿蒙 NEXT">没有原生应用</td></tr><tr><th scope="row">Herdr</th><td data-label="iOS / Android">iPhone、iPad、Android，SSH 直连<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></td><td data-label="鸿蒙 NEXT">没有原生应用</td></tr><tr><th scope="row">Open WebUI</th><td data-label="iOS / Android">浏览器或 PWA<sup><a href="#src-27" aria-label="来源 27">[27]</a></sup></td><td data-label="鸿蒙 NEXT">普通网页，可以直接测；通知只在页面打开时才有<sup><a href="#src-27" aria-label="来源 27">[27]</a></sup></td></tr></tbody></table></div>
+<p>鸿蒙 NEXT 不能装 Android APK，Android 支持不能算到它头上。在这个前提下，鸿蒙不应该决定选型：所有候选在鸿蒙上的条件都一样差，选谁都只能用浏览器。把它定位成副机，问题就小了。</p>
+<h3 id="travel">出差时的连接</h3>
+<p>各家连回家里电脑的方式不同，出差时差别会放大。</p>
+<ul><li>Cindy：同账号设备之间远程访问，执行电脑要在线并开启远程访问。文件留在原电脑上，不做整盘同步。<sup><a href="#src-1" aria-label="来源 1">[1]</a><a href="#src-25" aria-label="来源 25">[25]</a></sup></li><li>Happy：经加密中继，或直连。中继看得到连接活动，看不到内容。<sup><a href="#src-28" aria-label="来源 28">[28]</a></sup></li><li>Herdr：手机用 SSH 直连每台电脑，没有厂商服务器。人在外面要自己配 Tailscale 一类的 VPN。<sup><a href="#src-9" aria-label="来源 9">[9]</a></sup></li><li>Amp：网页控制自己的 runner，优先 WebRTC，中继作备用；自托管机器也要连 Amp 的控制服务。<sup><a href="#src-29" aria-label="来源 29">[29]</a><a href="#src-30" aria-label="来源 30">[30]</a></sup></li></ul>
+<p>酒店 Wi-Fi、移动网络、跨境线路和中国大陆访问都没有实测。这一项只能靠试用。</p>
+<h2 id="hosts">办公室和家里的主机</h2>
+<p>固定电脑是这套用法的基础。手机只是遥控器，活在电脑上干。</p>
+<div class="tbl"><table class="responsive"><caption>Mac、Linux 主机上的表现</caption><thead><tr><th scope="col">产品</th><th scope="col">主机怎么用</th><th scope="col">要注意的地方</th></tr></thead><tbody><tr><th scope="row">Cindy</th><td data-label="主机怎么用">Mac、Linux 桌面都能当执行电脑，手机查看和接手任务<sup><a href="#src-2" aria-label="来源 2">[2]</a><a href="#src-25" aria-label="来源 25">[25]</a></sup></td><td data-label="要注意的地方">Linux 上只有 Hyprland 能远程看加操作，其他 Wayland 桌面只能看。锁屏和登录前另有限制<sup><a href="#src-31" aria-label="来源 31">[31]</a></sup></td></tr><tr><th scope="row">Happy</th><td data-label="主机怎么用">Linux 用 systemd，Mac 用 launchd 常驻<sup><a href="#src-32" aria-label="来源 32">[32]</a></sup></td><td data-label="要注意的地方">要自己装和配服务</td></tr><tr><th scope="row">Amp</th><td data-label="主机怎么用">Mac、Linux 跑 runner，也可以用托管机器<sup><a href="#src-29" aria-label="来源 29">[29]</a></sup></td><td data-label="要注意的地方">Linux runner 给的是虚拟桌面，不是你屏幕上那个桌面<sup><a href="#src-29" aria-label="来源 29">[29]</a></sup></td></tr><tr><th scope="row">Herdr</th><td data-label="主机怎么用">每台电脑跑 herdr-core<sup><a href="#src-33" aria-label="来源 33">[33]</a></sup></td><td data-label="要注意的地方">重启电脑或停掉 core，进程就结束。终端能恢复，任务不会自动续跑<sup><a href="#src-34" aria-label="来源 34">[34]</a></sup></td></tr><tr><th scope="row">Orca</th><td data-label="主机怎么用">桌面应用，或在 Linux 上用 orca serve 当服务<sup><a href="#src-35" aria-label="来源 35">[35]</a></sup></td><td data-label="要注意的地方">服务的生命周期要自己管</td></tr></tbody></table></div>
+<p>三件事要提前办好：电脑设成不休眠；更新或断电重启后，Agent 能自己起来；磁盘加密照开，不为远程方便关掉它。两台电脑分开用最省心，比如长任务放家里那台，另一台跑独立任务，也当备份。</p>
+<h2 id="work">研究、写作、设计</h2>
+<p>这部分没有做实测，下面是按功能文档做的判断。</p>
+<div class="tbl"><table class="responsive"><caption>按工作类型选</caption><thead><tr><th scope="col">工作</th><th scope="col">用什么</th><th scope="col">理由</th></tr></thead><tbody><tr><th scope="row">网页研究、写报告</th><td data-label="用什么">Cindy</td><td data-label="理由">文件、浏览器、HTML 和富内容交付在一个任务里<sup><a href="#src-25" aria-label="来源 25">[25]</a></sup></td></tr><tr><th scope="row">长期资料库、跨 PDF 检索</th><td data-label="用什么">自己的文件夹；需要时加 Open WebUI</td><td data-label="理由">Open WebUI 有知识库检索和导出，但要自管服务器<sup><a href="#src-36" aria-label="来源 36">[36]</a></sup></td></tr><tr><th scope="row">写作和改稿</th><td data-label="用什么">Cindy；Happy 备选</td><td data-label="理由">重点看手机上的中文输入、长文选择和导出，需试用</td></tr><tr><th scope="row">网页设计和原型</th><td data-label="用什么">Cindy；Amp 备选</td><td data-label="理由">两者都能交付 HTML、操作浏览器、处理附件<sup><a href="#src-37" aria-label="来源 37">[37]</a></sup></td></tr><tr><th scope="row">平面、演示、原生设计软件</th><td data-label="用什么">Mac 主机加远程桌面</td><td data-label="理由">Agent 能出图，不等于能交付可编辑的源文件</td></tr></tbody></table></div>
+<p>设计工作要盯住一件事：交回来的是不是可编辑源文件。一张预览图在手机上看着不错，回到电脑上改不了，就等于没交付。</p>
+<h2 id="memory">记忆迁移</h2>
+<p>先拆清楚“记忆”指什么。要带走的有四样：长期记忆（偏好、项目事实、判断）、工作规则（指令、技能、模板）、历史记录（对话和工具结果）、原始材料（PDF、图片、设计源文件）。</p>
+<div class="tbl"><table class="responsive"><caption>各产品能带走什么</caption><thead><tr><th scope="col">产品</th><th scope="col">能带走</th><th scope="col">带不走</th></tr></thead><tbody><tr><th scope="row">Cindy</th><td data-label="能带走">记忆是 Markdown 分片；会话可导出 .cshare，可加密码<sup><a href="#src-7" aria-label="来源 7">[7]</a><a href="#src-38" aria-label="来源 38">[38]</a></sup></td><td data-label="带不走">记忆按工作目录和本机账号存，换电脑不会自动跟过去<sup><a href="#src-38" aria-label="来源 38">[38]</a></sup></td></tr><tr><th scope="row">Amp</th><td data-label="能带走">指令用 AGENTS.md；线程可导出 Markdown 和完整 JSON<sup><a href="#src-4" aria-label="来源 4">[4]</a><a href="#src-39" aria-label="来源 39">[39]</a></sup></td><td data-label="带不走">换产品后不能接着跑原来的线程</td></tr><tr><th scope="row">Orca</th><td data-label="能带走">沿用 CLAUDE.md、AGENTS.md；机器人导入能读人格、记忆、技能<sup><a href="#src-5" aria-label="来源 5">[5]</a><a href="#src-40" aria-label="来源 40">[40]</a></sup></td><td data-label="带不走">导入明确不含聊天历史、模型设置和密钥<sup><a href="#src-40" aria-label="来源 40">[40]</a></sup></td></tr><tr><th scope="row">Happy</th><td data-label="能带走">全局 AGENTS.md、配置文件、本地会话状态<sup><a href="#src-6" aria-label="来源 6">[6]</a></sup></td><td data-label="带不走">没有通用的记忆导出格式</td></tr><tr><th scope="row">Herdr</th><td data-label="能带走">只管终端，记忆在里面跑的 Agent 那边<sup><a href="#src-33" aria-label="来源 33">[33]</a></sup></td><td data-label="带不走">没有统一的记忆导出</td></tr><tr><th scope="row">Open WebUI</th><td data-label="能带走">对话 JSON 导入导出；知识库导出 ZIP<sup><a href="#src-41" aria-label="来源 41">[41]</a><a href="#src-36" aria-label="来源 36">[36]</a></sup></td><td data-label="带不走">常规导出不带附件；知识库 ZIP 把文件转成纯文本<sup><a href="#src-41" aria-label="来源 41">[41]</a></sup></td></tr></tbody></table></div>
+<p>没有一家能把记忆完整搬到另一家。反过来看，几乎每家都读 AGENTS.md 或 CLAUDE.md 这类文件。所以记忆的正本放在自己手里：</p>
+<ul><li>偏好、项目背景、研究结论写成 Markdown，每条带日期、来源和适用范围</li><li>事实和推断分开记</li><li>附件原件和文字摘要放在一起</li><li>整个目录进 git，各个产品只读精简副本</li></ul>
+<p>运行中的数据库和凭证目录不要放 Dropbox 同步，冲突了会坏。迁移时用产品自己的导出。验收方法：挑 20 条真实记忆，搬到新电脑上的另一个工具里，随机问 5 条，看来源和范围对不对。</p>
+<h2 id="open">开放程度与商业模式</h2>
+<p>开源程度和赚钱方式决定了一款产品能用多久，以及停服时你损失多少。</p>
+<div class="tbl"><table class="responsive"><caption>许可证与收费（2026-11-28，美元）</caption><thead><tr><th scope="col">产品</th><th scope="col">开源程度</th><th scope="col">怎么赚钱</th></tr></thead><tbody><tr><th scope="row">Cindy</th><td data-label="开源程度">客户端 Apache-2.0；支持技能、插件、MCP<sup><a href="#src-3" aria-label="来源 3">[3]</a></sup></td><td data-label="怎么赚钱">自带密钥免费；托管模型服务每月 20 美元起。账号和云能力依赖官方服务<sup><a href="#src-1" aria-label="来源 1">[1]</a></sup></td></tr><tr><th scope="row">Amp</th><td data-label="开源程度">闭源商业许可</td><td data-label="怎么赚钱">Hobby 免费，Individual 每月 20 美元起；搜索、图片、语音、机器另按用量扣。机器每小时 0.08 到 2.13 美元<sup><a href="#src-17" aria-label="来源 17">[17]</a><a href="#src-42" aria-label="来源 42">[42]</a></sup></td></tr><tr><th scope="row">Orca</th><td data-label="开源程度">MIT<sup><a href="#src-20" aria-label="来源 20">[20]</a></sup></td><td data-label="怎么赚钱">软件免费，卖企业部署和支持，企业价格未公开<sup><a href="#src-43" aria-label="来源 43">[43]</a></sup></td></tr><tr><th scope="row">Happy</th><td data-label="开源程度">MIT，中继可自建<sup><a href="#src-15" aria-label="来源 15">[15]</a><a href="#src-28" aria-label="来源 28">[28]</a></sup></td><td data-label="怎么赚钱">客户端免费，可选语音订阅<sup><a href="#src-44" aria-label="来源 44">[44]</a></sup></td></tr><tr><th scope="row">Herdr</th><td data-label="开源程度">App、Core、TUI 都是 Apache-2.0<sup><a href="#src-34" aria-label="来源 34">[34]</a></sup></td><td data-label="怎么赚钱">官方称免费，没找到收入来源</td></tr><tr><th scope="row">Open WebUI</th><td data-label="开源程度">v0.6.6 起带品牌条款，不算 OSI 开源<sup><a href="#src-45" aria-label="来源 45">[45]</a></sup></td><td data-label="怎么赚钱">保留品牌可免费用，另卖企业许可<sup><a href="#src-45" aria-label="来源 45">[45]</a></sup></td></tr></tbody></table></div>
+<p>Amp 收入最清楚，但锁定最深：闭源，数据在它的服务器上。Herdr 和 Happy 最开放，但 Herdr 没找到收入来源，Happy 只有可选的语音订阅，长期维护没有保障。Cindy 在中间：客户端开源，能离开官方模型服务直连模型，账号和远程连接仍要靠它。</p>
+<p>开源客户端不等于能整套自建。Cindy 的云后端、Orca 的 Relay、Amp 的控制服务，都没有确认可以完整自托管。</p>
+<h2 id="privacy">隐私</h2>
+<p>数据至少走四段路：手机到电脑、电脑到模型、文件到工具服务、诊断和通知。端到端加密通常只管第一段。只要用云端模型，任务内容就会到模型服务商那里，外壳做得再严也一样。</p>
+<div class="tbl"><table class="responsive"><caption>各家披露的数据路径（厂商自述，未做审计）</caption><thead><tr><th scope="col">产品</th><th scope="col">数据去哪</th><th scope="col">要注意的</th></tr></thead><tbody><tr><th scope="row">Cindy</th><td data-label="数据去哪">默认存本地；直连模型时不经 XD Gateway；远程和云功能会传内容或元数据<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></td><td data-label="要注意的">政策写明可能传到中国或其他地区，并提示不要输入商业秘密；部分文档预览走云端转换<sup><a href="#src-14" aria-label="来源 14">[14]</a></sup></td></tr><tr><th scope="row">Amp</th><td data-label="数据去哪">线程、工具结果、附件存在 Google Cloud 多租户项目；删除后 30 天内清掉<sup><a href="#src-12" aria-label="来源 12">[12]</a></sup></td><td data-label="要注意的">声明 SOC 2 Type II。内容最集中在平台上<sup><a href="#src-12" aria-label="来源 12">[12]</a></sup></td></tr><tr><th scope="row">Happy</th><td data-label="数据去哪">设备间同步端到端加密；中继能看到连接活动<sup><a href="#src-28" aria-label="来源 28">[28]</a></sup></td><td data-label="要注意的">语音会把音频和上下文发给 ElevenLabs，不在加密范围内；丢了恢复密钥，账号找不回来<sup><a href="#src-44" aria-label="来源 44">[44]</a><a href="#src-28" aria-label="来源 28">[28]</a></sup></td></tr><tr><th scope="row">Herdr</th><td data-label="数据去哪">手机 SSH 直连，厂商不接触终端内容；桌面有可关的匿名统计<sup><a href="#src-46" aria-label="来源 46">[46]</a></sup></td><td data-label="要注意的">平台经手最少；VPN 要自己选</td></tr><tr><th scope="row">Orca</th><td data-label="数据去哪">配对运行时之间的载荷加密；推送可能带标题和正文<sup><a href="#src-47" aria-label="来源 47">[47]</a></sup></td><td data-label="要注意的">企业页写的是 SOC 2 Readiness，和 Type II 不是一回事<sup><a href="#src-43" aria-label="来源 43">[43]</a></sup></td></tr><tr><th scope="row">Open WebUI</th><td data-label="数据去哪">服务器、数据库、模型端点都在自己手里<sup><a href="#src-48" aria-label="来源 48">[48]</a></sup></td><td data-label="要注意的">存储加密要自己配；服务器被攻破就全没了<sup><a href="#src-48" aria-label="来源 48">[48]</a></sup></td></tr></tbody></table></div>
+<p>按隐私排，Herdr 和 Happy 平台经手最少，Amp 最多。Cindy 在本地这一段做得好，但那条跨境条款对处理公司材料是实打实的约束，要按任务分开：公开资料随便用，未公开的材料走直连模型。</p>
+<h2 id="trial">试用方法</h2>
+<p>只试 Cindy，Happy 留作对照。用一周，做三件事：</p>
+<ol><li>出差前把家里电脑设成不休眠，人在外面发一个长研究任务。中途切 Wi-Fi 和移动网络、锁屏再回来，看任务有没有断，附件和草稿在不在。</li><li>用鸿蒙手机的浏览器打开结果，看能不能读完报告、下载文件。读不了，就确认它只当通知机。</li><li>把规则和记忆文件交给第二个工具（Happy 或 Claude Code），问 5 个只有记忆里才有答案的问题。</li></ol>
+<p>第一件做不到，就换 Happy 再测一遍。三件都过，就不用再看别的产品。</p>
+<h2 id="method">方法与来源</h2>
+<p>资料取自官网、官方文档、隐私政策、许可证和 GitHub 页面，取样日 2026-11-28。手机平台、Cindy 隐私条款与远程执行要求、Amp 数据存储，当天又核对了一遍。没有安装产品，没有真机测试，没有测跨境网络。功能描述是厂商自述，选择建议是研究判断。</p>
+<p>这份调研在 Cindy 里完成。关于 Cindy 的结论，建议用上面的试用结果复核。</p>
+<p>Orca 新服务条款 2026-12-07 才生效，本文按现行条款。各家未公开的收入、服务等级和云后端源码范围，不做推断。</p>
+<ol class="sources"><li id="src-1"><a href="https://cindy.app/" target="_blank" rel="noopener">Cindy 官网：价格与常见问题</a></li><li id="src-2"><a href="https://cindy.app/download" target="_blank" rel="noopener">Cindy 下载页</a></li><li id="src-3"><a href="https://raw.githubusercontent.com/makecindy/cindy/main/LICENSE" target="_blank" rel="noopener">Cindy Apache-2.0 许可证</a></li><li id="src-4"><a href="https://ampcode.com/docs/customize/agents-md" target="_blank" rel="noopener">Amp AGENTS.md</a></li><li id="src-5"><a href="https://orca.dev/docs/agents/hooks-memory" target="_blank" rel="noopener">Orca Hooks & Memory</a></li><li id="src-6"><a href="https://happy.engineering/guides/configuration/" target="_blank" rel="noopener">Happy 配置</a></li><li id="src-7"><a href="https://raw.githubusercontent.com/makecindy/cindy/main/packages/maker-core/src/memory/storage.ts" target="_blank" rel="noopener">Cindy 记忆存储源码</a></li><li id="src-8"><a href="https://ampcode.com/docs/apps" target="_blank" rel="noopener">Amp Apps</a></li><li id="src-9"><a href="https://herdr.dev/mobile/" target="_blank" rel="noopener">Herdr Mobile</a></li><li id="src-10"><a href="https://orca.dev/docs/mobile" target="_blank" rel="noopener">Orca Mobile</a></li><li id="src-11"><a href="https://happy.engineering/mobile/" target="_blank" rel="noopener">Happy Mobile</a></li><li id="src-12"><a href="https://ampcode.com/security" target="_blank" rel="noopener">Amp Security</a></li><li id="src-13"><a href="https://ampcode.com/docs" target="_blank" rel="noopener">Amp 产品说明</a></li><li id="src-14"><a href="https://cindy.app/privacy/index.html" target="_blank" rel="noopener">Cindy 隐私政策（2026-11-24 版）</a></li><li id="src-15"><a href="https://github.com/slopus/happy" target="_blank" rel="noopener">Happy GitHub</a></li><li id="src-16"><a href="https://ampcode.com/docs/model-selector" target="_blank" rel="noopener">Amp Model Selector</a></li><li id="src-17"><a href="https://ampcode.com/docs/pricing" target="_blank" rel="noopener">Amp 价格</a></li><li id="src-18"><a href="https://github.com/anomalyco/opencode" target="_blank" rel="noopener">OpenCode GitHub</a></li><li id="src-19"><a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">Open WebUI GitHub</a></li><li id="src-20"><a href="https://github.com/stablyai/orca" target="_blank" rel="noopener">Orca GitHub</a></li><li id="src-21"><a href="https://github.com/herdrdev/herdr" target="_blank" rel="noopener">Herdr TUI 仓库</a></li><li id="src-22"><a href="https://github.com/BloopAI/vibe-kanban" target="_blank" rel="noopener">Vibe Kanban GitHub</a></li><li id="src-23"><a href="https://github.com/ParadevAI/Paradev" target="_blank" rel="noopener">Paradev GitHub</a></li><li id="src-24"><a href="https://github.com/OrchestratorInc/agent-orchestrator" target="_blank" rel="noopener">Agent Orchestrator GitHub</a></li><li id="src-25"><a href="https://github.com/makecindy/cindy" target="_blank" rel="noopener">Cindy GitHub</a></li><li id="src-26"><a href="https://github.com/herdrdev/herdr-app" target="_blank" rel="noopener">Herdr 桌面仓库</a></li><li id="src-27"><a href="https://docs.openwebui.com/getting-started/open-webui-as-app/" target="_blank" rel="noopener">Open WebUI PWA</a></li><li id="src-28"><a href="https://happy.engineering/docs/security/" target="_blank" rel="noopener">Happy 加密与恢复</a></li><li id="src-29"><a href="https://ampcode.com/docs/cli/runners" target="_blank" rel="noopener">Amp Runners</a></li><li id="src-30"><a href="https://ampcode.com/docs/orbs/self-hosted" target="_blank" rel="noopener">Amp 自托管 Orbs</a></li><li id="src-31"><a href="https://raw.githubusercontent.com/makecindy/cindy/main/docs/remote-desktop.md" target="_blank" rel="noopener">Cindy 远程桌面文档</a></li><li id="src-32"><a href="https://happy.engineering/guides/remote-server/" target="_blank" rel="noopener">Happy 远程部署</a></li><li id="src-33"><a href="https://herdr.dev/core/" target="_blank" rel="noopener">Herdr Core</a></li><li id="src-34"><a href="https://herdr.dev/" target="_blank" rel="noopener">Herdr 官网</a></li><li id="src-35"><a href="https://orca.dev/docs/remote-servers" target="_blank" rel="noopener">Orca Remote Servers</a></li><li id="src-36"><a href="https://docs.openwebui.com/features/workspace/knowledge/" target="_blank" rel="noopener">Open WebUI 知识库</a></li><li id="src-37"><a href="https://ampcode.com/docs/orbs/files-and-attachments" target="_blank" rel="noopener">Amp 文件与附件</a></li><li id="src-38"><a href="https://raw.githubusercontent.com/makecindy/cindy/main/apps/desktop/help-knowledge/memory.md" target="_blank" rel="noopener">Cindy 记忆说明</a></li><li id="src-39"><a href="https://ampcode.com/docs/threads" target="_blank" rel="noopener">Amp Threads</a></li><li id="src-40"><a href="https://orca.dev/docs/bots/import" target="_blank" rel="noopener">Orca Import a Bot</a></li><li id="src-41"><a href="https://docs.openwebui.com/features/chat-conversations/data-controls/import-export/" target="_blank" rel="noopener">Open WebUI 导入导出</a></li><li id="src-42"><a href="https://ampcode.com/docs/orbs/sizes-and-costs" target="_blank" rel="noopener">Amp 机器规格与费用</a></li><li id="src-43"><a href="https://orca.dev/enterprise" target="_blank" rel="noopener">Orca Enterprise</a></li><li id="src-44"><a href="https://github.com/slopus/happy/blob/main/PRIVACY.md" target="_blank" rel="noopener">Happy 隐私说明</a></li><li id="src-45"><a href="https://docs.openwebui.com/license/" target="_blank" rel="noopener">Open WebUI 许可证</a></li><li id="src-46"><a href="https://herdr.dev/privacy/" target="_blank" rel="noopener">Herdr 隐私说明</a></li><li id="src-47"><a href="https://orca.dev/docs/telemetry" target="_blank" rel="noopener">Orca Telemetry</a></li><li id="src-48"><a href="https://docs.openwebui.com/security/chat-data-privacy-and-encryption/" target="_blank" rel="noopener">Open WebUI 数据隐私与加密</a></li></ol>
+
+</main>
+</div>
+<footer class="site-footer" id="site-footer">
+<span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+<span>:: <a href="https://github.com/panr/hugo-theme-terminal">Theme</a> made by <a href="https://github.com/panr">panr</a></span>
+<span>:: <a href="/index.xml">RSS</a></span>
+<span>:: <button class="theme-toggle" id="theme-toggle" type="button">[dark/light]</button></span>
+</footer>
+<script id="reading-script">
+// The complete document remains visible without JavaScript.
+(function () {
+  const root = document.documentElement;
+  // Same theme switch as the Hugo pages: one saved choice in localStorage "theme".
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme');
+      const dark = current === 'dark' || (!current && !window.matchMedia('(prefers-color-scheme: light)').matches);
+      const next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+  const outline = document.querySelector('.outline details');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  function resize() {
+    if (outline) outline.open = !mobile.matches;
+  }
+  resize();
+  mobile.addEventListener('change', resize);
+  const links = Array.from(document.querySelectorAll('.outline a[href^="#"]'));
+  const targets = links.map(function (link) {
+    return document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          const active = decodeURIComponent(link.hash.slice(1)) === entry.target.id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+    targets.forEach(function (target) { observer.observe(target); });
+  }
+})();
+</script>
+</body>
+</html>

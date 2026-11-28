@@ -4,6 +4,7 @@
 
 - 更新资料页《iPad 与 Apple Pencil Pro 油画入门指南》，`static/research/ipad-oil-painting-guide/index.html`。
 - 新增资料页《iPad 与 Apple Pencil Pro 油画入门指南》，`static/research/ipad-oil-painting-guide/index.html`。针对零基础初学者的平板数字油画调研与分步实操指南，对比 iPad、安卓与鸿蒙主流油画软件与原生笔刷，拆解手写笔侧旋设置，并以一枚侧光红苹果完整演示从新建画布到厚涂高光的五步流程。
+- 新增资料页《AI Agent 工具选型：手机、多主机与研究写作》，`static/research/agent-tool-selection-2026-11/index.html`。比较 Amp、Herdr、Orca、Cindy、Happy、Open WebUI 等工具，场景是常出差、手机含鸿蒙 NEXT、固定 Mac 与 Linux 主机、以研究写作为主。结论：主力用 Cindy，记忆存为自有 Markdown，鸿蒙只走浏览器。
 
 ## 2026-11-24
 
